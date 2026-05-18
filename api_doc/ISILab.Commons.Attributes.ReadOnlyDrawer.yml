@@ -1,0 +1,205 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.Commons.Attributes.ReadOnlyDrawer
+  commentId: T:ISILab.Commons.Attributes.ReadOnlyDrawer
+  id: ReadOnlyDrawer
+  parent: ISILab.Commons.Attributes
+  children:
+  - ISILab.Commons.Attributes.ReadOnlyDrawer.#ctor
+  - ISILab.Commons.Attributes.ReadOnlyDrawer.GetPropertyHeight(UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  - ISILab.Commons.Attributes.ReadOnlyDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyDrawer
+  nameWithType: ReadOnlyDrawer
+  fullName: ISILab.Commons.Attributes.ReadOnlyDrawer
+  type: Class
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Attributes
+  syntax:
+    content: 'public class ReadOnlyDrawer : PropertyDrawer'
+    content.vb: Public Class ReadOnlyDrawer Inherits PropertyDrawer
+  inheritance:
+  - System.Object
+- uid: ISILab.Commons.Attributes.ReadOnlyDrawer.GetPropertyHeight(UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  commentId: M:ISILab.Commons.Attributes.ReadOnlyDrawer.GetPropertyHeight(UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  id: GetPropertyHeight(UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  parent: ISILab.Commons.Attributes.ReadOnlyDrawer
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyHeight(SerializedProperty, GUIContent)
+  nameWithType: ReadOnlyDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+  fullName: ISILab.Commons.Attributes.ReadOnlyDrawer.GetPropertyHeight(UnityEditor.SerializedProperty, UnityEngine.GUIContent)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Attributes
+  example: []
+  syntax:
+    content: public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    parameters:
+    - id: property
+      type: UnityEditor.SerializedProperty
+    - id: label
+      type: UnityEngine.GUIContent
+    return:
+      type: System.Single
+    content.vb: Public Overrides Function GetPropertyHeight([property] As SerializedProperty, label As GUIContent) As Single
+  overload: ISILab.Commons.Attributes.ReadOnlyDrawer.GetPropertyHeight*
+- uid: ISILab.Commons.Attributes.ReadOnlyDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  commentId: M:ISILab.Commons.Attributes.ReadOnlyDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  id: OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  parent: ISILab.Commons.Attributes.ReadOnlyDrawer
+  langs:
+  - csharp
+  - vb
+  name: OnGUI(Rect, SerializedProperty, GUIContent)
+  nameWithType: ReadOnlyDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+  fullName: ISILab.Commons.Attributes.ReadOnlyDrawer.OnGUI(UnityEngine.Rect, UnityEditor.SerializedProperty, UnityEngine.GUIContent)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Attributes
+  example: []
+  syntax:
+    content: public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    parameters:
+    - id: position
+      type: UnityEngine.Rect
+    - id: property
+      type: UnityEditor.SerializedProperty
+    - id: label
+      type: UnityEngine.GUIContent
+    content.vb: Public Overrides Sub OnGUI(position As Rect, [property] As SerializedProperty, label As GUIContent)
+  overload: ISILab.Commons.Attributes.ReadOnlyDrawer.OnGUI*
+- uid: ISILab.Commons.Attributes.ReadOnlyDrawer.#ctor
+  commentId: M:ISILab.Commons.Attributes.ReadOnlyDrawer.#ctor
+  id: '#ctor'
+  parent: ISILab.Commons.Attributes.ReadOnlyDrawer
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyDrawer()
+  nameWithType: ReadOnlyDrawer.ReadOnlyDrawer()
+  fullName: ISILab.Commons.Attributes.ReadOnlyDrawer.ReadOnlyDrawer()
+  type: Constructor
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Attributes
+  syntax:
+    content: public ReadOnlyDrawer()
+    content.vb: Public Sub New()
+  overload: ISILab.Commons.Attributes.ReadOnlyDrawer.#ctor*
+  nameWithType.vb: ReadOnlyDrawer.New()
+  fullName.vb: ISILab.Commons.Attributes.ReadOnlyDrawer.New()
+  name.vb: New()
+references:
+- uid: ISILab.Commons.Attributes
+  commentId: N:ISILab.Commons.Attributes
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Commons.Attributes
+  nameWithType: ISILab.Commons.Attributes
+  fullName: ISILab.Commons.Attributes
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  - name: .
+  - uid: ISILab.Commons.Attributes
+    name: Attributes
+    isExternal: true
+    href: ISILab.Commons.Attributes.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  - name: .
+  - uid: ISILab.Commons.Attributes
+    name: Attributes
+    isExternal: true
+    href: ISILab.Commons.Attributes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.Commons.Attributes.ReadOnlyDrawer.GetPropertyHeight*
+  commentId: Overload:ISILab.Commons.Attributes.ReadOnlyDrawer.GetPropertyHeight
+  isExternal: true
+  href: ISILab.Commons.Attributes.ReadOnlyDrawer.html#ISILab_Commons_Attributes_ReadOnlyDrawer_GetPropertyHeight_UnityEditor_SerializedProperty_UnityEngine_GUIContent_
+  name: GetPropertyHeight
+  nameWithType: ReadOnlyDrawer.GetPropertyHeight
+  fullName: ISILab.Commons.Attributes.ReadOnlyDrawer.GetPropertyHeight
+- uid: UnityEditor.SerializedProperty
+  isExternal: true
+  name: SerializedProperty
+  nameWithType: SerializedProperty
+  fullName: UnityEditor.SerializedProperty
+- uid: UnityEngine.GUIContent
+  isExternal: true
+  name: GUIContent
+  nameWithType: GUIContent
+  fullName: UnityEngine.GUIContent
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.Commons.Attributes.ReadOnlyDrawer.OnGUI*
+  commentId: Overload:ISILab.Commons.Attributes.ReadOnlyDrawer.OnGUI
+  isExternal: true
+  href: ISILab.Commons.Attributes.ReadOnlyDrawer.html#ISILab_Commons_Attributes_ReadOnlyDrawer_OnGUI_UnityEngine_Rect_UnityEditor_SerializedProperty_UnityEngine_GUIContent_
+  name: OnGUI
+  nameWithType: ReadOnlyDrawer.OnGUI
+  fullName: ISILab.Commons.Attributes.ReadOnlyDrawer.OnGUI
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: ISILab.Commons.Attributes.ReadOnlyDrawer.#ctor*
+  commentId: Overload:ISILab.Commons.Attributes.ReadOnlyDrawer.#ctor
+  isExternal: true
+  href: ISILab.Commons.Attributes.ReadOnlyDrawer.html#ISILab_Commons_Attributes_ReadOnlyDrawer__ctor
+  name: ReadOnlyDrawer
+  nameWithType: ReadOnlyDrawer.ReadOnlyDrawer
+  fullName: ISILab.Commons.Attributes.ReadOnlyDrawer.ReadOnlyDrawer
+  nameWithType.vb: ReadOnlyDrawer.New
+  fullName.vb: ISILab.Commons.Attributes.ReadOnlyDrawer.New
+  name.vb: New
+shouldSkipMarkup: true

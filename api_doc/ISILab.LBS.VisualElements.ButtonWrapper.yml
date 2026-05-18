@@ -1,0 +1,265 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.ButtonWrapper
+  commentId: T:ISILab.LBS.VisualElements.ButtonWrapper
+  id: ButtonWrapper
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.ButtonWrapper.#ctor
+  - ISILab.LBS.VisualElements.ButtonWrapper.#ctor(System.Object,UnityEngine.Vector2)
+  - ISILab.LBS.VisualElements.ButtonWrapper.Data
+  - ISILab.LBS.VisualElements.ButtonWrapper.GetTexture
+  - ISILab.LBS.VisualElements.ButtonWrapper.Init(UnityEngine.Vector2)
+  - ISILab.LBS.VisualElements.ButtonWrapper.Text
+  langs:
+  - csharp
+  - vb
+  name: ButtonWrapper
+  nameWithType: ButtonWrapper
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class ButtonWrapper : Button'
+    content.vb: Public Class ButtonWrapper Inherits Button
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.ButtonWrapper.Text
+  commentId: F:ISILab.LBS.VisualElements.ButtonWrapper.Text
+  id: Text
+  parent: ISILab.LBS.VisualElements.ButtonWrapper
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: ButtonWrapper.Text
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper.Text
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public string Text
+    return:
+      type: System.String
+    content.vb: Public Text As String
+- uid: ISILab.LBS.VisualElements.ButtonWrapper.#ctor
+  commentId: M:ISILab.LBS.VisualElements.ButtonWrapper.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.ButtonWrapper
+  langs:
+  - csharp
+  - vb
+  name: ButtonWrapper()
+  nameWithType: ButtonWrapper.ButtonWrapper()
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper.ButtonWrapper()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public ButtonWrapper()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.ButtonWrapper.#ctor*
+  nameWithType.vb: ButtonWrapper.New()
+  fullName.vb: ISILab.LBS.VisualElements.ButtonWrapper.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.ButtonWrapper.#ctor(System.Object,UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.VisualElements.ButtonWrapper.#ctor(System.Object,UnityEngine.Vector2)
+  id: '#ctor(System.Object,UnityEngine.Vector2)'
+  parent: ISILab.LBS.VisualElements.ButtonWrapper
+  langs:
+  - csharp
+  - vb
+  name: ButtonWrapper(object, Vector2)
+  nameWithType: ButtonWrapper.ButtonWrapper(object, Vector2)
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper.ButtonWrapper(object, UnityEngine.Vector2)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public ButtonWrapper(object data, Vector2 size)
+    parameters:
+    - id: data
+      type: System.Object
+    - id: size
+      type: UnityEngine.Vector2
+    content.vb: Public Sub New(data As Object, size As Vector2)
+  overload: ISILab.LBS.VisualElements.ButtonWrapper.#ctor*
+  nameWithType.vb: ButtonWrapper.New(Object, Vector2)
+  fullName.vb: ISILab.LBS.VisualElements.ButtonWrapper.New(Object, UnityEngine.Vector2)
+  name.vb: New(Object, Vector2)
+- uid: ISILab.LBS.VisualElements.ButtonWrapper.Init(UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.VisualElements.ButtonWrapper.Init(UnityEngine.Vector2)
+  id: Init(UnityEngine.Vector2)
+  parent: ISILab.LBS.VisualElements.ButtonWrapper
+  langs:
+  - csharp
+  - vb
+  name: Init(Vector2)
+  nameWithType: ButtonWrapper.Init(Vector2)
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper.Init(UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void Init(Vector2 size)
+    parameters:
+    - id: size
+      type: UnityEngine.Vector2
+    content.vb: Public Sub Init(size As Vector2)
+  overload: ISILab.LBS.VisualElements.ButtonWrapper.Init*
+- uid: ISILab.LBS.VisualElements.ButtonWrapper.GetTexture
+  commentId: M:ISILab.LBS.VisualElements.ButtonWrapper.GetTexture
+  id: GetTexture
+  parent: ISILab.LBS.VisualElements.ButtonWrapper
+  langs:
+  - csharp
+  - vb
+  name: GetTexture()
+  nameWithType: ButtonWrapper.GetTexture()
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper.GetTexture()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Texture2D GetTexture()
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Function GetTexture() As Texture2D
+  overload: ISILab.LBS.VisualElements.ButtonWrapper.GetTexture*
+- uid: ISILab.LBS.VisualElements.ButtonWrapper.Data
+  commentId: P:ISILab.LBS.VisualElements.ButtonWrapper.Data
+  id: Data
+  parent: ISILab.LBS.VisualElements.ButtonWrapper
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: ButtonWrapper.Data
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper.Data
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public object Data { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property Data As Object
+  overload: ISILab.LBS.VisualElements.ButtonWrapper.Data*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.VisualElements.ButtonWrapper.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonWrapper.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonWrapper.html#ISILab_LBS_VisualElements_ButtonWrapper__ctor
+  name: ButtonWrapper
+  nameWithType: ButtonWrapper.ButtonWrapper
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper.ButtonWrapper
+  nameWithType.vb: ButtonWrapper.New
+  fullName.vb: ISILab.LBS.VisualElements.ButtonWrapper.New
+  name.vb: New
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: ISILab.LBS.VisualElements.ButtonWrapper.Init*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonWrapper.Init
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonWrapper.html#ISILab_LBS_VisualElements_ButtonWrapper_Init_UnityEngine_Vector2_
+  name: Init
+  nameWithType: ButtonWrapper.Init
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper.Init
+- uid: ISILab.LBS.VisualElements.ButtonWrapper.GetTexture*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonWrapper.GetTexture
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonWrapper.html#ISILab_LBS_VisualElements_ButtonWrapper_GetTexture
+  name: GetTexture
+  nameWithType: ButtonWrapper.GetTexture
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper.GetTexture
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: ISILab.LBS.VisualElements.ButtonWrapper.Data*
+  commentId: Overload:ISILab.LBS.VisualElements.ButtonWrapper.Data
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonWrapper.html#ISILab_LBS_VisualElements_ButtonWrapper_Data
+  name: Data
+  nameWithType: ButtonWrapper.Data
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper.Data
+shouldSkipMarkup: true

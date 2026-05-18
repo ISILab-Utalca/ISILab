@@ -1,0 +1,551 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.ClassDropDown
+  commentId: T:ISILab.LBS.VisualElements.ClassDropDown
+  id: ClassDropDown
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.ClassDropDown.#ctor
+  - ISILab.LBS.VisualElements.ClassDropDown.FilterAbstract
+  - ISILab.LBS.VisualElements.ClassDropDown.GetChoiceInstance
+  - ISILab.LBS.VisualElements.ClassDropDown.Init
+  - ISILab.LBS.VisualElements.ClassDropDown.Type
+  - ISILab.LBS.VisualElements.ClassDropDown.TypeValue
+  - ISILab.LBS.VisualElements.ClassDropDown.UpdateOptions
+  - ISILab.LBS.VisualElements.ClassDropDown.Value
+  - ISILab.LBS.VisualElements.ClassDropDown.types
+  langs:
+  - csharp
+  - vb
+  name: ClassDropDown
+  nameWithType: ClassDropDown
+  fullName: ISILab.LBS.VisualElements.ClassDropDown
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class ClassDropDown : LBSCustomDropdown'
+    content.vb: Public Class ClassDropDown Inherits LBSCustomDropdown
+  inheritance:
+  - System.Object
+  - ISILab.LBS.CustomComponents.LBSCustomDropdown
+  derivedClasses:
+  - ISILab.LBS.VisualElements.FilteredDropdown
+  inheritedMembers:
+  - ISILab.LBS.CustomComponents.LBSCustomDropdown.LBSClassName
+  - ISILab.LBS.CustomComponents.LBSCustomDropdown.LBSDropdownFieldClassName
+  - ISILab.LBS.CustomComponents.LBSCustomDropdown.IconImage
+  - ISILab.LBS.CustomComponents.LBSCustomDropdown.IconColor
+  - ISILab.LBS.CustomComponents.LBSCustomDropdown.IconPosition
+- uid: ISILab.LBS.VisualElements.ClassDropDown.types
+  commentId: F:ISILab.LBS.VisualElements.ClassDropDown.types
+  id: types
+  parent: ISILab.LBS.VisualElements.ClassDropDown
+  langs:
+  - csharp
+  - vb
+  name: types
+  nameWithType: ClassDropDown.types
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.types
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected List<Type> types
+    return:
+      type: System.Collections.Generic.List{System.Type}
+    content.vb: Protected types As List(Of Type)
+- uid: ISILab.LBS.VisualElements.ClassDropDown.#ctor
+  commentId: M:ISILab.LBS.VisualElements.ClassDropDown.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.ClassDropDown
+  langs:
+  - csharp
+  - vb
+  name: ClassDropDown()
+  nameWithType: ClassDropDown.ClassDropDown()
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.ClassDropDown()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public ClassDropDown()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.ClassDropDown.#ctor*
+  nameWithType.vb: ClassDropDown.New()
+  fullName.vb: ISILab.LBS.VisualElements.ClassDropDown.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.ClassDropDown.Init
+  commentId: M:ISILab.LBS.VisualElements.ClassDropDown.Init
+  id: Init
+  parent: ISILab.LBS.VisualElements.ClassDropDown
+  langs:
+  - csharp
+  - vb
+  name: Init()
+  nameWithType: ClassDropDown.Init()
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.Init()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void Init()
+    content.vb: Public Sub Init()
+  overload: ISILab.LBS.VisualElements.ClassDropDown.Init*
+- uid: ISILab.LBS.VisualElements.ClassDropDown.UpdateOptions
+  commentId: M:ISILab.LBS.VisualElements.ClassDropDown.UpdateOptions
+  id: UpdateOptions
+  parent: ISILab.LBS.VisualElements.ClassDropDown
+  langs:
+  - csharp
+  - vb
+  name: UpdateOptions()
+  nameWithType: ClassDropDown.UpdateOptions()
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.UpdateOptions()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public virtual void UpdateOptions()
+    content.vb: Public Overridable Sub UpdateOptions()
+  overload: ISILab.LBS.VisualElements.ClassDropDown.UpdateOptions*
+- uid: ISILab.LBS.VisualElements.ClassDropDown.GetChoiceInstance
+  commentId: M:ISILab.LBS.VisualElements.ClassDropDown.GetChoiceInstance
+  id: GetChoiceInstance
+  parent: ISILab.LBS.VisualElements.ClassDropDown
+  langs:
+  - csharp
+  - vb
+  name: GetChoiceInstance()
+  nameWithType: ClassDropDown.GetChoiceInstance()
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.GetChoiceInstance()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public object GetChoiceInstance()
+    return:
+      type: System.Object
+    content.vb: Public Function GetChoiceInstance() As Object
+  overload: ISILab.LBS.VisualElements.ClassDropDown.GetChoiceInstance*
+- uid: ISILab.LBS.VisualElements.ClassDropDown.Value
+  commentId: P:ISILab.LBS.VisualElements.ClassDropDown.Value
+  id: Value
+  parent: ISILab.LBS.VisualElements.ClassDropDown
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: ClassDropDown.Value
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.Value
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public string Value { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Value As String
+  overload: ISILab.LBS.VisualElements.ClassDropDown.Value*
+- uid: ISILab.LBS.VisualElements.ClassDropDown.TypeValue
+  commentId: P:ISILab.LBS.VisualElements.ClassDropDown.TypeValue
+  id: TypeValue
+  parent: ISILab.LBS.VisualElements.ClassDropDown
+  langs:
+  - csharp
+  - vb
+  name: TypeValue
+  nameWithType: ClassDropDown.TypeValue
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.TypeValue
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Type TypeValue { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property TypeValue As Type
+  overload: ISILab.LBS.VisualElements.ClassDropDown.TypeValue*
+- uid: ISILab.LBS.VisualElements.ClassDropDown.Type
+  commentId: P:ISILab.LBS.VisualElements.ClassDropDown.Type
+  id: Type
+  parent: ISILab.LBS.VisualElements.ClassDropDown
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: ClassDropDown.Type
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.Type
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Type Type { get; set; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public Property Type As Type
+  overload: ISILab.LBS.VisualElements.ClassDropDown.Type*
+- uid: ISILab.LBS.VisualElements.ClassDropDown.FilterAbstract
+  commentId: P:ISILab.LBS.VisualElements.ClassDropDown.FilterAbstract
+  id: FilterAbstract
+  parent: ISILab.LBS.VisualElements.ClassDropDown
+  langs:
+  - csharp
+  - vb
+  name: FilterAbstract
+  nameWithType: ClassDropDown.FilterAbstract
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.FilterAbstract
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public bool FilterAbstract { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property FilterAbstract As Boolean
+  overload: ISILab.LBS.VisualElements.ClassDropDown.FilterAbstract*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.CustomComponents.LBSCustomDropdown
+  commentId: T:ISILab.LBS.CustomComponents.LBSCustomDropdown
+  parent: ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomDropdown.html
+  name: LBSCustomDropdown
+  nameWithType: LBSCustomDropdown
+  fullName: ISILab.LBS.CustomComponents.LBSCustomDropdown
+- uid: ISILab.LBS.CustomComponents.LBSCustomDropdown.LBSClassName
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomDropdown.LBSClassName
+  parent: ISILab.LBS.CustomComponents.LBSCustomDropdown
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomDropdown.html#ISILab_LBS_CustomComponents_LBSCustomDropdown_LBSClassName
+  name: LBSClassName
+  nameWithType: LBSCustomDropdown.LBSClassName
+  fullName: ISILab.LBS.CustomComponents.LBSCustomDropdown.LBSClassName
+- uid: ISILab.LBS.CustomComponents.LBSCustomDropdown.LBSDropdownFieldClassName
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomDropdown.LBSDropdownFieldClassName
+  parent: ISILab.LBS.CustomComponents.LBSCustomDropdown
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomDropdown.html#ISILab_LBS_CustomComponents_LBSCustomDropdown_LBSDropdownFieldClassName
+  name: LBSDropdownFieldClassName
+  nameWithType: LBSCustomDropdown.LBSDropdownFieldClassName
+  fullName: ISILab.LBS.CustomComponents.LBSCustomDropdown.LBSDropdownFieldClassName
+- uid: ISILab.LBS.CustomComponents.LBSCustomDropdown.IconImage
+  commentId: P:ISILab.LBS.CustomComponents.LBSCustomDropdown.IconImage
+  parent: ISILab.LBS.CustomComponents.LBSCustomDropdown
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomDropdown.html#ISILab_LBS_CustomComponents_LBSCustomDropdown_IconImage
+  name: IconImage
+  nameWithType: LBSCustomDropdown.IconImage
+  fullName: ISILab.LBS.CustomComponents.LBSCustomDropdown.IconImage
+- uid: ISILab.LBS.CustomComponents.LBSCustomDropdown.IconColor
+  commentId: P:ISILab.LBS.CustomComponents.LBSCustomDropdown.IconColor
+  parent: ISILab.LBS.CustomComponents.LBSCustomDropdown
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomDropdown.html#ISILab_LBS_CustomComponents_LBSCustomDropdown_IconColor
+  name: IconColor
+  nameWithType: LBSCustomDropdown.IconColor
+  fullName: ISILab.LBS.CustomComponents.LBSCustomDropdown.IconColor
+- uid: ISILab.LBS.CustomComponents.LBSCustomDropdown.IconPosition
+  commentId: P:ISILab.LBS.CustomComponents.LBSCustomDropdown.IconPosition
+  parent: ISILab.LBS.CustomComponents.LBSCustomDropdown
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomDropdown.html#ISILab_LBS_CustomComponents_LBSCustomDropdown_IconPosition
+  name: IconPosition
+  nameWithType: LBSCustomDropdown.IconPosition
+  fullName: ISILab.LBS.CustomComponents.LBSCustomDropdown.IconPosition
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+- uid: System.Collections.Generic.List{System.Type}
+  commentId: T:System.Collections.Generic.List{System.Type}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Type>
+  nameWithType: List<Type>
+  fullName: System.Collections.Generic.List<System.Type>
+  nameWithType.vb: List(Of Type)
+  fullName.vb: System.Collections.Generic.List(Of System.Type)
+  name.vb: List(Of Type)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.VisualElements.ClassDropDown.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.ClassDropDown.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ClassDropDown.html#ISILab_LBS_VisualElements_ClassDropDown__ctor
+  name: ClassDropDown
+  nameWithType: ClassDropDown.ClassDropDown
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.ClassDropDown
+  nameWithType.vb: ClassDropDown.New
+  fullName.vb: ISILab.LBS.VisualElements.ClassDropDown.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.ClassDropDown.Init*
+  commentId: Overload:ISILab.LBS.VisualElements.ClassDropDown.Init
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ClassDropDown.html#ISILab_LBS_VisualElements_ClassDropDown_Init
+  name: Init
+  nameWithType: ClassDropDown.Init
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.Init
+- uid: ISILab.LBS.VisualElements.ClassDropDown.UpdateOptions*
+  commentId: Overload:ISILab.LBS.VisualElements.ClassDropDown.UpdateOptions
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ClassDropDown.html#ISILab_LBS_VisualElements_ClassDropDown_UpdateOptions
+  name: UpdateOptions
+  nameWithType: ClassDropDown.UpdateOptions
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.UpdateOptions
+- uid: ISILab.LBS.VisualElements.ClassDropDown.GetChoiceInstance*
+  commentId: Overload:ISILab.LBS.VisualElements.ClassDropDown.GetChoiceInstance
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ClassDropDown.html#ISILab_LBS_VisualElements_ClassDropDown_GetChoiceInstance
+  name: GetChoiceInstance
+  nameWithType: ClassDropDown.GetChoiceInstance
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.GetChoiceInstance
+- uid: ISILab.LBS.VisualElements.ClassDropDown.Value*
+  commentId: Overload:ISILab.LBS.VisualElements.ClassDropDown.Value
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ClassDropDown.html#ISILab_LBS_VisualElements_ClassDropDown_Value
+  name: Value
+  nameWithType: ClassDropDown.Value
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.Value
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.VisualElements.ClassDropDown.TypeValue*
+  commentId: Overload:ISILab.LBS.VisualElements.ClassDropDown.TypeValue
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ClassDropDown.html#ISILab_LBS_VisualElements_ClassDropDown_TypeValue
+  name: TypeValue
+  nameWithType: ClassDropDown.TypeValue
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.TypeValue
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: ISILab.LBS.VisualElements.ClassDropDown.Type*
+  commentId: Overload:ISILab.LBS.VisualElements.ClassDropDown.Type
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ClassDropDown.html#ISILab_LBS_VisualElements_ClassDropDown_Type
+  name: Type
+  nameWithType: ClassDropDown.Type
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.Type
+- uid: ISILab.LBS.VisualElements.ClassDropDown.FilterAbstract*
+  commentId: Overload:ISILab.LBS.VisualElements.ClassDropDown.FilterAbstract
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ClassDropDown.html#ISILab_LBS_VisualElements_ClassDropDown_FilterAbstract
+  name: FilterAbstract
+  nameWithType: ClassDropDown.FilterAbstract
+  fullName: ISILab.LBS.VisualElements.ClassDropDown.FilterAbstract
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+shouldSkipMarkup: true

@@ -1,0 +1,1131 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Drawers.PopulationDrawer
+  commentId: T:ISILab.LBS.Drawers.PopulationDrawer
+  id: PopulationDrawer
+  parent: ISILab.LBS.Drawers
+  children:
+  - ISILab.LBS.Drawers.PopulationDrawer.#ctor
+  - ISILab.LBS.Drawers.PopulationDrawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  - ISILab.LBS.Drawers.PopulationDrawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
+  - ISILab.LBS.Drawers.PopulationDrawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  - ISILab.LBS.Drawers.PopulationDrawer.OwnerLayer
+  - ISILab.LBS.Drawers.PopulationDrawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  - ISILab.LBS.Drawers.PopulationDrawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  langs:
+  - csharp
+  - vb
+  name: PopulationDrawer
+  nameWithType: PopulationDrawer
+  fullName: ISILab.LBS.Drawers.PopulationDrawer
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Drawers
+  syntax:
+    content: >-
+      [Drawer(typeof(PopulationBehaviour))]
+
+      public class PopulationDrawer : Drawer
+    content.vb: >-
+      <Drawer(GetType(PopulationBehaviour))>
+
+      Public Class PopulationDrawer Inherits Drawer
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Drawers.Drawer
+  inheritedMembers:
+  - ISILab.LBS.Drawers.Drawer.Loaded
+  - ISILab.LBS.Drawers.Drawer.LoadAllTiles
+  - ISILab.LBS.Drawers.Drawer.PaintNewTiles
+  - ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles
+  - ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer,System.Object[],System.Object[],ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  - ISILab.LBS.Drawers.Drawer.FullRedrawRequested
+  - ISILab.LBS.Drawers.Drawer.DefaultSize
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: ISILab.LBS.DrawerAttribute
+    ctor: ISILab.LBS.DrawerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: ISILab.LBS.Behaviours.PopulationBehaviour
+- uid: ISILab.LBS.Drawers.PopulationDrawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Drawers.PopulationDrawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  id: Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  parent: ISILab.LBS.Drawers.PopulationDrawer
+  langs:
+  - csharp
+  - vb
+  name: Draw(object, MainView, Vector2)
+  nameWithType: PopulationDrawer.Draw(object, MainView, Vector2)
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.Draw(object, ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Drawers
+  example: []
+  syntax:
+    content: public override void Draw(object target, MainView view, Vector2 tesselationSize)
+    parameters:
+    - id: target
+      type: System.Object
+    - id: view
+      type: ISILab.LBS.Plugin.UI.Editor.MainView
+    - id: tesselationSize
+      type: UnityEngine.Vector2
+    content.vb: Public Overrides Sub Draw(target As Object, view As MainView, tesselationSize As Vector2)
+  overridden: ISILab.LBS.Drawers.Drawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  overload: ISILab.LBS.Drawers.PopulationDrawer.Draw*
+  nameWithType.vb: PopulationDrawer.Draw(Object, MainView, Vector2)
+  fullName.vb: ISILab.LBS.Drawers.PopulationDrawer.Draw(Object, ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
+  name.vb: Draw(Object, MainView, Vector2)
+- uid: ISILab.LBS.Drawers.PopulationDrawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Drawers.PopulationDrawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  id: UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  parent: ISILab.LBS.Drawers.PopulationDrawer
+  langs:
+  - csharp
+  - vb
+  name: UpdateTiles(object, MainView, Vector2)
+  nameWithType: PopulationDrawer.UpdateTiles(object, MainView, Vector2)
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.UpdateTiles(object, ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Drawers
+  example: []
+  syntax:
+    content: public override void UpdateTiles(object target, MainView view, Vector2 teselationSize)
+    parameters:
+    - id: target
+      type: System.Object
+    - id: view
+      type: ISILab.LBS.Plugin.UI.Editor.MainView
+    - id: teselationSize
+      type: UnityEngine.Vector2
+    content.vb: Public Overrides Sub UpdateTiles(target As Object, view As MainView, teselationSize As Vector2)
+  overridden: ISILab.LBS.Drawers.Drawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  overload: ISILab.LBS.Drawers.PopulationDrawer.UpdateTiles*
+  nameWithType.vb: PopulationDrawer.UpdateTiles(Object, MainView, Vector2)
+  fullName.vb: ISILab.LBS.Drawers.PopulationDrawer.UpdateTiles(Object, ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
+  name.vb: UpdateTiles(Object, MainView, Vector2)
+- uid: ISILab.LBS.Drawers.PopulationDrawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  commentId: M:ISILab.LBS.Drawers.PopulationDrawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  id: ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  parent: ISILab.LBS.Drawers.PopulationDrawer
+  langs:
+  - csharp
+  - vb
+  name: ShowVisuals(object, MainView)
+  nameWithType: PopulationDrawer.ShowVisuals(object, MainView)
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.ShowVisuals(object, ISILab.LBS.Plugin.UI.Editor.MainView)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Drawers
+  example: []
+  syntax:
+    content: public override void ShowVisuals(object target, MainView view)
+    parameters:
+    - id: target
+      type: System.Object
+    - id: view
+      type: ISILab.LBS.Plugin.UI.Editor.MainView
+    content.vb: Public Overrides Sub ShowVisuals(target As Object, view As MainView)
+  overridden: ISILab.LBS.Drawers.Drawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  overload: ISILab.LBS.Drawers.PopulationDrawer.ShowVisuals*
+  nameWithType.vb: PopulationDrawer.ShowVisuals(Object, MainView)
+  fullName.vb: ISILab.LBS.Drawers.PopulationDrawer.ShowVisuals(Object, ISILab.LBS.Plugin.UI.Editor.MainView)
+  name.vb: ShowVisuals(Object, MainView)
+- uid: ISILab.LBS.Drawers.PopulationDrawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  commentId: M:ISILab.LBS.Drawers.PopulationDrawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  id: HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  parent: ISILab.LBS.Drawers.PopulationDrawer
+  langs:
+  - csharp
+  - vb
+  name: HideVisuals(object, MainView)
+  nameWithType: PopulationDrawer.HideVisuals(object, MainView)
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.HideVisuals(object, ISILab.LBS.Plugin.UI.Editor.MainView)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Drawers
+  example: []
+  syntax:
+    content: public override void HideVisuals(object target, MainView view)
+    parameters:
+    - id: target
+      type: System.Object
+    - id: view
+      type: ISILab.LBS.Plugin.UI.Editor.MainView
+    content.vb: Public Overrides Sub HideVisuals(target As Object, view As MainView)
+  overridden: ISILab.LBS.Drawers.Drawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  overload: ISILab.LBS.Drawers.PopulationDrawer.HideVisuals*
+  nameWithType.vb: PopulationDrawer.HideVisuals(Object, MainView)
+  fullName.vb: ISILab.LBS.Drawers.PopulationDrawer.HideVisuals(Object, ISILab.LBS.Plugin.UI.Editor.MainView)
+  name.vb: HideVisuals(Object, MainView)
+- uid: ISILab.LBS.Drawers.PopulationDrawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Drawers.PopulationDrawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
+  id: GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Drawers.PopulationDrawer
+  langs:
+  - csharp
+  - vb
+  name: GetTexture(object, Rect, Vector2Int)
+  nameWithType: PopulationDrawer.GetTexture(object, Rect, Vector2Int)
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.GetTexture(object, UnityEngine.Rect, UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Drawers
+  example: []
+  syntax:
+    content: public override Texture2D GetTexture(object target, Rect sourceRect, Vector2Int tesselationSize)
+    parameters:
+    - id: target
+      type: System.Object
+    - id: sourceRect
+      type: UnityEngine.Rect
+    - id: tesselationSize
+      type: UnityEngine.Vector2Int
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Overrides Function GetTexture(target As Object, sourceRect As Rect, tesselationSize As Vector2Int) As Texture2D
+  overridden: ISILab.LBS.Drawers.Drawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
+  overload: ISILab.LBS.Drawers.PopulationDrawer.GetTexture*
+  nameWithType.vb: PopulationDrawer.GetTexture(Object, Rect, Vector2Int)
+  fullName.vb: ISILab.LBS.Drawers.PopulationDrawer.GetTexture(Object, UnityEngine.Rect, UnityEngine.Vector2Int)
+  name.vb: GetTexture(Object, Rect, Vector2Int)
+- uid: ISILab.LBS.Drawers.PopulationDrawer.#ctor
+  commentId: M:ISILab.LBS.Drawers.PopulationDrawer.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Drawers.PopulationDrawer
+  langs:
+  - csharp
+  - vb
+  name: PopulationDrawer()
+  nameWithType: PopulationDrawer.PopulationDrawer()
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.PopulationDrawer()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Drawers
+  syntax:
+    content: public PopulationDrawer()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Drawers.PopulationDrawer.#ctor*
+  nameWithType.vb: PopulationDrawer.New()
+  fullName.vb: ISILab.LBS.Drawers.PopulationDrawer.New()
+  name.vb: New()
+- uid: ISILab.LBS.Drawers.PopulationDrawer.OwnerLayer
+  commentId: P:ISILab.LBS.Drawers.PopulationDrawer.OwnerLayer
+  id: OwnerLayer
+  parent: ISILab.LBS.Drawers.PopulationDrawer
+  langs:
+  - csharp
+  - vb
+  name: OwnerLayer
+  nameWithType: PopulationDrawer.OwnerLayer
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.OwnerLayer
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Drawers
+  syntax:
+    content: public LBSLayer OwnerLayer { get; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public ReadOnly Property OwnerLayer As LBSLayer
+  overload: ISILab.LBS.Drawers.PopulationDrawer.OwnerLayer*
+references:
+- uid: ISILab.LBS.Drawers
+  commentId: N:ISILab.LBS.Drawers
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Drawers
+  nameWithType: ISILab.LBS.Drawers
+  fullName: ISILab.LBS.Drawers
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Drawers
+    name: Drawers
+    isExternal: true
+    href: ISILab.LBS.Drawers.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Drawers
+    name: Drawers
+    isExternal: true
+    href: ISILab.LBS.Drawers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Drawers.Drawer
+  commentId: T:ISILab.LBS.Drawers.Drawer
+  parent: ISILab.LBS.Drawers
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html
+  name: Drawer
+  nameWithType: Drawer
+  fullName: ISILab.LBS.Drawers.Drawer
+- uid: ISILab.LBS.Drawers.Drawer.Loaded
+  commentId: F:ISILab.LBS.Drawers.Drawer.Loaded
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_Loaded
+  name: Loaded
+  nameWithType: Drawer.Loaded
+  fullName: ISILab.LBS.Drawers.Drawer.Loaded
+- uid: ISILab.LBS.Drawers.Drawer.LoadAllTiles
+  commentId: M:ISILab.LBS.Drawers.Drawer.LoadAllTiles
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_LoadAllTiles
+  name: LoadAllTiles()
+  nameWithType: Drawer.LoadAllTiles()
+  fullName: ISILab.LBS.Drawers.Drawer.LoadAllTiles()
+  spec.csharp:
+  - uid: ISILab.LBS.Drawers.Drawer.LoadAllTiles
+    name: LoadAllTiles
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_LoadAllTiles
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Drawers.Drawer.LoadAllTiles
+    name: LoadAllTiles
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_LoadAllTiles
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Drawers.Drawer.PaintNewTiles
+  commentId: M:ISILab.LBS.Drawers.Drawer.PaintNewTiles
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_PaintNewTiles
+  name: PaintNewTiles()
+  nameWithType: Drawer.PaintNewTiles()
+  fullName: ISILab.LBS.Drawers.Drawer.PaintNewTiles()
+  spec.csharp:
+  - uid: ISILab.LBS.Drawers.Drawer.PaintNewTiles
+    name: PaintNewTiles
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_PaintNewTiles
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Drawers.Drawer.PaintNewTiles
+    name: PaintNewTiles
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_PaintNewTiles
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles
+  commentId: M:ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateLoadedTiles
+  name: UpdateLoadedTiles()
+  nameWithType: Drawer.UpdateLoadedTiles()
+  fullName: ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles()
+  spec.csharp:
+  - uid: ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles
+    name: UpdateLoadedTiles
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateLoadedTiles
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles
+    name: UpdateLoadedTiles
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateLoadedTiles
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer,System.Object[],System.Object[],ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer,System.Object[],System.Object[],ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_ReDraw_LBS_Components_LBSLayer_System_Object___System_Object___ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  name: ReDraw(LBSLayer, object[], object[], MainView, Vector2)
+  nameWithType: Drawer.ReDraw(LBSLayer, object[], object[], MainView, Vector2)
+  fullName: ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer, object[], object[], ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
+  nameWithType.vb: Drawer.ReDraw(LBSLayer, Object(), Object(), MainView, Vector2)
+  fullName.vb: ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer, Object(), Object(), ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
+  name.vb: ReDraw(LBSLayer, Object(), Object(), MainView, Vector2)
+  spec.csharp:
+  - uid: ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer,System.Object[],System.Object[],ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+    name: ReDraw
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_ReDraw_LBS_Components_LBSLayer_System_Object___System_Object___ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.MainView
+    name: MainView
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer,System.Object[],System.Object[],ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+    name: ReDraw
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_ReDraw_LBS_Components_LBSLayer_System_Object___System_Object___ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.MainView
+    name: MainView
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Drawers.Drawer.FullRedrawRequested
+  commentId: P:ISILab.LBS.Drawers.Drawer.FullRedrawRequested
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_FullRedrawRequested
+  name: FullRedrawRequested
+  nameWithType: Drawer.FullRedrawRequested
+  fullName: ISILab.LBS.Drawers.Drawer.FullRedrawRequested
+- uid: ISILab.LBS.Drawers.Drawer.DefaultSize
+  commentId: P:ISILab.LBS.Drawers.Drawer.DefaultSize
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_DefaultSize
+  name: DefaultSize
+  nameWithType: Drawer.DefaultSize
+  fullName: ISILab.LBS.Drawers.Drawer.DefaultSize
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Drawers.Drawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Drawers.Drawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_Draw_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  name: Draw(object, MainView, Vector2)
+  nameWithType: Drawer.Draw(object, MainView, Vector2)
+  fullName: ISILab.LBS.Drawers.Drawer.Draw(object, ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
+  nameWithType.vb: Drawer.Draw(Object, MainView, Vector2)
+  fullName.vb: ISILab.LBS.Drawers.Drawer.Draw(Object, ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
+  name.vb: Draw(Object, MainView, Vector2)
+  spec.csharp:
+  - uid: ISILab.LBS.Drawers.Drawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+    name: Draw
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_Draw_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.MainView
+    name: MainView
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Drawers.Drawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+    name: Draw
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_Draw_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.MainView
+    name: MainView
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Drawers.PopulationDrawer.Draw*
+  commentId: Overload:ISILab.LBS.Drawers.PopulationDrawer.Draw
+  isExternal: true
+  href: ISILab.LBS.Drawers.PopulationDrawer.html#ISILab_LBS_Drawers_PopulationDrawer_Draw_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  name: Draw
+  nameWithType: PopulationDrawer.Draw
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.Draw
+- uid: ISILab.LBS.Plugin.UI.Editor.MainView
+  commentId: T:ISILab.LBS.Plugin.UI.Editor.MainView
+  parent: ISILab.LBS.Plugin.UI.Editor
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  name: MainView
+  nameWithType: MainView
+  fullName: ISILab.LBS.Plugin.UI.Editor.MainView
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: ISILab.LBS.Plugin.UI.Editor
+  commentId: N:ISILab.LBS.Plugin.UI.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.UI.Editor
+  nameWithType: ISILab.LBS.Plugin.UI.Editor
+  fullName: ISILab.LBS.Plugin.UI.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+- uid: ISILab.LBS.Drawers.Drawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Drawers.Drawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateTiles_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  name: UpdateTiles(object, MainView, Vector2)
+  nameWithType: Drawer.UpdateTiles(object, MainView, Vector2)
+  fullName: ISILab.LBS.Drawers.Drawer.UpdateTiles(object, ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
+  nameWithType.vb: Drawer.UpdateTiles(Object, MainView, Vector2)
+  fullName.vb: ISILab.LBS.Drawers.Drawer.UpdateTiles(Object, ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
+  name.vb: UpdateTiles(Object, MainView, Vector2)
+  spec.csharp:
+  - uid: ISILab.LBS.Drawers.Drawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+    name: UpdateTiles
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateTiles_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.MainView
+    name: MainView
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Drawers.Drawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
+    name: UpdateTiles
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateTiles_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.MainView
+    name: MainView
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Drawers.PopulationDrawer.UpdateTiles*
+  commentId: Overload:ISILab.LBS.Drawers.PopulationDrawer.UpdateTiles
+  isExternal: true
+  href: ISILab.LBS.Drawers.PopulationDrawer.html#ISILab_LBS_Drawers_PopulationDrawer_UpdateTiles_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
+  name: UpdateTiles
+  nameWithType: PopulationDrawer.UpdateTiles
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.UpdateTiles
+- uid: ISILab.LBS.Drawers.Drawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  commentId: M:ISILab.LBS.Drawers.Drawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_ShowVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
+  name: ShowVisuals(object, MainView)
+  nameWithType: Drawer.ShowVisuals(object, MainView)
+  fullName: ISILab.LBS.Drawers.Drawer.ShowVisuals(object, ISILab.LBS.Plugin.UI.Editor.MainView)
+  nameWithType.vb: Drawer.ShowVisuals(Object, MainView)
+  fullName.vb: ISILab.LBS.Drawers.Drawer.ShowVisuals(Object, ISILab.LBS.Plugin.UI.Editor.MainView)
+  name.vb: ShowVisuals(Object, MainView)
+  spec.csharp:
+  - uid: ISILab.LBS.Drawers.Drawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+    name: ShowVisuals
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_ShowVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.MainView
+    name: MainView
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Drawers.Drawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+    name: ShowVisuals
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_ShowVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.MainView
+    name: MainView
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  - name: )
+- uid: ISILab.LBS.Drawers.PopulationDrawer.ShowVisuals*
+  commentId: Overload:ISILab.LBS.Drawers.PopulationDrawer.ShowVisuals
+  isExternal: true
+  href: ISILab.LBS.Drawers.PopulationDrawer.html#ISILab_LBS_Drawers_PopulationDrawer_ShowVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
+  name: ShowVisuals
+  nameWithType: PopulationDrawer.ShowVisuals
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.ShowVisuals
+- uid: ISILab.LBS.Drawers.Drawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  commentId: M:ISILab.LBS.Drawers.Drawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_HideVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
+  name: HideVisuals(object, MainView)
+  nameWithType: Drawer.HideVisuals(object, MainView)
+  fullName: ISILab.LBS.Drawers.Drawer.HideVisuals(object, ISILab.LBS.Plugin.UI.Editor.MainView)
+  nameWithType.vb: Drawer.HideVisuals(Object, MainView)
+  fullName.vb: ISILab.LBS.Drawers.Drawer.HideVisuals(Object, ISILab.LBS.Plugin.UI.Editor.MainView)
+  name.vb: HideVisuals(Object, MainView)
+  spec.csharp:
+  - uid: ISILab.LBS.Drawers.Drawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+    name: HideVisuals
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_HideVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.MainView
+    name: MainView
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Drawers.Drawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
+    name: HideVisuals
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_HideVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.UI.Editor.MainView
+    name: MainView
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.MainView.html
+  - name: )
+- uid: ISILab.LBS.Drawers.PopulationDrawer.HideVisuals*
+  commentId: Overload:ISILab.LBS.Drawers.PopulationDrawer.HideVisuals
+  isExternal: true
+  href: ISILab.LBS.Drawers.PopulationDrawer.html#ISILab_LBS_Drawers_PopulationDrawer_HideVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
+  name: HideVisuals
+  nameWithType: PopulationDrawer.HideVisuals
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.HideVisuals
+- uid: ISILab.LBS.Drawers.Drawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Drawers.Drawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Drawers.Drawer
+  isExternal: true
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_GetTexture_System_Object_UnityEngine_Rect_UnityEngine_Vector2Int_
+  name: GetTexture(object, Rect, Vector2Int)
+  nameWithType: Drawer.GetTexture(object, Rect, Vector2Int)
+  fullName: ISILab.LBS.Drawers.Drawer.GetTexture(object, UnityEngine.Rect, UnityEngine.Vector2Int)
+  nameWithType.vb: Drawer.GetTexture(Object, Rect, Vector2Int)
+  fullName.vb: ISILab.LBS.Drawers.Drawer.GetTexture(Object, UnityEngine.Rect, UnityEngine.Vector2Int)
+  name.vb: GetTexture(Object, Rect, Vector2Int)
+  spec.csharp:
+  - uid: ISILab.LBS.Drawers.Drawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
+    name: GetTexture
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_GetTexture_System_Object_UnityEngine_Rect_UnityEngine_Vector2Int_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Drawers.Drawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
+    name: GetTexture
+    isExternal: true
+    href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_GetTexture_System_Object_UnityEngine_Rect_UnityEngine_Vector2Int_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Drawers.PopulationDrawer.GetTexture*
+  commentId: Overload:ISILab.LBS.Drawers.PopulationDrawer.GetTexture
+  isExternal: true
+  href: ISILab.LBS.Drawers.PopulationDrawer.html#ISILab_LBS_Drawers_PopulationDrawer_GetTexture_System_Object_UnityEngine_Rect_UnityEngine_Vector2Int_
+  name: GetTexture
+  nameWithType: PopulationDrawer.GetTexture
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.GetTexture
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: ISILab.LBS.Drawers.PopulationDrawer.#ctor*
+  commentId: Overload:ISILab.LBS.Drawers.PopulationDrawer.#ctor
+  isExternal: true
+  href: ISILab.LBS.Drawers.PopulationDrawer.html#ISILab_LBS_Drawers_PopulationDrawer__ctor
+  name: PopulationDrawer
+  nameWithType: PopulationDrawer.PopulationDrawer
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.PopulationDrawer
+  nameWithType.vb: PopulationDrawer.New
+  fullName.vb: ISILab.LBS.Drawers.PopulationDrawer.New
+  name.vb: New
+- uid: ISILab.LBS.Drawers.PopulationDrawer.OwnerLayer*
+  commentId: Overload:ISILab.LBS.Drawers.PopulationDrawer.OwnerLayer
+  isExternal: true
+  href: ISILab.LBS.Drawers.PopulationDrawer.html#ISILab_LBS_Drawers_PopulationDrawer_OwnerLayer
+  name: OwnerLayer
+  nameWithType: PopulationDrawer.OwnerLayer
+  fullName: ISILab.LBS.Drawers.PopulationDrawer.OwnerLayer
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+shouldSkipMarkup: true

@@ -1,0 +1,786 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.PerceivedEntity
+  commentId: T:PathOS.PerceivedEntity
+  id: PerceivedEntity
+  parent: PathOS
+  children:
+  - PathOS.PerceivedEntity.#ctor(PathOS.LevelEntity)
+  - PathOS.PerceivedEntity.ActualPosition
+  - PathOS.PerceivedEntity.Equals(System.Object)
+  - PathOS.PerceivedEntity.GetHashCode
+  - PathOS.PerceivedEntity.GetInstanceID
+  - PathOS.PerceivedEntity.SameEntity(PathOS.PerceivedEntity,PathOS.EntityMemory)
+  - PathOS.PerceivedEntity.entityRef
+  - PathOS.PerceivedEntity.entityType
+  - PathOS.PerceivedEntity.impressionCount
+  - PathOS.PerceivedEntity.impressionMade
+  - PathOS.PerceivedEntity.instanceID
+  - PathOS.PerceivedEntity.op_Equality(PathOS.PerceivedEntity,PathOS.PerceivedEntity)
+  - PathOS.PerceivedEntity.op_Inequality(PathOS.PerceivedEntity,PathOS.PerceivedEntity)
+  - PathOS.PerceivedEntity.perceivedPos
+  - PathOS.PerceivedEntity.visibilityTimer
+  - PathOS.PerceivedEntity.visible
+  langs:
+  - csharp
+  - vb
+  name: PerceivedEntity
+  nameWithType: PerceivedEntity
+  fullName: PathOS.PerceivedEntity
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public class PerceivedEntity
+    content.vb: Public Class PerceivedEntity
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PathOS.PerceivedEntity.entityRef
+  commentId: F:PathOS.PerceivedEntity.entityRef
+  id: entityRef
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: entityRef
+  nameWithType: PerceivedEntity.entityRef
+  fullName: PathOS.PerceivedEntity.entityRef
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public LevelEntity entityRef
+    return:
+      type: PathOS.LevelEntity
+    content.vb: Public entityRef As LevelEntity
+- uid: PathOS.PerceivedEntity.instanceID
+  commentId: F:PathOS.PerceivedEntity.instanceID
+  id: instanceID
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: instanceID
+  nameWithType: PerceivedEntity.instanceID
+  fullName: PathOS.PerceivedEntity.instanceID
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: protected int instanceID
+    return:
+      type: System.Int32
+    content.vb: Protected instanceID As Integer
+- uid: PathOS.PerceivedEntity.entityType
+  commentId: F:PathOS.PerceivedEntity.entityType
+  id: entityType
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: entityType
+  nameWithType: PerceivedEntity.entityType
+  fullName: PathOS.PerceivedEntity.entityType
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public EntityType entityType
+    return:
+      type: PathOS.EntityType
+    content.vb: Public entityType As EntityType
+- uid: PathOS.PerceivedEntity.perceivedPos
+  commentId: F:PathOS.PerceivedEntity.perceivedPos
+  id: perceivedPos
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: perceivedPos
+  nameWithType: PerceivedEntity.perceivedPos
+  fullName: PathOS.PerceivedEntity.perceivedPos
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Vector3 perceivedPos
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public perceivedPos As Vector3
+- uid: PathOS.PerceivedEntity.visible
+  commentId: F:PathOS.PerceivedEntity.visible
+  id: visible
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: visible
+  nameWithType: PerceivedEntity.visible
+  fullName: PathOS.PerceivedEntity.visible
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool visible
+    return:
+      type: System.Boolean
+    content.vb: Public visible As Boolean
+- uid: PathOS.PerceivedEntity.visibilityTimer
+  commentId: F:PathOS.PerceivedEntity.visibilityTimer
+  id: visibilityTimer
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: visibilityTimer
+  nameWithType: PerceivedEntity.visibilityTimer
+  fullName: PathOS.PerceivedEntity.visibilityTimer
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float visibilityTimer
+    return:
+      type: System.Single
+    content.vb: Public visibilityTimer As Single
+- uid: PathOS.PerceivedEntity.impressionCount
+  commentId: F:PathOS.PerceivedEntity.impressionCount
+  id: impressionCount
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: impressionCount
+  nameWithType: PerceivedEntity.impressionCount
+  fullName: PathOS.PerceivedEntity.impressionCount
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public int impressionCount
+    return:
+      type: System.Int32
+    content.vb: Public impressionCount As Integer
+- uid: PathOS.PerceivedEntity.impressionMade
+  commentId: F:PathOS.PerceivedEntity.impressionMade
+  id: impressionMade
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: impressionMade
+  nameWithType: PerceivedEntity.impressionMade
+  fullName: PathOS.PerceivedEntity.impressionMade
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool impressionMade
+    return:
+      type: System.Boolean
+    content.vb: Public impressionMade As Boolean
+- uid: PathOS.PerceivedEntity.#ctor(PathOS.LevelEntity)
+  commentId: M:PathOS.PerceivedEntity.#ctor(PathOS.LevelEntity)
+  id: '#ctor(PathOS.LevelEntity)'
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: PerceivedEntity(LevelEntity)
+  nameWithType: PerceivedEntity.PerceivedEntity(LevelEntity)
+  fullName: PathOS.PerceivedEntity.PerceivedEntity(PathOS.LevelEntity)
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PerceivedEntity(LevelEntity entityRef)
+    parameters:
+    - id: entityRef
+      type: PathOS.LevelEntity
+    content.vb: Public Sub New(entityRef As LevelEntity)
+  overload: PathOS.PerceivedEntity.#ctor*
+  nameWithType.vb: PerceivedEntity.New(LevelEntity)
+  fullName.vb: PathOS.PerceivedEntity.New(PathOS.LevelEntity)
+  name.vb: New(LevelEntity)
+- uid: PathOS.PerceivedEntity.ActualPosition
+  commentId: M:PathOS.PerceivedEntity.ActualPosition
+  id: ActualPosition
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: ActualPosition()
+  nameWithType: PerceivedEntity.ActualPosition()
+  fullName: PathOS.PerceivedEntity.ActualPosition()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Vector3 ActualPosition()
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Function ActualPosition() As Vector3
+  overload: PathOS.PerceivedEntity.ActualPosition*
+- uid: PathOS.PerceivedEntity.SameEntity(PathOS.PerceivedEntity,PathOS.EntityMemory)
+  commentId: M:PathOS.PerceivedEntity.SameEntity(PathOS.PerceivedEntity,PathOS.EntityMemory)
+  id: SameEntity(PathOS.PerceivedEntity,PathOS.EntityMemory)
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: SameEntity(PerceivedEntity, EntityMemory)
+  nameWithType: PerceivedEntity.SameEntity(PerceivedEntity, EntityMemory)
+  fullName: PathOS.PerceivedEntity.SameEntity(PathOS.PerceivedEntity, PathOS.EntityMemory)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static bool SameEntity(PerceivedEntity lhs, EntityMemory rhs)
+    parameters:
+    - id: lhs
+      type: PathOS.PerceivedEntity
+    - id: rhs
+      type: PathOS.EntityMemory
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function SameEntity(lhs As PerceivedEntity, rhs As EntityMemory) As Boolean
+  overload: PathOS.PerceivedEntity.SameEntity*
+- uid: PathOS.PerceivedEntity.op_Equality(PathOS.PerceivedEntity,PathOS.PerceivedEntity)
+  commentId: M:PathOS.PerceivedEntity.op_Equality(PathOS.PerceivedEntity,PathOS.PerceivedEntity)
+  id: op_Equality(PathOS.PerceivedEntity,PathOS.PerceivedEntity)
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: operator ==(PerceivedEntity, PerceivedEntity)
+  nameWithType: PerceivedEntity.operator ==(PerceivedEntity, PerceivedEntity)
+  fullName: PathOS.PerceivedEntity.operator ==(PathOS.PerceivedEntity, PathOS.PerceivedEntity)
+  type: Operator
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static bool operator ==(PerceivedEntity lhs, PerceivedEntity rhs)
+    parameters:
+    - id: lhs
+      type: PathOS.PerceivedEntity
+    - id: rhs
+      type: PathOS.PerceivedEntity
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(lhs As PerceivedEntity, rhs As PerceivedEntity) As Boolean
+  overload: PathOS.PerceivedEntity.op_Equality*
+  nameWithType.vb: PerceivedEntity.=(PerceivedEntity, PerceivedEntity)
+  fullName.vb: PathOS.PerceivedEntity.=(PathOS.PerceivedEntity, PathOS.PerceivedEntity)
+  name.vb: =(PerceivedEntity, PerceivedEntity)
+- uid: PathOS.PerceivedEntity.op_Inequality(PathOS.PerceivedEntity,PathOS.PerceivedEntity)
+  commentId: M:PathOS.PerceivedEntity.op_Inequality(PathOS.PerceivedEntity,PathOS.PerceivedEntity)
+  id: op_Inequality(PathOS.PerceivedEntity,PathOS.PerceivedEntity)
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: operator !=(PerceivedEntity, PerceivedEntity)
+  nameWithType: PerceivedEntity.operator !=(PerceivedEntity, PerceivedEntity)
+  fullName: PathOS.PerceivedEntity.operator !=(PathOS.PerceivedEntity, PathOS.PerceivedEntity)
+  type: Operator
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static bool operator !=(PerceivedEntity lhs, PerceivedEntity rhs)
+    parameters:
+    - id: lhs
+      type: PathOS.PerceivedEntity
+    - id: rhs
+      type: PathOS.PerceivedEntity
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(lhs As PerceivedEntity, rhs As PerceivedEntity) As Boolean
+  overload: PathOS.PerceivedEntity.op_Inequality*
+  nameWithType.vb: PerceivedEntity.<>(PerceivedEntity, PerceivedEntity)
+  fullName.vb: PathOS.PerceivedEntity.<>(PathOS.PerceivedEntity, PathOS.PerceivedEntity)
+  name.vb: <>(PerceivedEntity, PerceivedEntity)
+- uid: PathOS.PerceivedEntity.Equals(System.Object)
+  commentId: M:PathOS.PerceivedEntity.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: PerceivedEntity.Equals(object)
+  fullName: PathOS.PerceivedEntity.Equals(object)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: PathOS.PerceivedEntity.Equals*
+  nameWithType.vb: PerceivedEntity.Equals(Object)
+  fullName.vb: PathOS.PerceivedEntity.Equals(Object)
+  name.vb: Equals(Object)
+- uid: PathOS.PerceivedEntity.GetHashCode
+  commentId: M:PathOS.PerceivedEntity.GetHashCode
+  id: GetHashCode
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PerceivedEntity.GetHashCode()
+  fullName: PathOS.PerceivedEntity.GetHashCode()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: PathOS.PerceivedEntity.GetHashCode*
+- uid: PathOS.PerceivedEntity.GetInstanceID
+  commentId: M:PathOS.PerceivedEntity.GetInstanceID
+  id: GetInstanceID
+  parent: PathOS.PerceivedEntity
+  langs:
+  - csharp
+  - vb
+  name: GetInstanceID()
+  nameWithType: PerceivedEntity.GetInstanceID()
+  fullName: PathOS.PerceivedEntity.GetInstanceID()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public int GetInstanceID()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetInstanceID() As Integer
+  overload: PathOS.PerceivedEntity.GetInstanceID*
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PathOS.LevelEntity
+  commentId: T:PathOS.LevelEntity
+  parent: PathOS
+  isExternal: true
+  href: PathOS.LevelEntity.html
+  name: LevelEntity
+  nameWithType: LevelEntity
+  fullName: PathOS.LevelEntity
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PathOS.EntityType
+  commentId: T:PathOS.EntityType
+  parent: PathOS
+  isExternal: true
+  href: PathOS.EntityType.html
+  name: EntityType
+  nameWithType: EntityType
+  fullName: PathOS.EntityType
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PathOS.PerceivedEntity.#ctor*
+  commentId: Overload:PathOS.PerceivedEntity.#ctor
+  isExternal: true
+  href: PathOS.PerceivedEntity.html#PathOS_PerceivedEntity__ctor_PathOS_LevelEntity_
+  name: PerceivedEntity
+  nameWithType: PerceivedEntity.PerceivedEntity
+  fullName: PathOS.PerceivedEntity.PerceivedEntity
+  nameWithType.vb: PerceivedEntity.New
+  fullName.vb: PathOS.PerceivedEntity.New
+  name.vb: New
+- uid: PathOS.PerceivedEntity.ActualPosition*
+  commentId: Overload:PathOS.PerceivedEntity.ActualPosition
+  isExternal: true
+  href: PathOS.PerceivedEntity.html#PathOS_PerceivedEntity_ActualPosition
+  name: ActualPosition
+  nameWithType: PerceivedEntity.ActualPosition
+  fullName: PathOS.PerceivedEntity.ActualPosition
+- uid: PathOS.PerceivedEntity.SameEntity*
+  commentId: Overload:PathOS.PerceivedEntity.SameEntity
+  isExternal: true
+  href: PathOS.PerceivedEntity.html#PathOS_PerceivedEntity_SameEntity_PathOS_PerceivedEntity_PathOS_EntityMemory_
+  name: SameEntity
+  nameWithType: PerceivedEntity.SameEntity
+  fullName: PathOS.PerceivedEntity.SameEntity
+- uid: PathOS.PerceivedEntity
+  commentId: T:PathOS.PerceivedEntity
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PerceivedEntity.html
+  name: PerceivedEntity
+  nameWithType: PerceivedEntity
+  fullName: PathOS.PerceivedEntity
+- uid: PathOS.EntityMemory
+  commentId: T:PathOS.EntityMemory
+  parent: PathOS
+  isExternal: true
+  href: PathOS.EntityMemory.html
+  name: EntityMemory
+  nameWithType: EntityMemory
+  fullName: PathOS.EntityMemory
+- uid: PathOS.PerceivedEntity.op_Equality*
+  commentId: Overload:PathOS.PerceivedEntity.op_Equality
+  isExternal: true
+  href: PathOS.PerceivedEntity.html#PathOS_PerceivedEntity_op_Equality_PathOS_PerceivedEntity_PathOS_PerceivedEntity_
+  name: operator ==
+  nameWithType: PerceivedEntity.operator ==
+  fullName: PathOS.PerceivedEntity.operator ==
+  nameWithType.vb: PerceivedEntity.=
+  fullName.vb: PathOS.PerceivedEntity.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: PathOS.PerceivedEntity.op_Equality*
+    name: ==
+    isExternal: true
+    href: PathOS.PerceivedEntity.html#PathOS_PerceivedEntity_op_Equality_PathOS_PerceivedEntity_PathOS_PerceivedEntity_
+- uid: PathOS.PerceivedEntity.op_Inequality*
+  commentId: Overload:PathOS.PerceivedEntity.op_Inequality
+  isExternal: true
+  href: PathOS.PerceivedEntity.html#PathOS_PerceivedEntity_op_Inequality_PathOS_PerceivedEntity_PathOS_PerceivedEntity_
+  name: operator !=
+  nameWithType: PerceivedEntity.operator !=
+  fullName: PathOS.PerceivedEntity.operator !=
+  nameWithType.vb: PerceivedEntity.<>
+  fullName.vb: PathOS.PerceivedEntity.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: PathOS.PerceivedEntity.op_Inequality*
+    name: '!='
+    isExternal: true
+    href: PathOS.PerceivedEntity.html#PathOS_PerceivedEntity_op_Inequality_PathOS_PerceivedEntity_PathOS_PerceivedEntity_
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: PathOS.PerceivedEntity.Equals*
+  commentId: Overload:PathOS.PerceivedEntity.Equals
+  isExternal: true
+  href: PathOS.PerceivedEntity.html#PathOS_PerceivedEntity_Equals_System_Object_
+  name: Equals
+  nameWithType: PerceivedEntity.Equals
+  fullName: PathOS.PerceivedEntity.Equals
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: PathOS.PerceivedEntity.GetHashCode*
+  commentId: Overload:PathOS.PerceivedEntity.GetHashCode
+  isExternal: true
+  href: PathOS.PerceivedEntity.html#PathOS_PerceivedEntity_GetHashCode
+  name: GetHashCode
+  nameWithType: PerceivedEntity.GetHashCode
+  fullName: PathOS.PerceivedEntity.GetHashCode
+- uid: PathOS.PerceivedEntity.GetInstanceID*
+  commentId: Overload:PathOS.PerceivedEntity.GetInstanceID
+  isExternal: true
+  href: PathOS.PerceivedEntity.html#PathOS_PerceivedEntity_GetInstanceID
+  name: GetInstanceID
+  nameWithType: PerceivedEntity.GetInstanceID
+  fullName: PathOS.PerceivedEntity.GetInstanceID
+shouldSkipMarkup: true

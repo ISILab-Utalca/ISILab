@@ -1,0 +1,554 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  id: LBSSettings
+  parent: ISILab.LBS.Plugin.Core.Settings
+  children:
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.#ctor
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.Instance
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.MarkSettingsAsDirty
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.ReplacePaths
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.ResetInstance
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.assetName
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.general
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.generator
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.paths
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.test
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.view
+  langs:
+  - csharp
+  - vb
+  name: LBSSettings
+  nameWithType: LBSSettings
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: 'public class LBSSettings : ScriptableObject'
+    content.vb: Public Class LBSSettings Inherits ScriptableObject
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.assetName
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSSettings.assetName
+  id: assetName
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: assetName
+  nameWithType: LBSSettings.assetName
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.assetName
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public static string assetName
+    return:
+      type: System.String
+    content.vb: Public Shared assetName As String
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.paths
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSSettings.paths
+  id: paths
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: paths
+  nameWithType: LBSSettings.paths
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.paths
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public LBSSettings.Paths paths
+    return:
+      type: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Paths
+    content.vb: Public paths As LBSSettings.Paths
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.general
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSSettings.general
+  id: general
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: general
+  nameWithType: LBSSettings.general
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.general
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public LBSSettings.General general
+    return:
+      type: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General
+    content.vb: Public general As LBSSettings.General
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.view
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSSettings.view
+  id: view
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: view
+  nameWithType: LBSSettings.view
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.view
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public LBSSettings.Interface view
+    return:
+      type: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface
+    content.vb: Public view As LBSSettings.Interface
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.test
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSSettings.test
+  id: test
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: test
+  nameWithType: LBSSettings.test
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.test
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public LBSSettings.Test test
+    return:
+      type: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Test
+    content.vb: Public test As LBSSettings.Test
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.generator
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSSettings.generator
+  id: generator
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: generator
+  nameWithType: LBSSettings.generator
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.generator
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public Generator3D generator
+    return:
+      type: ISILab.LBS.Plugin.MapTools.Generators.Generator3D
+    content.vb: Public generator As Generator3D
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.ResetInstance
+  commentId: M:ISILab.LBS.Plugin.Core.Settings.LBSSettings.ResetInstance
+  id: ResetInstance
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: ResetInstance()
+  nameWithType: LBSSettings.ResetInstance()
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.ResetInstance()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public static void ResetInstance()
+    content.vb: Public Shared Sub ResetInstance()
+  overload: ISILab.LBS.Plugin.Core.Settings.LBSSettings.ResetInstance*
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.MarkSettingsAsDirty
+  commentId: M:ISILab.LBS.Plugin.Core.Settings.LBSSettings.MarkSettingsAsDirty
+  id: MarkSettingsAsDirty
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: MarkSettingsAsDirty()
+  nameWithType: LBSSettings.MarkSettingsAsDirty()
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.MarkSettingsAsDirty()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public void MarkSettingsAsDirty()
+    content.vb: Public Sub MarkSettingsAsDirty()
+  overload: ISILab.LBS.Plugin.Core.Settings.LBSSettings.MarkSettingsAsDirty*
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.ReplacePaths
+  commentId: M:ISILab.LBS.Plugin.Core.Settings.LBSSettings.ReplacePaths
+  id: ReplacePaths
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: ReplacePaths()
+  nameWithType: LBSSettings.ReplacePaths()
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.ReplacePaths()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public void ReplacePaths()
+    content.vb: Public Sub ReplacePaths()
+  overload: ISILab.LBS.Plugin.Core.Settings.LBSSettings.ReplacePaths*
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.#ctor
+  commentId: M:ISILab.LBS.Plugin.Core.Settings.LBSSettings.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: LBSSettings()
+  nameWithType: LBSSettings.LBSSettings()
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.LBSSettings()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public LBSSettings()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Core.Settings.LBSSettings.#ctor*
+  nameWithType.vb: LBSSettings.New()
+  fullName.vb: ISILab.LBS.Plugin.Core.Settings.LBSSettings.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Instance
+  commentId: P:ISILab.LBS.Plugin.Core.Settings.LBSSettings.Instance
+  id: Instance
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: LBSSettings.Instance
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Instance
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public static LBSSettings Instance { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    content.vb: Public Shared Property Instance As LBSSettings
+  overload: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Instance*
+references:
+- uid: ISILab.LBS.Plugin.Core.Settings
+  commentId: N:ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.Settings
+  nameWithType: ISILab.LBS.Plugin.Core.Settings
+  fullName: ISILab.LBS.Plugin.Core.Settings
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Paths
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSSettings.Paths
+  parent: ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  name: LBSSettings.Paths
+  nameWithType: LBSSettings.Paths
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Paths
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    name: LBSSettings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Paths
+    name: Paths
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Paths.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    name: LBSSettings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Paths
+    name: Paths
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Paths.html
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSSettings.General
+  parent: ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  name: LBSSettings.General
+  nameWithType: LBSSettings.General
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    name: LBSSettings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General
+    name: General
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    name: LBSSettings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General
+    name: General
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.html
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface
+  parent: ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  name: LBSSettings.Interface
+  nameWithType: LBSSettings.Interface
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    name: LBSSettings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface
+    name: Interface
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    name: LBSSettings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface
+    name: Interface
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.html
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Test
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSSettings.Test
+  parent: ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  name: LBSSettings.Test
+  nameWithType: LBSSettings.Test
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Test
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    name: LBSSettings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Test
+    name: Test
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Test.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+    name: LBSSettings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Test
+    name: Test
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Test.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.Generator3D
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.Generator3D
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.Generator3D.html
+  name: Generator3D
+  nameWithType: Generator3D
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.Generator3D
+- uid: ISILab.LBS.Plugin.MapTools.Generators
+  commentId: N:ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.Generators
+  nameWithType: ISILab.LBS.Plugin.MapTools.Generators
+  fullName: ISILab.LBS.Plugin.MapTools.Generators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.ResetInstance*
+  commentId: Overload:ISILab.LBS.Plugin.Core.Settings.LBSSettings.ResetInstance
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html#ISILab_LBS_Plugin_Core_Settings_LBSSettings_ResetInstance
+  name: ResetInstance
+  nameWithType: LBSSettings.ResetInstance
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.ResetInstance
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.MarkSettingsAsDirty*
+  commentId: Overload:ISILab.LBS.Plugin.Core.Settings.LBSSettings.MarkSettingsAsDirty
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html#ISILab_LBS_Plugin_Core_Settings_LBSSettings_MarkSettingsAsDirty
+  name: MarkSettingsAsDirty
+  nameWithType: LBSSettings.MarkSettingsAsDirty
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.MarkSettingsAsDirty
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.ReplacePaths*
+  commentId: Overload:ISILab.LBS.Plugin.Core.Settings.LBSSettings.ReplacePaths
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html#ISILab_LBS_Plugin_Core_Settings_LBSSettings_ReplacePaths
+  name: ReplacePaths
+  nameWithType: LBSSettings.ReplacePaths
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.ReplacePaths
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Core.Settings.LBSSettings.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html#ISILab_LBS_Plugin_Core_Settings_LBSSettings__ctor
+  name: LBSSettings
+  nameWithType: LBSSettings.LBSSettings
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.LBSSettings
+  nameWithType.vb: LBSSettings.New
+  fullName.vb: ISILab.LBS.Plugin.Core.Settings.LBSSettings.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Instance*
+  commentId: Overload:ISILab.LBS.Plugin.Core.Settings.LBSSettings.Instance
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html#ISILab_LBS_Plugin_Core_Settings_LBSSettings_Instance
+  name: Instance
+  nameWithType: LBSSettings.Instance
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Instance
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSSettings
+  parent: ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSSettings.html
+  name: LBSSettings
+  nameWithType: LBSSettings
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings
+shouldSkipMarkup: true

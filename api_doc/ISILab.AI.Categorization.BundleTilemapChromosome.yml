@@ -1,0 +1,2265 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome
+  commentId: T:ISILab.AI.Categorization.BundleTilemapChromosome
+  id: BundleTilemapChromosome
+  parent: ISILab.AI.Categorization
+  children:
+  - ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Int32[],System.Int32[])
+  - ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
+  - ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome
+  - ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+  - ISILab.AI.Categorization.BundleTilemapChromosome.CreateNewChromosome
+  - ISILab.AI.Categorization.BundleTilemapChromosome.GenerateGene
+  - ISILab.AI.Categorization.BundleTilemapChromosome.IsEmpty
+  - ISILab.AI.Categorization.BundleTilemapChromosome.IsValid
+  - ISILab.AI.Categorization.BundleTilemapChromosome.SetDeafult(System.Int32)
+  - ISILab.AI.Categorization.BundleTilemapChromosome.ToTexture
+  langs:
+  - csharp
+  - vb
+  name: BundleTilemapChromosome
+  nameWithType: BundleTilemapChromosome
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: 'public class BundleTilemapChromosome : ChromosomeBase2D, IDrawable, IChromosome, IComparable<IChromosome>, IOptimizable, ICloneable'
+    content.vb: Public Class BundleTilemapChromosome Inherits ChromosomeBase2D Implements IDrawable, IChromosome, IComparable(Of IChromosome), IOptimizable, ICloneable
+  inheritance:
+  - System.Object
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  - ISILab.AI.Categorization.ChromosomeBase2D
+  implements:
+  - ISILab.Commons.Interfaces.IDrawable
+  - GeneticSharp.Domain.Chromosomes.IChromosome
+  - System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}
+  - ISILab.AI.Optimization.IOptimizable
+  - System.ICloneable
+  inheritedMembers:
+  - ISILab.AI.Categorization.ChromosomeBase2D.ToIndex(UnityEngine.Vector2)
+  - ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex(UnityEngine.Vector2)
+  - ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition(System.Int32)
+  - ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(System.Int32)
+  - ISILab.AI.Categorization.ChromosomeBase2D.Rect
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,{T})
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,{T}[])
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1({T}[])
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1({T})
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  extensionMethods:
+  - GeneticSharp.Domain.Chromosomes.IChromosome.GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Int32[],System.Int32[])
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Int32[],System.Int32[])
+  id: '#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Int32[],System.Int32[])'
+  parent: ISILab.AI.Categorization.BundleTilemapChromosome
+  langs:
+  - csharp
+  - vb
+  name: BundleTilemapChromosome(BundleTileMap, Rect, int[], int[])
+  nameWithType: BundleTilemapChromosome.BundleTilemapChromosome(BundleTileMap, Rect, int[], int[])
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome(ISILab.LBS.Modules.BundleTileMap, UnityEngine.Rect, int[], int[])
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: public BundleTilemapChromosome(BundleTileMap tileMap, Rect rect, int[] immutables = null, int[] invalids = null)
+    parameters:
+    - id: tileMap
+      type: ISILab.LBS.Modules.BundleTileMap
+    - id: rect
+      type: UnityEngine.Rect
+    - id: immutables
+      type: System.Int32[]
+    - id: invalids
+      type: System.Int32[]
+    content.vb: Public Sub New(tileMap As BundleTileMap, rect As Rect, immutables As Integer() = Nothing, invalids As Integer() = Nothing)
+  overload: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor*
+  nameWithType.vb: BundleTilemapChromosome.New(BundleTileMap, Rect, Integer(), Integer())
+  fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.New(ISILab.LBS.Modules.BundleTileMap, UnityEngine.Rect, Integer(), Integer())
+  name.vb: New(BundleTileMap, Rect, Integer(), Integer())
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
+  id: '#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])'
+  parent: ISILab.AI.Categorization.BundleTilemapChromosome
+  langs:
+  - csharp
+  - vb
+  name: BundleTilemapChromosome(Rect, int[], int[])
+  nameWithType: BundleTilemapChromosome.BundleTilemapChromosome(Rect, int[], int[])
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome(UnityEngine.Rect, int[], int[])
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: public BundleTilemapChromosome(Rect rect, int[] immutables = null, int[] invalids = null)
+    parameters:
+    - id: rect
+      type: UnityEngine.Rect
+    - id: immutables
+      type: System.Int32[]
+    - id: invalids
+      type: System.Int32[]
+    content.vb: Public Sub New(rect As Rect, immutables As Integer() = Nothing, invalids As Integer() = Nothing)
+  overload: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor*
+  nameWithType.vb: BundleTilemapChromosome.New(Rect, Integer(), Integer())
+  fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.New(UnityEngine.Rect, Integer(), Integer())
+  name.vb: New(Rect, Integer(), Integer())
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome
+  id: CloneChromosome
+  parent: ISILab.AI.Categorization.BundleTilemapChromosome
+  langs:
+  - csharp
+  - vb
+  name: CloneChromosome()
+  nameWithType: BundleTilemapChromosome.CloneChromosome()
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public override ChromosomeBase CloneChromosome()
+    return:
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    content.vb: Public Overrides Function CloneChromosome() As ChromosomeBase
+  overridden: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
+  overload: ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome*
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.CreateNewChromosome
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.CreateNewChromosome
+  id: CreateNewChromosome
+  parent: ISILab.AI.Categorization.BundleTilemapChromosome
+  langs:
+  - csharp
+  - vb
+  name: CreateNewChromosome()
+  nameWithType: BundleTilemapChromosome.CreateNewChromosome()
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.CreateNewChromosome()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public override ChromosomeBase CreateNewChromosome()
+    return:
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    content.vb: Public Overrides Function CreateNewChromosome() As ChromosomeBase
+  overridden: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
+  overload: ISILab.AI.Categorization.BundleTilemapChromosome.CreateNewChromosome*
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.GenerateGene
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.GenerateGene
+  id: GenerateGene
+  parent: ISILab.AI.Categorization.BundleTilemapChromosome
+  langs:
+  - csharp
+  - vb
+  name: GenerateGene()
+  nameWithType: BundleTilemapChromosome.GenerateGene()
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.GenerateGene()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public override object GenerateGene()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function GenerateGene() As Object
+  overridden: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
+  overload: ISILab.AI.Categorization.BundleTilemapChromosome.GenerateGene*
+  implements:
+  - GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.IsValid
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.IsValid
+  id: IsValid
+  parent: ISILab.AI.Categorization.BundleTilemapChromosome
+  langs:
+  - csharp
+  - vb
+  name: IsValid()
+  nameWithType: BundleTilemapChromosome.IsValid()
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.IsValid()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public override bool IsValid()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function IsValid() As Boolean
+  overridden: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
+  overload: ISILab.AI.Categorization.BundleTilemapChromosome.IsValid*
+  implements:
+  - GeneticSharp.Domain.Chromosomes.IChromosome.IsValid
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.IsEmpty
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.IsEmpty
+  id: IsEmpty
+  parent: ISILab.AI.Categorization.BundleTilemapChromosome
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty()
+  nameWithType: BundleTilemapChromosome.IsEmpty()
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.IsEmpty()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: public bool IsEmpty()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsEmpty() As Boolean
+  overload: ISILab.AI.Categorization.BundleTilemapChromosome.IsEmpty*
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.SetDeafult(System.Int32)
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.SetDeafult(System.Int32)
+  id: SetDeafult(System.Int32)
+  parent: ISILab.AI.Categorization.BundleTilemapChromosome
+  langs:
+  - csharp
+  - vb
+  name: SetDeafult(int)
+  nameWithType: BundleTilemapChromosome.SetDeafult(int)
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.SetDeafult(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public override void SetDeafult(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    content.vb: Public Overrides Sub SetDeafult(index As Integer)
+  overridden: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
+  overload: ISILab.AI.Categorization.BundleTilemapChromosome.SetDeafult*
+  implements:
+  - GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult(System.Int32)
+  nameWithType.vb: BundleTilemapChromosome.SetDeafult(Integer)
+  fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.SetDeafult(Integer)
+  name.vb: SetDeafult(Integer)
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.ToTexture
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.ToTexture
+  id: ToTexture
+  parent: ISILab.AI.Categorization.BundleTilemapChromosome
+  langs:
+  - csharp
+  - vb
+  name: ToTexture()
+  nameWithType: BundleTilemapChromosome.ToTexture()
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.ToTexture()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public Texture2D ToTexture()
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Function ToTexture() As Texture2D
+  overload: ISILab.AI.Categorization.BundleTilemapChromosome.ToTexture*
+  implements:
+  - ISILab.Commons.Interfaces.IDrawable.ToTexture
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+  id: CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+  parent: ISILab.AI.Categorization.BundleTilemapChromosome
+  langs:
+  - csharp
+  - vb
+  name: CompareTo(IChromosome)
+  nameWithType: BundleTilemapChromosome.CompareTo(IChromosome)
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public int CompareTo(IChromosome other)
+    parameters:
+    - id: other
+      type: GeneticSharp.Domain.Chromosomes.IChromosome
+    return:
+      type: System.Int32
+    content.vb: Public Function CompareTo(other As IChromosome) As Integer
+  overload: ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo*
+  implements:
+  - System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+references:
+- uid: ISILab.AI.Categorization
+  commentId: N:ISILab.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Categorization
+  nameWithType: ISILab.AI.Categorization
+  fullName: ISILab.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.AI.Categorization.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  commentId: T:GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  parent: GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  name: ChromosomeBase
+  nameWithType: ChromosomeBase
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+- uid: ISILab.AI.Categorization.ChromosomeBase2D
+  commentId: T:ISILab.AI.Categorization.ChromosomeBase2D
+  parent: ISILab.AI.Categorization
+  isExternal: true
+  href: ISILab.AI.Categorization.ChromosomeBase2D.html
+  name: ChromosomeBase2D
+  nameWithType: ChromosomeBase2D
+  fullName: ISILab.AI.Categorization.ChromosomeBase2D
+- uid: ISILab.Commons.Interfaces.IDrawable
+  commentId: T:ISILab.Commons.Interfaces.IDrawable
+  parent: ISILab.Commons.Interfaces
+  isExternal: true
+  href: ISILab.Commons.Interfaces.IDrawable.html
+  name: IDrawable
+  nameWithType: IDrawable
+  fullName: ISILab.Commons.Interfaces.IDrawable
+- uid: GeneticSharp.Domain.Chromosomes.IChromosome
+  commentId: T:GeneticSharp.Domain.Chromosomes.IChromosome
+  parent: GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.IChromosome.html
+  name: IChromosome
+  nameWithType: IChromosome
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosome
+- uid: System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}
+  commentId: T:System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}
+  parent: System
+  definition: System.IComparable`1
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  name: IComparable<IChromosome>
+  nameWithType: IComparable<IChromosome>
+  fullName: System.IComparable<GeneticSharp.Domain.Chromosomes.IChromosome>
+  nameWithType.vb: IComparable(Of IChromosome)
+  fullName.vb: System.IComparable(Of GeneticSharp.Domain.Chromosomes.IChromosome)
+  name.vb: IComparable(Of IChromosome)
+  spec.csharp:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: <
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome
+    name: IChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome
+    name: IChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html
+  - name: )
+- uid: ISILab.AI.Optimization.IOptimizable
+  commentId: T:ISILab.AI.Optimization.IOptimizable
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable
+  nameWithType: IOptimizable
+  fullName: ISILab.AI.Optimization.IOptimizable
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.AI.Categorization.ChromosomeBase2D.ToIndex(UnityEngine.Vector2)
+  commentId: M:ISILab.AI.Categorization.ChromosomeBase2D.ToIndex(UnityEngine.Vector2)
+  parent: ISILab.AI.Categorization.ChromosomeBase2D
+  isExternal: true
+  href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToIndex_UnityEngine_Vector2_
+  name: ToIndex(Vector2)
+  nameWithType: ChromosomeBase2D.ToIndex(Vector2)
+  fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToIndex(UnityEngine.Vector2)
+  spec.csharp:
+  - uid: ISILab.AI.Categorization.ChromosomeBase2D.ToIndex(UnityEngine.Vector2)
+    name: ToIndex
+    isExternal: true
+    href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToIndex_UnityEngine_Vector2_
+  - name: (
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Categorization.ChromosomeBase2D.ToIndex(UnityEngine.Vector2)
+    name: ToIndex
+    isExternal: true
+    href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToIndex_UnityEngine_Vector2_
+  - name: (
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+- uid: ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex(UnityEngine.Vector2)
+  commentId: M:ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex(UnityEngine.Vector2)
+  parent: ISILab.AI.Categorization.ChromosomeBase2D
+  isExternal: true
+  href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_GlobalToIndex_UnityEngine_Vector2_
+  name: GlobalToIndex(Vector2)
+  nameWithType: ChromosomeBase2D.GlobalToIndex(Vector2)
+  fullName: ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex(UnityEngine.Vector2)
+  spec.csharp:
+  - uid: ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex(UnityEngine.Vector2)
+    name: GlobalToIndex
+    isExternal: true
+    href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_GlobalToIndex_UnityEngine_Vector2_
+  - name: (
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex(UnityEngine.Vector2)
+    name: GlobalToIndex
+    isExternal: true
+    href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_GlobalToIndex_UnityEngine_Vector2_
+  - name: (
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+- uid: ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition(System.Int32)
+  commentId: M:ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition(System.Int32)
+  parent: ISILab.AI.Categorization.ChromosomeBase2D
+  isExternal: true
+  href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToMatrixPosition_System_Int32_
+  name: ToMatrixPosition(int)
+  nameWithType: ChromosomeBase2D.ToMatrixPosition(int)
+  fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition(int)
+  nameWithType.vb: ChromosomeBase2D.ToMatrixPosition(Integer)
+  fullName.vb: ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition(Integer)
+  name.vb: ToMatrixPosition(Integer)
+  spec.csharp:
+  - uid: ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition(System.Int32)
+    name: ToMatrixPosition
+    isExternal: true
+    href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToMatrixPosition_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition(System.Int32)
+    name: ToMatrixPosition
+    isExternal: true
+    href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToMatrixPosition_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(System.Int32)
+  commentId: M:ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(System.Int32)
+  parent: ISILab.AI.Categorization.ChromosomeBase2D
+  isExternal: true
+  href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToGlobalPosition_System_Int32_
+  name: ToGlobalPosition(int)
+  nameWithType: ChromosomeBase2D.ToGlobalPosition(int)
+  fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(int)
+  nameWithType.vb: ChromosomeBase2D.ToGlobalPosition(Integer)
+  fullName.vb: ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(Integer)
+  name.vb: ToGlobalPosition(Integer)
+  spec.csharp:
+  - uid: ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(System.Int32)
+    name: ToGlobalPosition
+    isExternal: true
+    href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToGlobalPosition_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(System.Int32)
+    name: ToGlobalPosition
+    isExternal: true
+    href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToGlobalPosition_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ISILab.AI.Categorization.ChromosomeBase2D.Rect
+  commentId: P:ISILab.AI.Categorization.ChromosomeBase2D.Rect
+  parent: ISILab.AI.Categorization.ChromosomeBase2D
+  isExternal: true
+  href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_Rect
+  name: Rect
+  nameWithType: ChromosomeBase2D.Rect
+  fullName: ISILab.AI.Categorization.ChromosomeBase2D.Rect
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
+  commentId: F:GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_genes
+  name: genes
+  nameWithType: ChromosomeBase.genes
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
+  commentId: F:GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_immutableIndexes
+  name: immutableIndexes
+  nameWithType: ChromosomeBase.immutableIndexes
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
+  commentId: F:GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_invalidIndexes
+  name: invalidIndexes
+  nameWithType: ChromosomeBase.invalidIndexes
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,{T})
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  definition: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
+  name: ReplaceGene<T>(int, T)
+  nameWithType: ChromosomeBase.ReplaceGene<T>(int, T)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene<T>(int, T)
+  nameWithType.vb: ChromosomeBase.ReplaceGene(Of T)(Integer, T)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene(Of T)(Integer, T)
+  name.vb: ReplaceGene(Of T)(Integer, T)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+    name: ReplaceGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+    name: ReplaceGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,{T}[])
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  definition: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
+  name: ReplaceGenes<T>(int, T[])
+  nameWithType: ChromosomeBase.ReplaceGenes<T>(int, T[])
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes<T>(int, T[])
+  nameWithType.vb: ChromosomeBase.ReplaceGenes(Of T)(Integer, T())
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes(Of T)(Integer, T())
+  name.vb: ReplaceGenes(Of T)(Integer, T())
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+    name: ReplaceGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+    name: ReplaceGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: (
+  - name: )
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Resize_System_Int32_
+  name: Resize(int)
+  nameWithType: ChromosomeBase.Resize(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(int)
+  nameWithType.vb: ChromosomeBase.Resize(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(Integer)
+  name.vb: Resize(Integer)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)
+    name: Resize
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Resize_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)
+    name: Resize
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Resize_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene__1_System_Int32_
+  name: GetGene<T>(int)
+  nameWithType: ChromosomeBase.GetGene<T>(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene<T>(int)
+  nameWithType.vb: ChromosomeBase.GetGene(Of T)(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(Of T)(Integer)
+  name.vb: GetGene(Of T)(Integer)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)
+    name: GetGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene__1_System_Int32_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)
+    name: GetGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene__1_System_Int32_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes__1
+  name: GetGenes<T>()
+  nameWithType: ChromosomeBase.GetGenes<T>()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes<T>()
+  nameWithType.vb: ChromosomeBase.GetGenes(Of T)()
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes(Of T)()
+  name.vb: GetGenes(Of T)()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
+    name: GetGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
+    name: GetGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CompareTo_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+  name: CompareTo(ChromosomeBase)
+  nameWithType: ChromosomeBase.CompareTo(ChromosomeBase)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+    name: CompareTo
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CompareTo_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+    name: CompareTo
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CompareTo_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Equals_System_Object_
+  name: Equals(object)
+  nameWithType: ChromosomeBase.Equals(object)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(object)
+  nameWithType.vb: ChromosomeBase.Equals(Object)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Equals_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Equals_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetHashCode
+  name: GetHashCode()
+  nameWithType: ChromosomeBase.GetHashCode()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetHashCode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetHashCode
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGene_System_Int32_
+  name: CreateGene(int)
+  nameWithType: ChromosomeBase.CreateGene(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(int)
+  nameWithType.vb: ChromosomeBase.CreateGene(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(Integer)
+  name.vb: CreateGene(Integer)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)
+    name: CreateGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGene_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)
+    name: CreateGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGene_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGenes
+  name: CreateGenes()
+  nameWithType: ChromosomeBase.CreateGenes()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
+    name: CreateGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGenes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
+    name: CreateGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGenes
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene_System_Int32_
+  name: GetGene(int)
+  nameWithType: ChromosomeBase.GetGene(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(int)
+  nameWithType.vb: ChromosomeBase.GetGene(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(Integer)
+  name.vb: GetGene(Integer)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)
+    name: GetGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)
+    name: GetGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes
+  name: GetGenes()
+  nameWithType: ChromosomeBase.GetGenes()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
+    name: GetGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
+    name: GetGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Clone
+  name: Clone()
+  nameWithType: ChromosomeBase.Clone()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
+    name: Clone
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
+    name: Clone
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Clone
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1({T}[])
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  definition: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
+  name: SetDataSequence<T>(T[])
+  nameWithType: ChromosomeBase.SetDataSequence<T>(T[])
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence<T>(T[])
+  nameWithType.vb: ChromosomeBase.SetDataSequence(Of T)(T())
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence(Of T)(T())
+  name.vb: SetDataSequence(Of T)(T())
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+    name: SetDataSequence
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+    name: SetDataSequence
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: (
+  - name: )
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetData__1
+  name: GetData<T>()
+  nameWithType: ChromosomeBase.GetData<T>()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData<T>()
+  nameWithType.vb: ChromosomeBase.GetData(Of T)()
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData(Of T)()
+  name.vb: GetData(Of T)()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
+    name: GetData
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetData__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
+    name: GetData
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetData__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetDataSquence__1
+  name: GetDataSquence<T>()
+  nameWithType: ChromosomeBase.GetDataSquence<T>()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence<T>()
+  nameWithType.vb: ChromosomeBase.GetDataSquence(Of T)()
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence(Of T)()
+  name.vb: GetDataSquence(Of T)()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
+    name: GetDataSquence
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetDataSquence__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
+    name: GetDataSquence
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetDataSquence__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1({T})
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  definition: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
+  name: SetData<T>(T)
+  nameWithType: ChromosomeBase.SetData<T>(T)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData<T>(T)
+  nameWithType.vb: ChromosomeBase.SetData(Of T)(T)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData(Of T)(T)
+  name.vb: SetData(Of T)(T)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+    name: SetData
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+    name: SetData
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsImmutable_System_Int32_
+  name: IsImmutable(int)
+  nameWithType: ChromosomeBase.IsImmutable(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(int)
+  nameWithType.vb: ChromosomeBase.IsImmutable(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(Integer)
+  name.vb: IsImmutable(Integer)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
+    name: IsImmutable
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsImmutable_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
+    name: IsImmutable
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsImmutable_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsInvalid_System_Int32_
+  name: IsInvalid(int)
+  nameWithType: ChromosomeBase.IsInvalid(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(int)
+  nameWithType.vb: ChromosomeBase.IsInvalid(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(Integer)
+  name.vb: IsInvalid(Integer)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
+    name: IsInvalid
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsInvalid_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
+    name: IsInvalid
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsInvalid_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Fitness
+  name: Fitness
+  nameWithType: ChromosomeBase.Fitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_xFitness
+  name: xFitness
+  nameWithType: ChromosomeBase.xFitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_yFitness
+  name: yFitness
+  nameWithType: ChromosomeBase.yFitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Length
+  name: Length
+  nameWithType: ChromosomeBase.Length
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ImmutablesCount
+  name: ImmutablesCount
+  nameWithType: ChromosomeBase.ImmutablesCount
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.IChromosome.GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions
+  definition: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
+  name: ValidateGenes(IChromosome)
+  nameWithType: ChromosomeExtensions.ValidateGenes(IChromosome)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
+    name: ValidateGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome
+    name: IChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
+    name: ValidateGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome
+    name: IChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GeneticSharp.Domain.Chromosomes
+  commentId: N:GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Chromosomes
+  nameWithType: GeneticSharp.Domain.Chromosomes
+  fullName: GeneticSharp.Domain.Chromosomes
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Chromosomes
+    name: Chromosomes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Chromosomes
+    name: Chromosomes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.html
+- uid: ISILab.Commons.Interfaces
+  commentId: N:ISILab.Commons.Interfaces
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Commons.Interfaces
+  nameWithType: ISILab.Commons.Interfaces
+  fullName: ISILab.Commons.Interfaces
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  - name: .
+  - uid: ISILab.Commons.Interfaces
+    name: Interfaces
+    isExternal: true
+    href: ISILab.Commons.Interfaces.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  - name: .
+  - uid: ISILab.Commons.Interfaces
+    name: Interfaces
+    isExternal: true
+    href: ISILab.Commons.Interfaces.html
+- uid: System.IComparable`1
+  commentId: T:System.IComparable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  name: IComparable<T>
+  nameWithType: IComparable<T>
+  fullName: System.IComparable<T>
+  nameWithType.vb: IComparable(Of T)
+  fullName.vb: System.IComparable(Of T)
+  name.vb: IComparable(Of T)
+  spec.csharp:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
+  name: ReplaceGene<T>(int, T)
+  nameWithType: ChromosomeBase.ReplaceGene<T>(int, T)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene<T>(int, T)
+  nameWithType.vb: ChromosomeBase.ReplaceGene(Of T)(Integer, T)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene(Of T)(Integer, T)
+  name.vb: ReplaceGene(Of T)(Integer, T)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+    name: ReplaceGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
+    name: ReplaceGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
+  name: ReplaceGenes<T>(int, T[])
+  nameWithType: ChromosomeBase.ReplaceGenes<T>(int, T[])
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes<T>(int, T[])
+  nameWithType.vb: ChromosomeBase.ReplaceGenes(Of T)(Integer, T())
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes(Of T)(Integer, T())
+  name.vb: ReplaceGenes(Of T)(Integer, T())
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+    name: ReplaceGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
+    name: ReplaceGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: (
+  - name: )
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
+  name: SetDataSequence<T>(T[])
+  nameWithType: ChromosomeBase.SetDataSequence<T>(T[])
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence<T>(T[])
+  nameWithType.vb: ChromosomeBase.SetDataSequence(Of T)(T())
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence(Of T)(T())
+  name.vb: SetDataSequence(Of T)(T())
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+    name: SetDataSequence
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
+    name: SetDataSequence
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: (
+  - name: )
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
+  name: SetData<T>(T)
+  nameWithType: ChromosomeBase.SetData<T>(T)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData<T>(T)
+  nameWithType.vb: ChromosomeBase.SetData(Of T)(T)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData(Of T)(T)
+  name.vb: SetData(Of T)(T)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+    name: SetData
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
+    name: SetData
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
+  name: ValidateGenes(IChromosome)
+  nameWithType: ChromosomeExtensions.ValidateGenes(IChromosome)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
+    name: ValidateGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome
+    name: IChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
+    name: ValidateGenes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome
+    name: IChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions
+  commentId: T:GeneticSharp.Domain.Chromosomes.ChromosomeExtensions
+  parent: GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html
+  name: ChromosomeExtensions
+  nameWithType: ChromosomeExtensions
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor*
+  commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor
+  isExternal: true
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome__ctor_ISILab_LBS_Modules_BundleTileMap_UnityEngine_Rect_System_Int32___System_Int32___
+  name: BundleTilemapChromosome
+  nameWithType: BundleTilemapChromosome.BundleTilemapChromosome
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome
+  nameWithType.vb: BundleTilemapChromosome.New
+  fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.New
+  name.vb: New
+- uid: ISILab.LBS.Modules.BundleTileMap
+  commentId: T:ISILab.LBS.Modules.BundleTileMap
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.BundleTileMap.html
+  name: BundleTileMap
+  nameWithType: BundleTileMap
+  fullName: ISILab.LBS.Modules.BundleTileMap
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CloneChromosome
+  name: CloneChromosome()
+  nameWithType: ChromosomeBase.CloneChromosome()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
+    name: CloneChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CloneChromosome
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
+    name: CloneChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CloneChromosome
+  - name: (
+  - name: )
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome*
+  commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome
+  isExternal: true
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome_CloneChromosome
+  name: CloneChromosome
+  nameWithType: BundleTilemapChromosome.CloneChromosome
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateNewChromosome
+  name: CreateNewChromosome()
+  nameWithType: ChromosomeBase.CreateNewChromosome()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
+    name: CreateNewChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateNewChromosome
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
+    name: CreateNewChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateNewChromosome
+  - name: (
+  - name: )
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.CreateNewChromosome*
+  commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.CreateNewChromosome
+  isExternal: true
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome_CreateNewChromosome
+  name: CreateNewChromosome
+  nameWithType: BundleTilemapChromosome.CreateNewChromosome
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.CreateNewChromosome
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GenerateGene
+  name: GenerateGene()
+  nameWithType: ChromosomeBase.GenerateGene()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
+    name: GenerateGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GenerateGene
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
+    name: GenerateGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GenerateGene
+  - name: (
+  - name: )
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.GenerateGene*
+  commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.GenerateGene
+  isExternal: true
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome_GenerateGene
+  name: GenerateGene
+  nameWithType: BundleTilemapChromosome.GenerateGene
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.GenerateGene
+- uid: GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene
+  commentId: M:GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene
+  parent: GeneticSharp.Domain.Chromosomes.IChromosome
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GenerateGene
+  name: GenerateGene()
+  nameWithType: IChromosome.GenerateGene()
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene
+    name: GenerateGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GenerateGene
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene
+    name: GenerateGene
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GenerateGene
+  - name: (
+  - name: )
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsValid
+  name: IsValid()
+  nameWithType: ChromosomeBase.IsValid()
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
+    name: IsValid
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsValid
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
+    name: IsValid
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsValid
+  - name: (
+  - name: )
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.IsValid*
+  commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.IsValid
+  isExternal: true
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome_IsValid
+  name: IsValid
+  nameWithType: BundleTilemapChromosome.IsValid
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.IsValid
+- uid: GeneticSharp.Domain.Chromosomes.IChromosome.IsValid
+  commentId: M:GeneticSharp.Domain.Chromosomes.IChromosome.IsValid
+  parent: GeneticSharp.Domain.Chromosomes.IChromosome
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_IsValid
+  name: IsValid()
+  nameWithType: IChromosome.IsValid()
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosome.IsValid()
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome.IsValid
+    name: IsValid
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_IsValid
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome.IsValid
+    name: IsValid
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_IsValid
+  - name: (
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.IsEmpty*
+  commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.IsEmpty
+  isExternal: true
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome_IsEmpty
+  name: IsEmpty
+  nameWithType: BundleTilemapChromosome.IsEmpty
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.IsEmpty
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDeafult_System_Int32_
+  name: SetDeafult(int)
+  nameWithType: ChromosomeBase.SetDeafult(int)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(int)
+  nameWithType.vb: ChromosomeBase.SetDeafult(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(Integer)
+  name.vb: SetDeafult(Integer)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
+    name: SetDeafult
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDeafult_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
+    name: SetDeafult
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDeafult_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.SetDeafult*
+  commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.SetDeafult
+  isExternal: true
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome_SetDeafult_System_Int32_
+  name: SetDeafult
+  nameWithType: BundleTilemapChromosome.SetDeafult
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.SetDeafult
+- uid: GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult(System.Int32)
+  commentId: M:GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult(System.Int32)
+  parent: GeneticSharp.Domain.Chromosomes.IChromosome
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_SetDeafult_System_Int32_
+  name: SetDeafult(int)
+  nameWithType: IChromosome.SetDeafult(int)
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult(int)
+  nameWithType.vb: IChromosome.SetDeafult(Integer)
+  fullName.vb: GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult(Integer)
+  name.vb: SetDeafult(Integer)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult(System.Int32)
+    name: SetDeafult
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_SetDeafult_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult(System.Int32)
+    name: SetDeafult
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_SetDeafult_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.ToTexture*
+  commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.ToTexture
+  isExternal: true
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome_ToTexture
+  name: ToTexture
+  nameWithType: BundleTilemapChromosome.ToTexture
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.ToTexture
+- uid: ISILab.Commons.Interfaces.IDrawable.ToTexture
+  commentId: M:ISILab.Commons.Interfaces.IDrawable.ToTexture
+  parent: ISILab.Commons.Interfaces.IDrawable
+  isExternal: true
+  name: ToTexture()
+  nameWithType: IDrawable.ToTexture()
+  fullName: ISILab.Commons.Interfaces.IDrawable.ToTexture()
+  spec.csharp:
+  - uid: ISILab.Commons.Interfaces.IDrawable.ToTexture
+    name: ToTexture
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.Commons.Interfaces.IDrawable.ToTexture
+    name: ToTexture
+    isExternal: true
+  - name: (
+  - name: )
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo*
+  commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo
+  isExternal: true
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome_CompareTo_GeneticSharp_Domain_Chromosomes_IChromosome_
+  name: CompareTo
+  nameWithType: BundleTilemapChromosome.CompareTo
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo
+- uid: System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+  commentId: M:System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+  parent: System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}
+  definition: System.IComparable`1.CompareTo(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  name: CompareTo(IChromosome)
+  nameWithType: IComparable<IChromosome>.CompareTo(IChromosome)
+  fullName: System.IComparable<GeneticSharp.Domain.Chromosomes.IChromosome>.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+  nameWithType.vb: IComparable(Of IChromosome).CompareTo(IChromosome)
+  fullName.vb: System.IComparable(Of GeneticSharp.Domain.Chromosomes.IChromosome).CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+  spec.csharp:
+  - uid: System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome
+    name: IChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html
+  - name: )
+  spec.vb:
+  - uid: System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - uid: GeneticSharp.Domain.Chromosomes.IChromosome
+    name: IChromosome
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.IChromosome.html
+  - name: )
+- uid: System.IComparable`1.CompareTo(`0)
+  commentId: M:System.IComparable`1.CompareTo(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  name: CompareTo(T)
+  nameWithType: IComparable<T>.CompareTo(T)
+  fullName: System.IComparable<T>.CompareTo(T)
+  nameWithType.vb: IComparable(Of T).CompareTo(T)
+  fullName.vb: System.IComparable(Of T).CompareTo(T)
+  spec.csharp:
+  - uid: System.IComparable`1.CompareTo(`0)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IComparable`1.CompareTo(`0)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - name: T
+  - name: )
+shouldSkipMarkup: true

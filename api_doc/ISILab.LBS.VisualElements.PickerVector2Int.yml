@@ -1,0 +1,448 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.PickerVector2Int
+  commentId: T:ISILab.LBS.VisualElements.PickerVector2Int
+  id: PickerVector2Int
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.PickerVector2Int.#ctor
+  - ISILab.LBS.VisualElements.PickerVector2Int.OnAreaChange
+  - ISILab.LBS.VisualElements.PickerVector2Int.PickerLogic
+  - ISILab.LBS.VisualElements.PickerVector2Int.SetInfo(System.String,System.String)
+  - ISILab.LBS.VisualElements.PickerVector2Int._areaView
+  langs:
+  - csharp
+  - vb
+  name: PickerVector2Int
+  nameWithType: PickerVector2Int
+  fullName: ISILab.LBS.VisualElements.PickerVector2Int
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class PickerVector2Int : PickerBase'
+    content.vb: Public Class PickerVector2Int Inherits PickerBase
+  inheritance:
+  - System.Object
+  - ISILab.LBS.VisualElements.PickerBase
+  inheritedMembers:
+  - ISILab.LBS.VisualElements.PickerBase.IsSelected
+  - ISILab.LBS.VisualElements.PickerBase.BindPickButton
+  - ISILab.LBS.VisualElements.PickerBase.GetActionData
+  - ISILab.LBS.VisualElements.PickerBase.PickButton
+- uid: ISILab.LBS.VisualElements.PickerVector2Int._areaView
+  commentId: F:ISILab.LBS.VisualElements.PickerVector2Int._areaView
+  id: _areaView
+  parent: ISILab.LBS.VisualElements.PickerVector2Int
+  langs:
+  - csharp
+  - vb
+  name: _areaView
+  nameWithType: PickerVector2Int._areaView
+  fullName: ISILab.LBS.VisualElements.PickerVector2Int._areaView
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public RectField _areaView
+    return:
+      type: UnityEngine.UIElements.RectField
+    content.vb: Public _areaView As RectField
+- uid: ISILab.LBS.VisualElements.PickerVector2Int.OnAreaChange
+  commentId: F:ISILab.LBS.VisualElements.PickerVector2Int.OnAreaChange
+  id: OnAreaChange
+  parent: ISILab.LBS.VisualElements.PickerVector2Int
+  langs:
+  - csharp
+  - vb
+  name: OnAreaChange
+  nameWithType: PickerVector2Int.OnAreaChange
+  fullName: ISILab.LBS.VisualElements.PickerVector2Int.OnAreaChange
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Action<Rect> OnAreaChange
+    return:
+      type: System.Action{UnityEngine.Rect}
+    content.vb: Public OnAreaChange As Action(Of Rect)
+- uid: ISILab.LBS.VisualElements.PickerVector2Int.#ctor
+  commentId: M:ISILab.LBS.VisualElements.PickerVector2Int.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.PickerVector2Int
+  langs:
+  - csharp
+  - vb
+  name: PickerVector2Int()
+  nameWithType: PickerVector2Int.PickerVector2Int()
+  fullName: ISILab.LBS.VisualElements.PickerVector2Int.PickerVector2Int()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public PickerVector2Int()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.PickerVector2Int.#ctor*
+  nameWithType.vb: PickerVector2Int.New()
+  fullName.vb: ISILab.LBS.VisualElements.PickerVector2Int.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.PickerVector2Int.SetInfo(System.String,System.String)
+  commentId: M:ISILab.LBS.VisualElements.PickerVector2Int.SetInfo(System.String,System.String)
+  id: SetInfo(System.String,System.String)
+  parent: ISILab.LBS.VisualElements.PickerVector2Int
+  langs:
+  - csharp
+  - vb
+  name: SetInfo(string, string)
+  nameWithType: PickerVector2Int.SetInfo(string, string)
+  fullName: ISILab.LBS.VisualElements.PickerVector2Int.SetInfo(string, string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public override void SetInfo(string label, string tooltip)
+    parameters:
+    - id: label
+      type: System.String
+    - id: tooltip
+      type: System.String
+    content.vb: Public Overrides Sub SetInfo(label As String, tooltip As String)
+  overridden: ISILab.LBS.VisualElements.PickerBase.SetInfo(System.String,System.String)
+  overload: ISILab.LBS.VisualElements.PickerVector2Int.SetInfo*
+  nameWithType.vb: PickerVector2Int.SetInfo(String, String)
+  fullName.vb: ISILab.LBS.VisualElements.PickerVector2Int.SetInfo(String, String)
+  name.vb: SetInfo(String, String)
+- uid: ISILab.LBS.VisualElements.PickerVector2Int.PickerLogic
+  commentId: M:ISILab.LBS.VisualElements.PickerVector2Int.PickerLogic
+  id: PickerLogic
+  parent: ISILab.LBS.VisualElements.PickerVector2Int
+  langs:
+  - csharp
+  - vb
+  name: PickerLogic()
+  nameWithType: PickerVector2Int.PickerLogic()
+  fullName: ISILab.LBS.VisualElements.PickerVector2Int.PickerLogic()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: protected override void PickerLogic()
+    content.vb: Protected Overrides Sub PickerLogic()
+  overridden: ISILab.LBS.VisualElements.PickerBase.PickerLogic
+  overload: ISILab.LBS.VisualElements.PickerVector2Int.PickerLogic*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.VisualElements.PickerBase
+  commentId: T:ISILab.LBS.VisualElements.PickerBase
+  parent: ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html
+  name: PickerBase
+  nameWithType: PickerBase
+  fullName: ISILab.LBS.VisualElements.PickerBase
+- uid: ISILab.LBS.VisualElements.PickerBase.IsSelected
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.IsSelected
+  parent: ISILab.LBS.VisualElements.PickerBase
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_IsSelected
+  name: IsSelected()
+  nameWithType: PickerBase.IsSelected()
+  fullName: ISILab.LBS.VisualElements.PickerBase.IsSelected()
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.PickerBase.IsSelected
+    name: IsSelected
+    isExternal: true
+    href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_IsSelected
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.PickerBase.IsSelected
+    name: IsSelected
+    isExternal: true
+    href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_IsSelected
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.PickerBase.BindPickButton
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.BindPickButton
+  parent: ISILab.LBS.VisualElements.PickerBase
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_BindPickButton
+  name: BindPickButton()
+  nameWithType: PickerBase.BindPickButton()
+  fullName: ISILab.LBS.VisualElements.PickerBase.BindPickButton()
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.PickerBase.BindPickButton
+    name: BindPickButton
+    isExternal: true
+    href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_BindPickButton
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.PickerBase.BindPickButton
+    name: BindPickButton
+    isExternal: true
+    href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_BindPickButton
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.PickerBase.GetActionData
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.GetActionData
+  parent: ISILab.LBS.VisualElements.PickerBase
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_GetActionData
+  name: GetActionData()
+  nameWithType: PickerBase.GetActionData()
+  fullName: ISILab.LBS.VisualElements.PickerBase.GetActionData()
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.PickerBase.GetActionData
+    name: GetActionData
+    isExternal: true
+    href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_GetActionData
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.PickerBase.GetActionData
+    name: GetActionData
+    isExternal: true
+    href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_GetActionData
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.PickerBase.PickButton
+  commentId: P:ISILab.LBS.VisualElements.PickerBase.PickButton
+  parent: ISILab.LBS.VisualElements.PickerBase
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_PickButton
+  name: PickButton
+  nameWithType: PickerBase.PickButton
+  fullName: ISILab.LBS.VisualElements.PickerBase.PickButton
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.UIElements.RectField
+  commentId: '!:UnityEngine.UIElements.RectField'
+  isExternal: true
+  name: RectField
+  nameWithType: RectField
+  fullName: UnityEngine.UIElements.RectField
+- uid: System.Action{UnityEngine.Rect}
+  commentId: T:System.Action{UnityEngine.Rect}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<Rect>
+  nameWithType: Action<Rect>
+  fullName: System.Action<UnityEngine.Rect>
+  nameWithType.vb: Action(Of Rect)
+  fullName.vb: System.Action(Of UnityEngine.Rect)
+  name.vb: Action(Of Rect)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.VisualElements.PickerVector2Int.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.PickerVector2Int.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerVector2Int.html#ISILab_LBS_VisualElements_PickerVector2Int__ctor
+  name: PickerVector2Int
+  nameWithType: PickerVector2Int.PickerVector2Int
+  fullName: ISILab.LBS.VisualElements.PickerVector2Int.PickerVector2Int
+  nameWithType.vb: PickerVector2Int.New
+  fullName.vb: ISILab.LBS.VisualElements.PickerVector2Int.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.PickerBase.SetInfo(System.String,System.String)
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.SetInfo(System.String,System.String)
+  parent: ISILab.LBS.VisualElements.PickerBase
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_SetInfo_System_String_System_String_
+  name: SetInfo(string, string)
+  nameWithType: PickerBase.SetInfo(string, string)
+  fullName: ISILab.LBS.VisualElements.PickerBase.SetInfo(string, string)
+  nameWithType.vb: PickerBase.SetInfo(String, String)
+  fullName.vb: ISILab.LBS.VisualElements.PickerBase.SetInfo(String, String)
+  name.vb: SetInfo(String, String)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.PickerBase.SetInfo(System.String,System.String)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_SetInfo_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.PickerBase.SetInfo(System.String,System.String)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_SetInfo_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ISILab.LBS.VisualElements.PickerVector2Int.SetInfo*
+  commentId: Overload:ISILab.LBS.VisualElements.PickerVector2Int.SetInfo
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerVector2Int.html#ISILab_LBS_VisualElements_PickerVector2Int_SetInfo_System_String_System_String_
+  name: SetInfo
+  nameWithType: PickerVector2Int.SetInfo
+  fullName: ISILab.LBS.VisualElements.PickerVector2Int.SetInfo
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.VisualElements.PickerBase.PickerLogic
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.PickerLogic
+  parent: ISILab.LBS.VisualElements.PickerBase
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_PickerLogic
+  name: PickerLogic()
+  nameWithType: PickerBase.PickerLogic()
+  fullName: ISILab.LBS.VisualElements.PickerBase.PickerLogic()
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.PickerBase.PickerLogic
+    name: PickerLogic
+    isExternal: true
+    href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_PickerLogic
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.PickerBase.PickerLogic
+    name: PickerLogic
+    isExternal: true
+    href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_PickerLogic
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.PickerVector2Int.PickerLogic*
+  commentId: Overload:ISILab.LBS.VisualElements.PickerVector2Int.PickerLogic
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerVector2Int.html#ISILab_LBS_VisualElements_PickerVector2Int_PickerLogic
+  name: PickerLogic
+  nameWithType: PickerVector2Int.PickerLogic
+  fullName: ISILab.LBS.VisualElements.PickerVector2Int.PickerLogic
+shouldSkipMarkup: true

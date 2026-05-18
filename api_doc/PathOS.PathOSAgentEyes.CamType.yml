@@ -1,0 +1,95 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.PathOSAgentEyes.CamType
+  commentId: T:PathOS.PathOSAgentEyes.CamType
+  id: PathOSAgentEyes.CamType
+  parent: PathOS
+  children:
+  - PathOS.PathOSAgentEyes.CamType.FirstPerson
+  - PathOS.PathOSAgentEyes.CamType.FreeMode
+  langs:
+  - csharp
+  - vb
+  name: PathOSAgentEyes.CamType
+  nameWithType: PathOSAgentEyes.CamType
+  fullName: PathOS.PathOSAgentEyes.CamType
+  type: Enum
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public enum PathOSAgentEyes.CamType
+    content.vb: Public Enum PathOSAgentEyes.CamType
+- uid: PathOS.PathOSAgentEyes.CamType.FreeMode
+  commentId: F:PathOS.PathOSAgentEyes.CamType.FreeMode
+  id: FreeMode
+  parent: PathOS.PathOSAgentEyes.CamType
+  langs:
+  - csharp
+  - vb
+  name: FreeMode
+  nameWithType: PathOSAgentEyes.CamType.FreeMode
+  fullName: PathOS.PathOSAgentEyes.CamType.FreeMode
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: FreeMode = 0
+    return:
+      type: PathOS.PathOSAgentEyes.CamType
+- uid: PathOS.PathOSAgentEyes.CamType.FirstPerson
+  commentId: F:PathOS.PathOSAgentEyes.CamType.FirstPerson
+  id: FirstPerson
+  parent: PathOS.PathOSAgentEyes.CamType
+  langs:
+  - csharp
+  - vb
+  name: FirstPerson
+  nameWithType: PathOSAgentEyes.CamType.FirstPerson
+  fullName: PathOS.PathOSAgentEyes.CamType.FirstPerson
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: FirstPerson = 1
+    return:
+      type: PathOS.PathOSAgentEyes.CamType
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: PathOS.PathOSAgentEyes.CamType
+  commentId: T:PathOS.PathOSAgentEyes.CamType
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html
+  name: PathOSAgentEyes.CamType
+  nameWithType: PathOSAgentEyes.CamType
+  fullName: PathOS.PathOSAgentEyes.CamType
+  spec.csharp:
+  - uid: PathOS.PathOSAgentEyes
+    name: PathOSAgentEyes
+    isExternal: true
+    href: PathOS.PathOSAgentEyes.html
+  - name: .
+  - uid: PathOS.PathOSAgentEyes.CamType
+    name: CamType
+    isExternal: true
+    href: PathOS.PathOSAgentEyes.CamType.html
+  spec.vb:
+  - uid: PathOS.PathOSAgentEyes
+    name: PathOSAgentEyes
+    isExternal: true
+    href: PathOS.PathOSAgentEyes.html
+  - name: .
+  - uid: PathOS.PathOSAgentEyes.CamType
+    name: CamType
+    isExternal: true
+    href: PathOS.PathOSAgentEyes.CamType.html
+shouldSkipMarkup: true

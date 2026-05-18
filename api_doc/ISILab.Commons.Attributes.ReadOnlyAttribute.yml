@@ -1,0 +1,147 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.Commons.Attributes.ReadOnlyAttribute
+  commentId: T:ISILab.Commons.Attributes.ReadOnlyAttribute
+  id: ReadOnlyAttribute
+  parent: ISILab.Commons.Attributes
+  children:
+  - ISILab.Commons.Attributes.ReadOnlyAttribute.#ctor(System.Boolean)
+  - ISILab.Commons.Attributes.ReadOnlyAttribute.includeChildren
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyAttribute
+  nameWithType: ReadOnlyAttribute
+  fullName: ISILab.Commons.Attributes.ReadOnlyAttribute
+  type: Class
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Attributes
+  syntax:
+    content: 'public class ReadOnlyAttribute : PropertyAttribute'
+    content.vb: Public Class ReadOnlyAttribute Inherits PropertyAttribute
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.Commons.Attributes.ReadOnlyIncludeChildrenAttribute
+- uid: ISILab.Commons.Attributes.ReadOnlyAttribute.includeChildren
+  commentId: F:ISILab.Commons.Attributes.ReadOnlyAttribute.includeChildren
+  id: includeChildren
+  parent: ISILab.Commons.Attributes.ReadOnlyAttribute
+  langs:
+  - csharp
+  - vb
+  name: includeChildren
+  nameWithType: ReadOnlyAttribute.includeChildren
+  fullName: ISILab.Commons.Attributes.ReadOnlyAttribute.includeChildren
+  type: Field
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Attributes
+  syntax:
+    content: public readonly bool includeChildren
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly includeChildren As Boolean
+- uid: ISILab.Commons.Attributes.ReadOnlyAttribute.#ctor(System.Boolean)
+  commentId: M:ISILab.Commons.Attributes.ReadOnlyAttribute.#ctor(System.Boolean)
+  id: '#ctor(System.Boolean)'
+  parent: ISILab.Commons.Attributes.ReadOnlyAttribute
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyAttribute(bool)
+  nameWithType: ReadOnlyAttribute.ReadOnlyAttribute(bool)
+  fullName: ISILab.Commons.Attributes.ReadOnlyAttribute.ReadOnlyAttribute(bool)
+  type: Constructor
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Attributes
+  syntax:
+    content: public ReadOnlyAttribute(bool includeChildren = true)
+    parameters:
+    - id: includeChildren
+      type: System.Boolean
+    content.vb: Public Sub New(includeChildren As Boolean = True)
+  overload: ISILab.Commons.Attributes.ReadOnlyAttribute.#ctor*
+  nameWithType.vb: ReadOnlyAttribute.New(Boolean)
+  fullName.vb: ISILab.Commons.Attributes.ReadOnlyAttribute.New(Boolean)
+  name.vb: New(Boolean)
+references:
+- uid: ISILab.Commons.Attributes
+  commentId: N:ISILab.Commons.Attributes
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Commons.Attributes
+  nameWithType: ISILab.Commons.Attributes
+  fullName: ISILab.Commons.Attributes
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  - name: .
+  - uid: ISILab.Commons.Attributes
+    name: Attributes
+    isExternal: true
+    href: ISILab.Commons.Attributes.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  - name: .
+  - uid: ISILab.Commons.Attributes
+    name: Attributes
+    isExternal: true
+    href: ISILab.Commons.Attributes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.Commons.Attributes.ReadOnlyAttribute.#ctor*
+  commentId: Overload:ISILab.Commons.Attributes.ReadOnlyAttribute.#ctor
+  isExternal: true
+  href: ISILab.Commons.Attributes.ReadOnlyAttribute.html#ISILab_Commons_Attributes_ReadOnlyAttribute__ctor_System_Boolean_
+  name: ReadOnlyAttribute
+  nameWithType: ReadOnlyAttribute.ReadOnlyAttribute
+  fullName: ISILab.Commons.Attributes.ReadOnlyAttribute.ReadOnlyAttribute
+  nameWithType.vb: ReadOnlyAttribute.New
+  fullName.vb: ISILab.Commons.Attributes.ReadOnlyAttribute.New
+  name.vb: New
+shouldSkipMarkup: true

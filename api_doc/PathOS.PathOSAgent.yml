@@ -1,0 +1,1079 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.PathOSAgent
+  commentId: T:PathOS.PathOSAgent
+  id: PathOSAgent
+  parent: PathOS
+  children:
+  - PathOS.PathOSAgent.#ctor
+  - PathOS.PathOSAgent.ExperienceScale
+  - PathOS.PathOSAgent.GetDestinationEntity
+  - PathOS.PathOSAgent.GetEyesPosition
+  - PathOS.PathOSAgent.GetHealth
+  - PathOS.PathOSAgent.GetMemory
+  - PathOS.PathOSAgent.GetOriginPos
+  - PathOS.PathOSAgent.GetPosition
+  - PathOS.PathOSAgent.GetTargetPosition
+  - PathOS.PathOSAgent.IsDead
+  - PathOS.PathOSAgent.IsTargeted(PathOS.PerceivedEntity)
+  - PathOS.PathOSAgent.MemPathChance
+  - PathOS.PathOSAgent.RecalibratePath
+  - PathOS.PathOSAgent.RefreshHeuristicList
+  - PathOS.PathOSAgent.ResetCamera
+  - PathOS.PathOSAgent.ResetUnreachablePositionReferences
+  - PathOS.PathOSAgent.STMemoryState
+  - PathOS.PathOSAgent.ToggleCameraFollow
+  - PathOS.PathOSAgent.completed
+  - PathOS.PathOSAgent.explorationState
+  - PathOS.PathOSAgent.eyes
+  - PathOS.PathOSAgent.freezeAgent
+  - PathOS.PathOSAgent.hazardPenalty
+  - PathOS.PathOSAgent.healthState
+  - PathOS.PathOSAgent.healthTuning
+  - PathOS.PathOSAgent.heuristics
+  - PathOS.PathOSAgent.logger
+  - PathOS.PathOSAgent.memoryTuning
+  - PathOS.PathOSAgent.navigationState
+  - PathOS.PathOSAgent.timeScale
+  - PathOS.PathOSAgent.tuning
+  - PathOS.PathOSAgent.visitThresholdSqr
+  langs:
+  - csharp
+  - vb
+  name: PathOSAgent
+  nameWithType: PathOSAgent
+  fullName: PathOS.PathOSAgent
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class PathOSAgent : MonoBehaviour'
+    content.vb: Public Class PathOSAgent Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PathOS.PathOSAgent.tuning
+  commentId: F:PathOS.PathOSAgent.tuning
+  id: tuning
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: tuning
+  nameWithType: PathOSAgent.tuning
+  fullName: PathOS.PathOSAgent.tuning
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public AgentOS tuning
+    return:
+      type: PathOS.AgentOS
+    content.vb: Public tuning As AgentOS
+- uid: PathOS.PathOSAgent.healthTuning
+  commentId: F:PathOS.PathOSAgent.healthTuning
+  id: healthTuning
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: healthTuning
+  nameWithType: PathOSAgent.healthTuning
+  fullName: PathOS.PathOSAgent.healthTuning
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public HealthOS healthTuning
+    return:
+      type: PathOS.HealthOS
+    content.vb: Public healthTuning As HealthOS
+- uid: PathOS.PathOSAgent.memoryTuning
+  commentId: F:PathOS.PathOSAgent.memoryTuning
+  id: memoryTuning
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: memoryTuning
+  nameWithType: PathOSAgent.memoryTuning
+  fullName: PathOS.PathOSAgent.memoryTuning
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public MemoryOS memoryTuning
+    return:
+      type: PathOS.MemoryOS
+    content.vb: Public memoryTuning As MemoryOS
+- uid: PathOS.PathOSAgent.navigationState
+  commentId: F:PathOS.PathOSAgent.navigationState
+  id: navigationState
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: navigationState
+  nameWithType: PathOSAgent.navigationState
+  fullName: PathOS.PathOSAgent.navigationState
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public NavigationState navigationState
+    return:
+      type: PathOS.NavigationState
+    content.vb: Public navigationState As NavigationState
+- uid: PathOS.PathOSAgent.explorationState
+  commentId: F:PathOS.PathOSAgent.explorationState
+  id: explorationState
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: explorationState
+  nameWithType: PathOSAgent.explorationState
+  fullName: PathOS.PathOSAgent.explorationState
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public ExplorationState explorationState
+    return:
+      type: PathOS.ExplorationState
+    content.vb: Public explorationState As ExplorationState
+- uid: PathOS.PathOSAgent.STMemoryState
+  commentId: F:PathOS.PathOSAgent.STMemoryState
+  id: STMemoryState
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: STMemoryState
+  nameWithType: PathOSAgent.STMemoryState
+  fullName: PathOS.PathOSAgent.STMemoryState
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public MemoryState STMemoryState
+    return:
+      type: PathOS.MemoryState
+    content.vb: Public STMemoryState As MemoryState
+- uid: PathOS.PathOSAgent.healthState
+  commentId: F:PathOS.PathOSAgent.healthState
+  id: healthState
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: healthState
+  nameWithType: PathOSAgent.healthState
+  fullName: PathOS.PathOSAgent.healthState
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public HealthState healthState
+    return:
+      type: PathOS.HealthState
+    content.vb: Public healthState As HealthState
+- uid: PathOS.PathOSAgent.heuristics
+  commentId: F:PathOS.PathOSAgent.heuristics
+  id: heuristics
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: heuristics
+  nameWithType: PathOSAgent.heuristics
+  fullName: PathOS.PathOSAgent.heuristics
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public HeuristicOS heuristics
+    return:
+      type: PathOS.HeuristicOS
+    content.vb: Public heuristics As HeuristicOS
+- uid: PathOS.PathOSAgent.timeScale
+  commentId: F:PathOS.PathOSAgent.timeScale
+  id: timeScale
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: timeScale
+  nameWithType: PathOSAgent.timeScale
+  fullName: PathOS.PathOSAgent.timeScale
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float timeScale
+    return:
+      type: System.Single
+    content.vb: Public timeScale As Single
+- uid: PathOS.PathOSAgent.freezeAgent
+  commentId: F:PathOS.PathOSAgent.freezeAgent
+  id: freezeAgent
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: freezeAgent
+  nameWithType: PathOSAgent.freezeAgent
+  fullName: PathOS.PathOSAgent.freezeAgent
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool freezeAgent
+    return:
+      type: System.Boolean
+    content.vb: Public freezeAgent As Boolean
+- uid: PathOS.PathOSAgent.RefreshHeuristicList
+  commentId: M:PathOS.PathOSAgent.RefreshHeuristicList
+  id: RefreshHeuristicList
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: RefreshHeuristicList()
+  nameWithType: PathOSAgent.RefreshHeuristicList()
+  fullName: PathOS.PathOSAgent.RefreshHeuristicList()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void RefreshHeuristicList()
+    content.vb: Public Sub RefreshHeuristicList()
+  overload: PathOS.PathOSAgent.RefreshHeuristicList*
+- uid: PathOS.PathOSAgent.GetPosition
+  commentId: M:PathOS.PathOSAgent.GetPosition
+  id: GetPosition
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: GetPosition()
+  nameWithType: PathOSAgent.GetPosition()
+  fullName: PathOS.PathOSAgent.GetPosition()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Vector3 GetPosition()
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Function GetPosition() As Vector3
+  overload: PathOS.PathOSAgent.GetPosition*
+- uid: PathOS.PathOSAgent.GetEyesPosition
+  commentId: M:PathOS.PathOSAgent.GetEyesPosition
+  id: GetEyesPosition
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: GetEyesPosition()
+  nameWithType: PathOSAgent.GetEyesPosition()
+  fullName: PathOS.PathOSAgent.GetEyesPosition()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Vector3 GetEyesPosition()
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Function GetEyesPosition() As Vector3
+  overload: PathOS.PathOSAgent.GetEyesPosition*
+- uid: PathOS.PathOSAgent.GetOriginPos
+  commentId: M:PathOS.PathOSAgent.GetOriginPos
+  id: GetOriginPos
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: GetOriginPos()
+  nameWithType: PathOSAgent.GetOriginPos()
+  fullName: PathOS.PathOSAgent.GetOriginPos()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Vector3 GetOriginPos()
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Function GetOriginPos() As Vector3
+  overload: PathOS.PathOSAgent.GetOriginPos*
+- uid: PathOS.PathOSAgent.RecalibratePath
+  commentId: M:PathOS.PathOSAgent.RecalibratePath
+  id: RecalibratePath
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: RecalibratePath()
+  nameWithType: PathOSAgent.RecalibratePath()
+  fullName: PathOS.PathOSAgent.RecalibratePath()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void RecalibratePath()
+    content.vb: Public Sub RecalibratePath()
+  overload: PathOS.PathOSAgent.RecalibratePath*
+- uid: PathOS.PathOSAgent.ResetCamera
+  commentId: M:PathOS.PathOSAgent.ResetCamera
+  id: ResetCamera
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: ResetCamera()
+  nameWithType: PathOSAgent.ResetCamera()
+  fullName: PathOS.PathOSAgent.ResetCamera()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void ResetCamera()
+    content.vb: Public Sub ResetCamera()
+  overload: PathOS.PathOSAgent.ResetCamera*
+- uid: PathOS.PathOSAgent.ToggleCameraFollow
+  commentId: M:PathOS.PathOSAgent.ToggleCameraFollow
+  id: ToggleCameraFollow
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: ToggleCameraFollow()
+  nameWithType: PathOSAgent.ToggleCameraFollow()
+  fullName: PathOS.PathOSAgent.ToggleCameraFollow()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void ToggleCameraFollow()
+    content.vb: Public Sub ToggleCameraFollow()
+  overload: PathOS.PathOSAgent.ToggleCameraFollow*
+- uid: PathOS.PathOSAgent.GetDestinationEntity
+  commentId: M:PathOS.PathOSAgent.GetDestinationEntity
+  id: GetDestinationEntity
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: GetDestinationEntity()
+  nameWithType: PathOSAgent.GetDestinationEntity()
+  fullName: PathOS.PathOSAgent.GetDestinationEntity()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PerceivedEntity GetDestinationEntity()
+    return:
+      type: PathOS.PerceivedEntity
+    content.vb: Public Function GetDestinationEntity() As PerceivedEntity
+  overload: PathOS.PathOSAgent.GetDestinationEntity*
+- uid: PathOS.PathOSAgent.GetTargetPosition
+  commentId: M:PathOS.PathOSAgent.GetTargetPosition
+  id: GetTargetPosition
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: GetTargetPosition()
+  nameWithType: PathOSAgent.GetTargetPosition()
+  fullName: PathOS.PathOSAgent.GetTargetPosition()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Vector3 GetTargetPosition()
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Function GetTargetPosition() As Vector3
+  overload: PathOS.PathOSAgent.GetTargetPosition*
+- uid: PathOS.PathOSAgent.IsTargeted(PathOS.PerceivedEntity)
+  commentId: M:PathOS.PathOSAgent.IsTargeted(PathOS.PerceivedEntity)
+  id: IsTargeted(PathOS.PerceivedEntity)
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: IsTargeted(PerceivedEntity)
+  nameWithType: PathOSAgent.IsTargeted(PerceivedEntity)
+  fullName: PathOS.PathOSAgent.IsTargeted(PathOS.PerceivedEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool IsTargeted(PerceivedEntity entity)
+    parameters:
+    - id: entity
+      type: PathOS.PerceivedEntity
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsTargeted(entity As PerceivedEntity) As Boolean
+  overload: PathOS.PathOSAgent.IsTargeted*
+- uid: PathOS.PathOSAgent.GetHealth
+  commentId: M:PathOS.PathOSAgent.GetHealth
+  id: GetHealth
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: GetHealth()
+  nameWithType: PathOSAgent.GetHealth()
+  fullName: PathOS.PathOSAgent.GetHealth()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float GetHealth()
+    return:
+      type: System.Single
+    content.vb: Public Function GetHealth() As Single
+  overload: PathOS.PathOSAgent.GetHealth*
+- uid: PathOS.PathOSAgent.IsDead
+  commentId: M:PathOS.PathOSAgent.IsDead
+  id: IsDead
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: IsDead()
+  nameWithType: PathOSAgent.IsDead()
+  fullName: PathOS.PathOSAgent.IsDead()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool IsDead()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsDead() As Boolean
+  overload: PathOS.PathOSAgent.IsDead*
+- uid: PathOS.PathOSAgent.ResetUnreachablePositionReferences
+  commentId: M:PathOS.PathOSAgent.ResetUnreachablePositionReferences
+  id: ResetUnreachablePositionReferences
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: ResetUnreachablePositionReferences()
+  nameWithType: PathOSAgent.ResetUnreachablePositionReferences()
+  fullName: PathOS.PathOSAgent.ResetUnreachablePositionReferences()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void ResetUnreachablePositionReferences()
+    content.vb: Public Sub ResetUnreachablePositionReferences()
+  overload: PathOS.PathOSAgent.ResetUnreachablePositionReferences*
+- uid: PathOS.PathOSAgent.GetMemory
+  commentId: M:PathOS.PathOSAgent.GetMemory
+  id: GetMemory
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: GetMemory()
+  nameWithType: PathOSAgent.GetMemory()
+  fullName: PathOS.PathOSAgent.GetMemory()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSAgentMemory GetMemory()
+    return:
+      type: PathOS.PathOSAgentMemory
+    content.vb: Public Function GetMemory() As PathOSAgentMemory
+  overload: PathOS.PathOSAgent.GetMemory*
+- uid: PathOS.PathOSAgent.#ctor
+  commentId: M:PathOS.PathOSAgent.#ctor
+  id: '#ctor'
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: PathOSAgent()
+  nameWithType: PathOSAgent.PathOSAgent()
+  fullName: PathOS.PathOSAgent.PathOSAgent()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSAgent()
+    content.vb: Public Sub New()
+  overload: PathOS.PathOSAgent.#ctor*
+  nameWithType.vb: PathOSAgent.New()
+  fullName.vb: PathOS.PathOSAgent.New()
+  name.vb: New()
+- uid: PathOS.PathOSAgent.logger
+  commentId: P:PathOS.PathOSAgent.logger
+  id: logger
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: logger
+  nameWithType: PathOSAgent.logger
+  fullName: PathOS.PathOSAgent.logger
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static OGLogManager logger { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+    content.vb: Public Shared Property logger As OGLogManager
+  overload: PathOS.PathOSAgent.logger*
+- uid: PathOS.PathOSAgent.eyes
+  commentId: P:PathOS.PathOSAgent.eyes
+  id: eyes
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: eyes
+  nameWithType: PathOSAgent.eyes
+  fullName: PathOS.PathOSAgent.eyes
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSAgentEyes eyes { get; }
+    parameters: []
+    return:
+      type: PathOS.PathOSAgentEyes
+    content.vb: Public ReadOnly Property eyes As PathOSAgentEyes
+  overload: PathOS.PathOSAgent.eyes*
+- uid: PathOS.PathOSAgent.visitThresholdSqr
+  commentId: P:PathOS.PathOSAgent.visitThresholdSqr
+  id: visitThresholdSqr
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: visitThresholdSqr
+  nameWithType: PathOSAgent.visitThresholdSqr
+  fullName: PathOS.PathOSAgent.visitThresholdSqr
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float visitThresholdSqr { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property visitThresholdSqr As Single
+  overload: PathOS.PathOSAgent.visitThresholdSqr*
+- uid: PathOS.PathOSAgent.completed
+  commentId: P:PathOS.PathOSAgent.completed
+  id: completed
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: completed
+  nameWithType: PathOSAgent.completed
+  fullName: PathOS.PathOSAgent.completed
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool completed { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property completed As Boolean
+  overload: PathOS.PathOSAgent.completed*
+- uid: PathOS.PathOSAgent.hazardPenalty
+  commentId: P:PathOS.PathOSAgent.hazardPenalty
+  id: hazardPenalty
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: hazardPenalty
+  nameWithType: PathOSAgent.hazardPenalty
+  fullName: PathOS.PathOSAgent.hazardPenalty
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float hazardPenalty { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property hazardPenalty As Single
+  overload: PathOS.PathOSAgent.hazardPenalty*
+- uid: PathOS.PathOSAgent.MemPathChance
+  commentId: P:PathOS.PathOSAgent.MemPathChance
+  id: MemPathChance
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: MemPathChance
+  nameWithType: PathOSAgent.MemPathChance
+  fullName: PathOS.PathOSAgent.MemPathChance
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float MemPathChance { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property MemPathChance As Single
+  overload: PathOS.PathOSAgent.MemPathChance*
+- uid: PathOS.PathOSAgent.ExperienceScale
+  commentId: P:PathOS.PathOSAgent.ExperienceScale
+  id: ExperienceScale
+  parent: PathOS.PathOSAgent
+  langs:
+  - csharp
+  - vb
+  name: ExperienceScale
+  nameWithType: PathOSAgent.ExperienceScale
+  fullName: PathOS.PathOSAgent.ExperienceScale
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float ExperienceScale { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property ExperienceScale As Single
+  overload: PathOS.PathOSAgent.ExperienceScale*
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PathOS.AgentOS
+  commentId: T:PathOS.AgentOS
+  parent: PathOS
+  isExternal: true
+  href: PathOS.AgentOS.html
+  name: AgentOS
+  nameWithType: AgentOS
+  fullName: PathOS.AgentOS
+- uid: PathOS.HealthOS
+  commentId: T:PathOS.HealthOS
+  parent: PathOS
+  isExternal: true
+  href: PathOS.HealthOS.html
+  name: HealthOS
+  nameWithType: HealthOS
+  fullName: PathOS.HealthOS
+- uid: PathOS.MemoryOS
+  commentId: T:PathOS.MemoryOS
+  parent: PathOS
+  isExternal: true
+  href: PathOS.MemoryOS.html
+  name: MemoryOS
+  nameWithType: MemoryOS
+  fullName: PathOS.MemoryOS
+- uid: PathOS.NavigationState
+  commentId: T:PathOS.NavigationState
+  parent: PathOS
+  isExternal: true
+  href: PathOS.NavigationState.html
+  name: NavigationState
+  nameWithType: NavigationState
+  fullName: PathOS.NavigationState
+- uid: PathOS.ExplorationState
+  commentId: T:PathOS.ExplorationState
+  parent: PathOS
+  isExternal: true
+  href: PathOS.ExplorationState.html
+  name: ExplorationState
+  nameWithType: ExplorationState
+  fullName: PathOS.ExplorationState
+- uid: PathOS.MemoryState
+  commentId: T:PathOS.MemoryState
+  parent: PathOS
+  isExternal: true
+  href: PathOS.MemoryState.html
+  name: MemoryState
+  nameWithType: MemoryState
+  fullName: PathOS.MemoryState
+- uid: PathOS.HealthState
+  commentId: T:PathOS.HealthState
+  parent: PathOS
+  isExternal: true
+  href: PathOS.HealthState.html
+  name: HealthState
+  nameWithType: HealthState
+  fullName: PathOS.HealthState
+- uid: PathOS.HeuristicOS
+  commentId: T:PathOS.HeuristicOS
+  parent: PathOS
+  isExternal: true
+  href: PathOS.HeuristicOS.html
+  name: HeuristicOS
+  nameWithType: HeuristicOS
+  fullName: PathOS.HeuristicOS
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PathOS.PathOSAgent.RefreshHeuristicList*
+  commentId: Overload:PathOS.PathOSAgent.RefreshHeuristicList
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_RefreshHeuristicList
+  name: RefreshHeuristicList
+  nameWithType: PathOSAgent.RefreshHeuristicList
+  fullName: PathOS.PathOSAgent.RefreshHeuristicList
+- uid: PathOS.PathOSAgent.GetPosition*
+  commentId: Overload:PathOS.PathOSAgent.GetPosition
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_GetPosition
+  name: GetPosition
+  nameWithType: PathOSAgent.GetPosition
+  fullName: PathOS.PathOSAgent.GetPosition
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: PathOS.PathOSAgent.GetEyesPosition*
+  commentId: Overload:PathOS.PathOSAgent.GetEyesPosition
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_GetEyesPosition
+  name: GetEyesPosition
+  nameWithType: PathOSAgent.GetEyesPosition
+  fullName: PathOS.PathOSAgent.GetEyesPosition
+- uid: PathOS.PathOSAgent.GetOriginPos*
+  commentId: Overload:PathOS.PathOSAgent.GetOriginPos
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_GetOriginPos
+  name: GetOriginPos
+  nameWithType: PathOSAgent.GetOriginPos
+  fullName: PathOS.PathOSAgent.GetOriginPos
+- uid: PathOS.PathOSAgent.RecalibratePath*
+  commentId: Overload:PathOS.PathOSAgent.RecalibratePath
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_RecalibratePath
+  name: RecalibratePath
+  nameWithType: PathOSAgent.RecalibratePath
+  fullName: PathOS.PathOSAgent.RecalibratePath
+- uid: PathOS.PathOSAgent.ResetCamera*
+  commentId: Overload:PathOS.PathOSAgent.ResetCamera
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_ResetCamera
+  name: ResetCamera
+  nameWithType: PathOSAgent.ResetCamera
+  fullName: PathOS.PathOSAgent.ResetCamera
+- uid: PathOS.PathOSAgent.ToggleCameraFollow*
+  commentId: Overload:PathOS.PathOSAgent.ToggleCameraFollow
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_ToggleCameraFollow
+  name: ToggleCameraFollow
+  nameWithType: PathOSAgent.ToggleCameraFollow
+  fullName: PathOS.PathOSAgent.ToggleCameraFollow
+- uid: PathOS.PathOSAgent.GetDestinationEntity*
+  commentId: Overload:PathOS.PathOSAgent.GetDestinationEntity
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_GetDestinationEntity
+  name: GetDestinationEntity
+  nameWithType: PathOSAgent.GetDestinationEntity
+  fullName: PathOS.PathOSAgent.GetDestinationEntity
+- uid: PathOS.PerceivedEntity
+  commentId: T:PathOS.PerceivedEntity
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PerceivedEntity.html
+  name: PerceivedEntity
+  nameWithType: PerceivedEntity
+  fullName: PathOS.PerceivedEntity
+- uid: PathOS.PathOSAgent.GetTargetPosition*
+  commentId: Overload:PathOS.PathOSAgent.GetTargetPosition
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_GetTargetPosition
+  name: GetTargetPosition
+  nameWithType: PathOSAgent.GetTargetPosition
+  fullName: PathOS.PathOSAgent.GetTargetPosition
+- uid: PathOS.PathOSAgent.IsTargeted*
+  commentId: Overload:PathOS.PathOSAgent.IsTargeted
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_IsTargeted_PathOS_PerceivedEntity_
+  name: IsTargeted
+  nameWithType: PathOSAgent.IsTargeted
+  fullName: PathOS.PathOSAgent.IsTargeted
+- uid: PathOS.PathOSAgent.GetHealth*
+  commentId: Overload:PathOS.PathOSAgent.GetHealth
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_GetHealth
+  name: GetHealth
+  nameWithType: PathOSAgent.GetHealth
+  fullName: PathOS.PathOSAgent.GetHealth
+- uid: PathOS.PathOSAgent.IsDead*
+  commentId: Overload:PathOS.PathOSAgent.IsDead
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_IsDead
+  name: IsDead
+  nameWithType: PathOSAgent.IsDead
+  fullName: PathOS.PathOSAgent.IsDead
+- uid: PathOS.PathOSAgent.ResetUnreachablePositionReferences*
+  commentId: Overload:PathOS.PathOSAgent.ResetUnreachablePositionReferences
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_ResetUnreachablePositionReferences
+  name: ResetUnreachablePositionReferences
+  nameWithType: PathOSAgent.ResetUnreachablePositionReferences
+  fullName: PathOS.PathOSAgent.ResetUnreachablePositionReferences
+- uid: PathOS.PathOSAgent.GetMemory*
+  commentId: Overload:PathOS.PathOSAgent.GetMemory
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_GetMemory
+  name: GetMemory
+  nameWithType: PathOSAgent.GetMemory
+  fullName: PathOS.PathOSAgent.GetMemory
+- uid: PathOS.PathOSAgentMemory
+  commentId: T:PathOS.PathOSAgentMemory
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html
+  name: PathOSAgentMemory
+  nameWithType: PathOSAgentMemory
+  fullName: PathOS.PathOSAgentMemory
+- uid: PathOS.PathOSAgent.#ctor*
+  commentId: Overload:PathOS.PathOSAgent.#ctor
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent__ctor
+  name: PathOSAgent
+  nameWithType: PathOSAgent.PathOSAgent
+  fullName: PathOS.PathOSAgent.PathOSAgent
+  nameWithType.vb: PathOSAgent.New
+  fullName.vb: PathOS.PathOSAgent.New
+  name.vb: New
+- uid: PathOS.PathOSAgent.logger*
+  commentId: Overload:PathOS.PathOSAgent.logger
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_logger
+  name: logger
+  nameWithType: PathOSAgent.logger
+  fullName: PathOS.PathOSAgent.logger
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  commentId: T:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.html
+  name: OGLogManager
+  nameWithType: OGLogManager
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  commentId: N:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  nameWithType: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+- uid: PathOS.PathOSAgent.eyes*
+  commentId: Overload:PathOS.PathOSAgent.eyes
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_eyes
+  name: eyes
+  nameWithType: PathOSAgent.eyes
+  fullName: PathOS.PathOSAgent.eyes
+- uid: PathOS.PathOSAgentEyes
+  commentId: T:PathOS.PathOSAgentEyes
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html
+  name: PathOSAgentEyes
+  nameWithType: PathOSAgentEyes
+  fullName: PathOS.PathOSAgentEyes
+- uid: PathOS.PathOSAgent.visitThresholdSqr*
+  commentId: Overload:PathOS.PathOSAgent.visitThresholdSqr
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_visitThresholdSqr
+  name: visitThresholdSqr
+  nameWithType: PathOSAgent.visitThresholdSqr
+  fullName: PathOS.PathOSAgent.visitThresholdSqr
+- uid: PathOS.PathOSAgent.completed*
+  commentId: Overload:PathOS.PathOSAgent.completed
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_completed
+  name: completed
+  nameWithType: PathOSAgent.completed
+  fullName: PathOS.PathOSAgent.completed
+- uid: PathOS.PathOSAgent.hazardPenalty*
+  commentId: Overload:PathOS.PathOSAgent.hazardPenalty
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_hazardPenalty
+  name: hazardPenalty
+  nameWithType: PathOSAgent.hazardPenalty
+  fullName: PathOS.PathOSAgent.hazardPenalty
+- uid: PathOS.PathOSAgent.MemPathChance*
+  commentId: Overload:PathOS.PathOSAgent.MemPathChance
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_MemPathChance
+  name: MemPathChance
+  nameWithType: PathOSAgent.MemPathChance
+  fullName: PathOS.PathOSAgent.MemPathChance
+- uid: PathOS.PathOSAgent.ExperienceScale*
+  commentId: Overload:PathOS.PathOSAgent.ExperienceScale
+  isExternal: true
+  href: PathOS.PathOSAgent.html#PathOS_PathOSAgent_ExperienceScale
+  name: ExperienceScale
+  nameWithType: PathOSAgent.ExperienceScale
+  fullName: PathOS.PathOSAgent.ExperienceScale
+shouldSkipMarkup: true

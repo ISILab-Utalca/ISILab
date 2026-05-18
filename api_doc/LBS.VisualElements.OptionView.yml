@@ -1,0 +1,496 @@
+### YamlMime:ManagedReference
+items:
+- uid: LBS.VisualElements.OptionView
+  commentId: T:LBS.VisualElements.OptionView
+  id: OptionView
+  parent: LBS.VisualElements
+  children:
+  - LBS.VisualElements.OptionView.#ctor
+  - LBS.VisualElements.OptionView.#ctor(System.Object,System.Action{System.Object},System.Action{System.Object},System.Action{LBS.VisualElements.OptionView,System.Object})
+  - LBS.VisualElements.OptionView.FrameColor
+  - LBS.VisualElements.OptionView.Icon
+  - LBS.VisualElements.OptionView.Label
+  - LBS.VisualElements.OptionView.OnSelect
+  - LBS.VisualElements.OptionView.SetSelected(System.Boolean)
+  - LBS.VisualElements.OptionView.Target
+  - LBS.VisualElements.OptionView.target
+  langs:
+  - csharp
+  - vb
+  name: OptionView
+  nameWithType: OptionView
+  fullName: LBS.VisualElements.OptionView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: 'public class OptionView : VisualElement'
+    content.vb: Public Class OptionView Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: LBS.VisualElements.OptionView.target
+  commentId: F:LBS.VisualElements.OptionView.target
+  id: target
+  parent: LBS.VisualElements.OptionView
+  langs:
+  - csharp
+  - vb
+  name: target
+  nameWithType: OptionView.target
+  fullName: LBS.VisualElements.OptionView.target
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public object target
+    return:
+      type: System.Object
+    content.vb: Public target As Object
+- uid: LBS.VisualElements.OptionView.OnSelect
+  commentId: F:LBS.VisualElements.OptionView.OnSelect
+  id: OnSelect
+  parent: LBS.VisualElements.OptionView
+  langs:
+  - csharp
+  - vb
+  name: OnSelect
+  nameWithType: OptionView.OnSelect
+  fullName: LBS.VisualElements.OptionView.OnSelect
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public Action<object> OnSelect
+    return:
+      type: System.Action{System.Object}
+    content.vb: Public OnSelect As Action(Of Object)
+- uid: LBS.VisualElements.OptionView.#ctor
+  commentId: M:LBS.VisualElements.OptionView.#ctor
+  id: '#ctor'
+  parent: LBS.VisualElements.OptionView
+  langs:
+  - csharp
+  - vb
+  name: OptionView()
+  nameWithType: OptionView.OptionView()
+  fullName: LBS.VisualElements.OptionView.OptionView()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public OptionView()
+    content.vb: Public Sub New()
+  overload: LBS.VisualElements.OptionView.#ctor*
+  nameWithType.vb: OptionView.New()
+  fullName.vb: LBS.VisualElements.OptionView.New()
+  name.vb: New()
+- uid: LBS.VisualElements.OptionView.#ctor(System.Object,System.Action{System.Object},System.Action{System.Object},System.Action{LBS.VisualElements.OptionView,System.Object})
+  commentId: M:LBS.VisualElements.OptionView.#ctor(System.Object,System.Action{System.Object},System.Action{System.Object},System.Action{LBS.VisualElements.OptionView,System.Object})
+  id: '#ctor(System.Object,System.Action{System.Object},System.Action{System.Object},System.Action{LBS.VisualElements.OptionView,System.Object})'
+  parent: LBS.VisualElements.OptionView
+  langs:
+  - csharp
+  - vb
+  name: OptionView(object, Action<object>, Action<object>, Action<OptionView, object>)
+  nameWithType: OptionView.OptionView(object, Action<object>, Action<object>, Action<OptionView, object>)
+  fullName: LBS.VisualElements.OptionView.OptionView(object, System.Action<object>, System.Action<object>, System.Action<LBS.VisualElements.OptionView, object>)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public OptionView(object target, Action<object> onSelect, Action<object> onRemove, Action<OptionView, object> onSetView)
+    parameters:
+    - id: target
+      type: System.Object
+    - id: onSelect
+      type: System.Action{System.Object}
+    - id: onRemove
+      type: System.Action{System.Object}
+    - id: onSetView
+      type: System.Action{LBS.VisualElements.OptionView,System.Object}
+    content.vb: Public Sub New(target As Object, onSelect As Action(Of Object), onRemove As Action(Of Object), onSetView As Action(Of OptionView, Object))
+  overload: LBS.VisualElements.OptionView.#ctor*
+  nameWithType.vb: OptionView.New(Object, Action(Of Object), Action(Of Object), Action(Of OptionView, Object))
+  fullName.vb: LBS.VisualElements.OptionView.New(Object, System.Action(Of Object), System.Action(Of Object), System.Action(Of LBS.VisualElements.OptionView, Object))
+  name.vb: New(Object, Action(Of Object), Action(Of Object), Action(Of OptionView, Object))
+- uid: LBS.VisualElements.OptionView.SetSelected(System.Boolean)
+  commentId: M:LBS.VisualElements.OptionView.SetSelected(System.Boolean)
+  id: SetSelected(System.Boolean)
+  parent: LBS.VisualElements.OptionView
+  langs:
+  - csharp
+  - vb
+  name: SetSelected(bool)
+  nameWithType: OptionView.SetSelected(bool)
+  fullName: LBS.VisualElements.OptionView.SetSelected(bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void SetSelected(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+    content.vb: Public Sub SetSelected(value As Boolean)
+  overload: LBS.VisualElements.OptionView.SetSelected*
+  nameWithType.vb: OptionView.SetSelected(Boolean)
+  fullName.vb: LBS.VisualElements.OptionView.SetSelected(Boolean)
+  name.vb: SetSelected(Boolean)
+- uid: LBS.VisualElements.OptionView.Target
+  commentId: P:LBS.VisualElements.OptionView.Target
+  id: Target
+  parent: LBS.VisualElements.OptionView
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: OptionView.Target
+  fullName: LBS.VisualElements.OptionView.Target
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public object Target { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property Target As Object
+  overload: LBS.VisualElements.OptionView.Target*
+- uid: LBS.VisualElements.OptionView.Label
+  commentId: P:LBS.VisualElements.OptionView.Label
+  id: Label
+  parent: LBS.VisualElements.OptionView
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: OptionView.Label
+  fullName: LBS.VisualElements.OptionView.Label
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public string Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: LBS.VisualElements.OptionView.Label*
+- uid: LBS.VisualElements.OptionView.Icon
+  commentId: P:LBS.VisualElements.OptionView.Icon
+  id: Icon
+  parent: LBS.VisualElements.OptionView
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: OptionView.Icon
+  fullName: LBS.VisualElements.OptionView.Icon
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public VectorImage Icon { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Public Property Icon As VectorImage
+  overload: LBS.VisualElements.OptionView.Icon*
+- uid: LBS.VisualElements.OptionView.FrameColor
+  commentId: P:LBS.VisualElements.OptionView.FrameColor
+  id: FrameColor
+  parent: LBS.VisualElements.OptionView
+  langs:
+  - csharp
+  - vb
+  name: FrameColor
+  nameWithType: OptionView.FrameColor
+  fullName: LBS.VisualElements.OptionView.FrameColor
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public Color FrameColor { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: Public Property FrameColor As Color
+  overload: LBS.VisualElements.OptionView.FrameColor*
+references:
+- uid: LBS.VisualElements
+  commentId: N:LBS.VisualElements
+  isExternal: true
+  href: LBS.html
+  name: LBS.VisualElements
+  nameWithType: LBS.VisualElements
+  fullName: LBS.VisualElements
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Action{System.Object}
+  commentId: T:System.Action{System.Object}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<object>
+  nameWithType: Action<object>
+  fullName: System.Action<object>
+  nameWithType.vb: Action(Of Object)
+  fullName.vb: System.Action(Of Object)
+  name.vb: Action(Of Object)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: LBS.VisualElements.OptionView.#ctor*
+  commentId: Overload:LBS.VisualElements.OptionView.#ctor
+  isExternal: true
+  href: LBS.VisualElements.OptionView.html#LBS_VisualElements_OptionView__ctor
+  name: OptionView
+  nameWithType: OptionView.OptionView
+  fullName: LBS.VisualElements.OptionView.OptionView
+  nameWithType.vb: OptionView.New
+  fullName.vb: LBS.VisualElements.OptionView.New
+  name.vb: New
+- uid: System.Action{LBS.VisualElements.OptionView,System.Object}
+  commentId: T:System.Action{LBS.VisualElements.OptionView,System.Object}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<OptionView, object>
+  nameWithType: Action<OptionView, object>
+  fullName: System.Action<LBS.VisualElements.OptionView, object>
+  nameWithType.vb: Action(Of OptionView, Object)
+  fullName.vb: System.Action(Of LBS.VisualElements.OptionView, Object)
+  name.vb: Action(Of OptionView, Object)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: LBS.VisualElements.OptionView
+    name: OptionView
+    isExternal: true
+    href: LBS.VisualElements.OptionView.html
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LBS.VisualElements.OptionView
+    name: OptionView
+    isExternal: true
+    href: LBS.VisualElements.OptionView.html
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: LBS.VisualElements.OptionView.SetSelected*
+  commentId: Overload:LBS.VisualElements.OptionView.SetSelected
+  isExternal: true
+  href: LBS.VisualElements.OptionView.html#LBS_VisualElements_OptionView_SetSelected_System_Boolean_
+  name: SetSelected
+  nameWithType: OptionView.SetSelected
+  fullName: LBS.VisualElements.OptionView.SetSelected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LBS.VisualElements.OptionView.Target*
+  commentId: Overload:LBS.VisualElements.OptionView.Target
+  isExternal: true
+  href: LBS.VisualElements.OptionView.html#LBS_VisualElements_OptionView_Target
+  name: Target
+  nameWithType: OptionView.Target
+  fullName: LBS.VisualElements.OptionView.Target
+- uid: LBS.VisualElements.OptionView.Label*
+  commentId: Overload:LBS.VisualElements.OptionView.Label
+  isExternal: true
+  href: LBS.VisualElements.OptionView.html#LBS_VisualElements_OptionView_Label
+  name: Label
+  nameWithType: OptionView.Label
+  fullName: LBS.VisualElements.OptionView.Label
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LBS.VisualElements.OptionView.Icon*
+  commentId: Overload:LBS.VisualElements.OptionView.Icon
+  isExternal: true
+  href: LBS.VisualElements.OptionView.html#LBS_VisualElements_OptionView_Icon
+  name: Icon
+  nameWithType: OptionView.Icon
+  fullName: LBS.VisualElements.OptionView.Icon
+- uid: UnityEngine.UIElements.VectorImage
+  isExternal: true
+  name: VectorImage
+  nameWithType: VectorImage
+  fullName: UnityEngine.UIElements.VectorImage
+- uid: LBS.VisualElements.OptionView.FrameColor*
+  commentId: Overload:LBS.VisualElements.OptionView.FrameColor
+  isExternal: true
+  href: LBS.VisualElements.OptionView.html#LBS_VisualElements_OptionView_FrameColor
+  name: FrameColor
+  nameWithType: OptionView.FrameColor
+  fullName: LBS.VisualElements.OptionView.FrameColor
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+shouldSkipMarkup: true

@@ -1,0 +1,588 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor
+  commentId: T:ISILab.LBS.VisualElements.GrammarFieldEditor
+  id: GrammarFieldEditor
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.GrammarFieldEditor.#ctor(System.Object)
+  - ISILab.LBS.VisualElements.GrammarFieldEditor.CreateVisualElement
+  - ISILab.LBS.VisualElements.GrammarFieldEditor.GetTargetValue``1
+  - ISILab.LBS.VisualElements.GrammarFieldEditor.SetInfo(System.Object)
+  - ISILab.LBS.VisualElements.GrammarFieldEditor.SetNewInfo(System.Object)
+  - ISILab.LBS.VisualElements.GrammarFieldEditor.SetTargetValue``1(UnityEngine.UIElements.ChangeEvent{``0})
+  - ISILab.LBS.VisualElements.GrammarFieldEditor.content
+  langs:
+  - csharp
+  - vb
+  name: GrammarFieldEditor
+  nameWithType: GrammarFieldEditor
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class GrammarFieldEditor : LBSCustomEditor'
+    content.vb: Public Class GrammarFieldEditor Inherits LBSCustomEditor
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Editor.LBSCustomEditor
+  derivedClasses:
+  - ISILab.LBS.VisualElements.GrammarAreaEditor
+  - ISILab.LBS.VisualElements.GrammarBoolEditor
+  - ISILab.LBS.VisualElements.GrammarBundleGraphEditor
+  - ISILab.LBS.VisualElements.GrammarBundleTypeEditor
+  - ISILab.LBS.VisualElements.GrammarColorEditor
+  - ISILab.LBS.VisualElements.GrammarEventHookEditor
+  - ISILab.LBS.VisualElements.GrammarFloatEditor
+  - ISILab.LBS.VisualElements.GrammarIntEditor
+  - ISILab.LBS.VisualElements.GrammarStringEditor
+  inheritedMembers:
+  - ISILab.LBS.Editor.LBSCustomEditor.target
+  - ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  - ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  - ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  - ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  - ISILab.LBS.Editor.LBSCustomEditor.Target
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.content
+  commentId: F:ISILab.LBS.VisualElements.GrammarFieldEditor.content
+  id: content
+  parent: ISILab.LBS.VisualElements.GrammarFieldEditor
+  langs:
+  - csharp
+  - vb
+  name: content
+  nameWithType: GrammarFieldEditor.content
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.content
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected VisualElement content
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Protected content As VisualElement
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.#ctor(System.Object)
+  commentId: M:ISILab.LBS.VisualElements.GrammarFieldEditor.#ctor(System.Object)
+  id: '#ctor(System.Object)'
+  parent: ISILab.LBS.VisualElements.GrammarFieldEditor
+  langs:
+  - csharp
+  - vb
+  name: GrammarFieldEditor(object)
+  nameWithType: GrammarFieldEditor.GrammarFieldEditor(object)
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.GrammarFieldEditor(object)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public GrammarFieldEditor(object target)
+    parameters:
+    - id: target
+      type: System.Object
+    content.vb: Public Sub New(target As Object)
+  overload: ISILab.LBS.VisualElements.GrammarFieldEditor.#ctor*
+  nameWithType.vb: GrammarFieldEditor.New(Object)
+  fullName.vb: ISILab.LBS.VisualElements.GrammarFieldEditor.New(Object)
+  name.vb: New(Object)
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.VisualElements.GrammarFieldEditor.SetInfo(System.Object)
+  id: SetInfo(System.Object)
+  parent: ISILab.LBS.VisualElements.GrammarFieldEditor
+  langs:
+  - csharp
+  - vb
+  name: SetInfo(object)
+  nameWithType: GrammarFieldEditor.SetInfo(object)
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.SetInfo(object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public override void SetInfo(object paramTarget)
+    parameters:
+    - id: paramTarget
+      type: System.Object
+    content.vb: Public Overrides Sub SetInfo(paramTarget As Object)
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  overload: ISILab.LBS.VisualElements.GrammarFieldEditor.SetInfo*
+  nameWithType.vb: GrammarFieldEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.VisualElements.GrammarFieldEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.SetNewInfo(System.Object)
+  commentId: M:ISILab.LBS.VisualElements.GrammarFieldEditor.SetNewInfo(System.Object)
+  id: SetNewInfo(System.Object)
+  parent: ISILab.LBS.VisualElements.GrammarFieldEditor
+  langs:
+  - csharp
+  - vb
+  name: SetNewInfo(object)
+  nameWithType: GrammarFieldEditor.SetNewInfo(object)
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.SetNewInfo(object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void SetNewInfo(object paramTarget)
+    parameters:
+    - id: paramTarget
+      type: System.Object
+    content.vb: Public Sub SetNewInfo(paramTarget As Object)
+  overload: ISILab.LBS.VisualElements.GrammarFieldEditor.SetNewInfo*
+  nameWithType.vb: GrammarFieldEditor.SetNewInfo(Object)
+  fullName.vb: ISILab.LBS.VisualElements.GrammarFieldEditor.SetNewInfo(Object)
+  name.vb: SetNewInfo(Object)
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.VisualElements.GrammarFieldEditor.CreateVisualElement
+  id: CreateVisualElement
+  parent: ISILab.LBS.VisualElements.GrammarFieldEditor
+  langs:
+  - csharp
+  - vb
+  name: CreateVisualElement()
+  nameWithType: GrammarFieldEditor.CreateVisualElement()
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.CreateVisualElement()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: protected override VisualElement CreateVisualElement()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Protected Overrides Function CreateVisualElement() As VisualElement
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  overload: ISILab.LBS.VisualElements.GrammarFieldEditor.CreateVisualElement*
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.SetTargetValue``1(UnityEngine.UIElements.ChangeEvent{``0})
+  commentId: M:ISILab.LBS.VisualElements.GrammarFieldEditor.SetTargetValue``1(UnityEngine.UIElements.ChangeEvent{``0})
+  id: SetTargetValue``1(UnityEngine.UIElements.ChangeEvent{``0})
+  parent: ISILab.LBS.VisualElements.GrammarFieldEditor
+  langs:
+  - csharp
+  - vb
+  name: SetTargetValue<T>(ChangeEvent<T>)
+  nameWithType: GrammarFieldEditor.SetTargetValue<T>(ChangeEvent<T>)
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.SetTargetValue<T>(UnityEngine.UIElements.ChangeEvent<T>)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected void SetTargetValue<T>(ChangeEvent<T> evt)
+    parameters:
+    - id: evt
+      type: UnityEngine.UIElements.ChangeEvent{{T}}
+    typeParameters:
+    - id: T
+    content.vb: Protected Sub SetTargetValue(Of T)(evt As ChangeEvent(Of T))
+  overload: ISILab.LBS.VisualElements.GrammarFieldEditor.SetTargetValue*
+  nameWithType.vb: GrammarFieldEditor.SetTargetValue(Of T)(ChangeEvent(Of T))
+  fullName.vb: ISILab.LBS.VisualElements.GrammarFieldEditor.SetTargetValue(Of T)(UnityEngine.UIElements.ChangeEvent(Of T))
+  name.vb: SetTargetValue(Of T)(ChangeEvent(Of T))
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.GetTargetValue``1
+  commentId: M:ISILab.LBS.VisualElements.GrammarFieldEditor.GetTargetValue``1
+  id: GetTargetValue``1
+  parent: ISILab.LBS.VisualElements.GrammarFieldEditor
+  langs:
+  - csharp
+  - vb
+  name: GetTargetValue<T>()
+  nameWithType: GrammarFieldEditor.GetTargetValue<T>()
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.GetTargetValue<T>()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected T GetTargetValue<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Protected Function GetTargetValue(Of T)() As T
+  overload: ISILab.LBS.VisualElements.GrammarFieldEditor.GetTargetValue*
+  nameWithType.vb: GrammarFieldEditor.GetTargetValue(Of T)()
+  fullName.vb: ISILab.LBS.VisualElements.GrammarFieldEditor.GetTargetValue(Of T)()
+  name.vb: GetTargetValue(Of T)()
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Editor.LBSCustomEditor
+  commentId: T:ISILab.LBS.Editor.LBSCustomEditor
+  parent: ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html
+  name: LBSCustomEditor
+  nameWithType: LBSCustomEditor
+  fullName: ISILab.LBS.Editor.LBSCustomEditor
+- uid: ISILab.LBS.Editor.LBSCustomEditor.target
+  commentId: F:ISILab.LBS.Editor.LBSCustomEditor.target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_target
+  name: target
+  nameWithType: LBSCustomEditor.target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.target
+- uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  name: ContextMenu(ContextualMenuPopulateEvent)
+  nameWithType: LBSCustomEditor.ContextMenu(ContextualMenuPopulateEvent)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  name: Repaint()
+  nameWithType: LBSCustomEditor.Repaint()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Repaint()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  name: OnFocus()
+  nameWithType: LBSCustomEditor.OnFocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnFocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  name: OnUnfocus()
+  nameWithType: LBSCustomEditor.OnUnfocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Target
+  commentId: P:ISILab.LBS.Editor.LBSCustomEditor.Target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Target
+  name: Target
+  nameWithType: LBSCustomEditor.Target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Target
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Editor
+  commentId: N:ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Editor
+  nameWithType: ISILab.LBS.Editor
+  fullName: ISILab.LBS.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.GrammarFieldEditor.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrammarFieldEditor.html#ISILab_LBS_VisualElements_GrammarFieldEditor__ctor_System_Object_
+  name: GrammarFieldEditor
+  nameWithType: GrammarFieldEditor.GrammarFieldEditor
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.GrammarFieldEditor
+  nameWithType.vb: GrammarFieldEditor.New
+  fullName.vb: ISILab.LBS.VisualElements.GrammarFieldEditor.New
+  name.vb: New
+- uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  name: SetInfo(object)
+  nameWithType: LBSCustomEditor.SetInfo(object)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(object)
+  nameWithType.vb: LBSCustomEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.SetInfo*
+  commentId: Overload:ISILab.LBS.VisualElements.GrammarFieldEditor.SetInfo
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrammarFieldEditor.html#ISILab_LBS_VisualElements_GrammarFieldEditor_SetInfo_System_Object_
+  name: SetInfo
+  nameWithType: GrammarFieldEditor.SetInfo
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.SetInfo
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.SetNewInfo*
+  commentId: Overload:ISILab.LBS.VisualElements.GrammarFieldEditor.SetNewInfo
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrammarFieldEditor.html#ISILab_LBS_VisualElements_GrammarFieldEditor_SetNewInfo_System_Object_
+  name: SetNewInfo
+  nameWithType: GrammarFieldEditor.SetNewInfo
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.SetNewInfo
+- uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  name: CreateVisualElement()
+  nameWithType: LBSCustomEditor.CreateVisualElement()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.CreateVisualElement*
+  commentId: Overload:ISILab.LBS.VisualElements.GrammarFieldEditor.CreateVisualElement
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrammarFieldEditor.html#ISILab_LBS_VisualElements_GrammarFieldEditor_CreateVisualElement
+  name: CreateVisualElement
+  nameWithType: GrammarFieldEditor.CreateVisualElement
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.CreateVisualElement
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.SetTargetValue*
+  commentId: Overload:ISILab.LBS.VisualElements.GrammarFieldEditor.SetTargetValue
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrammarFieldEditor.html#ISILab_LBS_VisualElements_GrammarFieldEditor_SetTargetValue__1_UnityEngine_UIElements_ChangeEvent___0__
+  name: SetTargetValue
+  nameWithType: GrammarFieldEditor.SetTargetValue
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.SetTargetValue
+- uid: UnityEngine.UIElements.ChangeEvent{{T}}
+  commentId: '!:UnityEngine.UIElements.ChangeEvent{``0}'
+  definition: UnityEngine.UIElements.ChangeEvent`1
+  name: ChangeEvent<T>
+  nameWithType: ChangeEvent<T>
+  fullName: UnityEngine.UIElements.ChangeEvent<T>
+  nameWithType.vb: ChangeEvent(Of T)
+  fullName.vb: UnityEngine.UIElements.ChangeEvent(Of T)
+  name.vb: ChangeEvent(Of T)
+  spec.csharp:
+  - uid: UnityEngine.UIElements.ChangeEvent`1
+    name: ChangeEvent
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: UnityEngine.UIElements.ChangeEvent`1
+    name: ChangeEvent
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: UnityEngine.UIElements.ChangeEvent`1
+  isExternal: true
+  name: ChangeEvent<>
+  nameWithType: ChangeEvent<>
+  fullName: UnityEngine.UIElements.ChangeEvent<>
+  nameWithType.vb: ChangeEvent(Of )
+  fullName.vb: UnityEngine.UIElements.ChangeEvent(Of )
+  name.vb: ChangeEvent(Of )
+  spec.csharp:
+  - uid: UnityEngine.UIElements.ChangeEvent`1
+    name: ChangeEvent
+    isExternal: true
+  - name: <
+  - name: '>'
+  spec.vb:
+  - uid: UnityEngine.UIElements.ChangeEvent`1
+    name: ChangeEvent
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: ISILab.LBS.VisualElements.GrammarFieldEditor.GetTargetValue*
+  commentId: Overload:ISILab.LBS.VisualElements.GrammarFieldEditor.GetTargetValue
+  isExternal: true
+  href: ISILab.LBS.VisualElements.GrammarFieldEditor.html#ISILab_LBS_VisualElements_GrammarFieldEditor_GetTargetValue__1
+  name: GetTargetValue
+  nameWithType: GrammarFieldEditor.GetTargetValue
+  fullName: ISILab.LBS.VisualElements.GrammarFieldEditor.GetTargetValue
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+shouldSkipMarkup: true

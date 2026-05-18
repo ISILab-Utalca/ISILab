@@ -1,0 +1,94 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.Commons.Interfaces.IDrawable
+  commentId: T:ISILab.Commons.Interfaces.IDrawable
+  id: IDrawable
+  parent: ISILab.Commons.Interfaces
+  children:
+  - ISILab.Commons.Interfaces.IDrawable.ToTexture
+  langs:
+  - csharp
+  - vb
+  name: IDrawable
+  nameWithType: IDrawable
+  fullName: ISILab.Commons.Interfaces.IDrawable
+  type: Interface
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Interfaces
+  syntax:
+    content: public interface IDrawable
+    content.vb: Public Interface IDrawable
+  derivedClasses:
+  - ISILab.AI.Categorization.BundleTilemapChromosome
+- uid: ISILab.Commons.Interfaces.IDrawable.ToTexture
+  commentId: M:ISILab.Commons.Interfaces.IDrawable.ToTexture
+  id: ToTexture
+  parent: ISILab.Commons.Interfaces.IDrawable
+  langs:
+  - csharp
+  - vb
+  name: ToTexture()
+  nameWithType: IDrawable.ToTexture()
+  fullName: ISILab.Commons.Interfaces.IDrawable.ToTexture()
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Interfaces
+  syntax:
+    content: Texture2D ToTexture()
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Function ToTexture() As Texture2D
+  overload: ISILab.Commons.Interfaces.IDrawable.ToTexture*
+references:
+- uid: ISILab.Commons.Interfaces
+  commentId: N:ISILab.Commons.Interfaces
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Commons.Interfaces
+  nameWithType: ISILab.Commons.Interfaces
+  fullName: ISILab.Commons.Interfaces
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  - name: .
+  - uid: ISILab.Commons.Interfaces
+    name: Interfaces
+    isExternal: true
+    href: ISILab.Commons.Interfaces.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  - name: .
+  - uid: ISILab.Commons.Interfaces
+    name: Interfaces
+    isExternal: true
+    href: ISILab.Commons.Interfaces.html
+- uid: ISILab.Commons.Interfaces.IDrawable.ToTexture*
+  commentId: Overload:ISILab.Commons.Interfaces.IDrawable.ToTexture
+  isExternal: true
+  href: ISILab.Commons.Interfaces.IDrawable.html#ISILab_Commons_Interfaces_IDrawable_ToTexture
+  name: ToTexture
+  nameWithType: IDrawable.ToTexture
+  fullName: ISILab.Commons.Interfaces.IDrawable.ToTexture
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+shouldSkipMarkup: true

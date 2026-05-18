@@ -1,0 +1,290 @@
+### YamlMime:ManagedReference
+items:
+- uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator
+  commentId: T:Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator
+  id: DragAndDropWindow.DragAndDropManipulator
+  parent: Samples.Editor.General
+  children:
+  - Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.#ctor(UnityEngine.UIElements.VisualElement,Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode,System.Action{System.Collections.Generic.List{UnityEngine.Object}})
+  - Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.RegisterCallbacksOnTarget
+  - Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.UnregisterCallbacksFromTarget
+  langs:
+  - csharp
+  - vb
+  name: DragAndDropWindow.DragAndDropManipulator
+  nameWithType: DragAndDropWindow.DragAndDropManipulator
+  fullName: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: Samples.Editor.General
+  syntax:
+    content: 'public class DragAndDropWindow.DragAndDropManipulator : PointerManipulator'
+    content.vb: Public Class DragAndDropWindow.DragAndDropManipulator Inherits PointerManipulator
+  inheritance:
+  - System.Object
+- uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.#ctor(UnityEngine.UIElements.VisualElement,Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode,System.Action{System.Collections.Generic.List{UnityEngine.Object}})
+  commentId: M:Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.#ctor(UnityEngine.UIElements.VisualElement,Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode,System.Action{System.Collections.Generic.List{UnityEngine.Object}})
+  id: '#ctor(UnityEngine.UIElements.VisualElement,Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode,System.Action{System.Collections.Generic.List{UnityEngine.Object}})'
+  parent: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator
+  langs:
+  - csharp
+  - vb
+  name: DragAndDropManipulator(VisualElement, DragAndDropMode, Action<List<Object>>)
+  nameWithType: DragAndDropWindow.DragAndDropManipulator.DragAndDropManipulator(VisualElement, DragAndDropWindow.DragAndDropManipulator.DragAndDropMode, Action<List<Object>>)
+  fullName: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropManipulator(UnityEngine.UIElements.VisualElement, Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode, System.Action<System.Collections.Generic.List<UnityEngine.Object>>)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: Samples.Editor.General
+  syntax:
+    content: public DragAndDropManipulator(VisualElement root, DragAndDropWindow.DragAndDropManipulator.DragAndDropMode mode, Action<List<Object>> retrieveObjectsAction = null)
+    parameters:
+    - id: root
+      type: UnityEngine.UIElements.VisualElement
+    - id: mode
+      type: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode
+    - id: retrieveObjectsAction
+      type: System.Action{System.Collections.Generic.List{UnityEngine.Object}}
+    content.vb: Public Sub New(root As VisualElement, mode As DragAndDropWindow.DragAndDropManipulator.DragAndDropMode, retrieveObjectsAction As Action(Of List(Of [Object])) = Nothing)
+  overload: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.#ctor*
+  nameWithType.vb: DragAndDropWindow.DragAndDropManipulator.New(VisualElement, DragAndDropWindow.DragAndDropManipulator.DragAndDropMode, Action(Of List(Of Object)))
+  fullName.vb: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.New(UnityEngine.UIElements.VisualElement, Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode, System.Action(Of System.Collections.Generic.List(Of UnityEngine.Object)))
+  name.vb: New(VisualElement, DragAndDropMode, Action(Of List(Of Object)))
+- uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.RegisterCallbacksOnTarget
+  commentId: M:Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.RegisterCallbacksOnTarget
+  id: RegisterCallbacksOnTarget
+  parent: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator
+  langs:
+  - csharp
+  - vb
+  name: RegisterCallbacksOnTarget()
+  nameWithType: DragAndDropWindow.DragAndDropManipulator.RegisterCallbacksOnTarget()
+  fullName: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.RegisterCallbacksOnTarget()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: Samples.Editor.General
+  example: []
+  syntax:
+    content: protected override void RegisterCallbacksOnTarget()
+    content.vb: Protected Overrides Sub RegisterCallbacksOnTarget()
+  overload: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.RegisterCallbacksOnTarget*
+- uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.UnregisterCallbacksFromTarget
+  commentId: M:Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.UnregisterCallbacksFromTarget
+  id: UnregisterCallbacksFromTarget
+  parent: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator
+  langs:
+  - csharp
+  - vb
+  name: UnregisterCallbacksFromTarget()
+  nameWithType: DragAndDropWindow.DragAndDropManipulator.UnregisterCallbacksFromTarget()
+  fullName: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.UnregisterCallbacksFromTarget()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: Samples.Editor.General
+  example: []
+  syntax:
+    content: protected override void UnregisterCallbacksFromTarget()
+    content.vb: Protected Overrides Sub UnregisterCallbacksFromTarget()
+  overload: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.UnregisterCallbacksFromTarget*
+references:
+- uid: Samples.Editor.General
+  commentId: N:Samples.Editor.General
+  isExternal: true
+  href: Samples.html
+  name: Samples.Editor.General
+  nameWithType: Samples.Editor.General
+  fullName: Samples.Editor.General
+  spec.csharp:
+  - uid: Samples
+    name: Samples
+    isExternal: true
+    href: Samples.html
+  - name: .
+  - uid: Samples.Editor
+    name: Editor
+    isExternal: true
+    href: Samples.Editor.html
+  - name: .
+  - uid: Samples.Editor.General
+    name: General
+    isExternal: true
+    href: Samples.Editor.General.html
+  spec.vb:
+  - uid: Samples
+    name: Samples
+    isExternal: true
+    href: Samples.html
+  - name: .
+  - uid: Samples.Editor
+    name: Editor
+    isExternal: true
+    href: Samples.Editor.html
+  - name: .
+  - uid: Samples.Editor.General
+    name: General
+    isExternal: true
+    href: Samples.Editor.General.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.#ctor*
+  commentId: Overload:Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.#ctor
+  isExternal: true
+  href: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.html#Samples_Editor_General_DragAndDropWindow_DragAndDropManipulator__ctor_UnityEngine_UIElements_VisualElement_Samples_Editor_General_DragAndDropWindow_DragAndDropManipulator_DragAndDropMode_System_Action_System_Collections_Generic_List_UnityEngine_Object___
+  name: DragAndDropManipulator
+  nameWithType: DragAndDropWindow.DragAndDropManipulator.DragAndDropManipulator
+  fullName: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropManipulator
+  nameWithType.vb: DragAndDropWindow.DragAndDropManipulator.New
+  fullName.vb: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.New
+  name.vb: New
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode
+  commentId: T:Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode
+  parent: Samples.Editor.General
+  isExternal: true
+  href: Samples.Editor.General.DragAndDropWindow.html
+  name: DragAndDropWindow.DragAndDropManipulator.DragAndDropMode
+  nameWithType: DragAndDropWindow.DragAndDropManipulator.DragAndDropMode
+  fullName: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode
+  spec.csharp:
+  - uid: Samples.Editor.General.DragAndDropWindow
+    name: DragAndDropWindow
+    isExternal: true
+    href: Samples.Editor.General.DragAndDropWindow.html
+  - name: .
+  - uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator
+    name: DragAndDropManipulator
+    isExternal: true
+    href: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.html
+  - name: .
+  - uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode
+    name: DragAndDropMode
+    isExternal: true
+    href: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode.html
+  spec.vb:
+  - uid: Samples.Editor.General.DragAndDropWindow
+    name: DragAndDropWindow
+    isExternal: true
+    href: Samples.Editor.General.DragAndDropWindow.html
+  - name: .
+  - uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator
+    name: DragAndDropManipulator
+    isExternal: true
+    href: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.html
+  - name: .
+  - uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode
+    name: DragAndDropMode
+    isExternal: true
+    href: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.DragAndDropMode.html
+- uid: System.Action{System.Collections.Generic.List{UnityEngine.Object}}
+  commentId: T:System.Action{System.Collections.Generic.List{UnityEngine.Object}}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<List<Object>>
+  nameWithType: Action<List<Object>>
+  fullName: System.Action<System.Collections.Generic.List<UnityEngine.Object>>
+  nameWithType.vb: Action(Of List(Of Object))
+  fullName.vb: System.Action(Of System.Collections.Generic.List(Of UnityEngine.Object))
+  name.vb: Action(Of List(Of Object))
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Object
+    name: Object
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Object
+    name: Object
+    isExternal: true
+  - name: )
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.RegisterCallbacksOnTarget*
+  commentId: Overload:Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.RegisterCallbacksOnTarget
+  isExternal: true
+  href: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.html#Samples_Editor_General_DragAndDropWindow_DragAndDropManipulator_RegisterCallbacksOnTarget
+  name: RegisterCallbacksOnTarget
+  nameWithType: DragAndDropWindow.DragAndDropManipulator.RegisterCallbacksOnTarget
+  fullName: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.RegisterCallbacksOnTarget
+- uid: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.UnregisterCallbacksFromTarget*
+  commentId: Overload:Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.UnregisterCallbacksFromTarget
+  isExternal: true
+  href: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.html#Samples_Editor_General_DragAndDropWindow_DragAndDropManipulator_UnregisterCallbacksFromTarget
+  name: UnregisterCallbacksFromTarget
+  nameWithType: DragAndDropWindow.DragAndDropManipulator.UnregisterCallbacksFromTarget
+  fullName: Samples.Editor.General.DragAndDropWindow.DragAndDropManipulator.UnregisterCallbacksFromTarget
+shouldSkipMarkup: true

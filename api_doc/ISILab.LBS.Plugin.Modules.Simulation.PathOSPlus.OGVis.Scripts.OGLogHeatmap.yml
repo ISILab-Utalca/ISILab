@@ -1,0 +1,666 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  commentId: T:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  id: OGLogHeatmap
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  children:
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.#ctor
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Clear
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Initialize(OGVis.Extents,UnityEngine.Gradient,System.Single,System.Single,System.Single)
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetAlpha(System.Single)
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetDisplayHeight(System.Single)
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetGradient(UnityEngine.Gradient)
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetVisible(System.Boolean)
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateData(System.Collections.Generic.List{OGVis.PlayerLog},System.Boolean,System.Boolean)
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateExtents(OGVis.Extents,System.Single)
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mat
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mesh
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.tex
+  langs:
+  - csharp
+  - vb
+  name: OGLogHeatmap
+  nameWithType: OGLogHeatmap
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: 'public class OGLogHeatmap : MonoBehaviour'
+    content.vb: Public Class OGLogHeatmap Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Initialize(OGVis.Extents,UnityEngine.Gradient,System.Single,System.Single,System.Single)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Initialize(OGVis.Extents,UnityEngine.Gradient,System.Single,System.Single,System.Single)
+  id: Initialize(OGVis.Extents,UnityEngine.Gradient,System.Single,System.Single,System.Single)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: Initialize(Extents, Gradient, float, float, float)
+  nameWithType: OGLogHeatmap.Initialize(Extents, Gradient, float, float, float)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Initialize(OGVis.Extents, UnityEngine.Gradient, float, float, float)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void Initialize(Extents extents, Gradient gradient, float alpha, float displayHeight, float tileSize)
+    parameters:
+    - id: extents
+      type: OGVis.Extents
+    - id: gradient
+      type: UnityEngine.Gradient
+    - id: alpha
+      type: System.Single
+    - id: displayHeight
+      type: System.Single
+    - id: tileSize
+      type: System.Single
+    content.vb: Public Sub Initialize(extents As Extents, gradient As Gradient, alpha As Single, displayHeight As Single, tileSize As Single)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Initialize*
+  nameWithType.vb: OGLogHeatmap.Initialize(Extents, Gradient, Single, Single, Single)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Initialize(OGVis.Extents, UnityEngine.Gradient, Single, Single, Single)
+  name.vb: Initialize(Extents, Gradient, Single, Single, Single)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Clear
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Clear
+  id: Clear
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: OGLogHeatmap.Clear()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Clear()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Clear*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateExtents(OGVis.Extents,System.Single)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateExtents(OGVis.Extents,System.Single)
+  id: UpdateExtents(OGVis.Extents,System.Single)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: UpdateExtents(Extents, float)
+  nameWithType: OGLogHeatmap.UpdateExtents(Extents, float)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateExtents(OGVis.Extents, float)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void UpdateExtents(Extents extents, float tileSize)
+    parameters:
+    - id: extents
+      type: OGVis.Extents
+    - id: tileSize
+      type: System.Single
+    content.vb: Public Sub UpdateExtents(extents As Extents, tileSize As Single)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateExtents*
+  nameWithType.vb: OGLogHeatmap.UpdateExtents(Extents, Single)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateExtents(OGVis.Extents, Single)
+  name.vb: UpdateExtents(Extents, Single)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateData(System.Collections.Generic.List{OGVis.PlayerLog},System.Boolean,System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateData(System.Collections.Generic.List{OGVis.PlayerLog},System.Boolean,System.Boolean)
+  id: UpdateData(System.Collections.Generic.List{OGVis.PlayerLog},System.Boolean,System.Boolean)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: UpdateData(List<PlayerLog>, bool, bool)
+  nameWithType: OGLogHeatmap.UpdateData(List<PlayerLog>, bool, bool)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateData(System.Collections.Generic.List<OGVis.PlayerLog>, bool, bool)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void UpdateData(List<PlayerLog> logs, bool enabledOnly, bool timeRangeOnly)
+    parameters:
+    - id: logs
+      type: System.Collections.Generic.List{OGVis.PlayerLog}
+    - id: enabledOnly
+      type: System.Boolean
+    - id: timeRangeOnly
+      type: System.Boolean
+    content.vb: Public Sub UpdateData(logs As List(Of PlayerLog), enabledOnly As Boolean, timeRangeOnly As Boolean)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateData*
+  nameWithType.vb: OGLogHeatmap.UpdateData(List(Of PlayerLog), Boolean, Boolean)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateData(System.Collections.Generic.List(Of OGVis.PlayerLog), Boolean, Boolean)
+  name.vb: UpdateData(List(Of PlayerLog), Boolean, Boolean)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetAlpha(System.Single)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetAlpha(System.Single)
+  id: SetAlpha(System.Single)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: SetAlpha(float)
+  nameWithType: OGLogHeatmap.SetAlpha(float)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetAlpha(float)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void SetAlpha(float alpha)
+    parameters:
+    - id: alpha
+      type: System.Single
+    content.vb: Public Sub SetAlpha(alpha As Single)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetAlpha*
+  nameWithType.vb: OGLogHeatmap.SetAlpha(Single)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetAlpha(Single)
+  name.vb: SetAlpha(Single)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetGradient(UnityEngine.Gradient)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetGradient(UnityEngine.Gradient)
+  id: SetGradient(UnityEngine.Gradient)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: SetGradient(Gradient)
+  nameWithType: OGLogHeatmap.SetGradient(Gradient)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetGradient(UnityEngine.Gradient)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void SetGradient(Gradient gradient)
+    parameters:
+    - id: gradient
+      type: UnityEngine.Gradient
+    content.vb: Public Sub SetGradient(gradient As Gradient)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetGradient*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetVisible(System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetVisible(System.Boolean)
+  id: SetVisible(System.Boolean)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: SetVisible(bool)
+  nameWithType: OGLogHeatmap.SetVisible(bool)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetVisible(bool)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void SetVisible(bool visible)
+    parameters:
+    - id: visible
+      type: System.Boolean
+    content.vb: Public Sub SetVisible(visible As Boolean)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetVisible*
+  nameWithType.vb: OGLogHeatmap.SetVisible(Boolean)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetVisible(Boolean)
+  name.vb: SetVisible(Boolean)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetDisplayHeight(System.Single)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetDisplayHeight(System.Single)
+  id: SetDisplayHeight(System.Single)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: SetDisplayHeight(float)
+  nameWithType: OGLogHeatmap.SetDisplayHeight(float)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetDisplayHeight(float)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void SetDisplayHeight(float displayHeight)
+    parameters:
+    - id: displayHeight
+      type: System.Single
+    content.vb: Public Sub SetDisplayHeight(displayHeight As Single)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetDisplayHeight*
+  nameWithType.vb: OGLogHeatmap.SetDisplayHeight(Single)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetDisplayHeight(Single)
+  name.vb: SetDisplayHeight(Single)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.#ctor
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: OGLogHeatmap()
+  nameWithType: OGLogHeatmap.OGLogHeatmap()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.OGLogHeatmap()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public OGLogHeatmap()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.#ctor*
+  nameWithType.vb: OGLogHeatmap.New()
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mesh
+  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mesh
+  id: mesh
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: mesh
+  nameWithType: OGLogHeatmap.mesh
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mesh
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public Mesh mesh { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Mesh
+    content.vb: Public ReadOnly Property mesh As Mesh
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mesh*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mat
+  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mat
+  id: mat
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: mat
+  nameWithType: OGLogHeatmap.mat
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mat
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public Material mat { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Material
+    content.vb: Public ReadOnly Property mat As Material
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mat*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.tex
+  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.tex
+  id: tex
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+  langs:
+  - csharp
+  - vb
+  name: tex
+  nameWithType: OGLogHeatmap.tex
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.tex
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public Texture2D tex { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public ReadOnly Property tex As Texture2D
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.tex*
+references:
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  commentId: N:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  nameWithType: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Initialize*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Initialize
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_Initialize_OGVis_Extents_UnityEngine_Gradient_System_Single_System_Single_System_Single_
+  name: Initialize
+  nameWithType: OGLogHeatmap.Initialize
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Initialize
+- uid: OGVis.Extents
+  commentId: T:OGVis.Extents
+  parent: OGVis
+  isExternal: true
+  href: OGVis.Extents.html
+  name: Extents
+  nameWithType: Extents
+  fullName: OGVis.Extents
+- uid: UnityEngine.Gradient
+  isExternal: true
+  name: Gradient
+  nameWithType: Gradient
+  fullName: UnityEngine.Gradient
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: OGVis
+  commentId: N:OGVis
+  isExternal: true
+  href: OGVis.html
+  name: OGVis
+  nameWithType: OGVis
+  fullName: OGVis
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Clear*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Clear
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_Clear
+  name: Clear
+  nameWithType: OGLogHeatmap.Clear
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.Clear
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateExtents*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateExtents
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_UpdateExtents_OGVis_Extents_System_Single_
+  name: UpdateExtents
+  nameWithType: OGLogHeatmap.UpdateExtents
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateExtents
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateData*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateData
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_UpdateData_System_Collections_Generic_List_OGVis_PlayerLog__System_Boolean_System_Boolean_
+  name: UpdateData
+  nameWithType: OGLogHeatmap.UpdateData
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.UpdateData
+- uid: System.Collections.Generic.List{OGVis.PlayerLog}
+  commentId: T:System.Collections.Generic.List{OGVis.PlayerLog}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<PlayerLog>
+  nameWithType: List<PlayerLog>
+  fullName: System.Collections.Generic.List<OGVis.PlayerLog>
+  nameWithType.vb: List(Of PlayerLog)
+  fullName.vb: System.Collections.Generic.List(Of OGVis.PlayerLog)
+  name.vb: List(Of PlayerLog)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetAlpha*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetAlpha
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_SetAlpha_System_Single_
+  name: SetAlpha
+  nameWithType: OGLogHeatmap.SetAlpha
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetAlpha
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetGradient*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetGradient
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_SetGradient_UnityEngine_Gradient_
+  name: SetGradient
+  nameWithType: OGLogHeatmap.SetGradient
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetGradient
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetVisible*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetVisible
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_SetVisible_System_Boolean_
+  name: SetVisible
+  nameWithType: OGLogHeatmap.SetVisible
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetVisible
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetDisplayHeight*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetDisplayHeight
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_SetDisplayHeight_System_Single_
+  name: SetDisplayHeight
+  nameWithType: OGLogHeatmap.SetDisplayHeight
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.SetDisplayHeight
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap__ctor
+  name: OGLogHeatmap
+  nameWithType: OGLogHeatmap.OGLogHeatmap
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.OGLogHeatmap
+  nameWithType.vb: OGLogHeatmap.New
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mesh*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mesh
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_mesh
+  name: mesh
+  nameWithType: OGLogHeatmap.mesh
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mesh
+- uid: UnityEngine.Mesh
+  isExternal: true
+  name: Mesh
+  nameWithType: Mesh
+  fullName: UnityEngine.Mesh
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mat*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mat
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_mat
+  name: mat
+  nameWithType: OGLogHeatmap.mat
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.mat
+- uid: UnityEngine.Material
+  isExternal: true
+  name: Material
+  nameWithType: Material
+  fullName: UnityEngine.Material
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.tex*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.tex
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogHeatmap_tex
+  name: tex
+  nameWithType: OGLogHeatmap.tex
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.tex
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+shouldSkipMarkup: true

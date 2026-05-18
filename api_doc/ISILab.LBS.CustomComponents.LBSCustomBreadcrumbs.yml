@@ -1,0 +1,382 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs
+  commentId: T:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs
+  id: LBSCustomBreadcrumbs
+  parent: ISILab.LBS.CustomComponents
+  children:
+  - ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.#ctor
+  - ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.#ctor(System.Collections.Generic.List{System.String})
+  - ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.DrawBreadcrumbsItems
+  - ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.OnBreadcrumbClickEvent
+  - ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SectionTitles
+  - ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SelectSection
+  langs:
+  - csharp
+  - vb
+  name: LBSCustomBreadcrumbs
+  nameWithType: LBSCustomBreadcrumbs
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: 'public class LBSCustomBreadcrumbs : ToolbarBreadcrumbs'
+    content.vb: Public Class LBSCustomBreadcrumbs Inherits ToolbarBreadcrumbs
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.#ctor
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs
+  langs:
+  - csharp
+  - vb
+  name: LBSCustomBreadcrumbs()
+  nameWithType: LBSCustomBreadcrumbs.LBSCustomBreadcrumbs()
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.LBSCustomBreadcrumbs()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public LBSCustomBreadcrumbs()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.#ctor*
+  nameWithType.vb: LBSCustomBreadcrumbs.New()
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.New()
+  name.vb: New()
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.#ctor(System.Collections.Generic.List{System.String})
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.#ctor(System.Collections.Generic.List{System.String})
+  id: '#ctor(System.Collections.Generic.List{System.String})'
+  parent: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs
+  langs:
+  - csharp
+  - vb
+  name: LBSCustomBreadcrumbs(List<string>)
+  nameWithType: LBSCustomBreadcrumbs.LBSCustomBreadcrumbs(List<string>)
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.LBSCustomBreadcrumbs(System.Collections.Generic.List<string>)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public LBSCustomBreadcrumbs(List<string> _labelsToDisplay)
+    parameters:
+    - id: _labelsToDisplay
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Sub New(_labelsToDisplay As List(Of String))
+  overload: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.#ctor*
+  nameWithType.vb: LBSCustomBreadcrumbs.New(List(Of String))
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.New(System.Collections.Generic.List(Of String))
+  name.vb: New(List(Of String))
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.DrawBreadcrumbsItems
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.DrawBreadcrumbsItems
+  id: DrawBreadcrumbsItems
+  parent: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs
+  langs:
+  - csharp
+  - vb
+  name: DrawBreadcrumbsItems()
+  nameWithType: LBSCustomBreadcrumbs.DrawBreadcrumbsItems()
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.DrawBreadcrumbsItems()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public void DrawBreadcrumbsItems()
+    content.vb: Public Sub DrawBreadcrumbsItems()
+  overload: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.DrawBreadcrumbsItems*
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SectionTitles
+  commentId: P:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SectionTitles
+  id: SectionTitles
+  parent: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs
+  langs:
+  - csharp
+  - vb
+  name: SectionTitles
+  nameWithType: LBSCustomBreadcrumbs.SectionTitles
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SectionTitles
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public string[] SectionTitles { get; set; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Property SectionTitles As String()
+  overload: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SectionTitles*
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SelectSection
+  commentId: P:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SelectSection
+  id: SelectSection
+  parent: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs
+  langs:
+  - csharp
+  - vb
+  name: SelectSection
+  nameWithType: LBSCustomBreadcrumbs.SelectSection
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SelectSection
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public int SelectSection { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SelectSection As Integer
+  overload: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SelectSection*
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.OnBreadcrumbClickEvent
+  commentId: E:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.OnBreadcrumbClickEvent
+  id: OnBreadcrumbClickEvent
+  parent: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs
+  langs:
+  - csharp
+  - vb
+  name: OnBreadcrumbClickEvent
+  nameWithType: LBSCustomBreadcrumbs.OnBreadcrumbClickEvent
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.OnBreadcrumbClickEvent
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public static event Action OnBreadcrumbClickEvent
+    return:
+      type: System.Action
+    content.vb: Public Shared Event OnBreadcrumbClickEvent As Action
+references:
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.#ctor*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.#ctor
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.html#ISILab_LBS_CustomComponents_LBSCustomBreadcrumbs__ctor
+  name: LBSCustomBreadcrumbs
+  nameWithType: LBSCustomBreadcrumbs.LBSCustomBreadcrumbs
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.LBSCustomBreadcrumbs
+  nameWithType.vb: LBSCustomBreadcrumbs.New
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.New
+  name.vb: New
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.DrawBreadcrumbsItems*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.DrawBreadcrumbsItems
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.html#ISILab_LBS_CustomComponents_LBSCustomBreadcrumbs_DrawBreadcrumbsItems
+  name: DrawBreadcrumbsItems
+  nameWithType: LBSCustomBreadcrumbs.DrawBreadcrumbsItems
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.DrawBreadcrumbsItems
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SectionTitles*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SectionTitles
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.html#ISILab_LBS_CustomComponents_LBSCustomBreadcrumbs_SectionTitles
+  name: SectionTitles
+  nameWithType: LBSCustomBreadcrumbs.SectionTitles
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SectionTitles
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SelectSection*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SelectSection
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.html#ISILab_LBS_CustomComponents_LBSCustomBreadcrumbs_SelectSection
+  name: SelectSection
+  nameWithType: LBSCustomBreadcrumbs.SelectSection
+  fullName: ISILab.LBS.CustomComponents.LBSCustomBreadcrumbs.SelectSection
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+shouldSkipMarkup: true

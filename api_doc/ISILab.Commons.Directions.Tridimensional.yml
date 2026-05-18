@@ -1,0 +1,563 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.Commons.Directions.Tridimensional
+  commentId: T:ISILab.Commons.Directions.Tridimensional
+  id: Directions.Tridimensional
+  parent: ISILab.Commons
+  children:
+  - ISILab.Commons.Directions.Tridimensional.All
+  - ISILab.Commons.Directions.Tridimensional.Centers
+  - ISILab.Commons.Directions.Tridimensional.Diagonals
+  - ISILab.Commons.Directions.Tridimensional.Edges
+  - ISILab.Commons.Directions.Tridimensional.GetPerpendicularDirs(UnityEngine.Vector3Int,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: Directions.Tridimensional
+  nameWithType: Directions.Tridimensional
+  fullName: ISILab.Commons.Directions.Tridimensional
+  type: Class
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons
+  syntax:
+    content: public static class Directions.Tridimensional
+    content.vb: Public Module Directions.Tridimensional
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.Commons.Directions.Tridimensional.GetPerpendicularDirs(UnityEngine.Vector3Int,System.Boolean)
+  commentId: M:ISILab.Commons.Directions.Tridimensional.GetPerpendicularDirs(UnityEngine.Vector3Int,System.Boolean)
+  id: GetPerpendicularDirs(UnityEngine.Vector3Int,System.Boolean)
+  parent: ISILab.Commons.Directions.Tridimensional
+  langs:
+  - csharp
+  - vb
+  name: GetPerpendicularDirs(Vector3Int, bool)
+  nameWithType: Directions.Tridimensional.GetPerpendicularDirs(Vector3Int, bool)
+  fullName: ISILab.Commons.Directions.Tridimensional.GetPerpendicularDirs(UnityEngine.Vector3Int, bool)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons
+  syntax:
+    content: public static List<Vector3Int> GetPerpendicularDirs(Vector3Int axis, bool whitDiagonals = false)
+    parameters:
+    - id: axis
+      type: UnityEngine.Vector3Int
+    - id: whitDiagonals
+      type: System.Boolean
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector3Int}
+    content.vb: Public Shared Function GetPerpendicularDirs(axis As Vector3Int, whitDiagonals As Boolean = False) As List(Of Vector3Int)
+  overload: ISILab.Commons.Directions.Tridimensional.GetPerpendicularDirs*
+  nameWithType.vb: Directions.Tridimensional.GetPerpendicularDirs(Vector3Int, Boolean)
+  fullName.vb: ISILab.Commons.Directions.Tridimensional.GetPerpendicularDirs(UnityEngine.Vector3Int, Boolean)
+  name.vb: GetPerpendicularDirs(Vector3Int, Boolean)
+- uid: ISILab.Commons.Directions.Tridimensional.Centers
+  commentId: P:ISILab.Commons.Directions.Tridimensional.Centers
+  id: Centers
+  parent: ISILab.Commons.Directions.Tridimensional
+  langs:
+  - csharp
+  - vb
+  name: Centers
+  nameWithType: Directions.Tridimensional.Centers
+  fullName: ISILab.Commons.Directions.Tridimensional.Centers
+  type: Property
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons
+  syntax:
+    content: public static List<Vector3Int> Centers { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector3Int}
+    content.vb: Public Shared ReadOnly Property Centers As List(Of Vector3Int)
+  overload: ISILab.Commons.Directions.Tridimensional.Centers*
+- uid: ISILab.Commons.Directions.Tridimensional.Edges
+  commentId: P:ISILab.Commons.Directions.Tridimensional.Edges
+  id: Edges
+  parent: ISILab.Commons.Directions.Tridimensional
+  langs:
+  - csharp
+  - vb
+  name: Edges
+  nameWithType: Directions.Tridimensional.Edges
+  fullName: ISILab.Commons.Directions.Tridimensional.Edges
+  type: Property
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons
+  syntax:
+    content: public static List<Vector3Int> Edges { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector3Int}
+    content.vb: Public Shared ReadOnly Property Edges As List(Of Vector3Int)
+  overload: ISILab.Commons.Directions.Tridimensional.Edges*
+- uid: ISILab.Commons.Directions.Tridimensional.Diagonals
+  commentId: P:ISILab.Commons.Directions.Tridimensional.Diagonals
+  id: Diagonals
+  parent: ISILab.Commons.Directions.Tridimensional
+  langs:
+  - csharp
+  - vb
+  name: Diagonals
+  nameWithType: Directions.Tridimensional.Diagonals
+  fullName: ISILab.Commons.Directions.Tridimensional.Diagonals
+  type: Property
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons
+  syntax:
+    content: public static List<Vector3Int> Diagonals { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector3Int}
+    content.vb: Public Shared ReadOnly Property Diagonals As List(Of Vector3Int)
+  overload: ISILab.Commons.Directions.Tridimensional.Diagonals*
+- uid: ISILab.Commons.Directions.Tridimensional.All
+  commentId: P:ISILab.Commons.Directions.Tridimensional.All
+  id: All
+  parent: ISILab.Commons.Directions.Tridimensional
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: Directions.Tridimensional.All
+  fullName: ISILab.Commons.Directions.Tridimensional.All
+  type: Property
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons
+  syntax:
+    content: public static List<Vector3Int> All { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector3Int}
+    content.vb: Public Shared ReadOnly Property All As List(Of Vector3Int)
+  overload: ISILab.Commons.Directions.Tridimensional.All*
+references:
+- uid: ISILab.Commons
+  commentId: N:ISILab.Commons
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Commons
+  nameWithType: ISILab.Commons
+  fullName: ISILab.Commons
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.Commons.Directions.Tridimensional.GetPerpendicularDirs*
+  commentId: Overload:ISILab.Commons.Directions.Tridimensional.GetPerpendicularDirs
+  isExternal: true
+  href: ISILab.Commons.Directions.Tridimensional.html#ISILab_Commons_Directions_Tridimensional_GetPerpendicularDirs_UnityEngine_Vector3Int_System_Boolean_
+  name: GetPerpendicularDirs
+  nameWithType: Directions.Tridimensional.GetPerpendicularDirs
+  fullName: ISILab.Commons.Directions.Tridimensional.GetPerpendicularDirs
+- uid: UnityEngine.Vector3Int
+  commentId: '!:UnityEngine.Vector3Int'
+  isExternal: true
+  name: Vector3Int
+  nameWithType: Vector3Int
+  fullName: UnityEngine.Vector3Int
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.List{UnityEngine.Vector3Int}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Vector3Int}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vector3Int>
+  nameWithType: List<Vector3Int>
+  fullName: System.Collections.Generic.List<UnityEngine.Vector3Int>
+  nameWithType.vb: List(Of Vector3Int)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Vector3Int)
+  name.vb: List(Of Vector3Int)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Vector3Int
+    name: Vector3Int
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector3Int
+    name: Vector3Int
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.Commons.Directions.Tridimensional.Centers*
+  commentId: Overload:ISILab.Commons.Directions.Tridimensional.Centers
+  isExternal: true
+  href: ISILab.Commons.Directions.Tridimensional.html#ISILab_Commons_Directions_Tridimensional_Centers
+  name: Centers
+  nameWithType: Directions.Tridimensional.Centers
+  fullName: ISILab.Commons.Directions.Tridimensional.Centers
+- uid: ISILab.Commons.Directions.Tridimensional.Edges*
+  commentId: Overload:ISILab.Commons.Directions.Tridimensional.Edges
+  isExternal: true
+  href: ISILab.Commons.Directions.Tridimensional.html#ISILab_Commons_Directions_Tridimensional_Edges
+  name: Edges
+  nameWithType: Directions.Tridimensional.Edges
+  fullName: ISILab.Commons.Directions.Tridimensional.Edges
+- uid: ISILab.Commons.Directions.Tridimensional.Diagonals*
+  commentId: Overload:ISILab.Commons.Directions.Tridimensional.Diagonals
+  isExternal: true
+  href: ISILab.Commons.Directions.Tridimensional.html#ISILab_Commons_Directions_Tridimensional_Diagonals
+  name: Diagonals
+  nameWithType: Directions.Tridimensional.Diagonals
+  fullName: ISILab.Commons.Directions.Tridimensional.Diagonals
+- uid: ISILab.Commons.Directions.Tridimensional.All*
+  commentId: Overload:ISILab.Commons.Directions.Tridimensional.All
+  isExternal: true
+  href: ISILab.Commons.Directions.Tridimensional.html#ISILab_Commons_Directions_Tridimensional_All
+  name: All
+  nameWithType: Directions.Tridimensional.All
+  fullName: ISILab.Commons.Directions.Tridimensional.All
+shouldSkipMarkup: true

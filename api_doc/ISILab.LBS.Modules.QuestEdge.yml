@@ -1,0 +1,689 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Modules.QuestEdge
+  commentId: T:ISILab.LBS.Modules.QuestEdge
+  id: QuestEdge
+  parent: ISILab.LBS.Modules
+  children:
+  - ISILab.LBS.Modules.QuestEdge.#ctor
+  - ISILab.LBS.Modules.QuestEdge.#ctor(ISILab.LBS.Components.GraphNode,ISILab.LBS.Components.GraphNode)
+  - ISILab.LBS.Modules.QuestEdge.AddFrom(ISILab.LBS.Components.GraphNode)
+  - ISILab.LBS.Modules.QuestEdge.Clone
+  - ISILab.LBS.Modules.QuestEdge.From
+  - ISILab.LBS.Modules.QuestEdge.RemoveFrom(ISILab.LBS.Components.GraphNode)
+  - ISILab.LBS.Modules.QuestEdge.To
+  langs:
+  - csharp
+  - vb
+  name: QuestEdge
+  nameWithType: QuestEdge
+  fullName: ISILab.LBS.Modules.QuestEdge
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: 'public class QuestEdge : ICloneable'
+    content.vb: Public Class QuestEdge Implements ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.LBS.Modules.QuestEdge.#ctor
+  commentId: M:ISILab.LBS.Modules.QuestEdge.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Modules.QuestEdge
+  langs:
+  - csharp
+  - vb
+  name: QuestEdge()
+  nameWithType: QuestEdge.QuestEdge()
+  fullName: ISILab.LBS.Modules.QuestEdge.QuestEdge()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public QuestEdge()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Modules.QuestEdge.#ctor*
+  nameWithType.vb: QuestEdge.New()
+  fullName.vb: ISILab.LBS.Modules.QuestEdge.New()
+  name.vb: New()
+- uid: ISILab.LBS.Modules.QuestEdge.#ctor(ISILab.LBS.Components.GraphNode,ISILab.LBS.Components.GraphNode)
+  commentId: M:ISILab.LBS.Modules.QuestEdge.#ctor(ISILab.LBS.Components.GraphNode,ISILab.LBS.Components.GraphNode)
+  id: '#ctor(ISILab.LBS.Components.GraphNode,ISILab.LBS.Components.GraphNode)'
+  parent: ISILab.LBS.Modules.QuestEdge
+  langs:
+  - csharp
+  - vb
+  name: QuestEdge(GraphNode, GraphNode)
+  nameWithType: QuestEdge.QuestEdge(GraphNode, GraphNode)
+  fullName: ISILab.LBS.Modules.QuestEdge.QuestEdge(ISILab.LBS.Components.GraphNode, ISILab.LBS.Components.GraphNode)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public QuestEdge(GraphNode from, GraphNode to)
+    parameters:
+    - id: from
+      type: ISILab.LBS.Components.GraphNode
+    - id: to
+      type: ISILab.LBS.Components.GraphNode
+    content.vb: Public Sub New(from As GraphNode, [to] As GraphNode)
+  overload: ISILab.LBS.Modules.QuestEdge.#ctor*
+  nameWithType.vb: QuestEdge.New(GraphNode, GraphNode)
+  fullName.vb: ISILab.LBS.Modules.QuestEdge.New(ISILab.LBS.Components.GraphNode, ISILab.LBS.Components.GraphNode)
+  name.vb: New(GraphNode, GraphNode)
+- uid: ISILab.LBS.Modules.QuestEdge.Clone
+  commentId: M:ISILab.LBS.Modules.QuestEdge.Clone
+  id: Clone
+  parent: ISILab.LBS.Modules.QuestEdge
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: QuestEdge.Clone()
+  fullName: ISILab.LBS.Modules.QuestEdge.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Function Clone() As Object
+  overload: ISILab.LBS.Modules.QuestEdge.Clone*
+  implements:
+  - System.ICloneable.Clone
+- uid: ISILab.LBS.Modules.QuestEdge.AddFrom(ISILab.LBS.Components.GraphNode)
+  commentId: M:ISILab.LBS.Modules.QuestEdge.AddFrom(ISILab.LBS.Components.GraphNode)
+  id: AddFrom(ISILab.LBS.Components.GraphNode)
+  parent: ISILab.LBS.Modules.QuestEdge
+  langs:
+  - csharp
+  - vb
+  name: AddFrom(GraphNode)
+  nameWithType: QuestEdge.AddFrom(GraphNode)
+  fullName: ISILab.LBS.Modules.QuestEdge.AddFrom(ISILab.LBS.Components.GraphNode)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void AddFrom(GraphNode node)
+    parameters:
+    - id: node
+      type: ISILab.LBS.Components.GraphNode
+    content.vb: Public Sub AddFrom(node As GraphNode)
+  overload: ISILab.LBS.Modules.QuestEdge.AddFrom*
+- uid: ISILab.LBS.Modules.QuestEdge.RemoveFrom(ISILab.LBS.Components.GraphNode)
+  commentId: M:ISILab.LBS.Modules.QuestEdge.RemoveFrom(ISILab.LBS.Components.GraphNode)
+  id: RemoveFrom(ISILab.LBS.Components.GraphNode)
+  parent: ISILab.LBS.Modules.QuestEdge
+  langs:
+  - csharp
+  - vb
+  name: RemoveFrom(GraphNode)
+  nameWithType: QuestEdge.RemoveFrom(GraphNode)
+  fullName: ISILab.LBS.Modules.QuestEdge.RemoveFrom(ISILab.LBS.Components.GraphNode)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void RemoveFrom(GraphNode node)
+    parameters:
+    - id: node
+      type: ISILab.LBS.Components.GraphNode
+    content.vb: Public Sub RemoveFrom(node As GraphNode)
+  overload: ISILab.LBS.Modules.QuestEdge.RemoveFrom*
+- uid: ISILab.LBS.Modules.QuestEdge.From
+  commentId: P:ISILab.LBS.Modules.QuestEdge.From
+  id: From
+  parent: ISILab.LBS.Modules.QuestEdge
+  langs:
+  - csharp
+  - vb
+  name: From
+  nameWithType: QuestEdge.From
+  fullName: ISILab.LBS.Modules.QuestEdge.From
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<GraphNode> From { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
+    content.vb: Public Property From As List(Of GraphNode)
+  overload: ISILab.LBS.Modules.QuestEdge.From*
+- uid: ISILab.LBS.Modules.QuestEdge.To
+  commentId: P:ISILab.LBS.Modules.QuestEdge.To
+  id: To
+  parent: ISILab.LBS.Modules.QuestEdge
+  langs:
+  - csharp
+  - vb
+  name: To
+  nameWithType: QuestEdge.To
+  fullName: ISILab.LBS.Modules.QuestEdge.To
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public GraphNode To { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.GraphNode
+    content.vb: Public Property [To] As GraphNode
+  overload: ISILab.LBS.Modules.QuestEdge.To*
+references:
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Modules.QuestEdge.#ctor*
+  commentId: Overload:ISILab.LBS.Modules.QuestEdge.#ctor
+  isExternal: true
+  href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge__ctor
+  name: QuestEdge
+  nameWithType: QuestEdge.QuestEdge
+  fullName: ISILab.LBS.Modules.QuestEdge.QuestEdge
+  nameWithType.vb: QuestEdge.New
+  fullName.vb: ISILab.LBS.Modules.QuestEdge.New
+  name.vb: New
+- uid: ISILab.LBS.Components.GraphNode
+  commentId: T:ISILab.LBS.Components.GraphNode
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.GraphNode.html
+  name: GraphNode
+  nameWithType: GraphNode
+  fullName: ISILab.LBS.Components.GraphNode
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.Modules.QuestEdge.Clone*
+  commentId: Overload:ISILab.LBS.Modules.QuestEdge.Clone
+  isExternal: true
+  href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge_Clone
+  name: Clone
+  nameWithType: QuestEdge.Clone
+  fullName: ISILab.LBS.Modules.QuestEdge.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.QuestEdge.AddFrom*
+  commentId: Overload:ISILab.LBS.Modules.QuestEdge.AddFrom
+  isExternal: true
+  href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge_AddFrom_ISILab_LBS_Components_GraphNode_
+  name: AddFrom
+  nameWithType: QuestEdge.AddFrom
+  fullName: ISILab.LBS.Modules.QuestEdge.AddFrom
+- uid: ISILab.LBS.Modules.QuestEdge.RemoveFrom*
+  commentId: Overload:ISILab.LBS.Modules.QuestEdge.RemoveFrom
+  isExternal: true
+  href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge_RemoveFrom_ISILab_LBS_Components_GraphNode_
+  name: RemoveFrom
+  nameWithType: QuestEdge.RemoveFrom
+  fullName: ISILab.LBS.Modules.QuestEdge.RemoveFrom
+- uid: ISILab.LBS.Modules.QuestEdge.From*
+  commentId: Overload:ISILab.LBS.Modules.QuestEdge.From
+  isExternal: true
+  href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge_From
+  name: From
+  nameWithType: QuestEdge.From
+  fullName: ISILab.LBS.Modules.QuestEdge.From
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GraphNode>
+  nameWithType: List<GraphNode>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.GraphNode>
+  nameWithType.vb: List(Of GraphNode)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.GraphNode)
+  name.vb: List(Of GraphNode)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.GraphNode
+    name: GraphNode
+    isExternal: true
+    href: ISILab.LBS.Components.GraphNode.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.GraphNode
+    name: GraphNode
+    isExternal: true
+    href: ISILab.LBS.Components.GraphNode.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Modules.QuestEdge.To*
+  commentId: Overload:ISILab.LBS.Modules.QuestEdge.To
+  isExternal: true
+  href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge_To
+  name: To
+  nameWithType: QuestEdge.To
+  fullName: ISILab.LBS.Modules.QuestEdge.To
+shouldSkipMarkup: true

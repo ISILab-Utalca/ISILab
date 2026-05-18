@@ -1,0 +1,475 @@
+### YamlMime:ManagedReference
+items:
+- uid: OGVis.PlayerLog.InteractionEvent
+  commentId: T:OGVis.PlayerLog.InteractionEvent
+  id: PlayerLog.InteractionEvent
+  parent: OGVis
+  children:
+  - OGVis.PlayerLog.InteractionEvent.#ctor(System.Single,UnityEngine.Vector3,System.String)
+  - OGVis.PlayerLog.InteractionEvent.GetStringHash
+  - OGVis.PlayerLog.InteractionEvent.GetStringHash(UnityEngine.Vector3,System.String)
+  - OGVis.PlayerLog.InteractionEvent.objectName
+  langs:
+  - csharp
+  - vb
+  name: PlayerLog.InteractionEvent
+  nameWithType: PlayerLog.InteractionEvent
+  fullName: OGVis.PlayerLog.InteractionEvent
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: 'public class PlayerLog.InteractionEvent : PlayerLog.EventRecord'
+    content.vb: Public Class PlayerLog.InteractionEvent Inherits PlayerLog.EventRecord
+  inheritance:
+  - System.Object
+  - OGVis.PlayerLog.EventRecord
+  inheritedMembers:
+  - OGVis.PlayerLog.EventRecord.timestamp
+  - OGVis.PlayerLog.EventRecord.realPos
+  - OGVis.PlayerLog.EventRecord.pos
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: OGVis.PlayerLog.InteractionEvent.objectName
+  commentId: F:OGVis.PlayerLog.InteractionEvent.objectName
+  id: objectName
+  parent: OGVis.PlayerLog.InteractionEvent
+  langs:
+  - csharp
+  - vb
+  name: objectName
+  nameWithType: PlayerLog.InteractionEvent.objectName
+  fullName: OGVis.PlayerLog.InteractionEvent.objectName
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public string objectName
+    return:
+      type: System.String
+    content.vb: Public objectName As String
+- uid: OGVis.PlayerLog.InteractionEvent.#ctor(System.Single,UnityEngine.Vector3,System.String)
+  commentId: M:OGVis.PlayerLog.InteractionEvent.#ctor(System.Single,UnityEngine.Vector3,System.String)
+  id: '#ctor(System.Single,UnityEngine.Vector3,System.String)'
+  parent: OGVis.PlayerLog.InteractionEvent
+  langs:
+  - csharp
+  - vb
+  name: InteractionEvent(float, Vector3, string)
+  nameWithType: PlayerLog.InteractionEvent.InteractionEvent(float, Vector3, string)
+  fullName: OGVis.PlayerLog.InteractionEvent.InteractionEvent(float, UnityEngine.Vector3, string)
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public InteractionEvent(float timestamp, Vector3 pos, string objectName)
+    parameters:
+    - id: timestamp
+      type: System.Single
+    - id: pos
+      type: UnityEngine.Vector3
+    - id: objectName
+      type: System.String
+    content.vb: Public Sub New(timestamp As Single, pos As Vector3, objectName As String)
+  overload: OGVis.PlayerLog.InteractionEvent.#ctor*
+  nameWithType.vb: PlayerLog.InteractionEvent.New(Single, Vector3, String)
+  fullName.vb: OGVis.PlayerLog.InteractionEvent.New(Single, UnityEngine.Vector3, String)
+  name.vb: New(Single, Vector3, String)
+- uid: OGVis.PlayerLog.InteractionEvent.GetStringHash
+  commentId: M:OGVis.PlayerLog.InteractionEvent.GetStringHash
+  id: GetStringHash
+  parent: OGVis.PlayerLog.InteractionEvent
+  langs:
+  - csharp
+  - vb
+  name: GetStringHash()
+  nameWithType: PlayerLog.InteractionEvent.GetStringHash()
+  fullName: OGVis.PlayerLog.InteractionEvent.GetStringHash()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public string GetStringHash()
+    return:
+      type: System.String
+    content.vb: Public Function GetStringHash() As String
+  overload: OGVis.PlayerLog.InteractionEvent.GetStringHash*
+- uid: OGVis.PlayerLog.InteractionEvent.GetStringHash(UnityEngine.Vector3,System.String)
+  commentId: M:OGVis.PlayerLog.InteractionEvent.GetStringHash(UnityEngine.Vector3,System.String)
+  id: GetStringHash(UnityEngine.Vector3,System.String)
+  parent: OGVis.PlayerLog.InteractionEvent
+  langs:
+  - csharp
+  - vb
+  name: GetStringHash(Vector3, string)
+  nameWithType: PlayerLog.InteractionEvent.GetStringHash(Vector3, string)
+  fullName: OGVis.PlayerLog.InteractionEvent.GetStringHash(UnityEngine.Vector3, string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public static string GetStringHash(Vector3 pos, string objectName)
+    parameters:
+    - id: pos
+      type: UnityEngine.Vector3
+    - id: objectName
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetStringHash(pos As Vector3, objectName As String) As String
+  overload: OGVis.PlayerLog.InteractionEvent.GetStringHash*
+  nameWithType.vb: PlayerLog.InteractionEvent.GetStringHash(Vector3, String)
+  fullName.vb: OGVis.PlayerLog.InteractionEvent.GetStringHash(UnityEngine.Vector3, String)
+  name.vb: GetStringHash(Vector3, String)
+references:
+- uid: OGVis
+  commentId: N:OGVis
+  isExternal: true
+  href: OGVis.html
+  name: OGVis
+  nameWithType: OGVis
+  fullName: OGVis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: OGVis.PlayerLog.EventRecord
+  commentId: T:OGVis.PlayerLog.EventRecord
+  parent: OGVis
+  isExternal: true
+  href: OGVis.PlayerLog.html
+  name: PlayerLog.EventRecord
+  nameWithType: PlayerLog.EventRecord
+  fullName: OGVis.PlayerLog.EventRecord
+  spec.csharp:
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: .
+  - uid: OGVis.PlayerLog.EventRecord
+    name: EventRecord
+    isExternal: true
+    href: OGVis.PlayerLog.EventRecord.html
+  spec.vb:
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: .
+  - uid: OGVis.PlayerLog.EventRecord
+    name: EventRecord
+    isExternal: true
+    href: OGVis.PlayerLog.EventRecord.html
+- uid: OGVis.PlayerLog.EventRecord.timestamp
+  commentId: F:OGVis.PlayerLog.EventRecord.timestamp
+  parent: OGVis.PlayerLog.EventRecord
+  isExternal: true
+  href: OGVis.PlayerLog.EventRecord.html#OGVis_PlayerLog_EventRecord_timestamp
+  name: timestamp
+  nameWithType: PlayerLog.EventRecord.timestamp
+  fullName: OGVis.PlayerLog.EventRecord.timestamp
+- uid: OGVis.PlayerLog.EventRecord.realPos
+  commentId: F:OGVis.PlayerLog.EventRecord.realPos
+  parent: OGVis.PlayerLog.EventRecord
+  isExternal: true
+  href: OGVis.PlayerLog.EventRecord.html#OGVis_PlayerLog_EventRecord_realPos
+  name: realPos
+  nameWithType: PlayerLog.EventRecord.realPos
+  fullName: OGVis.PlayerLog.EventRecord.realPos
+- uid: OGVis.PlayerLog.EventRecord.pos
+  commentId: F:OGVis.PlayerLog.EventRecord.pos
+  parent: OGVis.PlayerLog.EventRecord
+  isExternal: true
+  href: OGVis.PlayerLog.EventRecord.html#OGVis_PlayerLog_EventRecord_pos
+  name: pos
+  nameWithType: PlayerLog.EventRecord.pos
+  fullName: OGVis.PlayerLog.EventRecord.pos
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: OGVis.PlayerLog.InteractionEvent.#ctor*
+  commentId: Overload:OGVis.PlayerLog.InteractionEvent.#ctor
+  isExternal: true
+  href: OGVis.PlayerLog.InteractionEvent.html#OGVis_PlayerLog_InteractionEvent__ctor_System_Single_UnityEngine_Vector3_System_String_
+  name: InteractionEvent
+  nameWithType: PlayerLog.InteractionEvent.InteractionEvent
+  fullName: OGVis.PlayerLog.InteractionEvent.InteractionEvent
+  nameWithType.vb: PlayerLog.InteractionEvent.New
+  fullName.vb: OGVis.PlayerLog.InteractionEvent.New
+  name.vb: New
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: OGVis.PlayerLog.InteractionEvent.GetStringHash*
+  commentId: Overload:OGVis.PlayerLog.InteractionEvent.GetStringHash
+  isExternal: true
+  href: OGVis.PlayerLog.InteractionEvent.html#OGVis_PlayerLog_InteractionEvent_GetStringHash
+  name: GetStringHash
+  nameWithType: PlayerLog.InteractionEvent.GetStringHash
+  fullName: OGVis.PlayerLog.InteractionEvent.GetStringHash
+shouldSkipMarkup: true

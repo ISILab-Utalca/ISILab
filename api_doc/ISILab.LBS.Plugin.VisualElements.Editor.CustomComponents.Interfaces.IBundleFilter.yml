@@ -1,0 +1,412 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+  commentId: T:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+  id: IBundleFilter
+  parent: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  children:
+  - ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow
+  - ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.CloseFilterWindow
+  - ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.OpenFilterWindow(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle},System.Action{ISILab.LBS.Plugin.Components.Bundles.Bundle})
+  langs:
+  - csharp
+  - vb
+  name: IBundleFilter
+  nameWithType: IBundleFilter
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+  type: Interface
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  syntax:
+    content: public interface IBundleFilter
+    content.vb: Public Interface IBundleFilter
+  derivedClasses:
+  - ISILab.LBS.Behaviours.Editor.SchemaBehaviourEditor
+  - ISILab.LBS.Plugin.Core.AI.Assistant.Editor.AssistantWFCEditor
+  - ISILab.LBS.VisualElements.Addon_DropEditor
+  - ISILab.LBS.VisualElements.ExteriorBehaviourEditor
+  - ISILab.LBS.VisualElements.PickerBundleGraph
+  - ISILab.LBS.VisualElements.PickerBundleType
+  - ISILab.LBS.VisualElements.PopulationBehaviourEditor
+  - ISILab.LBS.VisualElements.QuickAssistantPanel
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.OpenFilterWindow(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle},System.Action{ISILab.LBS.Plugin.Components.Bundles.Bundle})
+  commentId: M:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.OpenFilterWindow(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle},System.Action{ISILab.LBS.Plugin.Components.Bundles.Bundle})
+  id: OpenFilterWindow(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle},System.Action{ISILab.LBS.Plugin.Components.Bundles.Bundle})
+  parent: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+  langs:
+  - csharp
+  - vb
+  name: OpenFilterWindow(List<Bundle>, Action<Bundle>)
+  nameWithType: IBundleFilter.OpenFilterWindow(List<Bundle>, Action<Bundle>)
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.OpenFilterWindow(System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Bundles.Bundle>, System.Action<ISILab.LBS.Plugin.Components.Bundles.Bundle>)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  syntax:
+    content: void OpenFilterWindow(List<Bundle> bundles, Action<Bundle> onPick)
+    parameters:
+    - id: bundles
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle}
+    - id: onPick
+      type: System.Action{ISILab.LBS.Plugin.Components.Bundles.Bundle}
+    content.vb: Sub OpenFilterWindow(bundles As List(Of Bundle), onPick As Action(Of Bundle))
+  overload: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.OpenFilterWindow*
+  nameWithType.vb: IBundleFilter.OpenFilterWindow(List(Of Bundle), Action(Of Bundle))
+  fullName.vb: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.OpenFilterWindow(System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Bundles.Bundle), System.Action(Of ISILab.LBS.Plugin.Components.Bundles.Bundle))
+  name.vb: OpenFilterWindow(List(Of Bundle), Action(Of Bundle))
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.CloseFilterWindow
+  commentId: M:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.CloseFilterWindow
+  id: CloseFilterWindow
+  parent: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+  langs:
+  - csharp
+  - vb
+  name: CloseFilterWindow()
+  nameWithType: IBundleFilter.CloseFilterWindow()
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.CloseFilterWindow()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  syntax:
+    content: void CloseFilterWindow()
+    content.vb: Sub CloseFilterWindow()
+  overload: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.CloseFilterWindow*
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow
+  commentId: P:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow
+  id: BundlePickerWindow
+  parent: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+  langs:
+  - csharp
+  - vb
+  name: BundlePickerWindow
+  nameWithType: IBundleFilter.BundlePickerWindow
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  syntax:
+    content: LBSButtonListFilter BundlePickerWindow { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.CustomComponents.LBSButtonListFilter
+    content.vb: Property BundlePickerWindow As LBSButtonListFilter
+  overload: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow*
+references:
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  commentId: N:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  nameWithType: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+    name: Interfaces
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+    name: Interfaces
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.html
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.OpenFilterWindow*
+  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.OpenFilterWindow
+  isExternal: true
+  href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.html#ISILab_LBS_Plugin_VisualElements_Editor_CustomComponents_Interfaces_IBundleFilter_OpenFilterWindow_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Bundles_Bundle__System_Action_ISILab_LBS_Plugin_Components_Bundles_Bundle__
+  name: OpenFilterWindow
+  nameWithType: IBundleFilter.OpenFilterWindow
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.OpenFilterWindow
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Bundle>
+  nameWithType: List<Bundle>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Bundles.Bundle>
+  nameWithType.vb: List(Of Bundle)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  name.vb: List(Of Bundle)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: )
+- uid: System.Action{ISILab.LBS.Plugin.Components.Bundles.Bundle}
+  commentId: T:System.Action{ISILab.LBS.Plugin.Components.Bundles.Bundle}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<Bundle>
+  nameWithType: Action<Bundle>
+  fullName: System.Action<ISILab.LBS.Plugin.Components.Bundles.Bundle>
+  nameWithType.vb: Action(Of Bundle)
+  fullName.vb: System.Action(Of ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  name.vb: Action(Of Bundle)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.CloseFilterWindow*
+  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.CloseFilterWindow
+  isExternal: true
+  href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.html#ISILab_LBS_Plugin_VisualElements_Editor_CustomComponents_Interfaces_IBundleFilter_CloseFilterWindow
+  name: CloseFilterWindow
+  nameWithType: IBundleFilter.CloseFilterWindow
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.CloseFilterWindow
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow*
+  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow
+  isExternal: true
+  href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.html#ISILab_LBS_Plugin_VisualElements_Editor_CustomComponents_Interfaces_IBundleFilter_BundlePickerWindow
+  name: BundlePickerWindow
+  nameWithType: IBundleFilter.BundlePickerWindow
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow
+- uid: ISILab.LBS.CustomComponents.LBSButtonListFilter
+  commentId: T:ISILab.LBS.CustomComponents.LBSButtonListFilter
+  parent: ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSButtonListFilter.html
+  name: LBSButtonListFilter
+  nameWithType: LBSButtonListFilter
+  fullName: ISILab.LBS.CustomComponents.LBSButtonListFilter
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+shouldSkipMarkup: true

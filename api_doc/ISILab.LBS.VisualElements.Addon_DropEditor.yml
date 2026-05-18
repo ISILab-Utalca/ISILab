@@ -1,0 +1,573 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.Addon_DropEditor
+  commentId: T:ISILab.LBS.VisualElements.Addon_DropEditor
+  id: Addon_DropEditor
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.Addon_DropEditor.#ctor(System.Object)
+  - ISILab.LBS.VisualElements.Addon_DropEditor.BundlePickerWindow
+  - ISILab.LBS.VisualElements.Addon_DropEditor.CreateVisualElement
+  - ISILab.LBS.VisualElements.Addon_DropEditor.SetInfo(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: Addon_DropEditor
+  nameWithType: Addon_DropEditor
+  fullName: ISILab.LBS.VisualElements.Addon_DropEditor
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class Addon_DropEditor : LBSCustomEditor, IBundleFilter'
+    content.vb: Public Class Addon_DropEditor Inherits LBSCustomEditor Implements IBundleFilter
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Editor.LBSCustomEditor
+  implements:
+  - ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+  inheritedMembers:
+  - ISILab.LBS.Editor.LBSCustomEditor.target
+  - ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  - ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  - ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  - ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  - ISILab.LBS.Editor.LBSCustomEditor.Target
+- uid: ISILab.LBS.VisualElements.Addon_DropEditor.#ctor(System.Object)
+  commentId: M:ISILab.LBS.VisualElements.Addon_DropEditor.#ctor(System.Object)
+  id: '#ctor(System.Object)'
+  parent: ISILab.LBS.VisualElements.Addon_DropEditor
+  langs:
+  - csharp
+  - vb
+  name: Addon_DropEditor(object)
+  nameWithType: Addon_DropEditor.Addon_DropEditor(object)
+  fullName: ISILab.LBS.VisualElements.Addon_DropEditor.Addon_DropEditor(object)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Addon_DropEditor(object target)
+    parameters:
+    - id: target
+      type: System.Object
+    content.vb: Public Sub New(target As Object)
+  overload: ISILab.LBS.VisualElements.Addon_DropEditor.#ctor*
+  nameWithType.vb: Addon_DropEditor.New(Object)
+  fullName.vb: ISILab.LBS.VisualElements.Addon_DropEditor.New(Object)
+  name.vb: New(Object)
+- uid: ISILab.LBS.VisualElements.Addon_DropEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.VisualElements.Addon_DropEditor.SetInfo(System.Object)
+  id: SetInfo(System.Object)
+  parent: ISILab.LBS.VisualElements.Addon_DropEditor
+  langs:
+  - csharp
+  - vb
+  name: SetInfo(object)
+  nameWithType: Addon_DropEditor.SetInfo(object)
+  fullName: ISILab.LBS.VisualElements.Addon_DropEditor.SetInfo(object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public override void SetInfo(object paramTarget)
+    parameters:
+    - id: paramTarget
+      type: System.Object
+    content.vb: Public Overrides Sub SetInfo(paramTarget As Object)
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  overload: ISILab.LBS.VisualElements.Addon_DropEditor.SetInfo*
+  nameWithType.vb: Addon_DropEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.VisualElements.Addon_DropEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+- uid: ISILab.LBS.VisualElements.Addon_DropEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.VisualElements.Addon_DropEditor.CreateVisualElement
+  id: CreateVisualElement
+  parent: ISILab.LBS.VisualElements.Addon_DropEditor
+  langs:
+  - csharp
+  - vb
+  name: CreateVisualElement()
+  nameWithType: Addon_DropEditor.CreateVisualElement()
+  fullName: ISILab.LBS.VisualElements.Addon_DropEditor.CreateVisualElement()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: protected override VisualElement CreateVisualElement()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Protected Overrides Function CreateVisualElement() As VisualElement
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  overload: ISILab.LBS.VisualElements.Addon_DropEditor.CreateVisualElement*
+- uid: ISILab.LBS.VisualElements.Addon_DropEditor.BundlePickerWindow
+  commentId: P:ISILab.LBS.VisualElements.Addon_DropEditor.BundlePickerWindow
+  id: BundlePickerWindow
+  parent: ISILab.LBS.VisualElements.Addon_DropEditor
+  langs:
+  - csharp
+  - vb
+  name: BundlePickerWindow
+  nameWithType: Addon_DropEditor.BundlePickerWindow
+  fullName: ISILab.LBS.VisualElements.Addon_DropEditor.BundlePickerWindow
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public LBSButtonListFilter BundlePickerWindow { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.CustomComponents.LBSButtonListFilter
+    content.vb: Public Property BundlePickerWindow As LBSButtonListFilter
+  overload: ISILab.LBS.VisualElements.Addon_DropEditor.BundlePickerWindow*
+  implements:
+  - ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Editor.LBSCustomEditor
+  commentId: T:ISILab.LBS.Editor.LBSCustomEditor
+  parent: ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html
+  name: LBSCustomEditor
+  nameWithType: LBSCustomEditor
+  fullName: ISILab.LBS.Editor.LBSCustomEditor
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+  commentId: T:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+  parent: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  isExternal: true
+  href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.html
+  name: IBundleFilter
+  nameWithType: IBundleFilter
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+- uid: ISILab.LBS.Editor.LBSCustomEditor.target
+  commentId: F:ISILab.LBS.Editor.LBSCustomEditor.target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_target
+  name: target
+  nameWithType: LBSCustomEditor.target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.target
+- uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  name: ContextMenu(ContextualMenuPopulateEvent)
+  nameWithType: LBSCustomEditor.ContextMenu(ContextualMenuPopulateEvent)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  name: Repaint()
+  nameWithType: LBSCustomEditor.Repaint()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Repaint()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  name: OnFocus()
+  nameWithType: LBSCustomEditor.OnFocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnFocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  name: OnUnfocus()
+  nameWithType: LBSCustomEditor.OnUnfocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Target
+  commentId: P:ISILab.LBS.Editor.LBSCustomEditor.Target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Target
+  name: Target
+  nameWithType: LBSCustomEditor.Target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Target
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Editor
+  commentId: N:ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Editor
+  nameWithType: ISILab.LBS.Editor
+  fullName: ISILab.LBS.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  commentId: N:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  nameWithType: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+    name: Interfaces
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces
+    name: Interfaces
+    isExternal: true
+    href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.html
+- uid: ISILab.LBS.VisualElements.Addon_DropEditor.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.Addon_DropEditor.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Addon_DropEditor.html#ISILab_LBS_VisualElements_Addon_DropEditor__ctor_System_Object_
+  name: Addon_DropEditor
+  nameWithType: Addon_DropEditor.Addon_DropEditor
+  fullName: ISILab.LBS.VisualElements.Addon_DropEditor.Addon_DropEditor
+  nameWithType.vb: Addon_DropEditor.New
+  fullName.vb: ISILab.LBS.VisualElements.Addon_DropEditor.New
+  name.vb: New
+- uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  name: SetInfo(object)
+  nameWithType: LBSCustomEditor.SetInfo(object)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(object)
+  nameWithType.vb: LBSCustomEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.VisualElements.Addon_DropEditor.SetInfo*
+  commentId: Overload:ISILab.LBS.VisualElements.Addon_DropEditor.SetInfo
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Addon_DropEditor.html#ISILab_LBS_VisualElements_Addon_DropEditor_SetInfo_System_Object_
+  name: SetInfo
+  nameWithType: Addon_DropEditor.SetInfo
+  fullName: ISILab.LBS.VisualElements.Addon_DropEditor.SetInfo
+- uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  name: CreateVisualElement()
+  nameWithType: LBSCustomEditor.CreateVisualElement()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.Addon_DropEditor.CreateVisualElement*
+  commentId: Overload:ISILab.LBS.VisualElements.Addon_DropEditor.CreateVisualElement
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Addon_DropEditor.html#ISILab_LBS_VisualElements_Addon_DropEditor_CreateVisualElement
+  name: CreateVisualElement
+  nameWithType: Addon_DropEditor.CreateVisualElement
+  fullName: ISILab.LBS.VisualElements.Addon_DropEditor.CreateVisualElement
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.VisualElements.Addon_DropEditor.BundlePickerWindow*
+  commentId: Overload:ISILab.LBS.VisualElements.Addon_DropEditor.BundlePickerWindow
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Addon_DropEditor.html#ISILab_LBS_VisualElements_Addon_DropEditor_BundlePickerWindow
+  name: BundlePickerWindow
+  nameWithType: Addon_DropEditor.BundlePickerWindow
+  fullName: ISILab.LBS.VisualElements.Addon_DropEditor.BundlePickerWindow
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow
+  commentId: P:ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow
+  parent: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter
+  isExternal: true
+  href: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.html#ISILab_LBS_Plugin_VisualElements_Editor_CustomComponents_Interfaces_IBundleFilter_BundlePickerWindow
+  name: BundlePickerWindow
+  nameWithType: IBundleFilter.BundlePickerWindow
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces.IBundleFilter.BundlePickerWindow
+- uid: ISILab.LBS.CustomComponents.LBSButtonListFilter
+  commentId: T:ISILab.LBS.CustomComponents.LBSButtonListFilter
+  parent: ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSButtonListFilter.html
+  name: LBSButtonListFilter
+  nameWithType: LBSButtonListFilter
+  fullName: ISILab.LBS.CustomComponents.LBSButtonListFilter
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+shouldSkipMarkup: true

@@ -1,0 +1,468 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable
+  id: MappedIEvaluable
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization
+  children:
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.#ctor(ISILab.AI.Optimization.IOptimizable,System.Single,System.Single)
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.evaluable
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.xFitness
+  - ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.yFitness
+  langs:
+  - csharp
+  - vb
+  name: MappedIEvaluable
+  nameWithType: MappedIEvaluable
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable
+  type: Struct
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public struct MappedIEvaluable
+    content.vb: Public Structure MappedIEvaluable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.xFitness
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.xFitness
+  id: xFitness
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable
+  langs:
+  - csharp
+  - vb
+  name: xFitness
+  nameWithType: MappedIEvaluable.xFitness
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.xFitness
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public float xFitness
+    return:
+      type: System.Single
+    content.vb: Public xFitness As Single
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.yFitness
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.yFitness
+  id: yFitness
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable
+  langs:
+  - csharp
+  - vb
+  name: yFitness
+  nameWithType: MappedIEvaluable.yFitness
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.yFitness
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public float yFitness
+    return:
+      type: System.Single
+    content.vb: Public yFitness As Single
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.evaluable
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.evaluable
+  id: evaluable
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable
+  langs:
+  - csharp
+  - vb
+  name: evaluable
+  nameWithType: MappedIEvaluable.evaluable
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.evaluable
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public IOptimizable evaluable
+    return:
+      type: ISILab.AI.Optimization.IOptimizable
+    content.vb: Public evaluable As IOptimizable
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.#ctor(ISILab.AI.Optimization.IOptimizable,System.Single,System.Single)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.#ctor(ISILab.AI.Optimization.IOptimizable,System.Single,System.Single)
+  id: '#ctor(ISILab.AI.Optimization.IOptimizable,System.Single,System.Single)'
+  parent: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable
+  langs:
+  - csharp
+  - vb
+  name: MappedIEvaluable(IOptimizable, float, float)
+  nameWithType: MappedIEvaluable.MappedIEvaluable(IOptimizable, float, float)
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.MappedIEvaluable(ISILab.AI.Optimization.IOptimizable, float, float)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  syntax:
+    content: public MappedIEvaluable(IOptimizable evaluable, float xFitness, float yFitness)
+    parameters:
+    - id: evaluable
+      type: ISILab.AI.Optimization.IOptimizable
+    - id: xFitness
+      type: System.Single
+    - id: yFitness
+      type: System.Single
+    content.vb: Public Sub New(evaluable As IOptimizable, xFitness As Single, yFitness As Single)
+  overload: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.#ctor*
+  nameWithType.vb: MappedIEvaluable.New(IOptimizable, Single, Single)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.New(ISILab.AI.Optimization.IOptimizable, Single, Single)
+  name.vb: New(IOptimizable, Single, Single)
+references:
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Categorization
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Categorization
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Categorization.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.AI.Optimization.IOptimizable
+  commentId: T:ISILab.AI.Optimization.IOptimizable
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable
+  nameWithType: IOptimizable
+  fullName: ISILab.AI.Optimization.IOptimizable
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+- uid: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.html#ISILab_LBS_Plugin_Core_AI_Categorization_MappedIEvaluable__ctor_ISILab_AI_Optimization_IOptimizable_System_Single_System_Single_
+  name: MappedIEvaluable
+  nameWithType: MappedIEvaluable.MappedIEvaluable
+  fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.MappedIEvaluable
+  nameWithType.vb: MappedIEvaluable.New
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.New
+  name.vb: New
+shouldSkipMarkup: true

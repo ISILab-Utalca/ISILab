@@ -1,0 +1,621 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  commentId: T:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  id: LBSTagListLayerTag
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  children:
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.#ctor
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.#ctor(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject,System.String,System.Boolean)
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Init
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerColor
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.OnTypeChanged
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Owner
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.SetType(System.String)
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Type
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.isRemovable
+  - ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.layerColor
+  langs:
+  - csharp
+  - vb
+  name: LBSTagListLayerTag
+  nameWithType: LBSTagListLayerTag
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: 'public class LBSTagListLayerTag : VisualElement'
+    content.vb: Public Class LBSTagListLayerTag Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.layerColor
+  commentId: F:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.layerColor
+  id: layerColor
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  langs:
+  - csharp
+  - vb
+  name: layerColor
+  nameWithType: LBSTagListLayerTag.layerColor
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.layerColor
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: protected static Dictionary<string, Color> layerColor
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,UnityEngine.Color}
+    content.vb: Protected Shared layerColor As Dictionary(Of String, Color)
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.OnTypeChanged
+  commentId: F:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.OnTypeChanged
+  id: OnTypeChanged
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  langs:
+  - csharp
+  - vb
+  name: OnTypeChanged
+  nameWithType: LBSTagListLayerTag.OnTypeChanged
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.OnTypeChanged
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public Action<string> OnTypeChanged
+    return:
+      type: System.Action{System.String}
+    content.vb: Public OnTypeChanged As Action(Of String)
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.#ctor(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject,System.String,System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.#ctor(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject,System.String,System.Boolean)
+  id: '#ctor(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject,System.String,System.Boolean)'
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  langs:
+  - csharp
+  - vb
+  name: LBSTagListLayerTag(LBSTagListObject, string, bool)
+  nameWithType: LBSTagListLayerTag.LBSTagListLayerTag(LBSTagListObject, string, bool)
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LBSTagListLayerTag(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject, string, bool)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public LBSTagListLayerTag(LBSTagListObject owner, string type, bool removable)
+    parameters:
+    - id: owner
+      type: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+    - id: type
+      type: System.String
+    - id: removable
+      type: System.Boolean
+    content.vb: Public Sub New(owner As LBSTagListObject, type As String, removable As Boolean)
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.#ctor*
+  nameWithType.vb: LBSTagListLayerTag.New(LBSTagListObject, String, Boolean)
+  fullName.vb: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.New(ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject, String, Boolean)
+  name.vb: New(LBSTagListObject, String, Boolean)
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.#ctor
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  langs:
+  - csharp
+  - vb
+  name: LBSTagListLayerTag()
+  nameWithType: LBSTagListLayerTag.LBSTagListLayerTag()
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LBSTagListLayerTag()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public LBSTagListLayerTag()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.#ctor*
+  nameWithType.vb: LBSTagListLayerTag.New()
+  fullName.vb: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Init
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Init
+  id: Init
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  langs:
+  - csharp
+  - vb
+  name: Init()
+  nameWithType: LBSTagListLayerTag.Init()
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Init()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public void Init()
+    content.vb: Public Sub Init()
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Init*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.SetType(System.String)
+  commentId: M:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.SetType(System.String)
+  id: SetType(System.String)
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  langs:
+  - csharp
+  - vb
+  name: SetType(string)
+  nameWithType: LBSTagListLayerTag.SetType(string)
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.SetType(string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public void SetType(string newTypeString)
+    parameters:
+    - id: newTypeString
+      type: System.String
+    content.vb: Public Sub SetType(newTypeString As String)
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.SetType*
+  nameWithType.vb: LBSTagListLayerTag.SetType(String)
+  fullName.vb: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.SetType(String)
+  name.vb: SetType(String)
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Type
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Type
+  id: Type
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: LBSTagListLayerTag.Type
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Type
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public LBSTagListLayerTag.LayerType Type { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerType
+    content.vb: Public ReadOnly Property Type As LBSTagListLayerTag.LayerType
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Type*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerColor
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerColor
+  id: LayerColor
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  langs:
+  - csharp
+  - vb
+  name: LayerColor
+  nameWithType: LBSTagListLayerTag.LayerColor
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerColor
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public Dictionary<string, Color> LayerColor { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,UnityEngine.Color}
+    content.vb: Public ReadOnly Property LayerColor As Dictionary(Of String, Color)
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerColor*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Owner
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Owner
+  id: Owner
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: LBSTagListLayerTag.Owner
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Owner
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public LBSTagListObject Owner { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+    content.vb: Public ReadOnly Property Owner As LBSTagListObject
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Owner*
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.isRemovable
+  commentId: P:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.isRemovable
+  id: isRemovable
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+  langs:
+  - csharp
+  - vb
+  name: isRemovable
+  nameWithType: LBSTagListLayerTag.isRemovable
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.isRemovable
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  syntax:
+    content: public bool isRemovable { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property isRemovable As Boolean
+  overload: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.isRemovable*
+references:
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  commentId: N:ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  nameWithType: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.Dictionary{System.String,UnityEngine.Color}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,UnityEngine.Color}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, Color>
+  nameWithType: Dictionary<string, Color>
+  fullName: System.Collections.Generic.Dictionary<string, UnityEngine.Color>
+  nameWithType.vb: Dictionary(Of String, Color)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, UnityEngine.Color)
+  name.vb: Dictionary(Of String, Color)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Action{System.String}
+  commentId: T:System.Action{System.String}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<string>
+  nameWithType: Action<string>
+  fullName: System.Action<string>
+  nameWithType.vb: Action(Of String)
+  fullName.vb: System.Action(Of String)
+  name.vb: Action(Of String)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListLayerTag__ctor_ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListObject_System_String_System_Boolean_
+  name: LBSTagListLayerTag
+  nameWithType: LBSTagListLayerTag.LBSTagListLayerTag
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LBSTagListLayerTag
+  nameWithType.vb: LBSTagListLayerTag.New
+  fullName.vb: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  commentId: T:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject.html
+  name: LBSTagListObject
+  nameWithType: LBSTagListObject
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListObject
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Init*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Init
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListLayerTag_Init
+  name: Init
+  nameWithType: LBSTagListLayerTag.Init
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Init
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.SetType*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.SetType
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListLayerTag_SetType_System_String_
+  name: SetType
+  nameWithType: LBSTagListLayerTag.SetType
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.SetType
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Type*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Type
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListLayerTag_Type
+  name: Type
+  nameWithType: LBSTagListLayerTag.Type
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Type
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerType
+  commentId: T:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerType
+  parent: ISILab.LBS.Plugin.Editor.UI.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.html
+  name: LBSTagListLayerTag.LayerType
+  nameWithType: LBSTagListLayerTag.LayerType
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerType
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+    name: LBSTagListLayerTag
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerType
+    name: LayerType
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerType.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag
+    name: LBSTagListLayerTag
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerType
+    name: LayerType
+    isExternal: true
+    href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerType.html
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerColor*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerColor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListLayerTag_LayerColor
+  name: LayerColor
+  nameWithType: LBSTagListLayerTag.LayerColor
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.LayerColor
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Owner*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Owner
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListLayerTag_Owner
+  name: Owner
+  nameWithType: LBSTagListLayerTag.Owner
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.Owner
+- uid: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.isRemovable*
+  commentId: Overload:ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.isRemovable
+  isExternal: true
+  href: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.html#ISILab_LBS_Plugin_Editor_UI_CustomComponents_LBSTagListLayerTag_isRemovable
+  name: isRemovable
+  nameWithType: LBSTagListLayerTag.isRemovable
+  fullName: ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSTagListLayerTag.isRemovable
+shouldSkipMarkup: true

@@ -1,0 +1,913 @@
+### YamlMime:ManagedReference
+items:
+- uid: LBS.VisualElements.ToolKit
+  commentId: T:LBS.VisualElements.ToolKit
+  id: ToolKit
+  parent: LBS.VisualElements
+  children:
+  - LBS.VisualElements.ToolKit.#ctor
+  - LBS.VisualElements.ToolKit.ActivateTool(LBS.LBSTool,LBS.Components.LBSLayer,System.Object)
+  - LBS.VisualElements.ToolKit.BaseColor
+  - LBS.VisualElements.ToolKit.ChoiceCount
+  - LBS.VisualElements.ToolKit.Clear
+  - LBS.VisualElements.ToolKit.GetActiveManipulator
+  - LBS.VisualElements.ToolKit.GetActiveManipulatorInstance
+  - LBS.VisualElements.ToolKit.GetTool(System.Type)
+  - LBS.VisualElements.ToolKit.GetToolButton(System.Type)
+  - LBS.VisualElements.ToolKit.HideFloorButtons
+  - LBS.VisualElements.ToolKit.Index
+  - LBS.VisualElements.ToolKit.InitGeneralTools(LBS.Components.LBSLayer)
+  - LBS.VisualElements.ToolKit.OnEndAction
+  - LBS.VisualElements.ToolKit.OnStartAction
+  - LBS.VisualElements.ToolKit.SetActive(System.Type)
+  - LBS.VisualElements.ToolKit.SetSeparators
+  - LBS.VisualElements.ToolKit.SetTarget(ISILab.LBS.Editor.LBSCustomEditor)
+  langs:
+  - csharp
+  - vb
+  name: ToolKit
+  nameWithType: ToolKit
+  fullName: LBS.VisualElements.ToolKit
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: 'public class ToolKit : VisualElement'
+    content.vb: Public Class ToolKit Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: LBS.VisualElements.ToolKit.#ctor
+  commentId: M:LBS.VisualElements.ToolKit.#ctor
+  id: '#ctor'
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: ToolKit()
+  nameWithType: ToolKit.ToolKit()
+  fullName: LBS.VisualElements.ToolKit.ToolKit()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public ToolKit()
+    content.vb: Public Sub New()
+  overload: LBS.VisualElements.ToolKit.#ctor*
+  nameWithType.vb: ToolKit.New()
+  fullName.vb: LBS.VisualElements.ToolKit.New()
+  name.vb: New()
+- uid: LBS.VisualElements.ToolKit.InitGeneralTools(LBS.Components.LBSLayer)
+  commentId: M:LBS.VisualElements.ToolKit.InitGeneralTools(LBS.Components.LBSLayer)
+  id: InitGeneralTools(LBS.Components.LBSLayer)
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: InitGeneralTools(LBSLayer)
+  nameWithType: ToolKit.InitGeneralTools(LBSLayer)
+  fullName: LBS.VisualElements.ToolKit.InitGeneralTools(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void InitGeneralTools(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Sub InitGeneralTools(layer As LBSLayer)
+  overload: LBS.VisualElements.ToolKit.InitGeneralTools*
+- uid: LBS.VisualElements.ToolKit.HideFloorButtons
+  commentId: M:LBS.VisualElements.ToolKit.HideFloorButtons
+  id: HideFloorButtons
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: HideFloorButtons()
+  nameWithType: ToolKit.HideFloorButtons()
+  fullName: LBS.VisualElements.ToolKit.HideFloorButtons()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void HideFloorButtons()
+    content.vb: Public Sub HideFloorButtons()
+  overload: LBS.VisualElements.ToolKit.HideFloorButtons*
+- uid: LBS.VisualElements.ToolKit.GetActiveManipulator
+  commentId: M:LBS.VisualElements.ToolKit.GetActiveManipulator
+  id: GetActiveManipulator
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: GetActiveManipulator()
+  nameWithType: ToolKit.GetActiveManipulator()
+  fullName: LBS.VisualElements.ToolKit.GetActiveManipulator()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public object GetActiveManipulator()
+    return:
+      type: System.Object
+    content.vb: Public Function GetActiveManipulator() As Object
+  overload: LBS.VisualElements.ToolKit.GetActiveManipulator*
+- uid: LBS.VisualElements.ToolKit.GetActiveManipulatorInstance
+  commentId: M:LBS.VisualElements.ToolKit.GetActiveManipulatorInstance
+  id: GetActiveManipulatorInstance
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: GetActiveManipulatorInstance()
+  nameWithType: ToolKit.GetActiveManipulatorInstance()
+  fullName: LBS.VisualElements.ToolKit.GetActiveManipulatorInstance()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public LBSManipulator GetActiveManipulatorInstance()
+    return:
+      type: ISILab.LBS.Manipulators.LBSManipulator
+    content.vb: Public Function GetActiveManipulatorInstance() As LBSManipulator
+  overload: LBS.VisualElements.ToolKit.GetActiveManipulatorInstance*
+- uid: LBS.VisualElements.ToolKit.GetTool(System.Type)
+  commentId: M:LBS.VisualElements.ToolKit.GetTool(System.Type)
+  id: GetTool(System.Type)
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: GetTool(Type)
+  nameWithType: ToolKit.GetTool(Type)
+  fullName: LBS.VisualElements.ToolKit.GetTool(System.Type)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public KeyValuePair<Type, (LBSTool, ToolButton)> GetTool(Type manipulatorType)
+    parameters:
+    - id: manipulatorType
+      type: System.Type
+    return:
+      type: System.Collections.Generic.KeyValuePair{System.Type,System.ValueTuple{LBS.LBSTool,ISILab.LBS.VisualElements.ToolButton}}
+    content.vb: Public Function GetTool(manipulatorType As Type) As KeyValuePair(Of Type, (LBSTool, ToolButton))
+  overload: LBS.VisualElements.ToolKit.GetTool*
+- uid: LBS.VisualElements.ToolKit.GetToolButton(System.Type)
+  commentId: M:LBS.VisualElements.ToolKit.GetToolButton(System.Type)
+  id: GetToolButton(System.Type)
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: GetToolButton(Type)
+  nameWithType: ToolKit.GetToolButton(Type)
+  fullName: LBS.VisualElements.ToolKit.GetToolButton(System.Type)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public VisualElement GetToolButton(Type manipulatorType)
+    parameters:
+    - id: manipulatorType
+      type: System.Type
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Function GetToolButton(manipulatorType As Type) As VisualElement
+  overload: LBS.VisualElements.ToolKit.GetToolButton*
+- uid: LBS.VisualElements.ToolKit.SetActive(System.Type)
+  commentId: M:LBS.VisualElements.ToolKit.SetActive(System.Type)
+  id: SetActive(System.Type)
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: SetActive(Type)
+  nameWithType: ToolKit.SetActive(Type)
+  fullName: LBS.VisualElements.ToolKit.SetActive(System.Type)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void SetActive(Type manipulatorType)
+    parameters:
+    - id: manipulatorType
+      type: System.Type
+    content.vb: Public Sub SetActive(manipulatorType As Type)
+  overload: LBS.VisualElements.ToolKit.SetActive*
+- uid: LBS.VisualElements.ToolKit.ActivateTool(LBS.LBSTool,LBS.Components.LBSLayer,System.Object)
+  commentId: M:LBS.VisualElements.ToolKit.ActivateTool(LBS.LBSTool,LBS.Components.LBSLayer,System.Object)
+  id: ActivateTool(LBS.LBSTool,LBS.Components.LBSLayer,System.Object)
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: ActivateTool(LBSTool, LBSLayer, object)
+  nameWithType: ToolKit.ActivateTool(LBSTool, LBSLayer, object)
+  fullName: LBS.VisualElements.ToolKit.ActivateTool(LBS.LBSTool, LBS.Components.LBSLayer, object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void ActivateTool(LBSTool tool, LBSLayer layer, object provider = null)
+    parameters:
+    - id: tool
+      type: LBS.LBSTool
+    - id: layer
+      type: LBS.Components.LBSLayer
+    - id: provider
+      type: System.Object
+    content.vb: Public Sub ActivateTool(tool As LBSTool, layer As LBSLayer, provider As Object = Nothing)
+  overload: LBS.VisualElements.ToolKit.ActivateTool*
+  nameWithType.vb: ToolKit.ActivateTool(LBSTool, LBSLayer, Object)
+  fullName.vb: LBS.VisualElements.ToolKit.ActivateTool(LBS.LBSTool, LBS.Components.LBSLayer, Object)
+  name.vb: ActivateTool(LBSTool, LBSLayer, Object)
+- uid: LBS.VisualElements.ToolKit.SetTarget(ISILab.LBS.Editor.LBSCustomEditor)
+  commentId: M:LBS.VisualElements.ToolKit.SetTarget(ISILab.LBS.Editor.LBSCustomEditor)
+  id: SetTarget(ISILab.LBS.Editor.LBSCustomEditor)
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: SetTarget(LBSCustomEditor)
+  nameWithType: ToolKit.SetTarget(LBSCustomEditor)
+  fullName: LBS.VisualElements.ToolKit.SetTarget(ISILab.LBS.Editor.LBSCustomEditor)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void SetTarget(LBSCustomEditor editor)
+    parameters:
+    - id: editor
+      type: ISILab.LBS.Editor.LBSCustomEditor
+    content.vb: Public Sub SetTarget(editor As LBSCustomEditor)
+  overload: LBS.VisualElements.ToolKit.SetTarget*
+- uid: LBS.VisualElements.ToolKit.Clear
+  commentId: M:LBS.VisualElements.ToolKit.Clear
+  id: Clear
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ToolKit.Clear()
+  fullName: LBS.VisualElements.ToolKit.Clear()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: LBS.VisualElements.ToolKit.Clear*
+- uid: LBS.VisualElements.ToolKit.SetSeparators
+  commentId: M:LBS.VisualElements.ToolKit.SetSeparators
+  id: SetSeparators
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: SetSeparators()
+  nameWithType: ToolKit.SetSeparators()
+  fullName: LBS.VisualElements.ToolKit.SetSeparators()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void SetSeparators()
+    content.vb: Public Sub SetSeparators()
+  overload: LBS.VisualElements.ToolKit.SetSeparators*
+- uid: LBS.VisualElements.ToolKit.BaseColor
+  commentId: P:LBS.VisualElements.ToolKit.BaseColor
+  id: BaseColor
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: BaseColor
+  nameWithType: ToolKit.BaseColor
+  fullName: LBS.VisualElements.ToolKit.BaseColor
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public Color BaseColor { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: Public Property BaseColor As Color
+  overload: LBS.VisualElements.ToolKit.BaseColor*
+- uid: LBS.VisualElements.ToolKit.Index
+  commentId: P:LBS.VisualElements.ToolKit.Index
+  id: Index
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: Index
+  nameWithType: ToolKit.Index
+  fullName: LBS.VisualElements.ToolKit.Index
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public int Index { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Index As Integer
+  overload: LBS.VisualElements.ToolKit.Index*
+- uid: LBS.VisualElements.ToolKit.ChoiceCount
+  commentId: P:LBS.VisualElements.ToolKit.ChoiceCount
+  id: ChoiceCount
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: ChoiceCount
+  nameWithType: ToolKit.ChoiceCount
+  fullName: LBS.VisualElements.ToolKit.ChoiceCount
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public int ChoiceCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ChoiceCount As Integer
+  overload: LBS.VisualElements.ToolKit.ChoiceCount*
+- uid: LBS.VisualElements.ToolKit.OnEndAction
+  commentId: E:LBS.VisualElements.ToolKit.OnEndAction
+  id: OnEndAction
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: OnEndAction
+  nameWithType: ToolKit.OnEndAction
+  fullName: LBS.VisualElements.ToolKit.OnEndAction
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public event Action<LBSLayer> OnEndAction
+    return:
+      type: System.Action{LBS.Components.LBSLayer}
+    content.vb: Public Event OnEndAction As Action(Of LBSLayer)
+- uid: LBS.VisualElements.ToolKit.OnStartAction
+  commentId: E:LBS.VisualElements.ToolKit.OnStartAction
+  id: OnStartAction
+  parent: LBS.VisualElements.ToolKit
+  langs:
+  - csharp
+  - vb
+  name: OnStartAction
+  nameWithType: ToolKit.OnStartAction
+  fullName: LBS.VisualElements.ToolKit.OnStartAction
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public event Action<LBSLayer> OnStartAction
+    return:
+      type: System.Action{LBS.Components.LBSLayer}
+    content.vb: Public Event OnStartAction As Action(Of LBSLayer)
+references:
+- uid: LBS.VisualElements
+  commentId: N:LBS.VisualElements
+  isExternal: true
+  href: LBS.html
+  name: LBS.VisualElements
+  nameWithType: LBS.VisualElements
+  fullName: LBS.VisualElements
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LBS.VisualElements.ToolKit.#ctor*
+  commentId: Overload:LBS.VisualElements.ToolKit.#ctor
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit__ctor
+  name: ToolKit
+  nameWithType: ToolKit.ToolKit
+  fullName: LBS.VisualElements.ToolKit.ToolKit
+  nameWithType.vb: ToolKit.New
+  fullName.vb: LBS.VisualElements.ToolKit.New
+  name.vb: New
+- uid: LBS.VisualElements.ToolKit.InitGeneralTools*
+  commentId: Overload:LBS.VisualElements.ToolKit.InitGeneralTools
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_InitGeneralTools_LBS_Components_LBSLayer_
+  name: InitGeneralTools
+  nameWithType: ToolKit.InitGeneralTools
+  fullName: LBS.VisualElements.ToolKit.InitGeneralTools
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+- uid: LBS.VisualElements.ToolKit.HideFloorButtons*
+  commentId: Overload:LBS.VisualElements.ToolKit.HideFloorButtons
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_HideFloorButtons
+  name: HideFloorButtons
+  nameWithType: ToolKit.HideFloorButtons
+  fullName: LBS.VisualElements.ToolKit.HideFloorButtons
+- uid: LBS.VisualElements.ToolKit.GetActiveManipulator*
+  commentId: Overload:LBS.VisualElements.ToolKit.GetActiveManipulator
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_GetActiveManipulator
+  name: GetActiveManipulator
+  nameWithType: ToolKit.GetActiveManipulator
+  fullName: LBS.VisualElements.ToolKit.GetActiveManipulator
+- uid: LBS.VisualElements.ToolKit.GetActiveManipulatorInstance*
+  commentId: Overload:LBS.VisualElements.ToolKit.GetActiveManipulatorInstance
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_GetActiveManipulatorInstance
+  name: GetActiveManipulatorInstance
+  nameWithType: ToolKit.GetActiveManipulatorInstance
+  fullName: LBS.VisualElements.ToolKit.GetActiveManipulatorInstance
+- uid: ISILab.LBS.Manipulators.LBSManipulator
+  commentId: T:ISILab.LBS.Manipulators.LBSManipulator
+  parent: ISILab.LBS.Manipulators
+  isExternal: true
+  href: ISILab.LBS.Manipulators.LBSManipulator.html
+  name: LBSManipulator
+  nameWithType: LBSManipulator
+  fullName: ISILab.LBS.Manipulators.LBSManipulator
+- uid: ISILab.LBS.Manipulators
+  commentId: N:ISILab.LBS.Manipulators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Manipulators
+  nameWithType: ISILab.LBS.Manipulators
+  fullName: ISILab.LBS.Manipulators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Manipulators
+    name: Manipulators
+    isExternal: true
+    href: ISILab.LBS.Manipulators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Manipulators
+    name: Manipulators
+    isExternal: true
+    href: ISILab.LBS.Manipulators.html
+- uid: LBS.VisualElements.ToolKit.GetTool*
+  commentId: Overload:LBS.VisualElements.ToolKit.GetTool
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_GetTool_System_Type_
+  name: GetTool
+  nameWithType: ToolKit.GetTool
+  fullName: LBS.VisualElements.ToolKit.GetTool
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.Collections.Generic.KeyValuePair{System.Type,System.ValueTuple{LBS.LBSTool,ISILab.LBS.VisualElements.ToolButton}}
+  commentId: T:System.Collections.Generic.KeyValuePair{System.Type,System.ValueTuple{LBS.LBSTool,ISILab.LBS.VisualElements.ToolButton}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.KeyValuePair`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  name: KeyValuePair<Type, (LBSTool, ToolButton)>
+  nameWithType: KeyValuePair<Type, (LBSTool, ToolButton)>
+  fullName: System.Collections.Generic.KeyValuePair<System.Type, (LBS.LBSTool, ISILab.LBS.VisualElements.ToolButton)>
+  nameWithType.vb: KeyValuePair(Of Type, (LBSTool, ToolButton))
+  fullName.vb: System.Collections.Generic.KeyValuePair(Of System.Type, (LBS.LBSTool, ISILab.LBS.VisualElements.ToolButton))
+  name.vb: KeyValuePair(Of Type, (LBSTool, ToolButton))
+  spec.csharp:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: LBS.LBSTool
+    name: LBSTool
+    isExternal: true
+    href: LBS.LBSTool.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.VisualElements.ToolButton
+    name: ToolButton
+    isExternal: true
+    href: ISILab.LBS.VisualElements.ToolButton.html
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: LBS.LBSTool
+    name: LBSTool
+    isExternal: true
+    href: LBS.LBSTool.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.VisualElements.ToolButton
+    name: ToolButton
+    isExternal: true
+    href: ISILab.LBS.VisualElements.ToolButton.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.KeyValuePair`2
+  commentId: T:System.Collections.Generic.KeyValuePair`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  name: KeyValuePair<TKey, TValue>
+  nameWithType: KeyValuePair<TKey, TValue>
+  fullName: System.Collections.Generic.KeyValuePair<TKey, TValue>
+  nameWithType.vb: KeyValuePair(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.KeyValuePair(Of TKey, TValue)
+  name.vb: KeyValuePair(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: LBS.VisualElements.ToolKit.GetToolButton*
+  commentId: Overload:LBS.VisualElements.ToolKit.GetToolButton
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_GetToolButton_System_Type_
+  name: GetToolButton
+  nameWithType: ToolKit.GetToolButton
+  fullName: LBS.VisualElements.ToolKit.GetToolButton
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: LBS.VisualElements.ToolKit.SetActive*
+  commentId: Overload:LBS.VisualElements.ToolKit.SetActive
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_SetActive_System_Type_
+  name: SetActive
+  nameWithType: ToolKit.SetActive
+  fullName: LBS.VisualElements.ToolKit.SetActive
+- uid: LBS.VisualElements.ToolKit.ActivateTool*
+  commentId: Overload:LBS.VisualElements.ToolKit.ActivateTool
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_ActivateTool_LBS_LBSTool_LBS_Components_LBSLayer_System_Object_
+  name: ActivateTool
+  nameWithType: ToolKit.ActivateTool
+  fullName: LBS.VisualElements.ToolKit.ActivateTool
+- uid: LBS.LBSTool
+  commentId: T:LBS.LBSTool
+  parent: LBS
+  isExternal: true
+  href: LBS.LBSTool.html
+  name: LBSTool
+  nameWithType: LBSTool
+  fullName: LBS.LBSTool
+- uid: LBS
+  commentId: N:LBS
+  isExternal: true
+  href: LBS.html
+  name: LBS
+  nameWithType: LBS
+  fullName: LBS
+- uid: LBS.VisualElements.ToolKit.SetTarget*
+  commentId: Overload:LBS.VisualElements.ToolKit.SetTarget
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_SetTarget_ISILab_LBS_Editor_LBSCustomEditor_
+  name: SetTarget
+  nameWithType: ToolKit.SetTarget
+  fullName: LBS.VisualElements.ToolKit.SetTarget
+- uid: ISILab.LBS.Editor.LBSCustomEditor
+  commentId: T:ISILab.LBS.Editor.LBSCustomEditor
+  parent: ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html
+  name: LBSCustomEditor
+  nameWithType: LBSCustomEditor
+  fullName: ISILab.LBS.Editor.LBSCustomEditor
+- uid: ISILab.LBS.Editor
+  commentId: N:ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Editor
+  nameWithType: ISILab.LBS.Editor
+  fullName: ISILab.LBS.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+- uid: LBS.VisualElements.ToolKit.Clear*
+  commentId: Overload:LBS.VisualElements.ToolKit.Clear
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_Clear
+  name: Clear
+  nameWithType: ToolKit.Clear
+  fullName: LBS.VisualElements.ToolKit.Clear
+- uid: LBS.VisualElements.ToolKit.SetSeparators*
+  commentId: Overload:LBS.VisualElements.ToolKit.SetSeparators
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_SetSeparators
+  name: SetSeparators
+  nameWithType: ToolKit.SetSeparators
+  fullName: LBS.VisualElements.ToolKit.SetSeparators
+- uid: LBS.VisualElements.ToolKit.BaseColor*
+  commentId: Overload:LBS.VisualElements.ToolKit.BaseColor
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_BaseColor
+  name: BaseColor
+  nameWithType: ToolKit.BaseColor
+  fullName: LBS.VisualElements.ToolKit.BaseColor
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: LBS.VisualElements.ToolKit.Index*
+  commentId: Overload:LBS.VisualElements.ToolKit.Index
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_Index
+  name: Index
+  nameWithType: ToolKit.Index
+  fullName: LBS.VisualElements.ToolKit.Index
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LBS.VisualElements.ToolKit.ChoiceCount*
+  commentId: Overload:LBS.VisualElements.ToolKit.ChoiceCount
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html#LBS_VisualElements_ToolKit_ChoiceCount
+  name: ChoiceCount
+  nameWithType: ToolKit.ChoiceCount
+  fullName: LBS.VisualElements.ToolKit.ChoiceCount
+- uid: System.Action{LBS.Components.LBSLayer}
+  commentId: T:System.Action{LBS.Components.LBSLayer}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<LBSLayer>
+  nameWithType: Action<LBSLayer>
+  fullName: System.Action<LBS.Components.LBSLayer>
+  nameWithType.vb: Action(Of LBSLayer)
+  fullName.vb: System.Action(Of LBS.Components.LBSLayer)
+  name.vb: Action(Of LBSLayer)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+shouldSkipMarkup: true

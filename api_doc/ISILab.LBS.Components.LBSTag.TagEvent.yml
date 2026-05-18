@@ -1,0 +1,248 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Components.LBSTag.TagEvent
+  commentId: T:ISILab.LBS.Components.LBSTag.TagEvent
+  id: LBSTag.TagEvent
+  parent: ISILab.LBS.Components
+  children:
+  - ISILab.LBS.Components.LBSTag.TagEvent.#ctor(System.Object,System.IntPtr)
+  - ISILab.LBS.Components.LBSTag.TagEvent.BeginInvoke(ISILab.LBS.Components.LBSTag,System.AsyncCallback,System.Object)
+  - ISILab.LBS.Components.LBSTag.TagEvent.EndInvoke(System.IAsyncResult)
+  - ISILab.LBS.Components.LBSTag.TagEvent.Invoke(ISILab.LBS.Components.LBSTag)
+  langs:
+  - csharp
+  - vb
+  name: LBSTag.TagEvent
+  nameWithType: LBSTag.TagEvent
+  fullName: ISILab.LBS.Components.LBSTag.TagEvent
+  type: Delegate
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public delegate void LBSTag.TagEvent(LBSTag tag)
+    parameters:
+    - id: tag
+      type: ISILab.LBS.Components.LBSTag
+    content.vb: Public Delegate Sub LBSTag.TagEvent(tag As LBSTag)
+- uid: ISILab.LBS.Components.LBSTag.TagEvent.#ctor(System.Object,System.IntPtr)
+  commentId: M:ISILab.LBS.Components.LBSTag.TagEvent.#ctor(System.Object,System.IntPtr)
+  id: '#ctor(System.Object,System.IntPtr)'
+  parent: ISILab.LBS.Components.LBSTag.TagEvent
+  langs:
+  - csharp
+  - vb
+  name: TagEvent(object, nint)
+  nameWithType: LBSTag.TagEvent.TagEvent(object, nint)
+  fullName: ISILab.LBS.Components.LBSTag.TagEvent.TagEvent(object, nint)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public TagEvent(object @object, nint method)
+    parameters:
+    - id: object
+      type: System.Object
+    - id: method
+      type: System.IntPtr
+    content.vb: Public Sub New([object] As Object, method As IntPtr)
+  overload: ISILab.LBS.Components.LBSTag.TagEvent.#ctor*
+  nameWithType.vb: LBSTag.TagEvent.New(Object, IntPtr)
+  fullName.vb: ISILab.LBS.Components.LBSTag.TagEvent.New(Object, System.IntPtr)
+  name.vb: New(Object, IntPtr)
+- uid: ISILab.LBS.Components.LBSTag.TagEvent.Invoke(ISILab.LBS.Components.LBSTag)
+  commentId: M:ISILab.LBS.Components.LBSTag.TagEvent.Invoke(ISILab.LBS.Components.LBSTag)
+  id: Invoke(ISILab.LBS.Components.LBSTag)
+  parent: ISILab.LBS.Components.LBSTag.TagEvent
+  langs:
+  - csharp
+  - vb
+  name: Invoke(LBSTag)
+  nameWithType: LBSTag.TagEvent.Invoke(LBSTag)
+  fullName: ISILab.LBS.Components.LBSTag.TagEvent.Invoke(ISILab.LBS.Components.LBSTag)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public virtual void Invoke(LBSTag tag)
+    parameters:
+    - id: tag
+      type: ISILab.LBS.Components.LBSTag
+    content.vb: Public Overridable Sub Invoke(tag As LBSTag)
+  overload: ISILab.LBS.Components.LBSTag.TagEvent.Invoke*
+- uid: ISILab.LBS.Components.LBSTag.TagEvent.BeginInvoke(ISILab.LBS.Components.LBSTag,System.AsyncCallback,System.Object)
+  commentId: M:ISILab.LBS.Components.LBSTag.TagEvent.BeginInvoke(ISILab.LBS.Components.LBSTag,System.AsyncCallback,System.Object)
+  id: BeginInvoke(ISILab.LBS.Components.LBSTag,System.AsyncCallback,System.Object)
+  parent: ISILab.LBS.Components.LBSTag.TagEvent
+  langs:
+  - csharp
+  - vb
+  name: BeginInvoke(LBSTag, AsyncCallback, object)
+  nameWithType: LBSTag.TagEvent.BeginInvoke(LBSTag, AsyncCallback, object)
+  fullName: ISILab.LBS.Components.LBSTag.TagEvent.BeginInvoke(ISILab.LBS.Components.LBSTag, System.AsyncCallback, object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public virtual IAsyncResult BeginInvoke(LBSTag tag, AsyncCallback callback, object @object)
+    parameters:
+    - id: tag
+      type: ISILab.LBS.Components.LBSTag
+    - id: callback
+      type: System.AsyncCallback
+    - id: object
+      type: System.Object
+    return:
+      type: System.IAsyncResult
+    content.vb: Public Overridable Function BeginInvoke(tag As LBSTag, callback As AsyncCallback, [object] As Object) As IAsyncResult
+  overload: ISILab.LBS.Components.LBSTag.TagEvent.BeginInvoke*
+  nameWithType.vb: LBSTag.TagEvent.BeginInvoke(LBSTag, AsyncCallback, Object)
+  fullName.vb: ISILab.LBS.Components.LBSTag.TagEvent.BeginInvoke(ISILab.LBS.Components.LBSTag, System.AsyncCallback, Object)
+  name.vb: BeginInvoke(LBSTag, AsyncCallback, Object)
+- uid: ISILab.LBS.Components.LBSTag.TagEvent.EndInvoke(System.IAsyncResult)
+  commentId: M:ISILab.LBS.Components.LBSTag.TagEvent.EndInvoke(System.IAsyncResult)
+  id: EndInvoke(System.IAsyncResult)
+  parent: ISILab.LBS.Components.LBSTag.TagEvent
+  langs:
+  - csharp
+  - vb
+  name: EndInvoke(IAsyncResult)
+  nameWithType: LBSTag.TagEvent.EndInvoke(IAsyncResult)
+  fullName: ISILab.LBS.Components.LBSTag.TagEvent.EndInvoke(System.IAsyncResult)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public virtual void EndInvoke(IAsyncResult result)
+    parameters:
+    - id: result
+      type: System.IAsyncResult
+    content.vb: Public Overridable Sub EndInvoke(result As IAsyncResult)
+  overload: ISILab.LBS.Components.LBSTag.TagEvent.EndInvoke*
+references:
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.Components.LBSTag
+  commentId: T:ISILab.LBS.Components.LBSTag
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html
+  name: LBSTag
+  nameWithType: LBSTag
+  fullName: ISILab.LBS.Components.LBSTag
+- uid: ISILab.LBS.Components.LBSTag.TagEvent.#ctor*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.TagEvent.#ctor
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.TagEvent.html#ISILab_LBS_Components_LBSTag_TagEvent__ctor_System_Object_System_IntPtr_
+  name: TagEvent
+  nameWithType: LBSTag.TagEvent.TagEvent
+  fullName: ISILab.LBS.Components.LBSTag.TagEvent.TagEvent
+  nameWithType.vb: LBSTag.TagEvent.New
+  fullName.vb: ISILab.LBS.Components.LBSTag.TagEvent.New
+  name.vb: New
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Components.LBSTag.TagEvent.Invoke*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.TagEvent.Invoke
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.TagEvent.html#ISILab_LBS_Components_LBSTag_TagEvent_Invoke_ISILab_LBS_Components_LBSTag_
+  name: Invoke
+  nameWithType: LBSTag.TagEvent.Invoke
+  fullName: ISILab.LBS.Components.LBSTag.TagEvent.Invoke
+- uid: ISILab.LBS.Components.LBSTag.TagEvent.BeginInvoke*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.TagEvent.BeginInvoke
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.TagEvent.html#ISILab_LBS_Components_LBSTag_TagEvent_BeginInvoke_ISILab_LBS_Components_LBSTag_System_AsyncCallback_System_Object_
+  name: BeginInvoke
+  nameWithType: LBSTag.TagEvent.BeginInvoke
+  fullName: ISILab.LBS.Components.LBSTag.TagEvent.BeginInvoke
+- uid: System.AsyncCallback
+  commentId: T:System.AsyncCallback
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.asynccallback
+  name: AsyncCallback
+  nameWithType: AsyncCallback
+  fullName: System.AsyncCallback
+- uid: System.IAsyncResult
+  commentId: T:System.IAsyncResult
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncresult
+  name: IAsyncResult
+  nameWithType: IAsyncResult
+  fullName: System.IAsyncResult
+- uid: ISILab.LBS.Components.LBSTag.TagEvent.EndInvoke*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.TagEvent.EndInvoke
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.TagEvent.html#ISILab_LBS_Components_LBSTag_TagEvent_EndInvoke_System_IAsyncResult_
+  name: EndInvoke
+  nameWithType: LBSTag.TagEvent.EndInvoke
+  fullName: ISILab.LBS.Components.LBSTag.TagEvent.EndInvoke
+shouldSkipMarkup: true

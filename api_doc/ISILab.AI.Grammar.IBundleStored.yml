@@ -1,0 +1,410 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Grammar.IBundleStored
+  commentId: T:ISILab.AI.Grammar.IBundleStored
+  id: IBundleStored
+  parent: ISILab.AI.Grammar
+  children:
+  - ISILab.AI.Grammar.IBundleStored.AllowedElements
+  - ISILab.AI.Grammar.IBundleStored.GetBundle
+  - ISILab.AI.Grammar.IBundleStored.HasAllFlags(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  - ISILab.AI.Grammar.IBundleStored.HasAnyFlag(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  - ISILab.AI.Grammar.IBundleStored.HasNoneOfFlags(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  - ISILab.AI.Grammar.IBundleStored.IsMissingAnyFlag(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  - ISILab.AI.Grammar.IBundleStored.SetObjectBundle(System.Object[])
+  langs:
+  - csharp
+  - vb
+  name: IBundleStored
+  nameWithType: IBundleStored
+  fullName: ISILab.AI.Grammar.IBundleStored
+  type: Interface
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public interface IBundleStored
+    content.vb: Public Interface IBundleStored
+  derivedClasses:
+  - ISILab.AI.Grammar.GrammarBundleField`1
+  - ISILab.AI.Grammar.GrammarBundleGraph
+  - ISILab.AI.Grammar.GrammarBundleType
+- uid: ISILab.AI.Grammar.IBundleStored.GetBundle
+  commentId: M:ISILab.AI.Grammar.IBundleStored.GetBundle
+  id: GetBundle
+  parent: ISILab.AI.Grammar.IBundleStored
+  langs:
+  - csharp
+  - vb
+  name: GetBundle()
+  nameWithType: IBundleStored.GetBundle()
+  fullName: ISILab.AI.Grammar.IBundleStored.GetBundle()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: Bundle GetBundle()
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    content.vb: Function GetBundle() As Bundle
+  overload: ISILab.AI.Grammar.IBundleStored.GetBundle*
+- uid: ISILab.AI.Grammar.IBundleStored.SetObjectBundle(System.Object[])
+  commentId: M:ISILab.AI.Grammar.IBundleStored.SetObjectBundle(System.Object[])
+  id: SetObjectBundle(System.Object[])
+  parent: ISILab.AI.Grammar.IBundleStored
+  langs:
+  - csharp
+  - vb
+  name: SetObjectBundle(object[])
+  nameWithType: IBundleStored.SetObjectBundle(object[])
+  fullName: ISILab.AI.Grammar.IBundleStored.SetObjectBundle(object[])
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: void SetObjectBundle(object[] objs)
+    parameters:
+    - id: objs
+      type: System.Object[]
+    content.vb: Sub SetObjectBundle(objs As Object())
+  overload: ISILab.AI.Grammar.IBundleStored.SetObjectBundle*
+  nameWithType.vb: IBundleStored.SetObjectBundle(Object())
+  fullName.vb: ISILab.AI.Grammar.IBundleStored.SetObjectBundle(Object())
+  name.vb: SetObjectBundle(Object())
+- uid: ISILab.AI.Grammar.IBundleStored.HasAnyFlag(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  commentId: M:ISILab.AI.Grammar.IBundleStored.HasAnyFlag(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  id: HasAnyFlag(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  parent: ISILab.AI.Grammar.IBundleStored
+  langs:
+  - csharp
+  - vb
+  name: HasAnyFlag(Bundle)
+  nameWithType: IBundleStored.HasAnyFlag(Bundle)
+  fullName: ISILab.AI.Grammar.IBundleStored.HasAnyFlag(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: bool HasAnyFlag(Bundle bundle)
+    parameters:
+    - id: bundle
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    return:
+      type: System.Boolean
+    content.vb: Function HasAnyFlag(bundle As Bundle) As Boolean
+  overload: ISILab.AI.Grammar.IBundleStored.HasAnyFlag*
+- uid: ISILab.AI.Grammar.IBundleStored.HasAllFlags(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  commentId: M:ISILab.AI.Grammar.IBundleStored.HasAllFlags(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  id: HasAllFlags(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  parent: ISILab.AI.Grammar.IBundleStored
+  langs:
+  - csharp
+  - vb
+  name: HasAllFlags(Bundle)
+  nameWithType: IBundleStored.HasAllFlags(Bundle)
+  fullName: ISILab.AI.Grammar.IBundleStored.HasAllFlags(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: bool HasAllFlags(Bundle bundle)
+    parameters:
+    - id: bundle
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    return:
+      type: System.Boolean
+    content.vb: Function HasAllFlags(bundle As Bundle) As Boolean
+  overload: ISILab.AI.Grammar.IBundleStored.HasAllFlags*
+- uid: ISILab.AI.Grammar.IBundleStored.HasNoneOfFlags(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  commentId: M:ISILab.AI.Grammar.IBundleStored.HasNoneOfFlags(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  id: HasNoneOfFlags(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  parent: ISILab.AI.Grammar.IBundleStored
+  langs:
+  - csharp
+  - vb
+  name: HasNoneOfFlags(Bundle)
+  nameWithType: IBundleStored.HasNoneOfFlags(Bundle)
+  fullName: ISILab.AI.Grammar.IBundleStored.HasNoneOfFlags(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: bool HasNoneOfFlags(Bundle bundle)
+    parameters:
+    - id: bundle
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    return:
+      type: System.Boolean
+    content.vb: Function HasNoneOfFlags(bundle As Bundle) As Boolean
+  overload: ISILab.AI.Grammar.IBundleStored.HasNoneOfFlags*
+- uid: ISILab.AI.Grammar.IBundleStored.IsMissingAnyFlag(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  commentId: M:ISILab.AI.Grammar.IBundleStored.IsMissingAnyFlag(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  id: IsMissingAnyFlag(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  parent: ISILab.AI.Grammar.IBundleStored
+  langs:
+  - csharp
+  - vb
+  name: IsMissingAnyFlag(Bundle)
+  nameWithType: IBundleStored.IsMissingAnyFlag(Bundle)
+  fullName: ISILab.AI.Grammar.IBundleStored.IsMissingAnyFlag(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: bool IsMissingAnyFlag(Bundle bundle)
+    parameters:
+    - id: bundle
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    return:
+      type: System.Boolean
+    content.vb: Function IsMissingAnyFlag(bundle As Bundle) As Boolean
+  overload: ISILab.AI.Grammar.IBundleStored.IsMissingAnyFlag*
+- uid: ISILab.AI.Grammar.IBundleStored.AllowedElements
+  commentId: P:ISILab.AI.Grammar.IBundleStored.AllowedElements
+  id: AllowedElements
+  parent: ISILab.AI.Grammar.IBundleStored
+  langs:
+  - csharp
+  - vb
+  name: AllowedElements
+  nameWithType: IBundleStored.AllowedElements
+  fullName: ISILab.AI.Grammar.IBundleStored.AllowedElements
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: Bundle.EElementFlag AllowedElements { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag
+    content.vb: ReadOnly Property AllowedElements As Bundle.EElementFlag
+  overload: ISILab.AI.Grammar.IBundleStored.AllowedElements*
+references:
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+- uid: ISILab.AI.Grammar.IBundleStored.GetBundle*
+  commentId: Overload:ISILab.AI.Grammar.IBundleStored.GetBundle
+  isExternal: true
+  href: ISILab.AI.Grammar.IBundleStored.html#ISILab_AI_Grammar_IBundleStored_GetBundle
+  name: GetBundle
+  nameWithType: IBundleStored.GetBundle
+  fullName: ISILab.AI.Grammar.IBundleStored.GetBundle
+- uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle
+  parent: ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  name: Bundle
+  nameWithType: Bundle
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle
+- uid: ISILab.LBS.Plugin.Components.Bundles
+  commentId: N:ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Bundles
+  nameWithType: ISILab.LBS.Plugin.Components.Bundles
+  fullName: ISILab.LBS.Plugin.Components.Bundles
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+- uid: ISILab.AI.Grammar.IBundleStored.SetObjectBundle*
+  commentId: Overload:ISILab.AI.Grammar.IBundleStored.SetObjectBundle
+  isExternal: true
+  href: ISILab.AI.Grammar.IBundleStored.html#ISILab_AI_Grammar_IBundleStored_SetObjectBundle_System_Object___
+  name: SetObjectBundle
+  nameWithType: IBundleStored.SetObjectBundle
+  fullName: ISILab.AI.Grammar.IBundleStored.SetObjectBundle
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.IBundleStored.HasAnyFlag*
+  commentId: Overload:ISILab.AI.Grammar.IBundleStored.HasAnyFlag
+  isExternal: true
+  href: ISILab.AI.Grammar.IBundleStored.html#ISILab_AI_Grammar_IBundleStored_HasAnyFlag_ISILab_LBS_Plugin_Components_Bundles_Bundle_
+  name: HasAnyFlag
+  nameWithType: IBundleStored.HasAnyFlag
+  fullName: ISILab.AI.Grammar.IBundleStored.HasAnyFlag
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.AI.Grammar.IBundleStored.HasAllFlags*
+  commentId: Overload:ISILab.AI.Grammar.IBundleStored.HasAllFlags
+  isExternal: true
+  href: ISILab.AI.Grammar.IBundleStored.html#ISILab_AI_Grammar_IBundleStored_HasAllFlags_ISILab_LBS_Plugin_Components_Bundles_Bundle_
+  name: HasAllFlags
+  nameWithType: IBundleStored.HasAllFlags
+  fullName: ISILab.AI.Grammar.IBundleStored.HasAllFlags
+- uid: ISILab.AI.Grammar.IBundleStored.HasNoneOfFlags*
+  commentId: Overload:ISILab.AI.Grammar.IBundleStored.HasNoneOfFlags
+  isExternal: true
+  href: ISILab.AI.Grammar.IBundleStored.html#ISILab_AI_Grammar_IBundleStored_HasNoneOfFlags_ISILab_LBS_Plugin_Components_Bundles_Bundle_
+  name: HasNoneOfFlags
+  nameWithType: IBundleStored.HasNoneOfFlags
+  fullName: ISILab.AI.Grammar.IBundleStored.HasNoneOfFlags
+- uid: ISILab.AI.Grammar.IBundleStored.IsMissingAnyFlag*
+  commentId: Overload:ISILab.AI.Grammar.IBundleStored.IsMissingAnyFlag
+  isExternal: true
+  href: ISILab.AI.Grammar.IBundleStored.html#ISILab_AI_Grammar_IBundleStored_IsMissingAnyFlag_ISILab_LBS_Plugin_Components_Bundles_Bundle_
+  name: IsMissingAnyFlag
+  nameWithType: IBundleStored.IsMissingAnyFlag
+  fullName: ISILab.AI.Grammar.IBundleStored.IsMissingAnyFlag
+- uid: ISILab.AI.Grammar.IBundleStored.AllowedElements*
+  commentId: Overload:ISILab.AI.Grammar.IBundleStored.AllowedElements
+  isExternal: true
+  href: ISILab.AI.Grammar.IBundleStored.html#ISILab_AI_Grammar_IBundleStored_AllowedElements
+  name: AllowedElements
+  nameWithType: IBundleStored.AllowedElements
+  fullName: ISILab.AI.Grammar.IBundleStored.AllowedElements
+- uid: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag
+  parent: ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  name: Bundle.EElementFlag
+  nameWithType: Bundle.EElementFlag
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag
+    name: EElementFlag
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag
+    name: EElementFlag
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag.html
+shouldSkipMarkup: true

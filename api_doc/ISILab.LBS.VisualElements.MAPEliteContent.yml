@@ -1,0 +1,477 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.MAPEliteContent
+  commentId: T:ISILab.LBS.VisualElements.MAPEliteContent
+  id: MAPEliteContent
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.MAPEliteContent.#ctor(ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite)
+  - ISILab.LBS.VisualElements.MAPEliteContent.ChangePartitions(UnityEngine.Vector2)
+  - ISILab.LBS.VisualElements.MAPEliteContent.Container
+  - ISILab.LBS.VisualElements.MAPEliteContent.Content
+  - ISILab.LBS.VisualElements.MAPEliteContent.MarkEmpties
+  - ISILab.LBS.VisualElements.MAPEliteContent.OnSelectOption
+  - ISILab.LBS.VisualElements.MAPEliteContent.Reset
+  - ISILab.LBS.VisualElements.MAPEliteContent.UpdateContent
+  - ISILab.LBS.VisualElements.MAPEliteContent.background
+  langs:
+  - csharp
+  - vb
+  name: MAPEliteContent
+  nameWithType: MAPEliteContent
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class MAPEliteContent : VisualElement'
+    content.vb: Public Class MAPEliteContent Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.Content
+  commentId: F:ISILab.LBS.VisualElements.MAPEliteContent.Content
+  id: Content
+  parent: ISILab.LBS.VisualElements.MAPEliteContent
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: MAPEliteContent.Content
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.Content
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public ButtonWrapper[] Content
+    return:
+      type: ISILab.LBS.VisualElements.ButtonWrapper[]
+    content.vb: Public Content As ButtonWrapper()
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.Container
+  commentId: F:ISILab.LBS.VisualElements.MAPEliteContent.Container
+  id: Container
+  parent: ISILab.LBS.VisualElements.MAPEliteContent
+  langs:
+  - csharp
+  - vb
+  name: Container
+  nameWithType: MAPEliteContent.Container
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.Container
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public VisualElement Container
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Container As VisualElement
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.background
+  commentId: F:ISILab.LBS.VisualElements.MAPEliteContent.background
+  id: background
+  parent: ISILab.LBS.VisualElements.MAPEliteContent
+  langs:
+  - csharp
+  - vb
+  name: background
+  nameWithType: MAPEliteContent.background
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.background
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Texture2D background
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public background As Texture2D
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.#ctor(ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite)
+  commentId: M:ISILab.LBS.VisualElements.MAPEliteContent.#ctor(ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite)
+  id: '#ctor(ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite)'
+  parent: ISILab.LBS.VisualElements.MAPEliteContent
+  langs:
+  - csharp
+  - vb
+  name: MAPEliteContent(AssistantMapElite)
+  nameWithType: MAPEliteContent.MAPEliteContent(AssistantMapElite)
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.MAPEliteContent(ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public MAPEliteContent(AssistantMapElite assistant)
+    parameters:
+    - id: assistant
+      type: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+    content.vb: Public Sub New(assistant As AssistantMapElite)
+  overload: ISILab.LBS.VisualElements.MAPEliteContent.#ctor*
+  nameWithType.vb: MAPEliteContent.New(AssistantMapElite)
+  fullName.vb: ISILab.LBS.VisualElements.MAPEliteContent.New(ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite)
+  name.vb: New(AssistantMapElite)
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.Reset
+  commentId: M:ISILab.LBS.VisualElements.MAPEliteContent.Reset
+  id: Reset
+  parent: ISILab.LBS.VisualElements.MAPEliteContent
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: MAPEliteContent.Reset()
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.Reset()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void Reset()
+    content.vb: Public Sub Reset()
+  overload: ISILab.LBS.VisualElements.MAPEliteContent.Reset*
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.ChangePartitions(UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.VisualElements.MAPEliteContent.ChangePartitions(UnityEngine.Vector2)
+  id: ChangePartitions(UnityEngine.Vector2)
+  parent: ISILab.LBS.VisualElements.MAPEliteContent
+  langs:
+  - csharp
+  - vb
+  name: ChangePartitions(Vector2)
+  nameWithType: MAPEliteContent.ChangePartitions(Vector2)
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.ChangePartitions(UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void ChangePartitions(Vector2 partitions)
+    parameters:
+    - id: partitions
+      type: UnityEngine.Vector2
+    content.vb: Public Sub ChangePartitions(partitions As Vector2)
+  overload: ISILab.LBS.VisualElements.MAPEliteContent.ChangePartitions*
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.MarkEmpties
+  commentId: M:ISILab.LBS.VisualElements.MAPEliteContent.MarkEmpties
+  id: MarkEmpties
+  parent: ISILab.LBS.VisualElements.MAPEliteContent
+  langs:
+  - csharp
+  - vb
+  name: MarkEmpties()
+  nameWithType: MAPEliteContent.MarkEmpties()
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.MarkEmpties()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void MarkEmpties()
+    content.vb: Public Sub MarkEmpties()
+  overload: ISILab.LBS.VisualElements.MAPEliteContent.MarkEmpties*
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.UpdateContent
+  commentId: M:ISILab.LBS.VisualElements.MAPEliteContent.UpdateContent
+  id: UpdateContent
+  parent: ISILab.LBS.VisualElements.MAPEliteContent
+  langs:
+  - csharp
+  - vb
+  name: UpdateContent()
+  nameWithType: MAPEliteContent.UpdateContent()
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.UpdateContent()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void UpdateContent()
+    content.vb: Public Sub UpdateContent()
+  overload: ISILab.LBS.VisualElements.MAPEliteContent.UpdateContent*
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.OnSelectOption
+  commentId: E:ISILab.LBS.VisualElements.MAPEliteContent.OnSelectOption
+  id: OnSelectOption
+  parent: ISILab.LBS.VisualElements.MAPEliteContent
+  langs:
+  - csharp
+  - vb
+  name: OnSelectOption
+  nameWithType: MAPEliteContent.OnSelectOption
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.OnSelectOption
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public event Action<object> OnSelectOption
+    return:
+      type: System.Action{System.Object}
+    content.vb: Public Event OnSelectOption As Action(Of Object)
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.VisualElements.ButtonWrapper[]
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ButtonWrapper.html
+  name: ButtonWrapper[]
+  nameWithType: ButtonWrapper[]
+  fullName: ISILab.LBS.VisualElements.ButtonWrapper[]
+  nameWithType.vb: ButtonWrapper()
+  fullName.vb: ISILab.LBS.VisualElements.ButtonWrapper()
+  name.vb: ButtonWrapper()
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.ButtonWrapper
+    name: ButtonWrapper
+    isExternal: true
+    href: ISILab.LBS.VisualElements.ButtonWrapper.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.ButtonWrapper
+    name: ButtonWrapper
+    isExternal: true
+    href: ISILab.LBS.VisualElements.ButtonWrapper.html
+  - name: (
+  - name: )
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.MAPEliteContent.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.MAPEliteContent.html#ISILab_LBS_VisualElements_MAPEliteContent__ctor_ISILab_LBS_Plugin_Core_AI_Assistant_AssistantMapElite_
+  name: MAPEliteContent
+  nameWithType: MAPEliteContent.MAPEliteContent
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.MAPEliteContent
+  nameWithType.vb: MAPEliteContent.New
+  fullName.vb: ISILab.LBS.VisualElements.MAPEliteContent.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html
+  name: AssistantMapElite
+  nameWithType: AssistantMapElite
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Assistant
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Assistant
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Assistant
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.Reset*
+  commentId: Overload:ISILab.LBS.VisualElements.MAPEliteContent.Reset
+  isExternal: true
+  href: ISILab.LBS.VisualElements.MAPEliteContent.html#ISILab_LBS_VisualElements_MAPEliteContent_Reset
+  name: Reset
+  nameWithType: MAPEliteContent.Reset
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.Reset
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.ChangePartitions*
+  commentId: Overload:ISILab.LBS.VisualElements.MAPEliteContent.ChangePartitions
+  isExternal: true
+  href: ISILab.LBS.VisualElements.MAPEliteContent.html#ISILab_LBS_VisualElements_MAPEliteContent_ChangePartitions_UnityEngine_Vector2_
+  name: ChangePartitions
+  nameWithType: MAPEliteContent.ChangePartitions
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.ChangePartitions
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.MarkEmpties*
+  commentId: Overload:ISILab.LBS.VisualElements.MAPEliteContent.MarkEmpties
+  isExternal: true
+  href: ISILab.LBS.VisualElements.MAPEliteContent.html#ISILab_LBS_VisualElements_MAPEliteContent_MarkEmpties
+  name: MarkEmpties
+  nameWithType: MAPEliteContent.MarkEmpties
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.MarkEmpties
+- uid: ISILab.LBS.VisualElements.MAPEliteContent.UpdateContent*
+  commentId: Overload:ISILab.LBS.VisualElements.MAPEliteContent.UpdateContent
+  isExternal: true
+  href: ISILab.LBS.VisualElements.MAPEliteContent.html#ISILab_LBS_VisualElements_MAPEliteContent_UpdateContent
+  name: UpdateContent
+  nameWithType: MAPEliteContent.UpdateContent
+  fullName: ISILab.LBS.VisualElements.MAPEliteContent.UpdateContent
+- uid: System.Action{System.Object}
+  commentId: T:System.Action{System.Object}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<object>
+  nameWithType: Action<object>
+  fullName: System.Action<object>
+  nameWithType.vb: Action(Of Object)
+  fullName.vb: System.Action(Of Object)
+  name.vb: Action(Of Object)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+shouldSkipMarkup: true

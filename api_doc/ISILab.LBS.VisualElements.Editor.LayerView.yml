@@ -1,0 +1,378 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.Editor.LayerView
+  commentId: T:ISILab.LBS.VisualElements.Editor.LayerView
+  id: LayerView
+  parent: ISILab.LBS.VisualElements.Editor
+  children:
+  - ISILab.LBS.VisualElements.Editor.LayerView.#ctor
+  - ISILab.LBS.VisualElements.Editor.LayerView.Base
+  - ISILab.LBS.VisualElements.Editor.LayerView.OnLayerVisibilityChangeAction
+  - ISILab.LBS.VisualElements.Editor.LayerView.OnNameChange
+  - ISILab.LBS.VisualElements.Editor.LayerView.OnVisibilityChange
+  - ISILab.LBS.VisualElements.Editor.LayerView.SetInfo(LBS.Components.LBSLayer)
+  - ISILab.LBS.VisualElements.Editor.LayerView.SetStyleSelectors
+  - ISILab.LBS.VisualElements.Editor.LayerView.Target
+  - ISILab.LBS.VisualElements.Editor.LayerView.UpdateSelect(LBS.Components.LBSLayer,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: LayerView
+  nameWithType: LayerView
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: 'public class LayerView : VisualElement'
+    content.vb: Public Class LayerView Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.Base
+  commentId: F:ISILab.LBS.VisualElements.Editor.LayerView.Base
+  id: Base
+  parent: ISILab.LBS.VisualElements.Editor.LayerView
+  langs:
+  - csharp
+  - vb
+  name: Base
+  nameWithType: LayerView.Base
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.Base
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public VisualElement Base
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Base As VisualElement
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.OnLayerVisibilityChangeAction
+  commentId: F:ISILab.LBS.VisualElements.Editor.LayerView.OnLayerVisibilityChangeAction
+  id: OnLayerVisibilityChangeAction
+  parent: ISILab.LBS.VisualElements.Editor.LayerView
+  langs:
+  - csharp
+  - vb
+  name: OnLayerVisibilityChangeAction
+  nameWithType: LayerView.OnLayerVisibilityChangeAction
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.OnLayerVisibilityChangeAction
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public Action OnLayerVisibilityChangeAction
+    return:
+      type: System.Action
+    content.vb: Public OnLayerVisibilityChangeAction As Action
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.#ctor
+  commentId: M:ISILab.LBS.VisualElements.Editor.LayerView.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.Editor.LayerView
+  langs:
+  - csharp
+  - vb
+  name: LayerView()
+  nameWithType: LayerView.LayerView()
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.LayerView()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public LayerView()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.Editor.LayerView.#ctor*
+  nameWithType.vb: LayerView.New()
+  fullName.vb: ISILab.LBS.VisualElements.Editor.LayerView.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.SetStyleSelectors
+  commentId: M:ISILab.LBS.VisualElements.Editor.LayerView.SetStyleSelectors
+  id: SetStyleSelectors
+  parent: ISILab.LBS.VisualElements.Editor.LayerView
+  langs:
+  - csharp
+  - vb
+  name: SetStyleSelectors()
+  nameWithType: LayerView.SetStyleSelectors()
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.SetStyleSelectors()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public void SetStyleSelectors()
+    content.vb: Public Sub SetStyleSelectors()
+  overload: ISILab.LBS.VisualElements.Editor.LayerView.SetStyleSelectors*
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.SetInfo(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.VisualElements.Editor.LayerView.SetInfo(LBS.Components.LBSLayer)
+  id: SetInfo(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.VisualElements.Editor.LayerView
+  langs:
+  - csharp
+  - vb
+  name: SetInfo(LBSLayer)
+  nameWithType: LayerView.SetInfo(LBSLayer)
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.SetInfo(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public void SetInfo(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Sub SetInfo(layer As LBSLayer)
+  overload: ISILab.LBS.VisualElements.Editor.LayerView.SetInfo*
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.UpdateSelect(LBS.Components.LBSLayer,System.Boolean)
+  commentId: M:ISILab.LBS.VisualElements.Editor.LayerView.UpdateSelect(LBS.Components.LBSLayer,System.Boolean)
+  id: UpdateSelect(LBS.Components.LBSLayer,System.Boolean)
+  parent: ISILab.LBS.VisualElements.Editor.LayerView
+  langs:
+  - csharp
+  - vb
+  name: UpdateSelect(LBSLayer, bool)
+  nameWithType: LayerView.UpdateSelect(LBSLayer, bool)
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.UpdateSelect(LBS.Components.LBSLayer, bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public void UpdateSelect(LBSLayer layer, bool FocusToggle = false)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    - id: FocusToggle
+      type: System.Boolean
+    content.vb: Public Sub UpdateSelect(layer As LBSLayer, FocusToggle As Boolean = False)
+  overload: ISILab.LBS.VisualElements.Editor.LayerView.UpdateSelect*
+  nameWithType.vb: LayerView.UpdateSelect(LBSLayer, Boolean)
+  fullName.vb: ISILab.LBS.VisualElements.Editor.LayerView.UpdateSelect(LBS.Components.LBSLayer, Boolean)
+  name.vb: UpdateSelect(LBSLayer, Boolean)
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.Target
+  commentId: P:ISILab.LBS.VisualElements.Editor.LayerView.Target
+  id: Target
+  parent: ISILab.LBS.VisualElements.Editor.LayerView
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: LayerView.Target
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.Target
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public LBSLayer Target { get; set; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public Property Target As LBSLayer
+  overload: ISILab.LBS.VisualElements.Editor.LayerView.Target*
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.OnVisibilityChange
+  commentId: E:ISILab.LBS.VisualElements.Editor.LayerView.OnVisibilityChange
+  id: OnVisibilityChange
+  parent: ISILab.LBS.VisualElements.Editor.LayerView
+  langs:
+  - csharp
+  - vb
+  name: OnVisibilityChange
+  nameWithType: LayerView.OnVisibilityChange
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.OnVisibilityChange
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public event Action OnVisibilityChange
+    return:
+      type: System.Action
+    content.vb: Public Event OnVisibilityChange As Action
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.OnNameChange
+  commentId: E:ISILab.LBS.VisualElements.Editor.LayerView.OnNameChange
+  id: OnNameChange
+  parent: ISILab.LBS.VisualElements.Editor.LayerView
+  langs:
+  - csharp
+  - vb
+  name: OnNameChange
+  nameWithType: LayerView.OnNameChange
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.OnNameChange
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements.Editor
+  syntax:
+    content: public event Action OnNameChange
+    return:
+      type: System.Action
+    content.vb: Public Event OnNameChange As Action
+references:
+- uid: ISILab.LBS.VisualElements.Editor
+  commentId: N:ISILab.LBS.VisualElements.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements.Editor
+  nameWithType: ISILab.LBS.VisualElements.Editor
+  fullName: ISILab.LBS.VisualElements.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LayerView.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LayerView.html#ISILab_LBS_VisualElements_Editor_LayerView__ctor
+  name: LayerView
+  nameWithType: LayerView.LayerView
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.LayerView
+  nameWithType.vb: LayerView.New
+  fullName.vb: ISILab.LBS.VisualElements.Editor.LayerView.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.SetStyleSelectors*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LayerView.SetStyleSelectors
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LayerView.html#ISILab_LBS_VisualElements_Editor_LayerView_SetStyleSelectors
+  name: SetStyleSelectors
+  nameWithType: LayerView.SetStyleSelectors
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.SetStyleSelectors
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.SetInfo*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LayerView.SetInfo
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LayerView.html#ISILab_LBS_VisualElements_Editor_LayerView_SetInfo_LBS_Components_LBSLayer_
+  name: SetInfo
+  nameWithType: LayerView.SetInfo
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.SetInfo
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.UpdateSelect*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LayerView.UpdateSelect
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LayerView.html#ISILab_LBS_VisualElements_Editor_LayerView_UpdateSelect_LBS_Components_LBSLayer_System_Boolean_
+  name: UpdateSelect
+  nameWithType: LayerView.UpdateSelect
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.UpdateSelect
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.VisualElements.Editor.LayerView.Target*
+  commentId: Overload:ISILab.LBS.VisualElements.Editor.LayerView.Target
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LayerView.html#ISILab_LBS_VisualElements_Editor_LayerView_Target
+  name: Target
+  nameWithType: LayerView.Target
+  fullName: ISILab.LBS.VisualElements.Editor.LayerView.Target
+shouldSkipMarkup: true

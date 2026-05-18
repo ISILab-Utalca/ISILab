@@ -1,0 +1,575 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.AgentProfile
+  commentId: T:PathOS.AgentProfile
+  id: AgentProfile
+  parent: PathOS
+  children:
+  - PathOS.AgentProfile.#ctor
+  - PathOS.AgentProfile.#ctor(PathOS.AgentProfile)
+  - PathOS.AgentProfile.Clear
+  - PathOS.AgentProfile.Copy(PathOS.AgentProfile)
+  - PathOS.AgentProfile.expRange
+  - PathOS.AgentProfile.heuristicRanges
+  - PathOS.AgentProfile.name
+  langs:
+  - csharp
+  - vb
+  name: AgentProfile
+  nameWithType: AgentProfile
+  fullName: PathOS.AgentProfile
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public class AgentProfile
+    content.vb: Public Class AgentProfile
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PathOS.AgentProfile.name
+  commentId: F:PathOS.AgentProfile.name
+  id: name
+  parent: PathOS.AgentProfile
+  langs:
+  - csharp
+  - vb
+  name: name
+  nameWithType: AgentProfile.name
+  fullName: PathOS.AgentProfile.name
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public string name
+    return:
+      type: System.String
+    content.vb: Public name As String
+- uid: PathOS.AgentProfile.heuristicRanges
+  commentId: F:PathOS.AgentProfile.heuristicRanges
+  id: heuristicRanges
+  parent: PathOS.AgentProfile
+  langs:
+  - csharp
+  - vb
+  name: heuristicRanges
+  nameWithType: AgentProfile.heuristicRanges
+  fullName: PathOS.AgentProfile.heuristicRanges
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<HeuristicRange> heuristicRanges
+    return:
+      type: System.Collections.Generic.List{PathOS.HeuristicRange}
+    content.vb: Public heuristicRanges As List(Of HeuristicRange)
+- uid: PathOS.AgentProfile.expRange
+  commentId: F:PathOS.AgentProfile.expRange
+  id: expRange
+  parent: PathOS.AgentProfile
+  langs:
+  - csharp
+  - vb
+  name: expRange
+  nameWithType: AgentProfile.expRange
+  fullName: PathOS.AgentProfile.expRange
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public FloatRange expRange
+    return:
+      type: PathOS.FloatRange
+    content.vb: Public expRange As FloatRange
+- uid: PathOS.AgentProfile.#ctor
+  commentId: M:PathOS.AgentProfile.#ctor
+  id: '#ctor'
+  parent: PathOS.AgentProfile
+  langs:
+  - csharp
+  - vb
+  name: AgentProfile()
+  nameWithType: AgentProfile.AgentProfile()
+  fullName: PathOS.AgentProfile.AgentProfile()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public AgentProfile()
+    content.vb: Public Sub New()
+  overload: PathOS.AgentProfile.#ctor*
+  nameWithType.vb: AgentProfile.New()
+  fullName.vb: PathOS.AgentProfile.New()
+  name.vb: New()
+- uid: PathOS.AgentProfile.#ctor(PathOS.AgentProfile)
+  commentId: M:PathOS.AgentProfile.#ctor(PathOS.AgentProfile)
+  id: '#ctor(PathOS.AgentProfile)'
+  parent: PathOS.AgentProfile
+  langs:
+  - csharp
+  - vb
+  name: AgentProfile(AgentProfile)
+  nameWithType: AgentProfile.AgentProfile(AgentProfile)
+  fullName: PathOS.AgentProfile.AgentProfile(PathOS.AgentProfile)
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public AgentProfile(AgentProfile other)
+    parameters:
+    - id: other
+      type: PathOS.AgentProfile
+    content.vb: Public Sub New(other As AgentProfile)
+  overload: PathOS.AgentProfile.#ctor*
+  nameWithType.vb: AgentProfile.New(AgentProfile)
+  fullName.vb: PathOS.AgentProfile.New(PathOS.AgentProfile)
+  name.vb: New(AgentProfile)
+- uid: PathOS.AgentProfile.Copy(PathOS.AgentProfile)
+  commentId: M:PathOS.AgentProfile.Copy(PathOS.AgentProfile)
+  id: Copy(PathOS.AgentProfile)
+  parent: PathOS.AgentProfile
+  langs:
+  - csharp
+  - vb
+  name: Copy(AgentProfile)
+  nameWithType: AgentProfile.Copy(AgentProfile)
+  fullName: PathOS.AgentProfile.Copy(PathOS.AgentProfile)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void Copy(AgentProfile other)
+    parameters:
+    - id: other
+      type: PathOS.AgentProfile
+    content.vb: Public Sub Copy(other As AgentProfile)
+  overload: PathOS.AgentProfile.Copy*
+- uid: PathOS.AgentProfile.Clear
+  commentId: M:PathOS.AgentProfile.Clear
+  id: Clear
+  parent: PathOS.AgentProfile
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: AgentProfile.Clear()
+  fullName: PathOS.AgentProfile.Clear()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: PathOS.AgentProfile.Clear*
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List{PathOS.HeuristicRange}
+  commentId: T:System.Collections.Generic.List{PathOS.HeuristicRange}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<HeuristicRange>
+  nameWithType: List<HeuristicRange>
+  fullName: System.Collections.Generic.List<PathOS.HeuristicRange>
+  nameWithType.vb: List(Of HeuristicRange)
+  fullName.vb: System.Collections.Generic.List(Of PathOS.HeuristicRange)
+  name.vb: List(Of HeuristicRange)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PathOS.HeuristicRange
+    name: HeuristicRange
+    isExternal: true
+    href: PathOS.HeuristicRange.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.HeuristicRange
+    name: HeuristicRange
+    isExternal: true
+    href: PathOS.HeuristicRange.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PathOS.FloatRange
+  commentId: T:PathOS.FloatRange
+  parent: PathOS
+  isExternal: true
+  href: PathOS.FloatRange.html
+  name: FloatRange
+  nameWithType: FloatRange
+  fullName: PathOS.FloatRange
+- uid: PathOS.AgentProfile.#ctor*
+  commentId: Overload:PathOS.AgentProfile.#ctor
+  isExternal: true
+  href: PathOS.AgentProfile.html#PathOS_AgentProfile__ctor
+  name: AgentProfile
+  nameWithType: AgentProfile.AgentProfile
+  fullName: PathOS.AgentProfile.AgentProfile
+  nameWithType.vb: AgentProfile.New
+  fullName.vb: PathOS.AgentProfile.New
+  name.vb: New
+- uid: PathOS.AgentProfile
+  commentId: T:PathOS.AgentProfile
+  parent: PathOS
+  isExternal: true
+  href: PathOS.AgentProfile.html
+  name: AgentProfile
+  nameWithType: AgentProfile
+  fullName: PathOS.AgentProfile
+- uid: PathOS.AgentProfile.Copy*
+  commentId: Overload:PathOS.AgentProfile.Copy
+  isExternal: true
+  href: PathOS.AgentProfile.html#PathOS_AgentProfile_Copy_PathOS_AgentProfile_
+  name: Copy
+  nameWithType: AgentProfile.Copy
+  fullName: PathOS.AgentProfile.Copy
+- uid: PathOS.AgentProfile.Clear*
+  commentId: Overload:PathOS.AgentProfile.Clear
+  isExternal: true
+  href: PathOS.AgentProfile.html#PathOS_AgentProfile_Clear
+  name: Clear
+  nameWithType: AgentProfile.Clear
+  fullName: PathOS.AgentProfile.Clear
+shouldSkipMarkup: true

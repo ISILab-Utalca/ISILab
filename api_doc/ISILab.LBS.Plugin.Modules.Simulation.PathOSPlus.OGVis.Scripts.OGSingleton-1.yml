@@ -1,0 +1,211 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+  commentId: T:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+  id: OGSingleton`1
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  children:
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.#ctor
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.instance
+  langs:
+  - csharp
+  - vb
+  name: OGSingleton<T>
+  nameWithType: OGSingleton<T>
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton<T>
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: 'public class OGSingleton<T> : MonoBehaviour where T : MonoBehaviour'
+    typeParameters:
+    - id: T
+    content.vb: Public Class OGSingleton(Of T As MonoBehaviour) Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  nameWithType.vb: OGSingleton(Of T)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton(Of T)
+  name.vb: OGSingleton(Of T)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.#ctor
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+  langs:
+  - csharp
+  - vb
+  name: OGSingleton()
+  nameWithType: OGSingleton<T>.OGSingleton()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton<T>.OGSingleton()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public OGSingleton()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.#ctor*
+  nameWithType.vb: OGSingleton(Of T).New()
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton(Of T).New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.instance
+  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.instance
+  id: instance
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+  langs:
+  - csharp
+  - vb
+  name: instance
+  nameWithType: OGSingleton<T>.instance
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton<T>.instance
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public static T instance { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public Shared ReadOnly Property instance As T
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.instance*
+  nameWithType.vb: OGSingleton(Of T).instance
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton(Of T).instance
+references:
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  commentId: N:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  nameWithType: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton-1.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGSingleton_1__ctor
+  name: OGSingleton
+  nameWithType: OGSingleton<T>.OGSingleton
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton<T>.OGSingleton
+  nameWithType.vb: OGSingleton(Of T).New
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton(Of T).New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.instance*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.instance
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton-1.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGSingleton_1_instance
+  name: instance
+  nameWithType: OGSingleton<T>.instance
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton<T>.instance
+  nameWithType.vb: OGSingleton(Of T).instance
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton(Of T).instance
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+shouldSkipMarkup: true

@@ -1,0 +1,646 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.InspectorInstance
+  commentId: T:ISILab.LBS.VisualElements.InspectorInstance
+  id: InspectorInstance
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.InspectorInstance.#ctor(System.Type,LBS.Components.LBSLayer)
+  - ISILab.LBS.VisualElements.InspectorInstance.Equals(ISILab.LBS.VisualElements.InspectorInstance)
+  - ISILab.LBS.VisualElements.InspectorInstance.Equals(System.Object)
+  - ISILab.LBS.VisualElements.InspectorInstance.GetHashCode
+  - ISILab.LBS.VisualElements.InspectorInstance.layer
+  - ISILab.LBS.VisualElements.InspectorInstance.typeTarget
+  langs:
+  - csharp
+  - vb
+  name: InspectorInstance
+  nameWithType: InspectorInstance
+  fullName: ISILab.LBS.VisualElements.InspectorInstance
+  type: Struct
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public struct InspectorInstance : IEquatable<InspectorInstance>'
+    content.vb: Public Structure InspectorInstance Implements IEquatable(Of InspectorInstance)
+  implements:
+  - System.IEquatable{ISILab.LBS.VisualElements.InspectorInstance}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: ISILab.LBS.VisualElements.InspectorInstance.typeTarget
+  commentId: F:ISILab.LBS.VisualElements.InspectorInstance.typeTarget
+  id: typeTarget
+  parent: ISILab.LBS.VisualElements.InspectorInstance
+  langs:
+  - csharp
+  - vb
+  name: typeTarget
+  nameWithType: InspectorInstance.typeTarget
+  fullName: ISILab.LBS.VisualElements.InspectorInstance.typeTarget
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Type typeTarget
+    return:
+      type: System.Type
+    content.vb: Public typeTarget As Type
+- uid: ISILab.LBS.VisualElements.InspectorInstance.layer
+  commentId: F:ISILab.LBS.VisualElements.InspectorInstance.layer
+  id: layer
+  parent: ISILab.LBS.VisualElements.InspectorInstance
+  langs:
+  - csharp
+  - vb
+  name: layer
+  nameWithType: InspectorInstance.layer
+  fullName: ISILab.LBS.VisualElements.InspectorInstance.layer
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public LBSLayer layer
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public layer As LBSLayer
+- uid: ISILab.LBS.VisualElements.InspectorInstance.#ctor(System.Type,LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.VisualElements.InspectorInstance.#ctor(System.Type,LBS.Components.LBSLayer)
+  id: '#ctor(System.Type,LBS.Components.LBSLayer)'
+  parent: ISILab.LBS.VisualElements.InspectorInstance
+  langs:
+  - csharp
+  - vb
+  name: InspectorInstance(Type, LBSLayer)
+  nameWithType: InspectorInstance.InspectorInstance(Type, LBSLayer)
+  fullName: ISILab.LBS.VisualElements.InspectorInstance.InspectorInstance(System.Type, LBS.Components.LBSLayer)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public InspectorInstance(Type typeTarget, LBSLayer layer)
+    parameters:
+    - id: typeTarget
+      type: System.Type
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Sub New(typeTarget As Type, layer As LBSLayer)
+  overload: ISILab.LBS.VisualElements.InspectorInstance.#ctor*
+  nameWithType.vb: InspectorInstance.New(Type, LBSLayer)
+  fullName.vb: ISILab.LBS.VisualElements.InspectorInstance.New(System.Type, LBS.Components.LBSLayer)
+  name.vb: New(Type, LBSLayer)
+- uid: ISILab.LBS.VisualElements.InspectorInstance.Equals(ISILab.LBS.VisualElements.InspectorInstance)
+  commentId: M:ISILab.LBS.VisualElements.InspectorInstance.Equals(ISILab.LBS.VisualElements.InspectorInstance)
+  id: Equals(ISILab.LBS.VisualElements.InspectorInstance)
+  parent: ISILab.LBS.VisualElements.InspectorInstance
+  langs:
+  - csharp
+  - vb
+  name: Equals(InspectorInstance)
+  nameWithType: InspectorInstance.Equals(InspectorInstance)
+  fullName: ISILab.LBS.VisualElements.InspectorInstance.Equals(ISILab.LBS.VisualElements.InspectorInstance)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public bool Equals(InspectorInstance other)
+    parameters:
+    - id: other
+      type: ISILab.LBS.VisualElements.InspectorInstance
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As InspectorInstance) As Boolean
+  overload: ISILab.LBS.VisualElements.InspectorInstance.Equals*
+  implements:
+  - System.IEquatable{ISILab.LBS.VisualElements.InspectorInstance}.Equals(ISILab.LBS.VisualElements.InspectorInstance)
+- uid: ISILab.LBS.VisualElements.InspectorInstance.Equals(System.Object)
+  commentId: M:ISILab.LBS.VisualElements.InspectorInstance.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.VisualElements.InspectorInstance
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: InspectorInstance.Equals(object)
+  fullName: ISILab.LBS.VisualElements.InspectorInstance.Equals(object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: ISILab.LBS.VisualElements.InspectorInstance.Equals*
+  nameWithType.vb: InspectorInstance.Equals(Object)
+  fullName.vb: ISILab.LBS.VisualElements.InspectorInstance.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.VisualElements.InspectorInstance.GetHashCode
+  commentId: M:ISILab.LBS.VisualElements.InspectorInstance.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.VisualElements.InspectorInstance
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: InspectorInstance.GetHashCode()
+  fullName: ISILab.LBS.VisualElements.InspectorInstance.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: ISILab.LBS.VisualElements.InspectorInstance.GetHashCode*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.IEquatable{ISILab.LBS.VisualElements.InspectorInstance}
+  commentId: T:System.IEquatable{ISILab.LBS.VisualElements.InspectorInstance}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<InspectorInstance>
+  nameWithType: IEquatable<InspectorInstance>
+  fullName: System.IEquatable<ISILab.LBS.VisualElements.InspectorInstance>
+  nameWithType.vb: IEquatable(Of InspectorInstance)
+  fullName.vb: System.IEquatable(Of ISILab.LBS.VisualElements.InspectorInstance)
+  name.vb: IEquatable(Of InspectorInstance)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ISILab.LBS.VisualElements.InspectorInstance
+    name: InspectorInstance
+    isExternal: true
+    href: ISILab.LBS.VisualElements.InspectorInstance.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.VisualElements.InspectorInstance
+    name: InspectorInstance
+    isExternal: true
+    href: ISILab.LBS.VisualElements.InspectorInstance.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+- uid: ISILab.LBS.VisualElements.InspectorInstance.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.InspectorInstance.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.InspectorInstance.html#ISILab_LBS_VisualElements_InspectorInstance__ctor_System_Type_LBS_Components_LBSLayer_
+  name: InspectorInstance
+  nameWithType: InspectorInstance.InspectorInstance
+  fullName: ISILab.LBS.VisualElements.InspectorInstance.InspectorInstance
+  nameWithType.vb: InspectorInstance.New
+  fullName.vb: ISILab.LBS.VisualElements.InspectorInstance.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.InspectorInstance.Equals*
+  commentId: Overload:ISILab.LBS.VisualElements.InspectorInstance.Equals
+  isExternal: true
+  href: ISILab.LBS.VisualElements.InspectorInstance.html#ISILab_LBS_VisualElements_InspectorInstance_Equals_ISILab_LBS_VisualElements_InspectorInstance_
+  name: Equals
+  nameWithType: InspectorInstance.Equals
+  fullName: ISILab.LBS.VisualElements.InspectorInstance.Equals
+- uid: System.IEquatable{ISILab.LBS.VisualElements.InspectorInstance}.Equals(ISILab.LBS.VisualElements.InspectorInstance)
+  commentId: M:System.IEquatable{ISILab.LBS.VisualElements.InspectorInstance}.Equals(ISILab.LBS.VisualElements.InspectorInstance)
+  parent: System.IEquatable{ISILab.LBS.VisualElements.InspectorInstance}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(InspectorInstance)
+  nameWithType: IEquatable<InspectorInstance>.Equals(InspectorInstance)
+  fullName: System.IEquatable<ISILab.LBS.VisualElements.InspectorInstance>.Equals(ISILab.LBS.VisualElements.InspectorInstance)
+  nameWithType.vb: IEquatable(Of InspectorInstance).Equals(InspectorInstance)
+  fullName.vb: System.IEquatable(Of ISILab.LBS.VisualElements.InspectorInstance).Equals(ISILab.LBS.VisualElements.InspectorInstance)
+  spec.csharp:
+  - uid: System.IEquatable{ISILab.LBS.VisualElements.InspectorInstance}.Equals(ISILab.LBS.VisualElements.InspectorInstance)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: ISILab.LBS.VisualElements.InspectorInstance
+    name: InspectorInstance
+    isExternal: true
+    href: ISILab.LBS.VisualElements.InspectorInstance.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ISILab.LBS.VisualElements.InspectorInstance}.Equals(ISILab.LBS.VisualElements.InspectorInstance)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: ISILab.LBS.VisualElements.InspectorInstance
+    name: InspectorInstance
+    isExternal: true
+    href: ISILab.LBS.VisualElements.InspectorInstance.html
+  - name: )
+- uid: ISILab.LBS.VisualElements.InspectorInstance
+  commentId: T:ISILab.LBS.VisualElements.InspectorInstance
+  parent: ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.LBS.VisualElements.InspectorInstance.html
+  name: InspectorInstance
+  nameWithType: InspectorInstance
+  fullName: ISILab.LBS.VisualElements.InspectorInstance
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.InspectorInstance.GetHashCode*
+  commentId: Overload:ISILab.LBS.VisualElements.InspectorInstance.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.VisualElements.InspectorInstance.html#ISILab_LBS_VisualElements_InspectorInstance_GetHashCode
+  name: GetHashCode
+  nameWithType: InspectorInstance.GetHashCode
+  fullName: ISILab.LBS.VisualElements.InspectorInstance.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+shouldSkipMarkup: true

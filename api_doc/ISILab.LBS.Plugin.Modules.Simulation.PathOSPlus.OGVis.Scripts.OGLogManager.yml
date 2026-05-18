@@ -1,0 +1,606 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  commentId: T:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  id: OGLogManager
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  children:
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.#ctor
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.FireInteractionEvent(UnityEngine.GameObject,UnityEngine.GameObject)
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.LogDirectoryValid
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.WriteHeader(UnityEngine.GameObject,System.String)
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.directoryOverrideId
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.enableLogging
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.fileIndexId
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.floorCount
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.gameTimer
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.logDirectory
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.logFilePrefix
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.overrideFlagId
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleRate
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleTime
+  langs:
+  - csharp
+  - vb
+  name: OGLogManager
+  nameWithType: OGLogManager
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: 'public class OGLogManager : OGSingleton<OGLogManager>'
+    content.vb: Public Class OGLogManager Inherits OGSingleton(Of OGLogManager)
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton{ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager}
+  inheritedMembers:
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton{ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager}.instance
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.directoryOverrideId
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.directoryOverrideId
+  id: directoryOverrideId
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: directoryOverrideId
+  nameWithType: OGLogManager.directoryOverrideId
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.directoryOverrideId
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public const string directoryOverrideId = "OGLogDirectoryOverride"
+    return:
+      type: System.String
+    content.vb: Public Const directoryOverrideId As String = "OGLogDirectoryOverride"
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.overrideFlagId
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.overrideFlagId
+  id: overrideFlagId
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: overrideFlagId
+  nameWithType: OGLogManager.overrideFlagId
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.overrideFlagId
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public const string overrideFlagId = "OGLogOverrideFlag"
+    return:
+      type: System.String
+    content.vb: Public Const overrideFlagId As String = "OGLogOverrideFlag"
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.fileIndexId
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.fileIndexId
+  id: fileIndexId
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: fileIndexId
+  nameWithType: OGLogManager.fileIndexId
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.fileIndexId
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public const string fileIndexId = "OGLogFileIndex"
+    return:
+      type: System.String
+    content.vb: Public Const fileIndexId As String = "OGLogFileIndex"
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.enableLogging
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.enableLogging
+  id: enableLogging
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: enableLogging
+  nameWithType: OGLogManager.enableLogging
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.enableLogging
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool enableLogging
+    return:
+      type: System.Boolean
+    content.vb: Public enableLogging As Boolean
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.logDirectory
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.logDirectory
+  id: logDirectory
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: logDirectory
+  nameWithType: OGLogManager.logDirectory
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.logDirectory
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public string logDirectory
+    return:
+      type: System.String
+    content.vb: Public logDirectory As String
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.logFilePrefix
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.logFilePrefix
+  id: logFilePrefix
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: logFilePrefix
+  nameWithType: OGLogManager.logFilePrefix
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.logFilePrefix
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public string logFilePrefix
+    return:
+      type: System.String
+    content.vb: Public logFilePrefix As String
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleRate
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleRate
+  id: sampleRate
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: sampleRate
+  nameWithType: OGLogManager.sampleRate
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleRate
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public float sampleRate
+    return:
+      type: System.Single
+    content.vb: Public sampleRate As Single
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.floorCount
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.floorCount
+  id: floorCount
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: floorCount
+  nameWithType: OGLogManager.floorCount
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.floorCount
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public int floorCount
+    return:
+      type: System.Int32
+    content.vb: Public floorCount As Integer
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.LogDirectoryValid
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.LogDirectoryValid
+  id: LogDirectoryValid
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: LogDirectoryValid()
+  nameWithType: OGLogManager.LogDirectoryValid()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.LogDirectoryValid()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool LogDirectoryValid()
+    return:
+      type: System.Boolean
+    content.vb: Public Function LogDirectoryValid() As Boolean
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.LogDirectoryValid*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.WriteHeader(UnityEngine.GameObject,System.String)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.WriteHeader(UnityEngine.GameObject,System.String)
+  id: WriteHeader(UnityEngine.GameObject,System.String)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: WriteHeader(GameObject, string)
+  nameWithType: OGLogManager.WriteHeader(GameObject, string)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.WriteHeader(UnityEngine.GameObject, string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void WriteHeader(GameObject caller, string header)
+    parameters:
+    - id: caller
+      type: UnityEngine.GameObject
+    - id: header
+      type: System.String
+    content.vb: Public Sub WriteHeader(caller As GameObject, header As String)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.WriteHeader*
+  nameWithType.vb: OGLogManager.WriteHeader(GameObject, String)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.WriteHeader(UnityEngine.GameObject, String)
+  name.vb: WriteHeader(GameObject, String)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.FireInteractionEvent(UnityEngine.GameObject,UnityEngine.GameObject)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.FireInteractionEvent(UnityEngine.GameObject,UnityEngine.GameObject)
+  id: FireInteractionEvent(UnityEngine.GameObject,UnityEngine.GameObject)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: FireInteractionEvent(GameObject, GameObject)
+  nameWithType: OGLogManager.FireInteractionEvent(GameObject, GameObject)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.FireInteractionEvent(UnityEngine.GameObject, UnityEngine.GameObject)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void FireInteractionEvent(GameObject caller, GameObject interacted)
+    parameters:
+    - id: caller
+      type: UnityEngine.GameObject
+    - id: interacted
+      type: UnityEngine.GameObject
+    content.vb: Public Sub FireInteractionEvent(caller As GameObject, interacted As GameObject)
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.FireInteractionEvent*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.#ctor
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: OGLogManager()
+  nameWithType: OGLogManager.OGLogManager()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.OGLogManager()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public OGLogManager()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.#ctor*
+  nameWithType.vb: OGLogManager.New()
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleTime
+  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleTime
+  id: sampleTime
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: sampleTime
+  nameWithType: OGLogManager.sampleTime
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleTime
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public float sampleTime { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property sampleTime As Single
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleTime*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.gameTimer
+  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.gameTimer
+  id: gameTimer
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  langs:
+  - csharp
+  - vb
+  name: gameTimer
+  nameWithType: OGLogManager.gameTimer
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.gameTimer
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public float gameTimer { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property gameTimer As Single
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.gameTimer*
+references:
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  commentId: N:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  nameWithType: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton{ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager}
+  commentId: T:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton{ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager}
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  definition: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton-1.html
+  name: OGSingleton<OGLogManager>
+  nameWithType: OGSingleton<OGLogManager>
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton<ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager>
+  nameWithType.vb: OGSingleton(Of OGLogManager)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton(Of ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager)
+  name.vb: OGSingleton(Of OGLogManager)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+    name: OGSingleton
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton-1.html
+  - name: <
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+    name: OGLogManager
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.html
+  - name: '>'
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+    name: OGSingleton
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+    name: OGLogManager
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton{ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager}.instance
+  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton{ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager}.instance
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton{ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager}
+  definition: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.instance
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton-1.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGSingleton_1_instance
+  name: instance
+  nameWithType: OGSingleton<OGLogManager>.instance
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton<ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager>.instance
+  nameWithType.vb: OGSingleton(Of OGLogManager).instance
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton(Of ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager).instance
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+  commentId: T:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton-1.html
+  name: OGSingleton<T>
+  nameWithType: OGSingleton<T>
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton<T>
+  nameWithType.vb: OGSingleton(Of T)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton(Of T)
+  name.vb: OGSingleton(Of T)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+    name: OGSingleton
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1
+    name: OGSingleton
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.instance
+  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton`1.instance
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton-1.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGSingleton_1_instance
+  name: instance
+  nameWithType: OGSingleton<T>.instance
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton<T>.instance
+  nameWithType.vb: OGSingleton(Of T).instance
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGSingleton(Of T).instance
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.LogDirectoryValid*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.LogDirectoryValid
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogManager_LogDirectoryValid
+  name: LogDirectoryValid
+  nameWithType: OGLogManager.LogDirectoryValid
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.LogDirectoryValid
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.WriteHeader*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.WriteHeader
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogManager_WriteHeader_UnityEngine_GameObject_System_String_
+  name: WriteHeader
+  nameWithType: OGLogManager.WriteHeader
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.WriteHeader
+- uid: UnityEngine.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.FireInteractionEvent*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.FireInteractionEvent
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogManager_FireInteractionEvent_UnityEngine_GameObject_UnityEngine_GameObject_
+  name: FireInteractionEvent
+  nameWithType: OGLogManager.FireInteractionEvent
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.FireInteractionEvent
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogManager__ctor
+  name: OGLogManager
+  nameWithType: OGLogManager.OGLogManager
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.OGLogManager
+  nameWithType.vb: OGLogManager.New
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleTime*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleTime
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogManager_sampleTime
+  name: sampleTime
+  nameWithType: OGLogManager.sampleTime
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.sampleTime
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.gameTimer*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.gameTimer
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogManager_gameTimer
+  name: gameTimer
+  nameWithType: OGLogManager.gameTimer
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.gameTimer
+shouldSkipMarkup: true

@@ -1,0 +1,960 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.DrawManager
+  commentId: T:ISILab.LBS.DrawManager
+  id: DrawManager
+  parent: ISILab.LBS
+  children:
+  - ISILab.LBS.DrawManager.#ctor
+  - ISILab.LBS.DrawManager.AddContainer(LBS.Components.LBSLayer)
+  - ISILab.LBS.DrawManager.ChangeLayerOpacity(LBS.Components.LBSLayer,System.Single)
+  - ISILab.LBS.DrawManager.ChangeOpacityAll(System.Single)
+  - ISILab.LBS.DrawManager.ChangePickingMode(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.PickingMode,System.Collections.Generic.List{UnityEngine.UIElements.VisualElement})
+  - ISILab.LBS.DrawManager.DrawSingleComponent``1(``0,LBS.Components.LBSLayer,System.Boolean)
+  - ISILab.LBS.DrawManager.Instance
+  - ISILab.LBS.DrawManager.PickingModeChangeAll(UnityEngine.UIElements.PickingMode,System.Collections.Generic.List{UnityEngine.UIElements.VisualElement})
+  - ISILab.LBS.DrawManager.PickingModeRestoreAll
+  - ISILab.LBS.DrawManager.ReDraw
+  - ISILab.LBS.DrawManager.RedrawLayer(LBS.Components.LBSLayer)
+  - ISILab.LBS.DrawManager.RedrawLevel(ISILab.LBS.LBSLevelData,System.Boolean)
+  - ISILab.LBS.DrawManager.RemoveContainer(LBS.Components.LBSLayer)
+  - ISILab.LBS.DrawManager.UpdateLayer(LBS.Components.LBSLayer)
+  - ISILab.LBS.DrawManager.UpdateSingleComponent``1(``0,LBS.Components.LBSLayer)
+  langs:
+  - csharp
+  - vb
+  name: DrawManager
+  nameWithType: DrawManager
+  fullName: ISILab.LBS.DrawManager
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public class DrawManager
+    content.vb: Public Class DrawManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: ISILab.LBS.DrawManager.#ctor
+  commentId: M:ISILab.LBS.DrawManager.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: DrawManager()
+  nameWithType: DrawManager.DrawManager()
+  fullName: ISILab.LBS.DrawManager.DrawManager()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public DrawManager()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.DrawManager.#ctor*
+  nameWithType.vb: DrawManager.New()
+  fullName.vb: ISILab.LBS.DrawManager.New()
+  name.vb: New()
+- uid: ISILab.LBS.DrawManager.AddContainer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.DrawManager.AddContainer(LBS.Components.LBSLayer)
+  id: AddContainer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: AddContainer(LBSLayer)
+  nameWithType: DrawManager.AddContainer(LBSLayer)
+  fullName: ISILab.LBS.DrawManager.AddContainer(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void AddContainer(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Sub AddContainer(layer As LBSLayer)
+  overload: ISILab.LBS.DrawManager.AddContainer*
+- uid: ISILab.LBS.DrawManager.RemoveContainer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.DrawManager.RemoveContainer(LBS.Components.LBSLayer)
+  id: RemoveContainer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveContainer(LBSLayer)
+  nameWithType: DrawManager.RemoveContainer(LBSLayer)
+  fullName: ISILab.LBS.DrawManager.RemoveContainer(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void RemoveContainer(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Sub RemoveContainer(layer As LBSLayer)
+  overload: ISILab.LBS.DrawManager.RemoveContainer*
+- uid: ISILab.LBS.DrawManager.ReDraw
+  commentId: M:ISILab.LBS.DrawManager.ReDraw
+  id: ReDraw
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: ReDraw()
+  nameWithType: DrawManager.ReDraw()
+  fullName: ISILab.LBS.DrawManager.ReDraw()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static void ReDraw()
+    content.vb: Public Shared Sub ReDraw()
+  overload: ISILab.LBS.DrawManager.ReDraw*
+- uid: ISILab.LBS.DrawManager.UpdateLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.DrawManager.UpdateLayer(LBS.Components.LBSLayer)
+  id: UpdateLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: UpdateLayer(LBSLayer)
+  nameWithType: DrawManager.UpdateLayer(LBSLayer)
+  fullName: ISILab.LBS.DrawManager.UpdateLayer(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void UpdateLayer(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Sub UpdateLayer(layer As LBSLayer)
+  overload: ISILab.LBS.DrawManager.UpdateLayer*
+- uid: ISILab.LBS.DrawManager.DrawSingleComponent``1(``0,LBS.Components.LBSLayer,System.Boolean)
+  commentId: M:ISILab.LBS.DrawManager.DrawSingleComponent``1(``0,LBS.Components.LBSLayer,System.Boolean)
+  id: DrawSingleComponent``1(``0,LBS.Components.LBSLayer,System.Boolean)
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: DrawSingleComponent<T>(T, LBSLayer, bool)
+  nameWithType: DrawManager.DrawSingleComponent<T>(T, LBSLayer, bool)
+  fullName: ISILab.LBS.DrawManager.DrawSingleComponent<T>(T, LBS.Components.LBSLayer, bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void DrawSingleComponent<T>(T component, LBSLayer layer, bool clearLayerContainer = false)
+    parameters:
+    - id: component
+      type: '{T}'
+    - id: layer
+      type: LBS.Components.LBSLayer
+    - id: clearLayerContainer
+      type: System.Boolean
+    typeParameters:
+    - id: T
+    content.vb: Public Sub DrawSingleComponent(Of T)(component As T, layer As LBSLayer, clearLayerContainer As Boolean = False)
+  overload: ISILab.LBS.DrawManager.DrawSingleComponent*
+  nameWithType.vb: DrawManager.DrawSingleComponent(Of T)(T, LBSLayer, Boolean)
+  fullName.vb: ISILab.LBS.DrawManager.DrawSingleComponent(Of T)(T, LBS.Components.LBSLayer, Boolean)
+  name.vb: DrawSingleComponent(Of T)(T, LBSLayer, Boolean)
+- uid: ISILab.LBS.DrawManager.UpdateSingleComponent``1(``0,LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.DrawManager.UpdateSingleComponent``1(``0,LBS.Components.LBSLayer)
+  id: UpdateSingleComponent``1(``0,LBS.Components.LBSLayer)
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: UpdateSingleComponent<T>(T, LBSLayer)
+  nameWithType: DrawManager.UpdateSingleComponent<T>(T, LBSLayer)
+  fullName: ISILab.LBS.DrawManager.UpdateSingleComponent<T>(T, LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void UpdateSingleComponent<T>(T component, LBSLayer layer)
+    parameters:
+    - id: component
+      type: '{T}'
+    - id: layer
+      type: LBS.Components.LBSLayer
+    typeParameters:
+    - id: T
+    content.vb: Public Sub UpdateSingleComponent(Of T)(component As T, layer As LBSLayer)
+  overload: ISILab.LBS.DrawManager.UpdateSingleComponent*
+  nameWithType.vb: DrawManager.UpdateSingleComponent(Of T)(T, LBSLayer)
+  fullName.vb: ISILab.LBS.DrawManager.UpdateSingleComponent(Of T)(T, LBS.Components.LBSLayer)
+  name.vb: UpdateSingleComponent(Of T)(T, LBSLayer)
+- uid: ISILab.LBS.DrawManager.RedrawLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.DrawManager.RedrawLayer(LBS.Components.LBSLayer)
+  id: RedrawLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: RedrawLayer(LBSLayer)
+  nameWithType: DrawManager.RedrawLayer(LBSLayer)
+  fullName: ISILab.LBS.DrawManager.RedrawLayer(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void RedrawLayer(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Sub RedrawLayer(layer As LBSLayer)
+  overload: ISILab.LBS.DrawManager.RedrawLayer*
+- uid: ISILab.LBS.DrawManager.RedrawLevel(ISILab.LBS.LBSLevelData,System.Boolean)
+  commentId: M:ISILab.LBS.DrawManager.RedrawLevel(ISILab.LBS.LBSLevelData,System.Boolean)
+  id: RedrawLevel(ISILab.LBS.LBSLevelData,System.Boolean)
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: RedrawLevel(LBSLevelData, bool)
+  nameWithType: DrawManager.RedrawLevel(LBSLevelData, bool)
+  fullName: ISILab.LBS.DrawManager.RedrawLevel(ISILab.LBS.LBSLevelData, bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void RedrawLevel(LBSLevelData level, bool deepClean = false)
+    parameters:
+    - id: level
+      type: ISILab.LBS.LBSLevelData
+    - id: deepClean
+      type: System.Boolean
+    content.vb: Public Sub RedrawLevel(level As LBSLevelData, deepClean As Boolean = False)
+  overload: ISILab.LBS.DrawManager.RedrawLevel*
+  nameWithType.vb: DrawManager.RedrawLevel(LBSLevelData, Boolean)
+  fullName.vb: ISILab.LBS.DrawManager.RedrawLevel(ISILab.LBS.LBSLevelData, Boolean)
+  name.vb: RedrawLevel(LBSLevelData, Boolean)
+- uid: ISILab.LBS.DrawManager.ChangeOpacityAll(System.Single)
+  commentId: M:ISILab.LBS.DrawManager.ChangeOpacityAll(System.Single)
+  id: ChangeOpacityAll(System.Single)
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: ChangeOpacityAll(float)
+  nameWithType: DrawManager.ChangeOpacityAll(float)
+  fullName: ISILab.LBS.DrawManager.ChangeOpacityAll(float)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void ChangeOpacityAll(float opacity)
+    parameters:
+    - id: opacity
+      type: System.Single
+    content.vb: Public Sub ChangeOpacityAll(opacity As Single)
+  overload: ISILab.LBS.DrawManager.ChangeOpacityAll*
+  nameWithType.vb: DrawManager.ChangeOpacityAll(Single)
+  fullName.vb: ISILab.LBS.DrawManager.ChangeOpacityAll(Single)
+  name.vb: ChangeOpacityAll(Single)
+- uid: ISILab.LBS.DrawManager.ChangeLayerOpacity(LBS.Components.LBSLayer,System.Single)
+  commentId: M:ISILab.LBS.DrawManager.ChangeLayerOpacity(LBS.Components.LBSLayer,System.Single)
+  id: ChangeLayerOpacity(LBS.Components.LBSLayer,System.Single)
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: ChangeLayerOpacity(LBSLayer, float)
+  nameWithType: DrawManager.ChangeLayerOpacity(LBSLayer, float)
+  fullName: ISILab.LBS.DrawManager.ChangeLayerOpacity(LBS.Components.LBSLayer, float)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static void ChangeLayerOpacity(LBSLayer layer, float opacity)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    - id: opacity
+      type: System.Single
+    content.vb: Public Shared Sub ChangeLayerOpacity(layer As LBSLayer, opacity As Single)
+  overload: ISILab.LBS.DrawManager.ChangeLayerOpacity*
+  nameWithType.vb: DrawManager.ChangeLayerOpacity(LBSLayer, Single)
+  fullName.vb: ISILab.LBS.DrawManager.ChangeLayerOpacity(LBS.Components.LBSLayer, Single)
+  name.vb: ChangeLayerOpacity(LBSLayer, Single)
+- uid: ISILab.LBS.DrawManager.PickingModeChangeAll(UnityEngine.UIElements.PickingMode,System.Collections.Generic.List{UnityEngine.UIElements.VisualElement})
+  commentId: M:ISILab.LBS.DrawManager.PickingModeChangeAll(UnityEngine.UIElements.PickingMode,System.Collections.Generic.List{UnityEngine.UIElements.VisualElement})
+  id: PickingModeChangeAll(UnityEngine.UIElements.PickingMode,System.Collections.Generic.List{UnityEngine.UIElements.VisualElement})
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: PickingModeChangeAll(PickingMode, List<VisualElement>)
+  nameWithType: DrawManager.PickingModeChangeAll(PickingMode, List<VisualElement>)
+  fullName: ISILab.LBS.DrawManager.PickingModeChangeAll(UnityEngine.UIElements.PickingMode, System.Collections.Generic.List<UnityEngine.UIElements.VisualElement>)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void PickingModeChangeAll(PickingMode newPickingMode, List<VisualElement> exceptions)
+    parameters:
+    - id: newPickingMode
+      type: UnityEngine.UIElements.PickingMode
+    - id: exceptions
+      type: System.Collections.Generic.List{UnityEngine.UIElements.VisualElement}
+    content.vb: Public Sub PickingModeChangeAll(newPickingMode As PickingMode, exceptions As List(Of VisualElement))
+  overload: ISILab.LBS.DrawManager.PickingModeChangeAll*
+  nameWithType.vb: DrawManager.PickingModeChangeAll(PickingMode, List(Of VisualElement))
+  fullName.vb: ISILab.LBS.DrawManager.PickingModeChangeAll(UnityEngine.UIElements.PickingMode, System.Collections.Generic.List(Of UnityEngine.UIElements.VisualElement))
+  name.vb: PickingModeChangeAll(PickingMode, List(Of VisualElement))
+- uid: ISILab.LBS.DrawManager.ChangePickingMode(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.PickingMode,System.Collections.Generic.List{UnityEngine.UIElements.VisualElement})
+  commentId: M:ISILab.LBS.DrawManager.ChangePickingMode(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.PickingMode,System.Collections.Generic.List{UnityEngine.UIElements.VisualElement})
+  id: ChangePickingMode(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.PickingMode,System.Collections.Generic.List{UnityEngine.UIElements.VisualElement})
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: ChangePickingMode(VisualElement, PickingMode, List<VisualElement>)
+  nameWithType: DrawManager.ChangePickingMode(VisualElement, PickingMode, List<VisualElement>)
+  fullName: ISILab.LBS.DrawManager.ChangePickingMode(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.PickingMode, System.Collections.Generic.List<UnityEngine.UIElements.VisualElement>)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void ChangePickingMode(VisualElement element, PickingMode newPickingMode, List<VisualElement> exceptions)
+    parameters:
+    - id: element
+      type: UnityEngine.UIElements.VisualElement
+    - id: newPickingMode
+      type: UnityEngine.UIElements.PickingMode
+    - id: exceptions
+      type: System.Collections.Generic.List{UnityEngine.UIElements.VisualElement}
+    content.vb: Public Sub ChangePickingMode(element As VisualElement, newPickingMode As PickingMode, exceptions As List(Of VisualElement))
+  overload: ISILab.LBS.DrawManager.ChangePickingMode*
+  nameWithType.vb: DrawManager.ChangePickingMode(VisualElement, PickingMode, List(Of VisualElement))
+  fullName.vb: ISILab.LBS.DrawManager.ChangePickingMode(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.PickingMode, System.Collections.Generic.List(Of UnityEngine.UIElements.VisualElement))
+  name.vb: ChangePickingMode(VisualElement, PickingMode, List(Of VisualElement))
+- uid: ISILab.LBS.DrawManager.PickingModeRestoreAll
+  commentId: M:ISILab.LBS.DrawManager.PickingModeRestoreAll
+  id: PickingModeRestoreAll
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: PickingModeRestoreAll()
+  nameWithType: DrawManager.PickingModeRestoreAll()
+  fullName: ISILab.LBS.DrawManager.PickingModeRestoreAll()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public void PickingModeRestoreAll()
+    content.vb: Public Sub PickingModeRestoreAll()
+  overload: ISILab.LBS.DrawManager.PickingModeRestoreAll*
+- uid: ISILab.LBS.DrawManager.Instance
+  commentId: P:ISILab.LBS.DrawManager.Instance
+  id: Instance
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: DrawManager.Instance
+  fullName: ISILab.LBS.DrawManager.Instance
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static DrawManager Instance { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.DrawManager
+    content.vb: Public Shared ReadOnly Property Instance As DrawManager
+  overload: ISILab.LBS.DrawManager.Instance*
+references:
+- uid: ISILab.LBS
+  commentId: N:ISILab.LBS
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS
+  nameWithType: ISILab.LBS
+  fullName: ISILab.LBS
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.DrawManager.#ctor*
+  commentId: Overload:ISILab.LBS.DrawManager.#ctor
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager__ctor
+  name: DrawManager
+  nameWithType: DrawManager.DrawManager
+  fullName: ISILab.LBS.DrawManager.DrawManager
+  nameWithType.vb: DrawManager.New
+  fullName.vb: ISILab.LBS.DrawManager.New
+  name.vb: New
+- uid: ISILab.LBS.DrawManager.AddContainer*
+  commentId: Overload:ISILab.LBS.DrawManager.AddContainer
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_AddContainer_LBS_Components_LBSLayer_
+  name: AddContainer
+  nameWithType: DrawManager.AddContainer
+  fullName: ISILab.LBS.DrawManager.AddContainer
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+- uid: ISILab.LBS.DrawManager.RemoveContainer*
+  commentId: Overload:ISILab.LBS.DrawManager.RemoveContainer
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_RemoveContainer_LBS_Components_LBSLayer_
+  name: RemoveContainer
+  nameWithType: DrawManager.RemoveContainer
+  fullName: ISILab.LBS.DrawManager.RemoveContainer
+- uid: ISILab.LBS.DrawManager.ReDraw*
+  commentId: Overload:ISILab.LBS.DrawManager.ReDraw
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_ReDraw
+  name: ReDraw
+  nameWithType: DrawManager.ReDraw
+  fullName: ISILab.LBS.DrawManager.ReDraw
+- uid: ISILab.LBS.DrawManager.UpdateLayer*
+  commentId: Overload:ISILab.LBS.DrawManager.UpdateLayer
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_UpdateLayer_LBS_Components_LBSLayer_
+  name: UpdateLayer
+  nameWithType: DrawManager.UpdateLayer
+  fullName: ISILab.LBS.DrawManager.UpdateLayer
+- uid: ISILab.LBS.DrawManager.DrawSingleComponent*
+  commentId: Overload:ISILab.LBS.DrawManager.DrawSingleComponent
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_DrawSingleComponent__1___0_LBS_Components_LBSLayer_System_Boolean_
+  name: DrawSingleComponent
+  nameWithType: DrawManager.DrawSingleComponent
+  fullName: ISILab.LBS.DrawManager.DrawSingleComponent
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: ISILab.LBS.DrawManager.UpdateSingleComponent*
+  commentId: Overload:ISILab.LBS.DrawManager.UpdateSingleComponent
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_UpdateSingleComponent__1___0_LBS_Components_LBSLayer_
+  name: UpdateSingleComponent
+  nameWithType: DrawManager.UpdateSingleComponent
+  fullName: ISILab.LBS.DrawManager.UpdateSingleComponent
+- uid: ISILab.LBS.DrawManager.RedrawLayer*
+  commentId: Overload:ISILab.LBS.DrawManager.RedrawLayer
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_RedrawLayer_LBS_Components_LBSLayer_
+  name: RedrawLayer
+  nameWithType: DrawManager.RedrawLayer
+  fullName: ISILab.LBS.DrawManager.RedrawLayer
+- uid: ISILab.LBS.DrawManager.RedrawLevel*
+  commentId: Overload:ISILab.LBS.DrawManager.RedrawLevel
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_RedrawLevel_ISILab_LBS_LBSLevelData_System_Boolean_
+  name: RedrawLevel
+  nameWithType: DrawManager.RedrawLevel
+  fullName: ISILab.LBS.DrawManager.RedrawLevel
+- uid: ISILab.LBS.LBSLevelData
+  commentId: T:ISILab.LBS.LBSLevelData
+  parent: ISILab.LBS
+  isExternal: true
+  href: ISILab.LBS.LBSLevelData.html
+  name: LBSLevelData
+  nameWithType: LBSLevelData
+  fullName: ISILab.LBS.LBSLevelData
+- uid: ISILab.LBS.DrawManager.ChangeOpacityAll*
+  commentId: Overload:ISILab.LBS.DrawManager.ChangeOpacityAll
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_ChangeOpacityAll_System_Single_
+  name: ChangeOpacityAll
+  nameWithType: DrawManager.ChangeOpacityAll
+  fullName: ISILab.LBS.DrawManager.ChangeOpacityAll
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.LBS.DrawManager.ChangeLayerOpacity*
+  commentId: Overload:ISILab.LBS.DrawManager.ChangeLayerOpacity
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_ChangeLayerOpacity_LBS_Components_LBSLayer_System_Single_
+  name: ChangeLayerOpacity
+  nameWithType: DrawManager.ChangeLayerOpacity
+  fullName: ISILab.LBS.DrawManager.ChangeLayerOpacity
+- uid: ISILab.LBS.DrawManager.PickingModeChangeAll*
+  commentId: Overload:ISILab.LBS.DrawManager.PickingModeChangeAll
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_PickingModeChangeAll_UnityEngine_UIElements_PickingMode_System_Collections_Generic_List_UnityEngine_UIElements_VisualElement__
+  name: PickingModeChangeAll
+  nameWithType: DrawManager.PickingModeChangeAll
+  fullName: ISILab.LBS.DrawManager.PickingModeChangeAll
+- uid: UnityEngine.UIElements.PickingMode
+  isExternal: true
+  name: PickingMode
+  nameWithType: PickingMode
+  fullName: UnityEngine.UIElements.PickingMode
+- uid: System.Collections.Generic.List{UnityEngine.UIElements.VisualElement}
+  commentId: T:System.Collections.Generic.List{UnityEngine.UIElements.VisualElement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<VisualElement>
+  nameWithType: List<VisualElement>
+  fullName: System.Collections.Generic.List<UnityEngine.UIElements.VisualElement>
+  nameWithType.vb: List(Of VisualElement)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.UIElements.VisualElement)
+  name.vb: List(Of VisualElement)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.UIElements.VisualElement
+    name: VisualElement
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.UIElements.VisualElement
+    name: VisualElement
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.DrawManager.ChangePickingMode*
+  commentId: Overload:ISILab.LBS.DrawManager.ChangePickingMode
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_ChangePickingMode_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_PickingMode_System_Collections_Generic_List_UnityEngine_UIElements_VisualElement__
+  name: ChangePickingMode
+  nameWithType: DrawManager.ChangePickingMode
+  fullName: ISILab.LBS.DrawManager.ChangePickingMode
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.DrawManager.PickingModeRestoreAll*
+  commentId: Overload:ISILab.LBS.DrawManager.PickingModeRestoreAll
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_PickingModeRestoreAll
+  name: PickingModeRestoreAll
+  nameWithType: DrawManager.PickingModeRestoreAll
+  fullName: ISILab.LBS.DrawManager.PickingModeRestoreAll
+- uid: ISILab.LBS.DrawManager.Instance*
+  commentId: Overload:ISILab.LBS.DrawManager.Instance
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_Instance
+  name: Instance
+  nameWithType: DrawManager.Instance
+  fullName: ISILab.LBS.DrawManager.Instance
+- uid: ISILab.LBS.DrawManager
+  commentId: T:ISILab.LBS.DrawManager
+  parent: ISILab.LBS
+  isExternal: true
+  href: ISILab.LBS.DrawManager.html
+  name: DrawManager
+  nameWithType: DrawManager
+  fullName: ISILab.LBS.DrawManager
+shouldSkipMarkup: true

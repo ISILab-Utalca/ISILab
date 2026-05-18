@@ -1,0 +1,296 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry
+  commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry
+  id: BlueprintEntry
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  children:
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.#ctor
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.Blueprint
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.OnSelect
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.SetSelected(System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: BlueprintEntry
+  nameWithType: BlueprintEntry
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  syntax:
+    content: 'public class BlueprintEntry : VisualElement'
+    content.vb: Public Class BlueprintEntry Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.OnSelect
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.OnSelect
+  id: OnSelect
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry
+  langs:
+  - csharp
+  - vb
+  name: OnSelect
+  nameWithType: BlueprintEntry.OnSelect
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.OnSelect
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  syntax:
+    content: public Action OnSelect
+    return:
+      type: System.Action
+    content.vb: Public OnSelect As Action
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.#ctor
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry
+  langs:
+  - csharp
+  - vb
+  name: BlueprintEntry()
+  nameWithType: BlueprintEntry.BlueprintEntry()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.BlueprintEntry()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  syntax:
+    content: public BlueprintEntry()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.#ctor*
+  nameWithType.vb: BlueprintEntry.New()
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.SetSelected(System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.SetSelected(System.Boolean)
+  id: SetSelected(System.Boolean)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry
+  langs:
+  - csharp
+  - vb
+  name: SetSelected(bool)
+  nameWithType: BlueprintEntry.SetSelected(bool)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.SetSelected(bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  syntax:
+    content: public void SetSelected(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+    content.vb: Public Sub SetSelected(value As Boolean)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.SetSelected*
+  nameWithType.vb: BlueprintEntry.SetSelected(Boolean)
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.SetSelected(Boolean)
+  name.vb: SetSelected(Boolean)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.Blueprint
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.Blueprint
+  id: Blueprint
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry
+  langs:
+  - csharp
+  - vb
+  name: Blueprint
+  nameWithType: BlueprintEntry.Blueprint
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.Blueprint
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  syntax:
+    content: public Blueprint Blueprint { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.Blueprint
+    content.vb: Public ReadOnly Property Blueprint As Blueprint
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.Blueprint*
+references:
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+    name: Blueprint
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+    name: Blueprint
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintEntry__ctor
+  name: BlueprintEntry
+  nameWithType: BlueprintEntry.BlueprintEntry
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.BlueprintEntry
+  nameWithType.vb: BlueprintEntry.New
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.SetSelected*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.SetSelected
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintEntry_SetSelected_System_Boolean_
+  name: SetSelected
+  nameWithType: BlueprintEntry.SetSelected
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.SetSelected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.Blueprint*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.Blueprint
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintEntry_Blueprint
+  name: Blueprint
+  nameWithType: BlueprintEntry.Blueprint
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintEntry.Blueprint
+- uid: ISILab.LBS.Components.Blueprint
+  commentId: T:ISILab.LBS.Components.Blueprint
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.Blueprint.html
+  name: Blueprint
+  nameWithType: Blueprint
+  fullName: ISILab.LBS.Components.Blueprint
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+shouldSkipMarkup: true

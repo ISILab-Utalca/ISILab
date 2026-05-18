@@ -1,0 +1,351 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  commentId: T:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  id: Custom3dGizmo
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  children:
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.#ctor
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoColor
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoMesh
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.meshGizmoScale
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.worldPosition
+  langs:
+  - csharp
+  - vb
+  name: Custom3dGizmo
+  nameWithType: Custom3dGizmo
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  syntax:
+    content: 'public class Custom3dGizmo : MonoBehaviour'
+    content.vb: Public Class Custom3dGizmo Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoColor
+  commentId: F:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoColor
+  id: gizmoColor
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  langs:
+  - csharp
+  - vb
+  name: gizmoColor
+  nameWithType: Custom3dGizmo.gizmoColor
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoColor
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  syntax:
+    content: public Color gizmoColor
+    return:
+      type: UnityEngine.Color
+    content.vb: Public gizmoColor As Color
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoMesh
+  commentId: F:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoMesh
+  id: gizmoMesh
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  langs:
+  - csharp
+  - vb
+  name: gizmoMesh
+  nameWithType: Custom3dGizmo.gizmoMesh
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoMesh
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  syntax:
+    content: public Mesh gizmoMesh
+    return:
+      type: UnityEngine.Mesh
+    content.vb: Public gizmoMesh As Mesh
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.meshGizmoScale
+  commentId: F:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.meshGizmoScale
+  id: meshGizmoScale
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  langs:
+  - csharp
+  - vb
+  name: meshGizmoScale
+  nameWithType: Custom3dGizmo.meshGizmoScale
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.meshGizmoScale
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  syntax:
+    content: public float meshGizmoScale
+    return:
+      type: System.Single
+    content.vb: Public meshGizmoScale As Single
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.worldPosition
+  commentId: F:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.worldPosition
+  id: worldPosition
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  langs:
+  - csharp
+  - vb
+  name: worldPosition
+  nameWithType: Custom3dGizmo.worldPosition
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.worldPosition
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  syntax:
+    content: public Vector3 worldPosition
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public worldPosition As Vector3
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected
+  commentId: M:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected
+  id: OnDrawGizmosSelected
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  langs:
+  - csharp
+  - vb
+  name: OnDrawGizmosSelected()
+  nameWithType: Custom3dGizmo.OnDrawGizmosSelected()
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  syntax:
+    content: protected virtual void OnDrawGizmosSelected()
+    content.vb: Protected Overridable Sub OnDrawGizmosSelected()
+  overload: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected*
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh
+  commentId: M:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh
+  id: DrawCustomMesh
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  langs:
+  - csharp
+  - vb
+  name: DrawCustomMesh()
+  nameWithType: Custom3dGizmo.DrawCustomMesh()
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  syntax:
+    content: public void DrawCustomMesh()
+    content.vb: Public Sub DrawCustomMesh()
+  overload: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh*
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition
+  commentId: M:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition
+  id: UpdatePosition
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  langs:
+  - csharp
+  - vb
+  name: UpdatePosition()
+  nameWithType: Custom3dGizmo.UpdatePosition()
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  syntax:
+    content: public void UpdatePosition()
+    content.vb: Public Sub UpdatePosition()
+  overload: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition*
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.#ctor
+  commentId: M:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  langs:
+  - csharp
+  - vb
+  name: Custom3dGizmo()
+  nameWithType: Custom3dGizmo.Custom3dGizmo()
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.Custom3dGizmo()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  syntax:
+    content: public Custom3dGizmo()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.#ctor*
+  nameWithType.vb: Custom3dGizmo.New()
+  fullName.vb: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement
+  commentId: P:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement
+  id: RootVisualElement
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  langs:
+  - csharp
+  - vb
+  name: RootVisualElement
+  nameWithType: Custom3dGizmo.RootVisualElement
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  syntax:
+    content: public VisualElement RootVisualElement { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Property RootVisualElement As VisualElement
+  overload: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement*
+references:
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  commentId: N:ISILab.LBS.Plugin.MapTools.CustomGizmo
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  nameWithType: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo
+    name: CustomGizmo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo
+    name: CustomGizmo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: UnityEngine.Mesh
+  isExternal: true
+  name: Mesh
+  nameWithType: Mesh
+  fullName: UnityEngine.Mesh
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_OnDrawGizmosSelected
+  name: OnDrawGizmosSelected
+  nameWithType: Custom3dGizmo.OnDrawGizmosSelected
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_DrawCustomMesh
+  name: DrawCustomMesh
+  nameWithType: Custom3dGizmo.DrawCustomMesh
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_UpdatePosition
+  name: UpdatePosition
+  nameWithType: Custom3dGizmo.UpdatePosition
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo__ctor
+  name: Custom3dGizmo
+  nameWithType: Custom3dGizmo.Custom3dGizmo
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.Custom3dGizmo
+  nameWithType.vb: Custom3dGizmo.New
+  fullName.vb: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_RootVisualElement
+  name: RootVisualElement
+  nameWithType: Custom3dGizmo.RootVisualElement
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+shouldSkipMarkup: true

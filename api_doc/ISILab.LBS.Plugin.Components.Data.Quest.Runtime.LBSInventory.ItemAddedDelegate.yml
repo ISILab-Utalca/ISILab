@@ -1,0 +1,311 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate
+  commentId: T:ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate
+  id: LBSInventory.ItemAddedDelegate
+  parent: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  children:
+  - ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.#ctor(System.Object,System.IntPtr)
+  - ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.BeginInvoke(System.String,System.Int32,System.AsyncCallback,System.Object)
+  - ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.EndInvoke(System.IAsyncResult)
+  - ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.Invoke(System.String,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: LBSInventory.ItemAddedDelegate
+  nameWithType: LBSInventory.ItemAddedDelegate
+  fullName: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate
+  type: Delegate
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  syntax:
+    content: public delegate void LBSInventory.ItemAddedDelegate(string guid, int amount)
+    parameters:
+    - id: guid
+      type: System.String
+    - id: amount
+      type: System.Int32
+    content.vb: Public Delegate Sub LBSInventory.ItemAddedDelegate(guid As String, amount As Integer)
+- uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.#ctor(System.Object,System.IntPtr)
+  commentId: M:ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.#ctor(System.Object,System.IntPtr)
+  id: '#ctor(System.Object,System.IntPtr)'
+  parent: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate
+  langs:
+  - csharp
+  - vb
+  name: ItemAddedDelegate(object, nint)
+  nameWithType: LBSInventory.ItemAddedDelegate.ItemAddedDelegate(object, nint)
+  fullName: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.ItemAddedDelegate(object, nint)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  syntax:
+    content: public ItemAddedDelegate(object @object, nint method)
+    parameters:
+    - id: object
+      type: System.Object
+    - id: method
+      type: System.IntPtr
+    content.vb: Public Sub New([object] As Object, method As IntPtr)
+  overload: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.#ctor*
+  nameWithType.vb: LBSInventory.ItemAddedDelegate.New(Object, IntPtr)
+  fullName.vb: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.New(Object, System.IntPtr)
+  name.vb: New(Object, IntPtr)
+- uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.Invoke(System.String,System.Int32)
+  commentId: M:ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.Invoke(System.String,System.Int32)
+  id: Invoke(System.String,System.Int32)
+  parent: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate
+  langs:
+  - csharp
+  - vb
+  name: Invoke(string, int)
+  nameWithType: LBSInventory.ItemAddedDelegate.Invoke(string, int)
+  fullName: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.Invoke(string, int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  syntax:
+    content: public virtual void Invoke(string guid, int amount)
+    parameters:
+    - id: guid
+      type: System.String
+    - id: amount
+      type: System.Int32
+    content.vb: Public Overridable Sub Invoke(guid As String, amount As Integer)
+  overload: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.Invoke*
+  nameWithType.vb: LBSInventory.ItemAddedDelegate.Invoke(String, Integer)
+  fullName.vb: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.Invoke(String, Integer)
+  name.vb: Invoke(String, Integer)
+- uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.BeginInvoke(System.String,System.Int32,System.AsyncCallback,System.Object)
+  commentId: M:ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.BeginInvoke(System.String,System.Int32,System.AsyncCallback,System.Object)
+  id: BeginInvoke(System.String,System.Int32,System.AsyncCallback,System.Object)
+  parent: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate
+  langs:
+  - csharp
+  - vb
+  name: BeginInvoke(string, int, AsyncCallback, object)
+  nameWithType: LBSInventory.ItemAddedDelegate.BeginInvoke(string, int, AsyncCallback, object)
+  fullName: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.BeginInvoke(string, int, System.AsyncCallback, object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  syntax:
+    content: public virtual IAsyncResult BeginInvoke(string guid, int amount, AsyncCallback callback, object @object)
+    parameters:
+    - id: guid
+      type: System.String
+    - id: amount
+      type: System.Int32
+    - id: callback
+      type: System.AsyncCallback
+    - id: object
+      type: System.Object
+    return:
+      type: System.IAsyncResult
+    content.vb: Public Overridable Function BeginInvoke(guid As String, amount As Integer, callback As AsyncCallback, [object] As Object) As IAsyncResult
+  overload: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.BeginInvoke*
+  nameWithType.vb: LBSInventory.ItemAddedDelegate.BeginInvoke(String, Integer, AsyncCallback, Object)
+  fullName.vb: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.BeginInvoke(String, Integer, System.AsyncCallback, Object)
+  name.vb: BeginInvoke(String, Integer, AsyncCallback, Object)
+- uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.EndInvoke(System.IAsyncResult)
+  commentId: M:ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.EndInvoke(System.IAsyncResult)
+  id: EndInvoke(System.IAsyncResult)
+  parent: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate
+  langs:
+  - csharp
+  - vb
+  name: EndInvoke(IAsyncResult)
+  nameWithType: LBSInventory.ItemAddedDelegate.EndInvoke(IAsyncResult)
+  fullName: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.EndInvoke(System.IAsyncResult)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  syntax:
+    content: public virtual void EndInvoke(IAsyncResult result)
+    parameters:
+    - id: result
+      type: System.IAsyncResult
+    content.vb: Public Overridable Sub EndInvoke(result As IAsyncResult)
+  overload: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.EndInvoke*
+references:
+- uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  commentId: N:ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  nameWithType: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  fullName: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Quest
+    name: Quest
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Quest.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+    name: Runtime
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Quest
+    name: Quest
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Quest.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime
+    name: Runtime
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.html#ISILab_LBS_Plugin_Components_Data_Quest_Runtime_LBSInventory_ItemAddedDelegate__ctor_System_Object_System_IntPtr_
+  name: ItemAddedDelegate
+  nameWithType: LBSInventory.ItemAddedDelegate.ItemAddedDelegate
+  fullName: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.ItemAddedDelegate
+  nameWithType.vb: LBSInventory.ItemAddedDelegate.New
+  fullName.vb: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.New
+  name.vb: New
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: nint
+  nameWithType: nint
+  fullName: nint
+  nameWithType.vb: IntPtr
+  fullName.vb: System.IntPtr
+  name.vb: IntPtr
+- uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.Invoke*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.Invoke
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.html#ISILab_LBS_Plugin_Components_Data_Quest_Runtime_LBSInventory_ItemAddedDelegate_Invoke_System_String_System_Int32_
+  name: Invoke
+  nameWithType: LBSInventory.ItemAddedDelegate.Invoke
+  fullName: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.Invoke
+- uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.BeginInvoke*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.BeginInvoke
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.html#ISILab_LBS_Plugin_Components_Data_Quest_Runtime_LBSInventory_ItemAddedDelegate_BeginInvoke_System_String_System_Int32_System_AsyncCallback_System_Object_
+  name: BeginInvoke
+  nameWithType: LBSInventory.ItemAddedDelegate.BeginInvoke
+  fullName: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.BeginInvoke
+- uid: System.AsyncCallback
+  commentId: T:System.AsyncCallback
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.asynccallback
+  name: AsyncCallback
+  nameWithType: AsyncCallback
+  fullName: System.AsyncCallback
+- uid: System.IAsyncResult
+  commentId: T:System.IAsyncResult
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncresult
+  name: IAsyncResult
+  nameWithType: IAsyncResult
+  fullName: System.IAsyncResult
+- uid: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.EndInvoke*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.EndInvoke
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.html#ISILab_LBS_Plugin_Components_Data_Quest_Runtime_LBSInventory_ItemAddedDelegate_EndInvoke_System_IAsyncResult_
+  name: EndInvoke
+  nameWithType: LBSInventory.ItemAddedDelegate.EndInvoke
+  fullName: ISILab.LBS.Plugin.Components.Data.Quest.Runtime.LBSInventory.ItemAddedDelegate.EndInvoke
+shouldSkipMarkup: true

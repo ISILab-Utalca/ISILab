@@ -1,0 +1,695 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  id: ScatterAreaBase
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools
+  children:
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.#ctor
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.BatchMesh(System.Int32,System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Vector3})
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.ClearAllSubMesh
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerateDirection
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.InstanceMeshOnPoint(UnityEngine.Vector3,UnityEngine.Vector3)
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RaycastJobSchedule(System.Int32,System.Single)
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RunCommand
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.Update
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.baseCollider
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.baseScale
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.clearPrevious
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.generationMode
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.materialToInstance
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.meshToInstance
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.randomRotationRange
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.scaleVariation
+  langs:
+  - csharp
+  - vb
+  name: ScatterAreaBase
+  nameWithType: ScatterAreaBase
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: 'public class ScatterAreaBase : MonoBehaviour'
+    content.vb: Public Class ScatterAreaBase Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterArea
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaParallel
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.generationMode
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.generationMode
+  id: generationMode
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: generationMode
+  nameWithType: ScatterAreaBase.generationMode
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.generationMode
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public ScatterAreaBase.GenerationMode generationMode
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerationMode
+    content.vb: Public generationMode As ScatterAreaBase.GenerationMode
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.baseCollider
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.baseCollider
+  id: baseCollider
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: baseCollider
+  nameWithType: ScatterAreaBase.baseCollider
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.baseCollider
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public Collider baseCollider
+    return:
+      type: UnityEngine.Collider
+    content.vb: Public baseCollider As Collider
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.meshToInstance
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.meshToInstance
+  id: meshToInstance
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: meshToInstance
+  nameWithType: ScatterAreaBase.meshToInstance
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.meshToInstance
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public Mesh meshToInstance
+    return:
+      type: UnityEngine.Mesh
+    content.vb: Public meshToInstance As Mesh
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.materialToInstance
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.materialToInstance
+  id: materialToInstance
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: materialToInstance
+  nameWithType: ScatterAreaBase.materialToInstance
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.materialToInstance
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public Material materialToInstance
+    return:
+      type: UnityEngine.Material
+    content.vb: Public materialToInstance As Material
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.clearPrevious
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.clearPrevious
+  id: clearPrevious
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: clearPrevious
+  nameWithType: ScatterAreaBase.clearPrevious
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.clearPrevious
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public bool clearPrevious
+    return:
+      type: System.Boolean
+    content.vb: Public clearPrevious As Boolean
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.randomRotationRange
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.randomRotationRange
+  id: randomRotationRange
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: randomRotationRange
+  nameWithType: ScatterAreaBase.randomRotationRange
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.randomRotationRange
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public Vector2 randomRotationRange
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public randomRotationRange As Vector2
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.baseScale
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.baseScale
+  id: baseScale
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: baseScale
+  nameWithType: ScatterAreaBase.baseScale
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.baseScale
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public float baseScale
+    return:
+      type: System.Single
+    content.vb: Public baseScale As Single
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.scaleVariation
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.scaleVariation
+  id: scaleVariation
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: scaleVariation
+  nameWithType: ScatterAreaBase.scaleVariation
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.scaleVariation
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public float scaleVariation
+    return:
+      type: System.Single
+    content.vb: Public scaleVariation As Single
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RunCommand
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RunCommand
+  id: RunCommand
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: RunCommand()
+  nameWithType: ScatterAreaBase.RunCommand()
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RunCommand()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public virtual void RunCommand()
+    content.vb: Public Overridable Sub RunCommand()
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RunCommand*
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.Update
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.Update
+  id: Update
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: Update()
+  nameWithType: ScatterAreaBase.Update()
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.Update()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public void Update()
+    content.vb: Public Sub Update()
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.Update*
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RaycastJobSchedule(System.Int32,System.Single)
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RaycastJobSchedule(System.Int32,System.Single)
+  id: RaycastJobSchedule(System.Int32,System.Single)
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: RaycastJobSchedule(int, float)
+  nameWithType: ScatterAreaBase.RaycastJobSchedule(int, float)
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RaycastJobSchedule(int, float)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public void RaycastJobSchedule(int _iterations, float _maxDistance = 3.4028235E+38)
+    parameters:
+    - id: _iterations
+      type: System.Int32
+    - id: _maxDistance
+      type: System.Single
+    content.vb: Public Sub RaycastJobSchedule(_iterations As Integer, _maxDistance As Single = 3.4028235E+38)
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RaycastJobSchedule*
+  nameWithType.vb: ScatterAreaBase.RaycastJobSchedule(Integer, Single)
+  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RaycastJobSchedule(Integer, Single)
+  name.vb: RaycastJobSchedule(Integer, Single)
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerateDirection
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerateDirection
+  id: GenerateDirection
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: GenerateDirection()
+  nameWithType: ScatterAreaBase.GenerateDirection()
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerateDirection()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public virtual Vector3 GenerateDirection()
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Overridable Function GenerateDirection() As Vector3
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerateDirection*
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.InstanceMeshOnPoint(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.InstanceMeshOnPoint(UnityEngine.Vector3,UnityEngine.Vector3)
+  id: InstanceMeshOnPoint(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: InstanceMeshOnPoint(Vector3, Vector3)
+  nameWithType: ScatterAreaBase.InstanceMeshOnPoint(Vector3, Vector3)
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.InstanceMeshOnPoint(UnityEngine.Vector3, UnityEngine.Vector3)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public void InstanceMeshOnPoint(Vector3 point, Vector3 normal)
+    parameters:
+    - id: point
+      type: UnityEngine.Vector3
+    - id: normal
+      type: UnityEngine.Vector3
+    content.vb: Public Sub InstanceMeshOnPoint(point As Vector3, normal As Vector3)
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.InstanceMeshOnPoint*
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.BatchMesh(System.Int32,System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Vector3})
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.BatchMesh(System.Int32,System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Vector3})
+  id: BatchMesh(System.Int32,System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Vector3})
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: BatchMesh(int, List<Vector3>, List<Vector3>)
+  nameWithType: ScatterAreaBase.BatchMesh(int, List<Vector3>, List<Vector3>)
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.BatchMesh(int, System.Collections.Generic.List<UnityEngine.Vector3>, System.Collections.Generic.List<UnityEngine.Vector3>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public void BatchMesh(int _meshCount, List<Vector3> _points, List<Vector3> _normals)
+    parameters:
+    - id: _meshCount
+      type: System.Int32
+    - id: _points
+      type: System.Collections.Generic.List{UnityEngine.Vector3}
+    - id: _normals
+      type: System.Collections.Generic.List{UnityEngine.Vector3}
+    content.vb: Public Sub BatchMesh(_meshCount As Integer, _points As List(Of Vector3), _normals As List(Of Vector3))
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.BatchMesh*
+  nameWithType.vb: ScatterAreaBase.BatchMesh(Integer, List(Of Vector3), List(Of Vector3))
+  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.BatchMesh(Integer, System.Collections.Generic.List(Of UnityEngine.Vector3), System.Collections.Generic.List(Of UnityEngine.Vector3))
+  name.vb: BatchMesh(Integer, List(Of Vector3), List(Of Vector3))
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.ClearAllSubMesh
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.ClearAllSubMesh
+  id: ClearAllSubMesh
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: ClearAllSubMesh()
+  nameWithType: ScatterAreaBase.ClearAllSubMesh()
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.ClearAllSubMesh()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public void ClearAllSubMesh()
+    content.vb: Public Sub ClearAllSubMesh()
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.ClearAllSubMesh*
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.#ctor
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+  langs:
+  - csharp
+  - vb
+  name: ScatterAreaBase()
+  nameWithType: ScatterAreaBase.ScatterAreaBase()
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.ScatterAreaBase()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public ScatterAreaBase()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.#ctor*
+  nameWithType.vb: ScatterAreaBase.New()
+  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.New()
+  name.vb: New()
+references:
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools
+  commentId: N:ISILab.LBS.Plugin.Components.Bundles.Tools
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Bundles.Tools
+  nameWithType: ISILab.LBS.Plugin.Components.Bundles.Tools
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools
+    name: Tools
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools
+    name: Tools
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerationMode
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerationMode
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html
+  name: ScatterAreaBase.GenerationMode
+  nameWithType: ScatterAreaBase.GenerationMode
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerationMode
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+    name: ScatterAreaBase
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerationMode
+    name: GenerationMode
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerationMode.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase
+    name: ScatterAreaBase
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerationMode
+    name: GenerationMode
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerationMode.html
+- uid: UnityEngine.Collider
+  isExternal: true
+  name: Collider
+  nameWithType: Collider
+  fullName: UnityEngine.Collider
+- uid: UnityEngine.Mesh
+  isExternal: true
+  name: Mesh
+  nameWithType: Mesh
+  fullName: UnityEngine.Mesh
+- uid: UnityEngine.Material
+  isExternal: true
+  name: Material
+  nameWithType: Material
+  fullName: UnityEngine.Material
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RunCommand*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RunCommand
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html#ISILab_LBS_Plugin_Components_Bundles_Tools_ScatterAreaBase_RunCommand
+  name: RunCommand
+  nameWithType: ScatterAreaBase.RunCommand
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RunCommand
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.Update*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.Update
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html#ISILab_LBS_Plugin_Components_Bundles_Tools_ScatterAreaBase_Update
+  name: Update
+  nameWithType: ScatterAreaBase.Update
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.Update
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RaycastJobSchedule*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RaycastJobSchedule
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html#ISILab_LBS_Plugin_Components_Bundles_Tools_ScatterAreaBase_RaycastJobSchedule_System_Int32_System_Single_
+  name: RaycastJobSchedule
+  nameWithType: ScatterAreaBase.RaycastJobSchedule
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.RaycastJobSchedule
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerateDirection*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerateDirection
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html#ISILab_LBS_Plugin_Components_Bundles_Tools_ScatterAreaBase_GenerateDirection
+  name: GenerateDirection
+  nameWithType: ScatterAreaBase.GenerateDirection
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.GenerateDirection
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.InstanceMeshOnPoint*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.InstanceMeshOnPoint
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html#ISILab_LBS_Plugin_Components_Bundles_Tools_ScatterAreaBase_InstanceMeshOnPoint_UnityEngine_Vector3_UnityEngine_Vector3_
+  name: InstanceMeshOnPoint
+  nameWithType: ScatterAreaBase.InstanceMeshOnPoint
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.InstanceMeshOnPoint
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.BatchMesh*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.BatchMesh
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html#ISILab_LBS_Plugin_Components_Bundles_Tools_ScatterAreaBase_BatchMesh_System_Int32_System_Collections_Generic_List_UnityEngine_Vector3__System_Collections_Generic_List_UnityEngine_Vector3__
+  name: BatchMesh
+  nameWithType: ScatterAreaBase.BatchMesh
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.BatchMesh
+- uid: System.Collections.Generic.List{UnityEngine.Vector3}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Vector3}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vector3>
+  nameWithType: List<Vector3>
+  fullName: System.Collections.Generic.List<UnityEngine.Vector3>
+  nameWithType.vb: List(Of Vector3)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Vector3)
+  name.vb: List(Of Vector3)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.ClearAllSubMesh*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.ClearAllSubMesh
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html#ISILab_LBS_Plugin_Components_Bundles_Tools_ScatterAreaBase_ClearAllSubMesh
+  name: ClearAllSubMesh
+  nameWithType: ScatterAreaBase.ClearAllSubMesh
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.ClearAllSubMesh
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.html#ISILab_LBS_Plugin_Components_Bundles_Tools_ScatterAreaBase__ctor
+  name: ScatterAreaBase
+  nameWithType: ScatterAreaBase.ScatterAreaBase
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.ScatterAreaBase
+  nameWithType.vb: ScatterAreaBase.New
+  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.ScatterAreaBase.New
+  name.vb: New
+shouldSkipMarkup: true

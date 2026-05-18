@@ -1,0 +1,134 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.Popup
+  commentId: T:PathOS.Popup
+  id: Popup
+  parent: PathOS
+  children:
+  - PathOS.Popup.#ctor
+  - PathOS.Popup.entityType
+  - PathOS.Popup.selection
+  langs:
+  - csharp
+  - vb
+  name: Popup
+  nameWithType: Popup
+  fullName: PathOS.Popup
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class Popup : EditorWindow'
+    content.vb: Public Class Popup Inherits EditorWindow
+  inheritance:
+  - System.Object
+- uid: PathOS.Popup.selection
+  commentId: F:PathOS.Popup.selection
+  id: selection
+  parent: PathOS.Popup
+  langs:
+  - csharp
+  - vb
+  name: selection
+  nameWithType: Popup.selection
+  fullName: PathOS.Popup.selection
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public GameObject selection
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public selection As GameObject
+- uid: PathOS.Popup.entityType
+  commentId: F:PathOS.Popup.entityType
+  id: entityType
+  parent: PathOS.Popup
+  langs:
+  - csharp
+  - vb
+  name: entityType
+  nameWithType: Popup.entityType
+  fullName: PathOS.Popup.entityType
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public EntityType entityType
+    return:
+      type: PathOS.EntityType
+    content.vb: Public entityType As EntityType
+- uid: PathOS.Popup.#ctor
+  commentId: M:PathOS.Popup.#ctor
+  id: '#ctor'
+  parent: PathOS.Popup
+  langs:
+  - csharp
+  - vb
+  name: Popup()
+  nameWithType: Popup.Popup()
+  fullName: PathOS.Popup.Popup()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Popup()
+    content.vb: Public Sub New()
+  overload: PathOS.Popup.#ctor*
+  nameWithType.vb: Popup.New()
+  fullName.vb: PathOS.Popup.New()
+  name.vb: New()
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: PathOS.EntityType
+  commentId: T:PathOS.EntityType
+  parent: PathOS
+  isExternal: true
+  href: PathOS.EntityType.html
+  name: EntityType
+  nameWithType: EntityType
+  fullName: PathOS.EntityType
+- uid: PathOS.Popup.#ctor*
+  commentId: Overload:PathOS.Popup.#ctor
+  isExternal: true
+  href: PathOS.Popup.html#PathOS_Popup__ctor
+  name: Popup
+  nameWithType: Popup.Popup
+  fullName: PathOS.Popup.Popup
+  nameWithType.vb: Popup.New
+  fullName.vb: PathOS.Popup.New
+  name.vb: New
+shouldSkipMarkup: true

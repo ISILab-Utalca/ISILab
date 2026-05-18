@@ -1,0 +1,1253 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.Extensions.Vector2Extensions
+  commentId: T:ISILab.Extensions.Vector2Extensions
+  id: Vector2Extensions
+  parent: ISILab.Extensions
+  children:
+  - ISILab.Extensions.Vector2Extensions.AsComponents(UnityEngine.Vector2)
+  - ISILab.Extensions.Vector2Extensions.AsComponents(UnityEngine.Vector2Int)
+  - ISILab.Extensions.Vector2Extensions.Average(System.Collections.Generic.IEnumerable{UnityEngine.Vector2Int})
+  - ISILab.Extensions.Vector2Extensions.Average(System.Collections.Generic.IEnumerable{UnityEngine.Vector2})
+  - ISILab.Extensions.Vector2Extensions.Distance(UnityEngine.Vector2,ISILab.Extensions.DistanceType)
+  - ISILab.Extensions.Vector2Extensions.DistanceToLine(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  - ISILab.Extensions.Vector2Extensions.Divided(UnityEngine.Vector2,System.Single)
+  - ISILab.Extensions.Vector2Extensions.Divided(UnityEngine.Vector2Int,System.Single)
+  - ISILab.Extensions.Vector2Extensions.Get4Connected(UnityEngine.Vector2Int)
+  - ISILab.Extensions.Vector2Extensions.Get8Connected(UnityEngine.Vector2Int)
+  - ISILab.Extensions.Vector2Extensions.GetEdge(UnityEngine.Vector2Int,System.Collections.Generic.List{UnityEngine.Vector2Int})
+  - ISILab.Extensions.Vector2Extensions.GetVertices(UnityEngine.Vector2Int)
+  - ISILab.Extensions.Vector2Extensions.GetVertices(UnityEngine.Vector2Int,System.Collections.Generic.List{System.Int32}@)
+  - ISILab.Extensions.Vector2Extensions.IntersectionOrientation(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  - ISILab.Extensions.Vector2Extensions.IsInLine(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  - ISILab.Extensions.Vector2Extensions.LinesIntersect(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  - ISILab.Extensions.Vector2Extensions.Multiply(UnityEngine.Vector2Int,System.Single,System.Boolean)
+  - ISILab.Extensions.Vector2Extensions.ToFloat(UnityEngine.Vector2Int)
+  - ISILab.Extensions.Vector2Extensions.ToInt(UnityEngine.Vector2,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: Vector2Extensions
+  nameWithType: Vector2Extensions
+  fullName: ISILab.Extensions.Vector2Extensions
+  type: Class
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static class Vector2Extensions
+    content.vb: Public Module Vector2Extensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.Extensions.Vector2Extensions.ToInt(UnityEngine.Vector2,System.Boolean)
+  commentId: M:ISILab.Extensions.Vector2Extensions.ToInt(UnityEngine.Vector2,System.Boolean)
+  id: ToInt(UnityEngine.Vector2,System.Boolean)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: ToInt(Vector2, bool)
+  nameWithType: Vector2Extensions.ToInt(Vector2, bool)
+  fullName: ISILab.Extensions.Vector2Extensions.ToInt(UnityEngine.Vector2, bool)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Vector2Int ToInt(this Vector2 vector, bool round = false)
+    parameters:
+    - id: vector
+      type: UnityEngine.Vector2
+    - id: round
+      type: System.Boolean
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Shared Function ToInt(vector As Vector2, round As Boolean = False) As Vector2Int
+  overload: ISILab.Extensions.Vector2Extensions.ToInt*
+  nameWithType.vb: Vector2Extensions.ToInt(Vector2, Boolean)
+  fullName.vb: ISILab.Extensions.Vector2Extensions.ToInt(UnityEngine.Vector2, Boolean)
+  name.vb: ToInt(Vector2, Boolean)
+- uid: ISILab.Extensions.Vector2Extensions.ToFloat(UnityEngine.Vector2Int)
+  commentId: M:ISILab.Extensions.Vector2Extensions.ToFloat(UnityEngine.Vector2Int)
+  id: ToFloat(UnityEngine.Vector2Int)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: ToFloat(Vector2Int)
+  nameWithType: Vector2Extensions.ToFloat(Vector2Int)
+  fullName: ISILab.Extensions.Vector2Extensions.ToFloat(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Vector2 ToFloat(this Vector2Int vector)
+    parameters:
+    - id: vector
+      type: UnityEngine.Vector2Int
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Shared Function ToFloat(vector As Vector2Int) As Vector2
+  overload: ISILab.Extensions.Vector2Extensions.ToFloat*
+- uid: ISILab.Extensions.Vector2Extensions.AsComponents(UnityEngine.Vector2)
+  commentId: M:ISILab.Extensions.Vector2Extensions.AsComponents(UnityEngine.Vector2)
+  id: AsComponents(UnityEngine.Vector2)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: AsComponents(Vector2)
+  nameWithType: Vector2Extensions.AsComponents(Vector2)
+  fullName: ISILab.Extensions.Vector2Extensions.AsComponents(UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static List<Vector2> AsComponents(this Vector2 vector)
+    parameters:
+    - id: vector
+      type: UnityEngine.Vector2
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector2}
+    content.vb: Public Shared Function AsComponents(vector As Vector2) As List(Of Vector2)
+  overload: ISILab.Extensions.Vector2Extensions.AsComponents*
+- uid: ISILab.Extensions.Vector2Extensions.AsComponents(UnityEngine.Vector2Int)
+  commentId: M:ISILab.Extensions.Vector2Extensions.AsComponents(UnityEngine.Vector2Int)
+  id: AsComponents(UnityEngine.Vector2Int)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: AsComponents(Vector2Int)
+  nameWithType: Vector2Extensions.AsComponents(Vector2Int)
+  fullName: ISILab.Extensions.Vector2Extensions.AsComponents(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static List<Vector2Int> AsComponents(this Vector2Int vector)
+    parameters:
+    - id: vector
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector2Int}
+    content.vb: Public Shared Function AsComponents(vector As Vector2Int) As List(Of Vector2Int)
+  overload: ISILab.Extensions.Vector2Extensions.AsComponents*
+- uid: ISILab.Extensions.Vector2Extensions.Get4Connected(UnityEngine.Vector2Int)
+  commentId: M:ISILab.Extensions.Vector2Extensions.Get4Connected(UnityEngine.Vector2Int)
+  id: Get4Connected(UnityEngine.Vector2Int)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: Get4Connected(Vector2Int)
+  nameWithType: Vector2Extensions.Get4Connected(Vector2Int)
+  fullName: ISILab.Extensions.Vector2Extensions.Get4Connected(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static List<Vector2Int> Get4Connected(this Vector2Int vector)
+    parameters:
+    - id: vector
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector2Int}
+    content.vb: Public Shared Function Get4Connected(vector As Vector2Int) As List(Of Vector2Int)
+  overload: ISILab.Extensions.Vector2Extensions.Get4Connected*
+- uid: ISILab.Extensions.Vector2Extensions.Get8Connected(UnityEngine.Vector2Int)
+  commentId: M:ISILab.Extensions.Vector2Extensions.Get8Connected(UnityEngine.Vector2Int)
+  id: Get8Connected(UnityEngine.Vector2Int)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: Get8Connected(Vector2Int)
+  nameWithType: Vector2Extensions.Get8Connected(Vector2Int)
+  fullName: ISILab.Extensions.Vector2Extensions.Get8Connected(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static List<Vector2Int> Get8Connected(this Vector2Int vector)
+    parameters:
+    - id: vector
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector2Int}
+    content.vb: Public Shared Function Get8Connected(vector As Vector2Int) As List(Of Vector2Int)
+  overload: ISILab.Extensions.Vector2Extensions.Get8Connected*
+- uid: ISILab.Extensions.Vector2Extensions.GetEdge(UnityEngine.Vector2Int,System.Collections.Generic.List{UnityEngine.Vector2Int})
+  commentId: M:ISILab.Extensions.Vector2Extensions.GetEdge(UnityEngine.Vector2Int,System.Collections.Generic.List{UnityEngine.Vector2Int})
+  id: GetEdge(UnityEngine.Vector2Int,System.Collections.Generic.List{UnityEngine.Vector2Int})
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: GetEdge(Vector2Int, List<Vector2Int>)
+  nameWithType: Vector2Extensions.GetEdge(Vector2Int, List<Vector2Int>)
+  fullName: ISILab.Extensions.Vector2Extensions.GetEdge(UnityEngine.Vector2Int, System.Collections.Generic.List<UnityEngine.Vector2Int>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static int GetEdge(this Vector2Int targetDirection, List<Vector2Int> directions)
+    parameters:
+    - id: targetDirection
+      type: UnityEngine.Vector2Int
+    - id: directions
+      type: System.Collections.Generic.List{UnityEngine.Vector2Int}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function GetEdge(targetDirection As Vector2Int, directions As List(Of Vector2Int)) As Integer
+  overload: ISILab.Extensions.Vector2Extensions.GetEdge*
+  nameWithType.vb: Vector2Extensions.GetEdge(Vector2Int, List(Of Vector2Int))
+  fullName.vb: ISILab.Extensions.Vector2Extensions.GetEdge(UnityEngine.Vector2Int, System.Collections.Generic.List(Of UnityEngine.Vector2Int))
+  name.vb: GetEdge(Vector2Int, List(Of Vector2Int))
+- uid: ISILab.Extensions.Vector2Extensions.GetVertices(UnityEngine.Vector2Int)
+  commentId: M:ISILab.Extensions.Vector2Extensions.GetVertices(UnityEngine.Vector2Int)
+  id: GetVertices(UnityEngine.Vector2Int)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: GetVertices(Vector2Int)
+  nameWithType: Vector2Extensions.GetVertices(Vector2Int)
+  fullName: ISILab.Extensions.Vector2Extensions.GetVertices(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static List<int> GetVertices(this Vector2Int direction)
+    parameters:
+    - id: direction
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public Shared Function GetVertices(direction As Vector2Int) As List(Of Integer)
+  overload: ISILab.Extensions.Vector2Extensions.GetVertices*
+- uid: ISILab.Extensions.Vector2Extensions.GetVertices(UnityEngine.Vector2Int,System.Collections.Generic.List{System.Int32}@)
+  commentId: M:ISILab.Extensions.Vector2Extensions.GetVertices(UnityEngine.Vector2Int,System.Collections.Generic.List{System.Int32}@)
+  id: GetVertices(UnityEngine.Vector2Int,System.Collections.Generic.List{System.Int32}@)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: GetVertices(Vector2Int, out List<int>)
+  nameWithType: Vector2Extensions.GetVertices(Vector2Int, out List<int>)
+  fullName: ISILab.Extensions.Vector2Extensions.GetVertices(UnityEngine.Vector2Int, out System.Collections.Generic.List<int>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static List<int> GetVertices(this Vector2Int direction, out List<int> originVertices)
+    parameters:
+    - id: direction
+      type: UnityEngine.Vector2Int
+    - id: originVertices
+      type: System.Collections.Generic.List{System.Int32}
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public Shared Function GetVertices(direction As Vector2Int, originVertices As List(Of Integer)) As List(Of Integer)
+  overload: ISILab.Extensions.Vector2Extensions.GetVertices*
+  nameWithType.vb: Vector2Extensions.GetVertices(Vector2Int, List(Of Integer))
+  fullName.vb: ISILab.Extensions.Vector2Extensions.GetVertices(UnityEngine.Vector2Int, System.Collections.Generic.List(Of Integer))
+  name.vb: GetVertices(Vector2Int, List(Of Integer))
+- uid: ISILab.Extensions.Vector2Extensions.IsInLine(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  commentId: M:ISILab.Extensions.Vector2Extensions.IsInLine(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  id: IsInLine(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: IsInLine(Vector2, Vector2, Vector2)
+  nameWithType: Vector2Extensions.IsInLine(Vector2, Vector2, Vector2)
+  fullName: ISILab.Extensions.Vector2Extensions.IsInLine(UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static bool IsInLine(this Vector2 vector, Vector2 start, Vector2 end)
+    parameters:
+    - id: vector
+      type: UnityEngine.Vector2
+    - id: start
+      type: UnityEngine.Vector2
+    - id: end
+      type: UnityEngine.Vector2
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsInLine(vector As Vector2, start As Vector2, [end] As Vector2) As Boolean
+  overload: ISILab.Extensions.Vector2Extensions.IsInLine*
+- uid: ISILab.Extensions.Vector2Extensions.IntersectionOrientation(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  commentId: M:ISILab.Extensions.Vector2Extensions.IntersectionOrientation(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  id: IntersectionOrientation(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: IntersectionOrientation(Vector2, Vector2, Vector2)
+  nameWithType: Vector2Extensions.IntersectionOrientation(Vector2, Vector2, Vector2)
+  fullName: ISILab.Extensions.Vector2Extensions.IntersectionOrientation(UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Orientation IntersectionOrientation(this Vector2 point, Vector2 start, Vector2 end)
+    parameters:
+    - id: point
+      type: UnityEngine.Vector2
+    - id: start
+      type: UnityEngine.Vector2
+    - id: end
+      type: UnityEngine.Vector2
+    return:
+      type: ISILab.Extensions.Orientation
+    content.vb: Public Shared Function IntersectionOrientation(point As Vector2, start As Vector2, [end] As Vector2) As Orientation
+  overload: ISILab.Extensions.Vector2Extensions.IntersectionOrientation*
+- uid: ISILab.Extensions.Vector2Extensions.LinesIntersect(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  commentId: M:ISILab.Extensions.Vector2Extensions.LinesIntersect(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  id: LinesIntersect(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: LinesIntersect(Vector2, Vector2, Vector2, Vector2)
+  nameWithType: Vector2Extensions.LinesIntersect(Vector2, Vector2, Vector2, Vector2)
+  fullName: ISILab.Extensions.Vector2Extensions.LinesIntersect(UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static bool LinesIntersect(this Vector2 start, Vector2 end, Vector2 point1, Vector2 point2)
+    parameters:
+    - id: start
+      type: UnityEngine.Vector2
+    - id: end
+      type: UnityEngine.Vector2
+    - id: point1
+      type: UnityEngine.Vector2
+    - id: point2
+      type: UnityEngine.Vector2
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function LinesIntersect(start As Vector2, [end] As Vector2, point1 As Vector2, point2 As Vector2) As Boolean
+  overload: ISILab.Extensions.Vector2Extensions.LinesIntersect*
+- uid: ISILab.Extensions.Vector2Extensions.Multiply(UnityEngine.Vector2Int,System.Single,System.Boolean)
+  commentId: M:ISILab.Extensions.Vector2Extensions.Multiply(UnityEngine.Vector2Int,System.Single,System.Boolean)
+  id: Multiply(UnityEngine.Vector2Int,System.Single,System.Boolean)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector2Int, float, bool)
+  nameWithType: Vector2Extensions.Multiply(Vector2Int, float, bool)
+  fullName: ISILab.Extensions.Vector2Extensions.Multiply(UnityEngine.Vector2Int, float, bool)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Vector2Int Multiply(this Vector2Int vec, float value, bool round = false)
+    parameters:
+    - id: vec
+      type: UnityEngine.Vector2Int
+    - id: value
+      type: System.Single
+    - id: round
+      type: System.Boolean
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Shared Function Multiply(vec As Vector2Int, value As Single, round As Boolean = False) As Vector2Int
+  overload: ISILab.Extensions.Vector2Extensions.Multiply*
+  nameWithType.vb: Vector2Extensions.Multiply(Vector2Int, Single, Boolean)
+  fullName.vb: ISILab.Extensions.Vector2Extensions.Multiply(UnityEngine.Vector2Int, Single, Boolean)
+  name.vb: Multiply(Vector2Int, Single, Boolean)
+- uid: ISILab.Extensions.Vector2Extensions.Divided(UnityEngine.Vector2Int,System.Single)
+  commentId: M:ISILab.Extensions.Vector2Extensions.Divided(UnityEngine.Vector2Int,System.Single)
+  id: Divided(UnityEngine.Vector2Int,System.Single)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: Divided(Vector2Int, float)
+  nameWithType: Vector2Extensions.Divided(Vector2Int, float)
+  fullName: ISILab.Extensions.Vector2Extensions.Divided(UnityEngine.Vector2Int, float)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Vector2Int Divided(this Vector2Int vec, float value)
+    parameters:
+    - id: vec
+      type: UnityEngine.Vector2Int
+    - id: value
+      type: System.Single
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Shared Function Divided(vec As Vector2Int, value As Single) As Vector2Int
+  overload: ISILab.Extensions.Vector2Extensions.Divided*
+  nameWithType.vb: Vector2Extensions.Divided(Vector2Int, Single)
+  fullName.vb: ISILab.Extensions.Vector2Extensions.Divided(UnityEngine.Vector2Int, Single)
+  name.vb: Divided(Vector2Int, Single)
+- uid: ISILab.Extensions.Vector2Extensions.DistanceToLine(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  commentId: M:ISILab.Extensions.Vector2Extensions.DistanceToLine(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  id: DistanceToLine(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: DistanceToLine(Vector2, Vector2, Vector2)
+  nameWithType: Vector2Extensions.DistanceToLine(Vector2, Vector2, Vector2)
+  fullName: ISILab.Extensions.Vector2Extensions.DistanceToLine(UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static float DistanceToLine(this Vector2 point, Vector2 lineStart, Vector2 lineEnd)
+    parameters:
+    - id: point
+      type: UnityEngine.Vector2
+    - id: lineStart
+      type: UnityEngine.Vector2
+    - id: lineEnd
+      type: UnityEngine.Vector2
+    return:
+      type: System.Single
+    content.vb: Public Shared Function DistanceToLine(point As Vector2, lineStart As Vector2, lineEnd As Vector2) As Single
+  overload: ISILab.Extensions.Vector2Extensions.DistanceToLine*
+- uid: ISILab.Extensions.Vector2Extensions.Divided(UnityEngine.Vector2,System.Single)
+  commentId: M:ISILab.Extensions.Vector2Extensions.Divided(UnityEngine.Vector2,System.Single)
+  id: Divided(UnityEngine.Vector2,System.Single)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: Divided(Vector2, float)
+  nameWithType: Vector2Extensions.Divided(Vector2, float)
+  fullName: ISILab.Extensions.Vector2Extensions.Divided(UnityEngine.Vector2, float)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Vector2 Divided(this Vector2 vec, float value)
+    parameters:
+    - id: vec
+      type: UnityEngine.Vector2
+    - id: value
+      type: System.Single
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Shared Function Divided(vec As Vector2, value As Single) As Vector2
+  overload: ISILab.Extensions.Vector2Extensions.Divided*
+  nameWithType.vb: Vector2Extensions.Divided(Vector2, Single)
+  fullName.vb: ISILab.Extensions.Vector2Extensions.Divided(UnityEngine.Vector2, Single)
+  name.vb: Divided(Vector2, Single)
+- uid: ISILab.Extensions.Vector2Extensions.Distance(UnityEngine.Vector2,ISILab.Extensions.DistanceType)
+  commentId: M:ISILab.Extensions.Vector2Extensions.Distance(UnityEngine.Vector2,ISILab.Extensions.DistanceType)
+  id: Distance(UnityEngine.Vector2,ISILab.Extensions.DistanceType)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector2, DistanceType)
+  nameWithType: Vector2Extensions.Distance(Vector2, DistanceType)
+  fullName: ISILab.Extensions.Vector2Extensions.Distance(UnityEngine.Vector2, ISILab.Extensions.DistanceType)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static float Distance(this Vector2 vec, DistanceType distType)
+    parameters:
+    - id: vec
+      type: UnityEngine.Vector2
+    - id: distType
+      type: ISILab.Extensions.DistanceType
+    return:
+      type: System.Single
+    content.vb: Public Shared Function Distance(vec As Vector2, distType As DistanceType) As Single
+  overload: ISILab.Extensions.Vector2Extensions.Distance*
+- uid: ISILab.Extensions.Vector2Extensions.Average(System.Collections.Generic.IEnumerable{UnityEngine.Vector2})
+  commentId: M:ISILab.Extensions.Vector2Extensions.Average(System.Collections.Generic.IEnumerable{UnityEngine.Vector2})
+  id: Average(System.Collections.Generic.IEnumerable{UnityEngine.Vector2})
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: Average(IEnumerable<Vector2>)
+  nameWithType: Vector2Extensions.Average(IEnumerable<Vector2>)
+  fullName: ISILab.Extensions.Vector2Extensions.Average(System.Collections.Generic.IEnumerable<UnityEngine.Vector2>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Vector2 Average(this IEnumerable<Vector2> vs)
+    parameters:
+    - id: vs
+      type: System.Collections.Generic.IEnumerable{UnityEngine.Vector2}
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Shared Function Average(vs As IEnumerable(Of Vector2)) As Vector2
+  overload: ISILab.Extensions.Vector2Extensions.Average*
+  nameWithType.vb: Vector2Extensions.Average(IEnumerable(Of Vector2))
+  fullName.vb: ISILab.Extensions.Vector2Extensions.Average(System.Collections.Generic.IEnumerable(Of UnityEngine.Vector2))
+  name.vb: Average(IEnumerable(Of Vector2))
+- uid: ISILab.Extensions.Vector2Extensions.Average(System.Collections.Generic.IEnumerable{UnityEngine.Vector2Int})
+  commentId: M:ISILab.Extensions.Vector2Extensions.Average(System.Collections.Generic.IEnumerable{UnityEngine.Vector2Int})
+  id: Average(System.Collections.Generic.IEnumerable{UnityEngine.Vector2Int})
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Vector2Extensions
+  langs:
+  - csharp
+  - vb
+  name: Average(IEnumerable<Vector2Int>)
+  nameWithType: Vector2Extensions.Average(IEnumerable<Vector2Int>)
+  fullName: ISILab.Extensions.Vector2Extensions.Average(System.Collections.Generic.IEnumerable<UnityEngine.Vector2Int>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Vector2Int Average(this IEnumerable<Vector2Int> vs)
+    parameters:
+    - id: vs
+      type: System.Collections.Generic.IEnumerable{UnityEngine.Vector2Int}
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Shared Function Average(vs As IEnumerable(Of Vector2Int)) As Vector2Int
+  overload: ISILab.Extensions.Vector2Extensions.Average*
+  nameWithType.vb: Vector2Extensions.Average(IEnumerable(Of Vector2Int))
+  fullName.vb: ISILab.Extensions.Vector2Extensions.Average(System.Collections.Generic.IEnumerable(Of UnityEngine.Vector2Int))
+  name.vb: Average(IEnumerable(Of Vector2Int))
+references:
+- uid: ISILab.Extensions
+  commentId: N:ISILab.Extensions
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Extensions
+  nameWithType: ISILab.Extensions
+  fullName: ISILab.Extensions
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Extensions.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.Extensions.Vector2Extensions.ToInt*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.ToInt
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_ToInt_UnityEngine_Vector2_System_Boolean_
+  name: ToInt
+  nameWithType: Vector2Extensions.ToInt
+  fullName: ISILab.Extensions.Vector2Extensions.ToInt
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: ISILab.Extensions.Vector2Extensions.ToFloat*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.ToFloat
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_ToFloat_UnityEngine_Vector2Int_
+  name: ToFloat
+  nameWithType: Vector2Extensions.ToFloat
+  fullName: ISILab.Extensions.Vector2Extensions.ToFloat
+- uid: ISILab.Extensions.Vector2Extensions.AsComponents*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.AsComponents
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_AsComponents_UnityEngine_Vector2_
+  name: AsComponents
+  nameWithType: Vector2Extensions.AsComponents
+  fullName: ISILab.Extensions.Vector2Extensions.AsComponents
+- uid: System.Collections.Generic.List{UnityEngine.Vector2}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Vector2}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vector2>
+  nameWithType: List<Vector2>
+  fullName: System.Collections.Generic.List<UnityEngine.Vector2>
+  nameWithType.vb: List(Of Vector2)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Vector2)
+  name.vb: List(Of Vector2)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{UnityEngine.Vector2Int}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Vector2Int}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vector2Int>
+  nameWithType: List<Vector2Int>
+  fullName: System.Collections.Generic.List<UnityEngine.Vector2Int>
+  nameWithType.vb: List(Of Vector2Int)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Vector2Int)
+  name.vb: List(Of Vector2Int)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+- uid: ISILab.Extensions.Vector2Extensions.Get4Connected*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.Get4Connected
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_Get4Connected_UnityEngine_Vector2Int_
+  name: Get4Connected
+  nameWithType: Vector2Extensions.Get4Connected
+  fullName: ISILab.Extensions.Vector2Extensions.Get4Connected
+- uid: ISILab.Extensions.Vector2Extensions.Get8Connected*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.Get8Connected
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_Get8Connected_UnityEngine_Vector2Int_
+  name: Get8Connected
+  nameWithType: Vector2Extensions.Get8Connected
+  fullName: ISILab.Extensions.Vector2Extensions.Get8Connected
+- uid: ISILab.Extensions.Vector2Extensions.GetEdge*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.GetEdge
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_GetEdge_UnityEngine_Vector2Int_System_Collections_Generic_List_UnityEngine_Vector2Int__
+  name: GetEdge
+  nameWithType: Vector2Extensions.GetEdge
+  fullName: ISILab.Extensions.Vector2Extensions.GetEdge
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.Extensions.Vector2Extensions.GetVertices*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.GetVertices
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_GetVertices_UnityEngine_Vector2Int_
+  name: GetVertices
+  nameWithType: Vector2Extensions.GetVertices
+  fullName: ISILab.Extensions.Vector2Extensions.GetVertices
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<int>
+  nameWithType: List<int>
+  fullName: System.Collections.Generic.List<int>
+  nameWithType.vb: List(Of Integer)
+  fullName.vb: System.Collections.Generic.List(Of Integer)
+  name.vb: List(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ISILab.Extensions.Vector2Extensions.IsInLine*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.IsInLine
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_IsInLine_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_
+  name: IsInLine
+  nameWithType: Vector2Extensions.IsInLine
+  fullName: ISILab.Extensions.Vector2Extensions.IsInLine
+- uid: ISILab.Extensions.Vector2Extensions.IntersectionOrientation*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.IntersectionOrientation
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_IntersectionOrientation_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_
+  name: IntersectionOrientation
+  nameWithType: Vector2Extensions.IntersectionOrientation
+  fullName: ISILab.Extensions.Vector2Extensions.IntersectionOrientation
+- uid: ISILab.Extensions.Orientation
+  commentId: T:ISILab.Extensions.Orientation
+  parent: ISILab.Extensions
+  isExternal: true
+  href: ISILab.Extensions.Orientation.html
+  name: Orientation
+  nameWithType: Orientation
+  fullName: ISILab.Extensions.Orientation
+- uid: ISILab.Extensions.Vector2Extensions.LinesIntersect*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.LinesIntersect
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_LinesIntersect_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_
+  name: LinesIntersect
+  nameWithType: Vector2Extensions.LinesIntersect
+  fullName: ISILab.Extensions.Vector2Extensions.LinesIntersect
+- uid: ISILab.Extensions.Vector2Extensions.Multiply*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.Multiply
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_Multiply_UnityEngine_Vector2Int_System_Single_System_Boolean_
+  name: Multiply
+  nameWithType: Vector2Extensions.Multiply
+  fullName: ISILab.Extensions.Vector2Extensions.Multiply
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.Extensions.Vector2Extensions.Divided*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.Divided
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_Divided_UnityEngine_Vector2Int_System_Single_
+  name: Divided
+  nameWithType: Vector2Extensions.Divided
+  fullName: ISILab.Extensions.Vector2Extensions.Divided
+- uid: ISILab.Extensions.Vector2Extensions.DistanceToLine*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.DistanceToLine
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_DistanceToLine_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_
+  name: DistanceToLine
+  nameWithType: Vector2Extensions.DistanceToLine
+  fullName: ISILab.Extensions.Vector2Extensions.DistanceToLine
+- uid: ISILab.Extensions.Vector2Extensions.Distance*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.Distance
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_Distance_UnityEngine_Vector2_ISILab_Extensions_DistanceType_
+  name: Distance
+  nameWithType: Vector2Extensions.Distance
+  fullName: ISILab.Extensions.Vector2Extensions.Distance
+- uid: ISILab.Extensions.DistanceType
+  commentId: T:ISILab.Extensions.DistanceType
+  parent: ISILab.Extensions
+  isExternal: true
+  href: ISILab.Extensions.DistanceType.html
+  name: DistanceType
+  nameWithType: DistanceType
+  fullName: ISILab.Extensions.DistanceType
+- uid: ISILab.Extensions.Vector2Extensions.Average*
+  commentId: Overload:ISILab.Extensions.Vector2Extensions.Average
+  isExternal: true
+  href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_Average_System_Collections_Generic_IEnumerable_UnityEngine_Vector2__
+  name: Average
+  nameWithType: Vector2Extensions.Average
+  fullName: ISILab.Extensions.Vector2Extensions.Average
+- uid: System.Collections.Generic.IEnumerable{UnityEngine.Vector2}
+  commentId: T:System.Collections.Generic.IEnumerable{UnityEngine.Vector2}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<Vector2>
+  nameWithType: IEnumerable<Vector2>
+  fullName: System.Collections.Generic.IEnumerable<UnityEngine.Vector2>
+  nameWithType.vb: IEnumerable(Of Vector2)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of UnityEngine.Vector2)
+  name.vb: IEnumerable(Of Vector2)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{UnityEngine.Vector2Int}
+  commentId: T:System.Collections.Generic.IEnumerable{UnityEngine.Vector2Int}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<Vector2Int>
+  nameWithType: IEnumerable<Vector2Int>
+  fullName: System.Collections.Generic.IEnumerable<UnityEngine.Vector2Int>
+  nameWithType.vb: IEnumerable(Of Vector2Int)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of UnityEngine.Vector2Int)
+  name.vb: IEnumerable(Of Vector2Int)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: )
+shouldSkipMarkup: true

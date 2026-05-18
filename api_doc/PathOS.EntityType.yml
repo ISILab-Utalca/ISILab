@@ -1,0 +1,360 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.EntityType
+  commentId: T:PathOS.EntityType
+  id: EntityType
+  parent: PathOS
+  children:
+  - PathOS.EntityType.ET_GOAL_COMPLETION
+  - PathOS.EntityType.ET_GOAL_MANDATORY
+  - PathOS.EntityType.ET_GOAL_OPTIONAL
+  - PathOS.EntityType.ET_HAZARD_ENEMY_BOSS
+  - PathOS.EntityType.ET_HAZARD_ENEMY_HIGH
+  - PathOS.EntityType.ET_HAZARD_ENEMY_LOW
+  - PathOS.EntityType.ET_HAZARD_ENEMY_MED
+  - PathOS.EntityType.ET_HAZARD_ENVIRONMENT
+  - PathOS.EntityType.ET_NONE
+  - PathOS.EntityType.ET_POI
+  - PathOS.EntityType.ET_POI_NPC
+  - PathOS.EntityType.ET_RESOURCE_ACHIEVEMENT
+  - PathOS.EntityType.ET_RESOURCE_PRESERVATION_HIGH
+  - PathOS.EntityType.ET_RESOURCE_PRESERVATION_LOW
+  - PathOS.EntityType.ET_RESOURCE_PRESERVATION_MED
+  - PathOS.EntityType.ET_STAIR_DOWN
+  - PathOS.EntityType.ET_STAIR_UP
+  langs:
+  - csharp
+  - vb
+  name: EntityType
+  nameWithType: EntityType
+  fullName: PathOS.EntityType
+  type: Enum
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public enum EntityType
+    content.vb: Public Enum EntityType
+- uid: PathOS.EntityType.ET_NONE
+  commentId: F:PathOS.EntityType.ET_NONE
+  id: ET_NONE
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_NONE
+  nameWithType: EntityType.ET_NONE
+  fullName: PathOS.EntityType.ET_NONE
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_NONE = 0
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_GOAL_OPTIONAL
+  commentId: F:PathOS.EntityType.ET_GOAL_OPTIONAL
+  id: ET_GOAL_OPTIONAL
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_GOAL_OPTIONAL
+  nameWithType: EntityType.ET_GOAL_OPTIONAL
+  fullName: PathOS.EntityType.ET_GOAL_OPTIONAL
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_GOAL_OPTIONAL = 100
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_GOAL_MANDATORY
+  commentId: F:PathOS.EntityType.ET_GOAL_MANDATORY
+  id: ET_GOAL_MANDATORY
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_GOAL_MANDATORY
+  nameWithType: EntityType.ET_GOAL_MANDATORY
+  fullName: PathOS.EntityType.ET_GOAL_MANDATORY
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_GOAL_MANDATORY = 110
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_GOAL_COMPLETION
+  commentId: F:PathOS.EntityType.ET_GOAL_COMPLETION
+  id: ET_GOAL_COMPLETION
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_GOAL_COMPLETION
+  nameWithType: EntityType.ET_GOAL_COMPLETION
+  fullName: PathOS.EntityType.ET_GOAL_COMPLETION
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_GOAL_COMPLETION = 120
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_RESOURCE_ACHIEVEMENT
+  commentId: F:PathOS.EntityType.ET_RESOURCE_ACHIEVEMENT
+  id: ET_RESOURCE_ACHIEVEMENT
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_RESOURCE_ACHIEVEMENT
+  nameWithType: EntityType.ET_RESOURCE_ACHIEVEMENT
+  fullName: PathOS.EntityType.ET_RESOURCE_ACHIEVEMENT
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_RESOURCE_ACHIEVEMENT = 150
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_RESOURCE_PRESERVATION_LOW
+  commentId: F:PathOS.EntityType.ET_RESOURCE_PRESERVATION_LOW
+  id: ET_RESOURCE_PRESERVATION_LOW
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_RESOURCE_PRESERVATION_LOW
+  nameWithType: EntityType.ET_RESOURCE_PRESERVATION_LOW
+  fullName: PathOS.EntityType.ET_RESOURCE_PRESERVATION_LOW
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_RESOURCE_PRESERVATION_LOW = 160
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_RESOURCE_PRESERVATION_MED
+  commentId: F:PathOS.EntityType.ET_RESOURCE_PRESERVATION_MED
+  id: ET_RESOURCE_PRESERVATION_MED
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_RESOURCE_PRESERVATION_MED
+  nameWithType: EntityType.ET_RESOURCE_PRESERVATION_MED
+  fullName: PathOS.EntityType.ET_RESOURCE_PRESERVATION_MED
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_RESOURCE_PRESERVATION_MED = 170
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_RESOURCE_PRESERVATION_HIGH
+  commentId: F:PathOS.EntityType.ET_RESOURCE_PRESERVATION_HIGH
+  id: ET_RESOURCE_PRESERVATION_HIGH
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_RESOURCE_PRESERVATION_HIGH
+  nameWithType: EntityType.ET_RESOURCE_PRESERVATION_HIGH
+  fullName: PathOS.EntityType.ET_RESOURCE_PRESERVATION_HIGH
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_RESOURCE_PRESERVATION_HIGH = 180
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_HAZARD_ENEMY_LOW
+  commentId: F:PathOS.EntityType.ET_HAZARD_ENEMY_LOW
+  id: ET_HAZARD_ENEMY_LOW
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_HAZARD_ENEMY_LOW
+  nameWithType: EntityType.ET_HAZARD_ENEMY_LOW
+  fullName: PathOS.EntityType.ET_HAZARD_ENEMY_LOW
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_HAZARD_ENEMY_LOW = 200
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_HAZARD_ENEMY_MED
+  commentId: F:PathOS.EntityType.ET_HAZARD_ENEMY_MED
+  id: ET_HAZARD_ENEMY_MED
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_HAZARD_ENEMY_MED
+  nameWithType: EntityType.ET_HAZARD_ENEMY_MED
+  fullName: PathOS.EntityType.ET_HAZARD_ENEMY_MED
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_HAZARD_ENEMY_MED = 210
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_HAZARD_ENEMY_HIGH
+  commentId: F:PathOS.EntityType.ET_HAZARD_ENEMY_HIGH
+  id: ET_HAZARD_ENEMY_HIGH
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_HAZARD_ENEMY_HIGH
+  nameWithType: EntityType.ET_HAZARD_ENEMY_HIGH
+  fullName: PathOS.EntityType.ET_HAZARD_ENEMY_HIGH
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_HAZARD_ENEMY_HIGH = 220
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_HAZARD_ENEMY_BOSS
+  commentId: F:PathOS.EntityType.ET_HAZARD_ENEMY_BOSS
+  id: ET_HAZARD_ENEMY_BOSS
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_HAZARD_ENEMY_BOSS
+  nameWithType: EntityType.ET_HAZARD_ENEMY_BOSS
+  fullName: PathOS.EntityType.ET_HAZARD_ENEMY_BOSS
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_HAZARD_ENEMY_BOSS = 230
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_HAZARD_ENVIRONMENT
+  commentId: F:PathOS.EntityType.ET_HAZARD_ENVIRONMENT
+  id: ET_HAZARD_ENVIRONMENT
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_HAZARD_ENVIRONMENT
+  nameWithType: EntityType.ET_HAZARD_ENVIRONMENT
+  fullName: PathOS.EntityType.ET_HAZARD_ENVIRONMENT
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_HAZARD_ENVIRONMENT = 250
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_POI
+  commentId: F:PathOS.EntityType.ET_POI
+  id: ET_POI
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_POI
+  nameWithType: EntityType.ET_POI
+  fullName: PathOS.EntityType.ET_POI
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_POI = 300
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_POI_NPC
+  commentId: F:PathOS.EntityType.ET_POI_NPC
+  id: ET_POI_NPC
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_POI_NPC
+  nameWithType: EntityType.ET_POI_NPC
+  fullName: PathOS.EntityType.ET_POI_NPC
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_POI_NPC = 350
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_STAIR_UP
+  commentId: F:PathOS.EntityType.ET_STAIR_UP
+  id: ET_STAIR_UP
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_STAIR_UP
+  nameWithType: EntityType.ET_STAIR_UP
+  fullName: PathOS.EntityType.ET_STAIR_UP
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_STAIR_UP = 400
+    return:
+      type: PathOS.EntityType
+- uid: PathOS.EntityType.ET_STAIR_DOWN
+  commentId: F:PathOS.EntityType.ET_STAIR_DOWN
+  id: ET_STAIR_DOWN
+  parent: PathOS.EntityType
+  langs:
+  - csharp
+  - vb
+  name: ET_STAIR_DOWN
+  nameWithType: EntityType.ET_STAIR_DOWN
+  fullName: PathOS.EntityType.ET_STAIR_DOWN
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: ET_STAIR_DOWN = 410
+    return:
+      type: PathOS.EntityType
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: PathOS.EntityType
+  commentId: T:PathOS.EntityType
+  parent: PathOS
+  isExternal: true
+  href: PathOS.EntityType.html
+  name: EntityType
+  nameWithType: EntityType
+  fullName: PathOS.EntityType
+shouldSkipMarkup: true

@@ -1,0 +1,734 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.QuestNodeView
+  commentId: T:ISILab.LBS.VisualElements.QuestNodeView
+  id: QuestNodeView
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.QuestNodeView.#ctor(ISILab.LBS.Components.QuestNode)
+  - ISILab.LBS.VisualElements.QuestNodeView.GetSelectVisualElement
+  - ISILab.LBS.VisualElements.QuestNodeView.OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+  - ISILab.LBS.VisualElements.QuestNodeView.OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+  - ISILab.LBS.VisualElements.QuestNodeView.OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+  - ISILab.LBS.VisualElements.QuestNodeView.OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+  - ISILab.LBS.VisualElements.QuestNodeView.Refresh
+  - ISILab.LBS.VisualElements.QuestNodeView.UpdateGrammarState
+  - ISILab.LBS.VisualElements.QuestNodeView.UpdatePosition
+  langs:
+  - csharp
+  - vb
+  name: QuestNodeView
+  nameWithType: QuestNodeView
+  fullName: ISILab.LBS.VisualElements.QuestNodeView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public class QuestNodeView : QuestGraphNodeView'
+    content.vb: Public Class QuestNodeView Inherits QuestGraphNodeView
+  inheritance:
+  - System.Object
+  - ISILab.LBS.VisualElements.QuestGraphNodeView
+  inheritedMembers:
+  - ISILab.LBS.VisualElements.QuestGraphNodeView.InvalidGrammarColor
+  - ISILab.LBS.VisualElements.QuestGraphNodeView.DefaultBackgroundColor
+  - ISILab.LBS.VisualElements.QuestGraphNodeView.ValidGrammarColor
+  - ISILab.LBS.VisualElements.QuestGraphNodeView.InvalidConnectionIcon
+  - ISILab.LBS.VisualElements.QuestGraphNodeView._isDragging
+  - ISILab.LBS.VisualElements.QuestGraphNodeView.OnMoving
+  - ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseUp(UnityEngine.UIElements.MouseUpEvent)
+  - ISILab.LBS.VisualElements.QuestGraphNodeView.SelectView(System.Boolean)
+  - ISILab.LBS.VisualElements.QuestGraphNodeView.Node
+- uid: ISILab.LBS.VisualElements.QuestNodeView.#ctor(ISILab.LBS.Components.QuestNode)
+  commentId: M:ISILab.LBS.VisualElements.QuestNodeView.#ctor(ISILab.LBS.Components.QuestNode)
+  id: '#ctor(ISILab.LBS.Components.QuestNode)'
+  parent: ISILab.LBS.VisualElements.QuestNodeView
+  langs:
+  - csharp
+  - vb
+  name: QuestNodeView(QuestNode)
+  nameWithType: QuestNodeView.QuestNodeView(QuestNode)
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.QuestNodeView(ISILab.LBS.Components.QuestNode)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public QuestNodeView(QuestNode graphNode)
+    parameters:
+    - id: graphNode
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public Sub New(graphNode As QuestNode)
+  overload: ISILab.LBS.VisualElements.QuestNodeView.#ctor*
+  nameWithType.vb: QuestNodeView.New(QuestNode)
+  fullName.vb: ISILab.LBS.VisualElements.QuestNodeView.New(ISILab.LBS.Components.QuestNode)
+  name.vb: New(QuestNode)
+- uid: ISILab.LBS.VisualElements.QuestNodeView.Refresh
+  commentId: M:ISILab.LBS.VisualElements.QuestNodeView.Refresh
+  id: Refresh
+  parent: ISILab.LBS.VisualElements.QuestNodeView
+  langs:
+  - csharp
+  - vb
+  name: Refresh()
+  nameWithType: QuestNodeView.Refresh()
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.Refresh()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public override void Refresh()
+    content.vb: Public Overrides Sub Refresh()
+  overridden: ISILab.LBS.VisualElements.QuestGraphNodeView.Refresh
+  overload: ISILab.LBS.VisualElements.QuestNodeView.Refresh*
+- uid: ISILab.LBS.VisualElements.QuestNodeView.UpdatePosition
+  commentId: M:ISILab.LBS.VisualElements.QuestNodeView.UpdatePosition
+  id: UpdatePosition
+  parent: ISILab.LBS.VisualElements.QuestNodeView
+  langs:
+  - csharp
+  - vb
+  name: UpdatePosition()
+  nameWithType: QuestNodeView.UpdatePosition()
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.UpdatePosition()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void UpdatePosition()
+    content.vb: Public Sub UpdatePosition()
+  overload: ISILab.LBS.VisualElements.QuestNodeView.UpdatePosition*
+- uid: ISILab.LBS.VisualElements.QuestNodeView.UpdateGrammarState
+  commentId: M:ISILab.LBS.VisualElements.QuestNodeView.UpdateGrammarState
+  id: UpdateGrammarState
+  parent: ISILab.LBS.VisualElements.QuestNodeView
+  langs:
+  - csharp
+  - vb
+  name: UpdateGrammarState()
+  nameWithType: QuestNodeView.UpdateGrammarState()
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.UpdateGrammarState()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: protected override sealed void UpdateGrammarState()
+    content.vb: Protected NotOverridable Overrides Sub UpdateGrammarState()
+  overridden: ISILab.LBS.VisualElements.QuestGraphNodeView.UpdateGrammarState
+  overload: ISILab.LBS.VisualElements.QuestNodeView.UpdateGrammarState*
+- uid: ISILab.LBS.VisualElements.QuestNodeView.OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+  commentId: M:ISILab.LBS.VisualElements.QuestNodeView.OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+  id: OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+  parent: ISILab.LBS.VisualElements.QuestNodeView
+  langs:
+  - csharp
+  - vb
+  name: OnMouseDown(MouseDownEvent)
+  nameWithType: QuestNodeView.OnMouseDown(MouseDownEvent)
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: protected override void OnMouseDown(MouseDownEvent evt)
+    parameters:
+    - id: evt
+      type: UnityEngine.UIElements.MouseDownEvent
+    content.vb: Protected Overrides Sub OnMouseDown(evt As MouseDownEvent)
+  overridden: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+  overload: ISILab.LBS.VisualElements.QuestNodeView.OnMouseDown*
+- uid: ISILab.LBS.VisualElements.QuestNodeView.OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+  commentId: M:ISILab.LBS.VisualElements.QuestNodeView.OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+  id: OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+  parent: ISILab.LBS.VisualElements.QuestNodeView
+  langs:
+  - csharp
+  - vb
+  name: OnMouseEnter(MouseEnterEvent)
+  nameWithType: QuestNodeView.OnMouseEnter(MouseEnterEvent)
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: protected override void OnMouseEnter(MouseEnterEvent evt)
+    parameters:
+    - id: evt
+      type: UnityEngine.UIElements.MouseEnterEvent
+    content.vb: Protected Overrides Sub OnMouseEnter(evt As MouseEnterEvent)
+  overridden: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+  overload: ISILab.LBS.VisualElements.QuestNodeView.OnMouseEnter*
+- uid: ISILab.LBS.VisualElements.QuestNodeView.OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+  commentId: M:ISILab.LBS.VisualElements.QuestNodeView.OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+  id: OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+  parent: ISILab.LBS.VisualElements.QuestNodeView
+  langs:
+  - csharp
+  - vb
+  name: OnMouseLeave(MouseLeaveEvent)
+  nameWithType: QuestNodeView.OnMouseLeave(MouseLeaveEvent)
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: protected override void OnMouseLeave(MouseLeaveEvent evt)
+    parameters:
+    - id: evt
+      type: UnityEngine.UIElements.MouseLeaveEvent
+    content.vb: Protected Overrides Sub OnMouseLeave(evt As MouseLeaveEvent)
+  overridden: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+  overload: ISILab.LBS.VisualElements.QuestNodeView.OnMouseLeave*
+- uid: ISILab.LBS.VisualElements.QuestNodeView.OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+  commentId: M:ISILab.LBS.VisualElements.QuestNodeView.OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+  id: OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+  parent: ISILab.LBS.VisualElements.QuestNodeView
+  langs:
+  - csharp
+  - vb
+  name: OnMouseMove(MouseMoveEvent)
+  nameWithType: QuestNodeView.OnMouseMove(MouseMoveEvent)
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: protected override void OnMouseMove(MouseMoveEvent evt)
+    parameters:
+    - id: evt
+      type: UnityEngine.UIElements.MouseMoveEvent
+    content.vb: Protected Overrides Sub OnMouseMove(evt As MouseMoveEvent)
+  overridden: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+  overload: ISILab.LBS.VisualElements.QuestNodeView.OnMouseMove*
+- uid: ISILab.LBS.VisualElements.QuestNodeView.GetSelectVisualElement
+  commentId: M:ISILab.LBS.VisualElements.QuestNodeView.GetSelectVisualElement
+  id: GetSelectVisualElement
+  parent: ISILab.LBS.VisualElements.QuestNodeView
+  langs:
+  - csharp
+  - vb
+  name: GetSelectVisualElement()
+  nameWithType: QuestNodeView.GetSelectVisualElement()
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.GetSelectVisualElement()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public override VisualElement GetSelectVisualElement()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Overrides Function GetSelectVisualElement() As VisualElement
+  overridden: ISILab.LBS.VisualElements.QuestGraphNodeView.GetSelectVisualElement
+  overload: ISILab.LBS.VisualElements.QuestNodeView.GetSelectVisualElement*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView
+  commentId: T:ISILab.LBS.VisualElements.QuestGraphNodeView
+  parent: ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html
+  name: QuestGraphNodeView
+  nameWithType: QuestGraphNodeView
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.InvalidGrammarColor
+  commentId: F:ISILab.LBS.VisualElements.QuestGraphNodeView.InvalidGrammarColor
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_InvalidGrammarColor
+  name: InvalidGrammarColor
+  nameWithType: QuestGraphNodeView.InvalidGrammarColor
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.InvalidGrammarColor
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.DefaultBackgroundColor
+  commentId: F:ISILab.LBS.VisualElements.QuestGraphNodeView.DefaultBackgroundColor
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_DefaultBackgroundColor
+  name: DefaultBackgroundColor
+  nameWithType: QuestGraphNodeView.DefaultBackgroundColor
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.DefaultBackgroundColor
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.ValidGrammarColor
+  commentId: F:ISILab.LBS.VisualElements.QuestGraphNodeView.ValidGrammarColor
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_ValidGrammarColor
+  name: ValidGrammarColor
+  nameWithType: QuestGraphNodeView.ValidGrammarColor
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.ValidGrammarColor
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.InvalidConnectionIcon
+  commentId: F:ISILab.LBS.VisualElements.QuestGraphNodeView.InvalidConnectionIcon
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_InvalidConnectionIcon
+  name: InvalidConnectionIcon
+  nameWithType: QuestGraphNodeView.InvalidConnectionIcon
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.InvalidConnectionIcon
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView._isDragging
+  commentId: F:ISILab.LBS.VisualElements.QuestGraphNodeView._isDragging
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView__isDragging
+  name: _isDragging
+  nameWithType: QuestGraphNodeView._isDragging
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView._isDragging
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMoving
+  commentId: F:ISILab.LBS.VisualElements.QuestGraphNodeView.OnMoving
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMoving
+  name: OnMoving
+  nameWithType: QuestGraphNodeView.OnMoving
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMoving
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseUp(UnityEngine.UIElements.MouseUpEvent)
+  commentId: M:ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseUp(UnityEngine.UIElements.MouseUpEvent)
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseUp_UnityEngine_UIElements_MouseUpEvent_
+  name: OnMouseUp(MouseUpEvent)
+  nameWithType: QuestGraphNodeView.OnMouseUp(MouseUpEvent)
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseUp(UnityEngine.UIElements.MouseUpEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseUp(UnityEngine.UIElements.MouseUpEvent)
+    name: OnMouseUp
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseUp_UnityEngine_UIElements_MouseUpEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.MouseUpEvent
+    name: MouseUpEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseUp(UnityEngine.UIElements.MouseUpEvent)
+    name: OnMouseUp
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseUp_UnityEngine_UIElements_MouseUpEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.MouseUpEvent
+    name: MouseUpEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.SelectView(System.Boolean)
+  commentId: M:ISILab.LBS.VisualElements.QuestGraphNodeView.SelectView(System.Boolean)
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_SelectView_System_Boolean_
+  name: SelectView(bool)
+  nameWithType: QuestGraphNodeView.SelectView(bool)
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.SelectView(bool)
+  nameWithType.vb: QuestGraphNodeView.SelectView(Boolean)
+  fullName.vb: ISILab.LBS.VisualElements.QuestGraphNodeView.SelectView(Boolean)
+  name.vb: SelectView(Boolean)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.SelectView(System.Boolean)
+    name: SelectView
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_SelectView_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.SelectView(System.Boolean)
+    name: SelectView
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_SelectView_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.Node
+  commentId: P:ISILab.LBS.VisualElements.QuestGraphNodeView.Node
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_Node
+  name: Node
+  nameWithType: QuestGraphNodeView.Node
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.Node
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.VisualElements.QuestNodeView.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestNodeView.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestNodeView.html#ISILab_LBS_VisualElements_QuestNodeView__ctor_ISILab_LBS_Components_QuestNode_
+  name: QuestNodeView
+  nameWithType: QuestNodeView.QuestNodeView
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.QuestNodeView
+  nameWithType.vb: QuestNodeView.New
+  fullName.vb: ISILab.LBS.VisualElements.QuestNodeView.New
+  name.vb: New
+- uid: ISILab.LBS.Components.QuestNode
+  commentId: T:ISILab.LBS.Components.QuestNode
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNode.html
+  name: QuestNode
+  nameWithType: QuestNode
+  fullName: ISILab.LBS.Components.QuestNode
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.Refresh
+  commentId: M:ISILab.LBS.VisualElements.QuestGraphNodeView.Refresh
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_Refresh
+  name: Refresh()
+  nameWithType: QuestGraphNodeView.Refresh()
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.Refresh()
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.Refresh
+    name: Refresh
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_Refresh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.Refresh
+    name: Refresh
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_Refresh
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.QuestNodeView.Refresh*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestNodeView.Refresh
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestNodeView.html#ISILab_LBS_VisualElements_QuestNodeView_Refresh
+  name: Refresh
+  nameWithType: QuestNodeView.Refresh
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.Refresh
+- uid: ISILab.LBS.VisualElements.QuestNodeView.UpdatePosition*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestNodeView.UpdatePosition
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestNodeView.html#ISILab_LBS_VisualElements_QuestNodeView_UpdatePosition
+  name: UpdatePosition
+  nameWithType: QuestNodeView.UpdatePosition
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.UpdatePosition
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.UpdateGrammarState
+  commentId: M:ISILab.LBS.VisualElements.QuestGraphNodeView.UpdateGrammarState
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_UpdateGrammarState
+  name: UpdateGrammarState()
+  nameWithType: QuestGraphNodeView.UpdateGrammarState()
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.UpdateGrammarState()
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.UpdateGrammarState
+    name: UpdateGrammarState
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_UpdateGrammarState
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.UpdateGrammarState
+    name: UpdateGrammarState
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_UpdateGrammarState
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.QuestNodeView.UpdateGrammarState*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestNodeView.UpdateGrammarState
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestNodeView.html#ISILab_LBS_VisualElements_QuestNodeView_UpdateGrammarState
+  name: UpdateGrammarState
+  nameWithType: QuestNodeView.UpdateGrammarState
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.UpdateGrammarState
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+  commentId: M:ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseDown_UnityEngine_UIElements_MouseDownEvent_
+  name: OnMouseDown(MouseDownEvent)
+  nameWithType: QuestGraphNodeView.OnMouseDown(MouseDownEvent)
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+    name: OnMouseDown
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseDown_UnityEngine_UIElements_MouseDownEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.MouseDownEvent
+    name: MouseDownEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseDown(UnityEngine.UIElements.MouseDownEvent)
+    name: OnMouseDown
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseDown_UnityEngine_UIElements_MouseDownEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.MouseDownEvent
+    name: MouseDownEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.VisualElements.QuestNodeView.OnMouseDown*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestNodeView.OnMouseDown
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestNodeView.html#ISILab_LBS_VisualElements_QuestNodeView_OnMouseDown_UnityEngine_UIElements_MouseDownEvent_
+  name: OnMouseDown
+  nameWithType: QuestNodeView.OnMouseDown
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.OnMouseDown
+- uid: UnityEngine.UIElements.MouseDownEvent
+  isExternal: true
+  name: MouseDownEvent
+  nameWithType: MouseDownEvent
+  fullName: UnityEngine.UIElements.MouseDownEvent
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+  commentId: M:ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseEnter_UnityEngine_UIElements_MouseEnterEvent_
+  name: OnMouseEnter(MouseEnterEvent)
+  nameWithType: QuestGraphNodeView.OnMouseEnter(MouseEnterEvent)
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+    name: OnMouseEnter
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseEnter_UnityEngine_UIElements_MouseEnterEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.MouseEnterEvent
+    name: MouseEnterEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseEnter(UnityEngine.UIElements.MouseEnterEvent)
+    name: OnMouseEnter
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseEnter_UnityEngine_UIElements_MouseEnterEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.MouseEnterEvent
+    name: MouseEnterEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.VisualElements.QuestNodeView.OnMouseEnter*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestNodeView.OnMouseEnter
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestNodeView.html#ISILab_LBS_VisualElements_QuestNodeView_OnMouseEnter_UnityEngine_UIElements_MouseEnterEvent_
+  name: OnMouseEnter
+  nameWithType: QuestNodeView.OnMouseEnter
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.OnMouseEnter
+- uid: UnityEngine.UIElements.MouseEnterEvent
+  isExternal: true
+  name: MouseEnterEvent
+  nameWithType: MouseEnterEvent
+  fullName: UnityEngine.UIElements.MouseEnterEvent
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+  commentId: M:ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseLeave_UnityEngine_UIElements_MouseLeaveEvent_
+  name: OnMouseLeave(MouseLeaveEvent)
+  nameWithType: QuestGraphNodeView.OnMouseLeave(MouseLeaveEvent)
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+    name: OnMouseLeave
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseLeave_UnityEngine_UIElements_MouseLeaveEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.MouseLeaveEvent
+    name: MouseLeaveEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseLeave(UnityEngine.UIElements.MouseLeaveEvent)
+    name: OnMouseLeave
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseLeave_UnityEngine_UIElements_MouseLeaveEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.MouseLeaveEvent
+    name: MouseLeaveEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.VisualElements.QuestNodeView.OnMouseLeave*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestNodeView.OnMouseLeave
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestNodeView.html#ISILab_LBS_VisualElements_QuestNodeView_OnMouseLeave_UnityEngine_UIElements_MouseLeaveEvent_
+  name: OnMouseLeave
+  nameWithType: QuestNodeView.OnMouseLeave
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.OnMouseLeave
+- uid: UnityEngine.UIElements.MouseLeaveEvent
+  isExternal: true
+  name: MouseLeaveEvent
+  nameWithType: MouseLeaveEvent
+  fullName: UnityEngine.UIElements.MouseLeaveEvent
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+  commentId: M:ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseMove_UnityEngine_UIElements_MouseMoveEvent_
+  name: OnMouseMove(MouseMoveEvent)
+  nameWithType: QuestGraphNodeView.OnMouseMove(MouseMoveEvent)
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+    name: OnMouseMove
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseMove_UnityEngine_UIElements_MouseMoveEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.MouseMoveEvent
+    name: MouseMoveEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.OnMouseMove(UnityEngine.UIElements.MouseMoveEvent)
+    name: OnMouseMove
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_OnMouseMove_UnityEngine_UIElements_MouseMoveEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.MouseMoveEvent
+    name: MouseMoveEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.VisualElements.QuestNodeView.OnMouseMove*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestNodeView.OnMouseMove
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestNodeView.html#ISILab_LBS_VisualElements_QuestNodeView_OnMouseMove_UnityEngine_UIElements_MouseMoveEvent_
+  name: OnMouseMove
+  nameWithType: QuestNodeView.OnMouseMove
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.OnMouseMove
+- uid: UnityEngine.UIElements.MouseMoveEvent
+  isExternal: true
+  name: MouseMoveEvent
+  nameWithType: MouseMoveEvent
+  fullName: UnityEngine.UIElements.MouseMoveEvent
+- uid: ISILab.LBS.VisualElements.QuestGraphNodeView.GetSelectVisualElement
+  commentId: M:ISILab.LBS.VisualElements.QuestGraphNodeView.GetSelectVisualElement
+  parent: ISILab.LBS.VisualElements.QuestGraphNodeView
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_GetSelectVisualElement
+  name: GetSelectVisualElement()
+  nameWithType: QuestGraphNodeView.GetSelectVisualElement()
+  fullName: ISILab.LBS.VisualElements.QuestGraphNodeView.GetSelectVisualElement()
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.GetSelectVisualElement
+    name: GetSelectVisualElement
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_GetSelectVisualElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.QuestGraphNodeView.GetSelectVisualElement
+    name: GetSelectVisualElement
+    isExternal: true
+    href: ISILab.LBS.VisualElements.QuestGraphNodeView.html#ISILab_LBS_VisualElements_QuestGraphNodeView_GetSelectVisualElement
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.QuestNodeView.GetSelectVisualElement*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestNodeView.GetSelectVisualElement
+  isExternal: true
+  href: ISILab.LBS.VisualElements.QuestNodeView.html#ISILab_LBS_VisualElements_QuestNodeView_GetSelectVisualElement
+  name: GetSelectVisualElement
+  nameWithType: QuestNodeView.GetSelectVisualElement
+  fullName: ISILab.LBS.VisualElements.QuestNodeView.GetSelectVisualElement
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+shouldSkipMarkup: true

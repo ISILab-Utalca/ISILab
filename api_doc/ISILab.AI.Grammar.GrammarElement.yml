@@ -1,0 +1,276 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Grammar.GrammarElement
+  commentId: T:ISILab.AI.Grammar.GrammarElement
+  id: GrammarElement
+  parent: ISILab.AI.Grammar
+  children:
+  - ISILab.AI.Grammar.GrammarElement.#ctor
+  - ISILab.AI.Grammar.GrammarElement.Icon
+  - ISILab.AI.Grammar.GrammarElement.OnEnable
+  - ISILab.AI.Grammar.GrammarElement.OnValidate
+  - ISILab.AI.Grammar.GrammarElement.color
+  - ISILab.AI.Grammar.GrammarElement.iconGuid
+  - ISILab.AI.Grammar.GrammarElement.id
+  langs:
+  - csharp
+  - vb
+  name: GrammarElement
+  nameWithType: GrammarElement
+  fullName: ISILab.AI.Grammar.GrammarElement
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: 'public abstract class GrammarElement : ScriptableObject'
+    content.vb: Public MustInherit Class GrammarElement Inherits ScriptableObject
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.AI.Grammar.GrammarRule
+  - ISILab.AI.Grammar.GrammarTerminal
+- uid: ISILab.AI.Grammar.GrammarElement.id
+  commentId: F:ISILab.AI.Grammar.GrammarElement.id
+  id: id
+  parent: ISILab.AI.Grammar.GrammarElement
+  langs:
+  - csharp
+  - vb
+  name: id
+  nameWithType: GrammarElement.id
+  fullName: ISILab.AI.Grammar.GrammarElement.id
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public string id
+    return:
+      type: System.String
+    content.vb: Public id As String
+- uid: ISILab.AI.Grammar.GrammarElement.iconGuid
+  commentId: F:ISILab.AI.Grammar.GrammarElement.iconGuid
+  id: iconGuid
+  parent: ISILab.AI.Grammar.GrammarElement
+  langs:
+  - csharp
+  - vb
+  name: iconGuid
+  nameWithType: GrammarElement.iconGuid
+  fullName: ISILab.AI.Grammar.GrammarElement.iconGuid
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public string iconGuid
+    return:
+      type: System.String
+    content.vb: Public iconGuid As String
+- uid: ISILab.AI.Grammar.GrammarElement.color
+  commentId: F:ISILab.AI.Grammar.GrammarElement.color
+  id: color
+  parent: ISILab.AI.Grammar.GrammarElement
+  langs:
+  - csharp
+  - vb
+  name: color
+  nameWithType: GrammarElement.color
+  fullName: ISILab.AI.Grammar.GrammarElement.color
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public Color color
+    return:
+      type: UnityEngine.Color
+    content.vb: Public color As Color
+- uid: ISILab.AI.Grammar.GrammarElement.OnEnable
+  commentId: M:ISILab.AI.Grammar.GrammarElement.OnEnable
+  id: OnEnable
+  parent: ISILab.AI.Grammar.GrammarElement
+  langs:
+  - csharp
+  - vb
+  name: OnEnable()
+  nameWithType: GrammarElement.OnEnable()
+  fullName: ISILab.AI.Grammar.GrammarElement.OnEnable()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public virtual void OnEnable()
+    content.vb: Public Overridable Sub OnEnable()
+  overload: ISILab.AI.Grammar.GrammarElement.OnEnable*
+- uid: ISILab.AI.Grammar.GrammarElement.OnValidate
+  commentId: M:ISILab.AI.Grammar.GrammarElement.OnValidate
+  id: OnValidate
+  parent: ISILab.AI.Grammar.GrammarElement
+  langs:
+  - csharp
+  - vb
+  name: OnValidate()
+  nameWithType: GrammarElement.OnValidate()
+  fullName: ISILab.AI.Grammar.GrammarElement.OnValidate()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: protected virtual void OnValidate()
+    content.vb: Protected Overridable Sub OnValidate()
+  overload: ISILab.AI.Grammar.GrammarElement.OnValidate*
+- uid: ISILab.AI.Grammar.GrammarElement.#ctor
+  commentId: M:ISILab.AI.Grammar.GrammarElement.#ctor
+  id: '#ctor'
+  parent: ISILab.AI.Grammar.GrammarElement
+  langs:
+  - csharp
+  - vb
+  name: GrammarElement()
+  nameWithType: GrammarElement.GrammarElement()
+  fullName: ISILab.AI.Grammar.GrammarElement.GrammarElement()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: protected GrammarElement()
+    content.vb: Protected Sub New()
+  overload: ISILab.AI.Grammar.GrammarElement.#ctor*
+  nameWithType.vb: GrammarElement.New()
+  fullName.vb: ISILab.AI.Grammar.GrammarElement.New()
+  name.vb: New()
+- uid: ISILab.AI.Grammar.GrammarElement.Icon
+  commentId: P:ISILab.AI.Grammar.GrammarElement.Icon
+  id: Icon
+  parent: ISILab.AI.Grammar.GrammarElement
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: GrammarElement.Icon
+  fullName: ISILab.AI.Grammar.GrammarElement.Icon
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public VectorImage Icon { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Public Property Icon As VectorImage
+  overload: ISILab.AI.Grammar.GrammarElement.Icon*
+references:
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.AI.Grammar.GrammarElement.OnEnable*
+  commentId: Overload:ISILab.AI.Grammar.GrammarElement.OnEnable
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_OnEnable
+  name: OnEnable
+  nameWithType: GrammarElement.OnEnable
+  fullName: ISILab.AI.Grammar.GrammarElement.OnEnable
+- uid: ISILab.AI.Grammar.GrammarElement.OnValidate*
+  commentId: Overload:ISILab.AI.Grammar.GrammarElement.OnValidate
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_OnValidate
+  name: OnValidate
+  nameWithType: GrammarElement.OnValidate
+  fullName: ISILab.AI.Grammar.GrammarElement.OnValidate
+- uid: ISILab.AI.Grammar.GrammarElement.#ctor*
+  commentId: Overload:ISILab.AI.Grammar.GrammarElement.#ctor
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement__ctor
+  name: GrammarElement
+  nameWithType: GrammarElement.GrammarElement
+  fullName: ISILab.AI.Grammar.GrammarElement.GrammarElement
+  nameWithType.vb: GrammarElement.New
+  fullName.vb: ISILab.AI.Grammar.GrammarElement.New
+  name.vb: New
+- uid: ISILab.AI.Grammar.GrammarElement.Icon*
+  commentId: Overload:ISILab.AI.Grammar.GrammarElement.Icon
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarElement.html#ISILab_AI_Grammar_GrammarElement_Icon
+  name: Icon
+  nameWithType: GrammarElement.Icon
+  fullName: ISILab.AI.Grammar.GrammarElement.Icon
+- uid: UnityEngine.UIElements.VectorImage
+  isExternal: true
+  name: VectorImage
+  nameWithType: VectorImage
+  fullName: UnityEngine.UIElements.VectorImage
+shouldSkipMarkup: true

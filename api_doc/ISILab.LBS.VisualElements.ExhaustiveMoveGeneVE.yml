@@ -1,0 +1,415 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE
+  commentId: T:ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE
+  id: ExhaustiveMoveGeneVE
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.#ctor(System.Object)
+  - ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.CreateVisualElement
+  - ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.SetInfo(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: ExhaustiveMoveGeneVE
+  nameWithType: ExhaustiveMoveGeneVE
+  fullName: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: >-
+      [LBSCustomEditor("ExhaustiveMoveGene", typeof(ExhaustiveMoveGene))]
+
+      public class ExhaustiveMoveGeneVE : LBSCustomEditor
+    content.vb: >-
+      <LBSCustomEditor("ExhaustiveMoveGene", GetType(ExhaustiveMoveGene))>
+
+      Public Class ExhaustiveMoveGeneVE Inherits LBSCustomEditor
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Editor.LBSCustomEditor
+  inheritedMembers:
+  - ISILab.LBS.Editor.LBSCustomEditor.target
+  - ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  - ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  - ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  - ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  - ISILab.LBS.Editor.LBSCustomEditor.Target
+  attributes:
+  - type: ISILab.LBS.LBSCustomEditorAttribute
+    ctor: ISILab.LBS.LBSCustomEditorAttribute.#ctor(System.String,System.Type)
+    arguments:
+    - type: System.String
+      value: ExhaustiveMoveGene
+    - type: System.Type
+      value: ISILab.AI.Categorization.ExhaustiveMoveGene
+- uid: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.#ctor(System.Object)
+  commentId: M:ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.#ctor(System.Object)
+  id: '#ctor(System.Object)'
+  parent: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE
+  langs:
+  - csharp
+  - vb
+  name: ExhaustiveMoveGeneVE(object)
+  nameWithType: ExhaustiveMoveGeneVE.ExhaustiveMoveGeneVE(object)
+  fullName: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.ExhaustiveMoveGeneVE(object)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public ExhaustiveMoveGeneVE(object target)
+    parameters:
+    - id: target
+      type: System.Object
+    content.vb: Public Sub New(target As Object)
+  overload: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.#ctor*
+  nameWithType.vb: ExhaustiveMoveGeneVE.New(Object)
+  fullName.vb: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.New(Object)
+  name.vb: New(Object)
+- uid: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.SetInfo(System.Object)
+  id: SetInfo(System.Object)
+  parent: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE
+  langs:
+  - csharp
+  - vb
+  name: SetInfo(object)
+  nameWithType: ExhaustiveMoveGeneVE.SetInfo(object)
+  fullName: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.SetInfo(object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: public override void SetInfo(object paramTarget)
+    parameters:
+    - id: paramTarget
+      type: System.Object
+    content.vb: Public Overrides Sub SetInfo(paramTarget As Object)
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  overload: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.SetInfo*
+  nameWithType.vb: ExhaustiveMoveGeneVE.SetInfo(Object)
+  fullName.vb: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.SetInfo(Object)
+  name.vb: SetInfo(Object)
+- uid: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.CreateVisualElement
+  commentId: M:ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.CreateVisualElement
+  id: CreateVisualElement
+  parent: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE
+  langs:
+  - csharp
+  - vb
+  name: CreateVisualElement()
+  nameWithType: ExhaustiveMoveGeneVE.CreateVisualElement()
+  fullName: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.CreateVisualElement()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  example: []
+  syntax:
+    content: protected override VisualElement CreateVisualElement()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Protected Overrides Function CreateVisualElement() As VisualElement
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  overload: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.CreateVisualElement*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Editor.LBSCustomEditor
+  commentId: T:ISILab.LBS.Editor.LBSCustomEditor
+  parent: ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html
+  name: LBSCustomEditor
+  nameWithType: LBSCustomEditor
+  fullName: ISILab.LBS.Editor.LBSCustomEditor
+- uid: ISILab.LBS.Editor.LBSCustomEditor.target
+  commentId: F:ISILab.LBS.Editor.LBSCustomEditor.target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_target
+  name: target
+  nameWithType: LBSCustomEditor.target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.target
+- uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  name: ContextMenu(ContextualMenuPopulateEvent)
+  nameWithType: LBSCustomEditor.ContextMenu(ContextualMenuPopulateEvent)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  name: Repaint()
+  nameWithType: LBSCustomEditor.Repaint()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Repaint()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  name: OnFocus()
+  nameWithType: LBSCustomEditor.OnFocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnFocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  name: OnUnfocus()
+  nameWithType: LBSCustomEditor.OnUnfocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Target
+  commentId: P:ISILab.LBS.Editor.LBSCustomEditor.Target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Target
+  name: Target
+  nameWithType: LBSCustomEditor.Target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Target
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Editor
+  commentId: N:ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Editor
+  nameWithType: ISILab.LBS.Editor
+  fullName: ISILab.LBS.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+- uid: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.html#ISILab_LBS_VisualElements_ExhaustiveMoveGeneVE__ctor_System_Object_
+  name: ExhaustiveMoveGeneVE
+  nameWithType: ExhaustiveMoveGeneVE.ExhaustiveMoveGeneVE
+  fullName: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.ExhaustiveMoveGeneVE
+  nameWithType.vb: ExhaustiveMoveGeneVE.New
+  fullName.vb: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.New
+  name.vb: New
+- uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  name: SetInfo(object)
+  nameWithType: LBSCustomEditor.SetInfo(object)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(object)
+  nameWithType.vb: LBSCustomEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.SetInfo*
+  commentId: Overload:ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.SetInfo
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.html#ISILab_LBS_VisualElements_ExhaustiveMoveGeneVE_SetInfo_System_Object_
+  name: SetInfo
+  nameWithType: ExhaustiveMoveGeneVE.SetInfo
+  fullName: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.SetInfo
+- uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  name: CreateVisualElement()
+  nameWithType: LBSCustomEditor.CreateVisualElement()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.CreateVisualElement*
+  commentId: Overload:ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.CreateVisualElement
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.html#ISILab_LBS_VisualElements_ExhaustiveMoveGeneVE_CreateVisualElement
+  name: CreateVisualElement
+  nameWithType: ExhaustiveMoveGeneVE.CreateVisualElement
+  fullName: ISILab.LBS.VisualElements.ExhaustiveMoveGeneVE.CreateVisualElement
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+shouldSkipMarkup: true

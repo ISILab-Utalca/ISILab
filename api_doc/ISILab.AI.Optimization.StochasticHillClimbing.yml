@@ -1,0 +1,1929 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Optimization.StochasticHillClimbing
+  commentId: T:ISILab.AI.Optimization.StochasticHillClimbing
+  id: StochasticHillClimbing
+  parent: ISILab.AI.Optimization
+  children:
+  - ISILab.AI.Optimization.StochasticHillClimbing.#ctor(ISILab.AI.Optimization.Populations.IPopulation,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,ISILab.AI.Optimization.Selections.ISelection,System.Func{ISILab.AI.Optimization.IOptimizable,System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}},ISILab.AI.Optimization.Terminations.ITermination)
+  - ISILab.AI.Optimization.StochasticHillClimbing.Clone
+  - ISILab.AI.Optimization.StochasticHillClimbing.Elog
+  - ISILab.AI.Optimization.StochasticHillClimbing.EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)
+  - ISILab.AI.Optimization.StochasticHillClimbing.InitializeDefault
+  - ISILab.AI.Optimization.StochasticHillClimbing.NNlog
+  - ISILab.AI.Optimization.StochasticHillClimbing.Nlog
+  - ISILab.AI.Optimization.StochasticHillClimbing.RunOnce(System.Action{System.Single},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: StochasticHillClimbing
+  nameWithType: StochasticHillClimbing
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: 'public class StochasticHillClimbing : BaseOptimizer, ICloneable'
+    content.vb: Public Class StochasticHillClimbing Inherits BaseOptimizer Implements ICloneable
+  inheritance:
+  - System.Object
+  - ISILab.AI.Optimization.BaseOptimizer
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - ISILab.AI.Optimization.BaseOptimizer.state
+  - ISILab.AI.Optimization.BaseOptimizer.clock
+  - ISILab.AI.Optimization.BaseOptimizer.m_lock
+  - ISILab.AI.Optimization.BaseOptimizer.stopRequested
+  - ISILab.AI.Optimization.BaseOptimizer.pauseRequested
+  - ISILab.AI.Optimization.BaseOptimizer.adam
+  - ISILab.AI.Optimization.BaseOptimizer.bestCandidate
+  - ISILab.AI.Optimization.BaseOptimizer.Pause
+  - ISILab.AI.Optimization.BaseOptimizer.Resume
+  - ISILab.AI.Optimization.BaseOptimizer.Stop
+  - ISILab.AI.Optimization.BaseOptimizer.Start(System.Action{System.Single},System.Threading.CancellationToken)
+  - ISILab.AI.Optimization.BaseOptimizer.StartOne(System.Action{System.Single},System.Threading.CancellationToken)
+  - ISILab.AI.Optimization.BaseOptimizer.Restart(System.Action{System.Single},System.Threading.CancellationToken)
+  - ISILab.AI.Optimization.BaseOptimizer.Run(System.Action{System.Single},System.Threading.CancellationToken)
+  - ISILab.AI.Optimization.BaseOptimizer.TerminationReached
+  - ISILab.AI.Optimization.BaseOptimizer.RequestStop
+  - ISILab.AI.Optimization.BaseOptimizer.RequestPause
+  - ISILab.AI.Optimization.BaseOptimizer.PrintClocks
+  - ISILab.AI.Optimization.BaseOptimizer.GenerationsNumber
+  - ISILab.AI.Optimization.BaseOptimizer.BestCandidate
+  - ISILab.AI.Optimization.BaseOptimizer.Adam
+  - ISILab.AI.Optimization.BaseOptimizer.TimeEvolving
+  - ISILab.AI.Optimization.BaseOptimizer.IsRunning
+  - ISILab.AI.Optimization.BaseOptimizer.Population
+  - ISILab.AI.Optimization.BaseOptimizer.Termination
+  - ISILab.AI.Optimization.BaseOptimizer.Evaluator
+  - ISILab.AI.Optimization.BaseOptimizer.Selection
+  - ISILab.AI.Optimization.BaseOptimizer.State
+  - ISILab.AI.Optimization.BaseOptimizer.LastGeneration
+  - ISILab.AI.Optimization.BaseOptimizer.OnGenerationRan
+  - ISILab.AI.Optimization.BaseOptimizer.OnTerminationReached
+  - ISILab.AI.Optimization.BaseOptimizer.OnStopped
+  - ISILab.AI.Optimization.BaseOptimizer.OnResumed
+  - ISILab.AI.Optimization.BaseOptimizer.OnPaused
+  - ISILab.AI.Optimization.BaseOptimizer.OnStarted
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.Nlog
+  commentId: F:ISILab.AI.Optimization.StochasticHillClimbing.Nlog
+  id: Nlog
+  parent: ISILab.AI.Optimization.StochasticHillClimbing
+  langs:
+  - csharp
+  - vb
+  name: Nlog
+  nameWithType: StochasticHillClimbing.Nlog
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.Nlog
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: public double Nlog
+    return:
+      type: System.Double
+    content.vb: Public Nlog As Double
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.NNlog
+  commentId: F:ISILab.AI.Optimization.StochasticHillClimbing.NNlog
+  id: NNlog
+  parent: ISILab.AI.Optimization.StochasticHillClimbing
+  langs:
+  - csharp
+  - vb
+  name: NNlog
+  nameWithType: StochasticHillClimbing.NNlog
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.NNlog
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: public double NNlog
+    return:
+      type: System.Double
+    content.vb: Public NNlog As Double
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.Elog
+  commentId: F:ISILab.AI.Optimization.StochasticHillClimbing.Elog
+  id: Elog
+  parent: ISILab.AI.Optimization.StochasticHillClimbing
+  langs:
+  - csharp
+  - vb
+  name: Elog
+  nameWithType: StochasticHillClimbing.Elog
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.Elog
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: public double Elog
+    return:
+      type: System.Double
+    content.vb: Public Elog As Double
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.#ctor(ISILab.AI.Optimization.Populations.IPopulation,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,ISILab.AI.Optimization.Selections.ISelection,System.Func{ISILab.AI.Optimization.IOptimizable,System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}},ISILab.AI.Optimization.Terminations.ITermination)
+  commentId: M:ISILab.AI.Optimization.StochasticHillClimbing.#ctor(ISILab.AI.Optimization.Populations.IPopulation,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,ISILab.AI.Optimization.Selections.ISelection,System.Func{ISILab.AI.Optimization.IOptimizable,System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}},ISILab.AI.Optimization.Terminations.ITermination)
+  id: '#ctor(ISILab.AI.Optimization.Populations.IPopulation,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,ISILab.AI.Optimization.Selections.ISelection,System.Func{ISILab.AI.Optimization.IOptimizable,System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}},ISILab.AI.Optimization.Terminations.ITermination)'
+  parent: ISILab.AI.Optimization.StochasticHillClimbing
+  langs:
+  - csharp
+  - vb
+  name: StochasticHillClimbing(IPopulation, IEvaluator, ISelection, Func<IOptimizable, List<IOptimizable>>, ITermination)
+  nameWithType: StochasticHillClimbing.StochasticHillClimbing(IPopulation, IEvaluator, ISelection, Func<IOptimizable, List<IOptimizable>>, ITermination)
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.StochasticHillClimbing(ISILab.AI.Optimization.Populations.IPopulation, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator, ISILab.AI.Optimization.Selections.ISelection, System.Func<ISILab.AI.Optimization.IOptimizable, System.Collections.Generic.List<ISILab.AI.Optimization.IOptimizable>>, ISILab.AI.Optimization.Terminations.ITermination)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: public StochasticHillClimbing(IPopulation population, IEvaluator evaluator, ISelection selection, Func<IOptimizable, List<IOptimizable>> getNeighbors, ITermination termination)
+    parameters:
+    - id: population
+      type: ISILab.AI.Optimization.Populations.IPopulation
+    - id: evaluator
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+    - id: selection
+      type: ISILab.AI.Optimization.Selections.ISelection
+    - id: getNeighbors
+      type: System.Func{ISILab.AI.Optimization.IOptimizable,System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}}
+    - id: termination
+      type: ISILab.AI.Optimization.Terminations.ITermination
+    content.vb: Public Sub New(population As IPopulation, evaluator As IEvaluator, selection As ISelection, getNeighbors As Func(Of IOptimizable, List(Of IOptimizable)), termination As ITermination)
+  overload: ISILab.AI.Optimization.StochasticHillClimbing.#ctor*
+  nameWithType.vb: StochasticHillClimbing.New(IPopulation, IEvaluator, ISelection, Func(Of IOptimizable, List(Of IOptimizable)), ITermination)
+  fullName.vb: ISILab.AI.Optimization.StochasticHillClimbing.New(ISILab.AI.Optimization.Populations.IPopulation, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator, ISILab.AI.Optimization.Selections.ISelection, System.Func(Of ISILab.AI.Optimization.IOptimizable, System.Collections.Generic.List(Of ISILab.AI.Optimization.IOptimizable)), ISILab.AI.Optimization.Terminations.ITermination)
+  name.vb: New(IPopulation, IEvaluator, ISelection, Func(Of IOptimizable, List(Of IOptimizable)), ITermination)
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.AI.Optimization.StochasticHillClimbing.EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)
+  id: EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.AI.Optimization.StochasticHillClimbing
+  langs:
+  - csharp
+  - vb
+  name: EvaluateFitness(IList<IOptimizable>, Action<float>, CancellationToken)
+  nameWithType: StochasticHillClimbing.EvaluateFitness(IList<IOptimizable>, Action<float>, CancellationToken)
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.EvaluateFitness(System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>, System.Action<float>, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  example: []
+  syntax:
+    content: public override void EvaluateFitness(IList<IOptimizable> optimizables, Action<float> onProgress = null, CancellationToken token = default)
+    parameters:
+    - id: optimizables
+      type: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+    - id: onProgress
+      type: System.Action{System.Single}
+    - id: token
+      type: System.Threading.CancellationToken
+    content.vb: Public Overrides Sub EvaluateFitness(optimizables As IList(Of IOptimizable), onProgress As Action(Of Single) = Nothing, token As CancellationToken = Nothing)
+  overridden: ISILab.AI.Optimization.BaseOptimizer.EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)
+  overload: ISILab.AI.Optimization.StochasticHillClimbing.EvaluateFitness*
+  nameWithType.vb: StochasticHillClimbing.EvaluateFitness(IList(Of IOptimizable), Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.AI.Optimization.StochasticHillClimbing.EvaluateFitness(System.Collections.Generic.IList(Of ISILab.AI.Optimization.IOptimizable), System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: EvaluateFitness(IList(Of IOptimizable), Action(Of Single), CancellationToken)
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.RunOnce(System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.AI.Optimization.StochasticHillClimbing.RunOnce(System.Action{System.Single},System.Threading.CancellationToken)
+  id: RunOnce(System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.AI.Optimization.StochasticHillClimbing
+  langs:
+  - csharp
+  - vb
+  name: RunOnce(Action<float>, CancellationToken)
+  nameWithType: StochasticHillClimbing.RunOnce(Action<float>, CancellationToken)
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.RunOnce(System.Action<float>, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  example: []
+  syntax:
+    content: public override void RunOnce(Action<float> onProgress = null, CancellationToken token = default)
+    parameters:
+    - id: onProgress
+      type: System.Action{System.Single}
+    - id: token
+      type: System.Threading.CancellationToken
+    content.vb: Public Overrides Sub RunOnce(onProgress As Action(Of Single) = Nothing, token As CancellationToken = Nothing)
+  overridden: ISILab.AI.Optimization.BaseOptimizer.RunOnce(System.Action{System.Single},System.Threading.CancellationToken)
+  overload: ISILab.AI.Optimization.StochasticHillClimbing.RunOnce*
+  nameWithType.vb: StochasticHillClimbing.RunOnce(Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.AI.Optimization.StochasticHillClimbing.RunOnce(System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: RunOnce(Action(Of Single), CancellationToken)
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.Clone
+  commentId: M:ISILab.AI.Optimization.StochasticHillClimbing.Clone
+  id: Clone
+  parent: ISILab.AI.Optimization.StochasticHillClimbing
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: StochasticHillClimbing.Clone()
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  example: []
+  syntax:
+    content: public override object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function Clone() As Object
+  overridden: ISILab.AI.Optimization.BaseOptimizer.Clone
+  overload: ISILab.AI.Optimization.StochasticHillClimbing.Clone*
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.InitializeDefault
+  commentId: M:ISILab.AI.Optimization.StochasticHillClimbing.InitializeDefault
+  id: InitializeDefault
+  parent: ISILab.AI.Optimization.StochasticHillClimbing
+  langs:
+  - csharp
+  - vb
+  name: InitializeDefault()
+  nameWithType: StochasticHillClimbing.InitializeDefault()
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.InitializeDefault()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  example: []
+  syntax:
+    content: public override void InitializeDefault()
+    content.vb: Public Overrides Sub InitializeDefault()
+  overridden: ISILab.AI.Optimization.BaseOptimizer.InitializeDefault
+  overload: ISILab.AI.Optimization.StochasticHillClimbing.InitializeDefault*
+references:
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.AI.Optimization.BaseOptimizer
+  commentId: T:ISILab.AI.Optimization.BaseOptimizer
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html
+  name: BaseOptimizer
+  nameWithType: BaseOptimizer
+  fullName: ISILab.AI.Optimization.BaseOptimizer
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.AI.Optimization.BaseOptimizer.state
+  commentId: F:ISILab.AI.Optimization.BaseOptimizer.state
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_state
+  name: state
+  nameWithType: BaseOptimizer.state
+  fullName: ISILab.AI.Optimization.BaseOptimizer.state
+- uid: ISILab.AI.Optimization.BaseOptimizer.clock
+  commentId: F:ISILab.AI.Optimization.BaseOptimizer.clock
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_clock
+  name: clock
+  nameWithType: BaseOptimizer.clock
+  fullName: ISILab.AI.Optimization.BaseOptimizer.clock
+- uid: ISILab.AI.Optimization.BaseOptimizer.m_lock
+  commentId: F:ISILab.AI.Optimization.BaseOptimizer.m_lock
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_m_lock
+  name: m_lock
+  nameWithType: BaseOptimizer.m_lock
+  fullName: ISILab.AI.Optimization.BaseOptimizer.m_lock
+- uid: ISILab.AI.Optimization.BaseOptimizer.stopRequested
+  commentId: F:ISILab.AI.Optimization.BaseOptimizer.stopRequested
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_stopRequested
+  name: stopRequested
+  nameWithType: BaseOptimizer.stopRequested
+  fullName: ISILab.AI.Optimization.BaseOptimizer.stopRequested
+- uid: ISILab.AI.Optimization.BaseOptimizer.pauseRequested
+  commentId: F:ISILab.AI.Optimization.BaseOptimizer.pauseRequested
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_pauseRequested
+  name: pauseRequested
+  nameWithType: BaseOptimizer.pauseRequested
+  fullName: ISILab.AI.Optimization.BaseOptimizer.pauseRequested
+- uid: ISILab.AI.Optimization.BaseOptimizer.adam
+  commentId: F:ISILab.AI.Optimization.BaseOptimizer.adam
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_adam
+  name: adam
+  nameWithType: BaseOptimizer.adam
+  fullName: ISILab.AI.Optimization.BaseOptimizer.adam
+- uid: ISILab.AI.Optimization.BaseOptimizer.bestCandidate
+  commentId: F:ISILab.AI.Optimization.BaseOptimizer.bestCandidate
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_bestCandidate
+  name: bestCandidate
+  nameWithType: BaseOptimizer.bestCandidate
+  fullName: ISILab.AI.Optimization.BaseOptimizer.bestCandidate
+- uid: ISILab.AI.Optimization.BaseOptimizer.Pause
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.Pause
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Pause
+  name: Pause()
+  nameWithType: BaseOptimizer.Pause()
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Pause()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Pause
+    name: Pause
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Pause
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Pause
+    name: Pause
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Pause
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.Resume
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.Resume
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Resume
+  name: Resume()
+  nameWithType: BaseOptimizer.Resume()
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Resume()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Resume
+    name: Resume
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Resume
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Resume
+    name: Resume
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Resume
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.Stop
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.Stop
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Stop
+  name: Stop()
+  nameWithType: BaseOptimizer.Stop()
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Stop()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Stop
+    name: Stop
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Stop
+    name: Stop
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Stop
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.Start(System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.Start(System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Start_System_Action_System_Single__System_Threading_CancellationToken_
+  name: Start(Action<float>, CancellationToken)
+  nameWithType: BaseOptimizer.Start(Action<float>, CancellationToken)
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Start(System.Action<float>, System.Threading.CancellationToken)
+  nameWithType.vb: BaseOptimizer.Start(Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.AI.Optimization.BaseOptimizer.Start(System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: Start(Action(Of Single), CancellationToken)
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Start(System.Action{System.Single},System.Threading.CancellationToken)
+    name: Start
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Start_System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Start(System.Action{System.Single},System.Threading.CancellationToken)
+    name: Start
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Start_System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.StartOne(System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.StartOne(System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_StartOne_System_Action_System_Single__System_Threading_CancellationToken_
+  name: StartOne(Action<float>, CancellationToken)
+  nameWithType: BaseOptimizer.StartOne(Action<float>, CancellationToken)
+  fullName: ISILab.AI.Optimization.BaseOptimizer.StartOne(System.Action<float>, System.Threading.CancellationToken)
+  nameWithType.vb: BaseOptimizer.StartOne(Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.AI.Optimization.BaseOptimizer.StartOne(System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: StartOne(Action(Of Single), CancellationToken)
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.StartOne(System.Action{System.Single},System.Threading.CancellationToken)
+    name: StartOne
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_StartOne_System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.StartOne(System.Action{System.Single},System.Threading.CancellationToken)
+    name: StartOne
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_StartOne_System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.Restart(System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.Restart(System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Restart_System_Action_System_Single__System_Threading_CancellationToken_
+  name: Restart(Action<float>, CancellationToken)
+  nameWithType: BaseOptimizer.Restart(Action<float>, CancellationToken)
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Restart(System.Action<float>, System.Threading.CancellationToken)
+  nameWithType.vb: BaseOptimizer.Restart(Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.AI.Optimization.BaseOptimizer.Restart(System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: Restart(Action(Of Single), CancellationToken)
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Restart(System.Action{System.Single},System.Threading.CancellationToken)
+    name: Restart
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Restart_System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Restart(System.Action{System.Single},System.Threading.CancellationToken)
+    name: Restart
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Restart_System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.Run(System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.Run(System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Run_System_Action_System_Single__System_Threading_CancellationToken_
+  name: Run(Action<float>, CancellationToken)
+  nameWithType: BaseOptimizer.Run(Action<float>, CancellationToken)
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Run(System.Action<float>, System.Threading.CancellationToken)
+  nameWithType.vb: BaseOptimizer.Run(Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.AI.Optimization.BaseOptimizer.Run(System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: Run(Action(Of Single), CancellationToken)
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Run(System.Action{System.Single},System.Threading.CancellationToken)
+    name: Run
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Run_System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Run(System.Action{System.Single},System.Threading.CancellationToken)
+    name: Run
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Run_System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.TerminationReached
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.TerminationReached
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_TerminationReached
+  name: TerminationReached()
+  nameWithType: BaseOptimizer.TerminationReached()
+  fullName: ISILab.AI.Optimization.BaseOptimizer.TerminationReached()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.TerminationReached
+    name: TerminationReached
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_TerminationReached
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.TerminationReached
+    name: TerminationReached
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_TerminationReached
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.RequestStop
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.RequestStop
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RequestStop
+  name: RequestStop()
+  nameWithType: BaseOptimizer.RequestStop()
+  fullName: ISILab.AI.Optimization.BaseOptimizer.RequestStop()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.RequestStop
+    name: RequestStop
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RequestStop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.RequestStop
+    name: RequestStop
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RequestStop
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.RequestPause
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.RequestPause
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RequestPause
+  name: RequestPause()
+  nameWithType: BaseOptimizer.RequestPause()
+  fullName: ISILab.AI.Optimization.BaseOptimizer.RequestPause()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.RequestPause
+    name: RequestPause
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RequestPause
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.RequestPause
+    name: RequestPause
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RequestPause
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.PrintClocks
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.PrintClocks
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_PrintClocks
+  name: PrintClocks()
+  nameWithType: BaseOptimizer.PrintClocks()
+  fullName: ISILab.AI.Optimization.BaseOptimizer.PrintClocks()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.PrintClocks
+    name: PrintClocks
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_PrintClocks
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.PrintClocks
+    name: PrintClocks
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_PrintClocks
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.BaseOptimizer.GenerationsNumber
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.GenerationsNumber
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_GenerationsNumber
+  name: GenerationsNumber
+  nameWithType: BaseOptimizer.GenerationsNumber
+  fullName: ISILab.AI.Optimization.BaseOptimizer.GenerationsNumber
+- uid: ISILab.AI.Optimization.BaseOptimizer.BestCandidate
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.BestCandidate
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_BestCandidate
+  name: BestCandidate
+  nameWithType: BaseOptimizer.BestCandidate
+  fullName: ISILab.AI.Optimization.BaseOptimizer.BestCandidate
+- uid: ISILab.AI.Optimization.BaseOptimizer.Adam
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.Adam
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Adam
+  name: Adam
+  nameWithType: BaseOptimizer.Adam
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Adam
+- uid: ISILab.AI.Optimization.BaseOptimizer.TimeEvolving
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.TimeEvolving
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_TimeEvolving
+  name: TimeEvolving
+  nameWithType: BaseOptimizer.TimeEvolving
+  fullName: ISILab.AI.Optimization.BaseOptimizer.TimeEvolving
+- uid: ISILab.AI.Optimization.BaseOptimizer.IsRunning
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.IsRunning
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_IsRunning
+  name: IsRunning
+  nameWithType: BaseOptimizer.IsRunning
+  fullName: ISILab.AI.Optimization.BaseOptimizer.IsRunning
+- uid: ISILab.AI.Optimization.BaseOptimizer.Population
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.Population
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Population
+  name: Population
+  nameWithType: BaseOptimizer.Population
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Population
+- uid: ISILab.AI.Optimization.BaseOptimizer.Termination
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.Termination
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Termination
+  name: Termination
+  nameWithType: BaseOptimizer.Termination
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Termination
+- uid: ISILab.AI.Optimization.BaseOptimizer.Evaluator
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.Evaluator
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Evaluator
+  name: Evaluator
+  nameWithType: BaseOptimizer.Evaluator
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Evaluator
+- uid: ISILab.AI.Optimization.BaseOptimizer.Selection
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.Selection
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Selection
+  name: Selection
+  nameWithType: BaseOptimizer.Selection
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Selection
+- uid: ISILab.AI.Optimization.BaseOptimizer.State
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.State
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_State
+  name: State
+  nameWithType: BaseOptimizer.State
+  fullName: ISILab.AI.Optimization.BaseOptimizer.State
+- uid: ISILab.AI.Optimization.BaseOptimizer.LastGeneration
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.LastGeneration
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_LastGeneration
+  name: LastGeneration
+  nameWithType: BaseOptimizer.LastGeneration
+  fullName: ISILab.AI.Optimization.BaseOptimizer.LastGeneration
+- uid: ISILab.AI.Optimization.BaseOptimizer.OnGenerationRan
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.OnGenerationRan
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnGenerationRan
+  name: OnGenerationRan
+  nameWithType: BaseOptimizer.OnGenerationRan
+  fullName: ISILab.AI.Optimization.BaseOptimizer.OnGenerationRan
+- uid: ISILab.AI.Optimization.BaseOptimizer.OnTerminationReached
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.OnTerminationReached
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnTerminationReached
+  name: OnTerminationReached
+  nameWithType: BaseOptimizer.OnTerminationReached
+  fullName: ISILab.AI.Optimization.BaseOptimizer.OnTerminationReached
+- uid: ISILab.AI.Optimization.BaseOptimizer.OnStopped
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.OnStopped
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnStopped
+  name: OnStopped
+  nameWithType: BaseOptimizer.OnStopped
+  fullName: ISILab.AI.Optimization.BaseOptimizer.OnStopped
+- uid: ISILab.AI.Optimization.BaseOptimizer.OnResumed
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.OnResumed
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnResumed
+  name: OnResumed
+  nameWithType: BaseOptimizer.OnResumed
+  fullName: ISILab.AI.Optimization.BaseOptimizer.OnResumed
+- uid: ISILab.AI.Optimization.BaseOptimizer.OnPaused
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.OnPaused
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnPaused
+  name: OnPaused
+  nameWithType: BaseOptimizer.OnPaused
+  fullName: ISILab.AI.Optimization.BaseOptimizer.OnPaused
+- uid: ISILab.AI.Optimization.BaseOptimizer.OnStarted
+  commentId: P:ISILab.AI.Optimization.BaseOptimizer.OnStarted
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnStarted
+  name: OnStarted
+  nameWithType: BaseOptimizer.OnStarted
+  fullName: ISILab.AI.Optimization.BaseOptimizer.OnStarted
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.#ctor*
+  commentId: Overload:ISILab.AI.Optimization.StochasticHillClimbing.#ctor
+  isExternal: true
+  href: ISILab.AI.Optimization.StochasticHillClimbing.html#ISILab_AI_Optimization_StochasticHillClimbing__ctor_ISILab_AI_Optimization_Populations_IPopulation_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_ISILab_AI_Optimization_Selections_ISelection_System_Func_ISILab_AI_Optimization_IOptimizable_System_Collections_Generic_List_ISILab_AI_Optimization_IOptimizable___ISILab_AI_Optimization_Terminations_ITermination_
+  name: StochasticHillClimbing
+  nameWithType: StochasticHillClimbing.StochasticHillClimbing
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.StochasticHillClimbing
+  nameWithType.vb: StochasticHillClimbing.New
+  fullName.vb: ISILab.AI.Optimization.StochasticHillClimbing.New
+  name.vb: New
+- uid: ISILab.AI.Optimization.Populations.IPopulation
+  commentId: T:ISILab.AI.Optimization.Populations.IPopulation
+  parent: ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html
+  name: IPopulation
+  nameWithType: IPopulation
+  fullName: ISILab.AI.Optimization.Populations.IPopulation
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html
+  name: IEvaluator
+  nameWithType: IEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+- uid: ISILab.AI.Optimization.Selections.ISelection
+  commentId: T:ISILab.AI.Optimization.Selections.ISelection
+  parent: ISILab.AI.Optimization.Selections
+  isExternal: true
+  href: ISILab.AI.Optimization.Selections.ISelection.html
+  name: ISelection
+  nameWithType: ISelection
+  fullName: ISILab.AI.Optimization.Selections.ISelection
+- uid: System.Func{ISILab.AI.Optimization.IOptimizable,System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}}
+  commentId: T:System.Func{ISILab.AI.Optimization.IOptimizable,System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<IOptimizable, List<IOptimizable>>
+  nameWithType: Func<IOptimizable, List<IOptimizable>>
+  fullName: System.Func<ISILab.AI.Optimization.IOptimizable, System.Collections.Generic.List<ISILab.AI.Optimization.IOptimizable>>
+  nameWithType.vb: Func(Of IOptimizable, List(Of IOptimizable))
+  fullName.vb: System.Func(Of ISILab.AI.Optimization.IOptimizable, System.Collections.Generic.List(Of ISILab.AI.Optimization.IOptimizable))
+  name.vb: Func(Of IOptimizable, List(Of IOptimizable))
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+  - name: )
+- uid: ISILab.AI.Optimization.Terminations.ITermination
+  commentId: T:ISILab.AI.Optimization.Terminations.ITermination
+  parent: ISILab.AI.Optimization.Terminations
+  isExternal: true
+  href: ISILab.AI.Optimization.Terminations.ITermination.html
+  name: ITermination
+  nameWithType: ITermination
+  fullName: ISILab.AI.Optimization.Terminations.ITermination
+- uid: ISILab.AI.Optimization.Populations
+  commentId: N:ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization.Populations
+  nameWithType: ISILab.AI.Optimization.Populations
+  fullName: ISILab.AI.Optimization.Populations
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+- uid: ISILab.AI.Optimization.Selections
+  commentId: N:ISILab.AI.Optimization.Selections
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization.Selections
+  nameWithType: ISILab.AI.Optimization.Selections
+  fullName: ISILab.AI.Optimization.Selections
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Selections
+    name: Selections
+    isExternal: true
+    href: ISILab.AI.Optimization.Selections.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Selections
+    name: Selections
+    isExternal: true
+    href: ISILab.AI.Optimization.Selections.html
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: ISILab.AI.Optimization.Terminations
+  commentId: N:ISILab.AI.Optimization.Terminations
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization.Terminations
+  nameWithType: ISILab.AI.Optimization.Terminations
+  fullName: ISILab.AI.Optimization.Terminations
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Terminations
+    name: Terminations
+    isExternal: true
+    href: ISILab.AI.Optimization.Terminations.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Terminations
+    name: Terminations
+    isExternal: true
+    href: ISILab.AI.Optimization.Terminations.html
+- uid: ISILab.AI.Optimization.BaseOptimizer.EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_EvaluateFitness_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Action_System_Single__System_Threading_CancellationToken_
+  name: EvaluateFitness(IList<IOptimizable>, Action<float>, CancellationToken)
+  nameWithType: BaseOptimizer.EvaluateFitness(IList<IOptimizable>, Action<float>, CancellationToken)
+  fullName: ISILab.AI.Optimization.BaseOptimizer.EvaluateFitness(System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>, System.Action<float>, System.Threading.CancellationToken)
+  nameWithType.vb: BaseOptimizer.EvaluateFitness(IList(Of IOptimizable), Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.AI.Optimization.BaseOptimizer.EvaluateFitness(System.Collections.Generic.IList(Of ISILab.AI.Optimization.IOptimizable), System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: EvaluateFitness(IList(Of IOptimizable), Action(Of Single), CancellationToken)
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)
+    name: EvaluateFitness
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_EvaluateFitness_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)
+    name: EvaluateFitness
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_EvaluateFitness_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.EvaluateFitness*
+  commentId: Overload:ISILab.AI.Optimization.StochasticHillClimbing.EvaluateFitness
+  isExternal: true
+  href: ISILab.AI.Optimization.StochasticHillClimbing.html#ISILab_AI_Optimization_StochasticHillClimbing_EvaluateFitness_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Action_System_Single__System_Threading_CancellationToken_
+  name: EvaluateFitness
+  nameWithType: StochasticHillClimbing.EvaluateFitness
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.EvaluateFitness
+- uid: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+  commentId: T:System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<IOptimizable>
+  nameWithType: IList<IOptimizable>
+  fullName: System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>
+  nameWithType.vb: IList(Of IOptimizable)
+  fullName.vb: System.Collections.Generic.IList(Of ISILab.AI.Optimization.IOptimizable)
+  name.vb: IList(Of IOptimizable)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+- uid: System.Action{System.Single}
+  commentId: T:System.Action{System.Single}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<float>
+  nameWithType: Action<float>
+  fullName: System.Action<float>
+  nameWithType.vb: Action(Of Single)
+  fullName.vb: System.Action(Of Single)
+  name.vb: Action(Of Single)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: ISILab.AI.Optimization.BaseOptimizer.RunOnce(System.Action{System.Single},System.Threading.CancellationToken)
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.RunOnce(System.Action{System.Single},System.Threading.CancellationToken)
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RunOnce_System_Action_System_Single__System_Threading_CancellationToken_
+  name: RunOnce(Action<float>, CancellationToken)
+  nameWithType: BaseOptimizer.RunOnce(Action<float>, CancellationToken)
+  fullName: ISILab.AI.Optimization.BaseOptimizer.RunOnce(System.Action<float>, System.Threading.CancellationToken)
+  nameWithType.vb: BaseOptimizer.RunOnce(Action(Of Single), CancellationToken)
+  fullName.vb: ISILab.AI.Optimization.BaseOptimizer.RunOnce(System.Action(Of Single), System.Threading.CancellationToken)
+  name.vb: RunOnce(Action(Of Single), CancellationToken)
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.RunOnce(System.Action{System.Single},System.Threading.CancellationToken)
+    name: RunOnce
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RunOnce_System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.RunOnce(System.Action{System.Single},System.Threading.CancellationToken)
+    name: RunOnce
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RunOnce_System_Action_System_Single__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.RunOnce*
+  commentId: Overload:ISILab.AI.Optimization.StochasticHillClimbing.RunOnce
+  isExternal: true
+  href: ISILab.AI.Optimization.StochasticHillClimbing.html#ISILab_AI_Optimization_StochasticHillClimbing_RunOnce_System_Action_System_Single__System_Threading_CancellationToken_
+  name: RunOnce
+  nameWithType: StochasticHillClimbing.RunOnce
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.RunOnce
+- uid: ISILab.AI.Optimization.BaseOptimizer.Clone
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.Clone
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Clone
+  name: Clone()
+  nameWithType: BaseOptimizer.Clone()
+  fullName: ISILab.AI.Optimization.BaseOptimizer.Clone()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Clone
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.Clone*
+  commentId: Overload:ISILab.AI.Optimization.StochasticHillClimbing.Clone
+  isExternal: true
+  href: ISILab.AI.Optimization.StochasticHillClimbing.html#ISILab_AI_Optimization_StochasticHillClimbing_Clone
+  name: Clone
+  nameWithType: StochasticHillClimbing.Clone
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.Clone
+- uid: ISILab.AI.Optimization.BaseOptimizer.InitializeDefault
+  commentId: M:ISILab.AI.Optimization.BaseOptimizer.InitializeDefault
+  parent: ISILab.AI.Optimization.BaseOptimizer
+  isExternal: true
+  href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_InitializeDefault
+  name: InitializeDefault()
+  nameWithType: BaseOptimizer.InitializeDefault()
+  fullName: ISILab.AI.Optimization.BaseOptimizer.InitializeDefault()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.InitializeDefault
+    name: InitializeDefault
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_InitializeDefault
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.BaseOptimizer.InitializeDefault
+    name: InitializeDefault
+    isExternal: true
+    href: ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_InitializeDefault
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.StochasticHillClimbing.InitializeDefault*
+  commentId: Overload:ISILab.AI.Optimization.StochasticHillClimbing.InitializeDefault
+  isExternal: true
+  href: ISILab.AI.Optimization.StochasticHillClimbing.html#ISILab_AI_Optimization_StochasticHillClimbing_InitializeDefault
+  name: InitializeDefault
+  nameWithType: StochasticHillClimbing.InitializeDefault
+  fullName: ISILab.AI.Optimization.StochasticHillClimbing.InitializeDefault
+shouldSkipMarkup: true

@@ -1,0 +1,228 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.BasicFPController
+  commentId: T:PathOS.BasicFPController
+  id: BasicFPController
+  parent: PathOS
+  children:
+  - PathOS.BasicFPController.#ctor
+  - PathOS.BasicFPController.cam
+  - PathOS.BasicFPController.camSpeed
+  - PathOS.BasicFPController.invertY
+  - PathOS.BasicFPController.maxPitch
+  - PathOS.BasicFPController.minPitch
+  - PathOS.BasicFPController.speed
+  langs:
+  - csharp
+  - vb
+  name: BasicFPController
+  nameWithType: BasicFPController
+  fullName: PathOS.BasicFPController
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class BasicFPController : MonoBehaviour'
+    content.vb: Public Class BasicFPController Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PathOS.BasicFPController.cam
+  commentId: F:PathOS.BasicFPController.cam
+  id: cam
+  parent: PathOS.BasicFPController
+  langs:
+  - csharp
+  - vb
+  name: cam
+  nameWithType: BasicFPController.cam
+  fullName: PathOS.BasicFPController.cam
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Camera cam
+    return:
+      type: UnityEngine.Camera
+    content.vb: Public cam As Camera
+- uid: PathOS.BasicFPController.invertY
+  commentId: F:PathOS.BasicFPController.invertY
+  id: invertY
+  parent: PathOS.BasicFPController
+  langs:
+  - csharp
+  - vb
+  name: invertY
+  nameWithType: BasicFPController.invertY
+  fullName: PathOS.BasicFPController.invertY
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool invertY
+    return:
+      type: System.Boolean
+    content.vb: Public invertY As Boolean
+- uid: PathOS.BasicFPController.speed
+  commentId: F:PathOS.BasicFPController.speed
+  id: speed
+  parent: PathOS.BasicFPController
+  langs:
+  - csharp
+  - vb
+  name: speed
+  nameWithType: BasicFPController.speed
+  fullName: PathOS.BasicFPController.speed
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float speed
+    return:
+      type: System.Single
+    content.vb: Public speed As Single
+- uid: PathOS.BasicFPController.minPitch
+  commentId: F:PathOS.BasicFPController.minPitch
+  id: minPitch
+  parent: PathOS.BasicFPController
+  langs:
+  - csharp
+  - vb
+  name: minPitch
+  nameWithType: BasicFPController.minPitch
+  fullName: PathOS.BasicFPController.minPitch
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float minPitch
+    return:
+      type: System.Single
+    content.vb: Public minPitch As Single
+- uid: PathOS.BasicFPController.maxPitch
+  commentId: F:PathOS.BasicFPController.maxPitch
+  id: maxPitch
+  parent: PathOS.BasicFPController
+  langs:
+  - csharp
+  - vb
+  name: maxPitch
+  nameWithType: BasicFPController.maxPitch
+  fullName: PathOS.BasicFPController.maxPitch
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float maxPitch
+    return:
+      type: System.Single
+    content.vb: Public maxPitch As Single
+- uid: PathOS.BasicFPController.camSpeed
+  commentId: F:PathOS.BasicFPController.camSpeed
+  id: camSpeed
+  parent: PathOS.BasicFPController
+  langs:
+  - csharp
+  - vb
+  name: camSpeed
+  nameWithType: BasicFPController.camSpeed
+  fullName: PathOS.BasicFPController.camSpeed
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float camSpeed
+    return:
+      type: System.Single
+    content.vb: Public camSpeed As Single
+- uid: PathOS.BasicFPController.#ctor
+  commentId: M:PathOS.BasicFPController.#ctor
+  id: '#ctor'
+  parent: PathOS.BasicFPController
+  langs:
+  - csharp
+  - vb
+  name: BasicFPController()
+  nameWithType: BasicFPController.BasicFPController()
+  fullName: PathOS.BasicFPController.BasicFPController()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public BasicFPController()
+    content.vb: Public Sub New()
+  overload: PathOS.BasicFPController.#ctor*
+  nameWithType.vb: BasicFPController.New()
+  fullName.vb: PathOS.BasicFPController.New()
+  name.vb: New()
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.Camera
+  isExternal: true
+  name: Camera
+  nameWithType: Camera
+  fullName: UnityEngine.Camera
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PathOS.BasicFPController.#ctor*
+  commentId: Overload:PathOS.BasicFPController.#ctor
+  isExternal: true
+  href: PathOS.BasicFPController.html#PathOS_BasicFPController__ctor
+  name: BasicFPController
+  nameWithType: BasicFPController.BasicFPController
+  fullName: PathOS.BasicFPController.BasicFPController
+  nameWithType.vb: BasicFPController.New
+  fullName.vb: PathOS.BasicFPController.New
+  name.vb: New
+shouldSkipMarkup: true

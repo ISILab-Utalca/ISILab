@@ -1,0 +1,387 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.EvaluationHelperFunctions
+  commentId: T:PathOS.EvaluationHelperFunctions
+  id: EvaluationHelperFunctions
+  parent: PathOS
+  children:
+  - PathOS.EvaluationHelperFunctions.#ctor
+  - PathOS.EvaluationHelperFunctions.CategoryToString(PathOS.Category)
+  - PathOS.EvaluationHelperFunctions.EntityToIndex(PathOS.EntityType)
+  - PathOS.EvaluationHelperFunctions.EntityTypeToString(PathOS.EntityType)
+  - PathOS.EvaluationHelperFunctions.IndexToEntity(System.Int32)
+  - PathOS.EvaluationHelperFunctions.SeverityToString(PathOS.Severity)
+  - PathOS.EvaluationHelperFunctions.StringToCategory(System.String)
+  - PathOS.EvaluationHelperFunctions.StringToEntityType(System.String)
+  - PathOS.EvaluationHelperFunctions.StringToSeverity(System.String)
+  langs:
+  - csharp
+  - vb
+  name: EvaluationHelperFunctions
+  nameWithType: EvaluationHelperFunctions
+  fullName: PathOS.EvaluationHelperFunctions
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class EvaluationHelperFunctions : MonoBehaviour'
+    content.vb: Public Class EvaluationHelperFunctions Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PathOS.EvaluationHelperFunctions.IndexToEntity(System.Int32)
+  commentId: M:PathOS.EvaluationHelperFunctions.IndexToEntity(System.Int32)
+  id: IndexToEntity(System.Int32)
+  parent: PathOS.EvaluationHelperFunctions
+  langs:
+  - csharp
+  - vb
+  name: IndexToEntity(int)
+  nameWithType: EvaluationHelperFunctions.IndexToEntity(int)
+  fullName: PathOS.EvaluationHelperFunctions.IndexToEntity(int)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static EntityType IndexToEntity(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: PathOS.EntityType
+    content.vb: Public Shared Function IndexToEntity(index As Integer) As EntityType
+  overload: PathOS.EvaluationHelperFunctions.IndexToEntity*
+  nameWithType.vb: EvaluationHelperFunctions.IndexToEntity(Integer)
+  fullName.vb: PathOS.EvaluationHelperFunctions.IndexToEntity(Integer)
+  name.vb: IndexToEntity(Integer)
+- uid: PathOS.EvaluationHelperFunctions.EntityToIndex(PathOS.EntityType)
+  commentId: M:PathOS.EvaluationHelperFunctions.EntityToIndex(PathOS.EntityType)
+  id: EntityToIndex(PathOS.EntityType)
+  parent: PathOS.EvaluationHelperFunctions
+  langs:
+  - csharp
+  - vb
+  name: EntityToIndex(EntityType)
+  nameWithType: EvaluationHelperFunctions.EntityToIndex(EntityType)
+  fullName: PathOS.EvaluationHelperFunctions.EntityToIndex(PathOS.EntityType)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static int EntityToIndex(EntityType type)
+    parameters:
+    - id: type
+      type: PathOS.EntityType
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function EntityToIndex(type As EntityType) As Integer
+  overload: PathOS.EvaluationHelperFunctions.EntityToIndex*
+- uid: PathOS.EvaluationHelperFunctions.SeverityToString(PathOS.Severity)
+  commentId: M:PathOS.EvaluationHelperFunctions.SeverityToString(PathOS.Severity)
+  id: SeverityToString(PathOS.Severity)
+  parent: PathOS.EvaluationHelperFunctions
+  langs:
+  - csharp
+  - vb
+  name: SeverityToString(Severity)
+  nameWithType: EvaluationHelperFunctions.SeverityToString(Severity)
+  fullName: PathOS.EvaluationHelperFunctions.SeverityToString(PathOS.Severity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static string SeverityToString(Severity name)
+    parameters:
+    - id: name
+      type: PathOS.Severity
+    return:
+      type: System.String
+    content.vb: Public Shared Function SeverityToString(name As Severity) As String
+  overload: PathOS.EvaluationHelperFunctions.SeverityToString*
+- uid: PathOS.EvaluationHelperFunctions.StringToEntityType(System.String)
+  commentId: M:PathOS.EvaluationHelperFunctions.StringToEntityType(System.String)
+  id: StringToEntityType(System.String)
+  parent: PathOS.EvaluationHelperFunctions
+  langs:
+  - csharp
+  - vb
+  name: StringToEntityType(string)
+  nameWithType: EvaluationHelperFunctions.StringToEntityType(string)
+  fullName: PathOS.EvaluationHelperFunctions.StringToEntityType(string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static EntityType StringToEntityType(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: PathOS.EntityType
+    content.vb: Public Shared Function StringToEntityType(name As String) As EntityType
+  overload: PathOS.EvaluationHelperFunctions.StringToEntityType*
+  nameWithType.vb: EvaluationHelperFunctions.StringToEntityType(String)
+  fullName.vb: PathOS.EvaluationHelperFunctions.StringToEntityType(String)
+  name.vb: StringToEntityType(String)
+- uid: PathOS.EvaluationHelperFunctions.EntityTypeToString(PathOS.EntityType)
+  commentId: M:PathOS.EvaluationHelperFunctions.EntityTypeToString(PathOS.EntityType)
+  id: EntityTypeToString(PathOS.EntityType)
+  parent: PathOS.EvaluationHelperFunctions
+  langs:
+  - csharp
+  - vb
+  name: EntityTypeToString(EntityType)
+  nameWithType: EvaluationHelperFunctions.EntityTypeToString(EntityType)
+  fullName: PathOS.EvaluationHelperFunctions.EntityTypeToString(PathOS.EntityType)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static string EntityTypeToString(EntityType name)
+    parameters:
+    - id: name
+      type: PathOS.EntityType
+    return:
+      type: System.String
+    content.vb: Public Shared Function EntityTypeToString(name As EntityType) As String
+  overload: PathOS.EvaluationHelperFunctions.EntityTypeToString*
+- uid: PathOS.EvaluationHelperFunctions.StringToSeverity(System.String)
+  commentId: M:PathOS.EvaluationHelperFunctions.StringToSeverity(System.String)
+  id: StringToSeverity(System.String)
+  parent: PathOS.EvaluationHelperFunctions
+  langs:
+  - csharp
+  - vb
+  name: StringToSeverity(string)
+  nameWithType: EvaluationHelperFunctions.StringToSeverity(string)
+  fullName: PathOS.EvaluationHelperFunctions.StringToSeverity(string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static Severity StringToSeverity(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: PathOS.Severity
+    content.vb: Public Shared Function StringToSeverity(name As String) As Severity
+  overload: PathOS.EvaluationHelperFunctions.StringToSeverity*
+  nameWithType.vb: EvaluationHelperFunctions.StringToSeverity(String)
+  fullName.vb: PathOS.EvaluationHelperFunctions.StringToSeverity(String)
+  name.vb: StringToSeverity(String)
+- uid: PathOS.EvaluationHelperFunctions.CategoryToString(PathOS.Category)
+  commentId: M:PathOS.EvaluationHelperFunctions.CategoryToString(PathOS.Category)
+  id: CategoryToString(PathOS.Category)
+  parent: PathOS.EvaluationHelperFunctions
+  langs:
+  - csharp
+  - vb
+  name: CategoryToString(Category)
+  nameWithType: EvaluationHelperFunctions.CategoryToString(Category)
+  fullName: PathOS.EvaluationHelperFunctions.CategoryToString(PathOS.Category)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static string CategoryToString(Category name)
+    parameters:
+    - id: name
+      type: PathOS.Category
+    return:
+      type: System.String
+    content.vb: Public Shared Function CategoryToString(name As Category) As String
+  overload: PathOS.EvaluationHelperFunctions.CategoryToString*
+- uid: PathOS.EvaluationHelperFunctions.StringToCategory(System.String)
+  commentId: M:PathOS.EvaluationHelperFunctions.StringToCategory(System.String)
+  id: StringToCategory(System.String)
+  parent: PathOS.EvaluationHelperFunctions
+  langs:
+  - csharp
+  - vb
+  name: StringToCategory(string)
+  nameWithType: EvaluationHelperFunctions.StringToCategory(string)
+  fullName: PathOS.EvaluationHelperFunctions.StringToCategory(string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static Category StringToCategory(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: PathOS.Category
+    content.vb: Public Shared Function StringToCategory(name As String) As Category
+  overload: PathOS.EvaluationHelperFunctions.StringToCategory*
+  nameWithType.vb: EvaluationHelperFunctions.StringToCategory(String)
+  fullName.vb: PathOS.EvaluationHelperFunctions.StringToCategory(String)
+  name.vb: StringToCategory(String)
+- uid: PathOS.EvaluationHelperFunctions.#ctor
+  commentId: M:PathOS.EvaluationHelperFunctions.#ctor
+  id: '#ctor'
+  parent: PathOS.EvaluationHelperFunctions
+  langs:
+  - csharp
+  - vb
+  name: EvaluationHelperFunctions()
+  nameWithType: EvaluationHelperFunctions.EvaluationHelperFunctions()
+  fullName: PathOS.EvaluationHelperFunctions.EvaluationHelperFunctions()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public EvaluationHelperFunctions()
+    content.vb: Public Sub New()
+  overload: PathOS.EvaluationHelperFunctions.#ctor*
+  nameWithType.vb: EvaluationHelperFunctions.New()
+  fullName.vb: PathOS.EvaluationHelperFunctions.New()
+  name.vb: New()
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PathOS.EvaluationHelperFunctions.IndexToEntity*
+  commentId: Overload:PathOS.EvaluationHelperFunctions.IndexToEntity
+  isExternal: true
+  href: PathOS.EvaluationHelperFunctions.html#PathOS_EvaluationHelperFunctions_IndexToEntity_System_Int32_
+  name: IndexToEntity
+  nameWithType: EvaluationHelperFunctions.IndexToEntity
+  fullName: PathOS.EvaluationHelperFunctions.IndexToEntity
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PathOS.EntityType
+  commentId: T:PathOS.EntityType
+  parent: PathOS
+  isExternal: true
+  href: PathOS.EntityType.html
+  name: EntityType
+  nameWithType: EntityType
+  fullName: PathOS.EntityType
+- uid: PathOS.EvaluationHelperFunctions.EntityToIndex*
+  commentId: Overload:PathOS.EvaluationHelperFunctions.EntityToIndex
+  isExternal: true
+  href: PathOS.EvaluationHelperFunctions.html#PathOS_EvaluationHelperFunctions_EntityToIndex_PathOS_EntityType_
+  name: EntityToIndex
+  nameWithType: EvaluationHelperFunctions.EntityToIndex
+  fullName: PathOS.EvaluationHelperFunctions.EntityToIndex
+- uid: PathOS.EvaluationHelperFunctions.SeverityToString*
+  commentId: Overload:PathOS.EvaluationHelperFunctions.SeverityToString
+  isExternal: true
+  href: PathOS.EvaluationHelperFunctions.html#PathOS_EvaluationHelperFunctions_SeverityToString_PathOS_Severity_
+  name: SeverityToString
+  nameWithType: EvaluationHelperFunctions.SeverityToString
+  fullName: PathOS.EvaluationHelperFunctions.SeverityToString
+- uid: PathOS.Severity
+  commentId: T:PathOS.Severity
+  parent: PathOS
+  isExternal: true
+  href: PathOS.Severity.html
+  name: Severity
+  nameWithType: Severity
+  fullName: PathOS.Severity
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PathOS.EvaluationHelperFunctions.StringToEntityType*
+  commentId: Overload:PathOS.EvaluationHelperFunctions.StringToEntityType
+  isExternal: true
+  href: PathOS.EvaluationHelperFunctions.html#PathOS_EvaluationHelperFunctions_StringToEntityType_System_String_
+  name: StringToEntityType
+  nameWithType: EvaluationHelperFunctions.StringToEntityType
+  fullName: PathOS.EvaluationHelperFunctions.StringToEntityType
+- uid: PathOS.EvaluationHelperFunctions.EntityTypeToString*
+  commentId: Overload:PathOS.EvaluationHelperFunctions.EntityTypeToString
+  isExternal: true
+  href: PathOS.EvaluationHelperFunctions.html#PathOS_EvaluationHelperFunctions_EntityTypeToString_PathOS_EntityType_
+  name: EntityTypeToString
+  nameWithType: EvaluationHelperFunctions.EntityTypeToString
+  fullName: PathOS.EvaluationHelperFunctions.EntityTypeToString
+- uid: PathOS.EvaluationHelperFunctions.StringToSeverity*
+  commentId: Overload:PathOS.EvaluationHelperFunctions.StringToSeverity
+  isExternal: true
+  href: PathOS.EvaluationHelperFunctions.html#PathOS_EvaluationHelperFunctions_StringToSeverity_System_String_
+  name: StringToSeverity
+  nameWithType: EvaluationHelperFunctions.StringToSeverity
+  fullName: PathOS.EvaluationHelperFunctions.StringToSeverity
+- uid: PathOS.EvaluationHelperFunctions.CategoryToString*
+  commentId: Overload:PathOS.EvaluationHelperFunctions.CategoryToString
+  isExternal: true
+  href: PathOS.EvaluationHelperFunctions.html#PathOS_EvaluationHelperFunctions_CategoryToString_PathOS_Category_
+  name: CategoryToString
+  nameWithType: EvaluationHelperFunctions.CategoryToString
+  fullName: PathOS.EvaluationHelperFunctions.CategoryToString
+- uid: PathOS.Category
+  commentId: T:PathOS.Category
+  parent: PathOS
+  isExternal: true
+  href: PathOS.Category.html
+  name: Category
+  nameWithType: Category
+  fullName: PathOS.Category
+- uid: PathOS.EvaluationHelperFunctions.StringToCategory*
+  commentId: Overload:PathOS.EvaluationHelperFunctions.StringToCategory
+  isExternal: true
+  href: PathOS.EvaluationHelperFunctions.html#PathOS_EvaluationHelperFunctions_StringToCategory_System_String_
+  name: StringToCategory
+  nameWithType: EvaluationHelperFunctions.StringToCategory
+  fullName: PathOS.EvaluationHelperFunctions.StringToCategory
+- uid: PathOS.EvaluationHelperFunctions.#ctor*
+  commentId: Overload:PathOS.EvaluationHelperFunctions.#ctor
+  isExternal: true
+  href: PathOS.EvaluationHelperFunctions.html#PathOS_EvaluationHelperFunctions__ctor
+  name: EvaluationHelperFunctions
+  nameWithType: EvaluationHelperFunctions.EvaluationHelperFunctions
+  fullName: PathOS.EvaluationHelperFunctions.EvaluationHelperFunctions
+  nameWithType.vb: EvaluationHelperFunctions.New
+  fullName.vb: PathOS.EvaluationHelperFunctions.New
+  name.vb: New
+shouldSkipMarkup: true

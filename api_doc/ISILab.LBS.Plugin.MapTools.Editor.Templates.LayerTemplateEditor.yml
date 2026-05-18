@@ -1,0 +1,182 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor
+  commentId: T:ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor
+  id: LayerTemplateEditor
+  parent: ISILab.LBS.Plugin.MapTools.Editor.Templates
+  children:
+  - ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.#ctor
+  - ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.OnInspectorGUI
+  langs:
+  - csharp
+  - vb
+  name: LayerTemplateEditor
+  nameWithType: LayerTemplateEditor
+  fullName: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.MapTools.Editor.Templates
+  syntax:
+    content: >-
+      [LBSCustomEditor("Layer template", typeof(LayerTemplate))]
+
+      public class LayerTemplateEditor : Editor
+    content.vb: >-
+      <LBSCustomEditor("Layer template", GetType(LayerTemplate))>
+
+      Public Class LayerTemplateEditor Inherits Editor
+  inheritance:
+  - System.Object
+  attributes:
+  - type: ISILab.LBS.LBSCustomEditorAttribute
+    ctor: ISILab.LBS.LBSCustomEditorAttribute.#ctor(System.String,System.Type)
+    arguments:
+    - type: System.String
+      value: Layer template
+    - type: System.Type
+      value: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplate
+- uid: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.OnInspectorGUI
+  commentId: M:ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.OnInspectorGUI
+  id: OnInspectorGUI
+  parent: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor
+  langs:
+  - csharp
+  - vb
+  name: OnInspectorGUI()
+  nameWithType: LayerTemplateEditor.OnInspectorGUI()
+  fullName: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.OnInspectorGUI()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.MapTools.Editor.Templates
+  example: []
+  syntax:
+    content: public override void OnInspectorGUI()
+    content.vb: Public Overrides Sub OnInspectorGUI()
+  overload: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.OnInspectorGUI*
+- uid: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.#ctor
+  commentId: M:ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor
+  langs:
+  - csharp
+  - vb
+  name: LayerTemplateEditor()
+  nameWithType: LayerTemplateEditor.LayerTemplateEditor()
+  fullName: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.LayerTemplateEditor()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.MapTools.Editor.Templates
+  syntax:
+    content: public LayerTemplateEditor()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.#ctor*
+  nameWithType.vb: LayerTemplateEditor.New()
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.New()
+  name.vb: New()
+references:
+- uid: ISILab.LBS.Plugin.MapTools.Editor.Templates
+  commentId: N:ISILab.LBS.Plugin.MapTools.Editor.Templates
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.Editor.Templates
+  nameWithType: ISILab.LBS.Plugin.MapTools.Editor.Templates
+  fullName: ISILab.LBS.Plugin.MapTools.Editor.Templates
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Editor.Templates
+    name: Templates
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Editor.Templates.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Editor.Templates
+    name: Templates
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Editor.Templates.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.OnInspectorGUI*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.OnInspectorGUI
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.html#ISILab_LBS_Plugin_MapTools_Editor_Templates_LayerTemplateEditor_OnInspectorGUI
+  name: OnInspectorGUI
+  nameWithType: LayerTemplateEditor.OnInspectorGUI
+  fullName: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.OnInspectorGUI
+- uid: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.html#ISILab_LBS_Plugin_MapTools_Editor_Templates_LayerTemplateEditor__ctor
+  name: LayerTemplateEditor
+  nameWithType: LayerTemplateEditor.LayerTemplateEditor
+  fullName: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.LayerTemplateEditor
+  nameWithType.vb: LayerTemplateEditor.New
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Editor.Templates.LayerTemplateEditor.New
+  name.vb: New
+shouldSkipMarkup: true

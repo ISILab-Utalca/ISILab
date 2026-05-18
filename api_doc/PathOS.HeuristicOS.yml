@@ -1,0 +1,238 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.HeuristicOS
+  commentId: T:PathOS.HeuristicOS
+  id: HeuristicOS
+  parent: PathOS
+  children:
+  - PathOS.HeuristicOS.#ctor
+  - PathOS.HeuristicOS.UpdateWeightsBasedOnHealth(PathOS.PathOSAgent)
+  - PathOS.HeuristicOS.heuristicScales
+  langs:
+  - csharp
+  - vb
+  name: HeuristicOS
+  nameWithType: HeuristicOS
+  fullName: PathOS.HeuristicOS
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class HeuristicOS : MonoBehaviour'
+    content.vb: Public Class HeuristicOS Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PathOS.HeuristicOS.heuristicScales
+  commentId: F:PathOS.HeuristicOS.heuristicScales
+  id: heuristicScales
+  parent: PathOS.HeuristicOS
+  langs:
+  - csharp
+  - vb
+  name: heuristicScales
+  nameWithType: HeuristicOS.heuristicScales
+  fullName: PathOS.HeuristicOS.heuristicScales
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<HeuristicScale> heuristicScales
+    return:
+      type: System.Collections.Generic.List{PathOS.HeuristicScale}
+    content.vb: Public heuristicScales As List(Of HeuristicScale)
+- uid: PathOS.HeuristicOS.UpdateWeightsBasedOnHealth(PathOS.PathOSAgent)
+  commentId: M:PathOS.HeuristicOS.UpdateWeightsBasedOnHealth(PathOS.PathOSAgent)
+  id: UpdateWeightsBasedOnHealth(PathOS.PathOSAgent)
+  parent: PathOS.HeuristicOS
+  langs:
+  - csharp
+  - vb
+  name: UpdateWeightsBasedOnHealth(PathOSAgent)
+  nameWithType: HeuristicOS.UpdateWeightsBasedOnHealth(PathOSAgent)
+  fullName: PathOS.HeuristicOS.UpdateWeightsBasedOnHealth(PathOS.PathOSAgent)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void UpdateWeightsBasedOnHealth(PathOSAgent agent)
+    parameters:
+    - id: agent
+      type: PathOS.PathOSAgent
+    content.vb: Public Sub UpdateWeightsBasedOnHealth(agent As PathOSAgent)
+  overload: PathOS.HeuristicOS.UpdateWeightsBasedOnHealth*
+- uid: PathOS.HeuristicOS.#ctor
+  commentId: M:PathOS.HeuristicOS.#ctor
+  id: '#ctor'
+  parent: PathOS.HeuristicOS
+  langs:
+  - csharp
+  - vb
+  name: HeuristicOS()
+  nameWithType: HeuristicOS.HeuristicOS()
+  fullName: PathOS.HeuristicOS.HeuristicOS()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public HeuristicOS()
+    content.vb: Public Sub New()
+  overload: PathOS.HeuristicOS.#ctor*
+  nameWithType.vb: HeuristicOS.New()
+  fullName.vb: PathOS.HeuristicOS.New()
+  name.vb: New()
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{PathOS.HeuristicScale}
+  commentId: T:System.Collections.Generic.List{PathOS.HeuristicScale}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<HeuristicScale>
+  nameWithType: List<HeuristicScale>
+  fullName: System.Collections.Generic.List<PathOS.HeuristicScale>
+  nameWithType.vb: List(Of HeuristicScale)
+  fullName.vb: System.Collections.Generic.List(Of PathOS.HeuristicScale)
+  name.vb: List(Of HeuristicScale)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PathOS.HeuristicScale
+    name: HeuristicScale
+    isExternal: true
+    href: PathOS.HeuristicScale.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.HeuristicScale
+    name: HeuristicScale
+    isExternal: true
+    href: PathOS.HeuristicScale.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PathOS.HeuristicOS.UpdateWeightsBasedOnHealth*
+  commentId: Overload:PathOS.HeuristicOS.UpdateWeightsBasedOnHealth
+  isExternal: true
+  href: PathOS.HeuristicOS.html#PathOS_HeuristicOS_UpdateWeightsBasedOnHealth_PathOS_PathOSAgent_
+  name: UpdateWeightsBasedOnHealth
+  nameWithType: HeuristicOS.UpdateWeightsBasedOnHealth
+  fullName: PathOS.HeuristicOS.UpdateWeightsBasedOnHealth
+- uid: PathOS.PathOSAgent
+  commentId: T:PathOS.PathOSAgent
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSAgent.html
+  name: PathOSAgent
+  nameWithType: PathOSAgent
+  fullName: PathOS.PathOSAgent
+- uid: PathOS.HeuristicOS.#ctor*
+  commentId: Overload:PathOS.HeuristicOS.#ctor
+  isExternal: true
+  href: PathOS.HeuristicOS.html#PathOS_HeuristicOS__ctor
+  name: HeuristicOS
+  nameWithType: HeuristicOS.HeuristicOS
+  fullName: PathOS.HeuristicOS.HeuristicOS
+  nameWithType.vb: HeuristicOS.New
+  fullName.vb: PathOS.HeuristicOS.New
+  name.vb: New
+shouldSkipMarkup: true

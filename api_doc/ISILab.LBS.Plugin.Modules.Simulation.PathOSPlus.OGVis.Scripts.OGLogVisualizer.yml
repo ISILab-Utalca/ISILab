@@ -1,0 +1,1323 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  commentId: T:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  id: OGLogVisualizer
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  children:
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.#ctor
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayHeight
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayRange
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyHeatmapSettings
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ClearData
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.IsDataInitialized
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.LoadLogs
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.MAX_ENTITY_RADIUS
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.MIN_ENTITY_RADIUS
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.PATH_WIDTH
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ParseHeader(OGVis.PlayerLog,System.String[])
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.RangeRemap(System.Single,System.Single,System.Single,System.Single,System.Single)
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ReclusterEvents
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmap
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmapVisibility
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.aggregateInteractions
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.currentTimeRange
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.directoriesLoaded
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.displayHeight
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.displayTimeRange
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.fullTimeRange
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapAggregateActiveOnly
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapAlpha
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapGradient
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapUseTimeSlice
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapVisualizer
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionAggregateActiveOnly
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionGradient
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionUseTimeSlice
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.logDirectory
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.pLogs
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showDirectionArrows
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showEntities
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showHeatmap
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showIndividualInteractions
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showIndividualPaths
+  - ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.tileSize
+  langs:
+  - csharp
+  - vb
+  name: OGLogVisualizer
+  nameWithType: OGLogVisualizer
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: 'public class OGLogVisualizer : MonoBehaviour'
+    content.vb: Public Class OGLogVisualizer Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.logDirectory
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.logDirectory
+  id: logDirectory
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: logDirectory
+  nameWithType: OGLogVisualizer.logDirectory
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.logDirectory
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public string logDirectory
+    return:
+      type: System.String
+    content.vb: Public logDirectory As String
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.directoriesLoaded
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.directoriesLoaded
+  id: directoriesLoaded
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: directoriesLoaded
+  nameWithType: OGLogVisualizer.directoriesLoaded
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.directoriesLoaded
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public List<string> directoriesLoaded
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public directoriesLoaded As List(Of String)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapVisualizer
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapVisualizer
+  id: heatmapVisualizer
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: heatmapVisualizer
+  nameWithType: OGLogVisualizer.heatmapVisualizer
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapVisualizer
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public OGLogHeatmap[] heatmapVisualizer
+    return:
+      type: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap[]
+    content.vb: Public heatmapVisualizer As OGLogHeatmap()
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showHeatmap
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showHeatmap
+  id: showHeatmap
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: showHeatmap
+  nameWithType: OGLogVisualizer.showHeatmap
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showHeatmap
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool showHeatmap
+    return:
+      type: System.Boolean
+    content.vb: Public showHeatmap As Boolean
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapGradient
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapGradient
+  id: heatmapGradient
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: heatmapGradient
+  nameWithType: OGLogVisualizer.heatmapGradient
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapGradient
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public Gradient heatmapGradient
+    return:
+      type: UnityEngine.Gradient
+    content.vb: Public heatmapGradient As Gradient
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapAlpha
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapAlpha
+  id: heatmapAlpha
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: heatmapAlpha
+  nameWithType: OGLogVisualizer.heatmapAlpha
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapAlpha
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public float heatmapAlpha
+    return:
+      type: System.Single
+    content.vb: Public heatmapAlpha As Single
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapAggregateActiveOnly
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapAggregateActiveOnly
+  id: heatmapAggregateActiveOnly
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: heatmapAggregateActiveOnly
+  nameWithType: OGLogVisualizer.heatmapAggregateActiveOnly
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapAggregateActiveOnly
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool heatmapAggregateActiveOnly
+    return:
+      type: System.Boolean
+    content.vb: Public heatmapAggregateActiveOnly As Boolean
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapUseTimeSlice
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapUseTimeSlice
+  id: heatmapUseTimeSlice
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: heatmapUseTimeSlice
+  nameWithType: OGLogVisualizer.heatmapUseTimeSlice
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.heatmapUseTimeSlice
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool heatmapUseTimeSlice
+    return:
+      type: System.Boolean
+    content.vb: Public heatmapUseTimeSlice As Boolean
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showIndividualPaths
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showIndividualPaths
+  id: showIndividualPaths
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: showIndividualPaths
+  nameWithType: OGLogVisualizer.showIndividualPaths
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showIndividualPaths
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool showIndividualPaths
+    return:
+      type: System.Boolean
+    content.vb: Public showIndividualPaths As Boolean
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showDirectionArrows
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showDirectionArrows
+  id: showDirectionArrows
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: showDirectionArrows
+  nameWithType: OGLogVisualizer.showDirectionArrows
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showDirectionArrows
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool showDirectionArrows
+    return:
+      type: System.Boolean
+    content.vb: Public showDirectionArrows As Boolean
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showEntities
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showEntities
+  id: showEntities
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: showEntities
+  nameWithType: OGLogVisualizer.showEntities
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showEntities
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: >-
+      [PathOSDisplayName("Show Aggregate Interactions")]
+
+      public bool showEntities
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <PathOSDisplayName("Show Aggregate Interactions")>
+
+      Public showEntities As Boolean
+  attributes:
+  - type: PathOS.PathOSDisplayNameAttribute
+    ctor: PathOS.PathOSDisplayNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Show Aggregate Interactions
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionGradient
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionGradient
+  id: interactionGradient
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: interactionGradient
+  nameWithType: OGLogVisualizer.interactionGradient
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionGradient
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public Gradient interactionGradient
+    return:
+      type: UnityEngine.Gradient
+    content.vb: Public interactionGradient As Gradient
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionAggregateActiveOnly
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionAggregateActiveOnly
+  id: interactionAggregateActiveOnly
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: interactionAggregateActiveOnly
+  nameWithType: OGLogVisualizer.interactionAggregateActiveOnly
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionAggregateActiveOnly
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool interactionAggregateActiveOnly
+    return:
+      type: System.Boolean
+    content.vb: Public interactionAggregateActiveOnly As Boolean
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionUseTimeSlice
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionUseTimeSlice
+  id: interactionUseTimeSlice
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: interactionUseTimeSlice
+  nameWithType: OGLogVisualizer.interactionUseTimeSlice
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.interactionUseTimeSlice
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool interactionUseTimeSlice
+    return:
+      type: System.Boolean
+    content.vb: Public interactionUseTimeSlice As Boolean
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showIndividualInteractions
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showIndividualInteractions
+  id: showIndividualInteractions
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: showIndividualInteractions
+  nameWithType: OGLogVisualizer.showIndividualInteractions
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.showIndividualInteractions
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool showIndividualInteractions
+    return:
+      type: System.Boolean
+    content.vb: Public showIndividualInteractions As Boolean
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.displayHeight
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.displayHeight
+  id: displayHeight
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: displayHeight
+  nameWithType: OGLogVisualizer.displayHeight
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.displayHeight
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public float displayHeight
+    return:
+      type: System.Single
+    content.vb: Public displayHeight As Single
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.currentTimeRange
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.currentTimeRange
+  id: currentTimeRange
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: currentTimeRange
+  nameWithType: OGLogVisualizer.currentTimeRange
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.currentTimeRange
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public TimeRange currentTimeRange
+    return:
+      type: OGVis.TimeRange
+    content.vb: Public currentTimeRange As TimeRange
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.displayTimeRange
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.displayTimeRange
+  id: displayTimeRange
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: displayTimeRange
+  nameWithType: OGLogVisualizer.displayTimeRange
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.displayTimeRange
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public TimeRange displayTimeRange
+    return:
+      type: OGVis.TimeRange
+    content.vb: Public displayTimeRange As TimeRange
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.fullTimeRange
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.fullTimeRange
+  id: fullTimeRange
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: fullTimeRange
+  nameWithType: OGLogVisualizer.fullTimeRange
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.fullTimeRange
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public TimeRange fullTimeRange
+    return:
+      type: OGVis.TimeRange
+    content.vb: Public fullTimeRange As TimeRange
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.tileSize
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.tileSize
+  id: tileSize
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: tileSize
+  nameWithType: OGLogVisualizer.tileSize
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.tileSize
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public Vector2 tileSize
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public tileSize As Vector2
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.PATH_WIDTH
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.PATH_WIDTH
+  id: PATH_WIDTH
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: PATH_WIDTH
+  nameWithType: OGLogVisualizer.PATH_WIDTH
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.PATH_WIDTH
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public const float PATH_WIDTH = 2
+    return:
+      type: System.Single
+    content.vb: Public Const PATH_WIDTH As Single = 2
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.MIN_ENTITY_RADIUS
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.MIN_ENTITY_RADIUS
+  id: MIN_ENTITY_RADIUS
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: MIN_ENTITY_RADIUS
+  nameWithType: OGLogVisualizer.MIN_ENTITY_RADIUS
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.MIN_ENTITY_RADIUS
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public const float MIN_ENTITY_RADIUS = 0.1
+    return:
+      type: System.Single
+    content.vb: Public Const MIN_ENTITY_RADIUS As Single = 0.1
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.MAX_ENTITY_RADIUS
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.MAX_ENTITY_RADIUS
+  id: MAX_ENTITY_RADIUS
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: MAX_ENTITY_RADIUS
+  nameWithType: OGLogVisualizer.MAX_ENTITY_RADIUS
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.MAX_ENTITY_RADIUS
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public const float MAX_ENTITY_RADIUS = 2
+    return:
+      type: System.Single
+    content.vb: Public Const MAX_ENTITY_RADIUS As Single = 2
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.pLogs
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.pLogs
+  id: pLogs
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: pLogs
+  nameWithType: OGLogVisualizer.pLogs
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.pLogs
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public List<PlayerLog> pLogs
+    return:
+      type: System.Collections.Generic.List{OGVis.PlayerLog}
+    content.vb: Public pLogs As List(Of PlayerLog)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.aggregateInteractions
+  commentId: F:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.aggregateInteractions
+  id: aggregateInteractions
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: aggregateInteractions
+  nameWithType: OGLogVisualizer.aggregateInteractions
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.aggregateInteractions
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public Dictionary<string, OGLogVisualizer.AggregateInteraction> aggregateInteractions
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.AggregateInteraction}
+    content.vb: Public aggregateInteractions As Dictionary(Of String, OGLogVisualizer.AggregateInteraction)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayRange
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayRange
+  id: ApplyDisplayRange
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: ApplyDisplayRange()
+  nameWithType: OGLogVisualizer.ApplyDisplayRange()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayRange()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void ApplyDisplayRange()
+    content.vb: Public Sub ApplyDisplayRange()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayRange*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.LoadLogs
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.LoadLogs
+  id: LoadLogs
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: LoadLogs()
+  nameWithType: OGLogVisualizer.LoadLogs()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.LoadLogs()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void LoadLogs()
+    content.vb: Public Sub LoadLogs()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.LoadLogs*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ParseHeader(OGVis.PlayerLog,System.String[])
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ParseHeader(OGVis.PlayerLog,System.String[])
+  id: ParseHeader(OGVis.PlayerLog,System.String[])
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: ParseHeader(PlayerLog, string[])
+  nameWithType: OGLogVisualizer.ParseHeader(PlayerLog, string[])
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ParseHeader(OGVis.PlayerLog, string[])
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void ParseHeader(PlayerLog pLog, string[] lineContents)
+    parameters:
+    - id: pLog
+      type: OGVis.PlayerLog
+    - id: lineContents
+      type: System.String[]
+    content.vb: Public Sub ParseHeader(pLog As PlayerLog, lineContents As String())
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ParseHeader*
+  nameWithType.vb: OGLogVisualizer.ParseHeader(PlayerLog, String())
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ParseHeader(OGVis.PlayerLog, String())
+  name.vb: ParseHeader(PlayerLog, String())
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ClearData
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ClearData
+  id: ClearData
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: ClearData()
+  nameWithType: OGLogVisualizer.ClearData()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ClearData()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void ClearData()
+    content.vb: Public Sub ClearData()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ClearData*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmapVisibility
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmapVisibility
+  id: UpdateHeatmapVisibility
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: UpdateHeatmapVisibility()
+  nameWithType: OGLogVisualizer.UpdateHeatmapVisibility()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmapVisibility()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void UpdateHeatmapVisibility()
+    content.vb: Public Sub UpdateHeatmapVisibility()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmapVisibility*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyHeatmapSettings
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyHeatmapSettings
+  id: ApplyHeatmapSettings
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: ApplyHeatmapSettings()
+  nameWithType: OGLogVisualizer.ApplyHeatmapSettings()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyHeatmapSettings()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void ApplyHeatmapSettings()
+    content.vb: Public Sub ApplyHeatmapSettings()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyHeatmapSettings*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmap
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmap
+  id: UpdateHeatmap
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: UpdateHeatmap()
+  nameWithType: OGLogVisualizer.UpdateHeatmap()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmap()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void UpdateHeatmap()
+    content.vb: Public Sub UpdateHeatmap()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmap*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayHeight
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayHeight
+  id: ApplyDisplayHeight
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: ApplyDisplayHeight()
+  nameWithType: OGLogVisualizer.ApplyDisplayHeight()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayHeight()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void ApplyDisplayHeight()
+    content.vb: Public Sub ApplyDisplayHeight()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayHeight*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ReclusterEvents
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ReclusterEvents
+  id: ReclusterEvents
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: ReclusterEvents()
+  nameWithType: OGLogVisualizer.ReclusterEvents()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ReclusterEvents()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public void ReclusterEvents()
+    content.vb: Public Sub ReclusterEvents()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ReclusterEvents*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.RangeRemap(System.Single,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.RangeRemap(System.Single,System.Single,System.Single,System.Single,System.Single)
+  id: RangeRemap(System.Single,System.Single,System.Single,System.Single,System.Single)
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: RangeRemap(float, float, float, float, float)
+  nameWithType: OGLogVisualizer.RangeRemap(float, float, float, float, float)
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.RangeRemap(float, float, float, float, float)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public static float RangeRemap(float v, float o1, float o2, float s1, float s2)
+    parameters:
+    - id: v
+      type: System.Single
+    - id: o1
+      type: System.Single
+    - id: o2
+      type: System.Single
+    - id: s1
+      type: System.Single
+    - id: s2
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function RangeRemap(v As Single, o1 As Single, o2 As Single, s1 As Single, s2 As Single) As Single
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.RangeRemap*
+  nameWithType.vb: OGLogVisualizer.RangeRemap(Single, Single, Single, Single, Single)
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.RangeRemap(Single, Single, Single, Single, Single)
+  name.vb: RangeRemap(Single, Single, Single, Single, Single)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.IsDataInitialized
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.IsDataInitialized
+  id: IsDataInitialized
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: IsDataInitialized()
+  nameWithType: OGLogVisualizer.IsDataInitialized()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.IsDataInitialized()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public bool IsDataInitialized()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsDataInitialized() As Boolean
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.IsDataInitialized*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.#ctor
+  commentId: M:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+  langs:
+  - csharp
+  - vb
+  name: OGLogVisualizer()
+  nameWithType: OGLogVisualizer.OGLogVisualizer()
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.OGLogVisualizer()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  syntax:
+    content: public OGLogVisualizer()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.#ctor*
+  nameWithType.vb: OGLogVisualizer.New()
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.New()
+  name.vb: New()
+references:
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  commentId: N:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  nameWithType: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap[]
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html
+  name: OGLogHeatmap[]
+  nameWithType: OGLogHeatmap[]
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap[]
+  nameWithType.vb: OGLogHeatmap()
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap()
+  name.vb: OGLogHeatmap()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+    name: OGLogHeatmap
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap
+    name: OGLogHeatmap
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogHeatmap.html
+  - name: (
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine.Gradient
+  isExternal: true
+  name: Gradient
+  nameWithType: Gradient
+  fullName: UnityEngine.Gradient
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: OGVis.TimeRange
+  commentId: T:OGVis.TimeRange
+  parent: OGVis
+  isExternal: true
+  href: OGVis.TimeRange.html
+  name: TimeRange
+  nameWithType: TimeRange
+  fullName: OGVis.TimeRange
+- uid: OGVis
+  commentId: N:OGVis
+  isExternal: true
+  href: OGVis.html
+  name: OGVis
+  nameWithType: OGVis
+  fullName: OGVis
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: System.Collections.Generic.List{OGVis.PlayerLog}
+  commentId: T:System.Collections.Generic.List{OGVis.PlayerLog}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<PlayerLog>
+  nameWithType: List<PlayerLog>
+  fullName: System.Collections.Generic.List<OGVis.PlayerLog>
+  nameWithType.vb: List(Of PlayerLog)
+  fullName.vb: System.Collections.Generic.List(Of OGVis.PlayerLog)
+  name.vb: List(Of PlayerLog)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary{System.String,ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.AggregateInteraction}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.AggregateInteraction}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, OGLogVisualizer.AggregateInteraction>
+  nameWithType: Dictionary<string, OGLogVisualizer.AggregateInteraction>
+  fullName: System.Collections.Generic.Dictionary<string, ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.AggregateInteraction>
+  nameWithType.vb: Dictionary(Of String, OGLogVisualizer.AggregateInteraction)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.AggregateInteraction)
+  name.vb: Dictionary(Of String, OGLogVisualizer.AggregateInteraction)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+    name: OGLogVisualizer
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.AggregateInteraction
+    name: AggregateInteraction
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.AggregateInteraction.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer
+    name: OGLogVisualizer
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.AggregateInteraction
+    name: AggregateInteraction
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.AggregateInteraction.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayRange*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayRange
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_ApplyDisplayRange
+  name: ApplyDisplayRange
+  nameWithType: OGLogVisualizer.ApplyDisplayRange
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayRange
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.LoadLogs*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.LoadLogs
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_LoadLogs
+  name: LoadLogs
+  nameWithType: OGLogVisualizer.LoadLogs
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.LoadLogs
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ParseHeader*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ParseHeader
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_ParseHeader_OGVis_PlayerLog_System_String___
+  name: ParseHeader
+  nameWithType: OGLogVisualizer.ParseHeader
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ParseHeader
+- uid: OGVis.PlayerLog
+  commentId: T:OGVis.PlayerLog
+  parent: OGVis
+  isExternal: true
+  href: OGVis.PlayerLog.html
+  name: PlayerLog
+  nameWithType: PlayerLog
+  fullName: OGVis.PlayerLog
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ClearData*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ClearData
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_ClearData
+  name: ClearData
+  nameWithType: OGLogVisualizer.ClearData
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ClearData
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmapVisibility*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmapVisibility
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_UpdateHeatmapVisibility
+  name: UpdateHeatmapVisibility
+  nameWithType: OGLogVisualizer.UpdateHeatmapVisibility
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmapVisibility
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyHeatmapSettings*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyHeatmapSettings
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_ApplyHeatmapSettings
+  name: ApplyHeatmapSettings
+  nameWithType: OGLogVisualizer.ApplyHeatmapSettings
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyHeatmapSettings
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmap*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmap
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_UpdateHeatmap
+  name: UpdateHeatmap
+  nameWithType: OGLogVisualizer.UpdateHeatmap
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.UpdateHeatmap
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayHeight*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayHeight
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_ApplyDisplayHeight
+  name: ApplyDisplayHeight
+  nameWithType: OGLogVisualizer.ApplyDisplayHeight
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ApplyDisplayHeight
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ReclusterEvents*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ReclusterEvents
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_ReclusterEvents
+  name: ReclusterEvents
+  nameWithType: OGLogVisualizer.ReclusterEvents
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.ReclusterEvents
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.RangeRemap*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.RangeRemap
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_RangeRemap_System_Single_System_Single_System_Single_System_Single_System_Single_
+  name: RangeRemap
+  nameWithType: OGLogVisualizer.RangeRemap
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.RangeRemap
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.IsDataInitialized*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.IsDataInitialized
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer_IsDataInitialized
+  name: IsDataInitialized
+  nameWithType: OGLogVisualizer.IsDataInitialized
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.IsDataInitialized
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.html#ISILab_LBS_Plugin_Modules_Simulation_PathOSPlus_OGVis_Scripts_OGLogVisualizer__ctor
+  name: OGLogVisualizer
+  nameWithType: OGLogVisualizer.OGLogVisualizer
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.OGLogVisualizer
+  nameWithType.vb: OGLogVisualizer.New
+  fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogVisualizer.New
+  name.vb: New
+shouldSkipMarkup: true

@@ -1,0 +1,666 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Components.SimulationTag
+  commentId: T:ISILab.LBS.Components.SimulationTag
+  id: SimulationTag
+  parent: ISILab.LBS.Components
+  children:
+  - ISILab.LBS.Components.SimulationTag.#ctor
+  - ISILab.LBS.Components.SimulationTag.Category
+  - ISILab.LBS.Components.SimulationTag.Color
+  - ISILab.LBS.Components.SimulationTag.EntityType
+  - ISILab.LBS.Components.SimulationTag.Equals(System.Object)
+  - ISILab.LBS.Components.SimulationTag.GetHashCode
+  - ISILab.LBS.Components.SimulationTag.Icon
+  - ISILab.LBS.Components.SimulationTag.Init(System.String,UnityEngine.Color,UnityEngine.Texture2D)
+  - ISILab.LBS.Components.SimulationTag.Label
+  - ISILab.LBS.Components.SimulationTag.OnChangeCategory
+  - ISILab.LBS.Components.SimulationTag.OnChangeColor
+  - ISILab.LBS.Components.SimulationTag.OnChangeEntityType
+  - ISILab.LBS.Components.SimulationTag.OnChangeIcon
+  - ISILab.LBS.Components.SimulationTag.OnChangeText
+  - ISILab.LBS.Components.SimulationTag.ToLBSTag
+  - ISILab.LBS.Components.SimulationTag.category
+  - ISILab.LBS.Components.SimulationTag.color
+  - ISILab.LBS.Components.SimulationTag.icon
+  langs:
+  - csharp
+  - vb
+  name: SimulationTag
+  nameWithType: SimulationTag
+  fullName: ISILab.LBS.Components.SimulationTag
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: 'public class SimulationTag : ScriptableObject'
+    content.vb: Public Class SimulationTag Inherits ScriptableObject
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Components.SimulationTag.icon
+  commentId: F:ISILab.LBS.Components.SimulationTag.icon
+  id: icon
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: icon
+  nameWithType: SimulationTag.icon
+  fullName: ISILab.LBS.Components.SimulationTag.icon
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: protected Texture2D icon
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Protected icon As Texture2D
+- uid: ISILab.LBS.Components.SimulationTag.color
+  commentId: F:ISILab.LBS.Components.SimulationTag.color
+  id: color
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: color
+  nameWithType: SimulationTag.color
+  fullName: ISILab.LBS.Components.SimulationTag.color
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: protected Color color
+    return:
+      type: UnityEngine.Color
+    content.vb: Protected color As Color
+- uid: ISILab.LBS.Components.SimulationTag.category
+  commentId: F:ISILab.LBS.Components.SimulationTag.category
+  id: category
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: category
+  nameWithType: SimulationTag.category
+  fullName: ISILab.LBS.Components.SimulationTag.category
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: protected SimulationTag.SimulationCategory category
+    return:
+      type: ISILab.LBS.Components.SimulationTag.SimulationCategory
+    content.vb: Protected category As SimulationTag.SimulationCategory
+- uid: ISILab.LBS.Components.SimulationTag.OnChangeText
+  commentId: F:ISILab.LBS.Components.SimulationTag.OnChangeText
+  id: OnChangeText
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: OnChangeText
+  nameWithType: SimulationTag.OnChangeText
+  fullName: ISILab.LBS.Components.SimulationTag.OnChangeText
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public SimulationTag.PathOSTagEvent OnChangeText
+    return:
+      type: ISILab.LBS.Components.SimulationTag.PathOSTagEvent
+    content.vb: Public OnChangeText As SimulationTag.PathOSTagEvent
+- uid: ISILab.LBS.Components.SimulationTag.OnChangeEntityType
+  commentId: F:ISILab.LBS.Components.SimulationTag.OnChangeEntityType
+  id: OnChangeEntityType
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: OnChangeEntityType
+  nameWithType: SimulationTag.OnChangeEntityType
+  fullName: ISILab.LBS.Components.SimulationTag.OnChangeEntityType
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public SimulationTag.PathOSTagEvent OnChangeEntityType
+    return:
+      type: ISILab.LBS.Components.SimulationTag.PathOSTagEvent
+    content.vb: Public OnChangeEntityType As SimulationTag.PathOSTagEvent
+- uid: ISILab.LBS.Components.SimulationTag.OnChangeColor
+  commentId: F:ISILab.LBS.Components.SimulationTag.OnChangeColor
+  id: OnChangeColor
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: OnChangeColor
+  nameWithType: SimulationTag.OnChangeColor
+  fullName: ISILab.LBS.Components.SimulationTag.OnChangeColor
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public SimulationTag.PathOSTagEvent OnChangeColor
+    return:
+      type: ISILab.LBS.Components.SimulationTag.PathOSTagEvent
+    content.vb: Public OnChangeColor As SimulationTag.PathOSTagEvent
+- uid: ISILab.LBS.Components.SimulationTag.OnChangeIcon
+  commentId: F:ISILab.LBS.Components.SimulationTag.OnChangeIcon
+  id: OnChangeIcon
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: OnChangeIcon
+  nameWithType: SimulationTag.OnChangeIcon
+  fullName: ISILab.LBS.Components.SimulationTag.OnChangeIcon
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public SimulationTag.PathOSTagEvent OnChangeIcon
+    return:
+      type: ISILab.LBS.Components.SimulationTag.PathOSTagEvent
+    content.vb: Public OnChangeIcon As SimulationTag.PathOSTagEvent
+- uid: ISILab.LBS.Components.SimulationTag.OnChangeCategory
+  commentId: F:ISILab.LBS.Components.SimulationTag.OnChangeCategory
+  id: OnChangeCategory
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: OnChangeCategory
+  nameWithType: SimulationTag.OnChangeCategory
+  fullName: ISILab.LBS.Components.SimulationTag.OnChangeCategory
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public SimulationTag.PathOSTagEvent OnChangeCategory
+    return:
+      type: ISILab.LBS.Components.SimulationTag.PathOSTagEvent
+    content.vb: Public OnChangeCategory As SimulationTag.PathOSTagEvent
+- uid: ISILab.LBS.Components.SimulationTag.ToLBSTag
+  commentId: M:ISILab.LBS.Components.SimulationTag.ToLBSTag
+  id: ToLBSTag
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: ToLBSTag()
+  nameWithType: SimulationTag.ToLBSTag()
+  fullName: ISILab.LBS.Components.SimulationTag.ToLBSTag()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public LBSTag ToLBSTag()
+    return:
+      type: ISILab.LBS.Components.LBSTag
+    content.vb: Public Function ToLBSTag() As LBSTag
+  overload: ISILab.LBS.Components.SimulationTag.ToLBSTag*
+- uid: ISILab.LBS.Components.SimulationTag.Init(System.String,UnityEngine.Color,UnityEngine.Texture2D)
+  commentId: M:ISILab.LBS.Components.SimulationTag.Init(System.String,UnityEngine.Color,UnityEngine.Texture2D)
+  id: Init(System.String,UnityEngine.Color,UnityEngine.Texture2D)
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: Init(string, Color, Texture2D)
+  nameWithType: SimulationTag.Init(string, Color, Texture2D)
+  fullName: ISILab.LBS.Components.SimulationTag.Init(string, UnityEngine.Color, UnityEngine.Texture2D)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public void Init(string text, Color color, Texture2D icon)
+    parameters:
+    - id: text
+      type: System.String
+    - id: color
+      type: UnityEngine.Color
+    - id: icon
+      type: UnityEngine.Texture2D
+    content.vb: Public Sub Init(text As String, color As Color, icon As Texture2D)
+  overload: ISILab.LBS.Components.SimulationTag.Init*
+  nameWithType.vb: SimulationTag.Init(String, Color, Texture2D)
+  fullName.vb: ISILab.LBS.Components.SimulationTag.Init(String, UnityEngine.Color, UnityEngine.Texture2D)
+  name.vb: Init(String, Color, Texture2D)
+- uid: ISILab.LBS.Components.SimulationTag.Equals(System.Object)
+  commentId: M:ISILab.LBS.Components.SimulationTag.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SimulationTag.Equals(object)
+  fullName: ISILab.LBS.Components.SimulationTag.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overload: ISILab.LBS.Components.SimulationTag.Equals*
+  nameWithType.vb: SimulationTag.Equals(Object)
+  fullName.vb: ISILab.LBS.Components.SimulationTag.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Components.SimulationTag.GetHashCode
+  commentId: M:ISILab.LBS.Components.SimulationTag.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SimulationTag.GetHashCode()
+  fullName: ISILab.LBS.Components.SimulationTag.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overload: ISILab.LBS.Components.SimulationTag.GetHashCode*
+- uid: ISILab.LBS.Components.SimulationTag.#ctor
+  commentId: M:ISILab.LBS.Components.SimulationTag.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: SimulationTag()
+  nameWithType: SimulationTag.SimulationTag()
+  fullName: ISILab.LBS.Components.SimulationTag.SimulationTag()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public SimulationTag()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Components.SimulationTag.#ctor*
+  nameWithType.vb: SimulationTag.New()
+  fullName.vb: ISILab.LBS.Components.SimulationTag.New()
+  name.vb: New()
+- uid: ISILab.LBS.Components.SimulationTag.Label
+  commentId: P:ISILab.LBS.Components.SimulationTag.Label
+  id: Label
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: SimulationTag.Label
+  fullName: ISILab.LBS.Components.SimulationTag.Label
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public string Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: ISILab.LBS.Components.SimulationTag.Label*
+- uid: ISILab.LBS.Components.SimulationTag.EntityType
+  commentId: P:ISILab.LBS.Components.SimulationTag.EntityType
+  id: EntityType
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: EntityType
+  nameWithType: SimulationTag.EntityType
+  fullName: ISILab.LBS.Components.SimulationTag.EntityType
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public EntityType EntityType { get; set; }
+    parameters: []
+    return:
+      type: PathOS.EntityType
+    content.vb: Public Property EntityType As EntityType
+  overload: ISILab.LBS.Components.SimulationTag.EntityType*
+- uid: ISILab.LBS.Components.SimulationTag.Icon
+  commentId: P:ISILab.LBS.Components.SimulationTag.Icon
+  id: Icon
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: SimulationTag.Icon
+  fullName: ISILab.LBS.Components.SimulationTag.Icon
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public Texture2D Icon { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Property Icon As Texture2D
+  overload: ISILab.LBS.Components.SimulationTag.Icon*
+- uid: ISILab.LBS.Components.SimulationTag.Color
+  commentId: P:ISILab.LBS.Components.SimulationTag.Color
+  id: Color
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: SimulationTag.Color
+  fullName: ISILab.LBS.Components.SimulationTag.Color
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public Color Color { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: Public Property Color As Color
+  overload: ISILab.LBS.Components.SimulationTag.Color*
+- uid: ISILab.LBS.Components.SimulationTag.Category
+  commentId: P:ISILab.LBS.Components.SimulationTag.Category
+  id: Category
+  parent: ISILab.LBS.Components.SimulationTag
+  langs:
+  - csharp
+  - vb
+  name: Category
+  nameWithType: SimulationTag.Category
+  fullName: ISILab.LBS.Components.SimulationTag.Category
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public SimulationTag.SimulationCategory Category { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.SimulationTag.SimulationCategory
+    content.vb: Public Property Category As SimulationTag.SimulationCategory
+  overload: ISILab.LBS.Components.SimulationTag.Category*
+references:
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.Components.SimulationTag.SimulationCategory
+  commentId: T:ISILab.LBS.Components.SimulationTag.SimulationCategory
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html
+  name: SimulationTag.SimulationCategory
+  nameWithType: SimulationTag.SimulationCategory
+  fullName: ISILab.LBS.Components.SimulationTag.SimulationCategory
+  spec.csharp:
+  - uid: ISILab.LBS.Components.SimulationTag
+    name: SimulationTag
+    isExternal: true
+    href: ISILab.LBS.Components.SimulationTag.html
+  - name: .
+  - uid: ISILab.LBS.Components.SimulationTag.SimulationCategory
+    name: SimulationCategory
+    isExternal: true
+    href: ISILab.LBS.Components.SimulationTag.SimulationCategory.html
+  spec.vb:
+  - uid: ISILab.LBS.Components.SimulationTag
+    name: SimulationTag
+    isExternal: true
+    href: ISILab.LBS.Components.SimulationTag.html
+  - name: .
+  - uid: ISILab.LBS.Components.SimulationTag.SimulationCategory
+    name: SimulationCategory
+    isExternal: true
+    href: ISILab.LBS.Components.SimulationTag.SimulationCategory.html
+- uid: ISILab.LBS.Components.SimulationTag.PathOSTagEvent
+  commentId: T:ISILab.LBS.Components.SimulationTag.PathOSTagEvent
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html
+  name: SimulationTag.PathOSTagEvent
+  nameWithType: SimulationTag.PathOSTagEvent
+  fullName: ISILab.LBS.Components.SimulationTag.PathOSTagEvent
+  spec.csharp:
+  - uid: ISILab.LBS.Components.SimulationTag
+    name: SimulationTag
+    isExternal: true
+    href: ISILab.LBS.Components.SimulationTag.html
+  - name: .
+  - uid: ISILab.LBS.Components.SimulationTag.PathOSTagEvent
+    name: PathOSTagEvent
+    isExternal: true
+    href: ISILab.LBS.Components.SimulationTag.PathOSTagEvent.html
+  spec.vb:
+  - uid: ISILab.LBS.Components.SimulationTag
+    name: SimulationTag
+    isExternal: true
+    href: ISILab.LBS.Components.SimulationTag.html
+  - name: .
+  - uid: ISILab.LBS.Components.SimulationTag.PathOSTagEvent
+    name: PathOSTagEvent
+    isExternal: true
+    href: ISILab.LBS.Components.SimulationTag.PathOSTagEvent.html
+- uid: ISILab.LBS.Components.SimulationTag.ToLBSTag*
+  commentId: Overload:ISILab.LBS.Components.SimulationTag.ToLBSTag
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html#ISILab_LBS_Components_SimulationTag_ToLBSTag
+  name: ToLBSTag
+  nameWithType: SimulationTag.ToLBSTag
+  fullName: ISILab.LBS.Components.SimulationTag.ToLBSTag
+- uid: ISILab.LBS.Components.LBSTag
+  commentId: T:ISILab.LBS.Components.LBSTag
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html
+  name: LBSTag
+  nameWithType: LBSTag
+  fullName: ISILab.LBS.Components.LBSTag
+- uid: ISILab.LBS.Components.SimulationTag.Init*
+  commentId: Overload:ISILab.LBS.Components.SimulationTag.Init
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html#ISILab_LBS_Components_SimulationTag_Init_System_String_UnityEngine_Color_UnityEngine_Texture2D_
+  name: Init
+  nameWithType: SimulationTag.Init
+  fullName: ISILab.LBS.Components.SimulationTag.Init
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Components.SimulationTag.Equals*
+  commentId: Overload:ISILab.LBS.Components.SimulationTag.Equals
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html#ISILab_LBS_Components_SimulationTag_Equals_System_Object_
+  name: Equals
+  nameWithType: SimulationTag.Equals
+  fullName: ISILab.LBS.Components.SimulationTag.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Components.SimulationTag.GetHashCode*
+  commentId: Overload:ISILab.LBS.Components.SimulationTag.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html#ISILab_LBS_Components_SimulationTag_GetHashCode
+  name: GetHashCode
+  nameWithType: SimulationTag.GetHashCode
+  fullName: ISILab.LBS.Components.SimulationTag.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Components.SimulationTag.#ctor*
+  commentId: Overload:ISILab.LBS.Components.SimulationTag.#ctor
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html#ISILab_LBS_Components_SimulationTag__ctor
+  name: SimulationTag
+  nameWithType: SimulationTag.SimulationTag
+  fullName: ISILab.LBS.Components.SimulationTag.SimulationTag
+  nameWithType.vb: SimulationTag.New
+  fullName.vb: ISILab.LBS.Components.SimulationTag.New
+  name.vb: New
+- uid: ISILab.LBS.Components.SimulationTag.Label*
+  commentId: Overload:ISILab.LBS.Components.SimulationTag.Label
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html#ISILab_LBS_Components_SimulationTag_Label
+  name: Label
+  nameWithType: SimulationTag.Label
+  fullName: ISILab.LBS.Components.SimulationTag.Label
+- uid: ISILab.LBS.Components.SimulationTag.EntityType*
+  commentId: Overload:ISILab.LBS.Components.SimulationTag.EntityType
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html#ISILab_LBS_Components_SimulationTag_EntityType
+  name: EntityType
+  nameWithType: SimulationTag.EntityType
+  fullName: ISILab.LBS.Components.SimulationTag.EntityType
+- uid: PathOS.EntityType
+  commentId: T:PathOS.EntityType
+  parent: PathOS
+  isExternal: true
+  href: PathOS.EntityType.html
+  name: EntityType
+  nameWithType: EntityType
+  fullName: PathOS.EntityType
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: ISILab.LBS.Components.SimulationTag.Icon*
+  commentId: Overload:ISILab.LBS.Components.SimulationTag.Icon
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html#ISILab_LBS_Components_SimulationTag_Icon
+  name: Icon
+  nameWithType: SimulationTag.Icon
+  fullName: ISILab.LBS.Components.SimulationTag.Icon
+- uid: ISILab.LBS.Components.SimulationTag.Color*
+  commentId: Overload:ISILab.LBS.Components.SimulationTag.Color
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html#ISILab_LBS_Components_SimulationTag_Color
+  name: Color
+  nameWithType: SimulationTag.Color
+  fullName: ISILab.LBS.Components.SimulationTag.Color
+- uid: ISILab.LBS.Components.SimulationTag.Category*
+  commentId: Overload:ISILab.LBS.Components.SimulationTag.Category
+  isExternal: true
+  href: ISILab.LBS.Components.SimulationTag.html#ISILab_LBS_Components_SimulationTag_Category
+  name: Category
+  nameWithType: SimulationTag.Category
+  fullName: ISILab.LBS.Components.SimulationTag.Category
+shouldSkipMarkup: true
