@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IBinaryChromosome | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IBinaryChromosome | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="GeneticSharp.Domain.Chromosomes.IBinaryChromosome">
+
+
+
+  <h1 id="GeneticSharp_Domain_Chromosomes_IBinaryChromosome" data-uid="GeneticSharp.Domain.Chromosomes.IBinaryChromosome" class="text-break">
+Interface IBinaryChromosome  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="GeneticSharp.html">GeneticSharp</a>.<a class="xref" href="GeneticSharp.Domain.html">Domain</a>.<a class="xref" href="GeneticSharp.Domain.Chromosomes.html">Chromosomes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IBinaryChromosome : IChromosome, IComparable&lt;IChromosome&gt;, IOptimizable, ICloneable</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GenerateGene">IChromosome.GenerateGene()</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_ReplaceGene__1_System_Int32___0_">IChromosome.ReplaceGene&lt;T&gt;(int, T)</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_ReplaceGenes__1_System_Int32___0___">IChromosome.ReplaceGenes&lt;T&gt;(int, T[])</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_Resize_System_Int32_">IChromosome.Resize(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GetGene__1_System_Int32_">IChromosome.GetGene&lt;T&gt;(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GetGene_System_Int32_">IChromosome.GetGene(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GetGenes__1">IChromosome.GetGenes&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GetGenes">IChromosome.GetGenes()</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_CreateNewChromosome">IChromosome.CreateNewChromosome()</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_CloneChromosome">IChromosome.CloneChromosome()</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_IsValid">IChromosome.IsValid()</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GetDataSquence__1">IChromosome.GetDataSquence&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GetData__1">IChromosome.GetData&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_SetDataSequence__1___0___">IChromosome.SetDataSequence&lt;T&gt;(T[])</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_SetData__1___0_">IChromosome.SetData&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_SetDeafult_System_Int32_">IChromosome.SetDeafult(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_Length">IChromosome.Length</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto">IComparable&lt;IChromosome&gt;.CompareTo(IChromosome)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew">IOptimizable.CreateNew()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString">IOptimizable.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_Fitness">IOptimizable.Fitness</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_xFitness">IOptimizable.xFitness</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_yFitness">IOptimizable.yFitness</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable.clone">ICloneable.Clone()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_">ChromosomeExtensions.ValidateGenes(IChromosome)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="GeneticSharp_Domain_Chromosomes_IBinaryChromosome_FlipGene_" data-uid="GeneticSharp.Domain.Chromosomes.IBinaryChromosome.FlipGene*"></a>
+
+  <h3 id="GeneticSharp_Domain_Chromosomes_IBinaryChromosome_FlipGene_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.IBinaryChromosome.FlipGene(System.Int32)">
+  FlipGene(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void FlipGene(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DCExploration | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DCExploration | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.AI.Categorization.DCExploration">
+
+
+
+  <h1 id="ISILab_AI_Categorization_DCExploration" data-uid="ISILab.AI.Categorization.DCExploration" class="text-break">
+Class DCExploration  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.AI.html">AI</a>.<a class="xref" href="ISILab.AI.Categorization.html">Categorization</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DCExploration : IContextualEvaluator, IConfigurableEvaluator, IDistanceEvaluator, ITestingEvaluator, IRangedEvaluator, IEvaluator, ICloneable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DCExploration</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html">IContextualEvaluator</a></div>
+      <div><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.html">IConfigurableEvaluator</a></div>
+      <div><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IDistanceEvaluator.html">IDistanceEvaluator</a></div>
+      <div><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.ITestingEvaluator.html">ITestingEvaluator</a></div>
+      <div><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html">IRangedEvaluator</a></div>
+      <div><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html">IEvaluator</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_AI_Categorization_DCExploration__ctor_" data-uid="ISILab.AI.Categorization.DCExploration.#ctor*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration__ctor" data-uid="ISILab.AI.Categorization.DCExploration.#ctor">
+  DCExploration()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DCExploration()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_colliderCharacteristic" data-uid="ISILab.AI.Categorization.DCExploration.colliderCharacteristic">
+  colliderCharacteristic
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LBSCharacteristic colliderCharacteristic</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html">LBSCharacteristic</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_config" data-uid="ISILab.AI.Categorization.DCExploration.config">
+  config
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static EvaluatorConfiguration config</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html">EvaluatorConfiguration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_playerCharacteristic" data-uid="ISILab.AI.Categorization.DCExploration.playerCharacteristic">
+  playerCharacteristic
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LBSCharacteristic playerCharacteristic</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html">LBSCharacteristic</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_pointsOfInterest" data-uid="ISILab.AI.Categorization.DCExploration.pointsOfInterest">
+  pointsOfInterest
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;LBSCharacteristic&gt; pointsOfInterest</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html">LBSCharacteristic</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_searchType" data-uid="ISILab.AI.Categorization.DCExploration.searchType">
+  searchType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PathfindingAlgorithm searchType</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm.html">PathfindingAlgorithm</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_CombinedExteriorLayer_" data-uid="ISILab.AI.Categorization.DCExploration.CombinedExteriorLayer*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_CombinedExteriorLayer" data-uid="ISILab.AI.Categorization.DCExploration.CombinedExteriorLayer">
+  CombinedExteriorLayer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LBSLayer CombinedExteriorLayer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_CombinedInteriorLayer_" data-uid="ISILab.AI.Categorization.DCExploration.CombinedInteriorLayer*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_CombinedInteriorLayer" data-uid="ISILab.AI.Categorization.DCExploration.CombinedInteriorLayer">
+  CombinedInteriorLayer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LBSLayer CombinedInteriorLayer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_CombinedLayer_" data-uid="ISILab.AI.Categorization.DCExploration.CombinedLayer*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_CombinedLayer" data-uid="ISILab.AI.Categorization.DCExploration.CombinedLayer">
+  CombinedLayer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LBSLayer CombinedLayer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_CombinedPopulationLayer_" data-uid="ISILab.AI.Categorization.DCExploration.CombinedPopulationLayer*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_CombinedPopulationLayer" data-uid="ISILab.AI.Categorization.DCExploration.CombinedPopulationLayer">
+  CombinedPopulationLayer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LBSLayer CombinedPopulationLayer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_ContextLayers_" data-uid="ISILab.AI.Categorization.DCExploration.ContextLayers*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_ContextLayers" data-uid="ISILab.AI.Categorization.DCExploration.ContextLayers">
+  ContextLayers
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;LBSLayer&gt; ContextLayers { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_DistancePool_" data-uid="ISILab.AI.Categorization.DCExploration.DistancePool*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_DistancePool" data-uid="ISILab.AI.Categorization.DCExploration.DistancePool">
+  DistancePool
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;(int, int), float&gt; DistancePool { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>), <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_EvaluationInfo_" data-uid="ISILab.AI.Categorization.DCExploration.EvaluationInfo*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_EvaluationInfo" data-uid="ISILab.AI.Categorization.DCExploration.EvaluationInfo">
+  EvaluationInfo
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EvaluationInfo EvaluationInfo { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluationInfo.html">EvaluationInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_MaxValue_" data-uid="ISILab.AI.Categorization.DCExploration.MaxValue*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_MaxValue" data-uid="ISILab.AI.Categorization.DCExploration.MaxValue">
+  MaxValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MaxValue { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_MinValue_" data-uid="ISILab.AI.Categorization.DCExploration.MinValue*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_MinValue" data-uid="ISILab.AI.Categorization.DCExploration.MinValue">
+  MinValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MinValue { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_Tooltip_" data-uid="ISILab.AI.Categorization.DCExploration.Tooltip*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_Tooltip" data-uid="ISILab.AI.Categorization.DCExploration.Tooltip">
+  Tooltip
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Tooltip { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_Clone_" data-uid="ISILab.AI.Categorization.DCExploration.Clone*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_Clone" data-uid="ISILab.AI.Categorization.DCExploration.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_Evaluate_" data-uid="ISILab.AI.Categorization.DCExploration.Evaluate*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_Evaluate_ISILab_AI_Optimization_IOptimizable_" data-uid="ISILab.AI.Categorization.DCExploration.Evaluate(ISILab.AI.Optimization.IOptimizable)">
+  Evaluate(IOptimizable)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Evaluate(IOptimizable evaluable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evaluable</code> <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_EvaluateWithInfo_" data-uid="ISILab.AI.Categorization.DCExploration.EvaluateWithInfo*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_EvaluateWithInfo_ISILab_AI_Optimization_IOptimizable_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_EvaluationInfo__" data-uid="ISILab.AI.Categorization.DCExploration.EvaluateWithInfo(ISILab.AI.Optimization.IOptimizable,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluationInfo@)">
+  EvaluateWithInfo(IOptimizable, out EvaluationInfo)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float EvaluateWithInfo(IOptimizable evaluable, out EvaluationInfo evalInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evaluable</code> <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a></dt>
+    <dd></dd>
+    <dt><code>evalInfo</code> <a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluationInfo.html">EvaluationInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_GetEvaluatorFields_" data-uid="ISILab.AI.Categorization.DCExploration.GetEvaluatorFields*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_GetEvaluatorFields" data-uid="ISILab.AI.Categorization.DCExploration.GetEvaluatorFields">
+  GetEvaluatorFields()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;EvaluatorConfiguration.EvaluatorConfigurationField&gt; GetEvaluatorFields()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html">EvaluatorConfiguration</a>.<a class="xref" href="ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html">EvaluatorConfigurationField</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_InitializeContext_" data-uid="ISILab.AI.Categorization.DCExploration.InitializeContext*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_InitializeContext_System_Collections_Generic_List_LBS_Components_LBSLayer__UnityEngine_Rect_" data-uid="ISILab.AI.Categorization.DCExploration.InitializeContext(System.Collections.Generic.List{LBS.Components.LBSLayer},UnityEngine.Rect)">
+  InitializeContext(List&lt;LBSLayer&gt;, Rect)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InitializeContext(List&lt;LBSLayer&gt; contextLayers, Rect selection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contextLayers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>selection</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_InitializeDefault_" data-uid="ISILab.AI.Categorization.DCExploration.InitializeDefault*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_InitializeDefault" data-uid="ISILab.AI.Categorization.DCExploration.InitializeDefault">
+  InitializeDefault()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InitializeDefault()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Categorization_DCExploration_ReadConfiguration_" data-uid="ISILab.AI.Categorization.DCExploration.ReadConfiguration*"></a>
+
+  <h3 id="ISILab_AI_Categorization_DCExploration_ReadConfiguration" data-uid="ISILab.AI.Categorization.DCExploration.ReadConfiguration">
+  ReadConfiguration()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReadConfiguration()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

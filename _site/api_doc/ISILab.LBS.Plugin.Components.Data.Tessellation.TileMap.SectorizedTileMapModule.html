@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SectorizedTileMapModule | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SectorizedTileMapModule | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule">
+
+
+
+  <h1 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule" class="text-break">
+Class SectorizedTileMapModule  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.LBS.html">LBS</a>.<a class="xref" href="ISILab.LBS.Plugin.html">Plugin</a>.<a class="xref" href="ISILab.LBS.Plugin.Components.html">Components</a>.<a class="xref" href="ISILab.LBS.Plugin.Components.Data.html">Data</a>.<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.html">Tessellation</a>.<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html">TileMap</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SectorizedTileMapModule : LBSModule, ICloneable, ISelectable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="ISILab.LBS.Modules.LBSModule.html">LBSModule</a></div>
+      <div><span class="xref">SectorizedTileMapModule</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
+      <div><a class="xref" href="ISILab.LBS.Modules.ISelectable.html">ISelectable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id">LBSModule.id</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged">LBSModule.OnChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_">LBSModule.OnAttach(LBSLayer)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_">LBSModule.OnDetach(LBSLayer)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer">LBSModule.OwnerLayer</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID">LBSModule.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="ISILab.LBS.Modules.ModuleBuilder.html#ISILab_LBS_Modules_ModuleBuilder_BuildFromExterior_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ISILab_LBS_Modules_ConnectedTileMapModule_ISILab_LBS_Modules_ConnectedTileMapModule_System_Collections_Generic_List_System_String__">ModuleBuilder.BuildFromExterior(SectorizedTileMapModule, ConnectedTileMapModule, ConnectedTileMapModule, List&lt;string&gt;)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule__ctor_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.#ctor*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule__ctor" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.#ctor">
+  SectorizedTileMapModule()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SectorizedTileMapModule()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule__ctor_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.#ctor*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule__ctor_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Zone__System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_TileZonePair__System_String_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.#ctor(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone},System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair},System.String)">
+  SectorizedTileMapModule(List&lt;Zone&gt;, List&lt;TileZonePair&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SectorizedTileMapModule(List&lt;Zone&gt; zones, List&lt;TileZonePair&gt; tiles, string id = &quot;TilesToAreaModule&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zones</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>tiles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html">TileZonePair</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_PairTiles_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_PairTiles" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles">
+  PairTiles
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;TileZonePair&gt; PairTiles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html">TileZonePair</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_SelectedZones_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_SelectedZones" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones">
+  SelectedZones
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Zone&gt; SelectedZones { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Zones_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Zones" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones">
+  Zones
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Zone&gt; Zones { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZonesProximity_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZonesProximity" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity">
+  ZonesProximity
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int[,] ZonesProximity { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[,]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZonesWithTiles_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZonesWithTiles" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles">
+  ZonesWithTiles
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Zone&gt; ZonesWithTiles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_AddPair_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddPair*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_AddPair_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_TileZonePair_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair)">
+  AddPair(TileZonePair)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddPair(TileZonePair pair)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pair</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html">TileZonePair</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_AddTile_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddTile*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_AddTile_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_ISILab_LBS_Plugin_Components_Data_Zone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,ISILab.LBS.Plugin.Components.Data.Zone)">
+  AddTile(LBSTile, Zone)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddTile(LBSTile tile, Zone zone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_AddZone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddZone*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_AddZone_ISILab_LBS_Plugin_Components_Data_Zone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddZone(ISILab.LBS.Plugin.Components.Data.Zone)">
+  AddZone(Zone)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddZone(Zone zone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Clear_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clear*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Clear" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clear">
+  Clear()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Clone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clone*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Clone" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Contains_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Contains*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Contains_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Contains(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)">
+  Contains(LBSTile)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(LBSTile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Contains_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Contains*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Contains_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Contains(UnityEngine.Vector2Int)">
+  Contains(Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(Vector2Int pos)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Equals_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Equals*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Equals_System_Object_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Equals(System.Object)">
+  Equals(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetBounds_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetBounds*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetBounds" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetBounds">
+  GetBounds()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Rect GetBounds()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetBounds_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetBounds*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetBounds_ISILab_LBS_Plugin_Components_Data_Zone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetBounds(ISILab.LBS.Plugin.Components.Data.Zone)">
+  GetBounds(Zone)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rect GetBounds(Zone zone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetHashCode_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetHashCode*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetHashCode" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetPairTile_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetPairTile*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetPairTile_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetPairTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)">
+  GetPairTile(LBSTile)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileZonePair GetPairTile(LBSTile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html">TileZonePair</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetPairTile_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetPairTile*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetPairTile_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetPairTile(UnityEngine.Vector2Int)">
+  GetPairTile(Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileZonePair GetPairTile(Vector2Int pos)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html">TileZonePair</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetRoomDistance_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetRoomDistance*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetRoomDistance_ISILab_LBS_Plugin_Components_Data_Zone_ISILab_LBS_Plugin_Components_Data_Zone_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetRoomDistance(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone,System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile},System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})">
+  GetRoomDistance(Zone, Zone, List&lt;LBSTile&gt;, List&lt;LBSTile&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetRoomDistance(Zone r1, Zone r2, List&lt;LBSTile&gt; tiles1, List&lt;LBSTile&gt; tiles2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r1</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+    <dt><code>r2</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+    <dt><code>tiles1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>tiles2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetSelected_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetSelected*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetSelected_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetSelected(UnityEngine.Vector2Int)">
+  GetSelected(Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;object&gt; GetSelected(Vector2Int position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetTiles_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTiles*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetTiles_ISILab_LBS_Plugin_Components_Data_Zone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTiles(ISILab.LBS.Plugin.Components.Data.Zone)">
+  GetTiles(Zone)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;LBSTile&gt; GetTiles(Zone zone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetTilesWithConnections_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithConnections*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetTilesWithConnections_System_Int32_System_String___" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithConnections(System.Int32,System.String[])">
+  GetTilesWithConnections(int, params string[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, List&lt;LBSTile&gt;&gt; GetTilesWithConnections(int floor, params string[] connections)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>floor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>connections</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetTilesWithDoors_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithDoors*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetTilesWithDoors" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithDoors">
+  GetTilesWithDoors()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;LBSTile&gt; GetTilesWithDoors()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetWalls_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetWalls*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetWalls_ISILab_LBS_Plugin_Components_Data_Zone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetWalls(ISILab.LBS.Plugin.Components.Data.Zone)">
+  GetWalls(Zone)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;WallData&gt; GetWalls(Zone zone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Components.WallData.html">WallData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetZone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetZone_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)">
+  GetZone(LBSTile)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Zone GetZone(LBSTile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetZone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetZone_System_String_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone(System.String)">
+  GetZone(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Zone GetZone(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetZone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetZone_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone(UnityEngine.Vector2Int)">
+  GetZone(Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Zone GetZone(Vector2Int position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetZoneBounds_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZoneBounds*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetZoneBounds_ISILab_LBS_Plugin_Components_Data_Zone_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile___" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZoneBounds(ISILab.LBS.Plugin.Components.Data.Zone,System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}@)">
+  GetZoneBounds(Zone, out List&lt;LBSTile&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rect GetZoneBounds(Zone zone, out List&lt;LBSTile&gt; tiles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+    <dt><code>tiles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsConcaveCorner_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConcaveCorner*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsConcaveCorner_UnityEngine_Vector2_System_Collections_Generic_List_UnityEngine_Vector2Int__" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConcaveCorner(UnityEngine.Vector2,System.Collections.Generic.List{UnityEngine.Vector2Int})">
+  IsConcaveCorner(Vector2, List&lt;Vector2Int&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConcaveCorner(Vector2 pos, List&lt;Vector2Int&gt; directions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>directions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector2Int</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsConvexCorner_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConvexCorner*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsConvexCorner_UnityEngine_Vector2_System_Collections_Generic_List_UnityEngine_Vector2Int__" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConvexCorner(UnityEngine.Vector2,System.Collections.Generic.List{UnityEngine.Vector2Int})">
+  IsConvexCorner(Vector2, List&lt;Vector2Int&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConvexCorner(Vector2 pos, List&lt;Vector2Int&gt; directions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>directions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector2Int</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsEmpty_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsEmpty*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsEmpty" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsEmpty">
+  IsEmpty()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsEmpty()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsRectangular_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsRectangular*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsRectangular_ISILab_LBS_Plugin_Components_Data_Zone_UnityEngine_Rect_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsRectangular(ISILab.LBS.Plugin.Components.Data.Zone,UnityEngine.Rect,System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})">
+  IsRectangular(Zone, Rect, List&lt;LBSTile&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRectangular(Zone zone, Rect bounds, List&lt;LBSTile&gt; tiles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+    <dt><code>bounds</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>tiles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsWall_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsWall*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsWall_UnityEngine_Vector2_System_Collections_Generic_List_UnityEngine_Vector2Int__" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsWall(UnityEngine.Vector2,System.Collections.Generic.List{UnityEngine.Vector2Int})">
+  IsWall(Vector2, List&lt;Vector2Int&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsWall(Vector2 pos, List&lt;Vector2Int&gt; directions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>directions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector2Int</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_MoveArea_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.MoveArea*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_MoveArea_ISILab_LBS_Plugin_Components_Data_Zone_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.MoveArea(ISILab.LBS.Plugin.Components.Data.Zone,UnityEngine.Vector2Int)">
+  MoveArea(Zone, Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveArea(Zone zone, Vector2Int dir)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+    <dt><code>dir</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Print_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Print*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Print" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Print">
+  Print()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Print()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RecalculateZonesProximity_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RecalculateZonesProximity*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RecalculateZonesProximity" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RecalculateZonesProximity">
+  RecalculateZonesProximity()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RecalculateZonesProximity()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RecalculateZonesProximity_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RecalculateZonesProximity*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RecalculateZonesProximity_UnityEngine_Rect_ISILab_LBS_Modules_ConnectedTileMapModule_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RecalculateZonesProximity(UnityEngine.Rect,ISILab.LBS.Modules.ConnectedTileMapModule)">
+  RecalculateZonesProximity(Rect, ConnectedTileMapModule)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RecalculateZonesProximity(Rect selection, ConnectedTileMapModule connectedTM = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>selection</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>connectedTM</code> <a class="xref" href="ISILab.LBS.Modules.ConnectedTileMapModule.html">ConnectedTileMapModule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RemovePair_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemovePair*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RemovePair_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemovePair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)">
+  RemovePair(LBSTile)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemovePair(LBSTile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RemovePair_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemovePair*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RemovePair_System_Int32_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemovePair(System.Int32)">
+  RemovePair(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemovePair(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RemoveZone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemoveZone*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RemoveZone_ISILab_LBS_Plugin_Components_Data_Zone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemoveZone(ISILab.LBS.Plugin.Components.Data.Zone)">
+  RemoveZone(Zone)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveZone(Zone zone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Rewrite_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Rewrite*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Rewrite_ISILab_LBS_Modules_LBSModule_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Rewrite(ISILab.LBS.Modules.LBSModule)">
+  Rewrite(LBSModule)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Rewrite(LBSModule other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="ISILab.LBS.Modules.LBSModule.html">LBSModule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_UpdateZonePositions_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.UpdateZonePositions*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_UpdateZonePositions" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.UpdateZonePositions">
+  UpdateZonePositions()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateZonePositions()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZoneCentroid_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZoneCentroid*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZoneCentroid_ISILab_LBS_Plugin_Components_Data_Zone_" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZoneCentroid(ISILab.LBS.Plugin.Components.Data.Zone)">
+  ZoneCentroid(Zone)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 ZoneCentroid(Zone zone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_OnAddPair" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddPair">
+  OnAddPair
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;SectorizedTileMapModule, TileZonePair&gt; OnAddPair</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html">SectorizedTileMapModule</a>, <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html">TileZonePair</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_OnAddZone" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddZone">
+  OnAddZone
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;SectorizedTileMapModule, Zone&gt; OnAddZone</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html">SectorizedTileMapModule</a>, <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_OnRemovePair" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemovePair">
+  OnRemovePair
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;SectorizedTileMapModule, TileZonePair&gt; OnRemovePair</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html">SectorizedTileMapModule</a>, <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html">TileZonePair</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_OnRemoveZone" data-uid="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemoveZone">
+  OnRemoveZone
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;SectorizedTileMapModule, Zone&gt; OnRemoveZone</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html">SectorizedTileMapModule</a>, <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

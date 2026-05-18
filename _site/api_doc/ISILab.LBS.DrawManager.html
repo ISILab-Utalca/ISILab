@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DrawManager | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DrawManager | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.LBS.DrawManager">
+
+
+
+  <h1 id="ISILab_LBS_DrawManager" data-uid="ISILab.LBS.DrawManager" class="text-break">
+Class DrawManager  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.LBS.html">LBS</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DrawManager</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DrawManager</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_LBS_DrawManager__ctor_" data-uid="ISILab.LBS.DrawManager.#ctor*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager__ctor" data-uid="ISILab.LBS.DrawManager.#ctor">
+  DrawManager()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DrawManager()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ISILab_LBS_DrawManager_Instance_" data-uid="ISILab.LBS.DrawManager.Instance*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_Instance" data-uid="ISILab.LBS.DrawManager.Instance">
+  Instance
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DrawManager Instance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.DrawManager.html">DrawManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_LBS_DrawManager_AddContainer_" data-uid="ISILab.LBS.DrawManager.AddContainer*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_AddContainer_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.DrawManager.AddContainer(LBS.Components.LBSLayer)">
+  AddContainer(LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddContainer(LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_ChangeLayerOpacity_" data-uid="ISILab.LBS.DrawManager.ChangeLayerOpacity*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_ChangeLayerOpacity_LBS_Components_LBSLayer_System_Single_" data-uid="ISILab.LBS.DrawManager.ChangeLayerOpacity(LBS.Components.LBSLayer,System.Single)">
+  ChangeLayerOpacity(LBSLayer, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ChangeLayerOpacity(LBSLayer layer, float opacity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+    <dt><code>opacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_ChangeOpacityAll_" data-uid="ISILab.LBS.DrawManager.ChangeOpacityAll*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_ChangeOpacityAll_System_Single_" data-uid="ISILab.LBS.DrawManager.ChangeOpacityAll(System.Single)">
+  ChangeOpacityAll(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ChangeOpacityAll(float opacity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>opacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_ChangePickingMode_" data-uid="ISILab.LBS.DrawManager.ChangePickingMode*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_ChangePickingMode_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_PickingMode_System_Collections_Generic_List_UnityEngine_UIElements_VisualElement__" data-uid="ISILab.LBS.DrawManager.ChangePickingMode(UnityEngine.UIElements.VisualElement,UnityEngine.UIElements.PickingMode,System.Collections.Generic.List{UnityEngine.UIElements.VisualElement})">
+  ChangePickingMode(VisualElement, PickingMode, List&lt;VisualElement&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ChangePickingMode(VisualElement element, PickingMode newPickingMode, List&lt;VisualElement&gt; exceptions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">VisualElement</span></dt>
+    <dd></dd>
+    <dt><code>newPickingMode</code> <span class="xref">PickingMode</span></dt>
+    <dd></dd>
+    <dt><code>exceptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">VisualElement</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_DrawSingleComponent_" data-uid="ISILab.LBS.DrawManager.DrawSingleComponent*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_DrawSingleComponent__1___0_LBS_Components_LBSLayer_System_Boolean_" data-uid="ISILab.LBS.DrawManager.DrawSingleComponent``1(``0,LBS.Components.LBSLayer,System.Boolean)">
+  DrawSingleComponent&lt;T&gt;(T, LBSLayer, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawSingleComponent&lt;T&gt;(T component, LBSLayer layer, bool clearLayerContainer = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+    <dt><code>clearLayerContainer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_PickingModeChangeAll_" data-uid="ISILab.LBS.DrawManager.PickingModeChangeAll*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_PickingModeChangeAll_UnityEngine_UIElements_PickingMode_System_Collections_Generic_List_UnityEngine_UIElements_VisualElement__" data-uid="ISILab.LBS.DrawManager.PickingModeChangeAll(UnityEngine.UIElements.PickingMode,System.Collections.Generic.List{UnityEngine.UIElements.VisualElement})">
+  PickingModeChangeAll(PickingMode, List&lt;VisualElement&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PickingModeChangeAll(PickingMode newPickingMode, List&lt;VisualElement&gt; exceptions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newPickingMode</code> <span class="xref">PickingMode</span></dt>
+    <dd></dd>
+    <dt><code>exceptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">VisualElement</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_PickingModeRestoreAll_" data-uid="ISILab.LBS.DrawManager.PickingModeRestoreAll*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_PickingModeRestoreAll" data-uid="ISILab.LBS.DrawManager.PickingModeRestoreAll">
+  PickingModeRestoreAll()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PickingModeRestoreAll()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_ReDraw_" data-uid="ISILab.LBS.DrawManager.ReDraw*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_ReDraw" data-uid="ISILab.LBS.DrawManager.ReDraw">
+  ReDraw()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ReDraw()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_RedrawLayer_" data-uid="ISILab.LBS.DrawManager.RedrawLayer*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_RedrawLayer_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.DrawManager.RedrawLayer(LBS.Components.LBSLayer)">
+  RedrawLayer(LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RedrawLayer(LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_RedrawLevel_" data-uid="ISILab.LBS.DrawManager.RedrawLevel*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_RedrawLevel_ISILab_LBS_LBSLevelData_System_Boolean_" data-uid="ISILab.LBS.DrawManager.RedrawLevel(ISILab.LBS.LBSLevelData,System.Boolean)">
+  RedrawLevel(LBSLevelData, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RedrawLevel(LBSLevelData level, bool deepClean = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="ISILab.LBS.LBSLevelData.html">LBSLevelData</a></dt>
+    <dd></dd>
+    <dt><code>deepClean</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_RemoveContainer_" data-uid="ISILab.LBS.DrawManager.RemoveContainer*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_RemoveContainer_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.DrawManager.RemoveContainer(LBS.Components.LBSLayer)">
+  RemoveContainer(LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveContainer(LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_UpdateLayer_" data-uid="ISILab.LBS.DrawManager.UpdateLayer*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_UpdateLayer_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.DrawManager.UpdateLayer(LBS.Components.LBSLayer)">
+  UpdateLayer(LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateLayer(LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_DrawManager_UpdateSingleComponent_" data-uid="ISILab.LBS.DrawManager.UpdateSingleComponent*"></a>
+
+  <h3 id="ISILab_LBS_DrawManager_UpdateSingleComponent__1___0_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.DrawManager.UpdateSingleComponent``1(``0,LBS.Components.LBSLayer)">
+  UpdateSingleComponent&lt;T&gt;(T, LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateSingleComponent&lt;T&gt;(T component, LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class HillClimbingAssistant | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HillClimbingAssistant | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant">
+
+
+
+  <h1 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant" class="text-break">
+Class HillClimbingAssistant  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.LBS.html">LBS</a>.<a class="xref" href="ISILab.LBS.Plugin.html">Plugin</a>.<a class="xref" href="ISILab.LBS.Plugin.Core.html">Core</a>.<a class="xref" href="ISILab.LBS.Plugin.Core.AI.html">AI</a>.<a class="xref" href="ISILab.LBS.Plugin.Core.AI.Assistant.html">Assistant</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[RequieredModule(new Type[] { typeof(TileMapModule), typeof(ConnectedTileMapModule), typeof(SectorizedTileMapModule), typeof(ConnectedZonesModule), typeof(ConstrainsZonesModule) })]
+public class HillClimbingAssistant : LBSAssistant, ICloneable, IAssistantThreaded</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html">LBSAssistant</a></div>
+      <div><span class="xref">HillClimbingAssistant</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
+      <div><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.html">IAssistantThreaded</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_visible">LBSAssistant.visible</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnStart">LBSAssistant.OnStart</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnTermination">LBSAssistant.OnTermination</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnCancellation">LBSAssistant.OnCancellation</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules">LBSAssistant.GetRequiredModules()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_">LBSAssistant.RequestTilePaint(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_">LBSAssistant.RequestTileRemove(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles">LBSAssistant.RetrieveNewTiles()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles">LBSAssistant.RetrieveExpiredTiles()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_ColorTint">LBSAssistant.ColorTint</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OwnerLayer">LBSAssistant.OwnerLayer</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Icon">LBSAssistant.Icon</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_IconGuid">LBSAssistant.IconGuid</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Name">LBSAssistant.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant__ctor_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.#ctor*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant__ctor_System_String_System_String_UnityEngine_Color_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.#ctor(System.String,System.String,UnityEngine.Color)">
+  HillClimbingAssistant(string, string, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HillClimbingAssistant(string IconGuid, string name, Color colorTint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>IconGuid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>colorTint</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_printClocks" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.printClocks">
+  printClocks
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool printClocks</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_visibleConstraints" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.visibleConstraints">
+  visibleConstraints
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool visibleConstraints</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_AreasMod_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.AreasMod*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_AreasMod" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.AreasMod">
+  AreasMod
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SectorizedTileMapModule AreasMod { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html">SectorizedTileMapModule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ConstrainsZonesMod_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ConstrainsZonesMod*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ConstrainsZonesMod" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ConstrainsZonesMod">
+  ConstrainsZonesMod
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConstrainsZonesModule ConstrainsZonesMod { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.ConstrainsZonesModule.html">ConstrainsZonesModule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GraphMod_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GraphMod*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GraphMod" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GraphMod">
+  GraphMod
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectedZonesModule GraphMod { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.ConnectedZonesModule.html">ConnectedZonesModule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_TileMapMod_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.TileMapMod*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_TileMapMod" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.TileMapMod">
+  TileMapMod
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileMapModule TileMapMod { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.TileMapModule.html">TileMapModule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_Zones_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Zones*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_Zones" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Zones">
+  Zones
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Zone&gt; Zones { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ZonesWhitTiles_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWhitTiles*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ZonesWhitTiles" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWhitTiles">
+  ZonesWhitTiles
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Zone&gt; ZonesWhitTiles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_CheckEdges_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.CheckEdges*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_CheckEdges_ISILab_LBS_Plugin_Components_Data_Zone_ISILab_LBS_Plugin_Components_Data_Zone_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.CheckEdges(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)">
+  CheckEdges(Zone, Zone)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CheckEdges(Zone first, Zone second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+    <dt><code>second</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_Clone_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Clone*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_Clone" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ConnectZones_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ConnectZones*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ConnectZones_ISILab_LBS_Plugin_Components_Data_Zone_ISILab_LBS_Plugin_Components_Data_Zone_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ConnectZones(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)">
+  ConnectZones(Zone, Zone)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConnectZones(Zone first, Zone second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+    <dt><code>second</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_Equals_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Equals*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_Equals_System_Object_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Equals(System.Object)">
+  Equals(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_Execute_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Execute*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_Execute_System_Action_System_Single__System_Threading_CancellationToken_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Execute(System.Action{System.Single},System.Threading.CancellationToken)">
+  Execute(Action&lt;float&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Execute(Action&lt;float&gt; onProgress = null, CancellationToken token = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>onProgress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>token</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ExecuteOneStep_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ExecuteOneStep*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ExecuteOneStep_System_String__UnityEngine_LogType__System_Action_System_Single__System_Threading_CancellationToken_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ExecuteOneStep(System.String@,UnityEngine.LogType@,System.Action{System.Single},System.Threading.CancellationToken)">
+  ExecuteOneStep(out string, out LogType, Action&lt;float&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ExecuteOneStep(out string log, out LogType type, Action&lt;float&gt; onProgress = null, CancellationToken token = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>log</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <span class="xref">LogType</span></dt>
+    <dd></dd>
+    <dt><code>onProgress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>token</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetEdges_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetEdges*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetEdges" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetEdges">
+  GetEdges()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ZoneEdge&gt; GetEdges()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Components.ZoneEdge.html">ZoneEdge</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetHashCode_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetHashCode*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetHashCode" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetNeighbors_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetNeighbors*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetNeighbors_ISILab_AI_Optimization_IOptimizable_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetNeighbors(ISILab.AI.Optimization.IOptimizable)">
+  GetNeighbors(IOptimizable)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;IOptimizable&gt; GetNeighbors(IOptimizable adam)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>adam</code> <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetTile_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetTile*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetTile_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetTile(UnityEngine.Vector2Int)">
+  GetTile(Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LBSTile GetTile(Vector2Int position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetTiles_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetTiles*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetTiles_ISILab_LBS_Plugin_Components_Data_Zone_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetTiles(ISILab.LBS.Plugin.Components.Data.Zone)">
+  GetTiles(Zone)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;LBSTile&gt; GetTiles(Zone zone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetZone_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetZone*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetZone_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetZone(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)">
+  GetZone(LBSTile)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Zone GetZone(LBSTile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetZone_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetZone*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_GetZone_UnityEngine_Vector2_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetZone(UnityEngine.Vector2)">
+  GetZone(Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Zone GetZone(Vector2 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_OnAttachLayer_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnAttachLayer*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_OnAttachLayer_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnAttachLayer(LBS.Components.LBSLayer)">
+  OnAttachLayer(LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnAttachLayer(LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_OnDetachLayer_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnDetachLayer*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_OnDetachLayer_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnDetachLayer(LBS.Components.LBSLayer)">
+  OnDetachLayer(LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnDetachLayer(LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_OnGUI_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnGUI*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_OnGUI" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnGUI">
+  OnGUI()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnGUI()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_OnTaskCancelled_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnTaskCancelled*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_OnTaskCancelled" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnTaskCancelled">
+  OnTaskCancelled()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnTaskCancelled()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_RecalculateConstraint_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.RecalculateConstraint*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_RecalculateConstraint_System_Action_System_Single__System_Threading_CancellationToken_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.RecalculateConstraint(System.Action{System.Single},System.Threading.CancellationToken)">
+  RecalculateConstraint(Action&lt;float&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RecalculateConstraint(Action&lt;float&gt; onProgress = null, CancellationToken token = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>onProgress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>token</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_RecalculateWalls_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.RecalculateWalls*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_RecalculateWalls_System_Collections_Generic_List_ISILab_LBS_Modules_LBSModule__" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.RecalculateWalls(System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule})">
+  RecalculateWalls(List&lt;LBSModule&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RecalculateWalls(List&lt;LBSModule&gt; layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Modules.LBSModule.html">LBSModule</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ReloadPrevData_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ReloadPrevData*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ReloadPrevData" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ReloadPrevData">
+  ReloadPrevData()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReloadPrevData()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_RemoveZoneConnection_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.RemoveZoneConnection*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_RemoveZoneConnection_UnityEngine_Vector2_System_Single_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.RemoveZoneConnection(UnityEngine.Vector2,System.Single)">
+  RemoveZoneConnection(Vector2, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveZoneConnection(Vector2 position, float delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_SaveConstraintKey_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.SaveConstraintKey*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_SaveConstraintKey_ISILab_LBS_Plugin_Components_Data_Zone_ISILab_LBS_Modules_ConstraintPair_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.SaveConstraintKey(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Modules.ConstraintPair)">
+  SaveConstraintKey(Zone, ConstraintPair)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SaveConstraintKey(Zone zone, ConstraintPair constraint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zone</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Zone.html">Zone</a></dt>
+    <dd></dd>
+    <dt><code>constraint</code> <a class="xref" href="ISILab.LBS.Modules.ConstraintPair.html">ConstraintPair</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_TryExecute_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.TryExecute*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_TryExecute_System_String__UnityEngine_LogType__System_Action_System_Single__System_Threading_CancellationToken_" data-uid="ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.TryExecute(System.String@,UnityEngine.LogType@,System.Action{System.Single},System.Threading.CancellationToken)">
+  TryExecute(out string, out LogType, Action&lt;float&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryExecute(out string log, out LogType type, Action&lt;float&gt; onProgress = null, CancellationToken token = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>log</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <span class="xref">LogType</span></dt>
+    <dd></dd>
+    <dt><code>onProgress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>token</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
