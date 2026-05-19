@@ -537,10 +537,14 @@ namespace PathOS
             return otherMemory;
         }
 
-        private int CalculateAproximatedFloor(float yPosition)
+        /// <summary>
+        /// Calculates the approximated floor number based on the Y position
+        /// and the defined grid sample size for floors.
+        /// </summary>
+        /// <param name="yPosition"></param>
+        /// <returns></returns>
+        public int CalculateAproximatedFloor(float yPosition)
         {
-            // Calcula el piso aproximado dividiendo la posición Y entre la altura de piso (gridSampleSize.y)
-            // y redondeando al entero más cercano.
             if (gridSampleSize.y <= 0f)
                 return 0; // Evita división por cero
 

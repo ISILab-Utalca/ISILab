@@ -26,16 +26,47 @@ namespace PathOS
         public int changeTargetCount;
 
         /// <summary>
-        /// A destination is accurate when the agent has a clear line of sight to it,
-        /// and is not relying on memory or other information to navigate to it.
-        /// If a destination is inaccurate, the agent may need to look around or take
-        /// other actions to confirm its location before proceeding.
+        /// An entity destination could be marked as inaccurate due to a recall
+        /// from memory. If now it's visible, then the agent can be reasonably sure 
+        /// of its position and route to it.
         /// </summary>
         /// <returns></returns>
-        public bool DestinationIsInaccurate()
-            => currentDest.entity != null &&
-            !currentDest.accurate &&
-            currentDest.entity.visible;
+        public void FixInaccurateDestination(PathOSAgent agent)
+        {
+            if (currentDest.entity != null && !currentDest.accurate && currentDest.entity.visible)
+            {
+                MakeEntityDestinationAccurate(agent);
+            }
+        }
+
+        public void MakeEntityDestinationAccurate(PathOSAgent agent)
+        {
+            var navAgent = agent.navAgent;
+            var agentMemory = agent.AgentMemory;
+
+            // NavMesh reachability check.
+            bool reachable = PathOSNavUtility.CanAgentReachTarget(
+                    navAgent,
+                    currentDest.entity.ActualPosition(),
+                    navAgent.height * Constants.Navigation.NAV_SEARCH_RADIUS_FAC,
+                    ref currentDest.pos);
+
+            if (reachable)
+                reachable = Vector3.SqrMagnitude(
+                    PathOSNavUtility.XZPos(currentDest.pos) -
+                    PathOSNavUtility.XZPos(currentDest.entity.ActualPosition()))
+                    < agent.visitThresholdSqr;
+
+            if (!reachable)
+            {
+                agentMemory.MakeUnreachable(currentDest.entity);
+                ResetDestinationSelf(agent);
+            }
+
+            currentDest.accurate = true;
+            RouteDestination(navAgent);
+        }
+
 
         public bool ShouldLookAround() => lookTimer >= lookTime;
 

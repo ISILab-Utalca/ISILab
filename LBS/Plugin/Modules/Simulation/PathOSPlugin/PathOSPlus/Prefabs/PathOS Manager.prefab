@@ -26,13 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5005646905853620058}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.723456, y: 1.162, z: -3.3622823}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2783143267940123911}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5005646905853620061
 MonoBehaviour:
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fbb645fe59ccf4db9d6c8ff55b211c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorCount: 0
   limitSimulationTime: 1
   maxSimulationTime: 180
   endOnCompletionGoal: 1
@@ -85,6 +87,10 @@ MonoBehaviour:
       weight: 0.9
     - entype: 350
       weight: 0.9
+    - entype: 400
+      weight: 0.9
+    - entype: 410
+      weight: 0.9
   - heuristic: 10
     weights:
     - entype: 0
@@ -116,6 +122,10 @@ MonoBehaviour:
     - entype: 300
       weight: 0
     - entype: 350
+      weight: 0
+    - entype: 400
+      weight: 0
+    - entype: 410
       weight: 0
   - heuristic: 15
     weights:
@@ -149,6 +159,10 @@ MonoBehaviour:
       weight: 0.1
     - entype: 350
       weight: 0.1
+    - entype: 400
+      weight: 0
+    - entype: 410
+      weight: 0
   - heuristic: 20
     weights:
     - entype: 0
@@ -180,6 +194,10 @@ MonoBehaviour:
     - entype: 300
       weight: 0
     - entype: 350
+      weight: 0
+    - entype: 400
+      weight: 0
+    - entype: 410
       weight: 0
   - heuristic: 25
     weights:
@@ -213,6 +231,10 @@ MonoBehaviour:
       weight: 0
     - entype: 350
       weight: 0
+    - entype: 400
+      weight: 0
+    - entype: 410
+      weight: 0
   - heuristic: 30
     weights:
     - entype: 0
@@ -244,6 +266,10 @@ MonoBehaviour:
     - entype: 300
       weight: 0
     - entype: 350
+      weight: 0
+    - entype: 400
+      weight: 0
+    - entype: 410
       weight: 0
   - heuristic: 35
     weights:
@@ -277,6 +303,10 @@ MonoBehaviour:
       weight: 0
     - entype: 350
       weight: 0
+    - entype: 400
+      weight: 0
+    - entype: 410
+      weight: 0
   endSimulationOnDeath: 0
 --- !u!114 &5005646905853620062
 MonoBehaviour:
@@ -294,6 +324,7 @@ MonoBehaviour:
   logDirectory: --
   logFilePrefix: agent
   sampleRate: 4
+  floorCount: 10
 --- !u!114 &5005646905853620063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logDirectory: OGVis/LBWLogs
   directoriesLoaded: []
-  heatmapVisualizer: {fileID: 8168044022354036293}
+  heatmapVisualizer:
+  - {fileID: 8168044022354036293}
   showHeatmap: 0
   heatmapGradient:
     serializedVersion: 2
@@ -337,6 +369,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
+    m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   heatmapAlpha: 0
@@ -372,6 +405,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
+    m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   interactionAggregateActiveOnly: 0
@@ -387,7 +421,7 @@ MonoBehaviour:
   fullTimeRange:
     min: 0
     max: 0
-  tileSize: 2
+  tileSize: {x: 2, y: 2}
 --- !u!1 &5395636683637119546
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,12 +448,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5395636683637119546}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5005646905853620060}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3999886422330179394
 MeshRenderer:
@@ -438,6 +473,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -360,7 +360,8 @@ namespace PathOS
         }
 
         /// <summary>
-        /// Performs a visibility check from the specified origin
+        /// Performs a visibility check from the specified origin in the given direction
+        /// using a physics raycast, and updates the memory map with the result.
         /// </summary>
         /// <param name="origin"></param>
         /// <param name="dir"></param>

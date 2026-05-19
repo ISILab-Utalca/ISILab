@@ -66,6 +66,7 @@ namespace PathOS
         public bool completed { get; set; }
 
         public float hazardPenalty { get; set; }
+        public int ApproximatedFloor => _agentMemory.CalculateAproximatedFloor(GetPosition().y);
 
         public float MemPathChance
         {
@@ -93,8 +94,10 @@ namespace PathOS
             logger ??= OGLogManager.instance;
 
             // Set starting position as current destination 
-            navigationState.currentDest = new TargetDest();
-            navigationState.currentDest.pos = GetPosition();
+            navigationState.currentDest = new TargetDest() 
+            { 
+                pos = GetPosition() 
+            };
 
             // Set initial state
             completed = false;
@@ -109,8 +112,8 @@ namespace PathOS
 
         private void Start()
         {
-            LogAgentData();
-            PerceptionUpdate();
+            LogAgentData(); 
+            navigationState.UpdateLookTime(this);
 
             //Stochastic initialization of look time.
             navigationState.lookTimer = Random.Range(0.0f, navigationState.lookTime);
@@ -182,17 +185,18 @@ namespace PathOS
 
             //////////////// PATH AND ACCURACY FIX /////////////////
 
-            if (navigationState.DestinationIsInaccurate())
-            {
-                MakeEntityDestinationAccurate();
-            }
+            // If destination is an inaccurate entity,
+            // make it accurate if it's visible now
+            navigationState.FixInaccurateDestination(this);
 
-            // Targeting update.
+            // Navmesh targeting update.
             // This prevents the agent from getting stuck.
             if (navigationState.NavmeshPathIncomplete(navAgent))
             {
                 FixNavmeshPath();
             }
+
+            ////////////////// PERCEPTION STUFF ///////////////////
 
             //Perception update.
             //This will allow the agent's eyes to "process" nearby entities
@@ -201,7 +205,7 @@ namespace PathOS
             if (navigationState.perceptionTimer >= Constants.Perception.PERCEPTION_COMPUTE_TIME)
             {
                 navigationState.perceptionTimer = 0.0f;
-                PerceptionUpdate();
+                navigationState.UpdateLookTime(this);
             }
 
             //Look-around update.
@@ -212,6 +216,14 @@ namespace PathOS
                 StartCoroutine(navigationState.LookAround(this));
             }
 
+            //Camera follow update
+            if (cameraFollow)
+            {
+                if (cameraObject != null) cameraObject.transform.position = new Vector3(transform.position.x, 15.0f, transform.position.z);
+            }
+
+            ///////////////// FINALIZATION CHECK //////////////////
+
             //Set the agent's completion flag.
             if (manager.endOnCompletionGoal
                 && _agentMemory.FinalGoalCompleted())
@@ -220,13 +232,7 @@ namespace PathOS
                 gameObject.SetActive(false);
             }
 
-            //Camera follow update
-            if (cameraFollow)
-            {
-                if (cameraObject != null) cameraObject.transform.position = new Vector3(transform.position.x, 15.0f, transform.position.z);
-            }
-
-
+            #region UPDATE METHODS
             void HealthStateUpdate()
             {
                 if (navigationState.changeTargetCount > 0) return;
@@ -285,32 +291,6 @@ namespace PathOS
                 }
             }
 
-            void MakeEntityDestinationAccurate()
-            {
-                // NavMesh reachability check.
-                bool reachable = PathOSNavUtility.CanAgentReachTarget(
-                        navAgent,
-                        navigationState.currentDest.entity.ActualPosition(),
-                        navAgent.height * Constants.Navigation.NAV_SEARCH_RADIUS_FAC,
-                        ref navigationState.currentDest.pos);
-
-                if (reachable)
-                    reachable = Vector3.SqrMagnitude(
-                        PathOSNavUtility.XZPos(navigationState.currentDest.pos) -
-                        PathOSNavUtility.XZPos(navigationState.currentDest.entity.ActualPosition()))
-                        < visitThresholdSqr;
-
-                if (!reachable)
-                {
-                    _agentMemory.MakeUnreachable(navigationState.currentDest.entity);
-                    navigationState.ResetDestinationSelf(this);
-                }
-
-                navigationState.currentDest.accurate = true;
-                navigationState.RouteDestination(navAgent);
-
-            }
-
             void FixNavmeshPath()
             {
                 //If we're following a memory path,
@@ -327,18 +307,31 @@ namespace PathOS
 
                     if (!navigationState.currentDest.accurate)
                     {
-                        MakeEntityDestinationAccurate();
+                        navigationState.MakeEntityDestinationAccurate(this);
                     }
                     else
                     {
-                        float adjVisitSqr = (entity.entityRef.overrideVisitRadius) ?
-                            entity.entityRef.visitRadiusSqr : visitThresholdSqr;
+                        var sameFloor = 
+                            _agentMemory.CalculateAproximatedFloor(entity.perceivedPos.y) ==
+                            _agentMemory.CalculateAproximatedFloor(GetPosition().y);
+
+                        Vector3 agentPos = Vector3.zero;
+                        Vector3 targetPos = Vector3.zero;
+                        float adjVisitSqr = 0;
 
                         //Compress unreachability check to XZ plane.
-                        Vector3 agentPos = PathOSNavUtility.XZPos(GetPosition());
-                        Vector3 targetPos = PathOSNavUtility.XZPos(entity.perceivedPos);
+                        if (sameFloor)
+                        {
+                            adjVisitSqr = (entity.entityRef.overrideVisitRadius) ?
+                                entity.entityRef.visitRadiusSqr : visitThresholdSqr;
 
-                        if (Vector3.SqrMagnitude(agentPos - targetPos) >= adjVisitSqr)
+                            agentPos = PathOSNavUtility.XZPos(GetPosition());
+                            targetPos = PathOSNavUtility.XZPos(entity.perceivedPos);
+                        }
+
+                        // Make unreachable if it's not on the same floor,
+                        // or if it's far away on the same floor.
+                        if (!sameFloor || Vector3.SqrMagnitude(agentPos - targetPos) >= adjVisitSqr)
                             _agentMemory.MakeUnreachable(entity);
 
                         //Reset the number of times we've changed our mind
@@ -356,10 +349,11 @@ namespace PathOS
 
                 navigationState.pathResolved = true;
             }
+            #endregion
         }
         #endregion
 
-            #region PRIVATE METHODS
+        #region PRIVATE METHODS
         private void LogAgentData()
         {
             if (logger != null)
@@ -552,7 +546,7 @@ namespace PathOS
 
             explorationState.assessedGoalsInit = true;
 
-            //if (verboseDebugging)
+            if (verboseDebugging)
                 NPDebug.LogMessage("Position: " + navAgent.transform.position +
                     ", Destination: " + navigationState.currentDest);
 
@@ -729,7 +723,7 @@ namespace PathOS
 
             // SEBA: Commenting this prevents the agent from getting stuck on an unreachable target. 
             // Or maybe not...
-            if (overrideDest != null)
+            if (overrideDest != default)
             {
                 newTarget = overrideDest;
             }
@@ -743,10 +737,11 @@ namespace PathOS
                 // If direction is visibile, explore and map tiles along the direction.
                 // Stores the distance to the "extent" of the direction on the navmesh,
                 // and the position of that "extent" (or the original position if not reachable).
-
+                Debug.Log("[PathOsAgent]: visible " + visible);
                 if (visible)
                 {
                     NavMeshHit hit = new NavMeshHit();
+                    Debug.Log("[PathOsAgent]: camType " + eyes.camType.ToString());
                     //Grab the "extent" of the direction on the navmesh from the perceptual system.
                     switch (eyes.camType)
                     {
@@ -919,7 +914,6 @@ namespace PathOS
             return score;
         }
         
-        private void PerceptionUpdate() => navigationState.UpdateLookTime(this);
 
         /// <summary>
         /// Calculates the bias for a given entity if it's the final goal.
@@ -959,8 +953,15 @@ namespace PathOS
             // Calculate distance to entity and distance factor for scoring function.
 
             toEntity = memory.RecallPos() - GetPosition();
-            float distFactor = (toEntity.sqrMagnitude < Constants.Behaviour.DIST_SCORE_FACTOR_SQR) ?
-                1.0f : Constants.Behaviour.DIST_SCORE_FACTOR_SQR / toEntity.sqrMagnitude;
+            float distFactor = 0.1f;
+
+            int entityFloor = _agentMemory.CalculateAproximatedFloor(memory.RecallPos().y);
+            if(entityFloor == ApproximatedFloor)
+            {
+                distFactor = (toEntity.sqrMagnitude < Constants.Behaviour.DIST_SCORE_FACTOR_SQR) ?
+                    1.0f : Constants.Behaviour.DIST_SCORE_FACTOR_SQR / toEntity.sqrMagnitude;
+            }
+
 
             // Calculate bias for entity type and heuristics, scaled by distance.
 
