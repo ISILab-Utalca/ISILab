@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Core.Settings;
 using UnityEngine;
 namespace ISILab.LBS.Plugin.MapTools.Generators
 {
@@ -12,107 +13,56 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
     /// </summary>
     [DisallowMultipleComponent]
     [Serializable]
-    public class QuestTriggerBranch : MonoBehaviour
+    public class QuestTriggerBranch : QuestTrigger
     {
         #region FIELDS
 
-        [SerializeField] 
-        private List<GameObject> childObjects = new();
-
-        [SerializeField] 
-        private GameObject destinationObject;
-
-        [SerializeField, SerializeReference] 
-        private GraphNode branchNode;
-
+        [SerializeField]
+        private bool Or;
         #endregion
 
         #region PROPERTIES
+        public bool IsAnd => Or == false;
+        public bool IsOr => Or == true;
 
-        public GraphNode BranchNode => branchNode;
-        public List<GameObject> ChildObjects => childObjects;
-        public GameObject DestinationObject => destinationObject;
+        
+        public override void InitTrigger(GraphNode paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0)
+        {
+            Or = paramNode as OrNode != null;
+        }
 
         #endregion
 
         #region METHODS
 
-        public bool IsAnd() => branchNode is AndNode;
-        public bool IsOr() => branchNode is OrNode;
-        public void SetNode(GraphNode node) => branchNode = node;
 
-        #region Setters
 
-        /// <summary>Assigns child triggers directly.</summary>
-        public void SetChildTriggers(List<GameObject> triggersGo) => childObjects = triggersGo;
-
-        /// <summary>Assigns the destination trigger to activate when branch conditions are satisfied.</summary>
-        public void SetDestinationTrigger(GameObject triggerGo) => destinationObject = triggerGo;
-
-        #endregion
-
-        #region Getters
-
-        /// <summary>Gets all child triggers from stored GameObjects.</summary>
-        public List<QuestTrigger> GetChildTriggers()
+        protected override bool CanComplete()
         {
-            return childObjects
-                .Select(child => child.GetComponent<QuestTrigger>())
-                .Where(component => component != null)
-                .ToList();
-        }
-
-        /// <summary>Gets the destination trigger.</summary>
-        public QuestTrigger GetDestinationTrigger() => destinationObject?.GetComponent<QuestTrigger>();
-
-        #endregion
-
-        #region Validation
-
-        /// <summary>Returns true if the given trigger is part of this branch.</summary>
-        public bool IsChildTrigger(QuestTrigger trigger) => GetChildTriggers().Contains(trigger);
-
-        /// <summary>Returns true if the given GameObject contains a trigger that is part of this branch.</summary>
-        public bool IsChildTrigger(GameObject go)
-        {
-            var trigger = go.GetComponent<QuestTrigger>();
-            return trigger != null && IsChildTrigger(trigger);
-        }
-
-        /// <summary>
-        /// Returns true if branch conditions are satisfied and destination can be activated.
-        /// - AND: all children must be completed.
-        /// - OR: at least one child must be completed.
-        /// </summary>
-        public bool IsComplete()
-        {
-            var triggers = GetChildTriggers();
-
-            if (IsAnd())
-                return triggers.All(trigger => trigger.State == QuestState.Completed);
-
-            if (IsOr())
-                return triggers.Any(trigger => trigger.State == QuestState.Completed);
-
-            return false;
-        }
-
-        #endregion
-        
-        #endregion
-
-
-        public void OnProgress()
-        {
-            // child (required actions) have been completed
-            foreach (var child in ChildObjects)
+            if (IsAnd)
             {
-                var trigger =  child.GetComponent<QuestTrigger>();
-                if(trigger is null) continue;
-
-                trigger.State = QuestState.Completed;
-                child.SetActive(false);
+                foreach(var trigger in AllPrevious)
+                {
+                    if (trigger.State != QuestState.Completed) 
+                        return false;
+                }
+                return true;
             }
+
+            // Is or
+            foreach(var trigger in AllPrevious)
+            {
+                if (trigger.State == QuestState.Completed) 
+                    return true;
+            }
+            return false;
+            
         }
+
+
+
+        #endregion
+
+
     }
 }

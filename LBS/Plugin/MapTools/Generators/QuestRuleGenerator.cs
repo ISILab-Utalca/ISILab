@@ -136,35 +136,66 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 if (_currentFrameDelay-- > 0) return;
                 _currentFrameDelay = frameDelay;
                 EditorApplication.update -= DelayGeneration;
-                GenerateTriggersPerNode(settings, quest, tracker, pivot);
+                GenerateGraphTriggers(settings, quest, tracker, pivot);
             }
         }
 
-        private static void GenerateTriggersPerNode(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
+        private static void GenerateGraphTriggers(LBSGenerator3DSettings settings, QuestGraph qGraph, QuestTracker tracker, GameObject pivot)
         {
             // Map QuestNode -> Trigger GameObject
-            Dictionary<QuestNode, GameObject> questNodeGameObjects = CreateQuestNodeGameObjects(settings, quest, tracker, pivot);
+            Dictionary<GraphNode, QuestTriggerNode> nodeToTrigger = MakeTriggerNodes(settings, qGraph, tracker, pivot);
 
-            foreach (KeyValuePair<QuestNode, GameObject> entry in questNodeGameObjects)
+            // Create AND/OR branch node components
+            Dictionary<GraphNode, QuestTriggerBranch> branchToTrigger = MakeTriggerBranches(qGraph, tracker);
+
+            // map froms from the edges to each branch
+            foreach (var edge in qGraph.GraphEdges)
             {
-                GameObject go = entry.Value;
-                QuestTrigger qt = go.GetComponent<QuestTrigger>();
-                if(qt is null) continue;
+                //find the trigger branch mapped to the branch node destination(edge.To)
+                if (branchToTrigger.ContainsKey(edge.To))
+                {
+                    foreach (var node in nodeToTrigger)
+                    {
+                        // map the from that has the branch as destination
+                        if (edge.From.Contains(node.Key))
+                        {
+                            // we set the Next of the node, which auto assigns previous
+                            node.Value.Next = nodeToTrigger[edge.To];
+                        
+                        }
+                    }
+                }
+            }
 
-                Custom3dQuestGizmo questGizmo = go.AddComponent<Custom3dQuestGizmo>();
-                if(questGizmo is null) continue;
 
+            // Add gizmos to all the triggers
+            Dictionary<GraphNode, QuestTrigger> allTriggers = new();
+            foreach(var node in nodeToTrigger)
+            {
+                allTriggers.Add(node.Key, node.Value);
+            }
+            foreach (var node in branchToTrigger)
+            {
+                allTriggers.Add(node.Key, node.Value);
+            }
+            AddTrackerGizmos(tracker, allTriggers);
+        }
+
+        private static void AddTrackerGizmos(QuestTracker tracker, Dictionary<GraphNode, QuestTrigger> nodeToTrigger)
+        {
+            foreach (var entry in nodeToTrigger)
+            {
+                QuestTrigger qt = entry.Value;
+                Custom3dQuestGizmo questGizmo = qt.gameObject.AddComponent<Custom3dQuestGizmo>();
+               
                 questGizmo.Tracker = tracker;
                 questGizmo.Trigger = qt;
             }
-            
-            // Create AND/OR branch node components
-            CreateBranchNodeComponents(quest, tracker, questNodeGameObjects);
         }
-        
-        private static Dictionary<QuestNode, GameObject> CreateQuestNodeGameObjects(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
+
+        private static Dictionary<GraphNode, QuestTriggerNode> MakeTriggerNodes(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
         {
-            var questNodeGameObjects = new Dictionary<QuestNode, GameObject>();
+            Dictionary<GraphNode, QuestTriggerNode> dict = new();
 
             foreach (var node in quest.GetQuestNodes())
             {
@@ -175,67 +206,52 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     continue;
                 }
 
-                var go = CreateTriggerGameObject(settings, pivot, tracker, node, triggerType);
+                var go = MakeTriggerNode(settings, pivot, tracker, node, triggerType);
 
-                questNodeGameObjects[node] = go;
+                dict[node] = go;
             }
 
-            return questNodeGameObjects;
+            return dict;
         }
-        
-        private static GameObject CreateTriggerGameObject(LBSGenerator3DSettings settings, GameObject pivot, QuestTracker tracker, QuestNode node, Type triggerType)
+
+        private static QuestTriggerNode MakeTriggerNode(LBSGenerator3DSettings settings, GameObject pivot, QuestTracker tracker, QuestNode node, Type triggerType)
         {
-            var go = new GameObject(node.ID) { transform = { parent = tracker.transform } };
-            var trigger = (QuestTrigger)go.AddComponent(triggerType);
-
-            // Set visual size
-            var size = node.Data.Area.value;
-            trigger.SetSize(new Vector3(size.width * settings.scale.x,
-                                        size.height * settings.scale.y,
-                                        size.height * settings.scale.y));
-
-            // Set position
-            var x = (node.Data.Area.value.x + node.Data.Area.value.width / 2 - 1) * settings.scale.x;
-            var z = (node.Data.Area.value.y - node.Data.Area.value.height / 2) * settings.scale.y;
-            var y = pivot.transform.position.y;
-            go.transform.position = settings.position + new Vector3(x, y, z);
-           
             if (!node.Data.IsValid())
             {
-                Debug.LogError($"Node Data '{node.ID}' doesn't have a valid data");
+                Debug.LogError($"Node Data '{node.ID}' is invalid. Cannot generate trigger.");
                 Object.DestroyImmediate(pivot);
                 return null;
             }
 
-            trigger.SetNode(node);
+            var Go = new GameObject(node.ID) { transform = { parent = tracker.transform } };
+            var qtn = (QuestTriggerNode)Go.AddComponent(triggerType);
 
-            // Assign data
-            AssignGameObjects(trigger, settings, settings.position, y, new Vector3(settings.scale.x, 0, settings.scale.y) / 2f);
+            float pivotY = pivot.transform.position.y;
+            qtn.InitTrigger(node, settings, pivotY);
 
-            // all are active in the scene, on play they are activated in order
-            go.SetActive(true);
-            return go;
+            Vector3 halfScaleOffset = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
+            FindBundleGos(node.Data, qtn, settings, settings.position, pivotY, halfScaleOffset);
+
+            return qtn;
         }
 
-        private static void AssignGameObjects(QuestTrigger trigger, LBSGenerator3DSettings settings, Vector3 position, float y, Vector3 vector3)
+        private static void FindBundleGos(QuestNodeData data, QuestTriggerNode trigger, LBSGenerator3DSettings settings, Vector3 position, float y, Vector3 vector3)
         {
+            if (trigger == null)
+                return;
 
+            // find and store the positions of the generated game objects, based on their Bundle target graph position
             List<Vector3> scenePositions = new();
-            var grammarBundleGraphs = trigger.Node.Data.GetFields<GrammarBundleGraph>();
+            var grammarBundleGraphs = data.GetFields<GrammarBundleGraph>();
             foreach (var gbg in grammarBundleGraphs)
             {
-                // Calculate the world position of the BundleGraph's position
-                scenePositions.Add(
-                    GetScenePosition(
-                        gbg.value.TileBundleGroup.AreaRect, 
-                        settings, 
-                        position, 
-                        y, 
-                        vector3));
+                Vector3 pos = GetScenePosition(gbg.value.Area, settings, position, y, vector3);
+                scenePositions.Add(pos);
+                
             }
 
+            // find objects generated whose position correspond to the generated bundle graph target gos
             List<LBSGenerated> lbsgens = new();
-            // Instead of OverlapSphere
             var allGenerated = Object.FindObjectsByType<LBSGenerated>(FindObjectsSortMode.None);
             foreach (var lbsgen in allGenerated)
             {
@@ -248,7 +264,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 }
             }
 
-            foreach (var field in trigger.Node.Data.Fields)
+            // try to find the lbsgens by bundle type
+            foreach (var field in trigger.Fields)
             {
                 var bundleStored = field as GrammarBundleGraph;
                 if (bundleStored == null) continue;
@@ -256,16 +273,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 if (field.IsList)
                     foreach(var entry in field.ItemsSource)                 
-                        AssignGameObjectBundle(trigger, bundle, lbsgens);
+                        FindGoWithBundle(trigger, bundle, lbsgens);
 
                 else
-                    AssignGameObjectBundle(trigger, bundle, lbsgens);
+                    FindGoWithBundle(trigger, bundle, lbsgens);
             }
 
         }
 
-        private static void AssignGameObjectBundle(
-            QuestTrigger trigger,
+        private static void FindGoWithBundle(
+            QuestTriggerNode trigger,
             Bundle bundle,
             List<LBSGenerated> lbsgens)
         {
@@ -279,14 +296,15 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 if (lbsgen.BundleRef == bundle)
                 {
-                    trigger.AddGo(lbsgen.gameObject);
+                    trigger.Gos.Add(lbsgen.gameObject);
                     return;
                 }
             }
         }
 
-        private static void CreateBranchNodeComponents(QuestGraph quest, QuestTracker tracker, Dictionary<QuestNode, GameObject> questNodeGameObjects)
+        private static Dictionary<GraphNode, QuestTriggerBranch> MakeTriggerBranches(QuestGraph quest, QuestTracker tracker)
         {
+            Dictionary<GraphNode, QuestTriggerBranch> dict = new();
             // Group edges by destination branch node
             var branchGroups = quest.GraphEdges
                 .Where(e => e.To is AndNode || e.To is OrNode)
@@ -294,29 +312,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
             foreach (var group in branchGroups)
             {
-                var branchNode = group.Key;
-                GameObject branchGameObject;
-                QuestTriggerBranch triggerBranchComponent;
+                var branch = group.Key;
+                QuestTriggerBranch qtb;
 
-                branchGameObject = new GameObject($"{branchNode.ID}") { transform = { parent = tracker.transform } };
-                triggerBranchComponent = branchGameObject.AddComponent<QuestTriggerBranch>();
-       
-                // Assign child triggers
-                var childGameObjects = group.SelectMany(e => e.From.Cast<QuestNode>().Select(n => questNodeGameObjects[n]))
-                                            .Distinct()
-                                            .ToList();
-                triggerBranchComponent.SetChildTriggers(childGameObjects);
+                GameObject branchGo = new GameObject($"{branch.ID}") { transform = { parent = tracker.transform } };
+                qtb = branchGo.AddComponent<QuestTriggerBranch>();
 
-                // Assign destination trigger(s)
-                var destinationEdges = quest.GraphEdges.Where(e => e.From.Contains(branchNode)).ToList();
-                if (destinationEdges.Count > 0 && destinationEdges[0].To is QuestNode destNode && questNodeGameObjects.TryGetValue(destNode, out var destinationGameObject))
-                {
-                    triggerBranchComponent.SetDestinationTrigger(destinationGameObject);
-                }
-
-                triggerBranchComponent.SetNode(branchNode);
-                branchGameObject.SetActive(true);
+                qtb.InitTrigger(branch);
             }
+
+            return dict;
         }
 
         private void GenerateRequiredLayers(QuestNode node)

@@ -79,15 +79,15 @@ namespace ISILab.LBS.VisualElements
             {
                 if (element is VisualElementQuest questEntryVe)
                 {
-                    var item = _questTree.GetItemDataForIndex<QuestObjective>(index);
-                    questEntryVe.SetQuest(item);
+                    var item = _questTree.GetItemDataForIndex<QuestTrigger>(index);
+                    questEntryVe.SetTrigger(item);
                 }
             };
         }
 
         private void UpdateQuest()
         {
-            if (tracker?.Objectives == null)
+            if (tracker?.Triggers == null)
             {
                 Debug.LogWarning("Tracker or Objectives is null.");
                 return;
@@ -99,45 +99,48 @@ namespace ISILab.LBS.VisualElements
             _questTree.ExpandAll();
         }
 
-        private List<TreeViewItemData<QuestObjective>> BuildTreeItems()
+        private List<TreeViewItemData<QuestTriggerNode>> BuildTreeItems()
         {
             // Builds the hierarchy of TreeView items for root objectives
-            var rootItems = new List<TreeViewItemData<QuestObjective>>();
-            var objectives = tracker.Objectives;
+            var rootItems = new List<TreeViewItemData<QuestTriggerNode>>();
 
-            foreach (var objective in objectives)
+            foreach (var trigger in tracker.Triggers)
             {
-                // Only include objectives that are not part of a branch
-                if (objective.Trigger.OwnerBranchNode == null)
+                bool FromBranch = false;
+                foreach (var prev in trigger.AllPrevious)
                 {
-                    rootItems.Add(BuildTreeRecursive(objective));
+                    if(prev is QuestTriggerBranch)
+                    {
+                        FromBranch = true;
+                        break;
+                    }
+                }
+               
+                // Only include objectives that are not part of a branch
+                if (trigger is QuestTriggerNode qtn && !FromBranch)
+                {
+                    rootItems.Add(BuildTreeRecursive(qtn));
                 }
             }
 
             return rootItems;
         }
 
-        private TreeViewItemData<QuestObjective> BuildTreeRecursive(QuestObjective objective)
+        private TreeViewItemData<QuestTriggerNode> BuildTreeRecursive(QuestTriggerNode triggerNode)
         {
+           
             // Recursively builds the TreeView hierarchy for objectives and sub-objectives
             // Note: Uses GetInstanceID for unique IDs to avoid conflicts in TreeView
-            var children = new List<TreeViewItemData<QuestObjective>>();
+            var children = new List<TreeViewItemData<QuestTriggerNode>>();
 
-            foreach (var branch in objective.GetBranches())
+            if (triggerNode.Next is QuestTriggerNode qtn)
             {
-                var subObjectives = objective.GetSubObjectives(branch);
-                if (subObjectives == null) continue;
-
-                foreach (var subTrigger in subObjectives)
-                {
-                    var subObjective = new QuestObjective(subTrigger);
-                    children.Add(BuildTreeRecursive(subObjective));
-                }
+                children.Add(BuildTreeRecursive(qtn));
             }
 
-            return new TreeViewItemData<QuestObjective>(
-                objective.Trigger.GetInstanceID(),
-                objective,
+            return new TreeViewItemData<QuestTriggerNode>(
+                triggerNode.gameObject.GetHashCode(),
+                triggerNode,
                 children
             );
         }

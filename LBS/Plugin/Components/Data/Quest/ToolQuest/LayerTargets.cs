@@ -11,7 +11,8 @@ namespace ISILab.LBS.Components
     [Serializable]
     public class BundleTarget
     {
-        [SerializeField] private string guid = string.Empty;
+        [SerializeField] 
+        private string guid = string.Empty;
         public string GUID => guid;
 
         public BundleTarget(Bundle bundle)
@@ -20,10 +21,7 @@ namespace ISILab.LBS.Components
             guid = LBSAssetMacro.GetGuidFromAsset(bundle);
         }
 
-        public BundleTarget(TileBundleGroup bundle)
-        {
-            guid = bundle?.GetGuid() ?? string.Empty;
-        }
+        public BundleTarget(TileBundleGroup bundle) => guid = bundle?.GetGuid() ?? string.Empty;
 
         public virtual bool IsValid() => !string.IsNullOrEmpty(guid);
 
@@ -41,14 +39,23 @@ namespace ISILab.LBS.Components
     [Serializable]
     public class BundleTargetGraph : BundleTarget
     {
+        #region FIELDS
         [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren] 
         private LBSLayer layer;
+
         [SerializeReference, Commons.Attributes.ReadOnlyIncludeChildren] 
         private TileBundleGroup tileBundleGroup;
 
+        #endregion
+
+        #region PROPERTIES
 
         public LBSLayer Layer => layer;
         public TileBundleGroup TileBundleGroup => tileBundleGroup;
+        public Rect Area => tileBundleGroup?.AreaRect ?? Rect.zero;
+        #endregion
+
+        #region CONSTRUCTOR
 
         public BundleTargetGraph(LBSLayer layer, TileBundleGroup bundle)
             : base(bundle)
@@ -59,7 +66,9 @@ namespace ISILab.LBS.Components
             if (tileBundleGroup != null)
                 tileBundleGroup.OnRemoved += RemoveBundle;
         }
+        #endregion
 
+        #region METHODS
         private void RemoveBundle()
         {
             if (tileBundleGroup != null) tileBundleGroup.OnRemoved -= RemoveBundle;
@@ -70,9 +79,9 @@ namespace ISILab.LBS.Components
             new Vector2Int((int)tileBundleGroup.AreaRect.x, (int)tileBundleGroup.AreaRect.y) :
             Vector2Int.zero;
 
-        public Rect Area => tileBundleGroup?.AreaRect ?? Rect.zero;
         public override bool IsValid() => base.IsValid() && layer != null;
 
+        #endregion
     }
 
 }

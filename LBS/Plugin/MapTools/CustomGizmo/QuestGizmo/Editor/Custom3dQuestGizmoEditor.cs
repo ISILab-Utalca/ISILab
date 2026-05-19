@@ -11,7 +11,7 @@ namespace ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.Editor
     {
         protected override VisualElement CreateInspectorUI()
         {
-            rootVisualElement = new QuestBarView(TargetGizmo.Tracker, TargetGizmo.Trigger, TargetGizmo);
+            rootVisualElement = new QuestBarView(TargetGizmo);
             return rootVisualElement;
         }
 
@@ -30,7 +30,7 @@ namespace ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.Editor
         protected override void OnUpdate(SceneView sceneView)
         {
             QuestBarView qbv = rootVisualElement as  QuestBarView;
-            qbv?.UpdatePreviousButtons();
+            //qbv?.UpdatePreviousButtons();
         }
     }
 }

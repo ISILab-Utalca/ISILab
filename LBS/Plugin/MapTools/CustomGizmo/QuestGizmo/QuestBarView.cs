@@ -11,6 +11,7 @@ using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
 using ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo;
 using UnityEditor;
 using ISILab.LBS.Plugin.MapTools.Generators;
+using System;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -27,16 +28,11 @@ namespace ISILab.LBS.VisualElements
             Element = element;
         }
     }
-    
+   
     public class QuestBarView : GraphElement
     {
-        #region VIEW FIELDS
-        private readonly Button _nextStep;
-        #endregion
-
         #region FIELDS
-        // 0 = start, 1 = end
-        private const float ButtonLineRatioPos = 0.5f; 
+        private const float ButtonLineRatioPos = 0.5f;
         private readonly QuestTrigger _trigger;
         private readonly QuestTracker _tracker;
         private static readonly List<VisualElementWorld> PrevButtons = new();
@@ -45,193 +41,114 @@ namespace ISILab.LBS.VisualElements
         private static readonly string GoalIconGuid = "91e56097e660ca548b3337ccfa31b752";
         #endregion
 
-        public QuestBarView(QuestTracker tracker, QuestTrigger trigger,  Custom3dQuestGizmo questGizmo)
+        public QuestBarView(Custom3dQuestGizmo questGizmo)
         {
-            if(trigger is null) return;
-            if(trigger.Node is null) return;
-            
+            if (questGizmo is null || questGizmo.Trigger is null) 
+                return;
+
+            _trigger = questGizmo.Trigger;
+
             VisualTreeAsset view = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestBarView");
             view.CloneTree(this);
 
             VisualElement previousContainer = this.Q<VisualElement>("Previous");
             VisualElement nextContainer = this.Q<VisualElement>("Next");
-            
+
             Button previousStep = this.Q<Button>("PreviousStep");
-            _nextStep = this.Q<Button>("NextStep");
+            Button nextStep = this.Q<Button>("NextStep"); 
             Label action = this.Q<Label>("Action");
             VisualElement stepType = this.Q<VisualElement>("StepType");
 
             previousStep.style.display = DisplayStyle.Flex;
-            _nextStep.clicked += NextStepOnClicked;
-            
-            _tracker = tracker;
-            _trigger = trigger;
-            
-            action.text = trigger.Node.TerminalID;
-            
-            if(trigger.Node.NodeType == QuestNode.ENodeType.Middle) stepType.style.display = DisplayStyle.None;
-            else
+            action.style.display = DisplayStyle.None;
+            nextStep.clicked += NextStepOnClicked;
+
+            if(_trigger is QuestTriggerNode qtn)
             {
-                stepType.style.display = DisplayStyle.Flex;
-                if (trigger.Node.NodeType == QuestNode.ENodeType.Start)
+                // Use the Terminal ID cached in the trigger
+                action.text = qtn.Terminal.id;
+                action.style.display = DisplayStyle.Flex;
+
+                // Handle icons using the cached NodeType enum
+                if (qtn.NodeType == QuestNode.ENodeType.Middle)
+                    stepType.style.display = DisplayStyle.None;
+                else
                 {
-                    stepType.style.backgroundImage =
-                        new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(StartIconGuid));
-                    previousContainer.style.display = DisplayStyle.None;
+                    stepType.style.display = DisplayStyle.Flex;
+                    string iconGuid = qtn.NodeType == QuestNode.ENodeType.Start ? StartIconGuid : GoalIconGuid;
+                    stepType.style.backgroundImage = new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid));
+
+                    if (qtn.NodeType == QuestNode.ENodeType.Middle)
+                        previousContainer.style.display = DisplayStyle.None;
+                    if (qtn.NodeType == QuestNode.ENodeType.Goal)
+                        nextContainer.style.display = DisplayStyle.None;
                 }
-                if(trigger.Node.NodeType == QuestNode.ENodeType.Goal)
-                {
-                    stepType.style.backgroundImage =
-                        new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(GoalIconGuid));
-                    nextContainer.style.display = DisplayStyle.None;
-                }
+
+
             }
-            
+
             questGizmo.prevTriggers.Clear();
-
-            if (tracker is null) return;
-
-            QuestTrigger[] questObjects = tracker.GetComponentsInChildren<QuestTrigger>();
-            foreach (QuestEdge qe in tracker.QuestGraph.GraphEdges)
+            foreach (QuestTrigger prev in _trigger.AllPrevious)
             {
-                if (!Equals(qe.To, trigger.Node)) continue;
-                
-                previousStep.clicked += ()=> OnPrevStepClicked(questObjects.First());
-                
-                foreach (QuestTrigger qt in questObjects)
-                {
-                    if (!qe.From.Contains(qt.Node)) continue;
-                    
-                    // for line drawing
-                    questGizmo.prevTriggers.Add(qt);
-                    
-                    VisualElement prevButton = new PrevStepButton(previousStep, this, qt);
-                            
-                    SceneView.lastActiveSceneView.rootVisualElement.Add(prevButton);
-                            
-                    Vector3 fromPos = qt.transform.position;
-                    Vector3 toPos = trigger.transform.position;
-                    Vector3 buttonPos = Vector3.Lerp(fromPos, toPos, ButtonLineRatioPos);
-                    DebugButtonPosition(prevButton, buttonPos);
-                    VisualElementWorld entry = new(buttonPos, prevButton);
-                    PrevButtons.Add(entry);
-                }
+                questGizmo.prevTriggers.Add(prev);
+
+                // Create jumping button for scene navigation
+                var prevButton = new Button(() => SelectTriggerGameObject(prev)) { text = "◄" };
+                SceneView.lastActiveSceneView.rootVisualElement.Add(prevButton);
+
+                Vector3 buttonPos = Vector3.Lerp(prev.gameObject.transform.position, _trigger.transform.position, ButtonLineRatioPos);
+                UpdatePosition(prevButton, buttonPos);
+                PrevButtons.Add(new VisualElementWorld(buttonPos, prevButton));
             }
-            
+           
+
             MarkDirtyRepaint();
         }
-        
-        public static void ClearPreviousButtons()
+
+        private void NextStepOnClicked() => SelectTriggerGameObject(_trigger.Next);
+
+        public static void SelectTriggerGameObject(QuestTrigger qt)
         {
-            // Always check for existing scene views
-            foreach (var sceneView in SceneView.sceneViews)
-            {
-                if (sceneView is not SceneView sv || sv.rootVisualElement == null)
-                    continue;
+            if (qt == null) 
+                return;
 
-                foreach (VisualElementWorld ve in PrevButtons)
-                {
-                    if (ve.Element == null) continue;
-
-                    // Check if the button is actually a child of this SceneView
-                    if (ve.Element.hierarchy.parent == sv.rootVisualElement)
-                    {
-                        sv.rootVisualElement.Remove(ve.Element);
-                    }
-                }
-            }
-
-            PrevButtons.Clear();
+            Selection.activeGameObject = qt.gameObject;
+            SceneView.lastActiveSceneView.FrameSelected(true);
+            EditorGUIUtility.PingObject(qt.gameObject);
         }
 
-
-        private void DebugButtonPosition(VisualElement button, Vector3 worldPos)
+        public void UpdatePositions()
         {
-            SceneView sceneView = SceneView.lastActiveSceneView;
-            if (!sceneView || !sceneView.camera) return;
+            foreach (var item in PrevButtons)
+            {
+                if (item.Element != null) UpdatePosition(item.Element, item.Position);
+            }
+        }
 
-            Camera cam = sceneView.camera;
-            Vector3 screenPoint = cam.WorldToScreenPoint(worldPos);
+        private void UpdatePosition(VisualElement button, Vector3 worldPos)
+        {
+            SceneView sv = SceneView.lastActiveSceneView;
+            if (!sv || !sv.camera) return;
 
-            // If behind camera, hide
+            Vector3 screenPoint = sv.camera.WorldToScreenPoint(worldPos);
             if (screenPoint.z < 0f)
             {
                 button.style.display = DisplayStyle.None;
                 return;
             }
-            
-            float uiX = screenPoint.x;
-            // minus the UI invert Y
-            float uiY = sceneView.position.height - screenPoint.y;
-            
-            // Scaling
+
             float ppp = EditorGUIUtility.pixelsPerPoint;
-            uiX /= ppp;
-            uiY /= ppp;
-            
-            const float buttonSize = 50f;
+            button.style.left = (screenPoint.x / ppp) - 25f;
+            button.style.top = ((sv.position.height - screenPoint.y) / ppp) - 25f;
             button.style.position = Position.Absolute;
-            button.style.left = uiX - (buttonSize * 0.5f);
-            // subtract offset (UIToolkit has reversed Y)
-            button.style.top  = uiY - buttonSize;
-    
             button.style.display = DisplayStyle.Flex;
         }
-        
-        #region BUTTON METHODS
-        private void NextStepOnClicked()
+
+        public static void ClearPreviousButtons()
         {
-            QuestTrigger[] questObjects = _tracker.GetComponentsInChildren<QuestTrigger>();
-            foreach (QuestEdge qe in _tracker.QuestGraph.GraphEdges)
-            {
-                if (qe.From.Contains(_trigger.Node))
-                {
-                    foreach (QuestTrigger qt in questObjects)
-                    {
-                        if (Equals(qt.Node, qe.To))
-                        {
-                            SelectQuestObject(qt);
-                            return;
-                        }
-                    }
-                }
-            }
+            foreach (var ve in PrevButtons) ve.Element?.RemoveFromHierarchy();
+            PrevButtons.Clear();
         }
 
-        private static void SelectQuestObject(QuestTrigger qt)
-        {
-            if(qt is null) return;
-            GameObject destination = qt.gameObject;
-                     
-            // Select it in the Hierarchy
-            Selection.activeGameObject = destination;
-
-            // Frame it in the Scene view
-            SceneView.lastActiveSceneView.FrameSelected(true);
-            
-            EditorGUIUtility.PingObject(destination);
-        }
-
-        public void UpdatePreviousButtons()
-        {
-            //  Update positions
-            SceneView sceneView = SceneView.lastActiveSceneView;
-            if (!sceneView) return;
-
-            foreach (VisualElementWorld item in PrevButtons)
-            {
-                if (item.Element != null)
-                {
-                    DebugButtonPosition(item.Element, item.Position);
-                }
-            }
-        }
-
-        public void OnPrevStepClicked(QuestTrigger qt)
-        {
-            SelectQuestObject(qt);
-        }
-        #endregion
-        
     }
 }

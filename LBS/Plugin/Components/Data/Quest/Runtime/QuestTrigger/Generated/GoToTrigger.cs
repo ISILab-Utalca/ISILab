@@ -5,8 +5,9 @@ using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.AI.Grammar
 {
-    public class GoToTrigger : QuestTrigger 
+    public class GoToTrigger : QuestTriggerNode
     {
+
 
         protected override void BindFields(List<GrammarField> fields) 
         {

@@ -19,8 +19,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private Label _questLabel;
         private VisualElement _state;
 
-        private QuestNode _questNode;
-
         private const string ActiveIconGuid = "2d0e21afed0e2b948a825ad351292248";
         private const string CompletedIconGuid = "eff207486cc48924b8691a0a3545be17";
         private const string OrIconGuid = "1d6ab847894293148bfa4d70136a75a9";
@@ -45,18 +43,16 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         /// Updates this element to represent the quest's state.
         /// Called from QuestVisualTree.TreeView binding.
         /// </summary>
-        public void SetQuest(QuestObjective questObjective)
+        public void SetTrigger(QuestTrigger trigger)
         {
-            if (questObjective?.Trigger?.Node == null)
+            if (trigger == null)
                 return;
-
-            _questNode = questObjective.Trigger.Node;
 
             Color color;
             bool closed = false;
 
             VectorImage vecImage;
-            switch (_questNode.QuestState)
+            switch (trigger.State)
             {
                 case QuestState.Blocked:
                     vecImage = AssetMacro.LoadAssetByGuid<VectorImage>(ActiveIconGuid);
@@ -85,14 +81,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
 
             // for branches
-            if (questObjective.Trigger.Node != null)
+            if (trigger is QuestTriggerBranch qtb)
             {
-                vecImage = questObjective.Trigger.OwnerBranchNode switch
-                {
-                    AndNode => AssetMacro.LoadAssetByGuid<VectorImage>(AndIconGuid),
-                    OrNode => AssetMacro.LoadAssetByGuid<VectorImage>(OrIconGuid),
-                    _ => vecImage
-                };
+                if (qtb.IsAnd)
+                    vecImage = AssetMacro.LoadAssetByGuid<VectorImage>(AndIconGuid);
+               
+                if (qtb.IsOr)
+                    vecImage = AssetMacro.LoadAssetByGuid<VectorImage>(OrIconGuid);
+                
             }
             
             
@@ -101,9 +97,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             _state.style.unityBackgroundImageTintColor = color;
             // Label changes
             _questLabel.style.color = new StyleColor(color);
-            _questLabel.text = closed
-                ? $"<s>{_questNode.TerminalID}</s>"
-                : _questNode.TerminalID;
+
+            if(trigger is QuestTriggerNode qtn)
+            {
+
+                _questLabel.text = closed
+                    ? $"<s>{qtn.Terminal.id}</s>"
+                    : trigger.gameObject.name;
+            }
         }
     }
 }

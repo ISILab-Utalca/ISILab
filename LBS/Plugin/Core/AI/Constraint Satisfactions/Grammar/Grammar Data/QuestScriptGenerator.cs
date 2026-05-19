@@ -54,24 +54,30 @@ namespace ISILab.AI.Grammar
                     fieldDefs.AppendLine($"{Tab2}private {typeName} _{cleanName};");
                     fieldDefs.AppendLine();
 
-                    // 2. Logic: Find the source, then transfer the value instead of the reference
-                    fieldMaps.AppendLine($"{Tab3}var source{cleanName} = fields.Find(f => f.name == \"{field.name}\") as {typeName};");
-                    fieldMaps.AppendLine($"{Tab3}if (source{cleanName} != null) _{cleanName}.SetValue(source{cleanName}.value);");
+                    // 2. Map and Instantiate Logic: 
+                    // Instantiates the object if it is null, finds its source metadata, and sets values safely.
+                    fieldMaps.AppendLine($"{Tab3}// Ensure the target field is instantiated so it isn't null");
+                    fieldMaps.AppendLine($"{Tab3}if (_{cleanName} == null) _{cleanName} = new {typeName}();");
                     fieldMaps.AppendLine();
+                    fieldMaps.AppendLine($"{Tab3}var source{cleanName} = fields.Find(f => f.name == \"{field.name}\") as {typeName};");
+                    fieldMaps.AppendLine($"{Tab3}if (source{cleanName} != null)");
+                    fieldMaps.AppendLine($"{Tab3}{{");
+                    fieldMaps.AppendLine($"{Tab3}{Tab1}_{cleanName}.SetValue(source{cleanName}.value);");
+                    fieldMaps.AppendLine($"{Tab3}}}");
                 }
             }
 
-            return $@"
-using UnityEngine;
+            return $@"using UnityEngine;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.AI.Grammar
 {{
-    public class {className} : QuestTrigger 
+    public class {className} : QuestTriggerNode
     {{
-{fieldDefs}
+{fieldDefs.ToString().TrimEnd()}
+
         protected override void BindFields(List<GrammarField> fields) 
         {{
 {fieldMaps.ToString().TrimEnd()}
