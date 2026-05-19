@@ -54,17 +54,24 @@ namespace ISILab.LBS.Behaviours
 
             Graph.OnRemoveNode += (node) =>
             {
-                foreach(var field in node.Data.GetFields<GrammarField>())
+                if (node is QuestNode qt)
                 {
-                    RequestTileRemove(field);
+                    foreach (var field in qt.Data.GetFields<GrammarField>())
+                    {
+                        RequestTileRemove(field);
+                    }
                 }
+               
             };
 
             Graph.OnAddNode += (node) => 
             {
-                foreach (var field in node.Data.GetFields<GrammarField>())
+                if (node is QuestNode qt)
                 {
-                    RequestTilePaint(field);
+                    foreach (var field in qt.Data.GetFields<GrammarField>())
+                    {
+                        RequestTilePaint(field);
+                    }
                 }
             };
 

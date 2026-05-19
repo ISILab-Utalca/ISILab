@@ -4,6 +4,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static TreeEditor.TreeEditorHelper;
 
 
 [DisallowMultipleComponent]
@@ -121,5 +122,8 @@ public abstract class QuestTrigger : MonoBehaviour
             allPrevious.Remove(previousTrigger);
         }
     }
+
+    protected void ClearPrevious() => allPrevious.Clear();
     #endregion
+
 }

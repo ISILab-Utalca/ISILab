@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using static UnityEditor.PlayerSettings;
 
 namespace ISILab.LBS.Modules
 {
@@ -107,8 +109,8 @@ namespace ISILab.LBS.Modules
         public Action<Vector2Int> GoToNodeInGraph;
         public Action<QuestEdge> OnAddEdge;
         public Action<QuestEdge> OnRemoveEdge;
-        public Action<QuestNode> OnAddNode;
-        public Action<QuestNode> OnRemoveNode;
+        public Action<GraphNode> OnAddNode;
+        public Action<GraphNode> OnRemoveNode;
 
         #endregion
 
@@ -138,13 +140,13 @@ namespace ISILab.LBS.Modules
             selectedNode?.OnSelect?.Invoke();
         }
 
-        private void AddNode(QuestNode node)
+        private void AddNode(GraphNode node)
         {
             SelectedGraphNode = node;
             ValidateGraph();
         }
 
-        private void RemoveNode(QuestNode node)
+        private void RemoveNode(GraphNode node)
         {
             if (SelectedGraphNode == node) SelectedGraphNode = null;
         }
@@ -249,13 +251,7 @@ namespace ISILab.LBS.Modules
                 return AddNewQuestNode(behaviour.ActionToSet, pos);
 
             // adding a branching node
-            GraphNode node = behaviour.activeGraphNodeType == typeof(OrNode)
-                     ? new OrNode(string.Empty, pos, this)
-                     : new AndNode(string.Empty, pos, this);
-
-            node.ID = GenerateUniqueId(node.ToString(), GraphNodes.Select(n => n.ID));
-            AddNodeToGraph(node);
-            return node;
+            return AddNewBranchNode(behaviour, pos);
         }
 
         public QuestNode GetNodeSuggestion(string action,  List<QuestNode> tempSuggestions, Vector2 pos = default)
@@ -273,6 +269,17 @@ namespace ISILab.LBS.Modules
             return node;
         }
         
+        private GraphNode AddNewBranchNode(QuestBehaviour behaviour, Vector2 pos)
+        {
+            GraphNode node = behaviour.activeGraphNodeType == typeof(OrNode)
+             ? new OrNode(string.Empty, pos, this)
+             : new AndNode(string.Empty, pos, this);
+
+            node.ID = GenerateUniqueId(node.ToString(), GraphNodes.Select(n => n.ID));
+            AddNodeToGraph(node);
+            return node;
+        }
+
         public void AddSuggestionNode(QuestNode generatedQuestNode)
         {
             if(generatedQuestNode is null) return;
@@ -309,7 +316,7 @@ namespace ISILab.LBS.Modules
                     SetRoot(qn);
             }
 
-            OnAddNode?.Invoke(node as QuestNode);
+            OnAddNode?.Invoke(node);
         }
 
         public void RemoveQuestNode(GraphNode node)
@@ -322,7 +329,7 @@ namespace ISILab.LBS.Modules
             }
 
             if (Equals(node, root)) root = null;
-            OnRemoveNode?.Invoke(node as QuestNode);
+            OnRemoveNode?.Invoke(node);
         }
         #endregion
 
@@ -333,7 +340,7 @@ namespace ISILab.LBS.Modules
             graphEdges.Add(newEdge);
             OnAddEdge?.Invoke(newEdge);
 
-            return Tuple.Create($"Connection: {from} → {to}", LogType.Log);
+            return Tuple.Create($"Connection: {from.ToString()} → {to.ToString()}", LogType.Log);
         }
 
         public bool IsLooped(GraphNode origin, GraphNode current, HashSet<GraphNode> visited)

@@ -142,42 +142,46 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         private static void GenerateGraphTriggers(LBSGenerator3DSettings settings, QuestGraph qGraph, QuestTracker tracker, GameObject pivot)
         {
-            // Map QuestNode -> Trigger GameObject
+            // 1. Generate the raw instances
             Dictionary<GraphNode, QuestTriggerNode> nodeToTrigger = MakeTriggerNodes(settings, qGraph, tracker, pivot);
-
-            // Create AND/OR branch node components
             Dictionary<GraphNode, QuestTriggerBranch> branchToTrigger = MakeTriggerBranches(qGraph, tracker);
 
-            // map froms from the edges to each branch
+            // 2. Unify them immediately so we can map edges universally regardless of type
+            Dictionary<GraphNode, QuestTrigger> allTriggers = new();
+            foreach (var kvp in nodeToTrigger) allTriggers.Add(kvp.Key, kvp.Value);
+            foreach (var kvp in branchToTrigger) allTriggers.Add(kvp.Key, kvp.Value);
+
+            // 3. Connect the nodes via your new Next/Previous properties
             foreach (var edge in qGraph.GraphEdges)
             {
-                //find the trigger branch mapped to the branch node destination(edge.To)
-                if (branchToTrigger.ContainsKey(edge.To))
+                // Find the source triggers matching the IDs in edge.From
+                foreach (var sourceNode in nodeToTrigger)
                 {
-                    foreach (var node in nodeToTrigger)
+                    if (edge.From.Contains(sourceNode.Key))
                     {
-                        // map the from that has the branch as destination
-                        if (edge.From.Contains(node.Key))
+                        // Safely look up the destination target from the unified map
+                        if (allTriggers.TryGetValue(edge.To, out QuestTrigger targetTrigger))
                         {
-                            // we set the Next of the node, which auto assigns previous
-                            node.Value.Next = nodeToTrigger[edge.To];
-                        
+                            // This triggers the smart property setter we built!
+                            sourceNode.Value.Next = targetTrigger;
                         }
                     }
                 }
             }
 
+            // 4. Register branches with their dependencies 
+            foreach (var kvp in branchToTrigger)
+            {
+                QuestTriggerBranch branchTrigger = kvp.Value;
 
-            // Add gizmos to all the triggers
-            Dictionary<GraphNode, QuestTrigger> allTriggers = new();
-            foreach(var node in nodeToTrigger)
-            {
-                allTriggers.Add(node.Key, node.Value);
+                // Feed the branch its previous inputs so it can evaluate its AND/OR conditions
+                foreach (var prevTrigger in branchTrigger.AllPrevious)
+                {
+                    branchTrigger.AddPrevious(prevTrigger);
+                }
             }
-            foreach (var node in branchToTrigger)
-            {
-                allTriggers.Add(node.Key, node.Value);
-            }
+
+            // 5. Add visual layout aids
             AddTrackerGizmos(tracker, allTriggers);
         }
 

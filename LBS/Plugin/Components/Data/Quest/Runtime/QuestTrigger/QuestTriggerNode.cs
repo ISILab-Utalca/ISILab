@@ -132,4 +132,30 @@ public abstract class QuestTriggerNode : QuestTrigger
     #region STATIC UTILITIES
     public static bool IsPlayer(Collider other) => other.CompareTag("Player");
     #endregion
+
+
+
+
+    #region EDITOR VALIDATION
+#if UNITY_EDITOR
+    /// <summary>
+    /// Automatically cleans up connections in the inspector if a node's type changes.
+    /// </summary>
+    protected virtual void OnValidate()
+    {
+        // If it's a Start node, it shouldn't have previous connections
+        if (nodeType == QuestNode.ENodeType.Start && AllPrevious.Count > 0)
+        {
+            ClearPrevious();
+        }
+
+        // If it's a Goal node, it cannot point to a next node
+        if (nodeType == QuestNode.ENodeType.Goal && Next != null)
+        {
+            Next = null;
+        }
+    }
+#endif
+    #endregion
+
 }

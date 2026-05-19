@@ -69,6 +69,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             {
                 if (nodeFrom is QuestNode from)
                 {
+
                      // validate start 
                     if (from.NodeType == QuestNode.ENodeType.Start)
                     {
@@ -112,8 +113,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     returnValid = edge.To.ValidGrammar;
                 }   
             }
-                
-         
+
             return returnValid;
             
         }

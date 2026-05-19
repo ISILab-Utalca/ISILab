@@ -61,6 +61,8 @@ namespace ISILab.LBS.VisualElements
 
             previousStep.style.display = DisplayStyle.Flex;
             action.style.display = DisplayStyle.None;
+
+            previousStep.clicked += PrevStepOnClicked;
             nextStep.clicked += NextStepOnClicked;
 
             if(_trigger is QuestTriggerNode qtn)
@@ -68,20 +70,28 @@ namespace ISILab.LBS.VisualElements
                 // Use the Terminal ID cached in the trigger
                 action.text = qtn.Terminal.id;
                 action.style.display = DisplayStyle.Flex;
+                QuestNode.ENodeType nType = qtn.NodeType;
+
 
                 // Handle icons using the cached NodeType enum
-                if (qtn.NodeType == QuestNode.ENodeType.Middle)
+                if (nType == QuestNode.ENodeType.Middle)
                     stepType.style.display = DisplayStyle.None;
                 else
                 {
                     stepType.style.display = DisplayStyle.Flex;
-                    string iconGuid = qtn.NodeType == QuestNode.ENodeType.Start ? StartIconGuid : GoalIconGuid;
+                    string iconGuid = nType == QuestNode.ENodeType.Start ? StartIconGuid : GoalIconGuid;
                     stepType.style.backgroundImage = new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid));
 
-                    if (qtn.NodeType == QuestNode.ENodeType.Middle)
+                    if (nType == QuestNode.ENodeType.Start)
+                    {        
+                        previousStep.style.display = DisplayStyle.None;
                         previousContainer.style.display = DisplayStyle.None;
-                    if (qtn.NodeType == QuestNode.ENodeType.Goal)
+                    }
+                    else if (nType == QuestNode.ENodeType.Goal)
+                    {
+                        nextStep.style.display = DisplayStyle.None;
                         nextContainer.style.display = DisplayStyle.None;
+                    }
                 }
 
 
@@ -96,16 +106,24 @@ namespace ISILab.LBS.VisualElements
                 var prevButton = new Button(() => SelectTriggerGameObject(prev)) { text = "◄" };
                 SceneView.lastActiveSceneView.rootVisualElement.Add(prevButton);
 
-                Vector3 buttonPos = Vector3.Lerp(prev.gameObject.transform.position, _trigger.transform.position, ButtonLineRatioPos);
-                UpdatePosition(prevButton, buttonPos);
+                Vector3 buttonPos = Vector3.Lerp(
+                    prev.gameObject.transform.position, 
+                    _trigger.gameObject.transform.position, 
+                    ButtonLineRatioPos);
+
                 PrevButtons.Add(new VisualElementWorld(buttonPos, prevButton));
+
+                UpdatePosition(prevButton, buttonPos);
             }
            
 
             MarkDirtyRepaint();
         }
 
-        private void NextStepOnClicked() => SelectTriggerGameObject(_trigger.Next);
+        
+        private void PrevStepOnClicked() => SelectTriggerGameObject(_trigger?.AllPrevious?.FirstOrDefault());
+
+        private void NextStepOnClicked() => SelectTriggerGameObject(_trigger != null ? _trigger.Next : null);
 
         public static void SelectTriggerGameObject(QuestTrigger qt)
         {
@@ -113,7 +131,7 @@ namespace ISILab.LBS.VisualElements
                 return;
 
             Selection.activeGameObject = qt.gameObject;
-            SceneView.lastActiveSceneView.FrameSelected(true);
+            SceneView.lastActiveSceneView.FrameSelected(false);
             EditorGUIUtility.PingObject(qt.gameObject);
         }
 

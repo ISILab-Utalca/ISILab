@@ -30,7 +30,7 @@ namespace ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.Editor
         protected override void OnUpdate(SceneView sceneView)
         {
             QuestBarView qbv = rootVisualElement as  QuestBarView;
-            //qbv?.UpdatePreviousButtons();
+            qbv?.UpdatePositions();
         }
     }
 }
