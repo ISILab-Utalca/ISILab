@@ -158,7 +158,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
             var toRemove = new List<TileZonePair>();
             foreach (var pair in pairs)
             {
-                if (pair.Zone == zone)
+                if (pair.Zone.Equals(zone))
                     toRemove.Add(pair);
             }
             OnChanged?.Invoke(this, toRemove.Cast<object>().ToList(), null);
@@ -652,7 +652,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
 
         public Zone GetZone(string name)
         {
-            foreach (var zone in zones)
+            foreach (Zone zone in zones)
             {
                 if (zone.ID == name)
                     return zone;

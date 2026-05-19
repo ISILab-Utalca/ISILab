@@ -80,7 +80,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public bool TryExecute(out string log, out LogType type, Action<float> onProgress = null, CancellationToken token = default)
         {
-            log = "HillClimbing Completed";
+            log = "HillClimbing Completed!";
             type =  LogType.Log;
             var modules = (hillClimbing.Adam as OptimizableModules)?.Modules;
             
