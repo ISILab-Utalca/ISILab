@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace ISILab.LBS.Components
@@ -21,13 +22,16 @@ namespace ISILab.LBS.Components
     {
         #region FIELDS
 
-        [SerializeField, SerializeReference]
+        [SerializeReference]
         protected QuestNode ownerNode;
 
         // terminal from which we obtain color/icons
-        [SerializeField] private string terminalGUID;
-        private GrammarTerminal terminal;
+        [SerializeField]
+        private string terminalGUID;
 
+        [SerializeField]
+        private long terminalLocalID;
+        
         [SerializeReference] 
         private List<GrammarField> fields = new();
 
@@ -52,23 +56,50 @@ namespace ISILab.LBS.Components
 
         #region PROPERTIES
         public List<GrammarField> Fields => fields;
+
+
         public GrammarTerminal Terminal
         {
             get
             {
-                terminal = terminal != null ? terminal : LBSAssetMacro.LoadAssetByGuid<GrammarTerminal>(terminalGUID);
-                return terminal;
-            }
+                if (string.IsNullOrEmpty(terminalGUID))
+                    return null;
 
+                string path = AssetDatabase.GUIDToAssetPath(terminalGUID);
+
+                var assets = AssetDatabase.LoadAllAssetsAtPath(path);
+
+                foreach (var asset in assets)
+                {
+                    AssetDatabase.TryGetGUIDAndLocalFileIdentifier(
+                        asset,
+                        out _,
+                        out long localID);
+
+                    if (localID == terminalLocalID)
+                        return asset as GrammarTerminal;
+                }
+
+                return null;
+            }
             set
             {
-                terminal = value;
-                terminalGUID = LBSAssetMacro.GetGuidFromAsset(terminal);
+                if (value == null)
+                {
+                    terminalGUID = string.Empty;
+                    terminalLocalID = 0;
+                    return;
+                }
+
+                AssetDatabase.TryGetGUIDAndLocalFileIdentifier(
+                    value,
+                    out terminalGUID,
+                    out terminalLocalID);
             }
         }
 
 
-        public string ID => Node.ID;
+    public string ID => Node.ID;
         public QuestNode Node => ownerNode;
         public QuestGraph Graph => ownerNode.Graph;
         public LBSLayer OwnerLayer => Graph.OwnerLayer;
@@ -117,9 +148,14 @@ namespace ISILab.LBS.Components
         public virtual void Clone(QuestNodeData data)
         {
             ownerNode = data.ownerNode;
-            _areaField = data._areaField;
-            fields = data.fields;
-            _eventHookerField = data._eventHookerField;
+
+            fields = data.fields
+                .Select(f => (GrammarField)f.Clone())
+                .ToList();
+
+            _areaField = fields.OfType<GrammarArea>().FirstOrDefault();
+            _eventHookerField = fields.OfType<GrammarEventHook>().FirstOrDefault();
+
             Terminal = data.Terminal;
         }
 
@@ -150,7 +186,7 @@ namespace ISILab.LBS.Components
             // assign tiles to any fields that implement IBundleFlags
             foreach (var field in fields) 
             {
-                if (this is IBundleStored IBundleFlag)
+                if (field is IBundleStored IBundleFlag)
                 {
                     foreach (var tile in data.Tiles)
                     {

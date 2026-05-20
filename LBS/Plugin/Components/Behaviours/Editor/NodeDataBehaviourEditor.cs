@@ -39,7 +39,9 @@ namespace ISILab.LBS.VisualElements
         /// To identify which node has been clicked 
         /// </summary>
         private Label _nodeIDLabel;
-        
+
+        private LBSCustomObjectField _terminalField;
+
         private VisualElement _nodePanel;
         private VisualElement _actionPanel;
         private VisualElement _noNodeSelectedPanel;
@@ -124,6 +126,8 @@ namespace ISILab.LBS.VisualElements
             #region Get VisualElements from UXML
             _nodePanel = this.Q<VisualElement>("ID");
             _actionPanel = this.Q<VisualElement>("Action");
+            _terminalField = this.Q<LBSCustomObjectField>("Terminal");
+
             _noNodeSelectedPanel = this.Q<VisualElement>("NoNodeSelectedPanel");
             
             fieldsVisualElements = this.Q<VisualElement>("InstancedContent");
@@ -176,6 +180,7 @@ namespace ISILab.LBS.VisualElements
 
             fieldsVisualElements.Clear();
 
+            _terminalField.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _noNodeSelectedPanel.style.display = validNode ? DisplayStyle.None : DisplayStyle.Flex;  
             _nodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _actionPanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
@@ -294,6 +299,7 @@ namespace ISILab.LBS.VisualElements
 
             _paramActionLabel.text = node.TerminalID;
             _nodeIDLabel.text = node.ID;
+            _terminalField.value = data.Terminal;
 
             Color terminalColor = data.Terminal.color;
             Color backgroundColor = terminalColor;

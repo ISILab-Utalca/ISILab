@@ -86,13 +86,11 @@ namespace ISILab.LBS.Drawers.Editor
                         nodeView.SelectView(node.IsSelected());
                     }
                 }
-                else if (key is ValueTuple<QuestEdge, GraphNode> edgeKey)
+                else if (key is QuestEdge edge)
                 {
-                    var edge = edgeKey.Item1;
-                    var from = edgeKey.Item2;
 
                     QuestGraphNodeView toView = view.GetElementsFromLayer(bh.OwnerLayer, edge.To).FirstOrDefault() as QuestGraphNodeView;
-                    QuestGraphNodeView fromView = view.GetElementsFromLayer(bh.OwnerLayer, from).FirstOrDefault() as QuestGraphNodeView;
+                    QuestGraphNodeView fromView = view.GetElementsFromLayer(bh.OwnerLayer, edge.From).FirstOrDefault() as QuestGraphNodeView;
 
                     if (toView != null && fromView != null)
                     {
@@ -138,18 +136,14 @@ namespace ISILab.LBS.Drawers.Editor
             // Refresh existing Edges
             foreach (QuestEdge edge in graph.GraphEdges)
             {
-                foreach (GraphNode from in edge.From)
-                {
-                    var key = (edge, from);
-                    var elements = view.GetElementsFromLayer(bh.OwnerLayer, key);
-                    if (elements == null) continue;
+                var elements = view.GetElementsFromLayer(bh.OwnerLayer, edge);
+                if (elements == null) continue;
 
-                    foreach (var el in elements)
-                    {
-                        if (el is not QuestEdgeView edgeView) continue;
-                        edgeView.style.display = layerVisible ? DisplayStyle.Flex : DisplayStyle.None;
-                        edgeView.UpdatePositions();
-                    }
+                foreach (var el in elements)
+                {
+                    if (el is not QuestEdgeView edgeView) continue;
+                    edgeView.style.display = layerVisible ? DisplayStyle.Flex : DisplayStyle.None;
+                    edgeView.UpdatePositions();
                 }
             }
 
@@ -197,24 +191,20 @@ namespace ISILab.LBS.Drawers.Editor
 
                 if (toView == null) continue;
 
-                foreach (GraphNode from in edge.From)
-                {
-                    var key = (edge, from);
+                QuestGraphNodeView fromView = view
+                    .GetElementsFromLayer(graph.OwnerLayer, edge.From)
+                    .FirstOrDefault() as QuestGraphNodeView;
 
-                    QuestGraphNodeView fromView = view
-                        .GetElementsFromLayer(graph.OwnerLayer, from)
-                        .FirstOrDefault() as QuestGraphNodeView;
+                if (fromView == null) continue;
 
-                    if (fromView == null) continue;
+                var edgeView = CreateEdgeView(graph, edge, fromView, toView);
 
-                    var edgeView = CreateEdgeView(graph, edge, fromView, toView);
+                view.AddElementToLayerContainer(graph.OwnerLayer, edge, edgeView);
+                edgeView.layer = fromView.layer + 1;
 
-                    view.AddElementToLayerContainer(graph.OwnerLayer, key, edgeView);
-                    edgeView.layer = fromView.layer + 1;
+                // disable when loading levels
+                edgeView.SetEnabled(false);
 
-                    // disable when loading levels
-                    edgeView.SetEnabled(false);
-                }
             }
         }
 
@@ -235,11 +225,7 @@ namespace ISILab.LBS.Drawers.Editor
             // 1. Toggle Edges
             foreach (QuestEdge edge in graph.GraphEdges)
             {
-                foreach (GraphNode from in edge.From)
-                {
-                    var key = (edge, from);
-                    SetKeyDisplayStyle(view, layer, key, style);
-                }
+                SetKeyDisplayStyle(view, layer, edge, style);
             }
 
             // 2. Toggle Nodes

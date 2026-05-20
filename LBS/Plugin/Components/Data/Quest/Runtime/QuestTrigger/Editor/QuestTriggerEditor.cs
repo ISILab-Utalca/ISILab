@@ -4,7 +4,7 @@ using UnityEditor;
 
 namespace ISILab.LBS.VisualElements
 {
-    [CustomEditor(typeof(QuestTrigger), true)]
+    [CustomEditor(typeof(QuestTriggerNode), true)]
     public class QuestTriggerEditor : Editor
     {
         private SerializedProperty _stateProp;

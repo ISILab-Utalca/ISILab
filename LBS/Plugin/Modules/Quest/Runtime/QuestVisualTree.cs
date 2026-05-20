@@ -99,48 +99,32 @@ namespace ISILab.LBS.VisualElements
             _questTree.ExpandAll();
         }
 
-        private List<TreeViewItemData<QuestTriggerNode>> BuildTreeItems()
+        private List<TreeViewItemData<QuestTrigger>> BuildTreeItems()
         {
             // Builds the hierarchy of TreeView items for root objectives
-            var rootItems = new List<TreeViewItemData<QuestTriggerNode>>();
+            var rootItems = new List<TreeViewItemData<QuestTrigger>>();
 
             foreach (var trigger in tracker.Triggers)
             {
-                bool FromBranch = false;
-                foreach (var prev in trigger.AllPrevious)
-                {
-                    if(prev is QuestTriggerBranch)
-                    {
-                        FromBranch = true;
-                        break;
-                    }
-                }
-               
-                // Only include objectives that are not part of a branch
-                if (trigger is QuestTriggerNode qtn && !FromBranch)
-                {
-                    rootItems.Add(BuildTreeRecursive(qtn));
-                }
+                rootItems.Add(BuildTreeRecursive(trigger));
             }
 
             return rootItems;
         }
 
-        private TreeViewItemData<QuestTriggerNode> BuildTreeRecursive(QuestTriggerNode triggerNode)
+        private TreeViewItemData<QuestTrigger> BuildTreeRecursive(QuestTrigger trigger)
         {
            
             // Recursively builds the TreeView hierarchy for objectives and sub-objectives
             // Note: Uses GetInstanceID for unique IDs to avoid conflicts in TreeView
-            var children = new List<TreeViewItemData<QuestTriggerNode>>();
+            var children = new List<TreeViewItemData<QuestTrigger>>();
 
-            if (triggerNode.Next is QuestTriggerNode qtn)
-            {
-                children.Add(BuildTreeRecursive(qtn));
-            }
 
-            return new TreeViewItemData<QuestTriggerNode>(
-                triggerNode.gameObject.GetHashCode(),
-                triggerNode,
+            children.Add(BuildTreeRecursive(trigger));
+
+            return new TreeViewItemData<QuestTrigger>(
+                trigger.gameObject.GetHashCode(),
+                trigger,
                 children
             );
         }

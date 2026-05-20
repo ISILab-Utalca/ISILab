@@ -162,8 +162,7 @@ namespace ISILab.LBS.Modules
             GrammarAssistant assistant = OwnerLayer.GetAssistant<GrammarAssistant>();
             if (assistant == null) throw new Exception("No GrammarAssistant found");
 
-            foreach (QuestEdge edge in GraphEdges)
-                assistant.ValidateEdgeGrammar(edge);
+            assistant.ValidateGraphGrammar();
 
         }
         
@@ -190,12 +189,10 @@ namespace ISILab.LBS.Modules
                 dest.ValidConnections = destRoots > 0 && destBranches > 0;
 
                 // source nodes validation
-                foreach (GraphNode node in edge.From)
-                {
-                    int roots = GetRoots(node).Count;
-                    int branches = GetBranches(node).Count;
-                    node.ValidConnections = roots > 0  && branches > 0;
-                }
+                GraphNode from = edge.From;
+                int roots = GetRoots(from).Count;
+                int branches = GetBranches(from).Count;
+                from.ValidConnections = roots > 0 && branches > 0;
 
                 if (dest is QuestNode { NodeType: QuestNode.ENodeType.Goal } goalNode)
                 {
@@ -397,43 +394,38 @@ namespace ISILab.LBS.Modules
         {
             foreach (QuestEdge e in graphEdges)
             {
-                foreach (GraphNode from in e.From)
-                {
-                    Vector2 c1 = new Rect(from.NodePosition).center;
-                    Vector2 c2 = new Rect(e.To.NodePosition).center;
-                    if (pos.DistanceToLine(c1, c2) < delta)
-                        return e;
-                }
+                Vector2 c1 = new Rect(e.From.NodePosition).center;
+                Vector2 c2 = new Rect(e.To.NodePosition).center;
+                if (pos.DistanceToLine(c1, c2) < delta)
+                    return e;
+
             }
             return null;
         }
 
         private List<QuestEdge> GetEdgesWithNode(GraphNode node) =>
-            graphEdges.Where(e => e.From.Contains(node) || e.To.Equals(node)).ToList();
+            graphEdges.Where(e => e.From == node || e.To.Equals(node)).ToList();
 
         public List<QuestEdge> GetBranches(GraphNode node)
         {
             List<QuestEdge> list = new List<QuestEdge>();
             
-            if (!graphNodes.Contains(node)) return list;
+            if (!graphNodes.Contains(node)) 
+                return list;
             
             foreach (QuestEdge edge in graphEdges)
             {
-                // Check that the edge target is valid
-                if (!graphNodes.Contains(edge.To)) continue;
-                
-                // Check if at least one From exists in the graph
-                bool found = false;
-                foreach (GraphNode from in edge.From)
-                {
-                    if (Equals(from, node) && graphNodes.Contains(from))
-                    {
-                        found = true;
-                        break;
-                    }
-                }
+                // root found -> can obtain branches from it
+                if (!Equals(edge.From, node))
+                    continue;
 
-                if (found) list.Add(edge);
+                if (!graphNodes.Contains(edge.To)) 
+                    continue;
+
+                if (!graphNodes.Contains(edge.From))
+                    continue;
+
+                list.Add(edge);
             }
 
             return list;
@@ -446,21 +438,17 @@ namespace ISILab.LBS.Modules
 
             foreach (QuestEdge edge in graphEdges)
             {
-                if (!Equals(edge.To, node)) continue;
+                // to found -> can obtain roots from it
+                if (!Equals(edge.To, node)) 
+                    continue;
                 
-                // Check if To exists in the graph
-                if (!graphNodes.Contains(edge.To)) continue;
-                
-                // Check if at least one From exists in the graph
-                bool validFrom = false;
-                foreach (GraphNode from in edge.From)
-                {
-                    if (!graphNodes.Contains(from)) continue;
-                    validFrom = true;
-                    break; 
-                }
+                if (!graphNodes.Contains(edge.To)) 
+                    continue;
 
-                if (validFrom) valid.Add(edge);
+                if (!graphNodes.Contains(edge.From))
+                    continue;
+
+                valid.Add(edge);
             }
 
             return valid;
@@ -531,11 +519,7 @@ namespace ISILab.LBS.Modules
             foreach (QuestEdge edge in GetRoots(referenceNode).ToList())
             {
                 RemoveEdge(edge);
-                foreach (GraphNode from in edge.From)
-                {
-                    AddEdge(from, newNode);
-                }          
-     
+                AddEdge(edge.From, newNode);
             }
             
             // Add edge from new node →reference
@@ -577,11 +561,7 @@ namespace ISILab.LBS.Modules
                 List<QuestEdge> roots = referenceNode.Graph.GetRoots(referenceNode);
                 foreach (QuestEdge edge in roots)
                 {
-                    foreach (GraphNode from in edge.From)
-                    {
-                        // connect the last inserted node to the original reference node's destinations
-                        AddEdge(from, newNodes.First());
-                    }
+                    AddEdge(edge.From, newNodes.First());
                 }
             }
 

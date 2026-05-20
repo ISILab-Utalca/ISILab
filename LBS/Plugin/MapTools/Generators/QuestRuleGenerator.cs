@@ -97,7 +97,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
             
             var assistant = layer.GetAssistant<GrammarAssistant>();
-            bool allValid = assistant.ValidateQuestGraph();
+            bool allValid = assistant.ValidateGraphGrammar();
              if (!allValid)
             {
                 Object.DestroyImmediate(pivot);
@@ -142,46 +142,34 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         private static void GenerateGraphTriggers(LBSGenerator3DSettings settings, QuestGraph qGraph, QuestTracker tracker, GameObject pivot)
         {
-            // 1. Generate the raw instances
+            // make triggers
             Dictionary<GraphNode, QuestTriggerNode> nodeToTrigger = MakeTriggerNodes(settings, qGraph, tracker, pivot);
-            Dictionary<GraphNode, QuestTriggerBranch> branchToTrigger = MakeTriggerBranches(qGraph, tracker);
+            Dictionary<GraphNode, QuestTriggerBranch> branchToTrigger = MakeTriggerBranches(settings, qGraph, tracker, pivot);
 
-            // 2. Unify them immediately so we can map edges universally regardless of type
+            // join triggers
             Dictionary<GraphNode, QuestTrigger> allTriggers = new();
             foreach (var kvp in nodeToTrigger) allTriggers.Add(kvp.Key, kvp.Value);
             foreach (var kvp in branchToTrigger) allTriggers.Add(kvp.Key, kvp.Value);
 
-            // 3. Connect the nodes via your new Next/Previous properties
+            // Set next per node (which automatically sets the previous)
             foreach (var edge in qGraph.GraphEdges)
             {
-                // Find the source triggers matching the IDs in edge.From
-                foreach (var sourceNode in nodeToTrigger)
+                // match edge with trigger
+                foreach (var sourceNode in allTriggers)
                 {
-                    if (edge.From.Contains(sourceNode.Key))
+                    if (edge.From == sourceNode.Key)
                     {
-                        // Safely look up the destination target from the unified map
+                        // find in map
                         if (allTriggers.TryGetValue(edge.To, out QuestTrigger targetTrigger))
                         {
-                            // This triggers the smart property setter we built!
+                            // set next, which sets previous as well
                             sourceNode.Value.Next = targetTrigger;
                         }
                     }
                 }
             }
 
-            // 4. Register branches with their dependencies 
-            foreach (var kvp in branchToTrigger)
-            {
-                QuestTriggerBranch branchTrigger = kvp.Value;
-
-                // Feed the branch its previous inputs so it can evaluate its AND/OR conditions
-                foreach (var prevTrigger in branchTrigger.AllPrevious)
-                {
-                    branchTrigger.AddPrevious(prevTrigger);
-                }
-            }
-
-            // 5. Add visual layout aids
+            // Add the scene gizmos to navigate
             AddTrackerGizmos(tracker, allTriggers);
         }
 
@@ -306,23 +294,36 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
         }
 
-        private static Dictionary<GraphNode, QuestTriggerBranch> MakeTriggerBranches(QuestGraph quest, QuestTracker tracker)
+        private static Dictionary<GraphNode, QuestTriggerBranch> MakeTriggerBranches(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
         {
             Dictionary<GraphNode, QuestTriggerBranch> dict = new();
+
             // Group edges by destination branch node
             var branchGroups = quest.GraphEdges
                 .Where(e => e.To is AndNode || e.To is OrNode)
                 .GroupBy(e => e.To);
 
+            float pivotY = pivot.transform.position.y;
+            Vector3 halfScaleOffset = new Vector3(settings.scale.x, 0, settings.scale.y) / 2f;
+
             foreach (var group in branchGroups)
             {
-                var branch = group.Key;
-                QuestTriggerBranch qtb;
+                var branch = group.Key as BranchNode;
 
+                // 1. Instantiate the Branch GameObject
                 GameObject branchGo = new GameObject($"{branch.ID}") { transform = { parent = tracker.transform } };
-                qtb = branchGo.AddComponent<QuestTriggerBranch>();
+                QuestTriggerBranch qtb = branchGo.AddComponent<QuestTriggerBranch>();
 
+                // 2. Initialize the trigger data
                 qtb.InitTrigger(branch);
+
+                // 3. FIX: Position the Branch relative to the layout graph bounds
+                // Uses the exact same coordinate mapping math as your QuestTriggerNodes
+                Vector3 branchScenePos = GetScenePosition(branch.Area, settings, settings.position, pivotY, halfScaleOffset);
+                branchGo.transform.position = branchScenePos;
+
+                // 4. FIX: Store the branch in the dictionary so AddTrackerGizmos registers it!
+                dict[branch] = qtb;
             }
 
             return dict;
@@ -359,47 +360,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
               
             }
 
-        }
-
-
-
-      private static void AssignObjectByBundleGraph(
-            QuestNode node,
-            BundleTargetGraph bundleGraph,
-            LBSGenerator3DSettings settings,
-            Vector3 basePos,
-            float y,
-            Vector3 delta,
-            Action<GameObject> assignAction)
-      {
-            // Calculate the world position of the BundleGraph's position
-            var scenePosition = GetScenePosition(bundleGraph.Area, settings, basePos, y, delta);
-
-            // Find objects at the position with LBSGenerated component using physics query
-            var colliders = Physics.OverlapSphere(scenePosition, ProbeRadius);
-            if (colliders == null || colliders.Length == 0)
-            {
-                Debug.LogWarning($"OverlapSphere collider empty, no objects found.");
-                return;
-            }
-
-            for (int i = 0; i < colliders.Length; i++)
-            {
-                var collider = colliders[i];
-                if (collider == null) continue;
-
-                var lbsGenerated = collider.GetComponent<LBSGenerated>();
-                if (lbsGenerated == null || lbsGenerated.BundleRef == null) continue;
-                if (lbsGenerated.LayerName != bundleGraph.Layer?.Name) continue; 
-
-                Bundle bundleRef = AssetMacro.LoadAssetByGuid<Bundle>(bundleGraph.GUID);
-                if (lbsGenerated.BundleRef != bundleRef) continue;
-
-                assignAction?.Invoke(collider.gameObject);
-                return;
-            }
-
-            Debug.LogWarning($"No object with LBSGenerated component and matching BundleRef Guid '{bundleGraph.GUID}' found at position {scenePosition} for node {node.ID}");
         }
 
         private static Vector3 GetScenePosition(Rect graphArea, LBSGenerator3DSettings settings, Vector3 basePos, float y,
