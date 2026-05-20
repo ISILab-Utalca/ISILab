@@ -394,12 +394,12 @@ namespace PathOS
             /// tiles, the total distance traversed, and the proportion of unexplored tiles encountered.</param>
             /// <param name="fillSeen">If set to <see langword="true"/>, marks all sampled tiles along the ray as seen. The default is <see
             /// langword="false"/>.</param>
-            /// <param name="point">If set to <see langword="true"/>, considers the raycast as a point sample. The default is <see langword="false"/>.</param>
-            public void RaycastMemoryMap(Vector3 origin, Vector3 dir, float maxDistance, out NavmeshMemoryMapperCastHit hit,
-                bool fillSeen = false, bool point = false)
+            /// <param name="pointSample">If set to <see langword="true"/>, considers the raycast as a point sample. The default is <see langword="false"/>.</param>
+            public void XZRaycastMemoryMap(Vector3 origin, Vector3 dir, float maxDistance, out NavmeshMemoryMapperCastHit hit,
+                bool fillSeen = false, bool pointSample = false)
             {
                 Vector3 samplePoint = origin;
-                Vector3 d = new Vector3(dir.x, dir.y, dir.z);
+                Vector3 d = new Vector3(dir.x, 0, dir.z);
                 d.Normalize();
 
                 // What is our sampling distance?
@@ -415,6 +415,10 @@ namespace PathOS
                 if (theta > 45.0f)
                     theta = 90.0f - theta;
 
+                // ROD: might as well use sampleGridSize.x for this calculation,
+                // idk how to incorporate X and Z to make this a fiable measurement and
+                // this implementation will only work fine when both scales are the same.
+                // (but who would make a level with different X and Z anyways?)
                 float sampleDistance = sampleGridSize.z / Mathf.Cos(Mathf.Deg2Rad * theta);
                 d = sampleDistance * d;
 
@@ -428,7 +432,8 @@ namespace PathOS
                 for (int i = 1; (i * sampleDistance) < maxDistance && i < maxCastSamples; ++i)
                 {
                     // If we're doing a point sample, we only want to sample at the end of the ray.
-                    if (!point || (i + 1) * sampleDistance > maxDistance)
+                    bool lastPoint = (i + 1) * sampleDistance > maxDistance;
+                    if (!pointSample || lastPoint)
                     {
                         sample = SampleMap(samplePoint);
 
@@ -447,8 +452,8 @@ namespace PathOS
 
                         totalSampled++;
                     }
-                    samplePoint += d;
 
+                    samplePoint += d;
                     totalDistance += sampleDistance;
                 }
 

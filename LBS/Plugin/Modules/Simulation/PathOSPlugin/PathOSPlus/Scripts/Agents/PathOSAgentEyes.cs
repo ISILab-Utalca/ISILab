@@ -353,7 +353,7 @@ namespace PathOS
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
                 new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
 
-            agent.AgentMemory.memoryMap.RaycastMemoryMap(origin, dir, hit.distance,
+            agent.AgentMemory.memoryMap.XZRaycastMemoryMap(origin, dir, hit.distance,
                 out memHit, true);
 
             return hit;
@@ -421,7 +421,7 @@ namespace PathOS
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit memHit =
                 new PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit();
 
-            agent.AgentMemory.memoryMap.RaycastMemoryMap(origin, dir, distance, out memHit, true, true); // No mapea 1 a 1, sino a lo largo, en lineas.
+            agent.AgentMemory.memoryMap.XZRaycastMemoryMap(origin, dir, distance, out memHit, true, true); // No mapea 1 a 1, sino a lo largo, en lineas.
 
             return hit;
         }

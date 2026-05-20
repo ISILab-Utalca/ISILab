@@ -200,8 +200,8 @@ namespace PathOS
     public class LevelEntity
     {
         public string name;
-
         public GameObject objectRef;
+        public Vector3 Position => objectRef.transform.position;
 
         [EntityDisplay]
         public EntityType entityType;

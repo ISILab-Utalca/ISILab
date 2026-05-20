@@ -495,6 +495,8 @@ namespace PathOS
             
             EntityMemory closestStair = null;
             float closestDistanceSqr = Mathf.Infinity;
+
+            // TODO: Probably an A* search would be better.
             foreach (var stairMemory in stairMemories)
             {
                 float distanceSqr = (stairMemory.entity.perceivedPos - position).sqrMagnitude;
