@@ -22,16 +22,17 @@
                     "blocked": false,
                     "iconGuid": "02a644759487ae249bc3a20d019c8745",
                     "id": "Exterior",
-                    "name": "exterior",
-                    "modules": [
+                    "name": "New Layer",
+                    "activeFloor": 0,
+                    "floors": [
                         {
                             "rid": 1001
-                        },
-                        {
-                            "rid": 1002
                         }
                     ],
                     "behaviours": [
+                        {
+                            "rid": 1002
+                        },
                         {
                             "rid": 1003
                         }
@@ -52,7 +53,8 @@
                         "reflectionProbe": false,
                         "scale": {
                             "x": 2.0,
-                            "y": 2.0
+                            "y": 2.0,
+                            "z": 2.0
                         },
                         "resize": {
                             "x": 0.0,
@@ -64,7 +66,10 @@
                             "z": 0.0
                         },
                         "replacePrevious": true,
-                        "name": "DEFAULT",
+                        "buildLightProbes": true,
+                        "bakeLights": false,
+                        "optimization3d": 0,
+                        "generatedRootName": "DEFAULT",
                         "rootParentName": "Root_Parent"
                     },
                     "index": 0
@@ -73,27 +78,49 @@
             {
                 "rid": 1001,
                 "type": {
-                    "class": "TileMapModule",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSFloor",
+                    "ns": "LBS.Components",
                     "asm": "LBS"
                 },
                 "data": {
-                    "id": "TileMapModule",
-                    "ownerLayer": {
+                    "modules": [
+                        {
+                            "rid": 1006
+                        },
+                        {
+                            "rid": 1007
+                        },
+                        {
+                            "rid": 1008
+                        }
+                    ]
+                }
+            },
+            {
+                "rid": 1002,
+                "type": {
+                    "class": "ExteriorBehaviour",
+                    "ns": "ISILab.LBS.Behaviours",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "visible": true,
+                    "ownerLayerLayer": {
                         "visible": true,
                         "blocked": false,
                         "iconGuid": "02a644759487ae249bc3a20d019c8745",
                         "id": "Exterior",
-                        "name": "exterior",
-                        "modules": [
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
                             {
                                 "rid": 1001
-                            },
-                            {
-                                "rid": 1002
                             }
                         ],
                         "behaviours": [
+                            {
+                                "rid": 1002
+                            },
                             {
                                 "rid": 1003
                             }
@@ -114,7 +141,8 @@
                             "reflectionProbe": false,
                             "scale": {
                                 "x": 2.0,
-                                "y": 2.0
+                                "y": 2.0,
+                                "z": 2.0
                             },
                             "resize": {
                                 "x": 0.0,
@@ -126,21 +154,269 @@
                                 "z": 0.0
                             },
                             "replacePrevious": true,
-                            "name": "DEFAULT",
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
+                            "rootParentName": "Root_Parent"
+                        },
+                        "index": 0
+                    },
+                    "colorTint": {
+                        "r": 0.5299999713897705,
+                        "g": 0.8399999737739563,
+                        "b": 0.9599999785423279,
+                        "a": 1.0
+                    },
+                    "name": "Exterior behaviour",
+                    "iconGuid": "e17eb0e02534666439fca8ea30b4d4e4",
+                    "icon": {
+                        "instanceID": 27560
+                    },
+                    "bundleGuid": "9d3dac0f9a486fd47866f815b4fefc29",
+                    "identifierToSet": {
+                        "instanceID": 45048
+                    }
+                }
+            },
+            {
+                "rid": 1003,
+                "type": {
+                    "class": "NoteBehaviour",
+                    "ns": "ISILab.LBS.Behaviours",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "visible": true,
+                    "ownerLayerLayer": {
+                        "visible": true,
+                        "blocked": false,
+                        "iconGuid": "02a644759487ae249bc3a20d019c8745",
+                        "id": "Exterior",
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
+                            {
+                                "rid": 1001
+                            }
+                        ],
+                        "behaviours": [
+                            {
+                                "rid": 1002
+                            },
+                            {
+                                "rid": 1003
+                            }
+                        ],
+                        "assistants": [
+                            {
+                                "rid": 1004
+                            }
+                        ],
+                        "generatorRules": [
+                            {
+                                "rid": 1005
+                            }
+                        ],
+                        "settings": {
+                            "useBundleSize": false,
+                            "lightVolume": false,
+                            "reflectionProbe": false,
+                            "scale": {
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
+                            },
+                            "resize": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "replacePrevious": true,
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
+                            "rootParentName": "Root_Parent"
+                        },
+                        "index": 0
+                    },
+                    "colorTint": {
+                        "r": 0.0,
+                        "g": 0.0,
+                        "b": 0.0,
+                        "a": 0.0
+                    },
+                    "name": "NoteBehaviour",
+                    "iconGuid": "e17eb0e02534666439fca8ea30b4d4e4",
+                    "icon": {
+                        "instanceID": 0
+                    }
+                }
+            },
+            {
+                "rid": 1004,
+                "type": {
+                    "class": "AssistantWFC",
+                    "ns": "ISILab.LBS.Plugin.Core.AI.Assistant",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "visible": true,
+                    "ownerLayer": {
+                        "visible": true,
+                        "blocked": false,
+                        "iconGuid": "02a644759487ae249bc3a20d019c8745",
+                        "id": "Exterior",
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
+                            {
+                                "rid": 1001
+                            }
+                        ],
+                        "behaviours": [
+                            {
+                                "rid": 1002
+                            },
+                            {
+                                "rid": 1003
+                            }
+                        ],
+                        "assistants": [
+                            {
+                                "rid": 1004
+                            }
+                        ],
+                        "generatorRules": [
+                            {
+                                "rid": 1005
+                            }
+                        ],
+                        "settings": {
+                            "useBundleSize": false,
+                            "lightVolume": false,
+                            "reflectionProbe": false,
+                            "scale": {
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
+                            },
+                            "resize": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "replacePrevious": true,
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
+                            "rootParentName": "Root_Parent"
+                        },
+                        "index": 0
+                    },
+                    "colorTint": {
+                        "r": 0.7599999904632568,
+                        "g": 0.9599999785423279,
+                        "b": 0.4399999976158142,
+                        "a": 1.0
+                    },
+                    "name": "Assistant WFC",
+                    "iconGuid": "ad8feef201665454ca79e31b7d798ac3",
+                    "icon": {
+                        "instanceID": 27470
+                    },
+                    "overrideValues": false,
+                    "targetBundleRef": {
+                        "instanceID": 44802
+                    }
+                }
+            },
+            {
+                "rid": 1005,
+                "type": {
+                    "class": "ExteriorRuleGenerator",
+                    "ns": "ISILab.LBS.Plugin.MapTools.Generators",
+                    "asm": "LBS"
+                },
+                "data": {}
+            },
+            {
+                "rid": 1006,
+                "type": {
+                    "class": "TileMapModule",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "id": "TileMapModule",
+                    "ownerLayer": {
+                        "visible": true,
+                        "blocked": false,
+                        "iconGuid": "02a644759487ae249bc3a20d019c8745",
+                        "id": "Exterior",
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
+                            {
+                                "rid": 1001
+                            }
+                        ],
+                        "behaviours": [
+                            {
+                                "rid": 1002
+                            },
+                            {
+                                "rid": 1003
+                            }
+                        ],
+                        "assistants": [
+                            {
+                                "rid": 1004
+                            }
+                        ],
+                        "generatorRules": [
+                            {
+                                "rid": 1005
+                            }
+                        ],
+                        "settings": {
+                            "useBundleSize": false,
+                            "lightVolume": false,
+                            "reflectionProbe": false,
+                            "scale": {
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
+                            },
+                            "resize": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "replacePrevious": true,
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
                             "rootParentName": "Root_Parent"
                         },
                         "index": 0
                     },
                     "tiles": [
-                        {
-                            "rid": 1006
-                        },
-                        {
-                            "rid": 1007
-                        },
-                        {
-                            "rid": 1008
-                        },
                         {
                             "rid": 1009
                         },
@@ -206,12 +482,21 @@
                         },
                         {
                             "rid": 1030
+                        },
+                        {
+                            "rid": 1031
+                        },
+                        {
+                            "rid": 1032
+                        },
+                        {
+                            "rid": 1033
                         }
                     ]
                 }
             },
             {
-                "rid": 1002,
+                "rid": 1007,
                 "type": {
                     "class": "ConnectedTileMapModule",
                     "ns": "ISILab.LBS.Modules",
@@ -224,16 +509,17 @@
                         "blocked": false,
                         "iconGuid": "02a644759487ae249bc3a20d019c8745",
                         "id": "Exterior",
-                        "name": "exterior",
-                        "modules": [
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
                             {
                                 "rid": 1001
-                            },
-                            {
-                                "rid": 1002
                             }
                         ],
                         "behaviours": [
+                            {
+                                "rid": 1002
+                            },
                             {
                                 "rid": 1003
                             }
@@ -254,7 +540,8 @@
                             "reflectionProbe": false,
                             "scale": {
                                 "x": 2.0,
-                                "y": 2.0
+                                "y": 2.0,
+                                "z": 2.0
                             },
                             "resize": {
                                 "x": 0.0,
@@ -266,7 +553,10 @@
                                 "z": 0.0
                             },
                             "replacePrevious": true,
-                            "name": "DEFAULT",
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
                             "rootParentName": "Root_Parent"
                         },
                         "index": 0
@@ -274,15 +564,6 @@
                     "connectedDirections": 4,
                     "gridType": 0,
                     "pairs": [
-                        {
-                            "rid": 1031
-                        },
-                        {
-                            "rid": 1032
-                        },
-                        {
-                            "rid": 1033
-                        },
                         {
                             "rid": 1034
                         },
@@ -348,115 +629,44 @@
                         },
                         {
                             "rid": 1055
+                        },
+                        {
+                            "rid": 1056
+                        },
+                        {
+                            "rid": 1057
+                        },
+                        {
+                            "rid": 1058
                         }
                     ]
                 }
             },
             {
-                "rid": 1003,
+                "rid": 1008,
                 "type": {
-                    "class": "ExteriorBehaviour",
-                    "ns": "ISILab.LBS.Behaviours",
+                    "class": "NoteModule",
+                    "ns": "ISILab.LBS.Modules",
                     "asm": "LBS"
                 },
                 "data": {
-                    "visible": true,
-                    "ownerLayerLayer": {
-                        "visible": true,
-                        "blocked": false,
-                        "iconGuid": "02a644759487ae249bc3a20d019c8745",
-                        "id": "Exterior",
-                        "name": "exterior",
-                        "modules": [
-                            {
-                                "rid": 1001
-                            },
-                            {
-                                "rid": 1002
-                            }
-                        ],
-                        "behaviours": [
-                            {
-                                "rid": 1003
-                            }
-                        ],
-                        "assistants": [
-                            {
-                                "rid": 1004
-                            }
-                        ],
-                        "generatorRules": [
-                            {
-                                "rid": 1005
-                            }
-                        ],
-                        "settings": {
-                            "useBundleSize": false,
-                            "lightVolume": false,
-                            "reflectionProbe": false,
-                            "scale": {
-                                "x": 2.0,
-                                "y": 2.0
-                            },
-                            "resize": {
-                                "x": 0.0,
-                                "y": 0.0
-                            },
-                            "position": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "replacePrevious": true,
-                            "name": "DEFAULT",
-                            "rootParentName": "Root_Parent"
-                        },
-                        "index": 0
-                    },
-                    "colorTint": {
-                        "r": 0.529411792755127,
-                        "g": 0.843137264251709,
-                        "b": 0.9647058844566345,
-                        "a": 1.0
-                    },
-                    "name": "ExteriorBehaviour",
-                    "iconGuid": "e17eb0e02534666439fca8ea30b4d4e4",
-                    "icon": {
-                        "instanceID": 30730
-                    },
-                    "targetBundleRef": {
-                        "instanceID": 47834
-                    },
-                    "bundleRefGui": "9d3dac0f9a486fd47866f815b4fefc29",
-                    "identifierToSet": {
-                        "instanceID": 48012
-                    }
-                }
-            },
-            {
-                "rid": 1004,
-                "type": {
-                    "class": "AssistantWFC",
-                    "ns": "ISILab.LBS.Plugin.Core.AI.Assistant",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "visible": true,
+                    "id": "NoteModule",
                     "ownerLayer": {
                         "visible": true,
                         "blocked": false,
                         "iconGuid": "02a644759487ae249bc3a20d019c8745",
                         "id": "Exterior",
-                        "name": "exterior",
-                        "modules": [
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
                             {
                                 "rid": 1001
-                            },
-                            {
-                                "rid": 1002
                             }
                         ],
                         "behaviours": [
+                            {
+                                "rid": 1002
+                            },
                             {
                                 "rid": 1003
                             }
@@ -477,7 +687,8 @@
                             "reflectionProbe": false,
                             "scale": {
                                 "x": 2.0,
-                                "y": 2.0
+                                "y": 2.0,
+                                "z": 2.0
                             },
                             "resize": {
                                 "x": 0.0,
@@ -489,71 +700,15 @@
                                 "z": 0.0
                             },
                             "replacePrevious": true,
-                            "name": "DEFAULT",
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
                             "rootParentName": "Root_Parent"
                         },
                         "index": 0
                     },
-                    "colorTint": {
-                        "r": 0.7607843279838562,
-                        "g": 0.9607843160629273,
-                        "b": 0.43921568989753725,
-                        "a": 1.0
-                    },
-                    "name": "Wave Function Collapse Assistant",
-                    "iconGuid": "ad8feef201665454ca79e31b7d798ac3",
-                    "icon": {
-                        "instanceID": 30642
-                    },
-                    "overrideValues": false,
-                    "targetBundleRef": {
-                        "instanceID": 47834
-                    }
-                }
-            },
-            {
-                "rid": 1005,
-                "type": {
-                    "class": "ExteriorRuleGenerator",
-                    "ns": "ISILab.LBS.Plugin.MapTools.Generators",
-                    "asm": "LBS"
-                },
-                "data": {}
-            },
-            {
-                "rid": 1006,
-                "type": {
-                    "class": "LBSTile",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "x": 5,
-                    "y": -6
-                }
-            },
-            {
-                "rid": 1007,
-                "type": {
-                    "class": "LBSTile",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "x": 5,
-                    "y": -5
-                }
-            },
-            {
-                "rid": 1008,
-                "type": {
-                    "class": "LBSTile",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "x": 5,
-                    "y": -4
+                    "notes": []
                 }
             },
             {
@@ -564,8 +719,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -3
+                    "x": 0,
+                    "y": 0
                 }
             },
             {
@@ -576,8 +731,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -2
+                    "x": 0,
+                    "y": 1
                 }
             },
             {
@@ -588,8 +743,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -6
+                    "x": 0,
+                    "y": 2
                 }
             },
             {
@@ -600,8 +755,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -5
+                    "x": 0,
+                    "y": 3
                 }
             },
             {
@@ -612,8 +767,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -4
+                    "x": 0,
+                    "y": 4
                 }
             },
             {
@@ -624,8 +779,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -3
+                    "x": 1,
+                    "y": 0
                 }
             },
             {
@@ -636,8 +791,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -2
+                    "x": 1,
+                    "y": 1
                 }
             },
             {
@@ -648,8 +803,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -6
+                    "x": 1,
+                    "y": 2
                 }
             },
             {
@@ -660,8 +815,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -5
+                    "x": 1,
+                    "y": 3
                 }
             },
             {
@@ -672,8 +827,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -4
+                    "x": 1,
+                    "y": 4
                 }
             },
             {
@@ -684,8 +839,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -3
+                    "x": 2,
+                    "y": 0
                 }
             },
             {
@@ -696,8 +851,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -2
+                    "x": 2,
+                    "y": 1
                 }
             },
             {
@@ -708,8 +863,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -6
+                    "x": 2,
+                    "y": 2
                 }
             },
             {
@@ -720,8 +875,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -5
+                    "x": 2,
+                    "y": 3
                 }
             },
             {
@@ -732,8 +887,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -4
+                    "x": 2,
+                    "y": 4
                 }
             },
             {
@@ -744,8 +899,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -3
+                    "x": 3,
+                    "y": 0
                 }
             },
             {
@@ -756,8 +911,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -2
+                    "x": 3,
+                    "y": 1
                 }
             },
             {
@@ -768,8 +923,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -6
+                    "x": 3,
+                    "y": 2
                 }
             },
             {
@@ -780,8 +935,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -5
+                    "x": 3,
+                    "y": 3
                 }
             },
             {
@@ -792,8 +947,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -4
+                    "x": 3,
+                    "y": 4
                 }
             },
             {
@@ -804,8 +959,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -3
+                    "x": 4,
+                    "y": 0
                 }
             },
             {
@@ -816,83 +971,44 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -2
+                    "x": 4,
+                    "y": 1
                 }
             },
             {
                 "rid": 1031,
                 "type": {
-                    "class": "TileConnectionsPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSTile",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "tile": {
-                        "rid": 1006
-                    },
-                    "connections": [
-                        "",
-                        "",
-                        "",
-                        ""
-                    ],
-                    "editedByIA": [
-                        false,
-                        false,
-                        false,
-                        false
-                    ]
+                    "x": 4,
+                    "y": 2
                 }
             },
             {
                 "rid": 1032,
                 "type": {
-                    "class": "TileConnectionsPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSTile",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "tile": {
-                        "rid": 1007
-                    },
-                    "connections": [
-                        "",
-                        "",
-                        "",
-                        ""
-                    ],
-                    "editedByIA": [
-                        false,
-                        false,
-                        false,
-                        false
-                    ]
+                    "x": 4,
+                    "y": 3
                 }
             },
             {
                 "rid": 1033,
                 "type": {
-                    "class": "TileConnectionsPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSTile",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "tile": {
-                        "rid": 1008
-                    },
-                    "connections": [
-                        "",
-                        "",
-                        "",
-                        ""
-                    ],
-                    "editedByIA": [
-                        false,
-                        false,
-                        false,
-                        false
-                    ]
+                    "x": 4,
+                    "y": 4
                 }
             },
             {
@@ -1430,6 +1546,81 @@
                 "data": {
                     "tile": {
                         "rid": 1030
+                    },
+                    "connections": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "editedByIA": [
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                }
+            },
+            {
+                "rid": 1056,
+                "type": {
+                    "class": "TileConnectionsPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "tile": {
+                        "rid": 1031
+                    },
+                    "connections": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "editedByIA": [
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                }
+            },
+            {
+                "rid": 1057,
+                "type": {
+                    "class": "TileConnectionsPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "tile": {
+                        "rid": 1032
+                    },
+                    "connections": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "editedByIA": [
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                }
+            },
+            {
+                "rid": 1058,
+                "type": {
+                    "class": "TileConnectionsPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "tile": {
+                        "rid": 1033
                     },
                     "connections": [
                         "",

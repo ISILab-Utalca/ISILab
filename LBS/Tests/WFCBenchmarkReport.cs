@@ -5,167 +5,29 @@ using NUnit.Framework;
 using Unity.PerformanceTesting;
 
 namespace ISILab.LBS.Tests
-
 {
     [TestFixture]
     public class WFCBenchmarkReport
     {
         LBSLevelData levelData ;
-        AssistantWFC WFCassistant;
+        protected AssistantWFC WFCassistant;
 
-        const string Edge_5x5_Map = "1e5437b06539cbc4bb2d78f0289eaa41";
-        const string Edge_10x10_Map = "82609bf5ea1bcc7419de21d82445fea5";
-        const string Edge_20x20_Map = "11800f84c2b82604f9a9e3f09d1a7fe3";
-        const string Edge_40x40_Map = "301ab417ce8d3da48986747b725c267a";
-        const string Vertex_5x5_Map = "6f1c8b94e4c5f2e4aba756e2d46dbb61";
-        const string Vertex_10x10_Map = "41185b8b66e1de3499b080546b6eb729";
-        const string Vertex_20x20_Map = "f44e1759c8bde004783ae5bbb9942e76";
-        const string Vertex_40x40_Map = "a75be50c10d15e14f934906c53ba56e1";
+        protected const string Edge_5x5_Map = "1e5437b06539cbc4bb2d78f0289eaa41";
+        protected const string Edge_10x10_Map = "82609bf5ea1bcc7419de21d82445fea5";
+        protected const string Edge_20x20_Map = "11800f84c2b82604f9a9e3f09d1a7fe3";
+        protected const string Edge_40x40_Map = "301ab417ce8d3da48986747b725c267a";
+        protected const string Vertex_5x5_Map = "6f1c8b94e4c5f2e4aba756e2d46dbb61";
+        protected const string Vertex_10x10_Map = "41185b8b66e1de3499b080546b6eb729";
+        protected const string Vertex_20x20_Map = "f44e1759c8bde004783ae5bbb9942e76";
+        protected const string Vertex_40x40_Map = "a75be50c10d15e14f934906c53ba56e1";
 
 
-        #region edge-based map tests
-
-        // These functions measure the execution time of the WFC algorithm in edge-based maps, dividing them into WFC execution with cleaning (cleaning the map before another execution)
-        // and WFC on the same map (without cleaning the map before another execution).
-
-        [Test, Performance]
-        public void TestMap_5x5_Edge()
-        {
-            SampleGroup sg_01 = new SampleGroup("Run Time", SampleUnit.Millisecond); 
-            SampleGroup sg_02 = new SampleGroup("GC Call", SampleUnit.Undefined); 
-            
-            Measure.Method(() =>
-                {
-                    Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
-                })
-                .WarmupCount(1)
-                .MeasurementCount(100)
-                .IterationsPerMeasurement(1)
-                .SetUp(() => SetupWFCTest(Edge_5x5_Map))
-                .GC()
-                .CleanUp(CleanUpWFCTest)
-                .Run();
-        }
         
-        [Test, Performance]
-        public void TestMap_10x10_Edge()
-        {
-            Measure.Method(() =>
-                {
-                    Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
-                })
-                .WarmupCount(1)
-                .MeasurementCount(50)
-                .IterationsPerMeasurement(1)
-                .SetUp(() => SetupWFCTest(Edge_10x10_Map))
-                .CleanUp(CleanUpWFCTest)
-                .Run();
-        }
-        
-        [Test, Performance]
-        public void TestMap_20x20_Edge()
-        {
-            Measure.Method(() =>
-                {
-                    Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
-                })
-                .WarmupCount(0)
-                .MeasurementCount(20)
-                .IterationsPerMeasurement(1)
-                .SetUp(() => SetupWFCTest(Edge_20x20_Map))
-                .CleanUp(CleanUpWFCTest)
-                .Run();
-        }
-        
-        [Test, Performance]
-        [Timeout(3600000)]
-        public void TestMap_40x40_Edge()
-        {
-            Measure.Method(() =>
-                {
-                    Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
-                })
-                .WarmupCount(0)
-                .MeasurementCount(10)
-                .IterationsPerMeasurement(1)
-                .SetUp(() => SetupWFCTest(Edge_40x40_Map))
-                .CleanUp(CleanUpWFCTest)
-                .Run();
-        }
-        
-        
-        [Test, Performance]
-        public void TestMap_5x5_SameMap_Edge()
-        {
-            SetupWFCTest(Edge_5x5_Map);
-            Measure.Method(() =>
-                {
-                    Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
-                })
-                .WarmupCount(1)
-                .MeasurementCount(100)
-                .IterationsPerMeasurement(1)
-                .GC()
-                .Run();
-            
-            CleanUpWFCTest();
-        }
-        
-        [Test, Performance]
-        public void TestMap_10x10_SameMap_Edge()
-        {
-            SetupWFCTest(Edge_10x10_Map);
-            Measure.Method(() =>
-                {
-                    Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
-                })
-                .WarmupCount(1)
-                .MeasurementCount(50)
-                .IterationsPerMeasurement(1)
-                .Run();
-            
-            CleanUpWFCTest();
-        }
-        
-        [Test, Performance]
-        public void TestMap_20x20_SameMap_Edge()
-        {
-            SetupWFCTest(Edge_20x20_Map);
-            Measure.Method(() =>
-                {
-                    Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
-                })
-                .WarmupCount(0)
-                .MeasurementCount(20)
-                .IterationsPerMeasurement(1)
-                .Run();
-            
-            CleanUpWFCTest();
-        }
-        
-        [Test, Performance]
-        [Timeout(600000)]
-        public void TestMap_40x40_SameMap_Edge()
-        {
-            SetupWFCTest(Edge_40x40_Map);
-            Measure.Method(() =>
-                {
-                    Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
-                })
-                .WarmupCount(0)
-                .MeasurementCount(10)
-                .IterationsPerMeasurement(1)
-                .Run();
-            
-            CleanUpWFCTest();
-        }
-
-        #endregion
 
         #region auxiliary methods
 
         // This method setups the WFC assistant for the tests, loading the level data from the given GUID and initializing the WFC assistant.
-        private void SetupWFCTest(string _guid)
+        protected void SetupWFCTest(string _guid)
         {
             levelData = JSONDataManager.LoadDataByGUID<LBSLevelData>(_guid);
             Assert.IsNotNull(levelData);
@@ -178,7 +40,7 @@ namespace ISILab.LBS.Tests
         }
 
         // This method cleans up the WFC assistant and level data after each test.
-        private void CleanUpWFCTest()
+        protected void CleanUpWFCTest()
         {
             if (levelData != null)
             {
@@ -192,6 +54,155 @@ namespace ISILab.LBS.Tests
 
         #endregion
 
+        
+    }
+
+    [TestFixture]
+    public class EdgeBased_WFC : WFCBenchmarkReport
+    {
+        #region edge-based map tests
+
+        // These functions measure the execution time of the WFC algorithm in edge-based maps, dividing them into WFC execution with cleaning (cleaning the map before another execution)
+        // and WFC on the same map (without cleaning the map before another execution).
+
+        [Test, Performance]
+        public void TestMap_5x5_Edge()
+        {
+            SampleGroup sg_01 = new SampleGroup("Run Time", SampleUnit.Millisecond);
+            SampleGroup sg_02 = new SampleGroup("GC Call", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+            })
+                .WarmupCount(1)
+                .MeasurementCount(100)
+                .IterationsPerMeasurement(1)
+                .SetUp(() => SetupWFCTest(Edge_5x5_Map))
+                .GC()
+                .CleanUp(CleanUpWFCTest)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void TestMap_10x10_Edge()
+        {
+            Measure.Method(() =>
+            {
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+            })
+                .WarmupCount(1)
+                .MeasurementCount(50)
+                .IterationsPerMeasurement(1)
+                .SetUp(() => SetupWFCTest(Edge_10x10_Map))
+                .CleanUp(CleanUpWFCTest)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void TestMap_20x20_Edge()
+        {
+            Measure.Method(() =>
+            {
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+            })
+                .WarmupCount(0)
+                .MeasurementCount(20)
+                .IterationsPerMeasurement(1)
+                .SetUp(() => SetupWFCTest(Edge_20x20_Map))
+                .CleanUp(CleanUpWFCTest)
+                .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(3600000)]
+        public void TestMap_40x40_Edge()
+        {
+            Measure.Method(() =>
+            {
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+            })
+                .WarmupCount(0)
+                .MeasurementCount(10)
+                .IterationsPerMeasurement(1)
+                .SetUp(() => SetupWFCTest(Edge_40x40_Map))
+                .CleanUp(CleanUpWFCTest)
+                .Run();
+        }
+
+
+        [Test, Performance]
+        public void TestMap_5x5_SameMap_Edge()
+        {
+            SetupWFCTest(Edge_5x5_Map);
+            Measure.Method(() =>
+            {
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+            })
+                .WarmupCount(1)
+                .MeasurementCount(100)
+                .IterationsPerMeasurement(1)
+                .GC()
+                .Run();
+
+            CleanUpWFCTest();
+        }
+
+        [Test, Performance]
+        public void TestMap_10x10_SameMap_Edge()
+        {
+            SetupWFCTest(Edge_10x10_Map);
+            Measure.Method(() =>
+            {
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+            })
+                .WarmupCount(1)
+                .MeasurementCount(50)
+                .IterationsPerMeasurement(1)
+                .Run();
+
+            CleanUpWFCTest();
+        }
+
+        [Test, Performance]
+        public void TestMap_20x20_SameMap_Edge()
+        {
+            SetupWFCTest(Edge_20x20_Map);
+            Measure.Method(() =>
+            {
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+            })
+                .WarmupCount(0)
+                .MeasurementCount(20)
+                .IterationsPerMeasurement(1)
+                .Run();
+
+            CleanUpWFCTest();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void TestMap_40x40_SameMap_Edge()
+        {
+            SetupWFCTest(Edge_40x40_Map);
+            Measure.Method(() =>
+            {
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+            })
+                .WarmupCount(0)
+                .MeasurementCount(10)
+                .IterationsPerMeasurement(1)
+                .Run();
+
+            CleanUpWFCTest();
+        }
+
+        #endregion
+    }
+
+    [TestFixture]
+    public class VertexBased_WFC : WFCBenchmarkReport
+    {
         #region vertex-based map tests
 
         // These functions measure the execution time of the WFC algorithm in vertex-based maps, dividing them into WFC execution with cleaning (cleaning the map before another execution)
