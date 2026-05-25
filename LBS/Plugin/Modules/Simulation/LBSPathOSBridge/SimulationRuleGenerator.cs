@@ -15,6 +15,7 @@ using UnityEditor.PackageManager.UI;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 {
@@ -131,10 +132,30 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                         walls.Add((tile, instance.gameObject));
                     }
                     // Stair settings
-                    else if(tile.Tag != null && (tile.Tag == simBehaviour.lowStairTag || tile.Tag == simBehaviour.highStairTag))
+                    else if(tile.Tag != null && tile.Tag == simBehaviour.upStairTag)
                     {
                         instance.transform.SetParent(stairContainer.transform);
-                        instance.transform.localPosition += (tile.Tag == simBehaviour.lowStairTag) ? Vector3.up * (settings.scale.y * 0.25f + 0.25f): Vector3.up * (settings.scale.y * 0.75f + 0.25f);
+                        instance.gameObject.name += " (Up)";
+                        instance.transform.localPosition += (tile.Tag == simBehaviour.downStairTag) ? Vector3.up * settings.scale.y : Vector3.zero;
+                        LevelEntity levelEntity = manager.AddLevelEntity(instance.gameObject, tile.EntityType);
+                        instance.levelEntity = levelEntity;
+
+                        var otherStairPosition = tile.StairRef.Positions[tile.StairRef.Positions.Count - 1];
+                        var otherStairTile = new SimulationTile(simBehaviour, otherStairPosition.x, otherStairPosition.y, EntityType.ET_STAIR_DOWN, simBehaviour.downStairTag)
+                        {
+                            StairRef = tile.StairRef
+                        };
+                        var otherStair = GenerateSimulationTile(parent.transform, settings, otherStairTile, i+1);
+                        otherStair.gameObject.name += " (Down)";
+                        otherStair.transform.SetParent(stairContainer.transform);
+                        LevelEntity otherLevelEntity = manager.AddLevelEntity(otherStair.gameObject, otherStairTile.EntityType);
+                        otherStair.levelEntity = otherLevelEntity;
+                        SetGeneratedName(otherStairTile, otherStair);
+
+                        instance.levelEntity.OtherStairRef = otherLevelEntity;
+                        otherStair.levelEntity.OtherStairRef = levelEntity;
+                        instance.levelEntity.DirectionSign = 1;
+                        otherStair.levelEntity.DirectionSign = -1;
                     }
                     // Entities settings
                     else
@@ -146,6 +167,13 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                         instance.levelEntity = levelEntity;
                     }
 
+                    SetGeneratedName(tile, instance);
+
+                    allGeneratedComponents.Add(instance);
+                }
+
+                void SetGeneratedName(SimulationTile tile, LBSGeneratedSimulation instance)
+                {
                     string key = PathOS.UI.entityLabels[tile.EntityType];
                     instance.gameObject.name = key;
                     if (objectNames.ContainsKey(key))
@@ -154,8 +182,6 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                         instance.gameObject.name += " (" + objectNames[key] + ")";
                     }
                     else objectNames.Add(key, 0);
-
-                    allGeneratedComponents.Add(instance);
                 }
             }
 

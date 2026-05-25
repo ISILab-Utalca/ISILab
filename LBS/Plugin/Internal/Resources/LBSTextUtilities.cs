@@ -1,13 +1,13 @@
 using System.Text.RegularExpressions;
-using UnityEngine;
-using UnityEngine.Windows;
 
-public static class LBSTextUtilities
+namespace ISILab.LBS.Plugin.Internal
 {
-    public static string ReturnValidName(string input)
+    public static class LBSTextUtilities
     {
-        if (string.IsNullOrEmpty(input)) return string.Empty;
-        return Regex.Replace(input, @"[^a-zA-Z0-9_]", "");
+        public static string ReturnValidName(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return string.Empty;
+            return Regex.Replace(input, @"[^a-zA-Z0-9_]", "");
+        }
     }
 }
-

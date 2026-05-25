@@ -106,6 +106,10 @@ namespace PathOS
                     return EntityType.ET_POI;
                 case 14:
                     return EntityType.ET_POI_NPC;
+                case 15:
+                    return EntityType.ET_STAIR_UP;
+                case 16:
+                    return EntityType.ET_STAIR_DOWN;
                 default:
                     return EntityType.ET_NONE;
             }
@@ -144,6 +148,10 @@ namespace PathOS
                     return 13;
                 case EntityType.ET_POI_NPC:
                     return 14;
+                case EntityType.ET_STAIR_UP:
+                    return 15;
+                case EntityType.ET_STAIR_DOWN:
+                    return 16;
                 default:
                     return 0;
             }
@@ -202,6 +210,10 @@ namespace PathOS
                     return EntityType.ET_POI;
                 case "NPC POI":
                     return EntityType.ET_POI_NPC;
+                case "STAIR UP":
+                    return EntityType.ET_STAIR_UP;
+                case "STAIR DOWN":
+                    return EntityType.ET_STAIR_DOWN;
                 default:
                     return EntityType.ET_NONE;
             }
@@ -242,6 +254,10 @@ namespace PathOS
                     return "POI";
                 case EntityType.ET_POI_NPC:
                     return "NPC POI";
+                case EntityType.ET_STAIR_UP:
+                    return "STAIR UP";
+                case EntityType.ET_STAIR_DOWN:
+                    return "STAIR DOWN";
                 default:
                     return "NONE";
             }
@@ -301,14 +317,14 @@ namespace PathOS
 
         private readonly string[] severityNames = new string[] { "NA", "LOW", "MED", "HIGH" };
         private readonly string[] entityNames = new string[] { "NONE", "OPTIONAL GOAL", "MANDATORY GOAL", "COMPLETION GOAL", "ACHIEVEMENT", "PRESERVATION LOW",
-    "PRESERVATION MED", "PRESERVATION HIGH", "LOW ENEMY", "MED ENEMY", "HIGH ENEMY", "BOSS", "ENVIRONMENT HAZARD", "POI", "NPC POI"};
+    "PRESERVATION MED", "PRESERVATION HIGH", "LOW ENEMY", "MED ENEMY", "HIGH ENEMY", "BOSS", "ENVIRONMENT HAZARD", "POI", "NPC POI", "STAIR UP", "STAIR DOWN"};
         private readonly string[] categoryNames = new string[] { "NA", "POS", "NEG" };
         private Color[] severityColorsPos = new Color[] { Color.white, new Color32(175, 239, 169, 255), new Color32(86, 222, 74, 255), new Color32(43, 172, 32, 255) };
         private Color[] severityColorsNeg = new Color[] { Color.white, new Color32(232, 201, 100, 255), new Color32(232, 142, 100, 255), new Color32(248, 114, 126, 255) };
         private Color[] categoryColors = new Color[] { Color.white, Color.green, new Color32(248, 114, 126, 255) };
         private Color entityColor = new Color32(60, 145, 255, 120);
 
-        private Texture2D undefined, optional, mandatory, final, collectible, enemy_hazard, poi, npc, enemy_low, enemy_med, enemy_high, enemy_boss, health_low, health_med, health_high;
+        private Texture2D undefined, optional, mandatory, final, collectible, enemy_hazard, poi, npc, stair_up, stair_down, enemy_low, enemy_med, enemy_high, enemy_boss, health_low, health_med, health_high;
 
         public void LoadIcons()
         {
@@ -327,6 +343,8 @@ namespace PathOS
             health_high = Resources.Load<Texture2D>("resource_preservation_high");
             poi = Resources.Load<Texture2D>("poi_environment");
             npc = Resources.Load<Texture2D>("poi_npc");
+            stair_up = Resources.Load<Texture2D>("stair_up");
+            stair_down = Resources.Load<Texture2D>("stair_down");
 
         }
         public void SaveData()
@@ -785,6 +803,10 @@ namespace PathOS
                     return poi;
                 case EntityType.ET_POI_NPC:
                     return npc;
+                case EntityType.ET_STAIR_UP:
+                    return stair_up;
+                case EntityType.ET_STAIR_DOWN:
+                    return stair_down;
                 default:
                     return undefined;
             }
@@ -1102,7 +1124,7 @@ namespace PathOS
         private readonly string[] severityNames = new string[] { "NA", "LOW", "MED", "HIGH" };
         private readonly string[] categoryNames = new string[] { "NA", "POS", "NEG" };
         private readonly string[] entityNames = new string[] { "NONE", "OPTIONAL GOAL", "MANDATORY GOAL", "COMPLETION GOAL", "ACHIEVEMENT", "PRESERVATION LOW",
-    "PRESERVATION MED", "PRESERVATION HIGH", "LOW ENEMY", "MED ENEMY", "HIGH ENEMY", "BOSS", "ENVIRONMENT HAZARD", "POI", "NPC POI"};
+    "PRESERVATION MED", "PRESERVATION HIGH", "LOW ENEMY", "MED ENEMY", "HIGH ENEMY", "BOSS", "ENVIRONMENT HAZARD", "POI", "NPC POI", "STAIR UP", "STAIR DOWN"};
 
         private Color[] severityColorsPos = new Color[] { Color.white, new Color32(175, 239, 169, 255), new Color32(86, 222, 74, 255), new Color32(43, 172, 32, 255) };
         private Color[] severityColorsNeg = new Color[] { Color.white, new Color32(232, 201, 100, 255), new Color32(232, 142, 100, 255), new Color32(248, 114, 126, 255) };

@@ -10,7 +10,7 @@ namespace PathOS
         public bool onMemPath;
 
         public List<Vector3> memPathWaypoints;
-        public Vector3 memWaypoint;
+        public Vector3 memWaypoint => memPathWaypoints[0];
 
         //How quickly does the agent forget something in its memory?
         //This is for testing right now, basically just a flat value.

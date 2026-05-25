@@ -16,6 +16,7 @@ using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ISILab.LBS.Plugin.MapTools.Editor.Manipulators;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;

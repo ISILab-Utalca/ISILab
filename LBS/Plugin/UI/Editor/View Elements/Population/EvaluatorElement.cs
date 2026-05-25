@@ -3,6 +3,7 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.Internal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

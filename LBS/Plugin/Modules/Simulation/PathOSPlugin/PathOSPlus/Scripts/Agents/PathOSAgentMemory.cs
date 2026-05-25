@@ -76,7 +76,9 @@ namespace PathOS
                     finalGoalTracker.Add(newMemory);
                 }
                 else if (entity.entityType == EntityType.ET_GOAL_COMPLETION)
+                {
                     finalGoal = new EntityMemory(entity);
+                }
             }
         }
 
@@ -126,7 +128,7 @@ namespace PathOS
                 //Additionally, the *current* target cannot be forgotten.
                 if (!entity.entity.visible
                     && entity.forgettable
-                    && entity.impressionTime >= agent.memoryState.forgetTime
+                    && entity.impressionTime >= agent.STMemoryState.forgetTime
                     && !PerceivedEntity.SameEntity(targetEntity, entity))
                 {
                     entities.RemoveAt(i);
@@ -141,11 +143,11 @@ namespace PathOS
 
             //Forget any non-visible entities that aren't in long-term memory 
             //over the STM size cap.
-            if (stm.Count > agent.memoryState.stmSize)
+            if (stm.Count > agent.STMemoryState.stmSize)
             {
                 stm.Sort((m1, m2) => m1.impressionTime.CompareTo(m2.impressionTime));
 
-                while (stm.Count > agent.memoryState.stmSize)
+                while (stm.Count > agent.STMemoryState.stmSize)
                 {
                     entities.Remove(stm[stm.Count - 1]);
                     stm.RemoveAt(stm.Count - 1);
@@ -185,7 +187,7 @@ namespace PathOS
 
                 //Paths are ejected from memory if they are forgotten,
                 //or if back-end navmesh logic has determined they cannot be reached.
-                if (paths[i].impressionTime >= agent.memoryState.forgetTime
+                if (paths[i].impressionTime >= agent.STMemoryState.forgetTime
                     || agent.explorationState.IsUnreachable(paths[i].estimatedDest))
                     paths.RemoveAt(i);
             }
@@ -323,7 +325,7 @@ namespace PathOS
                 }
             }
 
-            if (paths.Count >= agent.memoryState.stmSize)
+            if (paths.Count >= agent.STMemoryState.stmSize)
             {
                 if (path.score < minScore)
                     return;
@@ -482,6 +484,65 @@ namespace PathOS
                 // Put old option back
                 currNavMesh.useGeometry = oldGeometryCollector;
             }
+        }
+
+        public EntityMemory GetClosestStair(Vector3 position, int direction)
+        {
+            var positionFloor = CalculateAproximatedFloor(position.y);
+            var stairMemories = GetStairMemoriesForFloor(positionFloor, direction);
+            
+            EntityMemory closestStair = null;
+            float closestDistanceSqr = Mathf.Infinity;
+            foreach (var stairMemory in stairMemories)
+            {
+                float distanceSqr = (stairMemory.entity.perceivedPos - position).sqrMagnitude;
+                if (distanceSqr < closestDistanceSqr)
+                {
+                    closestDistanceSqr = distanceSqr;
+                    closestStair = stairMemory;
+                }
+            }
+
+            return closestStair;
+        }
+
+        public EntityMemory[] GetStairMemoriesForFloor(int floor, int direction)
+        {
+            List<EntityMemory> stairMemories = new List<EntityMemory>();
+            foreach (EntityMemory memory in entities)
+            {
+                var typeMatch = direction > 0 ? 
+                    memory.entity.entityType == EntityType.ET_STAIR_UP :
+                    memory.entity.entityType == EntityType.ET_STAIR_DOWN;
+                
+                if (typeMatch && CalculateAproximatedFloor(memory.entity.perceivedPos.y) == floor)
+                {
+                    stairMemories.Add(memory);
+                }
+            }
+
+            return stairMemories.ToArray();
+        }
+
+        public EntityMemory GetOtherStair(EntityMemory stairMemory)
+        {
+            // Return false cases
+            if (stairMemory.entity.entityType != EntityType.ET_STAIR_UP && stairMemory.entity.entityType != EntityType.ET_STAIR_DOWN)
+                return null;
+
+            var other = stairMemory.entity.entityRef.OtherStairRef;
+            var otherMemory = entities.Find(e => e.entity.entityRef == other);
+            return otherMemory;
+        }
+
+        private int CalculateAproximatedFloor(float yPosition)
+        {
+            // Calcula el piso aproximado dividiendo la posición Y entre la altura de piso (gridSampleSize.y)
+            // y redondeando al entero más cercano.
+            if (gridSampleSize.y <= 0f)
+                return 0; // Evita división por cero
+
+            return Mathf.RoundToInt(yPosition / gridSampleSize.y);
         }
     }
 }

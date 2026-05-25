@@ -126,12 +126,13 @@ namespace ISILab.AI.Categorization
 
                     if (invalid)
                     {
-                        PriorityQueue<Vector2, float> memsPriority = new();
-                        foreach (Vector2 memPos in positions)
-                        {
-                            memsPriority.Push(memPos, Vector2.SqrMagnitude(memPos - trueCenter));
-                        }
-                        centerPosInt = memsPriority.Pop().ToInt();
+                        throw new System.NotImplementedException();
+                        //PriorityQueue<Vector2, float> memsPriority = new();
+                        //foreach (Vector2 memPos in positions)
+                        //{
+                        //    memsPriority.Push(memPos, Vector2.SqrMagnitude(memPos - trueCenter));
+                        //}
+                        //centerPosInt = memsPriority.Pop().ToInt();
                     }
                 }
 
@@ -435,17 +436,19 @@ namespace ISILab.AI.Categorization
             minColonySize = config.GetValue<int>("Min Colony Size");
 
             searchType = config.GetValue<PathfindingAlgorithm>("Pathfinding Algorithm");
+            searchHeuristic = config.GetValue<PathfindingHeuristic>("Heuristic");
         }
 
         public List<EvaluatorConfigurationField> GetEvaluatorFields()
         {
             var list = new List<EvaluatorConfigurationField>
             {
-                new EnumConfigurationField("Pathfinding Algorithm", searchType, 
+                new EnumConfigurationField("Pathfinding Algorithm", searchType,
                 "Method to use for calculating distances between items.\n\n" +
                 "<b>> Flood Fill:</b> Preferable for laberynthin levels.\n" +
                 "<b>> Jump Point Search Plus (JPS+):</b> Preferable for open areas with few obstacles.\n" +
                 "\n<i>(You should not be particularly concerned about this parameter if your level is small-sized or has few items.)</i>"),
+                new EnumConfigurationField("Heuristic", searchHeuristic),
                 new MainTagField("Item", itemCharacteristic.FirstTag().Label, itemCharacteristic, "Item to group."),
                 new IntegerConfigurationField("Max Distance", maxDist, 2, 15, "Maximum distance desired between items of the same colony."),
                 new IntegerConfigurationField("Min Colony Size", minColonySize, 2, 10, "Minimum number of members a colony should have to be considered as such.")
@@ -585,7 +588,7 @@ namespace ISILab.AI.Categorization
                                         }
                                     }
                                     others = itemIndices.Except(knownDist).ToList();
-                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, PathfindingHeuristic.Chebyshev, ref info);
+                                    EvaluatorHelper.FloodFill(itemIndices[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, searchHeuristic, ref info);
                                     if (useEvaluationInfo) EvaluationInfo = info;
 #else
                                     EvaluatorHelper.FloodFill(itemIndices[i], itemIndices, i, ref distances, tilePos, chrom, sectorMod, connectedMod);
@@ -609,8 +612,8 @@ namespace ISILab.AI.Categorization
 #endif
                                         {
                                             distances[i, j] = distances[j, i] = searchType == PathfindingAlgorithm.A_Star ?
-                                                EvaluatorHelper.AStarRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info) :
-                                                EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, ref info);
+                                                EvaluatorHelper.AStarRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, searchHeuristic, ref info) :
+                                                EvaluatorHelper.JPSPlus.JPSRun(itemIndices[i], itemIndices[j], chrom.Rect, connectedMod, searchHeuristic, ref info);
                                             if (useEvaluationInfo) EvaluationInfo = info;
                                         }
                                     }

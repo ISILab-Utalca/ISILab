@@ -1,6 +1,7 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
+using PathOS;
 using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -51,6 +52,7 @@ namespace ISILab.LBS.VisualElements
 
             PathOSStorage storage = PathOSStorage.Instance;
             SimulationEntityData data;
+
             // Set data
             if (tile.Tag != null && tile.Tag.Label.Equals("Player"))
             {
