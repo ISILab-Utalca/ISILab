@@ -359,6 +359,7 @@ namespace PathOS
             return hit;
         }
 
+        int estupidoFlanders = 0;
         /// <summary>
         /// Performs a visibility check from the specified origin in the given direction
         /// using a physics raycast, and updates the memory map with the result.
@@ -369,12 +370,13 @@ namespace PathOS
         /// <returns></returns>
         public NavMeshHit ExploreVisibilityCheckFreeMode(Vector3 origin, Vector3 dir, out bool result)
         {
+            //Debug.Log("Hola hola vecinillo " + estupidoFlanders++);
             Vector3 position = origin;
             float distance = 0.0f;
 
             // Calculate offset to camera's near clipping plane
 
-            Plane camNear = new Plane(cam.transform.forward, origin + cam.nearClipPlane * cam.transform.forward);
+            Plane camNear = new Plane(cam.transform.forward, origin + (cam.nearClipPlane + 0.1f) * cam.transform.forward);
             camNear.Raycast(new Ray(origin, dir), out float offsetDist);
             origin = origin + dir.normalized * offsetDist;
 
@@ -412,6 +414,7 @@ namespace PathOS
                 PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.NM_OBSTACLE;
 
             agent.AgentMemory.memoryMap.Fill(position, fillCode);
+            //Debug.Log("[AgentEyes]: Filling map... " + position + ", Fill Code: " + fillCode);
 
             // Maps the intermediate tiles using NavmeshMemoryMapper's custom Raycast
             // Note: Since origin is the camera's position, this maps the tiles along

@@ -295,6 +295,10 @@ namespace PathOS
         }
 
         //Has a visible entity been visited?
+        public bool Visited(LevelEntity entity)
+        {
+            return Visited(new PerceivedEntity(entity));
+        }
         public bool Visited(PerceivedEntity entity)
         {
             for (int i = 0; i < entities.Count; ++i)
