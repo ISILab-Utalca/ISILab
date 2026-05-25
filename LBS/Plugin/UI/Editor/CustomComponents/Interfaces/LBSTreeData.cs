@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UIElements;
 
-[UxmlObject]
+namespace ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
+{
+    [UxmlObject]
     public partial class LBSTreeData
     {
         //Automatic create an object global unique id
@@ -78,4 +79,5 @@ using UnityEngine.UIElements;
             return data;
         }
     }
+}
 

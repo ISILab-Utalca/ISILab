@@ -1,4 +1,5 @@
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Components.Bundles;
 using System;
 
 namespace ISILab.AI.Grammar
@@ -23,6 +24,8 @@ namespace ISILab.AI.Grammar
         }
 
         public override object GetValue() => value;
+
+        public override Bundle GetBundle() => value?.TileBundleGroup?.BundleData?.Bundle;
     }
 
     [Serializable]

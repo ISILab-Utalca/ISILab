@@ -1364,8 +1364,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088327799159616}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.3710924, z: 0, w: 0.92859596}
-  m_LocalPosition: {x: 14.506544, y: -0.35800004, z: -21.092281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1374,7 +1374,7 @@ Transform:
   - {fileID: 673807056}
   - {fileID: 4837435023585481626}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -43.566, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &195686920623355856
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1463,11 +1463,10 @@ MonoBehaviour:
     pastCumulativeEntityScore: 0
     assessedGoalsInit: 0
     unreachableReference: []
-  memoryState:
+  STMemoryState:
     memPathChance: 0
     onMemPath: 0
     memPathWaypoints: []
-    memWaypoint: {x: 0, y: 0, z: 0}
   healthState:
     health: 0
     dead: 0
@@ -1489,7 +1488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79551727de4d2a64eb4ea3de338c3952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSampleSize: 1
+  gridSampleSize: {x: 2, y: 2, z: 2}
 --- !u!114 &114839472988384982
 MonoBehaviour:
   m_ObjectHideFlags: 0

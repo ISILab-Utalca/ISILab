@@ -1,6 +1,8 @@
+using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace ISILab.AI.Grammar
@@ -23,6 +25,38 @@ namespace ISILab.AI.Grammar
         [SerializeReference]
         public List<GrammarField> fields = new();
 
+        // meant to be used by the code generator, not serialized
+        [HideInInspector]
+        public string generatedClassName = string.Empty;
+
+        // the monobehvior that gets instanced and added into a gameobject in the scene
+        [SerializeField]
+        private UnityEditor.MonoScript script;
+
+        public UnityEditor.MonoScript Script
+        {
+            get
+            {
+                if (script == null && generatedClassName != string.Empty)
+                {
+                    var scriptGuid = AssetDatabase.FindAssets($"{generatedClassName} t:MonoScript");
+                    if(scriptGuid != null && scriptGuid.Length != 0)
+                    {
+                        script = LBSAssetMacro.LoadAssetByGuid<MonoScript>(scriptGuid[0]);
+                    }
+                }
+                return script;
+            }
+
+            set
+            {
+                if (value == null)
+                    return;
+                script = value;
+                generatedClassName = script.name;
+            }
+        }
+
         public override void OnEnable()
         {
             // Safe: happens after Unity initialization
@@ -36,7 +70,8 @@ namespace ISILab.AI.Grammar
             }
       
             iconGuid = defaultIconGuid;
-
+            // call the getter just to read the generated class name
+            var script = Script;
             base.OnEnable();
         }
     }

@@ -1,17 +1,13 @@
 ﻿using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
-using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using LBS.VisualElements;
-using System;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-
-    public abstract class PickerBase : VisualElement
+    public abstract partial class PickerBase : VisualElement
     {
         private static ToolButton _activeButton;
 

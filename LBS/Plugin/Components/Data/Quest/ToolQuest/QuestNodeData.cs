@@ -150,7 +150,7 @@ namespace ISILab.LBS.Components
             // assign tiles to any fields that implement IBundleFlags
             foreach (var field in fields) 
             {
-                if (this is IBundleFlags IBundleFlag)
+                if (this is IBundleStored IBundleFlag)
                 {
                     foreach (var tile in data.Tiles)
                     {
