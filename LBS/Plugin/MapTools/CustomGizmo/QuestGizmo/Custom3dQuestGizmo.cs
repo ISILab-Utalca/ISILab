@@ -1,5 +1,3 @@
-using ISILab.LBS.Plugin.MapTools.Generators;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
@@ -24,7 +22,7 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
         {
             base.OnDrawGizmosSelected();
 
-            foreach (QuestTrigger prevTrigger in trigger.Previous)
+            foreach (QuestTrigger prevTrigger in Trigger.Previous)
             {
                 if(!prevTrigger) continue;
                 UnityEngine.Gizmos.DrawLine(transform.position, prevTrigger.transform.position);
@@ -32,7 +30,7 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
                 gizmo?.DrawCustomMesh();
             }
 
-            foreach (QuestTrigger nextTrigger in trigger.Next)
+            foreach (QuestTrigger nextTrigger in Trigger.Next)
             {
                 if (!nextTrigger) continue;
                 UnityEngine.Gizmos.DrawLine(transform.position, nextTrigger.transform.position);

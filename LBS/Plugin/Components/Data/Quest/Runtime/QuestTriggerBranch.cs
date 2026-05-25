@@ -59,7 +59,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             
         }
 
-
+        internal override void Activate()
+        {
+            base.Activate();
+            TryComplete();
+        }
 
         #endregion
 

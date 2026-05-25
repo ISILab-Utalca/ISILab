@@ -12,9 +12,6 @@ using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.LBS.VisualElements
 {
-    /// <summary>
-    /// Simple container class to store world positions and a visual element
-    /// </summary>
     public struct VisualElementWorld
     {
         public Vector3 Position;
@@ -25,142 +22,174 @@ namespace ISILab.LBS.VisualElements
             Element = element;
         }
     }
-   
+
     public class QuestBarView : GraphElement
     {
         #region FIELDS
         private const float ButtonLineRatioPos = 0.5f;
-        private readonly QuestTrigger _trigger;
-        private readonly QuestTracker _tracker;
+        private readonly QuestTrigger trigger;
         private static readonly List<VisualElementWorld> PrevButtons = new();
         private static readonly List<VisualElementWorld> NextButtons = new();
 
         private static readonly string StartIconGuid = "6f8a8cf2b556996428f482386e991352";
         private static readonly string GoalIconGuid = "91e56097e660ca548b3337ccfa31b752";
+
+        // Explicit asset paths/GUIDs for your step-navigation arrows
+        private static readonly string PrevArrowIconGuid = "154cf402299c4144d95a7b5e4550ca11";
+        private static readonly string NextArrowIconGuid = "f7a7e78297daae54d8533114b779de1f";
+
         private readonly Button previousStep;
         private readonly Button nextStep;
         #endregion
 
         #region STATIC
+        private static VectorImage prevIcon;
+        private static VectorImage nextIcon;
 
-        static VectorImage prevIcon;
-        static VectorImage nextIcon;
-
-        VectorImage PrevIcon => prevIcon = prevIcon != null ? prevIcon : previousStep.iconImage.vectorImage;
-        VectorImage NextIcon => nextIcon = nextIcon != null ? nextIcon : nextStep.iconImage.vectorImage;
-
+        // Safely pull directly from AssetDatabase macros rather than the layout instance styles
+        private static VectorImage PrevIcon => prevIcon ??= AssetMacro.LoadAssetByGuid<VectorImage>(PrevArrowIconGuid);
+        private static VectorImage NextIcon => nextIcon ??= AssetMacro.LoadAssetByGuid<VectorImage>(NextArrowIconGuid);
         #endregion
 
         public QuestBarView(Custom3dQuestGizmo questGizmo)
         {
-            if (questGizmo is null || questGizmo.Trigger is null) 
+            // Complete null safety block
+            if (questGizmo is null || questGizmo.Trigger is null)
                 return;
 
-            _trigger = questGizmo.Trigger;
+            trigger = questGizmo.Trigger;
 
             VisualTreeAsset view = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestBarView");
+            if (view == null) return;
+
             view.CloneTree(this);
 
             VisualElement previousContainer = this.Q<VisualElement>("Previous");
             VisualElement nextContainer = this.Q<VisualElement>("Next");
 
             previousStep = this.Q<Button>("PreviousStep");
-            nextStep = this.Q<Button>("NextStep"); 
+            nextStep = this.Q<Button>("NextStep");
             Label action = this.Q<Label>("Action");
             VisualElement stepType = this.Q<VisualElement>("StepType");
 
-            previousStep.style.display = DisplayStyle.Flex;
-            action.style.display = DisplayStyle.None;
-
-            previousStep.clicked += PrevStepOnClicked;
-            nextStep.clicked += NextStepOnClicked;
-
-            if(_trigger is QuestTriggerNode qtn)
+            if (previousStep != null)
             {
-                // Use the Terminal ID cached in the trigger
-                action.text = qtn.Terminal.id;
-                action.style.display = DisplayStyle.Flex;
+                previousStep.style.display = DisplayStyle.Flex;
+                previousStep.clicked += PrevStepOnClicked;
+            }
+
+            if (nextStep != null)
+            {
+                nextStep.clicked += NextStepOnClicked;
+            }
+
+            if (action != null)
+            {
+                action.style.display = DisplayStyle.None;
+            }
+
+            if (trigger is QuestTriggerNode qtn)
+            {
+                if (action != null && qtn.Terminal != null)
+                {
+                    action.text = qtn.Terminal.id;
+                    action.style.display = DisplayStyle.Flex;
+                }
+
                 QuestNode.ENodeType nType = qtn.NodeType;
 
-
-                // Handle icons using the cached NodeType enum
                 if (nType == QuestNode.ENodeType.Middle)
-                    stepType.style.display = DisplayStyle.None;
+                {
+                    if (stepType != null) stepType.style.display = DisplayStyle.None;
+                }
                 else
                 {
-                    stepType.style.display = DisplayStyle.Flex;
-                    string iconGuid = nType == QuestNode.ENodeType.Start ? StartIconGuid : GoalIconGuid;
-                    stepType.style.backgroundImage = new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid));
+                    if (stepType != null)
+                    {
+                        stepType.style.display = DisplayStyle.Flex;
+                        string iconGuid = nType == QuestNode.ENodeType.Start ? StartIconGuid : GoalIconGuid;
+                        stepType.style.backgroundImage = new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid));
+                    }
 
                     if (nType == QuestNode.ENodeType.Start)
-                    {        
-                        previousStep.style.display = DisplayStyle.None;
-                        previousContainer.style.display = DisplayStyle.None;
+                    {
+                        if (previousStep != null) previousStep.style.display = DisplayStyle.None;
+                        if (previousContainer != null) previousContainer.style.display = DisplayStyle.None;
                     }
                     else if (nType == QuestNode.ENodeType.Goal)
                     {
-                        nextStep.style.display = DisplayStyle.None;
-                        nextContainer.style.display = DisplayStyle.None;
+                        if (nextStep != null) nextStep.style.display = DisplayStyle.None;
+                        if (nextContainer != null) nextContainer.style.display = DisplayStyle.None;
                     }
                 }
-
-
             }
 
-            foreach (QuestTrigger prev in _trigger.Previous)
+            // Ensure our static arrow images are fetched safely before executing button building loops
+            VectorImage pIcon = PrevIcon;
+            VectorImage nIcon = NextIcon;
+
+            if (trigger.Previous != null && pIcon != null)
             {
-                CreateNavButton(prev, PrevIcon, PrevButtons);
+                foreach (QuestTrigger prev in trigger.Previous)
+                {
+                    if (prev == null) continue;
+                    CreateNavButton(prev, pIcon, PrevButtons);
+                }
             }
 
-            foreach (QuestTrigger next in _trigger.Next)
+            if (trigger.Next != null && nIcon != null)
             {
-               CreateNavButton(next, NextIcon, NextButtons);
+                foreach (QuestTrigger next in trigger.Next)
+                {
+                    if (next == null) continue;
+                    CreateNavButton(next, nIcon, NextButtons);
+                }
             }
-
 
             MarkDirtyRepaint();
         }
 
         void CreateNavButton(QuestTrigger targetTrigger, VectorImage icon, List<VisualElementWorld> buttonList)
         {
+            if (targetTrigger == null || targetTrigger.gameObject == null) return;
+
+            var sv = SceneView.lastActiveSceneView;
+            if (sv == null || sv.rootVisualElement == null) return;
+
             var newButton = new Button(() => SelectTriggerGameObject(targetTrigger))
             {
                 iconImage = new Background() { vectorImage = icon }
             };
 
-            SceneView.lastActiveSceneView.rootVisualElement.Add(newButton);
+            sv.rootVisualElement.Add(newButton);
 
             Vector3 buttonPos = Vector3.Lerp(
                 targetTrigger.gameObject.transform.position,
-                _trigger.gameObject.transform.position,
+                trigger.gameObject.transform.position,
                 ButtonLineRatioPos);
 
             buttonList.Add(new VisualElementWorld(buttonPos, newButton));
-
             UpdatePosition(newButton, buttonPos);
         }
 
         private void PrevStepOnClicked()
         {
-            if (_trigger == null) 
-                return;
-            SelectTriggerGameObject(_trigger.Previous?.FirstOrDefault());
+            if (trigger == null) return;
+            SelectTriggerGameObject(trigger.Previous?.FirstOrDefault());
         }
 
         private void NextStepOnClicked()
         {
-            if(_trigger==null) 
-                return;
-            SelectTriggerGameObject(_trigger.Next?.FirstOrDefault());
+            if (trigger == null) return;
+            SelectTriggerGameObject(trigger.Next?.FirstOrDefault());
         }
 
         public static void SelectTriggerGameObject(QuestTrigger qt)
         {
-            if (qt == null) 
-                return;
+            if (qt == null || qt.gameObject == null) return;
 
             Selection.activeGameObject = qt.gameObject;
-            SceneView.lastActiveSceneView.FrameSelected(false);
+            SceneView.lastActiveSceneView?.FrameSelected(false);
             EditorGUIUtility.PingObject(qt.gameObject);
         }
 
@@ -168,7 +197,7 @@ namespace ISILab.LBS.VisualElements
         {
             foreach (var item in PrevButtons)
             {
-                if (item.Element != null) 
+                if (item.Element != null)
                     UpdatePosition(item.Element, item.Position);
             }
 
@@ -182,7 +211,7 @@ namespace ISILab.LBS.VisualElements
         private void UpdatePosition(VisualElement button, Vector3 worldPos)
         {
             SceneView sv = SceneView.lastActiveSceneView;
-            if (!sv || !sv.camera) 
+            if (!sv || !sv.camera || button == null)
                 return;
 
             Vector3 screenPoint = sv.camera.WorldToScreenPoint(worldPos);
@@ -201,7 +230,7 @@ namespace ISILab.LBS.VisualElements
 
         public static void ClearButtons()
         {
-            foreach (var ve in PrevButtons) 
+            foreach (var ve in PrevButtons)
                 ve.Element?.RemoveFromHierarchy();
 
             PrevButtons.Clear();
@@ -211,6 +240,5 @@ namespace ISILab.LBS.VisualElements
 
             NextButtons.Clear();
         }
-
     }
 }

@@ -25,6 +25,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         private const string AndIconGuid = "84fdb6a97aae79e4eb5eba243b760ee7";
         private const string FailedIconGuid = "19533ec5deae6304ebe6b68e51ddeda1";
 
+
         public VisualElementQuest()
         {
             CreateVisualElement();
@@ -83,6 +84,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // for branches
             if (trigger is QuestTriggerBranch qtb)
             {
+                _questLabel.text = ""; // branches don't have labels
                 if (qtb.IsAnd)
                     vecImage = AssetMacro.LoadAssetByGuid<VectorImage>(AndIconGuid);
                
@@ -107,4 +109,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
         }
     }
+
+
 }

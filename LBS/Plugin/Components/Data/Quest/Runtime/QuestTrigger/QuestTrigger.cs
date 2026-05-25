@@ -3,6 +3,7 @@ using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static TreeEditor.TreeEditorHelper;
 
@@ -116,6 +117,12 @@ public abstract class QuestTrigger : MonoBehaviour
     }
 
     protected void ClearPrevious() => previous.Clear();
+
+    internal virtual void Activate()
+    {
+        gameObject.SetActive(true);
+        State = QuestState.Active;
+    }
     #endregion
 
 }

@@ -18,12 +18,12 @@ public abstract class QuestTriggerNode : QuestTrigger
 
     [ISILab.Commons.Attributes.ReadOnly]
     [SerializeField]
-    private GrammarTerminal _terminal;
+    private GrammarTerminal terminal;
 
     [SerializeField]
-    protected List<GrammarField> _fields = new();
+    protected List<GrammarField> fields = new();
 
-    protected BoxCollider BoxCollider;
+    protected BoxCollider boxCillider;
 
     // store game objects that can be used by fields
     [SerializeField]
@@ -31,16 +31,16 @@ public abstract class QuestTriggerNode : QuestTrigger
     #endregion
 
     #region PROPERTIES
-    public GrammarTerminal Terminal { get => _terminal; set => _terminal = value; }
+    public GrammarTerminal Terminal { get => terminal; set => terminal = value; }
     public QuestNode.ENodeType NodeType => nodeType;
-    public List<GrammarField> Fields { get => _fields; }
+    public List<GrammarField> Fields { get => fields; }
     public List<GameObject> Gos { get => gos; set => gos = value; }
     #endregion
 
     #region INIT
     private void Awake()
     {
-        //EnsureComponents();
+
     }
 
     public override void InitTrigger(GraphNode paramNode, LBSGenerator3DSettings settings, float pivotY)
@@ -52,37 +52,19 @@ public abstract class QuestTriggerNode : QuestTrigger
        // EnsureComponents();
 
         nodeType = questNode.NodeType;
-        _terminal = questNode.Data.Terminal;
+        terminal = questNode.Data.Terminal;
 
-        if (eventHooker == null)
-            eventHooker = GetComponent<LBSGeneratedEventHook>();
+        eventHooker = GetComponent<LBSGeneratedEventHook>();
         eventHooker.AssignEvents(questNode.Data.EventHooker);
+
+        boxCillider = GetComponent<BoxCollider>();
+        boxCillider.isTrigger = true;
 
         BindFields(questNode.Data.Fields);
         SetTriggerSize(questNode, settings, pivotY);
     }
 
-    private void EnsureComponents()
-    {
-        // 1. Try to fetch the component already added by [RequireComponent]
-        if (eventHooker == null)
-        {
-            eventHooker = GetComponent<LBSGeneratedEventHook>();
-            // Fallback fallback if it doesn't exist for some reason
-            if (eventHooker == null)
-                eventHooker = gameObject.AddComponent<LBSGeneratedEventHook>();
-        }
-
-        // 2. Do the exact same fallback strategy for the BoxCollider
-        if (BoxCollider == null)
-        {
-            BoxCollider = GetComponent<BoxCollider>();
-            if (BoxCollider == null)
-                BoxCollider = gameObject.AddComponent<BoxCollider>();
-        }
-
-        BoxCollider.isTrigger = true;
-    }
+   
 
     /// <summary>
     /// Restores the physical bounds of the trigger based on calculated area and scale.
@@ -102,8 +84,8 @@ public abstract class QuestTriggerNode : QuestTrigger
             area.height * settings.scale.y
         );
 
-        if (BoxCollider != null)
-            BoxCollider.size = boxSize;
+        if (boxCillider != null)
+            boxCillider.size = boxSize;
     }
     #endregion
 

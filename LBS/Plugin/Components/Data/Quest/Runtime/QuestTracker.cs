@@ -111,9 +111,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             if (trigger == null)
                 return;
 
-            trigger.gameObject.SetActive(true);
-            trigger.State = QuestState.Active;
-
+            trigger.Activate();
             CurrentQuest = trigger;
         }
 
