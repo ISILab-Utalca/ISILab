@@ -65,6 +65,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             TryComplete();
         }
 
+        public override string ToString() => IsAnd ? "And" : "Or";
         #endregion
 
 

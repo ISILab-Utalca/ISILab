@@ -109,6 +109,8 @@ public abstract class QuestTriggerNode : QuestTrigger
         if (eventHooker != null)
             eventHooker.BroadcastEvent(LBSEventType.Complete);
     }
+
+    public override string ToString() => Terminal.id;
     #endregion
 
     #region STATIC UTILITIES

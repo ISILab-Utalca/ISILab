@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
@@ -88,9 +89,14 @@ namespace ISILab.LBS.Drawers.Editor
                 }
                 else if (key is QuestEdge edge)
                 {
+                    var fromViews = view.GetElementsFromLayer(bh.OwnerLayer, edge.From);
+                    var toViews = view.GetElementsFromLayer(bh.OwnerLayer, edge.To);
 
-                    QuestGraphNodeView toView = view.GetElementsFromLayer(bh.OwnerLayer, edge.To).FirstOrDefault() as QuestGraphNodeView;
-                    QuestGraphNodeView fromView = view.GetElementsFromLayer(bh.OwnerLayer, edge.From).FirstOrDefault() as QuestGraphNodeView;
+                    if (fromViews==null ||fromViews.Count == 0 
+                        || toViews==null || toViews.Count == 0) continue;
+
+                    QuestGraphNodeView toView = toViews.FirstOrDefault() as QuestGraphNodeView;
+                    QuestGraphNodeView fromView = fromViews.FirstOrDefault() as QuestGraphNodeView;
 
                     if (toView != null && fromView != null)
                     {
