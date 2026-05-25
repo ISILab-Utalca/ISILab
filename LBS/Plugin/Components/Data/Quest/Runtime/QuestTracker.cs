@@ -101,7 +101,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
 
             // keep progressing, activating next
-            ActivateNode(trigger.Next);
+            foreach (var next in trigger.Next)
+                ActivateNode(next);
             OnQuestAdvance?.Invoke();
         }
 

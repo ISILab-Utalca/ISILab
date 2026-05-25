@@ -26,7 +26,6 @@ namespace ISILab.LBS.VisualElements
         }
         #endregion
 
- 
         #region METHODS
         private void Start()
         {

@@ -163,7 +163,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                         if (allTriggers.TryGetValue(edge.To, out QuestTrigger targetTrigger))
                         {
                             // set next, which sets previous as well
-                            sourceNode.Value.Next = targetTrigger;
+                            sourceNode.Value.AddNext(targetTrigger);
                         }
                     }
                 }
@@ -179,8 +179,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 QuestTrigger qt = entry.Value;
                 Custom3dQuestGizmo questGizmo = qt.gameObject.AddComponent<Custom3dQuestGizmo>();
-               
-                questGizmo.Tracker = tracker;
                 questGizmo.Trigger = qt;
             }
         }

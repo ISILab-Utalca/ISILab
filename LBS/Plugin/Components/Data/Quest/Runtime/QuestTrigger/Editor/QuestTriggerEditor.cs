@@ -9,14 +9,14 @@ namespace ISILab.LBS.VisualElements
     {
         private SerializedProperty _stateProp;
         private SerializedProperty _nodeTypeProp;
-        private SerializedProperty _allPreviousProp;
+        private SerializedProperty _previousProp;
         private SerializedProperty _nextProp;
 
         protected virtual void OnEnable()
         {
             _stateProp = serializedObject.FindProperty("state");
             _nodeTypeProp = serializedObject.FindProperty("nodeType");
-            _allPreviousProp = serializedObject.FindProperty("allPrevious");
+            _previousProp = serializedObject.FindProperty("previous");
             _nextProp = serializedObject.FindProperty("next");
         }
 
@@ -34,7 +34,7 @@ namespace ISILab.LBS.VisualElements
             // Rule 1: Hide Previous List if it's a Start Node
             if (nodeType != QuestNode.ENodeType.Start)
             {
-                EditorGUILayout.PropertyField(_allPreviousProp, true);
+                EditorGUILayout.PropertyField(_previousProp, true);
             }
 
             // Rule 2: Hide Next Field if it's a Goal Node
@@ -44,7 +44,7 @@ namespace ISILab.LBS.VisualElements
             }
 
             // Draw any extra fields belonging to child classes (like QuestTriggerNode fields) automatically
-            DrawPropertiesExcluding(serializedObject, "m_Script", "state", "nodeType", "allPrevious", "next");
+            DrawPropertiesExcluding(serializedObject, "m_Script", "state", "nodeType", "previous", "next");
 
             serializedObject.ApplyModifiedProperties();
         }

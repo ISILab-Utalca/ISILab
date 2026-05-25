@@ -9,17 +9,7 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
     public class Custom3dQuestGizmo : Custom3dGizmo
     {
         private QuestTrigger trigger;
-        private QuestTracker tracker;
-        public QuestTracker Tracker
-        {
-            get
-            {
-                tracker ??= GetComponent<QuestTracker>();
-                return tracker;
-            }
-            set => tracker = value;
-        }
-
+        
         public QuestTrigger Trigger
         {
             get
@@ -29,20 +19,24 @@ namespace ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
             }
             set => trigger = value;
         }
-        
-        [HideInInspector]
-        public List<QuestTrigger> prevTriggers = new();
-        
-
+       
         protected override void OnDrawGizmosSelected()
         {
             base.OnDrawGizmosSelected();
 
-            foreach (QuestTrigger prevTrigger in prevTriggers)
+            foreach (QuestTrigger prevTrigger in trigger.Previous)
             {
                 if(!prevTrigger) continue;
                 UnityEngine.Gizmos.DrawLine(transform.position, prevTrigger.transform.position);
                 Custom3dQuestGizmo gizmo = prevTrigger.GetComponent<Custom3dQuestGizmo>();
+                gizmo?.DrawCustomMesh();
+            }
+
+            foreach (QuestTrigger nextTrigger in trigger.Next)
+            {
+                if (!nextTrigger) continue;
+                UnityEngine.Gizmos.DrawLine(transform.position, nextTrigger.transform.position);
+                Custom3dQuestGizmo gizmo = nextTrigger.GetComponent<Custom3dQuestGizmo>();
                 gizmo?.DrawCustomMesh();
             }
         }

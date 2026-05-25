@@ -17,10 +17,10 @@ public abstract class QuestTrigger : MonoBehaviour
     protected QuestState state;
 
     [SerializeField]
-    private List<QuestTrigger> allPrevious = new();
+    private List<QuestTrigger> previous = new();
 
     [SerializeField]
-    private QuestTrigger next;
+    private List<QuestTrigger> next = new();
 
     #endregion
 
@@ -33,39 +33,20 @@ public abstract class QuestTrigger : MonoBehaviour
     #region PROPERTIES
 
     public QuestState State { get => state; set => state = value; }
-    
+
     /// <summary>
     /// Gets or sets the next trigger in the sequence. 
     /// Automatically manages the bi-directional pairing safely.
     /// </summary>
-    public QuestTrigger Next
+    public List<QuestTrigger> Next
     {
         get => next;
-        set
-        {
-            // If it's already assigned to this value, do nothing
-            if (next == value) return;
-
-            // Optional: If overwriting an old next node, clear this trigger from its previous list
-            if (next != null)
-            {
-                next.RemovePrevious(this);
-            }
-
-            next = value;
-
-            // Automatically register this trigger into the new next node's previous tracking
-            if (next != null)
-            {
-                next.AddPrevious(this);
-            }
-        }
     }
 
     /// <summary>
     /// Read-only access to the previous triggers to prevent external bypassing of validation rules.
     /// </summary>
-    public IReadOnlyList<QuestTrigger> AllPrevious => allPrevious;
+    public IReadOnlyList<QuestTrigger> Previous => previous;
 
     #endregion
 
@@ -97,16 +78,27 @@ public abstract class QuestTrigger : MonoBehaviour
     // nodes should have their own check, AND & Or trigger branches check that all their previous are true
     protected abstract bool CanComplete();
 
+
+    public void AddNext(QuestTrigger nextTrigger)
+    {
+        if (nextTrigger == null || nextTrigger == this) return;
+        if (!next.Contains(nextTrigger))
+        {
+            next.Add(nextTrigger);
+            // Ensure the bi-directional link is maintained
+            nextTrigger.AddPrevious(this); 
+        }
+    }
     /// <summary>
     /// Safely registers a previous dependency without creating duplicate references.
     /// </summary>
-    public void AddPrevious(QuestTrigger previousTrigger)
+    private void AddPrevious(QuestTrigger previousTrigger)
     {
         if (previousTrigger == null || previousTrigger == this) return;
 
-        if (!allPrevious.Contains(previousTrigger))
+        if (!previous.Contains(previousTrigger))
         {
-            allPrevious.Add(previousTrigger);
+            previous.Add(previousTrigger);
         }
     }
 
@@ -117,13 +109,13 @@ public abstract class QuestTrigger : MonoBehaviour
     {
         if (previousTrigger == null) return;
 
-        if (allPrevious.Contains(previousTrigger))
+        if (previous.Contains(previousTrigger))
         {
-            allPrevious.Remove(previousTrigger);
+            previous.Remove(previousTrigger);
         }
     }
 
-    protected void ClearPrevious() => allPrevious.Clear();
+    protected void ClearPrevious() => previous.Clear();
     #endregion
 
 }

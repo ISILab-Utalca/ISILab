@@ -18,13 +18,13 @@ namespace ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.Editor
         protected override void OnEnable()
         {
             base.OnEnable();
-            QuestBarView.ClearPreviousButtons();
+            QuestBarView.ClearButtons();
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            QuestBarView.ClearPreviousButtons();
+            QuestBarView.ClearButtons();
         }
 
         protected override void OnUpdate(SceneView sceneView)

@@ -6,12 +6,9 @@ using ISILab.LBS.Components;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
-using ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo;
 using UnityEditor;
 using ISILab.LBS.Plugin.MapTools.Generators;
-using System;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -36,9 +33,22 @@ namespace ISILab.LBS.VisualElements
         private readonly QuestTrigger _trigger;
         private readonly QuestTracker _tracker;
         private static readonly List<VisualElementWorld> PrevButtons = new();
+        private static readonly List<VisualElementWorld> NextButtons = new();
 
         private static readonly string StartIconGuid = "6f8a8cf2b556996428f482386e991352";
         private static readonly string GoalIconGuid = "91e56097e660ca548b3337ccfa31b752";
+        private readonly Button previousStep;
+        private readonly Button nextStep;
+        #endregion
+
+        #region STATIC
+
+        static VectorImage prevIcon;
+        static VectorImage nextIcon;
+
+        VectorImage PrevIcon => prevIcon = prevIcon != null ? prevIcon : previousStep.iconImage.vectorImage;
+        VectorImage NextIcon => nextIcon = nextIcon != null ? nextIcon : nextStep.iconImage.vectorImage;
+
         #endregion
 
         public QuestBarView(Custom3dQuestGizmo questGizmo)
@@ -54,8 +64,8 @@ namespace ISILab.LBS.VisualElements
             VisualElement previousContainer = this.Q<VisualElement>("Previous");
             VisualElement nextContainer = this.Q<VisualElement>("Next");
 
-            Button previousStep = this.Q<Button>("PreviousStep");
-            Button nextStep = this.Q<Button>("NextStep"); 
+            previousStep = this.Q<Button>("PreviousStep");
+            nextStep = this.Q<Button>("NextStep"); 
             Label action = this.Q<Label>("Action");
             VisualElement stepType = this.Q<VisualElement>("StepType");
 
@@ -97,33 +107,52 @@ namespace ISILab.LBS.VisualElements
 
             }
 
-            questGizmo.prevTriggers.Clear();
-            foreach (QuestTrigger prev in _trigger.AllPrevious)
+            foreach (QuestTrigger prev in _trigger.Previous)
             {
-                questGizmo.prevTriggers.Add(prev);
-
-                // Create jumping button for scene navigation
-                var prevButton = new Button(() => SelectTriggerGameObject(prev)) { text = "◄" };
-                SceneView.lastActiveSceneView.rootVisualElement.Add(prevButton);
-
-                Vector3 buttonPos = Vector3.Lerp(
-                    prev.gameObject.transform.position, 
-                    _trigger.gameObject.transform.position, 
-                    ButtonLineRatioPos);
-
-                PrevButtons.Add(new VisualElementWorld(buttonPos, prevButton));
-
-                UpdatePosition(prevButton, buttonPos);
+                CreateNavButton(prev, PrevIcon, PrevButtons);
             }
-           
+
+            foreach (QuestTrigger next in _trigger.Next)
+            {
+               CreateNavButton(next, NextIcon, NextButtons);
+            }
+
 
             MarkDirtyRepaint();
         }
 
-        
-        private void PrevStepOnClicked() => SelectTriggerGameObject(_trigger?.AllPrevious?.FirstOrDefault());
+        void CreateNavButton(QuestTrigger targetTrigger, VectorImage icon, List<VisualElementWorld> buttonList)
+        {
+            var newButton = new Button(() => SelectTriggerGameObject(targetTrigger))
+            {
+                iconImage = new Background() { vectorImage = icon }
+            };
 
-        private void NextStepOnClicked() => SelectTriggerGameObject(_trigger != null ? _trigger.Next : null);
+            SceneView.lastActiveSceneView.rootVisualElement.Add(newButton);
+
+            Vector3 buttonPos = Vector3.Lerp(
+                targetTrigger.gameObject.transform.position,
+                _trigger.gameObject.transform.position,
+                ButtonLineRatioPos);
+
+            buttonList.Add(new VisualElementWorld(buttonPos, newButton));
+
+            UpdatePosition(newButton, buttonPos);
+        }
+
+        private void PrevStepOnClicked()
+        {
+            if (_trigger == null) 
+                return;
+            SelectTriggerGameObject(_trigger.Previous?.FirstOrDefault());
+        }
+
+        private void NextStepOnClicked()
+        {
+            if(_trigger==null) 
+                return;
+            SelectTriggerGameObject(_trigger.Next?.FirstOrDefault());
+        }
 
         public static void SelectTriggerGameObject(QuestTrigger qt)
         {
@@ -139,14 +168,22 @@ namespace ISILab.LBS.VisualElements
         {
             foreach (var item in PrevButtons)
             {
-                if (item.Element != null) UpdatePosition(item.Element, item.Position);
+                if (item.Element != null) 
+                    UpdatePosition(item.Element, item.Position);
+            }
+
+            foreach (var item in NextButtons)
+            {
+                if (item.Element != null)
+                    UpdatePosition(item.Element, item.Position);
             }
         }
 
         private void UpdatePosition(VisualElement button, Vector3 worldPos)
         {
             SceneView sv = SceneView.lastActiveSceneView;
-            if (!sv || !sv.camera) return;
+            if (!sv || !sv.camera) 
+                return;
 
             Vector3 screenPoint = sv.camera.WorldToScreenPoint(worldPos);
             if (screenPoint.z < 0f)
@@ -162,10 +199,17 @@ namespace ISILab.LBS.VisualElements
             button.style.display = DisplayStyle.Flex;
         }
 
-        public static void ClearPreviousButtons()
+        public static void ClearButtons()
         {
-            foreach (var ve in PrevButtons) ve.Element?.RemoveFromHierarchy();
+            foreach (var ve in PrevButtons) 
+                ve.Element?.RemoveFromHierarchy();
+
             PrevButtons.Clear();
+
+            foreach (var ve in NextButtons)
+                ve.Element?.RemoveFromHierarchy();
+
+            NextButtons.Clear();
         }
 
     }

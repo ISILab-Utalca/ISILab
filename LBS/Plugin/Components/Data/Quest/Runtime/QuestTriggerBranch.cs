@@ -41,7 +41,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             if (IsAnd)
             {
-                foreach(var trigger in AllPrevious)
+                foreach(var trigger in Previous)
                 {
                     if (trigger.State != QuestState.Completed) 
                         return false;
@@ -50,7 +50,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
 
             // Is or
-            foreach(var trigger in AllPrevious)
+            foreach(var trigger in Previous)
             {
                 if (trigger.State == QuestState.Completed) 
                     return true;
