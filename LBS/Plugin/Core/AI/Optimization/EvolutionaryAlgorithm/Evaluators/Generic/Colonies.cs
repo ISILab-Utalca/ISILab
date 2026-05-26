@@ -60,6 +60,7 @@ namespace ISILab.AI.Categorization
         [SerializeField]
         public PathfindingAlgorithm searchType;
 
+        [SerializeField]
         public PathfindingHeuristic searchHeuristic;
 
         #endregion
