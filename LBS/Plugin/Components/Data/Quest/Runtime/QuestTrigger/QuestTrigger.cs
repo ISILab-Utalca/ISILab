@@ -1,193 +1,128 @@
+using ISILab.AI.Grammar;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static TreeEditor.TreeEditorHelper;
 
-namespace ISILab.LBS.Plugin.MapTools.Generators
+
+[DisallowMultipleComponent]
+[Serializable]
+public abstract class QuestTrigger : MonoBehaviour
 {
+    #region FIELDS
 
-    [DisallowMultipleComponent]
-    [Serializable]
-    public abstract class QuestTrigger : MonoBehaviour
+    [SerializeField]
+    protected QuestState state;
+
+    [SerializeField]
+    private List<QuestTrigger> previous = new();
+
+    [SerializeField]
+    private List<QuestTrigger> next = new();
+
+    #endregion
+
+    #region ACTIONS
+
+    public event Action<QuestTrigger> OnTriggerCompleted;
+
+    #endregion
+
+    #region PROPERTIES
+
+    public QuestState State { get => state; set => state = value; }
+
+    /// <summary>
+    /// Gets or sets the next trigger in the sequence. 
+    /// Automatically manages the bi-directional pairing safely.
+    /// </summary>
+    public List<QuestTrigger> Next
     {
+        get => next;
+    }
 
-        #region FIELDS
+    /// <summary>
+    /// Read-only access to the previous triggers to prevent external bypassing of validation rules.
+    /// </summary>
+    public IReadOnlyList<QuestTrigger> Previous => previous;
 
-        [SerializeField][SerializeReference][HideInInspector] 
-        protected QuestNode node;
-        
-        [SerializeField, Commons.Attributes.ReadOnly] 
-        private string nodeID;
-        
-        protected BoxCollider BoxCollider;
-        
-        [SerializeField]
-        protected QuestState state;
-
-        [SerializeField]
-        private List<GameObject> gos = new();
-
-        private List<GraphNode> _destinations = new();
-
-        private LBSGeneratedEventHook eventHooker;
-
-        #endregion
+    #endregion
 
 
-        #region PROPERTIES
 
-        public string NodeID => nodeID;
+    #region METHODS
 
-        public QuestState State
+    // Used by generator 3d
+    public abstract void InitTrigger(GraphNode paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0);
+
+    public bool TryComplete()
+    {
+        if (isActiveAndEnabled && CanComplete())
         {
-            get => state;
-            set => state = value;
-        }
-        
-        public QuestNode Node
-        {
-            get => node;
-            set => node = value;
-        }
-
-        public GraphNode OwnerBranchNode { get; set; }
-        public List<GraphNode> Destinations { get => _destinations; set => _destinations = value; }
-
-        #endregion
-
-
-        #region EVENTS
-
-        public event Action<QuestTrigger> OnTriggerCompleted;
-
-        #endregion
-
-
-        #region METHODS
-
-        private void Awake()
-        {
-            eventHooker ??= gameObject.AddComponent<LBSGeneratedEventHook>();
-        }
-
-        public void AddGo(GameObject go) => gos.Add(go);
-        public void RemoveGo(GameObject go)
-        {
-            if (gos.Contains(go))
-            {
-                gos.Remove(go);
-            }
-        }
-
-        #region SET UP
-
-        protected void EnsureCollider()
-        {
-            if (BoxCollider != null) return;
-            BoxCollider = GetComponent<BoxCollider>();
-            if (BoxCollider != null) return;
-            BoxCollider = gameObject.AddComponent<BoxCollider>();
-            BoxCollider.isTrigger = true;
-            BoxCollider.size = Vector3.one;
-        }
-
-        /// <summary>
-        /// Call to set SetTypedData from Runtime Function
-        /// </summary>
-        public virtual void Init()
-        {
-            EnsureCollider();
-        }
-
-        /// <summary>
-        /// Replace and cast the incoming parameter to the required data type
-        /// </summary>
-        protected virtual void SetData(QuestNodeData data)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Always call base from overwrites as base sets the ID that quest observer uses on start 
-        /// </summary>
-        public void SetNode(QuestNode paramNode)
-        {
-            node = paramNode;
-            nodeID = paramNode.ID;
-            eventHooker ??= gameObject.AddComponent<LBSGeneratedEventHook>();
-            eventHooker.AssignEvents(paramNode.Data.EventHooker);
-            SetData(node.Data);
-
-        }
-
-        /// <summary>
-        /// All triggers require a size by initialization.
-        /// </summary>
-        public void SetSize(Vector3 size)
-        {
-            size.x = Mathf.Abs(size.x);
-            size.y = Mathf.Abs(size.y);
-            size.z = Mathf.Abs(size.z);
-            
-            BoxCollider = gameObject.AddComponent<BoxCollider>();
-            BoxCollider.isTrigger = true;
-            BoxCollider.size = size;
-        }
-
-        #endregion
-
-
-        #region TRIGGER HANDLING
-
-        protected virtual void OnTriggerEnter(Collider other)
-        {
-            if(IsPlayer(other)) TryComplete();
-        }
-
-        public static bool IsPlayer(Collider other) { return other.CompareTag("Player"); }
-
-        /// <summary>
-        /// TRUE by default. Implement your own complete conditions
-        /// </summary>
-        protected abstract bool CanComplete();
-
-        /// <summary>
-        /// Checks if the trigger can be completed. Returns true if it is completed successfully
-        /// </summary>
-        public bool TryComplete()
-        {
-            bool canComplete = CanComplete();
-            if (!isActiveAndEnabled || !canComplete) return false;
-        
             Complete();
             return true;
         }
 
-        private void Complete()
-        {
-            // flag to completed
-            State = QuestState.Completed;
-
-            // call any events on the event hooker
-            if (eventHooker != null) 
-                eventHooker.BroadcastEvent(Components.Data.LBSEventType.Complete);
-
-            gameObject.SetActive(false);
-            OnTriggerCompleted?.Invoke(this);
-        }
-
-        #endregion
-
-
-#if UNITY_EDITOR
-        /// <summary>
-        /// Right click the cog icon in the inspector of the Script
-        /// </summary>
-        [ContextMenu("Force Complete")]
-        private void ForceComplete() => Complete();
-#endif
-
+        return false;
     }
 
+    protected virtual void Complete()
+    {
+        state = QuestState.Completed;
+        gameObject.SetActive(false);
+        OnTriggerCompleted?.Invoke(this);
+    }
+
+    // nodes should have their own check, AND & Or trigger branches check that all their previous are true
+    protected abstract bool CanComplete();
+
+
+    public void AddNext(QuestTrigger nextTrigger)
+    {
+        if (nextTrigger == null || nextTrigger == this) return;
+        if (!next.Contains(nextTrigger))
+        {
+            next.Add(nextTrigger);
+            // Ensure the bi-directional link is maintained
+            nextTrigger.AddPrevious(this); 
+        }
+    }
+    /// <summary>
+    /// Safely registers a previous dependency without creating duplicate references.
+    /// </summary>
+    private void AddPrevious(QuestTrigger previousTrigger)
+    {
+        if (previousTrigger == null || previousTrigger == this) return;
+
+        if (!previous.Contains(previousTrigger))
+        {
+            previous.Add(previousTrigger);
+        }
+    }
+
+    /// <summary>
+    /// Safely removes a previous dependency if it exists.
+    /// </summary>
+    public void RemovePrevious(QuestTrigger previousTrigger)
+    {
+        if (previousTrigger == null) return;
+
+        if (previous.Contains(previousTrigger))
+        {
+            previous.Remove(previousTrigger);
+        }
+    }
+
+    protected void ClearPrevious() => previous.Clear();
+
+    internal virtual void Activate()
+    {
+        gameObject.SetActive(true);
+        State = QuestState.Active;
+    }
     #endregion
+
 }

@@ -64,7 +64,7 @@ namespace ISILab.LBS.Manipulators
                 return;
             }
             // prevent duplicates
-            if (_quest.GraphEdges.Any(e => e.From.Contains(_first) && Equals(e.To, second)))
+            if (_quest.GraphEdges.Any(e => Equals(e.From,_first) && Equals(e.To, second)))
             {
                 LBSMainWindow.MessageNotify(new LBSLog("This connection already exists.", LogType.Error));
                 return;

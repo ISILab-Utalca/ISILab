@@ -1,27 +1,39 @@
 using UnityEngine;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
-using ISILab.AI.Grammar;
 using ISILab.LBS.Plugin.MapTools.Generators;
+
 namespace ISILab.AI.Grammar
 {
-    public class GiveTrigger : QuestTrigger 
+    public class GiveTrigger : QuestTriggerNode
     {
-        [Commons.Attributes.ReadOnly]
-        [SerializeField] private GrammarTerminal _terminal;
-
         [Header("Grammar Fields")]
-    [SerializeField,Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Object to give")] private GrammarBundleGraph _Objecttogive;
-    [SerializeField,Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Object to receive")] private GrammarBundleType _Objecttoreceive;
+        [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Object to give")]
+        private GrammarBundleGraph _Objecttogive;
 
-        protected override void SetData(QuestNodeData data) 
+        [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Object to receive")]
+        private GrammarBundleType _Objecttoreceive;
+
+        protected override void BindFields(List<GrammarField> fields) 
         {
-            _terminal = data.Terminal;
-            _Objecttogive = data.Fields.Find(f => f.name == "Object to give") as GrammarBundleGraph;
-        _Objecttoreceive = data.Fields.Find(f => f.name == "Object to receive") as GrammarBundleType;
+            // Ensure the target field is instantiated so it isn't null
+            if (_Objecttogive == null) _Objecttogive = new GrammarBundleGraph();
 
+            var sourceObjecttogive = fields.Find(f => f.name == "Object to give") as GrammarBundleGraph;
+            if (sourceObjecttogive != null)
+            {
+                _Objecttogive.SetValue(sourceObjecttogive.value);
+            }
+            // Ensure the target field is instantiated so it isn't null
+            if (_Objecttoreceive == null) _Objecttoreceive = new GrammarBundleType();
+
+            var sourceObjecttoreceive = fields.Find(f => f.name == "Object to receive") as GrammarBundleType;
+            if (sourceObjecttoreceive != null)
+            {
+                _Objecttoreceive.SetValue(sourceObjecttoreceive.value);
+            }
         }
 
-        protected override bool CanComplete() => false;
+        protected override bool CanComplete() => true;
     }
 }

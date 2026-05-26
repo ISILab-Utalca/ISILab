@@ -23,7 +23,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
         {
             EditorApplication.delayCall += () =>
             {
-                Debug.LogError($"{Assistant.Name} Task failed: {ex}");
+                //Debug.LogError($"{Assistant.Name} Task failed: {ex}");
                 TaskBar.EnableProcess(false);
             };
         }
@@ -75,7 +75,7 @@ namespace ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
 
             IATE.TaskBar.EnableProcess(true, Assistant.Name);
 
-            Debug.Log($"{Assistant.Name} Task started.");
+            //Debug.Log($"{Assistant.Name} Task started.");
         }
 
         private void HandleTermination(string log, LogType type, UnityEngine.Object loadedLevel)

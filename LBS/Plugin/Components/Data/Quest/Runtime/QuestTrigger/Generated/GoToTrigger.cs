@@ -1,21 +1,19 @@
 using UnityEngine;
+using System.Collections.Generic;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.AI.Grammar
 {
-    public class GoToTrigger : QuestTrigger 
+    public class GoToTrigger : QuestTriggerNode
     {
-        [Commons.Attributes.ReadOnly]
-        [SerializeField] private GrammarTerminal _terminal;
 
-    
-        protected override void SetData(QuestNodeData data) 
+
+        protected override void BindFields(List<GrammarField> fields) 
         {
-            _terminal = data.Terminal;
-    
+
         }
 
-        protected override bool CanComplete() => false;
+        protected override bool CanComplete() => true;
     }
 }

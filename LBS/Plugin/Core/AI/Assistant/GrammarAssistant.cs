@@ -46,100 +46,143 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
         #region Validation
-        public bool ValidateQuestGraph()
+        public bool ValidateGraphGrammar()
         {
+            // 1. Reset all validation states to a clean slate before processing
             foreach (var node in Graph.GraphNodes)
             {
-                if (!node.ValidGrammar) return false;
+                node.ValidGrammar = false;
             }
 
-            return true;
-        }
-        
-        public bool ValidateEdgeGrammar(QuestEdge edge)
-        {
-            if (edge?.From is null || edge.To is null) return false;
-            
-            var grammar = Graph.Grammar;
-            if (grammar == null || !grammar.LBSRules.Any()) return false;
-
-            bool returnValid = false;
-
-            foreach (var nodeFrom in edge.From)
+            // 2. Validate all QuestNodes (Terminals) first based on forward paths
+            foreach (var node in Graph.GraphNodes)
             {
-                if (nodeFrom is QuestNode from)
+                if (node is QuestNode questNode)
                 {
-                     // validate start 
-                    if (from.NodeType == QuestNode.ENodeType.Start)
+                    ValidateQuestNodeGrammar(questNode);
+                }
+            }
+
+            // 3. Propagate validation states to Branch nodes (And/Or) based on their updated roots
+            // We loop a few times to handle nested branches (e.g., branch pointing to another branch)
+            bool stateChanged;
+            do
+            {
+                stateChanged = false;
+                foreach (var node in Graph.GraphNodes)
+                {
+                    if (node is not QuestNode)
                     {
-                        List<string> validNextTerminals = Graph.Grammar.GetNextTerminals(from.TerminalID);
-                        bool validGrammar = validNextTerminals.Contains(edge.To.ToString());
-                        from.ValidGrammar = validGrammar;
-                        returnValid = validGrammar;
+                        bool wasValid = node.ValidGrammar;
+                        node.ValidGrammar = BranchNodeRootGrammar(node);
+
+                        if (wasValid != node.ValidGrammar)
+                        {
+                            stateChanged = true;
+                        }
                     }
-                
-                    // validate middle
-                    if (from.NodeType == QuestNode.ENodeType.Middle)
+                }
+            } while (stateChanged);
+
+            // 4. Finally, Goal nodes inherit the validation of whatever is feeding into them
+            foreach (var node in Graph.GraphNodes)
+            {
+                if (node is QuestNode { NodeType: QuestNode.ENodeType.Goal } goalNode)
+                {
+                    // Goal is valid if all its incoming roots/branches are structurally valid
+                    goalNode.ValidGrammar = GoalNodeRootsAreValid(goalNode);
+                }
+            }
+
+            // Return true only if every single node in the graph passed its ruleset check
+            return Graph.GraphNodes.All(node => node.ValidGrammar);
+        }
+
+        private void ValidateQuestNodeGrammar(QuestNode from)
+        {
+            var grammar = Graph.Grammar;
+            if (grammar == null || !grammar.LBSRules.Any()) return;
+
+            // Start or Middle terminal validation
+            if (from.NodeType == QuestNode.ENodeType.Start || from.NodeType == QuestNode.ENodeType.Middle)
+            {
+                // Find ALL terminal nodes downstream, traversing cleanly across any And/Or branches
+                List<QuestNode> nextQuestNodes = GetNextQuestNodes(from);
+                List<string> validNextTerminals = Graph.Grammar.GetNextTerminals(from.TerminalID);
+
+                // If a node has outgoing edges but leads to nothing, it is dead/invalid layout
+                bool pathValid = nextQuestNodes.Count > 0;
+
+                foreach (var nextNode in nextQuestNodes)
+                {
+                    if (!validNextTerminals.Contains(nextNode.TerminalID))
                     {
-                        // check that the next terminal is valid
-                        if (edge.To.GetType() == typeof(QuestNode))
-                        {
-                            List<string> validNextTerminals = Graph.Grammar.GetNextTerminals(from.TerminalID);
-                            var validGrammar = validNextTerminals.Contains(edge.To.ToString());
-                            from.ValidGrammar = validGrammar;
-                        }
-                        else
-                        {
-                            returnValid = from.ValidGrammar;
-                        }
-                        
+                        pathValid = false;
+                        break;
                     }
+                }
+
+                from.ValidGrammar = pathValid;
+            }
+        }
+
+        /// <summary>
+        /// Recursively looks ahead down the graph edges to skip logical branches 
+        /// and return the raw terminal QuestNodes that downstream branches eventually feed into.
+        /// </summary>
+        private List<QuestNode> GetNextQuestNodes(GraphNode currentNode)
+        {
+            List<QuestNode> foundNodes = new List<QuestNode>();
+
+            // Find all outgoing edges where this structural node is the source
+            var outgoingEdges = Graph.GraphEdges.Where(e => e.From == currentNode);
+
+            foreach (var edge in outgoingEdges)
+            {
+                if (edge.To is QuestNode questNode)
+                {
+                    foundNodes.Add(questNode);
                 }
                 else
                 {
-                    // branchis are grammarly valid 
-                    nodeFrom.ValidGrammar = BranchNodeRootGrammar(nodeFrom);
+                    // It's a branch node, tunnel deeper down its forward paths
+                    foundNodes.AddRange(GetNextQuestNodes(edge.To));
                 }
-                
-                // goal is unique
-                if (edge.To is QuestNode { NodeType: QuestNode.ENodeType.Goal })
-                    // validate goal
-                {
-                    
-                    // if the from is valid(so is the goal). Because the "From" gets validated first
-                    // by checking that the "To" is a valid terminal
-                    edge.To.ValidGrammar = nodeFrom.ValidGrammar;
-                    returnValid = edge.To.ValidGrammar;
-                }   
             }
-                
-         
-            return returnValid;
-            
+
+            return foundNodes;
         }
 
         // Tries to retrieve from a branch Node the grammar of the immediate quest node root
-        private bool BranchNodeRootGrammar(GraphNode nodeFrom)
+        private bool BranchNodeRootGrammar(GraphNode branch)
         {
-            foreach (var rootEdge in Graph.GetRoots(nodeFrom))
+            var roots = Graph.GetRoots(branch);
+            if (!roots.Any()) return false;
+
+            foreach (var rootEdge in roots)
             {
-                foreach (var from in rootEdge.From)
+                // If the root feeding this branch is a terminal action, it must have valid grammar
+                if (rootEdge.From is QuestNode questRoot)
                 {
-                    // a quest node was found as root, get its grammar value
-                    if (from.GetType() == typeof(QuestNode) & !from.IsValid())
-                    {
-                        // atleast one of the roots is not of valid grammar
-                        return false;
-                    }
-                    // a branching node as root, keep searching within 
-                    return BranchNodeRootGrammar(from);
+                    if (!questRoot.ValidGrammar) return false;
+                }
+                else // If the root is another branch, check if that branch has completed its validation pass
+                {
+                    if (!rootEdge.From.ValidGrammar) return false;
                 }
             }
-            
-            //all quest node roots were valid
+
             return true;
         }
 
+        private bool GoalNodeRootsAreValid(QuestNode goalNode)
+        {
+            var roots = Graph.GetRoots(goalNode);
+            if (!roots.Any()) return false;
+
+            // Goal is valid only if all nodes running into it are green-lit
+            return roots.All(rootEdge => rootEdge.From.ValidGrammar);
+        }
         #endregion
 
         #region Getters
@@ -286,28 +329,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
          //   Debug.Log($"<color=yellow>[Assistant Debug]</color> Graph triggered CallAssistant for {node?.ID}");
          //   DebugOnCallAssistant(); // Check the list right before invoking
             OnCallAssistant?.Invoke(node);
-        }
-
-        private void DebugOnCallAssistant()
-        {
-            if (OnCallAssistant == null)
-            {
-                Debug.Log("<color=red>[Assistant Debug]</color> OnCallAssistant is NULL (No subscribers).");
-                return;
-            }
-
-            var delegates = OnCallAssistant.GetInvocationList();
-            Debug.Log($"<color=cyan>[Assistant Debug]</color> Total Subscribers: {delegates.Length}");
-
-            for (int i = 0; i < delegates.Length; i++)
-            {
-                var d = delegates[i];
-                string targetName = d.Target != null ? d.Target.ToString() : "Static Method";
-                bool isUnityObject = d.Target is UnityEngine.Object;
-                bool isAlive = !isUnityObject || (d.Target as UnityEngine.Object) != null;
-
-                Debug.Log($"  [{i}] Method: <b>{d.Method.Name}</b> | Target: <b>{targetName}</b> | Alive: <b>{isAlive}</b>");
-            }
         }
 
         public override void OnGUI() { }
