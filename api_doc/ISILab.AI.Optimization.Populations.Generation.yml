@@ -18,21 +18,27 @@ items:
   nameWithType: Generation
   fullName: ISILab.AI.Optimization.Populations.Generation
   type: Class
+  source:
+    id: Generation
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Population\Generation.cs
+    startLine: 13
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Populations
+  summary: Represents a generation of a population.
+  example: []
   syntax:
     content: public sealed class Generation
     content.vb: Public NotInheritable Class Generation
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.AI.Optimization.Populations.Generation.#ctor(System.Int32,System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})
   commentId: M:ISILab.AI.Optimization.Populations.Generation.#ctor(System.Int32,System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})
   id: '#ctor(System.Int32,System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})'
@@ -44,45 +50,29 @@ items:
   nameWithType: Generation.Generation(int, IList<IOptimizable>)
   fullName: ISILab.AI.Optimization.Populations.Generation.Generation(int, System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Population\Generation.cs
+    startLine: 22
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Populations
+  summary: Initializes a new instance of the GeneticSharp.Domain.Populations.Generation class.
+  example: []
   syntax:
     content: public Generation(int number, IList<IOptimizable> evaluables)
     parameters:
     - id: number
       type: System.Int32
+      description: The generation number.
     - id: evaluables
       type: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+      description: The chromosomes of the generation..
     content.vb: Public Sub New(number As Integer, evaluables As IList(Of IOptimizable))
   overload: ISILab.AI.Optimization.Populations.Generation.#ctor*
   nameWithType.vb: Generation.New(Integer, IList(Of IOptimizable))
   fullName.vb: ISILab.AI.Optimization.Populations.Generation.New(Integer, System.Collections.Generic.IList(Of ISILab.AI.Optimization.IOptimizable))
   name.vb: New(Integer, IList(Of IOptimizable))
-- uid: ISILab.AI.Optimization.Populations.Generation.End(System.Int32)
-  commentId: M:ISILab.AI.Optimization.Populations.Generation.End(System.Int32)
-  id: End(System.Int32)
-  parent: ISILab.AI.Optimization.Populations.Generation
-  langs:
-  - csharp
-  - vb
-  name: End(int)
-  nameWithType: Generation.End(int)
-  fullName: ISILab.AI.Optimization.Populations.Generation.End(int)
-  type: Method
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Optimization.Populations
-  syntax:
-    content: public void End(int evaluablesCount)
-    parameters:
-    - id: evaluablesCount
-      type: System.Int32
-    content.vb: Public Sub [End](evaluablesCount As Integer)
-  overload: ISILab.AI.Optimization.Populations.Generation.End*
-  nameWithType.vb: Generation.End(Integer)
-  fullName.vb: ISILab.AI.Optimization.Populations.Generation.End(Integer)
-  name.vb: End(Integer)
 - uid: ISILab.AI.Optimization.Populations.Generation.Number
   commentId: P:ISILab.AI.Optimization.Populations.Generation.Number
   id: Number
@@ -94,15 +84,22 @@ items:
   nameWithType: Generation.Number
   fullName: ISILab.AI.Optimization.Populations.Generation.Number
   type: Property
+  source:
+    id: Number
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Population\Generation.cs
+    startLine: 47
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Populations
+  summary: Gets the number.
+  example: []
   syntax:
     content: public int Number { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public ReadOnly Property Number As Integer
+      description: The number.
+    content.vb: Public Property Number As Integer
   overload: ISILab.AI.Optimization.Populations.Generation.Number*
 - uid: ISILab.AI.Optimization.Populations.Generation.CreationDate
   commentId: P:ISILab.AI.Optimization.Populations.Generation.CreationDate
@@ -115,15 +112,21 @@ items:
   nameWithType: Generation.CreationDate
   fullName: ISILab.AI.Optimization.Populations.Generation.CreationDate
   type: Property
+  source:
+    id: CreationDate
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Population\Generation.cs
+    startLine: 52
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Populations
+  summary: Gets the creation date.
+  example: []
   syntax:
     content: public DateTime CreationDate { get; }
     parameters: []
     return:
       type: System.DateTime
-    content.vb: Public ReadOnly Property CreationDate As Date
+    content.vb: Public Property CreationDate As Date
   overload: ISILab.AI.Optimization.Populations.Generation.CreationDate*
 - uid: ISILab.AI.Optimization.Populations.Generation.Evaluables
   commentId: P:ISILab.AI.Optimization.Populations.Generation.Evaluables
@@ -136,15 +139,22 @@ items:
   nameWithType: Generation.Evaluables
   fullName: ISILab.AI.Optimization.Populations.Generation.Evaluables
   type: Property
+  source:
+    id: Evaluables
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Population\Generation.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Populations
+  summary: Gets the chromosomes.
+  example: []
   syntax:
     content: public IList<IOptimizable> Evaluables { get; }
     parameters: []
     return:
       type: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
-    content.vb: Public ReadOnly Property Evaluables As IList(Of IOptimizable)
+      description: The chromosomes.
+    content.vb: Public Property Evaluables As IList(Of IOptimizable)
   overload: ISILab.AI.Optimization.Populations.Generation.Evaluables*
 - uid: ISILab.AI.Optimization.Populations.Generation.BestCandidate
   commentId: P:ISILab.AI.Optimization.Populations.Generation.BestCandidate
@@ -157,20 +167,57 @@ items:
   nameWithType: Generation.BestCandidate
   fullName: ISILab.AI.Optimization.Populations.Generation.BestCandidate
   type: Property
+  source:
+    id: BestCandidate
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Population\Generation.cs
+    startLine: 64
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Populations
+  summary: Gets the best chromosome.
+  example: []
   syntax:
     content: public IOptimizable BestCandidate { get; }
     parameters: []
     return:
       type: ISILab.AI.Optimization.IOptimizable
-    content.vb: Public ReadOnly Property BestCandidate As IOptimizable
+      description: The best chromosome.
+    content.vb: Public Property BestCandidate As IOptimizable
   overload: ISILab.AI.Optimization.Populations.Generation.BestCandidate*
+- uid: ISILab.AI.Optimization.Populations.Generation.End(System.Int32)
+  commentId: M:ISILab.AI.Optimization.Populations.Generation.End(System.Int32)
+  id: End(System.Int32)
+  parent: ISILab.AI.Optimization.Populations.Generation
+  langs:
+  - csharp
+  - vb
+  name: End(int)
+  nameWithType: Generation.End(int)
+  fullName: ISILab.AI.Optimization.Populations.Generation.End(int)
+  type: Method
+  source:
+    id: End
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Population\Generation.cs
+    startLine: 72
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization.Populations
+  summary: Ends the generation.
+  example: []
+  syntax:
+    content: public void End(int evaluablesCount)
+    parameters:
+    - id: evaluablesCount
+      type: System.Int32
+      description: Evaluables number to keep on generation.
+    content.vb: Public Sub [End](evaluablesCount As Integer)
+  overload: ISILab.AI.Optimization.Populations.Generation.End*
+  nameWithType.vb: Generation.End(Integer)
+  fullName.vb: ISILab.AI.Optimization.Populations.Generation.End(Integer)
+  name.vb: End(Integer)
 references:
 - uid: ISILab.AI.Optimization.Populations
   commentId: N:ISILab.AI.Optimization.Populations
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization.Populations
   nameWithType: ISILab.AI.Optimization.Populations
@@ -178,42 +225,34 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Populations
     name: Populations
-    isExternal: true
     href: ISILab.AI.Optimization.Populations.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Populations
     name: Populations
-    isExternal: true
     href: ISILab.AI.Optimization.Populations.html
 - uid: System.Object
   commentId: T:System.Object
@@ -226,54 +265,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -352,6 +343,54 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -397,28 +436,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -430,7 +469,6 @@ references:
   fullName: System
 - uid: ISILab.AI.Optimization.Populations.Generation.#ctor*
   commentId: Overload:ISILab.AI.Optimization.Populations.Generation.#ctor
-  isExternal: true
   href: ISILab.AI.Optimization.Populations.Generation.html#ISILab_AI_Optimization_Populations_Generation__ctor_System_Int32_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__
   name: Generation
   nameWithType: Generation.Generation
@@ -468,7 +506,6 @@ references:
   - name: <
   - uid: ISILab.AI.Optimization.IOptimizable
     name: IOptimizable
-    isExternal: true
     href: ISILab.AI.Optimization.IOptimizable.html
   - name: '>'
   spec.vb:
@@ -481,7 +518,6 @@ references:
   - name: " "
   - uid: ISILab.AI.Optimization.IOptimizable
     name: IOptimizable
-    isExternal: true
     href: ISILab.AI.Optimization.IOptimizable.html
   - name: )
 - uid: System.Collections.Generic.IList`1
@@ -549,23 +585,14 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: ISILab.AI.Optimization.Populations.Generation.End*
-  commentId: Overload:ISILab.AI.Optimization.Populations.Generation.End
-  isExternal: true
-  href: ISILab.AI.Optimization.Populations.Generation.html#ISILab_AI_Optimization_Populations_Generation_End_System_Int32_
-  name: End
-  nameWithType: Generation.End
-  fullName: ISILab.AI.Optimization.Populations.Generation.End
 - uid: ISILab.AI.Optimization.Populations.Generation.Number*
   commentId: Overload:ISILab.AI.Optimization.Populations.Generation.Number
-  isExternal: true
   href: ISILab.AI.Optimization.Populations.Generation.html#ISILab_AI_Optimization_Populations_Generation_Number
   name: Number
   nameWithType: Generation.Number
   fullName: ISILab.AI.Optimization.Populations.Generation.Number
 - uid: ISILab.AI.Optimization.Populations.Generation.CreationDate*
   commentId: Overload:ISILab.AI.Optimization.Populations.Generation.CreationDate
-  isExternal: true
   href: ISILab.AI.Optimization.Populations.Generation.html#ISILab_AI_Optimization_Populations_Generation_CreationDate
   name: CreationDate
   nameWithType: Generation.CreationDate
@@ -583,14 +610,12 @@ references:
   name.vb: Date
 - uid: ISILab.AI.Optimization.Populations.Generation.Evaluables*
   commentId: Overload:ISILab.AI.Optimization.Populations.Generation.Evaluables
-  isExternal: true
   href: ISILab.AI.Optimization.Populations.Generation.html#ISILab_AI_Optimization_Populations_Generation_Evaluables
   name: Evaluables
   nameWithType: Generation.Evaluables
   fullName: ISILab.AI.Optimization.Populations.Generation.Evaluables
 - uid: ISILab.AI.Optimization.Populations.Generation.BestCandidate*
   commentId: Overload:ISILab.AI.Optimization.Populations.Generation.BestCandidate
-  isExternal: true
   href: ISILab.AI.Optimization.Populations.Generation.html#ISILab_AI_Optimization_Populations_Generation_BestCandidate
   name: BestCandidate
   nameWithType: Generation.BestCandidate
@@ -598,14 +623,12 @@ references:
 - uid: ISILab.AI.Optimization.IOptimizable
   commentId: T:ISILab.AI.Optimization.IOptimizable
   parent: ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.AI.Optimization.IOptimizable.html
   name: IOptimizable
   nameWithType: IOptimizable
   fullName: ISILab.AI.Optimization.IOptimizable
 - uid: ISILab.AI.Optimization
   commentId: N:ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization
   nameWithType: ISILab.AI.Optimization
@@ -613,31 +636,31 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
+- uid: ISILab.AI.Optimization.Populations.Generation.End*
+  commentId: Overload:ISILab.AI.Optimization.Populations.Generation.End
+  href: ISILab.AI.Optimization.Populations.Generation.html#ISILab_AI_Optimization_Populations_Generation_End_System_Int32_
+  name: End
+  nameWithType: Generation.End
+  fullName: ISILab.AI.Optimization.Populations.Generation.End
 shouldSkipMarkup: true

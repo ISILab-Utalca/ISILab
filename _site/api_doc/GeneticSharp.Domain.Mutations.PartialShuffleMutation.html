@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class PartialShuffleMutation | lbs-api_docs ">
       
-      
+      <meta name="description" content="Partial Shuffle Mutation (PSM).  In the partial shuffle mutation operator, we take a sequence S limited by two  positions i and j randomly chosen, such that i&amp;lt;j. The gene order in this sequence  will be shuffled. Sequence will be shuffled until it becomes different than the starting order Analyzing the Performance of Mutation Operators to Solve the Travelling Salesman Problem">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,13 @@ Class PartialShuffleMutation
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Partial Shuffle Mutation (PSM).
+<remarks>
+In the partial shuffle mutation operator, we take a sequence S limited by two 
+positions i and j randomly chosen, such that i&lt;j. The gene order in this sequence 
+will be shuffled. Sequence will be shuffled until it becomes different than the starting order
+<a href="http://arxiv.org/ftp/arxiv/papers/1203/1203.3099.pdf">Analyzing the Performance of Mutation Operators to Solve the Travelling Salesman Problem</a>
+</remarks></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -136,19 +142,10 @@ Class PartialShuffleMutation
       <a class="xref" href="GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_ValidateLength_System_Object___">SequenceMutationBase.ValidateLength(object[])</a>
     </div>
     <div>
-      <a class="xref" href="GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_">MutationBase.Mutate(ChromosomeBase, float)</a>
-    </div>
-    <div>
       <a class="xref" href="GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_IsOrdered">MutationBase.IsOrdered</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_">MutationBase.Mutate(ChromosomeBase, float)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -157,10 +154,19 @@ Class PartialShuffleMutation
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -180,7 +186,7 @@ Class PartialShuffleMutation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="GeneticSharp.Domain.Mutations.PartialShuffleMutation.html">PartialShuffleMutation</a> class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -210,7 +216,7 @@ Class PartialShuffleMutation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Mutate selected sequence.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -220,13 +226,13 @@ Class PartialShuffleMutation
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>sequence</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd></dd>
+    <dd>The sequence to be mutated.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd></dd>
+    <dd>The resulted sequence after mutation operation.</dd>
   </dl>
 
 

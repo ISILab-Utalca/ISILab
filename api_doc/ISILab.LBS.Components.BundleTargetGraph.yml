@@ -18,72 +18,40 @@ items:
   nameWithType: BundleTargetGraph
   fullName: ISILab.LBS.Components.BundleTargetGraph
   type: Class
+  source:
+    id: BundleTargetGraph
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
+    startLine: 40
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
+  summary: Saves the bundle guid and the position in the graph to get in the scene
+  example: []
   syntax:
-    content: 'public class BundleTargetGraph : BundleTarget'
-    content.vb: Public Class BundleTargetGraph Inherits BundleTarget
+    content: >-
+      [Serializable]
+
+      public class BundleTargetGraph : BundleTarget
+    content.vb: >-
+      <Serializable>
+
+      Public Class BundleTargetGraph Inherits BundleTarget
   inheritance:
   - System.Object
   - ISILab.LBS.Components.BundleTarget
   inheritedMembers:
+  - ISILab.LBS.Components.BundleTarget.GUID
   - ISILab.LBS.Components.BundleTarget.Equals(System.Object)
   - ISILab.LBS.Components.BundleTarget.GetHashCode
-  - ISILab.LBS.Components.BundleTarget.GUID
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: ISILab.LBS.Components.BundleTargetGraph.#ctor(LBS.Components.LBSLayer,ISILab.LBS.Modules.TileBundleGroup)
-  commentId: M:ISILab.LBS.Components.BundleTargetGraph.#ctor(LBS.Components.LBSLayer,ISILab.LBS.Modules.TileBundleGroup)
-  id: '#ctor(LBS.Components.LBSLayer,ISILab.LBS.Modules.TileBundleGroup)'
-  parent: ISILab.LBS.Components.BundleTargetGraph
-  langs:
-  - csharp
-  - vb
-  name: BundleTargetGraph(LBSLayer, TileBundleGroup)
-  nameWithType: BundleTargetGraph.BundleTargetGraph(LBSLayer, TileBundleGroup)
-  fullName: ISILab.LBS.Components.BundleTargetGraph.BundleTargetGraph(LBS.Components.LBSLayer, ISILab.LBS.Modules.TileBundleGroup)
-  type: Constructor
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public BundleTargetGraph(LBSLayer layer, TileBundleGroup bundle)
-    parameters:
-    - id: layer
-      type: LBS.Components.LBSLayer
-    - id: bundle
-      type: ISILab.LBS.Modules.TileBundleGroup
-    content.vb: Public Sub New(layer As LBSLayer, bundle As TileBundleGroup)
-  overload: ISILab.LBS.Components.BundleTargetGraph.#ctor*
-  nameWithType.vb: BundleTargetGraph.New(LBSLayer, TileBundleGroup)
-  fullName.vb: ISILab.LBS.Components.BundleTargetGraph.New(LBS.Components.LBSLayer, ISILab.LBS.Modules.TileBundleGroup)
-  name.vb: New(LBSLayer, TileBundleGroup)
-- uid: ISILab.LBS.Components.BundleTargetGraph.IsValid
-  commentId: M:ISILab.LBS.Components.BundleTargetGraph.IsValid
-  id: IsValid
-  parent: ISILab.LBS.Components.BundleTargetGraph
-  langs:
-  - csharp
-  - vb
-  name: IsValid()
-  nameWithType: BundleTargetGraph.IsValid()
-  fullName: ISILab.LBS.Components.BundleTargetGraph.IsValid()
-  type: Method
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  example: []
-  syntax:
-    content: public override bool IsValid()
-    return:
-      type: System.Boolean
-    content.vb: Public Overrides Function IsValid() As Boolean
-  overridden: ISILab.LBS.Components.BundleTarget.IsValid
-  overload: ISILab.LBS.Components.BundleTargetGraph.IsValid*
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.BundleTargetGraph.Layer
   commentId: P:ISILab.LBS.Components.BundleTargetGraph.Layer
   id: Layer
@@ -95,6 +63,10 @@ items:
   nameWithType: BundleTargetGraph.Layer
   fullName: ISILab.LBS.Components.BundleTargetGraph.Layer
   type: Property
+  source:
+    id: Layer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
+    startLine: 49
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -116,6 +88,10 @@ items:
   nameWithType: BundleTargetGraph.TileBundleGroup
   fullName: ISILab.LBS.Components.BundleTargetGraph.TileBundleGroup
   type: Property
+  source:
+    id: TileBundleGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
+    startLine: 50
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -126,6 +102,36 @@ items:
       type: ISILab.LBS.Modules.TileBundleGroup
     content.vb: Public ReadOnly Property TileBundleGroup As TileBundleGroup
   overload: ISILab.LBS.Components.BundleTargetGraph.TileBundleGroup*
+- uid: ISILab.LBS.Components.BundleTargetGraph.#ctor(LBS.Components.LBSLayer,ISILab.LBS.Modules.TileBundleGroup)
+  commentId: M:ISILab.LBS.Components.BundleTargetGraph.#ctor(LBS.Components.LBSLayer,ISILab.LBS.Modules.TileBundleGroup)
+  id: '#ctor(LBS.Components.LBSLayer,ISILab.LBS.Modules.TileBundleGroup)'
+  parent: ISILab.LBS.Components.BundleTargetGraph
+  langs:
+  - csharp
+  - vb
+  name: BundleTargetGraph(LBSLayer, TileBundleGroup)
+  nameWithType: BundleTargetGraph.BundleTargetGraph(LBSLayer, TileBundleGroup)
+  fullName: ISILab.LBS.Components.BundleTargetGraph.BundleTargetGraph(LBS.Components.LBSLayer, ISILab.LBS.Modules.TileBundleGroup)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
+    startLine: 52
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public BundleTargetGraph(LBSLayer layer, TileBundleGroup bundle)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    - id: bundle
+      type: ISILab.LBS.Modules.TileBundleGroup
+    content.vb: Public Sub New(layer As LBSLayer, bundle As TileBundleGroup)
+  overload: ISILab.LBS.Components.BundleTargetGraph.#ctor*
+  nameWithType.vb: BundleTargetGraph.New(LBSLayer, TileBundleGroup)
+  fullName.vb: ISILab.LBS.Components.BundleTargetGraph.New(LBS.Components.LBSLayer, ISILab.LBS.Modules.TileBundleGroup)
+  name.vb: New(LBSLayer, TileBundleGroup)
 - uid: ISILab.LBS.Components.BundleTargetGraph.Position
   commentId: P:ISILab.LBS.Components.BundleTargetGraph.Position
   id: Position
@@ -137,6 +143,10 @@ items:
   nameWithType: BundleTargetGraph.Position
   fullName: ISILab.LBS.Components.BundleTargetGraph.Position
   type: Property
+  source:
+    id: Position
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
+    startLine: 68
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -158,6 +168,10 @@ items:
   nameWithType: BundleTargetGraph.Area
   fullName: ISILab.LBS.Components.BundleTargetGraph.Area
   type: Property
+  source:
+    id: Area
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
+    startLine: 72
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -168,10 +182,35 @@ items:
       type: UnityEngine.Rect
     content.vb: Public ReadOnly Property Area As Rect
   overload: ISILab.LBS.Components.BundleTargetGraph.Area*
+- uid: ISILab.LBS.Components.BundleTargetGraph.IsValid
+  commentId: M:ISILab.LBS.Components.BundleTargetGraph.IsValid
+  id: IsValid
+  parent: ISILab.LBS.Components.BundleTargetGraph
+  langs:
+  - csharp
+  - vb
+  name: IsValid()
+  nameWithType: BundleTargetGraph.IsValid()
+  fullName: ISILab.LBS.Components.BundleTargetGraph.IsValid()
+  type: Method
+  source:
+    id: IsValid
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
+    startLine: 73
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  example: []
+  syntax:
+    content: public override bool IsValid()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function IsValid() As Boolean
+  overridden: ISILab.LBS.Components.BundleTarget.IsValid
+  overload: ISILab.LBS.Components.BundleTargetGraph.IsValid*
 references:
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Components
   nameWithType: ISILab.LBS.Components
@@ -179,32 +218,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
 - uid: System.Object
   commentId: T:System.Object
@@ -220,11 +253,17 @@ references:
 - uid: ISILab.LBS.Components.BundleTarget
   commentId: T:ISILab.LBS.Components.BundleTarget
   parent: ISILab.LBS.Components
-  isExternal: true
   href: ISILab.LBS.Components.BundleTarget.html
   name: BundleTarget
   nameWithType: BundleTarget
   fullName: ISILab.LBS.Components.BundleTarget
+- uid: ISILab.LBS.Components.BundleTarget.GUID
+  commentId: P:ISILab.LBS.Components.BundleTarget.GUID
+  parent: ISILab.LBS.Components.BundleTarget
+  href: ISILab.LBS.Components.BundleTarget.html#ISILab_LBS_Components_BundleTarget_GUID
+  name: GUID
+  nameWithType: BundleTarget.GUID
+  fullName: ISILab.LBS.Components.BundleTarget.GUID
 - uid: ISILab.LBS.Components.BundleTarget.Equals(System.Object)
   commentId: M:ISILab.LBS.Components.BundleTarget.Equals(System.Object)
   parent: ISILab.LBS.Components.BundleTarget
@@ -239,7 +278,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Components.BundleTarget.Equals(System.Object)
     name: Equals
-    isExternal: true
     href: ISILab.LBS.Components.BundleTarget.html#ISILab_LBS_Components_BundleTarget_Equals_System_Object_
   - name: (
   - uid: System.Object
@@ -250,7 +288,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Components.BundleTarget.Equals(System.Object)
     name: Equals
-    isExternal: true
     href: ISILab.LBS.Components.BundleTarget.html#ISILab_LBS_Components_BundleTarget_Equals_System_Object_
   - name: (
   - uid: System.Object
@@ -261,7 +298,6 @@ references:
 - uid: ISILab.LBS.Components.BundleTarget.GetHashCode
   commentId: M:ISILab.LBS.Components.BundleTarget.GetHashCode
   parent: ISILab.LBS.Components.BundleTarget
-  isExternal: true
   href: ISILab.LBS.Components.BundleTarget.html#ISILab_LBS_Components_BundleTarget_GetHashCode
   name: GetHashCode()
   nameWithType: BundleTarget.GetHashCode()
@@ -269,25 +305,60 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Components.BundleTarget.GetHashCode
     name: GetHashCode
-    isExternal: true
     href: ISILab.LBS.Components.BundleTarget.html#ISILab_LBS_Components_BundleTarget_GetHashCode
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Components.BundleTarget.GetHashCode
     name: GetHashCode
-    isExternal: true
     href: ISILab.LBS.Components.BundleTarget.html#ISILab_LBS_Components_BundleTarget_GetHashCode
   - name: (
   - name: )
-- uid: ISILab.LBS.Components.BundleTarget.GUID
-  commentId: P:ISILab.LBS.Components.BundleTarget.GUID
-  parent: ISILab.LBS.Components.BundleTarget
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
   isExternal: true
-  href: ISILab.LBS.Components.BundleTarget.html#ISILab_LBS_Components_BundleTarget_GUID
-  name: GUID
-  nameWithType: BundleTarget.GUID
-  fullName: ISILab.LBS.Components.BundleTarget.GUID
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -336,75 +407,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -450,6 +452,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -457,35 +483,21 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.Components.BundleTargetGraph.#ctor*
-  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.#ctor
-  isExternal: true
-  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph__ctor_LBS_Components_LBSLayer_ISILab_LBS_Modules_TileBundleGroup_
-  name: BundleTargetGraph
-  nameWithType: BundleTargetGraph.BundleTargetGraph
-  fullName: ISILab.LBS.Components.BundleTargetGraph.BundleTargetGraph
-  nameWithType.vb: BundleTargetGraph.New
-  fullName.vb: ISILab.LBS.Components.BundleTargetGraph.New
-  name.vb: New
+- uid: ISILab.LBS.Components.BundleTargetGraph.Layer*
+  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.Layer
+  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_Layer
+  name: Layer
+  nameWithType: BundleTargetGraph.Layer
+  fullName: ISILab.LBS.Components.BundleTargetGraph.Layer
 - uid: LBS.Components.LBSLayer
   commentId: T:LBS.Components.LBSLayer
   parent: LBS.Components
-  isExternal: true
   href: LBS.Components.LBSLayer.html
   name: LBSLayer
   nameWithType: LBSLayer
   fullName: LBS.Components.LBSLayer
-- uid: ISILab.LBS.Modules.TileBundleGroup
-  commentId: T:ISILab.LBS.Modules.TileBundleGroup
-  parent: ISILab.LBS.Modules
-  isExternal: true
-  href: ISILab.LBS.Modules.TileBundleGroup.html
-  name: TileBundleGroup
-  nameWithType: TileBundleGroup
-  fullName: ISILab.LBS.Modules.TileBundleGroup
 - uid: LBS.Components
   commentId: N:LBS.Components
-  isExternal: true
   href: LBS.html
   name: LBS.Components
   nameWithType: LBS.Components
@@ -493,26 +505,34 @@ references:
   spec.csharp:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
   spec.vb:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
+- uid: ISILab.LBS.Components.BundleTargetGraph.TileBundleGroup*
+  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.TileBundleGroup
+  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_TileBundleGroup
+  name: TileBundleGroup
+  nameWithType: BundleTargetGraph.TileBundleGroup
+  fullName: ISILab.LBS.Components.BundleTargetGraph.TileBundleGroup
+- uid: ISILab.LBS.Modules.TileBundleGroup
+  commentId: T:ISILab.LBS.Modules.TileBundleGroup
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.TileBundleGroup.html
+  name: TileBundleGroup
+  nameWithType: TileBundleGroup
+  fullName: ISILab.LBS.Modules.TileBundleGroup
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -520,37 +540,71 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
+- uid: ISILab.LBS.Components.BundleTargetGraph.#ctor*
+  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.#ctor
+  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph__ctor_LBS_Components_LBSLayer_ISILab_LBS_Modules_TileBundleGroup_
+  name: BundleTargetGraph
+  nameWithType: BundleTargetGraph.BundleTargetGraph
+  fullName: ISILab.LBS.Components.BundleTargetGraph.BundleTargetGraph
+  nameWithType.vb: BundleTargetGraph.New
+  fullName.vb: ISILab.LBS.Components.BundleTargetGraph.New
+  name.vb: New
+- uid: ISILab.LBS.Components.BundleTargetGraph.Position*
+  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.Position
+  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_Position
+  name: Position
+  nameWithType: BundleTargetGraph.Position
+  fullName: ISILab.LBS.Components.BundleTargetGraph.Position
+- uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.LBS.Components.BundleTargetGraph.Area*
+  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.Area
+  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_Area
+  name: Area
+  nameWithType: BundleTargetGraph.Area
+  fullName: ISILab.LBS.Components.BundleTargetGraph.Area
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
 - uid: ISILab.LBS.Components.BundleTarget.IsValid
   commentId: M:ISILab.LBS.Components.BundleTarget.IsValid
   parent: ISILab.LBS.Components.BundleTarget
-  isExternal: true
   href: ISILab.LBS.Components.BundleTarget.html#ISILab_LBS_Components_BundleTarget_IsValid
   name: IsValid()
   nameWithType: BundleTarget.IsValid()
@@ -558,20 +612,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Components.BundleTarget.IsValid
     name: IsValid
-    isExternal: true
     href: ISILab.LBS.Components.BundleTarget.html#ISILab_LBS_Components_BundleTarget_IsValid
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Components.BundleTarget.IsValid
     name: IsValid
-    isExternal: true
     href: ISILab.LBS.Components.BundleTarget.html#ISILab_LBS_Components_BundleTarget_IsValid
   - name: (
   - name: )
 - uid: ISILab.LBS.Components.BundleTargetGraph.IsValid*
   commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.IsValid
-  isExternal: true
   href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_IsValid
   name: IsValid
   nameWithType: BundleTargetGraph.IsValid
@@ -587,42 +638,4 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: ISILab.LBS.Components.BundleTargetGraph.Layer*
-  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.Layer
-  isExternal: true
-  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_Layer
-  name: Layer
-  nameWithType: BundleTargetGraph.Layer
-  fullName: ISILab.LBS.Components.BundleTargetGraph.Layer
-- uid: ISILab.LBS.Components.BundleTargetGraph.TileBundleGroup*
-  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.TileBundleGroup
-  isExternal: true
-  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_TileBundleGroup
-  name: TileBundleGroup
-  nameWithType: BundleTargetGraph.TileBundleGroup
-  fullName: ISILab.LBS.Components.BundleTargetGraph.TileBundleGroup
-- uid: ISILab.LBS.Components.BundleTargetGraph.Position*
-  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.Position
-  isExternal: true
-  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_Position
-  name: Position
-  nameWithType: BundleTargetGraph.Position
-  fullName: ISILab.LBS.Components.BundleTargetGraph.Position
-- uid: UnityEngine.Vector2Int
-  isExternal: true
-  name: Vector2Int
-  nameWithType: Vector2Int
-  fullName: UnityEngine.Vector2Int
-- uid: ISILab.LBS.Components.BundleTargetGraph.Area*
-  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.Area
-  isExternal: true
-  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_Area
-  name: Area
-  nameWithType: BundleTargetGraph.Area
-  fullName: ISILab.LBS.Components.BundleTargetGraph.Area
-- uid: UnityEngine.Rect
-  isExternal: true
-  name: Rect
-  nameWithType: Rect
-  fullName: UnityEngine.Rect
 shouldSkipMarkup: true

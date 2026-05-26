@@ -111,42 +111,44 @@ Class Vector2Converter
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">JsonConverter</span></div>
       <div><span class="xref">Vector2Converter</span></div>
     </dd>
   </dl>
 
 
 
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="ISILab_Commons_JsonNet_Vector2Converter__ctor_" data-uid="ISILab.Commons.JsonNet.Vector2Converter.#ctor*"></a>
-
-  <h3 id="ISILab_Commons_JsonNet_Vector2Converter__ctor" data-uid="ISILab.Commons.JsonNet.Vector2Converter.#ctor">
-  Vector2Converter()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2Converter()</code></pre>
-  </div>
-
-
-
-
-
-
-
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">JsonConverter.CanRead</span>
+    </div>
+    <div>
+      <span class="xref">JsonConverter.CanWrite</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
 
 
 
@@ -164,7 +166,7 @@ Class Vector2Converter
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Determines whether this instance can convert the specified object type.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -174,13 +176,13 @@ Class Vector2Converter
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>objectType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd></dd>
+    <dd>Type of the object.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><code>true</code> if this instance can convert the specified object type; otherwise, <code>false</code>.</dd>
   </dl>
 
 
@@ -200,7 +202,7 @@ Class Vector2Converter
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Reads the JSON representation of the object.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -210,19 +212,19 @@ Class Vector2Converter
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>reader</code> <span class="xref">JsonReader</span></dt>
-    <dd></dd>
+    <dd>The <span class="xref">Newtonsoft.Json.JsonReader</span> to read from.</dd>
     <dt><code>objectType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd></dd>
+    <dd>Type of the object.</dd>
     <dt><code>existingValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>The existing value of object being read.</dd>
     <dt><code>serializer</code> <span class="xref">JsonSerializer</span></dt>
-    <dd></dd>
+    <dd>The calling serializer.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>The object value.</dd>
   </dl>
 
 
@@ -242,7 +244,7 @@ Class Vector2Converter
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Writes the JSON representation of the object.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -252,11 +254,11 @@ Class Vector2Converter
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
-    <dd></dd>
+    <dd>The <span class="xref">Newtonsoft.Json.JsonWriter</span> to write to.</dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>The value.</dd>
     <dt><code>serializer</code> <span class="xref">JsonSerializer</span></dt>
-    <dd></dd>
+    <dd>The calling serializer.</dd>
   </dl>
 
 

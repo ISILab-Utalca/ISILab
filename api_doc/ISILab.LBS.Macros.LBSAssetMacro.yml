@@ -22,6 +22,10 @@ items:
   nameWithType: LBSAssetMacro
   fullName: ISILab.LBS.Macros.LBSAssetMacro
   type: Class
+  source:
+    id: LBSAssetMacro
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 16
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -31,13 +35,13 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid``1(System.String)
   commentId: M:ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid``1(System.String)
   id: LoadAssetByGuid``1(System.String)
@@ -49,9 +53,15 @@ items:
   nameWithType: LBSAssetMacro.LoadAssetByGuid<T>(string)
   fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid<T>(string)
   type: Method
+  source:
+    id: LoadAssetByGuid
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 28
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
+  summary: Loads an asset of type T from its GUID.
+  example: []
   syntax:
     content: 'public static T LoadAssetByGuid<T>(string _guid) where T : Object'
     parameters:
@@ -59,8 +69,10 @@ items:
       type: System.String
     typeParameters:
     - id: T
+      description: Type of the asset to load.
     return:
       type: '{T}'
+      description: The loaded asset of type T, or null if not found.
     content.vb: Public Shared Function LoadAssetByGuid(Of T As [Object])(_guid As String) As T
   overload: ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid*
   nameWithType.vb: LBSAssetMacro.LoadAssetByGuid(Of T)(String)
@@ -77,16 +89,24 @@ items:
   nameWithType: LBSAssetMacro.GetGuidFromAsset(Object)
   fullName: ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset(UnityEngine.Object)
   type: Method
+  source:
+    id: GetGuidFromAsset
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 40
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
+  summary: Retrieves the GUID of the given asset.
+  example: []
   syntax:
     content: public static string GetGuidFromAsset(Object _asset)
     parameters:
     - id: _asset
       type: UnityEngine.Object
+      description: The asset to retrieve the GUID from.
     return:
       type: System.String
+      description: The GUID as a string, or null if not found.
     content.vb: Public Shared Function GetGuidFromAsset(_asset As [Object]) As String
   overload: ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset*
 - uid: ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag(System.String)
@@ -100,16 +120,24 @@ items:
   nameWithType: LBSAssetMacro.GetLBSTag(string)
   fullName: ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag(string)
   type: Method
+  source:
+    id: GetLBSTag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 51
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
+  summary: Tries to return a LBSTag
+  example: []
   syntax:
     content: public static LBSTag GetLBSTag(string tag)
     parameters:
     - id: tag
       type: System.String
+      description: The tag name that you are looking for
     return:
       type: ISILab.LBS.Components.LBSTag
+      description: ''
     content.vb: Public Shared Function GetLBSTag(tag As String) As LBSTag
   overload: ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag*
   nameWithType.vb: LBSAssetMacro.GetLBSTag(String)
@@ -126,6 +154,10 @@ items:
   nameWithType: LBSAssetMacro.LoadPlaceholderTexture()
   fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture()
   type: Method
+  source:
+    id: LoadPlaceholderTexture
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -146,6 +178,10 @@ items:
   nameWithType: LBSAssetMacro.LoadPlaceholderVectorImage()
   fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage()
   type: Method
+  source:
+    id: LoadPlaceholderVectorImage
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 64
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -166,6 +202,10 @@ items:
   nameWithType: LBSAssetMacro.GetTagsFromBundle(Bundle, List<string>)
   fullName: ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle(ISILab.LBS.Plugin.Components.Bundles.Bundle, System.Collections.Generic.List<string>)
   type: Method
+  source:
+    id: GetTagsFromBundle
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 69
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -194,6 +234,10 @@ items:
   nameWithType: LBSAssetMacro.GetRandomBundleWithTag<T>(IEnumerable<T>, string)
   fullName: ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag<T>(System.Collections.Generic.IEnumerable<T>, string)
   type: Method
+  source:
+    id: GetRandomBundleWithTag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 92
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -224,6 +268,10 @@ items:
   nameWithType: LBSAssetMacro.BundleHasTag(Bundle, string)
   fullName: ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag(ISILab.LBS.Plugin.Components.Bundles.Bundle, string)
   type: Method
+  source:
+    id: BundleHasTag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 112
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -252,6 +300,10 @@ items:
   nameWithType: LBSAssetMacro.GetAllTagNames(Bundle)
   fullName: ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames(ISILab.LBS.Plugin.Components.Bundles.Bundle)
   type: Method
+  source:
+    id: GetAllTagNames
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 132
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -275,6 +327,10 @@ items:
   nameWithType: LBSAssetMacro.GetActiveSceneGUID()
   fullName: ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID()
   type: Method
+  source:
+    id: GetActiveSceneGUID
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\DevTools\Macros\LBSMacros\LBSAssetMacro.cs
+    startLine: 158
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -287,7 +343,6 @@ items:
 references:
 - uid: ISILab.LBS.Macros
   commentId: N:ISILab.LBS.Macros
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Macros
   nameWithType: ISILab.LBS.Macros
@@ -295,32 +350,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Macros
     name: Macros
-    isExternal: true
     href: ISILab.LBS.Macros.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Macros
     name: Macros
-    isExternal: true
     href: ISILab.LBS.Macros.html
 - uid: System.Object
   commentId: T:System.Object
@@ -333,78 +382,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -483,6 +460,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -528,28 +577,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -561,7 +610,6 @@ references:
   fullName: System
 - uid: ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid*
   commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid
-  isExternal: true
   href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_LoadAssetByGuid__1_System_String_
   name: LoadAssetByGuid
   nameWithType: LBSAssetMacro.LoadAssetByGuid
@@ -589,19 +637,25 @@ references:
   fullName: T
 - uid: ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset*
   commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset
-  isExternal: true
   href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetGuidFromAsset_UnityEngine_Object_
   name: GetGuidFromAsset
   nameWithType: LBSAssetMacro.GetGuidFromAsset
   fullName: ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset
 - uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: UnityEngine.Object
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag*
   commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag
-  isExternal: true
   href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetLBSTag_System_String_
   name: GetLBSTag
   nameWithType: LBSAssetMacro.GetLBSTag
@@ -609,14 +663,12 @@ references:
 - uid: ISILab.LBS.Components.LBSTag
   commentId: T:ISILab.LBS.Components.LBSTag
   parent: ISILab.LBS.Components
-  isExternal: true
   href: ISILab.LBS.Components.LBSTag.html
   name: LBSTag
   nameWithType: LBSTag
   fullName: ISILab.LBS.Components.LBSTag
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Components
   nameWithType: ISILab.LBS.Components
@@ -624,60 +676,77 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
 - uid: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture*
   commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture
-  isExternal: true
   href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_LoadPlaceholderTexture
   name: LoadPlaceholderTexture
   nameWithType: LBSAssetMacro.LoadPlaceholderTexture
   fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture
 - uid: UnityEngine.Texture2D
+  commentId: T:UnityEngine.Texture2D
+  parent: UnityEngine
   isExternal: true
   name: Texture2D
   nameWithType: Texture2D
   fullName: UnityEngine.Texture2D
 - uid: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage*
   commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage
-  isExternal: true
   href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_LoadPlaceholderVectorImage
   name: LoadPlaceholderVectorImage
   nameWithType: LBSAssetMacro.LoadPlaceholderVectorImage
   fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage
 - uid: UnityEngine.UIElements.VectorImage
+  commentId: T:UnityEngine.UIElements.VectorImage
+  parent: UnityEngine.UIElements
   isExternal: true
   name: VectorImage
   nameWithType: VectorImage
   fullName: UnityEngine.UIElements.VectorImage
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
 - uid: ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle*
   commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle
-  isExternal: true
   href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetTagsFromBundle_ISILab_LBS_Plugin_Components_Bundles_Bundle_System_Collections_Generic_List_System_String__
   name: GetTagsFromBundle
   nameWithType: LBSAssetMacro.GetTagsFromBundle
@@ -685,7 +754,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
   commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle
   parent: ISILab.LBS.Plugin.Components.Bundles
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
   name: Bundle
   nameWithType: Bundle
@@ -744,7 +812,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Components.LBSTag
     name: LBSTag
-    isExternal: true
     href: ISILab.LBS.Components.LBSTag.html
   - name: '>'
   spec.vb:
@@ -757,12 +824,10 @@ references:
   - name: " "
   - uid: ISILab.LBS.Components.LBSTag
     name: LBSTag
-    isExternal: true
     href: ISILab.LBS.Components.LBSTag.html
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Bundles
   commentId: N:ISILab.LBS.Plugin.Components.Bundles
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Bundles
   nameWithType: ISILab.LBS.Plugin.Components.Bundles
@@ -770,52 +835,42 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
@@ -912,7 +967,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag*
   commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag
-  isExternal: true
   href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetRandomBundleWithTag__1_System_Collections_Generic_IEnumerable___0__System_String_
   name: GetRandomBundleWithTag
   nameWithType: LBSAssetMacro.GetRandomBundleWithTag
@@ -948,7 +1002,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag*
   commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag
-  isExternal: true
   href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_BundleHasTag_ISILab_LBS_Plugin_Components_Bundles_Bundle_System_String_
   name: BundleHasTag
   nameWithType: LBSAssetMacro.BundleHasTag
@@ -966,14 +1019,12 @@ references:
   name.vb: Boolean
 - uid: ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames*
   commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames
-  isExternal: true
   href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetAllTagNames_ISILab_LBS_Plugin_Components_Bundles_Bundle_
   name: GetAllTagNames
   nameWithType: LBSAssetMacro.GetAllTagNames
   fullName: ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames
 - uid: ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID*
   commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID
-  isExternal: true
   href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetActiveSceneGUID
   name: GetActiveSceneGUID
   nameWithType: LBSAssetMacro.GetActiveSceneGUID

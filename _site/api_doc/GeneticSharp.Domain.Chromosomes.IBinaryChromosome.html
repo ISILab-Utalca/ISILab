@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IBinaryChromosome | lbs-api_docs ">
       
-      
+      <meta name="description" content="Defines a interface of a binary chromosome of 0 and 1 genes.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,7 @@ Interface IBinaryChromosome
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Defines a interface of a binary chromosome of 0 and 1 genes.</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -113,6 +113,9 @@ Interface IBinaryChromosome
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_Length">IChromosome.Length</a>
+    </div>
     <div>
       <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GenerateGene">IChromosome.GenerateGene()</a>
     </div>
@@ -162,16 +165,7 @@ Interface IBinaryChromosome
       <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_SetDeafult_System_Int32_">IChromosome.SetDeafult(int)</a>
     </div>
     <div>
-      <a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_Length">IChromosome.Length</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto">IComparable&lt;IChromosome&gt;.CompareTo(IChromosome)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew">IOptimizable.CreateNew()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString">IOptimizable.ToString()</a>
     </div>
     <div>
       <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_Fitness">IOptimizable.Fitness</a>
@@ -181,6 +175,12 @@ Interface IBinaryChromosome
     </div>
     <div>
       <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_yFitness">IOptimizable.yFitness</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew">IOptimizable.CreateNew()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString">IOptimizable.ToString()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable.clone">ICloneable.Clone()</a>
@@ -210,7 +210,7 @@ Interface IBinaryChromosome
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Flips the gene.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -220,7 +220,7 @@ Interface IBinaryChromosome
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The gene index.</dd>
   </dl>
 
 
@@ -230,6 +230,9 @@ Interface IBinaryChromosome
 
 
 
+  <h4 class="section" id="GeneticSharp_Domain_Chromosomes_IBinaryChromosome_FlipGene_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks">&gt;
+    If gene's value is 0, the it will be flip to 1 and vice-versa.</div>
 
 
 

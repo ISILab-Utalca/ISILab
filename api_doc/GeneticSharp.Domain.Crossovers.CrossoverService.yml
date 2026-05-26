@@ -16,22 +16,28 @@ items:
   nameWithType: CrossoverService
   fullName: GeneticSharp.Domain.Crossovers.CrossoverService
   type: Class
+  source:
+    id: CrossoverService
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverService.cs
+    startLine: 10
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Crossover service.
+  example: []
   syntax:
     content: public static class CrossoverService
     content.vb: Public Module CrossoverService
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverTypes
   commentId: M:GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverTypes
   id: GetCrossoverTypes
@@ -43,13 +49,20 @@ items:
   nameWithType: CrossoverService.GetCrossoverTypes()
   fullName: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverTypes()
   type: Method
+  source:
+    id: GetCrossoverTypes
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverService.cs
+    startLine: 17
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Gets available crossover types.
+  example: []
   syntax:
     content: public static IList<Type> GetCrossoverTypes()
     return:
       type: System.Collections.Generic.IList{System.Type}
+      description: All available crossover types.
     content.vb: Public Shared Function GetCrossoverTypes() As IList(Of Type)
   overload: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverTypes*
 - uid: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverNames
@@ -63,13 +76,20 @@ items:
   nameWithType: CrossoverService.GetCrossoverNames()
   fullName: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverNames()
   type: Method
+  source:
+    id: GetCrossoverNames
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverService.cs
+    startLine: 26
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Gets the available crossover names.
+  example: []
   syntax:
     content: public static IList<string> GetCrossoverNames()
     return:
       type: System.Collections.Generic.IList{System.String}
+      description: The crossover names.
     content.vb: Public Shared Function GetCrossoverNames() As IList(Of String)
   overload: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverNames*
 - uid: GeneticSharp.Domain.Crossovers.CrossoverService.CreateCrossoverByName(System.String,System.Object[])
@@ -83,18 +103,27 @@ items:
   nameWithType: CrossoverService.CreateCrossoverByName(string, params object[])
   fullName: GeneticSharp.Domain.Crossovers.CrossoverService.CreateCrossoverByName(string, params object[])
   type: Method
+  source:
+    id: CreateCrossoverByName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverService.cs
+    startLine: 37
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Creates the ICrossover's implementation with the specified name.
+  example: []
   syntax:
     content: public static ICrossover CreateCrossoverByName(string name, params object[] constructorArgs)
     parameters:
     - id: name
       type: System.String
+      description: The crossover name.
     - id: constructorArgs
       type: System.Object[]
+      description: Constructor arguments.
     return:
       type: GeneticSharp.Domain.Crossovers.ICrossover
+      description: The crossover implementation instance.
     content.vb: Public Shared Function CreateCrossoverByName(name As String, ParamArray constructorArgs As Object()) As ICrossover
   overload: GeneticSharp.Domain.Crossovers.CrossoverService.CreateCrossoverByName*
   nameWithType.vb: CrossoverService.CreateCrossoverByName(String, ParamArray Object())
@@ -111,16 +140,24 @@ items:
   nameWithType: CrossoverService.GetCrossoverTypeByName(string)
   fullName: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverTypeByName(string)
   type: Method
+  source:
+    id: GetCrossoverTypeByName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverService.cs
+    startLine: 47
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Gets the crossover type by the name.
+  example: []
   syntax:
     content: public static Type GetCrossoverTypeByName(string name)
     parameters:
     - id: name
       type: System.String
+      description: The name of crossover.
     return:
       type: System.Type
+      description: The crossover type.
     content.vb: Public Shared Function GetCrossoverTypeByName(name As String) As Type
   overload: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverTypeByName*
   nameWithType.vb: CrossoverService.GetCrossoverTypeByName(String)
@@ -129,7 +166,6 @@ items:
 references:
 - uid: GeneticSharp.Domain.Crossovers
   commentId: N:GeneticSharp.Domain.Crossovers
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Crossovers
   nameWithType: GeneticSharp.Domain.Crossovers
@@ -137,32 +173,26 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Crossovers
     name: Crossovers
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Crossovers
     name: Crossovers
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.html
 - uid: System.Object
   commentId: T:System.Object
@@ -175,78 +205,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -325,6 +283,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -370,28 +400,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -403,7 +433,6 @@ references:
   fullName: System
 - uid: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverTypes*
   commentId: Overload:GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverTypes
-  isExternal: true
   href: GeneticSharp.Domain.Crossovers.CrossoverService.html#GeneticSharp_Domain_Crossovers_CrossoverService_GetCrossoverTypes
   name: GetCrossoverTypes
   nameWithType: CrossoverService.GetCrossoverTypes
@@ -510,7 +539,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverNames*
   commentId: Overload:GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverNames
-  isExternal: true
   href: GeneticSharp.Domain.Crossovers.CrossoverService.html#GeneticSharp_Domain_Crossovers_CrossoverService_GetCrossoverNames
   name: GetCrossoverNames
   nameWithType: CrossoverService.GetCrossoverNames
@@ -552,7 +580,6 @@ references:
   - name: )
 - uid: GeneticSharp.Domain.Crossovers.CrossoverService.CreateCrossoverByName*
   commentId: Overload:GeneticSharp.Domain.Crossovers.CrossoverService.CreateCrossoverByName
-  isExternal: true
   href: GeneticSharp.Domain.Crossovers.CrossoverService.html#GeneticSharp_Domain_Crossovers_CrossoverService_CreateCrossoverByName_System_String_System_Object___
   name: CreateCrossoverByName
   nameWithType: CrossoverService.CreateCrossoverByName
@@ -594,14 +621,12 @@ references:
 - uid: GeneticSharp.Domain.Crossovers.ICrossover
   commentId: T:GeneticSharp.Domain.Crossovers.ICrossover
   parent: GeneticSharp.Domain.Crossovers
-  isExternal: true
   href: GeneticSharp.Domain.Crossovers.ICrossover.html
   name: ICrossover
   nameWithType: ICrossover
   fullName: GeneticSharp.Domain.Crossovers.ICrossover
 - uid: GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverTypeByName*
   commentId: Overload:GeneticSharp.Domain.Crossovers.CrossoverService.GetCrossoverTypeByName
-  isExternal: true
   href: GeneticSharp.Domain.Crossovers.CrossoverService.html#GeneticSharp_Domain_Crossovers_CrossoverService_GetCrossoverTypeByName_System_String_
   name: GetCrossoverTypeByName
   nameWithType: CrossoverService.GetCrossoverTypeByName

@@ -22,21 +22,35 @@ items:
   nameWithType: SimulationDynamicTagConnections
   fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections
   type: Class
+  source:
+    id: SimulationDynamicTagConnections
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 6
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
   syntax:
-    content: public class SimulationDynamicTagConnections
-    content.vb: Public Class SimulationDynamicTagConnections
+    content: >-
+      [Serializable]
+
+      public class SimulationDynamicTagConnections
+    content.vb: >-
+      <Serializable>
+
+      Public Class SimulationDynamicTagConnections
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.IsNull
   commentId: F:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.IsNull
   id: IsNull
@@ -48,14 +62,28 @@ items:
   nameWithType: SimulationDynamicTagConnections.IsNull
   fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.IsNull
   type: Field
+  source:
+    id: IsNull
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 17
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
   syntax:
-    content: public bool IsNull
+    content: >-
+      [SerializeField]
+
+      public bool IsNull
     return:
       type: System.Boolean
-    content.vb: Public IsNull As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      Public IsNull As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.#ctor(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile,System.Collections.Generic.List{System.ValueTuple{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile,ISILab.LBS.Components.SimulationTag}})
   commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.#ctor(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile,System.Collections.Generic.List{System.ValueTuple{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile,ISILab.LBS.Components.SimulationTag}})
   id: '#ctor(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile,System.Collections.Generic.List{System.ValueTuple{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile,ISILab.LBS.Components.SimulationTag}})'
@@ -67,6 +95,10 @@ items:
   nameWithType: SimulationDynamicTagConnections.SimulationDynamicTagConnections(SimulationTile, List<(SimulationTile, SimulationTag)>)
   fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.SimulationDynamicTagConnections(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile, System.Collections.Generic.List<(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile, ISILab.LBS.Components.SimulationTag)>)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 21
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
@@ -93,6 +125,10 @@ items:
   nameWithType: SimulationDynamicTagConnections.SimulationDynamicTagConnections(bool)
   fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.SimulationDynamicTagConnections(bool)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
@@ -106,6 +142,56 @@ items:
   nameWithType.vb: SimulationDynamicTagConnections.New(Boolean)
   fullName.vb: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.New(Boolean)
   name.vb: New(Boolean)
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile
+  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile
+  id: TagTriggerTile
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections
+  langs:
+  - csharp
+  - vb
+  name: TagTriggerTile
+  nameWithType: SimulationDynamicTagConnections.TagTriggerTile
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile
+  type: Property
+  source:
+    id: TagTriggerTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 46
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public SimulationTile TagTriggerTile { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    content.vb: Public Property TagTriggerTile As SimulationTile
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile*
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects
+  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects
+  id: DynamicTagObjects
+  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections
+  langs:
+  - csharp
+  - vb
+  name: DynamicTagObjects
+  nameWithType: SimulationDynamicTagConnections.DynamicTagObjects
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects
+  type: Property
+  source:
+    id: DynamicTagObjects
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 47
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
+  syntax:
+    content: public List<(SimulationTile, SimulationTag)> DynamicTagObjects { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.ValueTuple{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile,ISILab.LBS.Components.SimulationTag}}
+    content.vb: Public Property DynamicTagObjects As List(Of (SimulationTile, SimulationTag))
+  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects*
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.GetDynamicTag(System.Int32,System.Int32)
   commentId: M:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.GetDynamicTag(System.Int32,System.Int32)
   id: GetDynamicTag(System.Int32,System.Int32)
@@ -117,6 +203,10 @@ items:
   nameWithType: SimulationDynamicTagConnections.GetDynamicTag(int, int)
   fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.GetDynamicTag(int, int)
   type: Method
+  source:
+    id: GetDynamicTag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 51
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
@@ -145,6 +235,10 @@ items:
   nameWithType: SimulationDynamicTagConnections.GetDynamicTag(SimulationTile)
   fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.GetDynamicTag(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
   type: Method
+  source:
+    id: GetDynamicTag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 57
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
@@ -168,6 +262,10 @@ items:
   nameWithType: SimulationDynamicTagConnections.AddDynamicTag(SimulationTile, SimulationTag)
   fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.AddDynamicTag(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile, ISILab.LBS.Components.SimulationTag)
   type: Method
+  source:
+    id: AddDynamicTag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 64
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
@@ -191,6 +289,10 @@ items:
   nameWithType: SimulationDynamicTagConnections.RemoveDynamicTag(int, int)
   fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.RemoveDynamicTag(int, int)
   type: Method
+  source:
+    id: RemoveDynamicTag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 82
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
@@ -217,6 +319,10 @@ items:
   nameWithType: SimulationDynamicTagConnections.ToString()
   fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.ToString()
   type: Method
+  source:
+    id: ToString
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationDynamicTagConnections.cs
+    startLine: 95
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
@@ -228,52 +334,9 @@ items:
     content.vb: Public Overrides Function ToString() As String
   overridden: System.Object.ToString
   overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.ToString*
-- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile
-  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile
-  id: TagTriggerTile
-  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections
-  langs:
-  - csharp
-  - vb
-  name: TagTriggerTile
-  nameWithType: SimulationDynamicTagConnections.TagTriggerTile
-  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
-  syntax:
-    content: public SimulationTile TagTriggerTile { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
-    content.vb: Public Property TagTriggerTile As SimulationTile
-  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile*
-- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects
-  commentId: P:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects
-  id: DynamicTagObjects
-  parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections
-  langs:
-  - csharp
-  - vb
-  name: DynamicTagObjects
-  nameWithType: SimulationDynamicTagConnections.DynamicTagObjects
-  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
-  syntax:
-    content: public List<(SimulationTile, SimulationTag)> DynamicTagObjects { get; set; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{System.ValueTuple{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile,ISILab.LBS.Components.SimulationTag}}
-    content.vb: Public Property DynamicTagObjects As List(Of (SimulationTile, SimulationTag))
-  overload: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects*
 references:
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
   commentId: N:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
   nameWithType: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
@@ -281,62 +344,50 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules.Simulation
     name: Simulation
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
     name: LBSPathOSBridge
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules.Simulation
     name: Simulation
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
     name: LBSPathOSBridge
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.html
 - uid: System.Object
   commentId: T:System.Object
@@ -349,54 +400,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -475,6 +478,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -520,30 +595,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -564,7 +615,6 @@ references:
   name.vb: Boolean
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.#ctor
-  isExternal: true
   href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationDynamicTagConnections__ctor_ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationTile_System_Collections_Generic_List_System_ValueTuple_ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationTile_ISILab_LBS_Components_SimulationTag___
   name: SimulationDynamicTagConnections
   nameWithType: SimulationDynamicTagConnections.SimulationDynamicTagConnections
@@ -575,7 +625,6 @@ references:
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
   commentId: T:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
   parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
-  isExternal: true
   href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
   name: SimulationTile
   nameWithType: SimulationTile
@@ -600,13 +649,11 @@ references:
   - name: (
   - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
     name: SimulationTile
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Components.SimulationTag
     name: SimulationTag
-    isExternal: true
     href: ISILab.LBS.Components.SimulationTag.html
   - name: )
   - name: '>'
@@ -621,13 +668,11 @@ references:
   - name: (
   - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
     name: SimulationTile
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Components.SimulationTag
     name: SimulationTag
-    isExternal: true
     href: ISILab.LBS.Components.SimulationTag.html
   - name: )
   - name: )
@@ -696,9 +741,20 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationDynamicTagConnections_TagTriggerTile
+  name: TagTriggerTile
+  nameWithType: SimulationDynamicTagConnections.TagTriggerTile
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile
+- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects*
+  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects
+  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationDynamicTagConnections_DynamicTagObjects
+  name: DynamicTagObjects
+  nameWithType: SimulationDynamicTagConnections.DynamicTagObjects
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.GetDynamicTag*
   commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.GetDynamicTag
-  isExternal: true
   href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationDynamicTagConnections_GetDynamicTag_System_Int32_System_Int32_
   name: GetDynamicTag
   nameWithType: SimulationDynamicTagConnections.GetDynamicTag
@@ -726,13 +782,11 @@ references:
   - name: (
   - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
     name: SimulationTile
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Components.SimulationTag
     name: SimulationTag
-    isExternal: true
     href: ISILab.LBS.Components.SimulationTag.html
   - name: )
   - name: '?'
@@ -740,13 +794,11 @@ references:
   - name: (
   - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
     name: SimulationTile
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Components.SimulationTag
     name: SimulationTag
-    isExternal: true
     href: ISILab.LBS.Components.SimulationTag.html
   - name: )
   - name: '?'
@@ -780,7 +832,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.AddDynamicTag*
   commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.AddDynamicTag
-  isExternal: true
   href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationDynamicTagConnections_AddDynamicTag_ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationTile_ISILab_LBS_Components_SimulationTag_
   name: AddDynamicTag
   nameWithType: SimulationDynamicTagConnections.AddDynamicTag
@@ -788,14 +839,12 @@ references:
 - uid: ISILab.LBS.Components.SimulationTag
   commentId: T:ISILab.LBS.Components.SimulationTag
   parent: ISILab.LBS.Components
-  isExternal: true
   href: ISILab.LBS.Components.SimulationTag.html
   name: SimulationTag
   nameWithType: SimulationTag
   fullName: ISILab.LBS.Components.SimulationTag
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Components
   nameWithType: ISILab.LBS.Components
@@ -803,36 +852,29 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.RemoveDynamicTag*
   commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.RemoveDynamicTag
-  isExternal: true
   href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationDynamicTagConnections_RemoveDynamicTag_System_Int32_System_Int32_
   name: RemoveDynamicTag
   nameWithType: SimulationDynamicTagConnections.RemoveDynamicTag
@@ -863,7 +905,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.ToString*
   commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.ToString
-  isExternal: true
   href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationDynamicTagConnections_ToString
   name: ToString
   nameWithType: SimulationDynamicTagConnections.ToString
@@ -879,18 +920,4 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile*
-  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile
-  isExternal: true
-  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationDynamicTagConnections_TagTriggerTile
-  name: TagTriggerTile
-  nameWithType: SimulationDynamicTagConnections.TagTriggerTile
-  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.TagTriggerTile
-- uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects*
-  commentId: Overload:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects
-  isExternal: true
-  href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.html#ISILab_LBS_Plugin_Modules_Simulation_LBSPathOSBridge_SimulationDynamicTagConnections_DynamicTagObjects
-  name: DynamicTagObjects
-  nameWithType: SimulationDynamicTagConnections.DynamicTagObjects
-  fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationDynamicTagConnections.DynamicTagObjects
 shouldSkipMarkup: true

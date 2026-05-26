@@ -101,7 +101,8 @@ Class LBSCustomUnsignedIntegerField
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LBSCustomUnsignedIntegerField : UnsignedIntegerField</code></pre>
+    <pre><code class="lang-csharp hljs">[UxmlElement]
+public class LBSCustomUnsignedIntegerField : UnsignedIntegerField, IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler, IBindable, INotifyValueChanged&lt;uint&gt;, IMixedValueSupport, IValueField&lt;uint&gt;</code></pre>
   </div>
 
 
@@ -111,12 +112,549 @@ Class LBSCustomUnsignedIntegerField
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CallbackEventHandler</span></div>
+      <div><span class="xref">Focusable</span></div>
+      <div><span class="xref">VisualElement</span></div>
+      <div><span class="xref">BindableElement</span></div>
+      <div><span class="xref">BaseField</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</div>
+      <div><span class="xref">TextInputBaseField</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</div>
+      <div><span class="xref">TextValueField</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</div>
+      <div><span class="xref">UnsignedIntegerField</span></div>
       <div><span class="xref">LBSCustomUnsignedIntegerField</span></div>
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">IEventHandler</span></div>
+      <div><span class="xref">IResolvedStyle</span></div>
+      <div><span class="xref">ITransform</span></div>
+      <div><span class="xref">ITransitionAnimations</span></div>
+      <div><span class="xref">IExperimentalFeatures</span></div>
+      <div><span class="xref">IVisualElementScheduler</span></div>
+      <div><span class="xref">IBindable</span></div>
+      <div><span class="xref">INotifyValueChanged</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</div>
+      <div><span class="xref">IMixedValueSupport</span></div>
+      <div><span class="xref">IValueField</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</div>
+    </dd>
+  </dl>
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">UnsignedIntegerField.ussClassName</span>
+    </div>
+    <div>
+      <span class="xref">UnsignedIntegerField.labelUssClassName</span>
+    </div>
+    <div>
+      <span class="xref">UnsignedIntegerField.inputUssClassName</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">UnsignedIntegerField.ValueToString(uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">UnsignedIntegerField.StringToValue(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">UnsignedIntegerField.ApplyInputDeviceDelta(Vector3, DeltaSpeed, uint)</a>
+    </div>
+    <div>
+      <span class="xref">TextValueField&lt;uint&gt;.StartDragging()</span>
+    </div>
+    <div>
+      <span class="xref">TextValueField&lt;uint&gt;.StopDragging()</span>
+    </div>
+    <div>
+      <span class="xref">TextValueField&lt;uint&gt;.AddLabelDragger&lt;TDraggerType&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">TextValueField&lt;uint&gt;.SetValueWithoutNotify(uint)</span>
+    </div>
+    <div>
+      <span class="xref">TextValueField&lt;uint&gt;.HandleEventBubbleUp(EventBase)</span>
+    </div>
+    <div>
+      <span class="xref">TextValueField&lt;uint&gt;.formatString</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.singleLineInputUssClassName</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.multilineInputUssClassName</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.placeholderUssClassName</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.textInputUssName</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.SelectAll()</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.SelectNone()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">TextInputBaseField&lt;uint&gt;.SelectRange(int, int)</a>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.SetVerticalScrollerVisibility(ScrollerVisibility)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">TextInputBaseField&lt;uint&gt;.MeasureTextSize(string, float, VisualElement.MeasureMode, float, VisualElement.MeasureMode)</a>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.UpdateMixedValueContent()</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.textInputBase</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.textSelection</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.textEdition</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.onIsReadOnlyChanged</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.isReadOnly</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.isPasswordField</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.autoCorrection</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.hideMobileInput</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.keyboardType</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.touchScreenKeyboard</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.maxLength</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.isDelayed</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.maskChar</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.selectionColor</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.cursorColor</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.cursorIndex</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.cursorPosition</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.selectIndex</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.selectAllOnFocus</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.selectAllOnMouseUp</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.doubleClickSelectsWord</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.tripleClickSelectsLine</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.text</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.emojiFallbackSupport</span>
+    </div>
+    <div>
+      <span class="xref">TextInputBaseField&lt;uint&gt;.verticalScrollerVisibility</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.noLabelVariantUssClassName</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.labelDraggerVariantUssClassName</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.mixedValueLabelUssClassName</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.alignedFieldUssClassName</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.mixedValueString</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.serializedPropertyCopyName</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.rawValue</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.value</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.labelElement</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.label</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.showMixedValue</span>
+    </div>
+    <div>
+      <span class="xref">BaseField&lt;uint&gt;.mixedValueLabel</span>
+    </div>
+    <div>
+      <span class="xref">BindableElement.binding</span>
+    </div>
+    <div>
+      <span class="xref">BindableElement.bindingPath</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.disabledUssClassName</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.Focus()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.SendEvent(EventBase)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">VisualElement.SetEnabledFromHierarchy(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">VisualElement.SetEnabled(bool)</a>
+    </div>
+    <div>
+      <span class="xref">VisualElement.MarkDirtyRepaint()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.ContainsPoint(Vector2)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.Overlaps(Rect)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">VisualElement.DoMeasure(float, VisualElement.MeasureMode, float, VisualElement.MeasureMode)</a>
+    </div>
+    <div>
+      <span class="xref">VisualElement.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.GetClasses()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.ClearClassList()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">VisualElement.AddToClassList(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">VisualElement.RemoveFromClassList(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">VisualElement.ToggleInClassList(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">VisualElement.EnableInClassList(string, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">VisualElement.ClassListContains(string)</a>
+    </div>
+    <div>
+      <span class="xref">VisualElement.FindAncestorUserData()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.SetBinding(BindingId, Binding)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.GetBinding(BindingId)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.TryGetBinding(BindingId, out Binding)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.GetBindingInfos()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.HasBinding(BindingId)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.ClearBinding(BindingId)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.ClearBindings()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.GetHierarchicalDataSourceContext()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.GetDataSourceContext(BindingId)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.TryGetDataSourceContext(BindingId, out DataSourceContext)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.TryGetLastBindingToUIResult(in BindingId, out BindingResult)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.TryGetLastBindingToSourceResult(in BindingId, out BindingResult)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.Add(VisualElement)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">VisualElement.Insert(int, VisualElement)</a>
+    </div>
+    <div>
+      <span class="xref">VisualElement.Remove(VisualElement)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">VisualElement.RemoveAt(int)</a>
+    </div>
+    <div>
+      <span class="xref">VisualElement.Clear()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">VisualElement.ElementAt(int)</a>
+    </div>
+    <div>
+      <span class="xref">VisualElement.IndexOf(VisualElement)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.Children()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.comparison-1">VisualElement.Sort(Comparison&lt;VisualElement&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">VisualElement.BringToFront()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.SendToBack()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.PlaceBehind(VisualElement)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.PlaceInFront(VisualElement)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.RemoveFromHierarchy()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.GetFirstOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.GetFirstAncestorOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.Contains(VisualElement)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.FindCommonAncestor(VisualElement)</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.viewDataKey</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.userData</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.canGrabFocus</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.focusController</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.disablePlayModeTint</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.usageHints</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.transform</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.scaledPixelsPerPoint</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.layout</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.contentRect</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.paddingRect</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.worldBound</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.localBound</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.worldTransform</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.pickingMode</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.name</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.enabledInHierarchy</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.enabledSelf</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.languageDirection</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.visible</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.generateVisualContent</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.dataSource</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.dataSourcePath</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.dataSourceType</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.experimental</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.hierarchy</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.cacheAsBitmap</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.parent</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.panel</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.contentContainer</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.visualTreeAssetSource</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">VisualElement.this[int]</a>
+    </div>
+    <div>
+      <span class="xref">VisualElement.childCount</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.schedule</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.style</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.resolvedStyle</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.customStyle</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.styleSheets</span>
+    </div>
+    <div>
+      <span class="xref">VisualElement.tooltip</span>
+    </div>
+    <div>
+      <span class="xref">Focusable.Blur()</span>
+    </div>
+    <div>
+      <span class="xref">Focusable.focusable</span>
+    </div>
+    <div>
+      <span class="xref">Focusable.tabIndex</span>
+    </div>
+    <div>
+      <span class="xref">Focusable.delegatesFocus</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.RegisterCallback&lt;TEventType&gt;(EventCallback&lt;TEventType&gt;, TrickleDown)</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.RegisterCallbackOnce&lt;TEventType&gt;(EventCallback&lt;TEventType&gt;, TrickleDown)</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.RegisterCallback&lt;TEventType, TUserArgsType&gt;(EventCallback&lt;TEventType, TUserArgsType&gt;, TUserArgsType, TrickleDown)</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.RegisterCallbackOnce&lt;TEventType, TUserArgsType&gt;(EventCallback&lt;TEventType, TUserArgsType&gt;, TUserArgsType, TrickleDown)</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.UnregisterCallback&lt;TEventType&gt;(EventCallback&lt;TEventType&gt;, TrickleDown)</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.UnregisterCallback&lt;TEventType, TUserArgsType&gt;(EventCallback&lt;TEventType, TUserArgsType&gt;, TrickleDown)</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.HasTrickleDownHandlers()</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.HasBubbleUpHandlers()</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.ExecuteDefaultActionAtTarget(EventBase)</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.HandleEventTrickleDown(EventBase)</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.ExecuteDefaultAction(EventBase)</span>
+    </div>
+    <div>
+      <span class="xref">CallbackEventHandler.NotifyPropertyChanged(in BindingId)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
 
 
 
@@ -168,7 +706,8 @@ Class LBSCustomUnsignedIntegerField
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool DisplayButtons { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[UxmlAttribute]
+public bool DisplayButtons { get; set; }</code></pre>
   </div>
 
 
@@ -199,7 +738,8 @@ Class LBSCustomUnsignedIntegerField
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint MaxValue { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[UxmlAttribute]
+public uint MaxValue { get; set; }</code></pre>
   </div>
 
 
@@ -230,7 +770,8 @@ Class LBSCustomUnsignedIntegerField
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint MinValue { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[UxmlAttribute]
+public uint MinValue { get; set; }</code></pre>
   </div>
 
 
@@ -261,7 +802,8 @@ Class LBSCustomUnsignedIntegerField
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VectorImage TypeIcon { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[UxmlAttribute]
+public VectorImage TypeIcon { get; set; }</code></pre>
   </div>
 
 

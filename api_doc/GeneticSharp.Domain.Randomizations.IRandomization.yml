@@ -19,9 +19,15 @@ items:
   nameWithType: IRandomization
   fullName: GeneticSharp.Domain.Randomizations.IRandomization
   type: Interface
+  source:
+    id: IRandomization
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\IRandomization.cs
+    startLine: 7
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Defines an interface for randomization.
+  example: []
   syntax:
     content: public interface IRandomization
     content.vb: Public Interface IRandomization
@@ -43,18 +49,27 @@ items:
   nameWithType: IRandomization.GetInt(int, int)
   fullName: GeneticSharp.Domain.Randomizations.IRandomization.GetInt(int, int)
   type: Method
+  source:
+    id: GetInt
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\IRandomization.cs
+    startLine: 16
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Gets an integer value between minimum value (inclusive) and maximum value (exclusive).
+  example: []
   syntax:
     content: int GetInt(int min, int max)
     parameters:
     - id: min
       type: System.Int32
+      description: Minimum value (inclusive).
     - id: max
       type: System.Int32
+      description: Maximum value (exclusive).
     return:
       type: System.Int32
+      description: The integer.
     content.vb: Function GetInt(min As Integer, max As Integer) As Integer
   overload: GeneticSharp.Domain.Randomizations.IRandomization.GetInt*
   nameWithType.vb: IRandomization.GetInt(Integer, Integer)
@@ -71,20 +86,30 @@ items:
   nameWithType: IRandomization.GetInts(int, int, int)
   fullName: GeneticSharp.Domain.Randomizations.IRandomization.GetInts(int, int, int)
   type: Method
+  source:
+    id: GetInts
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\IRandomization.cs
+    startLine: 25
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Gets an integer array with values between minimum value (inclusive) and maximum value (exclusive).
+  example: []
   syntax:
     content: int[] GetInts(int length, int min, int max)
     parameters:
     - id: length
       type: System.Int32
+      description: The array length
     - id: min
       type: System.Int32
+      description: Minimum value (inclusive).
     - id: max
       type: System.Int32
+      description: Maximum value (exclusive).
     return:
       type: System.Int32[]
+      description: The integer array.
     content.vb: Function GetInts(length As Integer, min As Integer, max As Integer) As Integer()
   overload: GeneticSharp.Domain.Randomizations.IRandomization.GetInts*
   nameWithType.vb: IRandomization.GetInts(Integer, Integer, Integer)
@@ -101,20 +126,30 @@ items:
   nameWithType: IRandomization.GetUniqueInts(int, int, int)
   fullName: GeneticSharp.Domain.Randomizations.IRandomization.GetUniqueInts(int, int, int)
   type: Method
+  source:
+    id: GetUniqueInts
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\IRandomization.cs
+    startLine: 34
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Gets an integer array with unique values between minimum value (inclusive) and maximum value (exclusive).
+  example: []
   syntax:
     content: int[] GetUniqueInts(int length, int min, int max)
     parameters:
     - id: length
       type: System.Int32
+      description: The array length
     - id: min
       type: System.Int32
+      description: Minimum value (inclusive).
     - id: max
       type: System.Int32
+      description: Maximum value (exclusive).
     return:
       type: System.Int32[]
+      description: The integer array.
     content.vb: Function GetUniqueInts(length As Integer, min As Integer, max As Integer) As Integer()
   overload: GeneticSharp.Domain.Randomizations.IRandomization.GetUniqueInts*
   nameWithType.vb: IRandomization.GetUniqueInts(Integer, Integer, Integer)
@@ -131,13 +166,20 @@ items:
   nameWithType: IRandomization.GetFloat()
   fullName: GeneticSharp.Domain.Randomizations.IRandomization.GetFloat()
   type: Method
+  source:
+    id: GetFloat
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\IRandomization.cs
+    startLine: 40
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Gets a float value between 0.0 and 1.0.
+  example: []
   syntax:
     content: float GetFloat()
     return:
       type: System.Single
+      description: The float value.
     content.vb: Function GetFloat() As Single
   overload: GeneticSharp.Domain.Randomizations.IRandomization.GetFloat*
 - uid: GeneticSharp.Domain.Randomizations.IRandomization.GetFloat(System.Single,System.Single)
@@ -151,18 +193,27 @@ items:
   nameWithType: IRandomization.GetFloat(float, float)
   fullName: GeneticSharp.Domain.Randomizations.IRandomization.GetFloat(float, float)
   type: Method
+  source:
+    id: GetFloat
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\IRandomization.cs
+    startLine: 48
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Gets a float value between minimum value (inclusive) and maximum value (exclusive).
+  example: []
   syntax:
     content: float GetFloat(float min, float max)
     parameters:
     - id: min
       type: System.Single
+      description: Minimum value.
     - id: max
       type: System.Single
+      description: Max value.
     return:
       type: System.Single
+      description: The float value.
     content.vb: Function GetFloat(min As Single, max As Single) As Single
   overload: GeneticSharp.Domain.Randomizations.IRandomization.GetFloat*
   nameWithType.vb: IRandomization.GetFloat(Single, Single)
@@ -179,13 +230,20 @@ items:
   nameWithType: IRandomization.GetDouble()
   fullName: GeneticSharp.Domain.Randomizations.IRandomization.GetDouble()
   type: Method
+  source:
+    id: GetDouble
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\IRandomization.cs
+    startLine: 54
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Gets a double value between 0.0 and 1.0.
+  example: []
   syntax:
     content: double GetDouble()
     return:
       type: System.Double
+      description: The double value.
     content.vb: Function GetDouble() As Double
   overload: GeneticSharp.Domain.Randomizations.IRandomization.GetDouble*
 - uid: GeneticSharp.Domain.Randomizations.IRandomization.GetDouble(System.Double,System.Double)
@@ -199,18 +257,27 @@ items:
   nameWithType: IRandomization.GetDouble(double, double)
   fullName: GeneticSharp.Domain.Randomizations.IRandomization.GetDouble(double, double)
   type: Method
+  source:
+    id: GetDouble
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\IRandomization.cs
+    startLine: 62
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Gets a double value between minimum value (inclusive) and maximum value (exclusive).
+  example: []
   syntax:
     content: double GetDouble(double min, double max)
     parameters:
     - id: min
       type: System.Double
+      description: Minimum value.
     - id: max
       type: System.Double
+      description: Max value.
     return:
       type: System.Double
+      description: The double value.
     content.vb: Function GetDouble(min As Double, max As Double) As Double
   overload: GeneticSharp.Domain.Randomizations.IRandomization.GetDouble*
   nameWithType.vb: IRandomization.GetDouble(Double, Double)
@@ -219,7 +286,6 @@ items:
 references:
 - uid: GeneticSharp.Domain.Randomizations
   commentId: N:GeneticSharp.Domain.Randomizations
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Randomizations
   nameWithType: GeneticSharp.Domain.Randomizations
@@ -227,32 +293,26 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Randomizations
     name: Randomizations
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Randomizations
     name: Randomizations
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.html
 - uid: GeneticSharp.Domain.Randomizations.IRandomization.GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(System.Int32,System.Int32)
   commentId: M:GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
@@ -268,12 +328,10 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetEvenInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetEvenInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -291,12 +349,10 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetEvenInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetEvenInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -325,12 +381,10 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetOddInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetOddInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetOddInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -348,12 +402,10 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetOddInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetOddInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetOddInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -381,12 +433,10 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetEvenInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetEvenInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -404,12 +454,10 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetEvenInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetEvenInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -427,7 +475,6 @@ references:
 - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions
   commentId: T:GeneticSharp.Domain.Randomizations.RandomizationExtensions
   parent: GeneticSharp.Domain.Randomizations
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html
   name: RandomizationExtensions
   nameWithType: RandomizationExtensions
@@ -445,12 +492,10 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetOddInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetOddInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetOddInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -468,12 +513,10 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetOddInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetOddInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetOddInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -490,7 +533,6 @@ references:
   - name: )
 - uid: GeneticSharp.Domain.Randomizations.IRandomization.GetInt*
   commentId: Overload:GeneticSharp.Domain.Randomizations.IRandomization.GetInt
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.IRandomization.html#GeneticSharp_Domain_Randomizations_IRandomization_GetInt_System_Int32_System_Int32_
   name: GetInt
   nameWithType: IRandomization.GetInt
@@ -515,7 +557,6 @@ references:
   fullName: System
 - uid: GeneticSharp.Domain.Randomizations.IRandomization.GetInts*
   commentId: Overload:GeneticSharp.Domain.Randomizations.IRandomization.GetInts
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.IRandomization.html#GeneticSharp_Domain_Randomizations_IRandomization_GetInts_System_Int32_System_Int32_System_Int32_
   name: GetInts
   nameWithType: IRandomization.GetInts
@@ -545,14 +586,12 @@ references:
   - name: )
 - uid: GeneticSharp.Domain.Randomizations.IRandomization.GetUniqueInts*
   commentId: Overload:GeneticSharp.Domain.Randomizations.IRandomization.GetUniqueInts
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.IRandomization.html#GeneticSharp_Domain_Randomizations_IRandomization_GetUniqueInts_System_Int32_System_Int32_System_Int32_
   name: GetUniqueInts
   nameWithType: IRandomization.GetUniqueInts
   fullName: GeneticSharp.Domain.Randomizations.IRandomization.GetUniqueInts
 - uid: GeneticSharp.Domain.Randomizations.IRandomization.GetFloat*
   commentId: Overload:GeneticSharp.Domain.Randomizations.IRandomization.GetFloat
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.IRandomization.html#GeneticSharp_Domain_Randomizations_IRandomization_GetFloat
   name: GetFloat
   nameWithType: IRandomization.GetFloat
@@ -570,7 +609,6 @@ references:
   name.vb: Single
 - uid: GeneticSharp.Domain.Randomizations.IRandomization.GetDouble*
   commentId: Overload:GeneticSharp.Domain.Randomizations.IRandomization.GetDouble
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.IRandomization.html#GeneticSharp_Domain_Randomizations_IRandomization_GetDouble
   name: GetDouble
   nameWithType: IRandomization.GetDouble

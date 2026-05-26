@@ -96,38 +96,45 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Populations.Generation.html">Generation</a></dt>
-      <dd></dd>
+      <dd>Represents a generation of a population.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Populations.PerformanceGenerationStrategy.html">PerformanceGenerationStrategy</a></dt>
-      <dd></dd>
+      <dd>An IGenerationStrategy's implementation which takes into account the performance and just keep the last one generations in the population.
+<remarks>
+This strategy is not good for tracking all the generations, for this case use TrackingGenerationStrategy, 
+but is the best one when you have a very long term termination.
+</remarks></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Populations.Population.html">Population</a></dt>
-      <dd></dd>
+      <dd>Represents a population of candidate solutions (chromosomes).</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Populations.PopulationService.html">PopulationService</a></dt>
-      <dd></dd>
+      <dd>Population service.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Populations.TplPopulation.html">TplPopulation</a></dt>
-      <dd></dd>
+      <dd>Represents a population of candidate solutions (chromosomes) using TPL to create them.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Populations.TrackingGenerationStrategy.html">TrackingGenerationStrategy</a></dt>
-      <dd></dd>
+      <dd>An IGenerationStrategy's implementation that keeps all generations to further evaluation.
+<remarks>
+This strategy can be slow and can suffer of OutOfMemoryException when you have great population and a long term termination.
+</remarks></dd>
     </dl>
     <h3 id="interfaces">
 Interfaces
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Populations.IGenerationStrategy.html">IGenerationStrategy</a></dt>
-      <dd></dd>
+      <dd>Defines a strategy to some key points of generation behavior inside a population.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Populations.IPopulation.html">IPopulation</a></dt>
-      <dd></dd>
+      <dd>Defines an interface for a population of candidate solutions (chromosomes).</dd>
     </dl>
 
 

@@ -36,6 +36,10 @@ items:
   nameWithType: BundleTileMap
   fullName: ISILab.LBS.Modules.BundleTileMap
   type: Class
+  source:
+    id: BundleTileMap
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 15
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -50,17 +54,17 @@ items:
   - ISILab.LBS.Modules.ISelectable
   inheritedMembers:
   - ISILab.LBS.Modules.LBSModule.id
+  - ISILab.LBS.Modules.LBSModule.OwnerLayer
+  - ISILab.LBS.Modules.LBSModule.ID
   - ISILab.LBS.Modules.LBSModule.OnChanged
   - ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
   - ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
   - ISILab.LBS.Modules.LBSModule.Print
-  - ISILab.LBS.Modules.LBSModule.OwnerLayer
-  - ISILab.LBS.Modules.LBSModule.ID
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.LBS.Modules.BundleTileMap.groups
   commentId: F:ISILab.LBS.Modules.BundleTileMap.groups
   id: groups
@@ -72,14 +76,112 @@ items:
   nameWithType: BundleTileMap.groups
   fullName: ISILab.LBS.Modules.BundleTileMap.groups
   type: Field
+  source:
+    id: groups
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 19
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
   syntax:
-    content: protected List<TileBundleGroup> groups
+    content: >-
+      [SerializeField]
+
+      [JsonRequired]
+
+      [SerializeReference]
+
+      protected List<TileBundleGroup> groups
     return:
       type: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
-    content.vb: Protected groups As List(Of TileBundleGroup)
+    content.vb: >-
+      <SerializeField>
+
+      <JsonRequired>
+
+      <SerializeReference>
+
+      Protected groups As List(Of TileBundleGroup)
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonRequiredAttribute
+    ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
+    arguments: []
+  - type: UnityEngine.SerializeReference
+    ctor: UnityEngine.SerializeReference.#ctor
+    arguments: []
+- uid: ISILab.LBS.Modules.BundleTileMap.Groups
+  commentId: P:ISILab.LBS.Modules.BundleTileMap.Groups
+  id: Groups
+  parent: ISILab.LBS.Modules.BundleTileMap
+  langs:
+  - csharp
+  - vb
+  name: Groups
+  nameWithType: BundleTileMap.Groups
+  fullName: ISILab.LBS.Modules.BundleTileMap.Groups
+  type: Property
+  source:
+    id: Groups
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 23
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public List<TileBundleGroup> Groups { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Groups As List(Of TileBundleGroup)
+  overload: ISILab.LBS.Modules.BundleTileMap.Groups*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Modules.BundleTileMap.GroupCount
+  commentId: P:ISILab.LBS.Modules.BundleTileMap.GroupCount
+  id: GroupCount
+  parent: ISILab.LBS.Modules.BundleTileMap
+  langs:
+  - csharp
+  - vb
+  name: GroupCount
+  nameWithType: BundleTileMap.GroupCount
+  fullName: ISILab.LBS.Modules.BundleTileMap.GroupCount
+  type: Property
+  source:
+    id: GroupCount
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 27
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public int GroupCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property GroupCount As Integer
+  overload: ISILab.LBS.Modules.BundleTileMap.GroupCount*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Modules.BundleTileMap.#ctor
   commentId: M:ISILab.LBS.Modules.BundleTileMap.#ctor
   id: '#ctor'
@@ -91,6 +193,10 @@ items:
   nameWithType: BundleTileMap.BundleTileMap()
   fullName: ISILab.LBS.Modules.BundleTileMap.BundleTileMap()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 32
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -112,6 +218,10 @@ items:
   nameWithType: BundleTileMap.BundleTileMap(IEnumerable<TileBundleGroup>, string)
   fullName: ISILab.LBS.Modules.BundleTileMap.BundleTileMap(System.Collections.Generic.IEnumerable<ISILab.LBS.Modules.TileBundleGroup>, string)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -138,6 +248,10 @@ items:
   nameWithType: BundleTileMap.CreateGroup(Vector2Int, BundleData, Vector2, List<BundleTileMapAddons>)
   fullName: ISILab.LBS.Modules.BundleTileMap.CreateGroup(UnityEngine.Vector2Int, LBS.Components.TileMap.BundleData, UnityEngine.Vector2, System.Collections.Generic.List<ISILab.LBS.Components.BundleTileMapAddons>)
   type: Method
+  source:
+    id: CreateGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 71
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -170,6 +284,10 @@ items:
   nameWithType: BundleTileMap.ValidNewGroup(Vector2Int, BundleData, Vector2)
   fullName: ISILab.LBS.Modules.BundleTileMap.ValidNewGroup(UnityEngine.Vector2Int, LBS.Components.TileMap.BundleData, UnityEngine.Vector2)
   type: Method
+  source:
+    id: ValidNewGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 90
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -197,6 +315,10 @@ items:
   nameWithType: BundleTileMap.ValidMoveGroup(Vector2Int, TileBundleGroup, Vector2)
   fullName: ISILab.LBS.Modules.BundleTileMap.ValidMoveGroup(UnityEngine.Vector2Int, ISILab.LBS.Modules.TileBundleGroup, UnityEngine.Vector2)
   type: Method
+  source:
+    id: ValidMoveGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 116
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -224,6 +346,10 @@ items:
   nameWithType: BundleTileMap.AddGroup(TileBundleGroup)
   fullName: ISILab.LBS.Modules.BundleTileMap.AddGroup(ISILab.LBS.Modules.TileBundleGroup)
   type: Method
+  source:
+    id: AddGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 162
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -245,6 +371,10 @@ items:
   nameWithType: BundleTileMap.GetGroup(LBSTile)
   fullName: ISILab.LBS.Modules.BundleTileMap.GetGroup(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
   type: Method
+  source:
+    id: GetGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 181
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -268,6 +398,10 @@ items:
   nameWithType: BundleTileMap.GetGroup(Vector2)
   fullName: ISILab.LBS.Modules.BundleTileMap.GetGroup(UnityEngine.Vector2)
   type: Method
+  source:
+    id: GetGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 197
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -291,6 +425,10 @@ items:
   nameWithType: BundleTileMap.RemoveGroup(TileBundleGroup)
   fullName: ISILab.LBS.Modules.BundleTileMap.RemoveGroup(ISILab.LBS.Modules.TileBundleGroup)
   type: Method
+  source:
+    id: RemoveGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 212
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -312,6 +450,10 @@ items:
   nameWithType: BundleTileMap.RemoveGroup(LBSTile)
   fullName: ISILab.LBS.Modules.BundleTileMap.RemoveGroup(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
   type: Method
+  source:
+    id: RemoveGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 222
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -333,6 +475,10 @@ items:
   nameWithType: BundleTileMap.RemoveGroup(int)
   fullName: ISILab.LBS.Modules.BundleTileMap.RemoveGroup(int)
   type: Method
+  source:
+    id: RemoveGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 225
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -357,6 +503,10 @@ items:
   nameWithType: BundleTileMap.Contains(LBSTile)
   fullName: ISILab.LBS.Modules.BundleTileMap.Contains(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
   type: Method
+  source:
+    id: Contains
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 228
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -380,6 +530,10 @@ items:
   nameWithType: BundleTileMap.Contains(TileBundleGroup)
   fullName: ISILab.LBS.Modules.BundleTileMap.Contains(ISILab.LBS.Modules.TileBundleGroup)
   type: Method
+  source:
+    id: Contains
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 240
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -403,14 +557,20 @@ items:
   nameWithType: BundleTileMap.GetBounds()
   fullName: ISILab.LBS.Modules.BundleTileMap.GetBounds()
   type: Method
+  source:
+    id: GetBounds
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 248
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Gets the bounding rectangle of the representation.
   example: []
   syntax:
     content: public override Rect GetBounds()
     return:
       type: UnityEngine.Rect
+      description: ''
     content.vb: Public Overrides Function GetBounds() As Rect
   overridden: ISILab.LBS.Modules.LBSModule.GetBounds
   overload: ISILab.LBS.Modules.BundleTileMap.GetBounds*
@@ -425,14 +585,20 @@ items:
   nameWithType: BundleTileMap.IsEmpty()
   fullName: ISILab.LBS.Modules.BundleTileMap.IsEmpty()
   type: Method
+  source:
+    id: IsEmpty
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 259
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Determines whether the representation is empty.
   example: []
   syntax:
     content: public override bool IsEmpty()
     return:
       type: System.Boolean
+      description: ''
     content.vb: Public Overrides Function IsEmpty() As Boolean
   overridden: ISILab.LBS.Modules.LBSModule.IsEmpty
   overload: ISILab.LBS.Modules.BundleTileMap.IsEmpty*
@@ -447,9 +613,14 @@ items:
   nameWithType: BundleTileMap.Clear()
   fullName: ISILab.LBS.Modules.BundleTileMap.Clear()
   type: Method
+  source:
+    id: Clear
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 264
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Cleans all the information saved in.
   example: []
   syntax:
     content: public override void Clear()
@@ -467,14 +638,20 @@ items:
   nameWithType: BundleTileMap.Clone()
   fullName: ISILab.LBS.Modules.BundleTileMap.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 269
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Creates a copy of the representation.
   example: []
   syntax:
     content: public override object Clone()
     return:
       type: System.Object
+      description: ''
     content.vb: Public Overrides Function Clone() As Object
   overridden: ISILab.LBS.Modules.LBSModule.Clone
   overload: ISILab.LBS.Modules.BundleTileMap.Clone*
@@ -489,9 +666,14 @@ items:
   nameWithType: BundleTileMap.Rewrite(LBSModule)
   fullName: ISILab.LBS.Modules.BundleTileMap.Rewrite(ISILab.LBS.Modules.LBSModule)
   type: Method
+  source:
+    id: Rewrite
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 274
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Rewrites the representation based on another LBSModule.
   example: []
   syntax:
     content: public override void Rewrite(LBSModule module)
@@ -512,6 +694,10 @@ items:
   nameWithType: BundleTileMap.GetSelected(Vector2Int)
   fullName: ISILab.LBS.Modules.BundleTileMap.GetSelected(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: GetSelected
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 292
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -538,6 +724,10 @@ items:
   nameWithType: BundleTileMap.Equals(object)
   fullName: ISILab.LBS.Modules.BundleTileMap.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 306
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -566,6 +756,10 @@ items:
   nameWithType: BundleTileMap.GetHashCode()
   fullName: ISILab.LBS.Modules.BundleTileMap.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMap.cs
+    startLine: 327
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -577,52 +771,9 @@ items:
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.Object.GetHashCode
   overload: ISILab.LBS.Modules.BundleTileMap.GetHashCode*
-- uid: ISILab.LBS.Modules.BundleTileMap.Groups
-  commentId: P:ISILab.LBS.Modules.BundleTileMap.Groups
-  id: Groups
-  parent: ISILab.LBS.Modules.BundleTileMap
-  langs:
-  - csharp
-  - vb
-  name: Groups
-  nameWithType: BundleTileMap.Groups
-  fullName: ISILab.LBS.Modules.BundleTileMap.Groups
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public List<TileBundleGroup> Groups { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
-    content.vb: Public ReadOnly Property Groups As List(Of TileBundleGroup)
-  overload: ISILab.LBS.Modules.BundleTileMap.Groups*
-- uid: ISILab.LBS.Modules.BundleTileMap.GroupCount
-  commentId: P:ISILab.LBS.Modules.BundleTileMap.GroupCount
-  id: GroupCount
-  parent: ISILab.LBS.Modules.BundleTileMap
-  langs:
-  - csharp
-  - vb
-  name: GroupCount
-  nameWithType: BundleTileMap.GroupCount
-  fullName: ISILab.LBS.Modules.BundleTileMap.GroupCount
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public int GroupCount { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property GroupCount As Integer
-  overload: ISILab.LBS.Modules.BundleTileMap.GroupCount*
 references:
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -630,32 +781,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: System.Object
   commentId: T:System.Object
@@ -671,7 +816,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule
   commentId: T:ISILab.LBS.Modules.LBSModule
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html
   name: LBSModule
   nameWithType: LBSModule
@@ -687,7 +831,6 @@ references:
 - uid: ISILab.LBS.Modules.ISelectable
   commentId: T:ISILab.LBS.Modules.ISelectable
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.ISelectable.html
   name: ISelectable
   nameWithType: ISelectable
@@ -695,105 +838,13 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.id
   commentId: F:ISILab.LBS.Modules.LBSModule.id
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id
   name: id
   nameWithType: LBSModule.id
   fullName: ISILab.LBS.Modules.LBSModule.id
-- uid: ISILab.LBS.Modules.LBSModule.OnChanged
-  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
-  name: OnChanged
-  nameWithType: LBSModule.OnChanged
-  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
-- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  name: OnAttach(LBSLayer)
-  nameWithType: LBSModule.OnAttach(LBSLayer)
-  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-    name: OnAttach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-    name: OnAttach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  name: OnDetach(LBSLayer)
-  nameWithType: LBSModule.OnDetach(LBSLayer)
-  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-    name: OnDetach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-    name: OnDetach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-- uid: ISILab.LBS.Modules.LBSModule.Print
-  commentId: M:ISILab.LBS.Modules.LBSModule.Print
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
-  name: Print()
-  nameWithType: LBSModule.Print()
-  fullName: ISILab.LBS.Modules.LBSModule.Print()
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.Print
-    name: Print
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.Print
-    name: Print
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
-  - name: (
-  - name: )
 - uid: ISILab.LBS.Modules.LBSModule.OwnerLayer
   commentId: P:ISILab.LBS.Modules.LBSModule.OwnerLayer
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer
   name: OwnerLayer
   nameWithType: LBSModule.OwnerLayer
@@ -801,11 +852,131 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.ID
   commentId: P:ISILab.LBS.Modules.LBSModule.ID
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID
   name: ID
   nameWithType: LBSModule.ID
   fullName: ISILab.LBS.Modules.LBSModule.ID
+- uid: ISILab.LBS.Modules.LBSModule.OnChanged
+  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
+  name: OnChanged
+  nameWithType: LBSModule.OnChanged
+  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
+- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  name: OnAttach(LBSLayer)
+  nameWithType: LBSModule.OnAttach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  name: OnDetach(LBSLayer)
+  nameWithType: LBSModule.OnDetach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.Print
+  commentId: M:ISILab.LBS.Modules.LBSModule.Print
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  name: Print()
+  nameWithType: LBSModule.Print()
+  fullName: ISILab.LBS.Modules.LBSModule.Print()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -854,75 +1025,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -968,6 +1070,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -994,7 +1120,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Modules.TileBundleGroup
     name: TileBundleGroup
-    isExternal: true
     href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: '>'
   spec.vb:
@@ -1007,7 +1132,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Modules.TileBundleGroup
     name: TileBundleGroup
-    isExternal: true
     href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: )
 - uid: System.Collections.Generic.List`1
@@ -1075,9 +1199,31 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Modules.BundleTileMap.Groups*
+  commentId: Overload:ISILab.LBS.Modules.BundleTileMap.Groups
+  href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_Groups
+  name: Groups
+  nameWithType: BundleTileMap.Groups
+  fullName: ISILab.LBS.Modules.BundleTileMap.Groups
+- uid: ISILab.LBS.Modules.BundleTileMap.GroupCount*
+  commentId: Overload:ISILab.LBS.Modules.BundleTileMap.GroupCount
+  href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_GroupCount
+  name: GroupCount
+  nameWithType: BundleTileMap.GroupCount
+  fullName: ISILab.LBS.Modules.BundleTileMap.GroupCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: ISILab.LBS.Modules.BundleTileMap.#ctor*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.#ctor
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap__ctor
   name: BundleTileMap
   nameWithType: BundleTileMap.BundleTileMap
@@ -1104,7 +1250,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Modules.TileBundleGroup
     name: TileBundleGroup
-    isExternal: true
     href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: '>'
   spec.vb:
@@ -1117,7 +1262,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Modules.TileBundleGroup
     name: TileBundleGroup
-    isExternal: true
     href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: )
 - uid: System.String
@@ -1161,12 +1305,13 @@ references:
   - name: )
 - uid: ISILab.LBS.Modules.BundleTileMap.CreateGroup*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.CreateGroup
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_CreateGroup_UnityEngine_Vector2Int_LBS_Components_TileMap_BundleData_UnityEngine_Vector2_System_Collections_Generic_List_ISILab_LBS_Components_BundleTileMapAddons__
   name: CreateGroup
   nameWithType: BundleTileMap.CreateGroup
   fullName: ISILab.LBS.Modules.BundleTileMap.CreateGroup
 - uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
   isExternal: true
   name: Vector2Int
   nameWithType: Vector2Int
@@ -1174,12 +1319,13 @@ references:
 - uid: LBS.Components.TileMap.BundleData
   commentId: T:LBS.Components.TileMap.BundleData
   parent: LBS.Components.TileMap
-  isExternal: true
   href: LBS.Components.TileMap.BundleData.html
   name: BundleData
   nameWithType: BundleData
   fullName: LBS.Components.TileMap.BundleData
 - uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
@@ -1203,7 +1349,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Components.BundleTileMapAddons
     name: BundleTileMapAddons
-    isExternal: true
     href: ISILab.LBS.Components.BundleTileMapAddons.html
   - name: '>'
   spec.vb:
@@ -1216,20 +1361,23 @@ references:
   - name: " "
   - uid: ISILab.LBS.Components.BundleTileMapAddons
     name: BundleTileMapAddons
-    isExternal: true
     href: ISILab.LBS.Components.BundleTileMapAddons.html
   - name: )
 - uid: ISILab.LBS.Modules.TileBundleGroup
   commentId: T:ISILab.LBS.Modules.TileBundleGroup
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.TileBundleGroup.html
   name: TileBundleGroup
   nameWithType: TileBundleGroup
   fullName: ISILab.LBS.Modules.TileBundleGroup
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: LBS.Components.TileMap
   commentId: N:LBS.Components.TileMap
-  isExternal: true
   href: LBS.html
   name: LBS.Components.TileMap
   nameWithType: LBS.Components.TileMap
@@ -1237,36 +1385,29 @@ references:
   spec.csharp:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
   - name: .
   - uid: LBS.Components.TileMap
     name: TileMap
-    isExternal: true
     href: LBS.Components.TileMap.html
   spec.vb:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
   - name: .
   - uid: LBS.Components.TileMap
     name: TileMap
-    isExternal: true
     href: LBS.Components.TileMap.html
 - uid: ISILab.LBS.Modules.BundleTileMap.ValidNewGroup*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.ValidNewGroup
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_ValidNewGroup_UnityEngine_Vector2Int_LBS_Components_TileMap_BundleData_UnityEngine_Vector2_
   name: ValidNewGroup
   nameWithType: BundleTileMap.ValidNewGroup
@@ -1284,21 +1425,18 @@ references:
   name.vb: Boolean
 - uid: ISILab.LBS.Modules.BundleTileMap.ValidMoveGroup*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.ValidMoveGroup
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_ValidMoveGroup_UnityEngine_Vector2Int_ISILab_LBS_Modules_TileBundleGroup_UnityEngine_Vector2_
   name: ValidMoveGroup
   nameWithType: BundleTileMap.ValidMoveGroup
   fullName: ISILab.LBS.Modules.BundleTileMap.ValidMoveGroup
 - uid: ISILab.LBS.Modules.BundleTileMap.AddGroup*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.AddGroup
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_AddGroup_ISILab_LBS_Modules_TileBundleGroup_
   name: AddGroup
   nameWithType: BundleTileMap.AddGroup
   fullName: ISILab.LBS.Modules.BundleTileMap.AddGroup
 - uid: ISILab.LBS.Modules.BundleTileMap.GetGroup*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.GetGroup
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_GetGroup_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
   name: GetGroup
   nameWithType: BundleTileMap.GetGroup
@@ -1306,14 +1444,12 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
   commentId: T:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
   parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
   name: LBSTile
   nameWithType: LBSTile
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
   commentId: N:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
   nameWithType: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -1321,94 +1457,67 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
     name: Tessellation
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
     name: TileMap
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
     name: Tessellation
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
     name: TileMap
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
 - uid: ISILab.LBS.Modules.BundleTileMap.RemoveGroup*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.RemoveGroup
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_RemoveGroup_ISILab_LBS_Modules_TileBundleGroup_
   name: RemoveGroup
   nameWithType: BundleTileMap.RemoveGroup
   fullName: ISILab.LBS.Modules.BundleTileMap.RemoveGroup
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: ISILab.LBS.Modules.BundleTileMap.Contains*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.Contains
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_Contains_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
   name: Contains
   nameWithType: BundleTileMap.Contains
@@ -1416,7 +1525,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.GetBounds
   commentId: M:ISILab.LBS.Modules.LBSModule.GetBounds
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   name: GetBounds()
   nameWithType: LBSModule.GetBounds()
@@ -1424,25 +1532,24 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.GetBounds
     name: GetBounds
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.GetBounds
     name: GetBounds
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.BundleTileMap.GetBounds*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.GetBounds
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_GetBounds
   name: GetBounds
   nameWithType: BundleTileMap.GetBounds
   fullName: ISILab.LBS.Modules.BundleTileMap.GetBounds
 - uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
   isExternal: true
   name: Rect
   nameWithType: Rect
@@ -1450,7 +1557,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
   commentId: M:ISILab.LBS.Modules.LBSModule.IsEmpty
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   name: IsEmpty()
   nameWithType: LBSModule.IsEmpty()
@@ -1458,20 +1564,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
     name: IsEmpty
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
     name: IsEmpty
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.BundleTileMap.IsEmpty*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.IsEmpty
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_IsEmpty
   name: IsEmpty
   nameWithType: BundleTileMap.IsEmpty
@@ -1479,7 +1582,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Clear
   commentId: M:ISILab.LBS.Modules.LBSModule.Clear
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   name: Clear()
   nameWithType: LBSModule.Clear()
@@ -1487,20 +1589,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Clear
     name: Clear
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Clear
     name: Clear
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.BundleTileMap.Clear*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.Clear
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_Clear
   name: Clear
   nameWithType: BundleTileMap.Clear
@@ -1508,7 +1607,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Clone
   commentId: M:ISILab.LBS.Modules.LBSModule.Clone
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   name: Clone()
   nameWithType: LBSModule.Clone()
@@ -1516,20 +1614,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.BundleTileMap.Clone*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.Clone
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_Clone
   name: Clone
   nameWithType: BundleTileMap.Clone
@@ -1537,7 +1632,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
   commentId: M:ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   name: Rewrite(LBSModule)
   nameWithType: LBSModule.Rewrite(LBSModule)
@@ -1545,35 +1639,29 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
     name: Rewrite
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   - name: (
   - uid: ISILab.LBS.Modules.LBSModule
     name: LBSModule
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
     name: Rewrite
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   - name: (
   - uid: ISILab.LBS.Modules.LBSModule
     name: LBSModule
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html
   - name: )
 - uid: ISILab.LBS.Modules.BundleTileMap.Rewrite*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.Rewrite
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_Rewrite_ISILab_LBS_Modules_LBSModule_
   name: Rewrite
   nameWithType: BundleTileMap.Rewrite
   fullName: ISILab.LBS.Modules.BundleTileMap.Rewrite
 - uid: ISILab.LBS.Modules.BundleTileMap.GetSelected*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.GetSelected
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_GetSelected_UnityEngine_Vector2Int_
   name: GetSelected
   nameWithType: BundleTileMap.GetSelected
@@ -1589,7 +1677,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
     name: GetSelected
-    isExternal: true
     href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
   - name: (
   - uid: UnityEngine.Vector2Int
@@ -1599,7 +1686,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
     name: GetSelected
-    isExternal: true
     href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
   - name: (
   - uid: UnityEngine.Vector2Int
@@ -1676,7 +1762,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Modules.BundleTileMap.Equals*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.Equals
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_Equals_System_Object_
   name: Equals
   nameWithType: BundleTileMap.Equals
@@ -1707,23 +1792,8 @@ references:
   - name: )
 - uid: ISILab.LBS.Modules.BundleTileMap.GetHashCode*
   commentId: Overload:ISILab.LBS.Modules.BundleTileMap.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_GetHashCode
   name: GetHashCode
   nameWithType: BundleTileMap.GetHashCode
   fullName: ISILab.LBS.Modules.BundleTileMap.GetHashCode
-- uid: ISILab.LBS.Modules.BundleTileMap.Groups*
-  commentId: Overload:ISILab.LBS.Modules.BundleTileMap.Groups
-  isExternal: true
-  href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_Groups
-  name: Groups
-  nameWithType: BundleTileMap.Groups
-  fullName: ISILab.LBS.Modules.BundleTileMap.Groups
-- uid: ISILab.LBS.Modules.BundleTileMap.GroupCount*
-  commentId: Overload:ISILab.LBS.Modules.BundleTileMap.GroupCount
-  isExternal: true
-  href: ISILab.LBS.Modules.BundleTileMap.html#ISILab_LBS_Modules_BundleTileMap_GroupCount
-  name: GroupCount
-  nameWithType: BundleTileMap.GroupCount
-  fullName: ISILab.LBS.Modules.BundleTileMap.GroupCount
 shouldSkipMarkup: true

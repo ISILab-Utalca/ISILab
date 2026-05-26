@@ -5,7 +5,6 @@ items:
   id: NodeDataBehaviourDrawer
   parent: ISILab.LBS.Drawers.Editor
   children:
-  - ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.#ctor
   - ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.CreateGrammarGraphView(ISILab.AI.Grammar.GrammarField,ISILab.LBS.VisualElements.QuestNodeView)
   - ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
   - ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
@@ -18,6 +17,10 @@ items:
   nameWithType: NodeDataBehaviourDrawer
   fullName: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer
   type: Class
+  source:
+    id: NodeDataBehaviourDrawer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\NodeDataBehaviourDrawer.cs
+    startLine: 12
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Drawers.Editor
@@ -35,20 +38,20 @@ items:
   - ISILab.LBS.Drawers.Drawer
   inheritedMembers:
   - ISILab.LBS.Drawers.Drawer.Loaded
+  - ISILab.LBS.Drawers.Drawer.FullRedrawRequested
+  - ISILab.LBS.Drawers.Drawer.DefaultSize
   - ISILab.LBS.Drawers.Drawer.LoadAllTiles
   - ISILab.LBS.Drawers.Drawer.PaintNewTiles
   - ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles
   - ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer,System.Object[],System.Object[],ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
   - ISILab.LBS.Drawers.Drawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
-  - ISILab.LBS.Drawers.Drawer.FullRedrawRequested
-  - ISILab.LBS.Drawers.Drawer.DefaultSize
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   attributes:
   - type: ISILab.LBS.DrawerAttribute
     ctor: ISILab.LBS.DrawerAttribute.#ctor(System.Type)
@@ -66,6 +69,10 @@ items:
   nameWithType: NodeDataBehaviourDrawer.Draw(object, MainView, Vector2)
   fullName: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.Draw(object, ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
   type: Method
+  source:
+    id: Draw
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\NodeDataBehaviourDrawer.cs
+    startLine: 15
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Drawers.Editor
@@ -96,6 +103,10 @@ items:
   nameWithType: NodeDataBehaviourDrawer.UpdateTiles(object, MainView, Vector2)
   fullName: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.UpdateTiles(object, ISILab.LBS.Plugin.UI.Editor.MainView, UnityEngine.Vector2)
   type: Method
+  source:
+    id: UpdateTiles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\NodeDataBehaviourDrawer.cs
+    startLine: 30
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Drawers.Editor
@@ -126,6 +137,10 @@ items:
   nameWithType: NodeDataBehaviourDrawer.HideVisuals(object, MainView)
   fullName: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.HideVisuals(object, ISILab.LBS.Plugin.UI.Editor.MainView)
   type: Method
+  source:
+    id: HideVisuals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\NodeDataBehaviourDrawer.cs
+    startLine: 119
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Drawers.Editor
@@ -154,6 +169,10 @@ items:
   nameWithType: NodeDataBehaviourDrawer.ShowVisuals(object, MainView)
   fullName: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.ShowVisuals(object, ISILab.LBS.Plugin.UI.Editor.MainView)
   type: Method
+  source:
+    id: ShowVisuals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\NodeDataBehaviourDrawer.cs
+    startLine: 137
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Drawers.Editor
@@ -182,6 +201,10 @@ items:
   nameWithType: NodeDataBehaviourDrawer.CreateGrammarGraphView(GrammarField, QuestNodeView)
   fullName: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.CreateGrammarGraphView(ISILab.AI.Grammar.GrammarField, ISILab.LBS.VisualElements.QuestNodeView)
   type: Method
+  source:
+    id: CreateGrammarGraphView
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\NodeDataBehaviourDrawer.cs
+    startLine: 165
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Drawers.Editor
@@ -196,31 +219,9 @@ items:
       type: UnityEditor.Experimental.GraphView.GraphElement
     content.vb: Public Shared Function CreateGrammarGraphView(field As GrammarField, parentView As QuestNodeView) As GraphElement
   overload: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.CreateGrammarGraphView*
-- uid: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.#ctor
-  commentId: M:ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.#ctor
-  id: '#ctor'
-  parent: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer
-  langs:
-  - csharp
-  - vb
-  name: NodeDataBehaviourDrawer()
-  nameWithType: NodeDataBehaviourDrawer.NodeDataBehaviourDrawer()
-  fullName: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.NodeDataBehaviourDrawer()
-  type: Constructor
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Drawers.Editor
-  syntax:
-    content: public NodeDataBehaviourDrawer()
-    content.vb: Public Sub New()
-  overload: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.#ctor*
-  nameWithType.vb: NodeDataBehaviourDrawer.New()
-  fullName.vb: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.New()
-  name.vb: New()
 references:
 - uid: ISILab.LBS.Drawers.Editor
   commentId: N:ISILab.LBS.Drawers.Editor
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Drawers.Editor
   nameWithType: ISILab.LBS.Drawers.Editor
@@ -228,42 +229,34 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Drawers
     name: Drawers
-    isExternal: true
     href: ISILab.LBS.Drawers.html
   - name: .
   - uid: ISILab.LBS.Drawers.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Drawers.Editor.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Drawers
     name: Drawers
-    isExternal: true
     href: ISILab.LBS.Drawers.html
   - name: .
   - uid: ISILab.LBS.Drawers.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Drawers.Editor.html
 - uid: System.Object
   commentId: T:System.Object
@@ -279,7 +272,6 @@ references:
 - uid: ISILab.LBS.Drawers.Drawer
   commentId: T:ISILab.LBS.Drawers.Drawer
   parent: ISILab.LBS.Drawers
-  isExternal: true
   href: ISILab.LBS.Drawers.Drawer.html
   name: Drawer
   nameWithType: Drawer
@@ -287,15 +279,27 @@ references:
 - uid: ISILab.LBS.Drawers.Drawer.Loaded
   commentId: F:ISILab.LBS.Drawers.Drawer.Loaded
   parent: ISILab.LBS.Drawers.Drawer
-  isExternal: true
   href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_Loaded
   name: Loaded
   nameWithType: Drawer.Loaded
   fullName: ISILab.LBS.Drawers.Drawer.Loaded
+- uid: ISILab.LBS.Drawers.Drawer.FullRedrawRequested
+  commentId: P:ISILab.LBS.Drawers.Drawer.FullRedrawRequested
+  parent: ISILab.LBS.Drawers.Drawer
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_FullRedrawRequested
+  name: FullRedrawRequested
+  nameWithType: Drawer.FullRedrawRequested
+  fullName: ISILab.LBS.Drawers.Drawer.FullRedrawRequested
+- uid: ISILab.LBS.Drawers.Drawer.DefaultSize
+  commentId: P:ISILab.LBS.Drawers.Drawer.DefaultSize
+  parent: ISILab.LBS.Drawers.Drawer
+  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_DefaultSize
+  name: DefaultSize
+  nameWithType: Drawer.DefaultSize
+  fullName: ISILab.LBS.Drawers.Drawer.DefaultSize
 - uid: ISILab.LBS.Drawers.Drawer.LoadAllTiles
   commentId: M:ISILab.LBS.Drawers.Drawer.LoadAllTiles
   parent: ISILab.LBS.Drawers.Drawer
-  isExternal: true
   href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_LoadAllTiles
   name: LoadAllTiles()
   nameWithType: Drawer.LoadAllTiles()
@@ -303,21 +307,18 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Drawers.Drawer.LoadAllTiles
     name: LoadAllTiles
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_LoadAllTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Drawers.Drawer.LoadAllTiles
     name: LoadAllTiles
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_LoadAllTiles
   - name: (
   - name: )
 - uid: ISILab.LBS.Drawers.Drawer.PaintNewTiles
   commentId: M:ISILab.LBS.Drawers.Drawer.PaintNewTiles
   parent: ISILab.LBS.Drawers.Drawer
-  isExternal: true
   href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_PaintNewTiles
   name: PaintNewTiles()
   nameWithType: Drawer.PaintNewTiles()
@@ -325,21 +326,18 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Drawers.Drawer.PaintNewTiles
     name: PaintNewTiles
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_PaintNewTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Drawers.Drawer.PaintNewTiles
     name: PaintNewTiles
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_PaintNewTiles
   - name: (
   - name: )
 - uid: ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles
   commentId: M:ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles
   parent: ISILab.LBS.Drawers.Drawer
-  isExternal: true
   href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateLoadedTiles
   name: UpdateLoadedTiles()
   nameWithType: Drawer.UpdateLoadedTiles()
@@ -347,14 +345,12 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles
     name: UpdateLoadedTiles
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateLoadedTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Drawers.Drawer.UpdateLoadedTiles
     name: UpdateLoadedTiles
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateLoadedTiles
   - name: (
   - name: )
@@ -372,12 +368,10 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer,System.Object[],System.Object[],ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
     name: ReDraw
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_ReDraw_LBS_Components_LBSLayer_System_Object___System_Object___ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: ','
   - name: " "
   - uid: System.Object
@@ -398,7 +392,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.MainView
     name: MainView
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   - name: ','
   - name: " "
@@ -409,12 +402,10 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Drawers.Drawer.ReDraw(LBS.Components.LBSLayer,System.Object[],System.Object[],ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
     name: ReDraw
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_ReDraw_LBS_Components_LBSLayer_System_Object___System_Object___ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: ','
   - name: " "
   - uid: System.Object
@@ -435,7 +426,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.MainView
     name: MainView
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   - name: ','
   - name: " "
@@ -457,7 +447,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Drawers.Drawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
     name: GetTexture
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_GetTexture_System_Object_UnityEngine_Rect_UnityEngine_Vector2Int_
   - name: (
   - uid: System.Object
@@ -478,7 +467,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Drawers.Drawer.GetTexture(System.Object,UnityEngine.Rect,UnityEngine.Vector2Int)
     name: GetTexture
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_GetTexture_System_Object_UnityEngine_Rect_UnityEngine_Vector2Int_
   - name: (
   - uid: System.Object
@@ -495,46 +483,6 @@ references:
   - uid: UnityEngine.Vector2Int
     name: Vector2Int
     isExternal: true
-  - name: )
-- uid: ISILab.LBS.Drawers.Drawer.FullRedrawRequested
-  commentId: P:ISILab.LBS.Drawers.Drawer.FullRedrawRequested
-  parent: ISILab.LBS.Drawers.Drawer
-  isExternal: true
-  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_FullRedrawRequested
-  name: FullRedrawRequested
-  nameWithType: Drawer.FullRedrawRequested
-  fullName: ISILab.LBS.Drawers.Drawer.FullRedrawRequested
-- uid: ISILab.LBS.Drawers.Drawer.DefaultSize
-  commentId: P:ISILab.LBS.Drawers.Drawer.DefaultSize
-  parent: ISILab.LBS.Drawers.Drawer
-  isExternal: true
-  href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_DefaultSize
-  name: DefaultSize
-  nameWithType: Drawer.DefaultSize
-  fullName: ISILab.LBS.Drawers.Drawer.DefaultSize
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -602,51 +550,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -731,6 +634,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -740,7 +712,6 @@ references:
   fullName: System
 - uid: ISILab.LBS.Drawers
   commentId: N:ISILab.LBS.Drawers
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Drawers
   nameWithType: ISILab.LBS.Drawers
@@ -748,32 +719,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Drawers
     name: Drawers
-    isExternal: true
     href: ISILab.LBS.Drawers.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Drawers
     name: Drawers
-    isExternal: true
     href: ISILab.LBS.Drawers.html
 - uid: ISILab.LBS.Drawers.Drawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
   commentId: M:ISILab.LBS.Drawers.Drawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
@@ -789,7 +754,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Drawers.Drawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
     name: Draw
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_Draw_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
   - name: (
   - uid: System.Object
@@ -800,7 +764,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.MainView
     name: MainView
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   - name: ','
   - name: " "
@@ -811,7 +774,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Drawers.Drawer.Draw(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
     name: Draw
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_Draw_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
   - name: (
   - uid: System.Object
@@ -822,7 +784,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.MainView
     name: MainView
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   - name: ','
   - name: " "
@@ -832,7 +793,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.Draw*
   commentId: Overload:ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.Draw
-  isExternal: true
   href: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.html#ISILab_LBS_Drawers_Editor_NodeDataBehaviourDrawer_Draw_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
   name: Draw
   nameWithType: NodeDataBehaviourDrawer.Draw
@@ -840,19 +800,19 @@ references:
 - uid: ISILab.LBS.Plugin.UI.Editor.MainView
   commentId: T:ISILab.LBS.Plugin.UI.Editor.MainView
   parent: ISILab.LBS.Plugin.UI.Editor
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   name: MainView
   nameWithType: MainView
   fullName: ISILab.LBS.Plugin.UI.Editor.MainView
 - uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
   fullName: UnityEngine.Vector2
 - uid: ISILab.LBS.Plugin.UI.Editor
   commentId: N:ISILab.LBS.Plugin.UI.Editor
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.UI.Editor
   nameWithType: ISILab.LBS.Plugin.UI.Editor
@@ -860,53 +820,49 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.Drawers.Drawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
   commentId: M:ISILab.LBS.Drawers.Drawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
   parent: ISILab.LBS.Drawers.Drawer
@@ -921,7 +877,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Drawers.Drawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
     name: UpdateTiles
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateTiles_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
   - name: (
   - uid: System.Object
@@ -932,7 +887,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.MainView
     name: MainView
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   - name: ','
   - name: " "
@@ -943,7 +897,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Drawers.Drawer.UpdateTiles(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView,UnityEngine.Vector2)
     name: UpdateTiles
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_UpdateTiles_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
   - name: (
   - uid: System.Object
@@ -954,7 +907,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.MainView
     name: MainView
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   - name: ','
   - name: " "
@@ -964,7 +916,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.UpdateTiles*
   commentId: Overload:ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.UpdateTiles
-  isExternal: true
   href: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.html#ISILab_LBS_Drawers_Editor_NodeDataBehaviourDrawer_UpdateTiles_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_UnityEngine_Vector2_
   name: UpdateTiles
   nameWithType: NodeDataBehaviourDrawer.UpdateTiles
@@ -983,7 +934,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Drawers.Drawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
     name: HideVisuals
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_HideVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
   - name: (
   - uid: System.Object
@@ -994,13 +944,11 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.MainView
     name: MainView
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Drawers.Drawer.HideVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
     name: HideVisuals
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_HideVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
   - name: (
   - uid: System.Object
@@ -1011,12 +959,10 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.MainView
     name: MainView
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   - name: )
 - uid: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.HideVisuals*
   commentId: Overload:ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.HideVisuals
-  isExternal: true
   href: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.html#ISILab_LBS_Drawers_Editor_NodeDataBehaviourDrawer_HideVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
   name: HideVisuals
   nameWithType: NodeDataBehaviourDrawer.HideVisuals
@@ -1035,7 +981,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Drawers.Drawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
     name: ShowVisuals
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_ShowVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
   - name: (
   - uid: System.Object
@@ -1046,13 +991,11 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.MainView
     name: MainView
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Drawers.Drawer.ShowVisuals(System.Object,ISILab.LBS.Plugin.UI.Editor.MainView)
     name: ShowVisuals
-    isExternal: true
     href: ISILab.LBS.Drawers.Drawer.html#ISILab_LBS_Drawers_Drawer_ShowVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
   - name: (
   - uid: System.Object
@@ -1063,19 +1006,16 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.MainView
     name: MainView
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.MainView.html
   - name: )
 - uid: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.ShowVisuals*
   commentId: Overload:ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.ShowVisuals
-  isExternal: true
   href: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.html#ISILab_LBS_Drawers_Editor_NodeDataBehaviourDrawer_ShowVisuals_System_Object_ISILab_LBS_Plugin_UI_Editor_MainView_
   name: ShowVisuals
   nameWithType: NodeDataBehaviourDrawer.ShowVisuals
   fullName: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.ShowVisuals
 - uid: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.CreateGrammarGraphView*
   commentId: Overload:ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.CreateGrammarGraphView
-  isExternal: true
   href: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.html#ISILab_LBS_Drawers_Editor_NodeDataBehaviourDrawer_CreateGrammarGraphView_ISILab_AI_Grammar_GrammarField_ISILab_LBS_VisualElements_QuestNodeView_
   name: CreateGrammarGraphView
   nameWithType: NodeDataBehaviourDrawer.CreateGrammarGraphView
@@ -1083,7 +1023,6 @@ references:
 - uid: ISILab.AI.Grammar.GrammarField
   commentId: T:ISILab.AI.Grammar.GrammarField
   parent: ISILab.AI.Grammar
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarField.html
   name: GrammarField
   nameWithType: GrammarField
@@ -1091,19 +1030,19 @@ references:
 - uid: ISILab.LBS.VisualElements.QuestNodeView
   commentId: T:ISILab.LBS.VisualElements.QuestNodeView
   parent: ISILab.LBS.VisualElements
-  isExternal: true
   href: ISILab.LBS.VisualElements.QuestNodeView.html
   name: QuestNodeView
   nameWithType: QuestNodeView
   fullName: ISILab.LBS.VisualElements.QuestNodeView
 - uid: UnityEditor.Experimental.GraphView.GraphElement
+  commentId: T:UnityEditor.Experimental.GraphView.GraphElement
+  parent: UnityEditor.Experimental.GraphView
   isExternal: true
   name: GraphElement
   nameWithType: GraphElement
   fullName: UnityEditor.Experimental.GraphView.GraphElement
 - uid: ISILab.AI.Grammar
   commentId: N:ISILab.AI.Grammar
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Grammar
   nameWithType: ISILab.AI.Grammar
@@ -1111,36 +1050,29 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Grammar
     name: Grammar
-    isExternal: true
     href: ISILab.AI.Grammar.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Grammar
     name: Grammar
-    isExternal: true
     href: ISILab.AI.Grammar.html
 - uid: ISILab.LBS.VisualElements
   commentId: N:ISILab.LBS.VisualElements
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.VisualElements
   nameWithType: ISILab.LBS.VisualElements
@@ -1148,41 +1080,55 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
-- uid: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.#ctor*
-  commentId: Overload:ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.#ctor
+- uid: UnityEditor.Experimental.GraphView
+  commentId: N:UnityEditor.Experimental.GraphView
   isExternal: true
-  href: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.html#ISILab_LBS_Drawers_Editor_NodeDataBehaviourDrawer__ctor
-  name: NodeDataBehaviourDrawer
-  nameWithType: NodeDataBehaviourDrawer.NodeDataBehaviourDrawer
-  fullName: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.NodeDataBehaviourDrawer
-  nameWithType.vb: NodeDataBehaviourDrawer.New
-  fullName.vb: ISILab.LBS.Drawers.Editor.NodeDataBehaviourDrawer.New
-  name.vb: New
+  name: UnityEditor.Experimental.GraphView
+  nameWithType: UnityEditor.Experimental.GraphView
+  fullName: UnityEditor.Experimental.GraphView
+  spec.csharp:
+  - uid: UnityEditor
+    name: UnityEditor
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.Experimental
+    name: Experimental
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.Experimental.GraphView
+    name: GraphView
+    isExternal: true
+  spec.vb:
+  - uid: UnityEditor
+    name: UnityEditor
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.Experimental
+    name: Experimental
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.Experimental.GraphView
+    name: GraphView
+    isExternal: true
 shouldSkipMarkup: true

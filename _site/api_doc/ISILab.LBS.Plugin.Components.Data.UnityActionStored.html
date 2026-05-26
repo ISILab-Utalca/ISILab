@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct UnityActionStored | lbs-api_docs ">
       
-      
+      <meta name="description" content="Meant to store necessary data to create Unity Actions. Has function to generate a UnityAction">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,11 +97,13 @@ Struct UnityActionStored
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Meant to store necessary data to create Unity Actions.
+Has function to generate a UnityAction</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct UnityActionStored : IEquatable&lt;UnityActionStored&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public struct UnityActionStored : IEquatable&lt;UnityActionStored&gt;</code></pre>
   </div>
 
 
@@ -123,10 +125,10 @@ Struct UnityActionStored
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
@@ -187,7 +189,8 @@ Struct UnityActionStored
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool TriggerOnce</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+public bool TriggerOnce</code></pre>
   </div>
 
 
@@ -217,7 +220,8 @@ Struct UnityActionStored
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string componentName</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+public string componentName</code></pre>
   </div>
 
 
@@ -247,7 +251,8 @@ Struct UnityActionStored
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LBSEventType eventType</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+public LBSEventType eventType</code></pre>
   </div>
 
 
@@ -277,7 +282,8 @@ Struct UnityActionStored
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string methodName</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+public string methodName</code></pre>
   </div>
 
 
@@ -307,7 +313,8 @@ Struct UnityActionStored
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string objectName</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+public string objectName</code></pre>
   </div>
 
 

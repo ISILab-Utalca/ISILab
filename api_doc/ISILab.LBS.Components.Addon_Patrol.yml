@@ -17,25 +17,89 @@ items:
   nameWithType: Addon_Patrol
   fullName: ISILab.LBS.Components.Addon_Patrol
   type: Class
+  source:
+    id: Addon_Patrol
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_Patrol.cs
+    startLine: 6
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: 'public class Addon_Patrol : BundleTileMapAddons, ICloneable'
-    content.vb: Public Class Addon_Patrol Inherits BundleTileMapAddons Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public class Addon_Patrol : BundleTileMapAddons, ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public Class Addon_Patrol Inherits BundleTileMapAddons Implements ICloneable
   inheritance:
   - System.Object
   - ISILab.LBS.Components.BundleTileMapAddons
   implements:
   - System.ICloneable
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Components.Addon_Patrol.Loops
+  commentId: P:ISILab.LBS.Components.Addon_Patrol.Loops
+  id: Loops
+  parent: ISILab.LBS.Components.Addon_Patrol
+  langs:
+  - csharp
+  - vb
+  name: Loops
+  nameWithType: Addon_Patrol.Loops
+  fullName: ISILab.LBS.Components.Addon_Patrol.Loops
+  type: Property
+  source:
+    id: Loops
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_Patrol.cs
+    startLine: 16
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public bool Loops { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Loops As Boolean
+  overload: ISILab.LBS.Components.Addon_Patrol.Loops*
+- uid: ISILab.LBS.Components.Addon_Patrol.Points
+  commentId: P:ISILab.LBS.Components.Addon_Patrol.Points
+  id: Points
+  parent: ISILab.LBS.Components.Addon_Patrol
+  langs:
+  - csharp
+  - vb
+  name: Points
+  nameWithType: Addon_Patrol.Points
+  fullName: ISILab.LBS.Components.Addon_Patrol.Points
+  type: Property
+  source:
+    id: Points
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_Patrol.cs
+    startLine: 24
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public List<Vector2> Points { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector2}
+    content.vb: Public Property Points As List(Of Vector2)
+  overload: ISILab.LBS.Components.Addon_Patrol.Points*
 - uid: ISILab.LBS.Components.Addon_Patrol.#ctor
   commentId: M:ISILab.LBS.Components.Addon_Patrol.#ctor
   id: '#ctor'
@@ -47,6 +111,10 @@ items:
   nameWithType: Addon_Patrol.Addon_Patrol()
   fullName: ISILab.LBS.Components.Addon_Patrol.Addon_Patrol()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_Patrol.cs
+    startLine: 34
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -68,6 +136,10 @@ items:
   nameWithType: Addon_Patrol.Addon_Patrol(List<Vector2>, bool)
   fullName: ISILab.LBS.Components.Addon_Patrol.Addon_Patrol(System.Collections.Generic.List<UnityEngine.Vector2>, bool)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_Patrol.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -94,6 +166,10 @@ items:
   nameWithType: Addon_Patrol.Clone()
   fullName: ISILab.LBS.Components.Addon_Patrol.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_Patrol.cs
+    startLine: 44
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -105,52 +181,9 @@ items:
     content.vb: Public Overrides Function Clone() As Object
   overridden: ISILab.LBS.Components.BundleTileMapAddons.Clone
   overload: ISILab.LBS.Components.Addon_Patrol.Clone*
-- uid: ISILab.LBS.Components.Addon_Patrol.Loops
-  commentId: P:ISILab.LBS.Components.Addon_Patrol.Loops
-  id: Loops
-  parent: ISILab.LBS.Components.Addon_Patrol
-  langs:
-  - csharp
-  - vb
-  name: Loops
-  nameWithType: Addon_Patrol.Loops
-  fullName: ISILab.LBS.Components.Addon_Patrol.Loops
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public bool Loops { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property Loops As Boolean
-  overload: ISILab.LBS.Components.Addon_Patrol.Loops*
-- uid: ISILab.LBS.Components.Addon_Patrol.Points
-  commentId: P:ISILab.LBS.Components.Addon_Patrol.Points
-  id: Points
-  parent: ISILab.LBS.Components.Addon_Patrol
-  langs:
-  - csharp
-  - vb
-  name: Points
-  nameWithType: Addon_Patrol.Points
-  fullName: ISILab.LBS.Components.Addon_Patrol.Points
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public List<Vector2> Points { get; set; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{UnityEngine.Vector2}
-    content.vb: Public Property Points As List(Of Vector2)
-  overload: ISILab.LBS.Components.Addon_Patrol.Points*
 references:
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Components
   nameWithType: ISILab.LBS.Components
@@ -158,32 +191,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
 - uid: System.Object
   commentId: T:System.Object
@@ -199,7 +226,6 @@ references:
 - uid: ISILab.LBS.Components.BundleTileMapAddons
   commentId: T:ISILab.LBS.Components.BundleTileMapAddons
   parent: ISILab.LBS.Components
-  isExternal: true
   href: ISILab.LBS.Components.BundleTileMapAddons.html
   name: BundleTileMapAddons
   nameWithType: BundleTileMapAddons
@@ -212,78 +238,6 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -362,6 +316,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -407,28 +433,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -438,16 +464,29 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.Components.Addon_Patrol.#ctor*
-  commentId: Overload:ISILab.LBS.Components.Addon_Patrol.#ctor
+- uid: ISILab.LBS.Components.Addon_Patrol.Loops*
+  commentId: Overload:ISILab.LBS.Components.Addon_Patrol.Loops
+  href: ISILab.LBS.Components.Addon_Patrol.html#ISILab_LBS_Components_Addon_Patrol_Loops
+  name: Loops
+  nameWithType: Addon_Patrol.Loops
+  fullName: ISILab.LBS.Components.Addon_Patrol.Loops
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
-  href: ISILab.LBS.Components.Addon_Patrol.html#ISILab_LBS_Components_Addon_Patrol__ctor
-  name: Addon_Patrol
-  nameWithType: Addon_Patrol.Addon_Patrol
-  fullName: ISILab.LBS.Components.Addon_Patrol.Addon_Patrol
-  nameWithType.vb: Addon_Patrol.New
-  fullName.vb: ISILab.LBS.Components.Addon_Patrol.New
-  name.vb: New
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Components.Addon_Patrol.Points*
+  commentId: Overload:ISILab.LBS.Components.Addon_Patrol.Points
+  href: ISILab.LBS.Components.Addon_Patrol.html#ISILab_LBS_Components_Addon_Patrol_Points
+  name: Points
+  nameWithType: Addon_Patrol.Points
+  fullName: ISILab.LBS.Components.Addon_Patrol.Points
 - uid: System.Collections.Generic.List{UnityEngine.Vector2}
   commentId: T:System.Collections.Generic.List{UnityEngine.Vector2}
   parent: System.Collections.Generic
@@ -481,17 +520,6 @@ references:
     name: Vector2
     isExternal: true
   - name: )
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
   isExternal: true
@@ -557,10 +585,18 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Components.Addon_Patrol.#ctor*
+  commentId: Overload:ISILab.LBS.Components.Addon_Patrol.#ctor
+  href: ISILab.LBS.Components.Addon_Patrol.html#ISILab_LBS_Components_Addon_Patrol__ctor
+  name: Addon_Patrol
+  nameWithType: Addon_Patrol.Addon_Patrol
+  fullName: ISILab.LBS.Components.Addon_Patrol.Addon_Patrol
+  nameWithType.vb: Addon_Patrol.New
+  fullName.vb: ISILab.LBS.Components.Addon_Patrol.New
+  name.vb: New
 - uid: ISILab.LBS.Components.BundleTileMapAddons.Clone
   commentId: M:ISILab.LBS.Components.BundleTileMapAddons.Clone
   parent: ISILab.LBS.Components.BundleTileMapAddons
-  isExternal: true
   href: ISILab.LBS.Components.BundleTileMapAddons.html#ISILab_LBS_Components_BundleTileMapAddons_Clone
   name: Clone()
   nameWithType: BundleTileMapAddons.Clone()
@@ -568,36 +604,19 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Components.BundleTileMapAddons.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Components.BundleTileMapAddons.html#ISILab_LBS_Components_BundleTileMapAddons_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Components.BundleTileMapAddons.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Components.BundleTileMapAddons.html#ISILab_LBS_Components_BundleTileMapAddons_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Components.Addon_Patrol.Clone*
   commentId: Overload:ISILab.LBS.Components.Addon_Patrol.Clone
-  isExternal: true
   href: ISILab.LBS.Components.Addon_Patrol.html#ISILab_LBS_Components_Addon_Patrol_Clone
   name: Clone
   nameWithType: Addon_Patrol.Clone
   fullName: ISILab.LBS.Components.Addon_Patrol.Clone
-- uid: ISILab.LBS.Components.Addon_Patrol.Loops*
-  commentId: Overload:ISILab.LBS.Components.Addon_Patrol.Loops
-  isExternal: true
-  href: ISILab.LBS.Components.Addon_Patrol.html#ISILab_LBS_Components_Addon_Patrol_Loops
-  name: Loops
-  nameWithType: Addon_Patrol.Loops
-  fullName: ISILab.LBS.Components.Addon_Patrol.Loops
-- uid: ISILab.LBS.Components.Addon_Patrol.Points*
-  commentId: Overload:ISILab.LBS.Components.Addon_Patrol.Points
-  isExternal: true
-  href: ISILab.LBS.Components.Addon_Patrol.html#ISILab_LBS_Components_Addon_Patrol_Points
-  name: Points
-  nameWithType: Addon_Patrol.Points
-  fullName: ISILab.LBS.Components.Addon_Patrol.Points
 shouldSkipMarkup: true

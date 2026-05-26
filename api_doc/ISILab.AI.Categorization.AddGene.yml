@@ -5,7 +5,6 @@ items:
   id: AddGene
   parent: ISILab.AI.Categorization
   children:
-  - ISILab.AI.Categorization.AddGene.#ctor
   - ISILab.AI.Categorization.AddGene.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
   - ISILab.AI.Categorization.AddGene.blackList
   langs:
@@ -15,6 +14,10 @@ items:
   nameWithType: AddGene
   fullName: ISILab.AI.Categorization.AddGene
   type: Class
+  source:
+    id: AddGene
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Mutations\AddGene.cs
+    startLine: 9
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -28,15 +31,15 @@ items:
   - GeneticSharp.Domain.Mutations.IMutation
   - GeneticSharp.Domain.Chromosomes.IChromosomeOperator
   inheritedMembers:
-  - GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
   - GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
+  - GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.AI.Categorization.AddGene.blackList
   commentId: F:ISILab.AI.Categorization.AddGene.blackList
   id: blackList
@@ -48,6 +51,10 @@ items:
   nameWithType: AddGene.blackList
   fullName: ISILab.AI.Categorization.AddGene.blackList
   type: Field
+  source:
+    id: blackList
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Mutations\AddGene.cs
+    startLine: 11
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -67,48 +74,33 @@ items:
   nameWithType: AddGene.PerformMutate(ChromosomeBase, float)
   fullName: ISILab.AI.Categorization.AddGene.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase, float)
   type: Method
+  source:
+    id: PerformMutate
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Mutations\AddGene.cs
+    startLine: 13
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
+  summary: Mutate the specified chromosome.
   example: []
   syntax:
     content: protected override void PerformMutate(ChromosomeBase chromosome, float probability)
     parameters:
     - id: chromosome
       type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+      description: The chromosome.
     - id: probability
       type: System.Single
+      description: The probability to mutate each chromosome.
     content.vb: Protected Overrides Sub PerformMutate(chromosome As ChromosomeBase, probability As Single)
   overridden: GeneticSharp.Domain.Mutations.MutationBase.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
   overload: ISILab.AI.Categorization.AddGene.PerformMutate*
   nameWithType.vb: AddGene.PerformMutate(ChromosomeBase, Single)
   fullName.vb: ISILab.AI.Categorization.AddGene.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase, Single)
   name.vb: PerformMutate(ChromosomeBase, Single)
-- uid: ISILab.AI.Categorization.AddGene.#ctor
-  commentId: M:ISILab.AI.Categorization.AddGene.#ctor
-  id: '#ctor'
-  parent: ISILab.AI.Categorization.AddGene
-  langs:
-  - csharp
-  - vb
-  name: AddGene()
-  nameWithType: AddGene.AddGene()
-  fullName: ISILab.AI.Categorization.AddGene.AddGene()
-  type: Constructor
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  syntax:
-    content: public AddGene()
-    content.vb: Public Sub New()
-  overload: ISILab.AI.Categorization.AddGene.#ctor*
-  nameWithType.vb: AddGene.New()
-  fullName.vb: ISILab.AI.Categorization.AddGene.New()
-  name.vb: New()
 references:
 - uid: ISILab.AI.Categorization
   commentId: N:ISILab.AI.Categorization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Categorization
   nameWithType: ISILab.AI.Categorization
@@ -116,32 +108,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
 - uid: System.Object
   commentId: T:System.Object
@@ -157,7 +143,6 @@ references:
 - uid: GeneticSharp.Domain.Mutations.MutationBase
   commentId: T:GeneticSharp.Domain.Mutations.MutationBase
   parent: GeneticSharp.Domain.Mutations
-  isExternal: true
   href: GeneticSharp.Domain.Mutations.MutationBase.html
   name: MutationBase
   nameWithType: MutationBase
@@ -165,7 +150,6 @@ references:
 - uid: GeneticSharp.Domain.Mutations.IMutation
   commentId: T:GeneticSharp.Domain.Mutations.IMutation
   parent: GeneticSharp.Domain.Mutations
-  isExternal: true
   href: GeneticSharp.Domain.Mutations.IMutation.html
   name: IMutation
   nameWithType: IMutation
@@ -173,11 +157,17 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
   commentId: T:GeneticSharp.Domain.Chromosomes.IChromosomeOperator
   parent: GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.html
   name: IChromosomeOperator
   nameWithType: IChromosomeOperator
   fullName: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+- uid: GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
+  commentId: P:GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
+  parent: GeneticSharp.Domain.Mutations.MutationBase
+  href: GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_IsOrdered
+  name: IsOrdered
+  nameWithType: MutationBase.IsOrdered
+  fullName: GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
 - uid: GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
   commentId: M:GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
   parent: GeneticSharp.Domain.Mutations.MutationBase
@@ -192,12 +182,10 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
     name: Mutate
-    isExternal: true
     href: GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: ','
   - name: " "
@@ -209,12 +197,10 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Mutations.MutationBase.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
     name: Mutate
-    isExternal: true
     href: GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: ','
   - name: " "
@@ -222,86 +208,6 @@ references:
     name: Single
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: )
-- uid: GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
-  commentId: P:GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
-  parent: GeneticSharp.Domain.Mutations.MutationBase
-  isExternal: true
-  href: GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_IsOrdered
-  name: IsOrdered
-  nameWithType: MutationBase.IsOrdered
-  fullName: GeneticSharp.Domain.Mutations.MutationBase.IsOrdered
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -381,6 +287,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -426,28 +404,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -459,7 +437,6 @@ references:
   fullName: System
 - uid: GeneticSharp.Domain.Mutations
   commentId: N:GeneticSharp.Domain.Mutations
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Mutations
   nameWithType: GeneticSharp.Domain.Mutations
@@ -467,36 +444,29 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Mutations
     name: Mutations
-    isExternal: true
     href: GeneticSharp.Domain.Mutations.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Mutations
     name: Mutations
-    isExternal: true
     href: GeneticSharp.Domain.Mutations.html
 - uid: GeneticSharp.Domain.Chromosomes
   commentId: N:GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Chromosomes
   nameWithType: GeneticSharp.Domain.Chromosomes
@@ -504,32 +474,26 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Chromosomes
     name: Chromosomes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Chromosomes
     name: Chromosomes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.html
 - uid: System.Collections.Generic.List{System.Object}
   commentId: T:System.Collections.Generic.List{System.Object}
@@ -645,12 +609,10 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Mutations.MutationBase.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
     name: PerformMutate
-    isExternal: true
     href: GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_PerformMutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: ','
   - name: " "
@@ -662,12 +624,10 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Mutations.MutationBase.PerformMutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
     name: PerformMutate
-    isExternal: true
     href: GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_PerformMutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: ','
   - name: " "
@@ -678,7 +638,6 @@ references:
   - name: )
 - uid: ISILab.AI.Categorization.AddGene.PerformMutate*
   commentId: Overload:ISILab.AI.Categorization.AddGene.PerformMutate
-  isExternal: true
   href: ISILab.AI.Categorization.AddGene.html#ISILab_AI_Categorization_AddGene_PerformMutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
   name: PerformMutate
   nameWithType: AddGene.PerformMutate
@@ -686,7 +645,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
   commentId: T:GeneticSharp.Domain.Chromosomes.ChromosomeBase
   parent: GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   name: ChromosomeBase
   nameWithType: ChromosomeBase
@@ -702,14 +660,4 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
-- uid: ISILab.AI.Categorization.AddGene.#ctor*
-  commentId: Overload:ISILab.AI.Categorization.AddGene.#ctor
-  isExternal: true
-  href: ISILab.AI.Categorization.AddGene.html#ISILab_AI_Categorization_AddGene__ctor
-  name: AddGene
-  nameWithType: AddGene.AddGene
-  fullName: ISILab.AI.Categorization.AddGene.AddGene
-  nameWithType.vb: AddGene.New
-  fullName.vb: ISILab.AI.Categorization.AddGene.New
-  name.vb: New
 shouldSkipMarkup: true

@@ -54,14 +54,26 @@ items:
   nameWithType: LBSManipulator
   fullName: ISILab.LBS.Manipulators.LBSManipulator
   type: Class
+  source:
+    id: LBSManipulator
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 17
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
   syntax:
-    content: 'public abstract class LBSManipulator : MouseManipulator'
-    content.vb: Public MustInherit Class LBSManipulator Inherits MouseManipulator
+    content: >-
+      [Serializable]
+
+      public abstract class LBSManipulator : MouseManipulator, IManipulator
+    content.vb: >-
+      <Serializable>
+
+      Public MustInherit Class LBSManipulator Inherits MouseManipulator Implements IManipulator
   inheritance:
   - System.Object
+  - UnityEngine.UIElements.Manipulator
+  - UnityEngine.UIElements.MouseManipulator
   derivedClasses:
   - ISILab.LBS.Manipulators.AddGraphNode
   - ISILab.LBS.Manipulators.AddNote
@@ -94,6 +106,24 @@ items:
   - ISILab.LBS.Manipulators.SetVertexExteriorTileConnection
   - ISILab.LBS.Manipulators.SetZoneConnection
   - ISILab.LBS.Plugin.Modules.Simulation.Editor.Manipulators.RemoveSimulationTile
+  implements:
+  - UnityEngine.UIElements.IManipulator
+  inheritedMembers:
+  - UnityEngine.UIElements.MouseManipulator.CanStartManipulation(UnityEngine.UIElements.IMouseEvent)
+  - UnityEngine.UIElements.MouseManipulator.CanStopManipulation(UnityEngine.UIElements.IMouseEvent)
+  - UnityEngine.UIElements.MouseManipulator.activators
+  - UnityEngine.UIElements.Manipulator.target
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Manipulators.LBSManipulator.LBSLayer
   commentId: F:ISILab.LBS.Manipulators.LBSManipulator.LBSLayer
   id: LBSLayer
@@ -105,6 +135,10 @@ items:
   nameWithType: LBSManipulator.LBSLayer
   fullName: ISILab.LBS.Manipulators.LBSManipulator.LBSLayer
   type: Field
+  source:
+    id: LBSLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 23
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -124,6 +158,10 @@ items:
   nameWithType: LBSManipulator.Feedback
   fullName: ISILab.LBS.Manipulators.LBSManipulator.Feedback
   type: Field
+  source:
+    id: Feedback
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 30
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -132,6 +170,391 @@ items:
     return:
       type: ISILab.LBS.VisualElements.Feedback
     content.vb: Protected Feedback As Feedback
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Adder
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Adder
+  id: Adder
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: Adder
+  nameWithType: LBSManipulator.Adder
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Adder
+  type: Property
+  source:
+    id: Adder
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 55
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  summary: referenced by deleters. If activatedByOther, sets adder as manipulator in MainView
+  example: []
+  syntax:
+    content: public LBSManipulator Adder { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Manipulators.LBSManipulator
+    content.vb: Public Property Adder As LBSManipulator
+  overload: ISILab.LBS.Manipulators.LBSManipulator.Adder*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Remover
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Remover
+  id: Remover
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: Remover
+  nameWithType: LBSManipulator.Remover
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Remover
+  type: Property
+  source:
+    id: Remover
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 60
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  summary: referenced by adders. usable by right click
+  example: []
+  syntax:
+    content: public LBSManipulator Remover { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Manipulators.LBSManipulator
+    content.vb: Public Property Remover As LBSManipulator
+  overload: ISILab.LBS.Manipulators.LBSManipulator.Remover*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.ObjectType
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.ObjectType
+  id: ObjectType
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: ObjectType
+  nameWithType: LBSManipulator.ObjectType
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.ObjectType
+  type: Property
+  source:
+    id: ObjectType
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 67
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: public Type ObjectType { get; set; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public Property ObjectType As Type
+  overload: ISILab.LBS.Manipulators.LBSManipulator.ObjectType*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Layer
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Layer
+  id: Layer
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: Layer
+  nameWithType: LBSManipulator.Layer
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Layer
+  type: Property
+  source:
+    id: Layer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 72
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: public LBSLayer Layer { get; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public ReadOnly Property Layer As LBSLayer
+  overload: ISILab.LBS.Manipulators.LBSManipulator.Layer*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Description
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Description
+  id: Description
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: LBSManipulator.Description
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Description
+  type: Property
+  source:
+    id: Description
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 73
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: ISILab.LBS.Manipulators.LBSManipulator.Description*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Name
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Name
+  id: Name
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: LBSManipulator.Name
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Name
+  type: Property
+  source:
+    id: Name
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 75
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: ISILab.LBS.Manipulators.LBSManipulator.Name*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.IconGuid
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.IconGuid
+  id: IconGuid
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: IconGuid
+  nameWithType: LBSManipulator.IconGuid
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.IconGuid
+  type: Property
+  source:
+    id: IconGuid
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 81
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: protected abstract string IconGuid { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Protected MustOverride ReadOnly Property IconGuid As String
+  overload: ISILab.LBS.Manipulators.LBSManipulator.IconGuid*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Icon
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Icon
+  id: Icon
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: LBSManipulator.Icon
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Icon
+  type: Property
+  source:
+    id: Icon
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 83
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: public VectorImage Icon { get; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Public ReadOnly Property Icon As VectorImage
+  overload: ISILab.LBS.Manipulators.LBSManipulator.Icon*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Started
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Started
+  id: Started
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: Started
+  nameWithType: LBSManipulator.Started
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Started
+  type: Property
+  source:
+    id: Started
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 85
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: protected bool Started { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Protected ReadOnly Property Started As Boolean
+  overload: ISILab.LBS.Manipulators.LBSManipulator.Started*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Ended
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Ended
+  id: Ended
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: Ended
+  nameWithType: LBSManipulator.Ended
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Ended
+  type: Property
+  source:
+    id: Ended
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 86
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: protected bool Ended { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Protected ReadOnly Property Ended As Boolean
+  overload: ISILab.LBS.Manipulators.LBSManipulator.Ended*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.ForceCancel
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.ForceCancel
+  id: ForceCancel
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: ForceCancel
+  nameWithType: LBSManipulator.ForceCancel
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.ForceCancel
+  type: Property
+  source:
+    id: ForceCancel
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 88
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: protected bool ForceCancel { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Protected Property ForceCancel As Boolean
+  overload: ISILab.LBS.Manipulators.LBSManipulator.ForceCancel*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage
+  id: OnToolUsage
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: OnToolUsage
+  nameWithType: LBSManipulator.OnToolUsage
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage
+  type: Property
+  source:
+    id: OnToolUsage
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 94
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: protected bool OnToolUsage { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Protected Property OnToolUsage As Boolean
+  overload: ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.StartPosition
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.StartPosition
+  id: StartPosition
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: StartPosition
+  nameWithType: LBSManipulator.StartPosition
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.StartPosition
+  type: Property
+  source:
+    id: StartPosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 100
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: public Vector2Int StartPosition { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Property StartPosition As Vector2Int
+  overload: ISILab.LBS.Manipulators.LBSManipulator.StartPosition*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.EndPosition
+  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.EndPosition
+  id: EndPosition
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: EndPosition
+  nameWithType: LBSManipulator.EndPosition
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.EndPosition
+  type: Property
+  source:
+    id: EndPosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 115
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  syntax:
+    content: public Vector2Int EndPosition { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public ReadOnly Property EndPosition As Vector2Int
+  overload: ISILab.LBS.Manipulators.LBSManipulator.EndPosition*
+- uid: ISILab.LBS.Manipulators.LBSManipulator.SetRemover(ISILab.LBS.Manipulators.LBSManipulator)
+  commentId: M:ISILab.LBS.Manipulators.LBSManipulator.SetRemover(ISILab.LBS.Manipulators.LBSManipulator)
+  id: SetRemover(ISILab.LBS.Manipulators.LBSManipulator)
+  parent: ISILab.LBS.Manipulators.LBSManipulator
+  langs:
+  - csharp
+  - vb
+  name: SetRemover(LBSManipulator)
+  nameWithType: LBSManipulator.SetRemover(LBSManipulator)
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.SetRemover(ISILab.LBS.Manipulators.LBSManipulator)
+  type: Method
+  source:
+    id: SetRemover
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 134
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Manipulators
+  summary: >-
+    Sets the manipulator that removes for the current manipulator's adding function.
+
+    Only assign this from an Adder manipulator.
+  example: []
+  syntax:
+    content: public void SetRemover(LBSManipulator remover)
+    parameters:
+    - id: remover
+      type: ISILab.LBS.Manipulators.LBSManipulator
+      description: ''
+    content.vb: Public Sub SetRemover(remover As LBSManipulator)
+  overload: ISILab.LBS.Manipulators.LBSManipulator.SetRemover*
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnManipulationNotification
   commentId: F:ISILab.LBS.Manipulators.LBSManipulator.OnManipulationNotification
   id: OnManipulationNotification
@@ -143,6 +566,10 @@ items:
   nameWithType: LBSManipulator.OnManipulationNotification
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnManipulationNotification
   type: Field
+  source:
+    id: OnManipulationNotification
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 143
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -162,6 +589,10 @@ items:
   nameWithType: LBSManipulator.OnManipulationStart
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnManipulationStart
   type: Field
+  source:
+    id: OnManipulationStart
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 144
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -181,6 +612,10 @@ items:
   nameWithType: LBSManipulator.OnManipulationUpdate
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnManipulationUpdate
   type: Field
+  source:
+    id: OnManipulationUpdate
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 145
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -200,6 +635,10 @@ items:
   nameWithType: LBSManipulator.OnManipulationEnd
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnManipulationEnd
   type: Field
+  source:
+    id: OnManipulationEnd
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 146
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -219,6 +658,10 @@ items:
   nameWithType: LBSManipulator.OnManipulationMove
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnManipulationMove
   type: Field
+  source:
+    id: OnManipulationMove
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 147
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -238,6 +681,10 @@ items:
   nameWithType: LBSManipulator.OnManipulationRightClick
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnManipulationRightClick
   type: Field
+  source:
+    id: OnManipulationRightClick
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 148
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -257,6 +704,10 @@ items:
   nameWithType: LBSManipulator.OnManipulationRightClickEnd
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnManipulationRightClickEnd
   type: Field
+  source:
+    id: OnManipulationRightClickEnd
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 149
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -276,6 +727,10 @@ items:
   nameWithType: LBSManipulator.OnManipulationLeftClickCtrl
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnManipulationLeftClickCtrl
   type: Field
+  source:
+    id: OnManipulationLeftClickCtrl
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 150
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -284,27 +739,6 @@ items:
     return:
       type: System.Action
     content.vb: Public OnManipulationLeftClickCtrl As Action
-- uid: ISILab.LBS.Manipulators.LBSManipulator.SetRemover(ISILab.LBS.Manipulators.LBSManipulator)
-  commentId: M:ISILab.LBS.Manipulators.LBSManipulator.SetRemover(ISILab.LBS.Manipulators.LBSManipulator)
-  id: SetRemover(ISILab.LBS.Manipulators.LBSManipulator)
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: SetRemover(LBSManipulator)
-  nameWithType: LBSManipulator.SetRemover(LBSManipulator)
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.SetRemover(ISILab.LBS.Manipulators.LBSManipulator)
-  type: Method
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: public void SetRemover(LBSManipulator remover)
-    parameters:
-    - id: remover
-      type: ISILab.LBS.Manipulators.LBSManipulator
-    content.vb: Public Sub SetRemover(remover As LBSManipulator)
-  overload: ISILab.LBS.Manipulators.LBSManipulator.SetRemover*
 - uid: ISILab.LBS.Manipulators.LBSManipulator.#ctor
   commentId: M:ISILab.LBS.Manipulators.LBSManipulator.#ctor
   id: '#ctor'
@@ -316,6 +750,10 @@ items:
   nameWithType: LBSManipulator.LBSManipulator()
   fullName: ISILab.LBS.Manipulators.LBSManipulator.LBSManipulator()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 157
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -337,13 +775,19 @@ items:
   nameWithType: LBSManipulator.RegisterCallbacksOnTarget()
   fullName: ISILab.LBS.Manipulators.LBSManipulator.RegisterCallbacksOnTarget()
   type: Method
+  source:
+    id: RegisterCallbacksOnTarget
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 171
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
+  summary: Registers mouse event callbacks on the target element.
   example: []
   syntax:
     content: protected override void RegisterCallbacksOnTarget()
     content.vb: Protected Overrides Sub RegisterCallbacksOnTarget()
+  overridden: UnityEngine.UIElements.Manipulator.RegisterCallbacksOnTarget
   overload: ISILab.LBS.Manipulators.LBSManipulator.RegisterCallbacksOnTarget*
 - uid: ISILab.LBS.Manipulators.LBSManipulator.UnregisterCallbacksFromTarget
   commentId: M:ISILab.LBS.Manipulators.LBSManipulator.UnregisterCallbacksFromTarget
@@ -356,13 +800,19 @@ items:
   nameWithType: LBSManipulator.UnregisterCallbacksFromTarget()
   fullName: ISILab.LBS.Manipulators.LBSManipulator.UnregisterCallbacksFromTarget()
   type: Method
+  source:
+    id: UnregisterCallbacksFromTarget
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 187
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
+  summary: Unregisters mouse event callbacks from the target element.
   example: []
   syntax:
     content: protected override void UnregisterCallbacksFromTarget()
     content.vb: Protected Overrides Sub UnregisterCallbacksFromTarget()
+  overridden: UnityEngine.UIElements.Manipulator.UnregisterCallbacksFromTarget
   overload: ISILab.LBS.Manipulators.LBSManipulator.UnregisterCallbacksFromTarget*
 - uid: ISILab.LBS.Manipulators.LBSManipulator.SetFeedback(ISILab.LBS.VisualElements.Feedback)
   commentId: M:ISILab.LBS.Manipulators.LBSManipulator.SetFeedback(ISILab.LBS.VisualElements.Feedback)
@@ -375,6 +825,10 @@ items:
   nameWithType: LBSManipulator.SetFeedback(Feedback)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.SetFeedback(ISILab.LBS.VisualElements.Feedback)
   type: Method
+  source:
+    id: SetFeedback
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 208
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -396,14 +850,21 @@ items:
   nameWithType: LBSManipulator.OnInternalMouseDown(MouseDownEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseDown(UnityEngine.UIElements.MouseDownEvent)
   type: Method
+  source:
+    id: OnInternalMouseDown
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 261
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
+  summary: Handles the internal mouse down event.
+  example: []
   syntax:
     content: protected void OnInternalMouseDown(MouseDownEvent @event)
     parameters:
     - id: event
       type: UnityEngine.UIElements.MouseDownEvent
+      description: ''
     content.vb: Protected Sub OnInternalMouseDown([event] As MouseDownEvent)
   overload: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseDown*
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseMove(UnityEngine.UIElements.MouseMoveEvent)
@@ -417,14 +878,21 @@ items:
   nameWithType: LBSManipulator.OnInternalMouseMove(MouseMoveEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseMove(UnityEngine.UIElements.MouseMoveEvent)
   type: Method
+  source:
+    id: OnInternalMouseMove
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 318
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
+  summary: Handles the internal mouse move event.
+  example: []
   syntax:
     content: protected void OnInternalMouseMove(MouseMoveEvent @event)
     parameters:
     - id: event
       type: UnityEngine.UIElements.MouseMoveEvent
+      description: ''
     content.vb: Protected Sub OnInternalMouseMove([event] As MouseMoveEvent)
   overload: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseMove*
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseUp(UnityEngine.UIElements.MouseUpEvent)
@@ -438,14 +906,21 @@ items:
   nameWithType: LBSManipulator.OnInternalMouseUp(MouseUpEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseUp(UnityEngine.UIElements.MouseUpEvent)
   type: Method
+  source:
+    id: OnInternalMouseUp
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 357
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
+  summary: Handles the internal mouse up event.
+  example: []
   syntax:
     content: protected void OnInternalMouseUp(MouseUpEvent @event)
     parameters:
     - id: event
       type: UnityEngine.UIElements.MouseUpEvent
+      description: ''
     content.vb: Protected Sub OnInternalMouseUp([event] As MouseUpEvent)
   overload: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseUp*
 - uid: ISILab.LBS.Manipulators.LBSManipulator.Init(LBS.Components.LBSLayer,System.Object)
@@ -459,6 +934,10 @@ items:
   nameWithType: LBSManipulator.Init(LBSLayer, object)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.Init(LBS.Components.LBSLayer, object)
   type: Method
+  source:
+    id: Init
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 426
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -485,6 +964,10 @@ items:
   nameWithType: LBSManipulator.UpdateView()
   fullName: ISILab.LBS.Manipulators.LBSManipulator.UpdateView()
   type: Method
+  source:
+    id: UpdateView
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 432
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -503,6 +986,10 @@ items:
   nameWithType: LBSManipulator.OnMouseDown(VisualElement, Vector2Int, MouseDownEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnMouseDown(UnityEngine.UIElements.VisualElement, UnityEngine.Vector2Int, UnityEngine.UIElements.MouseDownEvent)
   type: Method
+  source:
+    id: OnMouseDown
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 434
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -528,6 +1015,10 @@ items:
   nameWithType: LBSManipulator.OnMouseLeave(VisualElement, MouseLeaveEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnMouseLeave(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.MouseLeaveEvent)
   type: Method
+  source:
+    id: OnMouseLeave
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 436
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -551,6 +1042,10 @@ items:
   nameWithType: LBSManipulator.OnMouseEnter(VisualElement, MouseEnterEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnMouseEnter(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.MouseEnterEvent)
   type: Method
+  source:
+    id: OnMouseEnter
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 438
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -574,6 +1069,10 @@ items:
   nameWithType: LBSManipulator.OnMouseMove(VisualElement, Vector2Int, MouseMoveEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnMouseMove(UnityEngine.UIElements.VisualElement, UnityEngine.Vector2Int, UnityEngine.UIElements.MouseMoveEvent)
   type: Method
+  source:
+    id: OnMouseMove
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 440
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -599,6 +1098,10 @@ items:
   nameWithType: LBSManipulator.OnMouseUp(VisualElement, Vector2Int, MouseUpEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnMouseUp(UnityEngine.UIElements.VisualElement, UnityEngine.Vector2Int, UnityEngine.UIElements.MouseUpEvent)
   type: Method
+  source:
+    id: OnMouseUp
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 442
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -624,6 +1127,10 @@ items:
   nameWithType: LBSManipulator.OnKeyDown(KeyDownEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnKeyDown(UnityEngine.UIElements.KeyDownEvent)
   type: Method
+  source:
+    id: OnKeyDown
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 448
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -645,6 +1152,10 @@ items:
   nameWithType: LBSManipulator.OnKeyUp(KeyUpEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnKeyUp(UnityEngine.UIElements.KeyUpEvent)
   type: Method
+  source:
+    id: OnKeyUp
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 462
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -666,6 +1177,10 @@ items:
   nameWithType: LBSManipulator.OnWheelEvent(WheelEvent)
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnWheelEvent(UnityEngine.UIElements.WheelEvent)
   type: Method
+  source:
+    id: OnWheelEvent
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Manipulators\LBSManipulator.cs
+    startLine: 468
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Manipulators
@@ -676,304 +1191,9 @@ items:
       type: UnityEngine.UIElements.WheelEvent
     content.vb: Protected Overridable Sub OnWheelEvent(e As WheelEvent)
   overload: ISILab.LBS.Manipulators.LBSManipulator.OnWheelEvent*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Adder
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Adder
-  id: Adder
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: Adder
-  nameWithType: LBSManipulator.Adder
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Adder
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: public LBSManipulator Adder { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Manipulators.LBSManipulator
-    content.vb: Public ReadOnly Property Adder As LBSManipulator
-  overload: ISILab.LBS.Manipulators.LBSManipulator.Adder*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Remover
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Remover
-  id: Remover
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: Remover
-  nameWithType: LBSManipulator.Remover
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Remover
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: public LBSManipulator Remover { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Manipulators.LBSManipulator
-    content.vb: Public ReadOnly Property Remover As LBSManipulator
-  overload: ISILab.LBS.Manipulators.LBSManipulator.Remover*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.ObjectType
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.ObjectType
-  id: ObjectType
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: ObjectType
-  nameWithType: LBSManipulator.ObjectType
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.ObjectType
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: public Type ObjectType { get; set; }
-    parameters: []
-    return:
-      type: System.Type
-    content.vb: Public Property ObjectType As Type
-  overload: ISILab.LBS.Manipulators.LBSManipulator.ObjectType*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Layer
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Layer
-  id: Layer
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: Layer
-  nameWithType: LBSManipulator.Layer
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Layer
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: public LBSLayer Layer { get; }
-    parameters: []
-    return:
-      type: LBS.Components.LBSLayer
-    content.vb: Public ReadOnly Property Layer As LBSLayer
-  overload: ISILab.LBS.Manipulators.LBSManipulator.Layer*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Description
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Description
-  id: Description
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: Description
-  nameWithType: LBSManipulator.Description
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Description
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: public string Description { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property Description As String
-  overload: ISILab.LBS.Manipulators.LBSManipulator.Description*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Name
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Name
-  id: Name
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: Name
-  nameWithType: LBSManipulator.Name
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Name
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: public string Name { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property Name As String
-  overload: ISILab.LBS.Manipulators.LBSManipulator.Name*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.IconGuid
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.IconGuid
-  id: IconGuid
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: IconGuid
-  nameWithType: LBSManipulator.IconGuid
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.IconGuid
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: protected abstract string IconGuid { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Protected MustOverride ReadOnly Property IconGuid As String
-  overload: ISILab.LBS.Manipulators.LBSManipulator.IconGuid*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Icon
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Icon
-  id: Icon
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: Icon
-  nameWithType: LBSManipulator.Icon
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Icon
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: public VectorImage Icon { get; }
-    parameters: []
-    return:
-      type: UnityEngine.UIElements.VectorImage
-    content.vb: Public ReadOnly Property Icon As VectorImage
-  overload: ISILab.LBS.Manipulators.LBSManipulator.Icon*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Started
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Started
-  id: Started
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: Started
-  nameWithType: LBSManipulator.Started
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Started
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: protected bool Started { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Protected ReadOnly Property Started As Boolean
-  overload: ISILab.LBS.Manipulators.LBSManipulator.Started*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Ended
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.Ended
-  id: Ended
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: Ended
-  nameWithType: LBSManipulator.Ended
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Ended
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: protected bool Ended { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Protected ReadOnly Property Ended As Boolean
-  overload: ISILab.LBS.Manipulators.LBSManipulator.Ended*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.ForceCancel
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.ForceCancel
-  id: ForceCancel
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: ForceCancel
-  nameWithType: LBSManipulator.ForceCancel
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.ForceCancel
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: protected bool ForceCancel { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Protected Property ForceCancel As Boolean
-  overload: ISILab.LBS.Manipulators.LBSManipulator.ForceCancel*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage
-  id: OnToolUsage
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: OnToolUsage
-  nameWithType: LBSManipulator.OnToolUsage
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: protected bool OnToolUsage { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Protected Property OnToolUsage As Boolean
-  overload: ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.StartPosition
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.StartPosition
-  id: StartPosition
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: StartPosition
-  nameWithType: LBSManipulator.StartPosition
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.StartPosition
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: public Vector2Int StartPosition { get; set; }
-    parameters: []
-    return:
-      type: UnityEngine.Vector2Int
-    content.vb: Public Property StartPosition As Vector2Int
-  overload: ISILab.LBS.Manipulators.LBSManipulator.StartPosition*
-- uid: ISILab.LBS.Manipulators.LBSManipulator.EndPosition
-  commentId: P:ISILab.LBS.Manipulators.LBSManipulator.EndPosition
-  id: EndPosition
-  parent: ISILab.LBS.Manipulators.LBSManipulator
-  langs:
-  - csharp
-  - vb
-  name: EndPosition
-  nameWithType: LBSManipulator.EndPosition
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.EndPosition
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Manipulators
-  syntax:
-    content: public Vector2Int EndPosition { get; }
-    parameters: []
-    return:
-      type: UnityEngine.Vector2Int
-    content.vb: Public ReadOnly Property EndPosition As Vector2Int
-  overload: ISILab.LBS.Manipulators.LBSManipulator.EndPosition*
 references:
 - uid: ISILab.LBS.Manipulators
   commentId: N:ISILab.LBS.Manipulators
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Manipulators
   nameWithType: ISILab.LBS.Manipulators
@@ -981,32 +1201,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Manipulators
     name: Manipulators
-    isExternal: true
     href: ISILab.LBS.Manipulators.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Manipulators
     name: Manipulators
-    isExternal: true
     href: ISILab.LBS.Manipulators.html
 - uid: System.Object
   commentId: T:System.Object
@@ -1019,6 +1233,310 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: UnityEngine.UIElements.Manipulator
+  commentId: T:UnityEngine.UIElements.Manipulator
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: Manipulator
+  nameWithType: Manipulator
+  fullName: UnityEngine.UIElements.Manipulator
+- uid: UnityEngine.UIElements.MouseManipulator
+  commentId: T:UnityEngine.UIElements.MouseManipulator
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: MouseManipulator
+  nameWithType: MouseManipulator
+  fullName: UnityEngine.UIElements.MouseManipulator
+- uid: UnityEngine.UIElements.IManipulator
+  commentId: T:UnityEngine.UIElements.IManipulator
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: IManipulator
+  nameWithType: IManipulator
+  fullName: UnityEngine.UIElements.IManipulator
+- uid: UnityEngine.UIElements.MouseManipulator.CanStartManipulation(UnityEngine.UIElements.IMouseEvent)
+  commentId: M:UnityEngine.UIElements.MouseManipulator.CanStartManipulation(UnityEngine.UIElements.IMouseEvent)
+  parent: UnityEngine.UIElements.MouseManipulator
+  isExternal: true
+  name: CanStartManipulation(IMouseEvent)
+  nameWithType: MouseManipulator.CanStartManipulation(IMouseEvent)
+  fullName: UnityEngine.UIElements.MouseManipulator.CanStartManipulation(UnityEngine.UIElements.IMouseEvent)
+  spec.csharp:
+  - uid: UnityEngine.UIElements.MouseManipulator.CanStartManipulation(UnityEngine.UIElements.IMouseEvent)
+    name: CanStartManipulation
+    isExternal: true
+  - name: (
+  - uid: UnityEngine.UIElements.IMouseEvent
+    name: IMouseEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.UIElements.MouseManipulator.CanStartManipulation(UnityEngine.UIElements.IMouseEvent)
+    name: CanStartManipulation
+    isExternal: true
+  - name: (
+  - uid: UnityEngine.UIElements.IMouseEvent
+    name: IMouseEvent
+    isExternal: true
+  - name: )
+- uid: UnityEngine.UIElements.MouseManipulator.CanStopManipulation(UnityEngine.UIElements.IMouseEvent)
+  commentId: M:UnityEngine.UIElements.MouseManipulator.CanStopManipulation(UnityEngine.UIElements.IMouseEvent)
+  parent: UnityEngine.UIElements.MouseManipulator
+  isExternal: true
+  name: CanStopManipulation(IMouseEvent)
+  nameWithType: MouseManipulator.CanStopManipulation(IMouseEvent)
+  fullName: UnityEngine.UIElements.MouseManipulator.CanStopManipulation(UnityEngine.UIElements.IMouseEvent)
+  spec.csharp:
+  - uid: UnityEngine.UIElements.MouseManipulator.CanStopManipulation(UnityEngine.UIElements.IMouseEvent)
+    name: CanStopManipulation
+    isExternal: true
+  - name: (
+  - uid: UnityEngine.UIElements.IMouseEvent
+    name: IMouseEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.UIElements.MouseManipulator.CanStopManipulation(UnityEngine.UIElements.IMouseEvent)
+    name: CanStopManipulation
+    isExternal: true
+  - name: (
+  - uid: UnityEngine.UIElements.IMouseEvent
+    name: IMouseEvent
+    isExternal: true
+  - name: )
+- uid: UnityEngine.UIElements.MouseManipulator.activators
+  commentId: P:UnityEngine.UIElements.MouseManipulator.activators
+  parent: UnityEngine.UIElements.MouseManipulator
+  isExternal: true
+  name: activators
+  nameWithType: MouseManipulator.activators
+  fullName: UnityEngine.UIElements.MouseManipulator.activators
+- uid: UnityEngine.UIElements.Manipulator.target
+  commentId: P:UnityEngine.UIElements.Manipulator.target
+  parent: UnityEngine.UIElements.Manipulator
+  isExternal: true
+  name: target
+  nameWithType: Manipulator.target
+  fullName: UnityEngine.UIElements.Manipulator.target
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -1026,17 +1544,37 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
 - uid: LBS.Components.LBSLayer
   commentId: T:LBS.Components.LBSLayer
   parent: LBS.Components
-  isExternal: true
   href: LBS.Components.LBSLayer.html
   name: LBSLayer
   nameWithType: LBSLayer
   fullName: LBS.Components.LBSLayer
 - uid: LBS.Components
   commentId: N:LBS.Components
-  isExternal: true
   href: LBS.html
   name: LBS.Components
   nameWithType: LBS.Components
@@ -1044,34 +1582,28 @@ references:
   spec.csharp:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
   spec.vb:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
 - uid: ISILab.LBS.VisualElements.Feedback
   commentId: T:ISILab.LBS.VisualElements.Feedback
   parent: ISILab.LBS.VisualElements
-  isExternal: true
   href: ISILab.LBS.VisualElements.Feedback.html
   name: Feedback
   nameWithType: Feedback
   fullName: ISILab.LBS.VisualElements.Feedback
 - uid: ISILab.LBS.VisualElements
   commentId: N:ISILab.LBS.VisualElements
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.VisualElements
   nameWithType: ISILab.LBS.VisualElements
@@ -1079,33 +1611,174 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Adder*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Adder
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Adder
+  name: Adder
+  nameWithType: LBSManipulator.Adder
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Adder
+- uid: ISILab.LBS.Manipulators.LBSManipulator
+  commentId: T:ISILab.LBS.Manipulators.LBSManipulator
+  parent: ISILab.LBS.Manipulators
+  href: ISILab.LBS.Manipulators.LBSManipulator.html
+  name: LBSManipulator
+  nameWithType: LBSManipulator
+  fullName: ISILab.LBS.Manipulators.LBSManipulator
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Remover*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Remover
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Remover
+  name: Remover
+  nameWithType: LBSManipulator.Remover
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Remover
+- uid: ISILab.LBS.Manipulators.LBSManipulator.ObjectType*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.ObjectType
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_ObjectType
+  name: ObjectType
+  nameWithType: LBSManipulator.ObjectType
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.ObjectType
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Layer*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Layer
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Layer
+  name: Layer
+  nameWithType: LBSManipulator.Layer
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Layer
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Description*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Description
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Description
+  name: Description
+  nameWithType: LBSManipulator.Description
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Description
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Name*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Name
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Name
+  name: Name
+  nameWithType: LBSManipulator.Name
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Name
+- uid: ISILab.LBS.Manipulators.LBSManipulator.IconGuid*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.IconGuid
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_IconGuid
+  name: IconGuid
+  nameWithType: LBSManipulator.IconGuid
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.IconGuid
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Icon*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Icon
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Icon
+  name: Icon
+  nameWithType: LBSManipulator.Icon
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Icon
+- uid: UnityEngine.UIElements.VectorImage
+  commentId: T:UnityEngine.UIElements.VectorImage
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: VectorImage
+  nameWithType: VectorImage
+  fullName: UnityEngine.UIElements.VectorImage
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Started*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Started
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Started
+  name: Started
+  nameWithType: LBSManipulator.Started
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Started
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Manipulators.LBSManipulator.Ended*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Ended
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Ended
+  name: Ended
+  nameWithType: LBSManipulator.Ended
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.Ended
+- uid: ISILab.LBS.Manipulators.LBSManipulator.ForceCancel*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.ForceCancel
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_ForceCancel
+  name: ForceCancel
+  nameWithType: LBSManipulator.ForceCancel
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.ForceCancel
+- uid: ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnToolUsage
+  name: OnToolUsage
+  nameWithType: LBSManipulator.OnToolUsage
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage
+- uid: ISILab.LBS.Manipulators.LBSManipulator.StartPosition*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.StartPosition
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_StartPosition
+  name: StartPosition
+  nameWithType: LBSManipulator.StartPosition
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.StartPosition
+- uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.LBS.Manipulators.LBSManipulator.EndPosition*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.EndPosition
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_EndPosition
+  name: EndPosition
+  nameWithType: LBSManipulator.EndPosition
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.EndPosition
+- uid: ISILab.LBS.Manipulators.LBSManipulator.SetRemover*
+  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.SetRemover
+  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_SetRemover_ISILab_LBS_Manipulators_LBSManipulator_
+  name: SetRemover
+  nameWithType: LBSManipulator.SetRemover
+  fullName: ISILab.LBS.Manipulators.LBSManipulator.SetRemover
 - uid: System.Action
   commentId: T:System.Action
   parent: System
@@ -1175,24 +1848,8 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: ISILab.LBS.Manipulators.LBSManipulator.SetRemover*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.SetRemover
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_SetRemover_ISILab_LBS_Manipulators_LBSManipulator_
-  name: SetRemover
-  nameWithType: LBSManipulator.SetRemover
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.SetRemover
-- uid: ISILab.LBS.Manipulators.LBSManipulator
-  commentId: T:ISILab.LBS.Manipulators.LBSManipulator
-  parent: ISILab.LBS.Manipulators
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html
-  name: LBSManipulator
-  nameWithType: LBSManipulator
-  fullName: ISILab.LBS.Manipulators.LBSManipulator
 - uid: ISILab.LBS.Manipulators.LBSManipulator.#ctor*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.#ctor
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator__ctor
   name: LBSManipulator
   nameWithType: LBSManipulator.LBSManipulator
@@ -1200,300 +1857,201 @@ references:
   nameWithType.vb: LBSManipulator.New
   fullName.vb: ISILab.LBS.Manipulators.LBSManipulator.New
   name.vb: New
+- uid: UnityEngine.UIElements.Manipulator.RegisterCallbacksOnTarget
+  commentId: M:UnityEngine.UIElements.Manipulator.RegisterCallbacksOnTarget
+  parent: UnityEngine.UIElements.Manipulator
+  isExternal: true
+  name: RegisterCallbacksOnTarget()
+  nameWithType: Manipulator.RegisterCallbacksOnTarget()
+  fullName: UnityEngine.UIElements.Manipulator.RegisterCallbacksOnTarget()
+  spec.csharp:
+  - uid: UnityEngine.UIElements.Manipulator.RegisterCallbacksOnTarget
+    name: RegisterCallbacksOnTarget
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.UIElements.Manipulator.RegisterCallbacksOnTarget
+    name: RegisterCallbacksOnTarget
+    isExternal: true
+  - name: (
+  - name: )
 - uid: ISILab.LBS.Manipulators.LBSManipulator.RegisterCallbacksOnTarget*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.RegisterCallbacksOnTarget
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_RegisterCallbacksOnTarget
   name: RegisterCallbacksOnTarget
   nameWithType: LBSManipulator.RegisterCallbacksOnTarget
   fullName: ISILab.LBS.Manipulators.LBSManipulator.RegisterCallbacksOnTarget
+- uid: UnityEngine.UIElements.Manipulator.UnregisterCallbacksFromTarget
+  commentId: M:UnityEngine.UIElements.Manipulator.UnregisterCallbacksFromTarget
+  parent: UnityEngine.UIElements.Manipulator
+  isExternal: true
+  name: UnregisterCallbacksFromTarget()
+  nameWithType: Manipulator.UnregisterCallbacksFromTarget()
+  fullName: UnityEngine.UIElements.Manipulator.UnregisterCallbacksFromTarget()
+  spec.csharp:
+  - uid: UnityEngine.UIElements.Manipulator.UnregisterCallbacksFromTarget
+    name: UnregisterCallbacksFromTarget
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.UIElements.Manipulator.UnregisterCallbacksFromTarget
+    name: UnregisterCallbacksFromTarget
+    isExternal: true
+  - name: (
+  - name: )
 - uid: ISILab.LBS.Manipulators.LBSManipulator.UnregisterCallbacksFromTarget*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.UnregisterCallbacksFromTarget
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_UnregisterCallbacksFromTarget
   name: UnregisterCallbacksFromTarget
   nameWithType: LBSManipulator.UnregisterCallbacksFromTarget
   fullName: ISILab.LBS.Manipulators.LBSManipulator.UnregisterCallbacksFromTarget
 - uid: ISILab.LBS.Manipulators.LBSManipulator.SetFeedback*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.SetFeedback
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_SetFeedback_ISILab_LBS_VisualElements_Feedback_
   name: SetFeedback
   nameWithType: LBSManipulator.SetFeedback
   fullName: ISILab.LBS.Manipulators.LBSManipulator.SetFeedback
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseDown*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseDown
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnInternalMouseDown_UnityEngine_UIElements_MouseDownEvent_
   name: OnInternalMouseDown
   nameWithType: LBSManipulator.OnInternalMouseDown
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseDown
 - uid: UnityEngine.UIElements.MouseDownEvent
+  commentId: T:UnityEngine.UIElements.MouseDownEvent
+  parent: UnityEngine.UIElements
   isExternal: true
   name: MouseDownEvent
   nameWithType: MouseDownEvent
   fullName: UnityEngine.UIElements.MouseDownEvent
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseMove*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseMove
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnInternalMouseMove_UnityEngine_UIElements_MouseMoveEvent_
   name: OnInternalMouseMove
   nameWithType: LBSManipulator.OnInternalMouseMove
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseMove
 - uid: UnityEngine.UIElements.MouseMoveEvent
+  commentId: T:UnityEngine.UIElements.MouseMoveEvent
+  parent: UnityEngine.UIElements
   isExternal: true
   name: MouseMoveEvent
   nameWithType: MouseMoveEvent
   fullName: UnityEngine.UIElements.MouseMoveEvent
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseUp*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseUp
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnInternalMouseUp_UnityEngine_UIElements_MouseUpEvent_
   name: OnInternalMouseUp
   nameWithType: LBSManipulator.OnInternalMouseUp
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnInternalMouseUp
 - uid: UnityEngine.UIElements.MouseUpEvent
+  commentId: T:UnityEngine.UIElements.MouseUpEvent
+  parent: UnityEngine.UIElements
   isExternal: true
   name: MouseUpEvent
   nameWithType: MouseUpEvent
   fullName: UnityEngine.UIElements.MouseUpEvent
 - uid: ISILab.LBS.Manipulators.LBSManipulator.Init*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Init
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Init_LBS_Components_LBSLayer_System_Object_
   name: Init
   nameWithType: LBSManipulator.Init
   fullName: ISILab.LBS.Manipulators.LBSManipulator.Init
 - uid: ISILab.LBS.Manipulators.LBSManipulator.UpdateView*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.UpdateView
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_UpdateView
   name: UpdateView
   nameWithType: LBSManipulator.UpdateView
   fullName: ISILab.LBS.Manipulators.LBSManipulator.UpdateView
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnMouseDown*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnMouseDown
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnMouseDown_UnityEngine_UIElements_VisualElement_UnityEngine_Vector2Int_UnityEngine_UIElements_MouseDownEvent_
   name: OnMouseDown
   nameWithType: LBSManipulator.OnMouseDown
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnMouseDown
 - uid: UnityEngine.UIElements.VisualElement
+  commentId: T:UnityEngine.UIElements.VisualElement
+  parent: UnityEngine.UIElements
   isExternal: true
   name: VisualElement
   nameWithType: VisualElement
   fullName: UnityEngine.UIElements.VisualElement
-- uid: UnityEngine.Vector2Int
-  isExternal: true
-  name: Vector2Int
-  nameWithType: Vector2Int
-  fullName: UnityEngine.Vector2Int
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnMouseLeave*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnMouseLeave
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnMouseLeave_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_MouseLeaveEvent_
   name: OnMouseLeave
   nameWithType: LBSManipulator.OnMouseLeave
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnMouseLeave
 - uid: UnityEngine.UIElements.MouseLeaveEvent
+  commentId: T:UnityEngine.UIElements.MouseLeaveEvent
+  parent: UnityEngine.UIElements
   isExternal: true
   name: MouseLeaveEvent
   nameWithType: MouseLeaveEvent
   fullName: UnityEngine.UIElements.MouseLeaveEvent
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnMouseEnter*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnMouseEnter
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnMouseEnter_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_MouseEnterEvent_
   name: OnMouseEnter
   nameWithType: LBSManipulator.OnMouseEnter
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnMouseEnter
 - uid: UnityEngine.UIElements.MouseEnterEvent
+  commentId: T:UnityEngine.UIElements.MouseEnterEvent
+  parent: UnityEngine.UIElements
   isExternal: true
   name: MouseEnterEvent
   nameWithType: MouseEnterEvent
   fullName: UnityEngine.UIElements.MouseEnterEvent
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnMouseMove*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnMouseMove
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnMouseMove_UnityEngine_UIElements_VisualElement_UnityEngine_Vector2Int_UnityEngine_UIElements_MouseMoveEvent_
   name: OnMouseMove
   nameWithType: LBSManipulator.OnMouseMove
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnMouseMove
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnMouseUp*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnMouseUp
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnMouseUp_UnityEngine_UIElements_VisualElement_UnityEngine_Vector2Int_UnityEngine_UIElements_MouseUpEvent_
   name: OnMouseUp
   nameWithType: LBSManipulator.OnMouseUp
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnMouseUp
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnKeyDown*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnKeyDown
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnKeyDown_UnityEngine_UIElements_KeyDownEvent_
   name: OnKeyDown
   nameWithType: LBSManipulator.OnKeyDown
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnKeyDown
 - uid: UnityEngine.UIElements.KeyDownEvent
+  commentId: T:UnityEngine.UIElements.KeyDownEvent
+  parent: UnityEngine.UIElements
   isExternal: true
   name: KeyDownEvent
   nameWithType: KeyDownEvent
   fullName: UnityEngine.UIElements.KeyDownEvent
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnKeyUp*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnKeyUp
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnKeyUp_UnityEngine_UIElements_KeyUpEvent_
   name: OnKeyUp
   nameWithType: LBSManipulator.OnKeyUp
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnKeyUp
 - uid: UnityEngine.UIElements.KeyUpEvent
+  commentId: T:UnityEngine.UIElements.KeyUpEvent
+  parent: UnityEngine.UIElements
   isExternal: true
   name: KeyUpEvent
   nameWithType: KeyUpEvent
   fullName: UnityEngine.UIElements.KeyUpEvent
 - uid: ISILab.LBS.Manipulators.LBSManipulator.OnWheelEvent*
   commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnWheelEvent
-  isExternal: true
   href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnWheelEvent_UnityEngine_UIElements_WheelEvent_
   name: OnWheelEvent
   nameWithType: LBSManipulator.OnWheelEvent
   fullName: ISILab.LBS.Manipulators.LBSManipulator.OnWheelEvent
 - uid: UnityEngine.UIElements.WheelEvent
-  commentId: '!:UnityEngine.UIElements.WheelEvent'
+  commentId: T:UnityEngine.UIElements.WheelEvent
+  parent: UnityEngine.UIElements
   isExternal: true
   name: WheelEvent
   nameWithType: WheelEvent
   fullName: UnityEngine.UIElements.WheelEvent
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Adder*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Adder
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Adder
-  name: Adder
-  nameWithType: LBSManipulator.Adder
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Adder
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Remover*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Remover
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Remover
-  name: Remover
-  nameWithType: LBSManipulator.Remover
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Remover
-- uid: ISILab.LBS.Manipulators.LBSManipulator.ObjectType*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.ObjectType
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_ObjectType
-  name: ObjectType
-  nameWithType: LBSManipulator.ObjectType
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.ObjectType
-- uid: System.Type
-  commentId: T:System.Type
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: Type
-  nameWithType: Type
-  fullName: System.Type
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Layer*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Layer
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Layer
-  name: Layer
-  nameWithType: LBSManipulator.Layer
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Layer
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Description*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Description
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Description
-  name: Description
-  nameWithType: LBSManipulator.Description
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Description
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Name*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Name
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Name
-  name: Name
-  nameWithType: LBSManipulator.Name
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Name
-- uid: ISILab.LBS.Manipulators.LBSManipulator.IconGuid*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.IconGuid
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_IconGuid
-  name: IconGuid
-  nameWithType: LBSManipulator.IconGuid
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.IconGuid
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Icon*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Icon
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Icon
-  name: Icon
-  nameWithType: LBSManipulator.Icon
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Icon
-- uid: UnityEngine.UIElements.VectorImage
-  isExternal: true
-  name: VectorImage
-  nameWithType: VectorImage
-  fullName: UnityEngine.UIElements.VectorImage
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Started*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Started
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Started
-  name: Started
-  nameWithType: LBSManipulator.Started
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Started
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: ISILab.LBS.Manipulators.LBSManipulator.Ended*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.Ended
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Ended
-  name: Ended
-  nameWithType: LBSManipulator.Ended
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.Ended
-- uid: ISILab.LBS.Manipulators.LBSManipulator.ForceCancel*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.ForceCancel
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_ForceCancel
-  name: ForceCancel
-  nameWithType: LBSManipulator.ForceCancel
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.ForceCancel
-- uid: ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnToolUsage
-  name: OnToolUsage
-  nameWithType: LBSManipulator.OnToolUsage
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.OnToolUsage
-- uid: ISILab.LBS.Manipulators.LBSManipulator.StartPosition*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.StartPosition
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_StartPosition
-  name: StartPosition
-  nameWithType: LBSManipulator.StartPosition
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.StartPosition
-- uid: ISILab.LBS.Manipulators.LBSManipulator.EndPosition*
-  commentId: Overload:ISILab.LBS.Manipulators.LBSManipulator.EndPosition
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_EndPosition
-  name: EndPosition
-  nameWithType: LBSManipulator.EndPosition
-  fullName: ISILab.LBS.Manipulators.LBSManipulator.EndPosition
 shouldSkipMarkup: true

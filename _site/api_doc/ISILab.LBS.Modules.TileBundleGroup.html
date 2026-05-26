@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class TileBundleGroup | lbs-api_docs ">
       
-      
+      <meta name="description" content="So TileBundlePairs are a little too limited in functionality since they only link a tile to bundle data and that&#39;s it. I made a reworked version that SHOULD allow for multiple tiles to be stored with an ID.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,11 +97,13 @@ Class TileBundleGroup
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">So TileBundlePairs are a little too limited in functionality since they only link a tile to bundle data and that's it.
+I made a reworked version that SHOULD allow for multiple tiles to be stored with an ID.</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TileBundleGroup : ICloneable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class TileBundleGroup : ICloneable</code></pre>
   </div>
 
 
@@ -127,19 +129,19 @@ Class TileBundleGroup
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -303,7 +305,8 @@ Class TileBundleGroup
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BundleData BundleData { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public BundleData BundleData { get; set; }</code></pre>
   </div>
 
 
@@ -334,7 +337,8 @@ Class TileBundleGroup
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string LocationKey { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public string LocationKey { get; set; }</code></pre>
   </div>
 
 
@@ -365,7 +369,8 @@ Class TileBundleGroup
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Rotatable { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public bool Rotatable { get; set; }</code></pre>
   </div>
 
 
@@ -396,7 +401,8 @@ Class TileBundleGroup
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2 Rotation { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Vector2 Rotation { get; set; }</code></pre>
   </div>
 
 
@@ -427,7 +433,8 @@ Class TileBundleGroup
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;LBSTile&gt; TileGroup { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;LBSTile&gt; TileGroup { get; set; }</code></pre>
   </div>
 
 
@@ -860,7 +867,8 @@ Class TileBundleGroup
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Meant to notify any Quest Node Data that references this tilemap, in order for it to be
+Garbage Collected Correctly</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IChromosome | lbs-api_docs ">
       
-      
+      <meta name="description" content="Defines an interface for a chromosome.  In genetic algorithms, a chromosome (also sometimes called a genome) is a set of parameters  which define a proposed solution to the problem that the genetic algorithm is trying to solve.  The chromosome is often represented as a simple string, although a wide variety of other data  structures are also used. http://en.wikipedia.org/wiki/Chromosome_(genetic_algorithm)">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,14 @@ Interface IChromosome
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Defines an interface for a chromosome.
+<remarks>
+In genetic algorithms, a chromosome (also sometimes called a genome) is a set of parameters 
+which define a proposed solution to the problem that the genetic algorithm is trying to solve. 
+The chromosome is often represented as a simple string, although a wide variety of other data 
+structures are also used.
+<a href="http://en.wikipedia.org/wiki/Chromosome_(genetic_algorithm)">http://en.wikipedia.org/wiki/Chromosome_(genetic_algorithm)</a> 
+</remarks></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -117,12 +124,6 @@ Interface IChromosome
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto">IComparable&lt;IChromosome&gt;.CompareTo(IChromosome)</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew">IOptimizable.CreateNew()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString">IOptimizable.ToString()</a>
-    </div>
-    <div>
       <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_Fitness">IOptimizable.Fitness</a>
     </div>
     <div>
@@ -130,6 +131,12 @@ Interface IChromosome
     </div>
     <div>
       <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_yFitness">IOptimizable.yFitness</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew">IOptimizable.CreateNew()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString">IOptimizable.ToString()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable.clone">ICloneable.Clone()</a>
@@ -159,7 +166,7 @@ Interface IChromosome
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the length.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -173,7 +180,7 @@ Interface IChromosome
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The length.</dd>
   </dl>
 
 
@@ -194,7 +201,7 @@ Interface IChromosome
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates a clone.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -205,7 +212,7 @@ Interface IChromosome
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html">IChromosome</a></dt>
-    <dd></dd>
+    <dd>The chromosome clone.</dd>
   </dl>
 
 
@@ -225,7 +232,7 @@ Interface IChromosome
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates a new chromosome using the same structure of this.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -236,7 +243,7 @@ Interface IChromosome
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="GeneticSharp.Domain.Chromosomes.IChromosome.html">IChromosome</a></dt>
-    <dd></dd>
+    <dd>The new chromosome.</dd>
   </dl>
 
 
@@ -256,7 +263,7 @@ Interface IChromosome
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Generates the gene for the specified index.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -267,7 +274,7 @@ Interface IChromosome
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>The gene.</dd>
   </dl>
 
 
@@ -395,7 +402,7 @@ Interface IChromosome
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the gene in the specified index.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -405,13 +412,13 @@ Interface IChromosome
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The gene index.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">T</span></dt>
-    <dd></dd>
+    <dd>The gene.</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
@@ -467,7 +474,7 @@ Interface IChromosome
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the genes.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -478,7 +485,7 @@ Interface IChromosome
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt>T[]</dt>
-    <dd></dd>
+    <dd>The genes.</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
@@ -534,7 +541,7 @@ Interface IChromosome
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Replaces the gene in the specified index.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -544,9 +551,9 @@ Interface IChromosome
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The gene index to replace.</dd>
     <dt><code>gene</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd>The new gene.</dd>
   </dl>
 
 
@@ -572,7 +579,7 @@ Interface IChromosome
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Replaces the genes starting in the specified index.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -582,9 +589,9 @@ Interface IChromosome
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>startIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>Start index.</dd>
     <dt><code>genes</code> T[]</dt>
-    <dd></dd>
+    <dd>The genes.</dd>
   </dl>
 
 
@@ -599,6 +606,8 @@ Interface IChromosome
 
 
 
+  <h4 class="section" id="GeneticSharp_Domain_Chromosomes_IChromosome_ReplaceGenes__1_System_Int32___0____remarks">Remarks</h4>
+  <div class="markdown level1 remarks">The genes to be replaced can't be greater than the available space between the start index and the end of the chromosome.</div>
 
 
 
@@ -610,7 +619,7 @@ Interface IChromosome
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Resizes the chromosome to the new length.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -620,7 +629,7 @@ Interface IChromosome
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>newLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The new length.</dd>
   </dl>
 
 

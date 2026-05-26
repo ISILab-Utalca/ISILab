@@ -22,6 +22,10 @@ items:
   nameWithType: Colonies.Colony
   fullName: ISILab.AI.Categorization.Colonies.Colony
   type: Struct
+  source:
+    id: Colony
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 66
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -32,8 +36,8 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: ISILab.AI.Categorization.Colonies.Colony.members
   commentId: F:ISILab.AI.Categorization.Colonies.Colony.members
@@ -46,6 +50,10 @@ items:
   nameWithType: Colonies.Colony.members
   fullName: ISILab.AI.Categorization.Colonies.Colony.members
   type: Field
+  source:
+    id: members
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 68
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -65,6 +73,10 @@ items:
   nameWithType: Colonies.Colony.center
   fullName: ISILab.AI.Categorization.Colonies.Colony.center
   type: Field
+  source:
+    id: center
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 69
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -73,6 +85,31 @@ items:
     return:
       type: System.Int32
     content.vb: Public center As Integer
+- uid: ISILab.AI.Categorization.Colonies.Colony.Size
+  commentId: P:ISILab.AI.Categorization.Colonies.Colony.Size
+  id: Size
+  parent: ISILab.AI.Categorization.Colonies.Colony
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: Colonies.Colony.Size
+  fullName: ISILab.AI.Categorization.Colonies.Colony.Size
+  type: Property
+  source:
+    id: Size
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 71
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: public int Size { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Size As Integer
+  overload: ISILab.AI.Categorization.Colonies.Colony.Size*
 - uid: ISILab.AI.Categorization.Colonies.Colony.#ctor(System.Int32[])
   commentId: M:ISILab.AI.Categorization.Colonies.Colony.#ctor(System.Int32[])
   id: '#ctor(System.Int32[])'
@@ -84,6 +121,10 @@ items:
   nameWithType: Colonies.Colony.Colony(params int[])
   fullName: ISILab.AI.Categorization.Colonies.Colony.Colony(params int[])
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 73
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -108,6 +149,10 @@ items:
   nameWithType: Colonies.Colony.Colony(List<int>)
   fullName: ISILab.AI.Categorization.Colonies.Colony.Colony(System.Collections.Generic.List<int>)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 79
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -132,6 +177,10 @@ items:
   nameWithType: Colonies.Colony.GetCenter(ChromosomeBase2D)
   fullName: ISILab.AI.Categorization.Colonies.Colony.GetCenter(ISILab.AI.Categorization.ChromosomeBase2D)
   type: Method
+  source:
+    id: GetCenter
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 85
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -155,6 +204,10 @@ items:
   nameWithType: Colonies.Colony.SetCenter(ChromosomeBase2D)
   fullName: ISILab.AI.Categorization.Colonies.Colony.SetCenter(ISILab.AI.Categorization.ChromosomeBase2D)
   type: Method
+  source:
+    id: SetCenter
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 143
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -178,6 +231,10 @@ items:
   nameWithType: Colonies.Colony.AddCenter(int)
   fullName: ISILab.AI.Categorization.Colonies.Colony.AddCenter(int)
   type: Method
+  source:
+    id: AddCenter
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 149
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -202,6 +259,10 @@ items:
   nameWithType: Colonies.Colony.Contains(int)
   fullName: ISILab.AI.Categorization.Colonies.Colony.Contains(int)
   type: Method
+  source:
+    id: Contains
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 155
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -217,27 +278,6 @@ items:
   nameWithType.vb: Colonies.Colony.Contains(Integer)
   fullName.vb: ISILab.AI.Categorization.Colonies.Colony.Contains(Integer)
   name.vb: Contains(Integer)
-- uid: ISILab.AI.Categorization.Colonies.Colony.Size
-  commentId: P:ISILab.AI.Categorization.Colonies.Colony.Size
-  id: Size
-  parent: ISILab.AI.Categorization.Colonies.Colony
-  langs:
-  - csharp
-  - vb
-  name: Size
-  nameWithType: Colonies.Colony.Size
-  fullName: ISILab.AI.Categorization.Colonies.Colony.Size
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  syntax:
-    content: public int Size { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property Size As Integer
-  overload: ISILab.AI.Categorization.Colonies.Colony.Size*
 - uid: ISILab.AI.Categorization.Colonies.Colony.Item(System.Int32)
   commentId: P:ISILab.AI.Categorization.Colonies.Colony.Item(System.Int32)
   id: Item(System.Int32)
@@ -249,6 +289,10 @@ items:
   nameWithType: Colonies.Colony.this[int]
   fullName: ISILab.AI.Categorization.Colonies.Colony.this[int]
   type: Property
+  source:
+    id: this[]
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\Colonies.cs
+    startLine: 157
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -267,7 +311,6 @@ items:
 references:
 - uid: ISILab.AI.Categorization
   commentId: N:ISILab.AI.Categorization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Categorization
   nameWithType: ISILab.AI.Categorization
@@ -275,32 +318,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
 - uid: System.ValueType.Equals(System.Object)
   commentId: M:System.ValueType.Equals(System.Object)
@@ -379,30 +416,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -447,6 +460,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -630,9 +667,14 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: ISILab.AI.Categorization.Colonies.Colony.Size*
+  commentId: Overload:ISILab.AI.Categorization.Colonies.Colony.Size
+  href: ISILab.AI.Categorization.Colonies.Colony.html#ISILab_AI_Categorization_Colonies_Colony_Size
+  name: Size
+  nameWithType: Colonies.Colony.Size
+  fullName: ISILab.AI.Categorization.Colonies.Colony.Size
 - uid: ISILab.AI.Categorization.Colonies.Colony.#ctor*
   commentId: Overload:ISILab.AI.Categorization.Colonies.Colony.#ctor
-  isExternal: true
   href: ISILab.AI.Categorization.Colonies.Colony.html#ISILab_AI_Categorization_Colonies_Colony__ctor_System_Int32___
   name: Colony
   nameWithType: Colonies.Colony.Colony
@@ -665,7 +707,6 @@ references:
   - name: )
 - uid: ISILab.AI.Categorization.Colonies.Colony.GetCenter*
   commentId: Overload:ISILab.AI.Categorization.Colonies.Colony.GetCenter
-  isExternal: true
   href: ISILab.AI.Categorization.Colonies.Colony.html#ISILab_AI_Categorization_Colonies_Colony_GetCenter_ISILab_AI_Categorization_ChromosomeBase2D_
   name: GetCenter
   nameWithType: Colonies.Colony.GetCenter
@@ -673,14 +714,12 @@ references:
 - uid: ISILab.AI.Categorization.ChromosomeBase2D
   commentId: T:ISILab.AI.Categorization.ChromosomeBase2D
   parent: ISILab.AI.Categorization
-  isExternal: true
   href: ISILab.AI.Categorization.ChromosomeBase2D.html
   name: ChromosomeBase2D
   nameWithType: ChromosomeBase2D
   fullName: ISILab.AI.Categorization.ChromosomeBase2D
 - uid: ISILab.AI.Categorization.Colonies.Colony.SetCenter*
   commentId: Overload:ISILab.AI.Categorization.Colonies.Colony.SetCenter
-  isExternal: true
   href: ISILab.AI.Categorization.Colonies.Colony.html#ISILab_AI_Categorization_Colonies_Colony_SetCenter_ISILab_AI_Categorization_ChromosomeBase2D_
   name: SetCenter
   nameWithType: Colonies.Colony.SetCenter
@@ -688,7 +727,6 @@ references:
 - uid: ISILab.AI.Categorization.Colonies.Colony
   commentId: T:ISILab.AI.Categorization.Colonies.Colony
   parent: ISILab.AI.Categorization
-  isExternal: true
   href: ISILab.AI.Categorization.Colonies.html
   name: Colonies.Colony
   nameWithType: Colonies.Colony
@@ -696,33 +734,27 @@ references:
   spec.csharp:
   - uid: ISILab.AI.Categorization.Colonies
     name: Colonies
-    isExternal: true
     href: ISILab.AI.Categorization.Colonies.html
   - name: .
   - uid: ISILab.AI.Categorization.Colonies.Colony
     name: Colony
-    isExternal: true
     href: ISILab.AI.Categorization.Colonies.Colony.html
   spec.vb:
   - uid: ISILab.AI.Categorization.Colonies
     name: Colonies
-    isExternal: true
     href: ISILab.AI.Categorization.Colonies.html
   - name: .
   - uid: ISILab.AI.Categorization.Colonies.Colony
     name: Colony
-    isExternal: true
     href: ISILab.AI.Categorization.Colonies.Colony.html
 - uid: ISILab.AI.Categorization.Colonies.Colony.AddCenter*
   commentId: Overload:ISILab.AI.Categorization.Colonies.Colony.AddCenter
-  isExternal: true
   href: ISILab.AI.Categorization.Colonies.Colony.html#ISILab_AI_Categorization_Colonies_Colony_AddCenter_System_Int32_
   name: AddCenter
   nameWithType: Colonies.Colony.AddCenter
   fullName: ISILab.AI.Categorization.Colonies.Colony.AddCenter
 - uid: ISILab.AI.Categorization.Colonies.Colony.Contains*
   commentId: Overload:ISILab.AI.Categorization.Colonies.Colony.Contains
-  isExternal: true
   href: ISILab.AI.Categorization.Colonies.Colony.html#ISILab_AI_Categorization_Colonies_Colony_Contains_System_Int32_
   name: Contains
   nameWithType: Colonies.Colony.Contains
@@ -738,16 +770,8 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: ISILab.AI.Categorization.Colonies.Colony.Size*
-  commentId: Overload:ISILab.AI.Categorization.Colonies.Colony.Size
-  isExternal: true
-  href: ISILab.AI.Categorization.Colonies.Colony.html#ISILab_AI_Categorization_Colonies_Colony_Size
-  name: Size
-  nameWithType: Colonies.Colony.Size
-  fullName: ISILab.AI.Categorization.Colonies.Colony.Size
 - uid: ISILab.AI.Categorization.Colonies.Colony.Item*
   commentId: Overload:ISILab.AI.Categorization.Colonies.Colony.Item
-  isExternal: true
   href: ISILab.AI.Categorization.Colonies.Colony.html#ISILab_AI_Categorization_Colonies_Colony_Item_System_Int32_
   name: this
   nameWithType: Colonies.Colony.this

@@ -16,6 +16,10 @@ items:
   nameWithType: IBlueprintable
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
   type: Interface
+  source:
+    id: IBlueprintable
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Blueprints\IBlueprintable.cs
+    startLine: 4
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
@@ -39,18 +43,27 @@ items:
   nameWithType: IBlueprintable.MergeLayerData(object, bool)
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData(object, bool)
   type: Method
+  source:
+    id: MergeLayerData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Blueprints\IBlueprintable.cs
+    startLine: 14
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  summary: Merges two layers into one
+  example: []
   syntax:
     content: bool MergeLayerData(object incoming, bool overwrite)
     parameters:
     - id: incoming
       type: System.Object
+      description: the layer that is merged
     - id: overwrite
       type: System.Boolean
+      description: true -&gt; incoming overrides original
     return:
       type: System.Boolean
+      description: ''
     content.vb: Function MergeLayerData(incoming As Object, overwrite As Boolean) As Boolean
   overload: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData*
   nameWithType.vb: IBlueprintable.MergeLayerData(Object, Boolean)
@@ -67,18 +80,30 @@ items:
   nameWithType: IBlueprintable.CaptureAreaData(Vector2Int, Vector2Int)
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: CaptureAreaData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Blueprints\IBlueprintable.cs
+    startLine: 23
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  summary: >-
+    Should return an object (module, behavior, assistant, etc) with a clone 
+
+    of the selected area
+  example: []
   syntax:
     content: bool CaptureAreaData(Vector2Int min, Vector2Int max)
     parameters:
     - id: min
       type: UnityEngine.Vector2Int
+      description: top left corner
     - id: max
       type: UnityEngine.Vector2Int
+      description: bottom right corner
     return:
       type: System.Boolean
+      description: true if there is any content within the area. Meaning to store the layer
     content.vb: Function CaptureAreaData(min As Vector2Int, max As Vector2Int) As Boolean
   overload: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData*
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
@@ -92,9 +117,15 @@ items:
   nameWithType: IBlueprintable.SetPosition(Vector2Int, Vector2Int)
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: SetPosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Blueprints\IBlueprintable.cs
+    startLine: 29
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  summary: Add an offset to the content of a given object type
+  example: []
   syntax:
     content: void SetPosition(Vector2Int parentAnchor, Vector2Int delta)
     parameters:
@@ -102,6 +133,7 @@ items:
       type: UnityEngine.Vector2Int
     - id: delta
       type: UnityEngine.Vector2Int
+      description: value to apply to move an obejct
     content.vb: Sub SetPosition(parentAnchor As Vector2Int, delta As Vector2Int)
   overload: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition*
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
@@ -115,19 +147,25 @@ items:
   nameWithType: IBlueprintable.GetAnchor()
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor()
   type: Method
+  source:
+    id: GetAnchor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Blueprints\IBlueprintable.cs
+    startLine: 35
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
+  summary: Gets the anchor/origin of this layer's objects
+  example: []
   syntax:
     content: Vector2Int GetAnchor()
     return:
       type: UnityEngine.Vector2Int
+      description: the top left object coordinate
     content.vb: Function GetAnchor() As Vector2Int
   overload: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor*
 references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
   commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
   nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
@@ -135,76 +173,61 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
     name: Blueprint
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
     name: Blueprint
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.html
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_MergeLayerData_System_Object_System_Boolean_
   name: MergeLayerData
   nameWithType: IBlueprintable.MergeLayerData
@@ -240,26 +263,31 @@ references:
   fullName: System
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_CaptureAreaData_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
   name: CaptureAreaData
   nameWithType: IBlueprintable.CaptureAreaData
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData
 - uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
   isExternal: true
   name: Vector2Int
   nameWithType: Vector2Int
   fullName: UnityEngine.Vector2Int
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_SetPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
   name: SetPosition
   nameWithType: IBlueprintable.SetPosition
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_GetAnchor
   name: GetAnchor
   nameWithType: IBlueprintable.GetAnchor

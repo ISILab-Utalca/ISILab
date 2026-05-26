@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class PrintInArea | lbs-api_docs ">
       
-      
+      <meta name="description" content="Prints a blueprint (data, objects, layer, etc.) into the graph">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,11 +97,11 @@ Class PrintInArea
   <dl><dt>Assembly</dt><dd>LBS.Editor.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Prints a blueprint (data, objects, layer, etc.) into the graph</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PrintInArea : ManipulateTeselation</code></pre>
+    <pre><code class="lang-csharp hljs">public class PrintInArea : ManipulateTeselation, IManipulator</code></pre>
   </div>
 
 
@@ -111,12 +111,20 @@ Class PrintInArea
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Manipulator</span></div>
+      <div><span class="xref">MouseManipulator</span></div>
       <div><a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html">LBSManipulator</a></div>
       <div><a class="xref" href="ISILab.LBS.Manipulators.ManipulateTeselation.html">ManipulateTeselation</a></div>
       <div><span class="xref">PrintInArea</span></div>
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">IManipulator</span></div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -130,69 +138,6 @@ Class PrintInArea
     </div>
     <div>
       <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Feedback">LBSManipulator.Feedback</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationNotification">LBSManipulator.OnManipulationNotification</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationStart">LBSManipulator.OnManipulationStart</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationUpdate">LBSManipulator.OnManipulationUpdate</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationEnd">LBSManipulator.OnManipulationEnd</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationMove">LBSManipulator.OnManipulationMove</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationRightClick">LBSManipulator.OnManipulationRightClick</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationRightClickEnd">LBSManipulator.OnManipulationRightClickEnd</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationLeftClickCtrl">LBSManipulator.OnManipulationLeftClickCtrl</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_SetRemover_ISILab_LBS_Manipulators_LBSManipulator_">LBSManipulator.SetRemover(LBSManipulator)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_RegisterCallbacksOnTarget">LBSManipulator.RegisterCallbacksOnTarget()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_UnregisterCallbacksFromTarget">LBSManipulator.UnregisterCallbacksFromTarget()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_SetFeedback_ISILab_LBS_VisualElements_Feedback_">LBSManipulator.SetFeedback(Feedback)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnInternalMouseDown_UnityEngine_UIElements_MouseDownEvent_">LBSManipulator.OnInternalMouseDown(MouseDownEvent)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnInternalMouseMove_UnityEngine_UIElements_MouseMoveEvent_">LBSManipulator.OnInternalMouseMove(MouseMoveEvent)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnInternalMouseUp_UnityEngine_UIElements_MouseUpEvent_">LBSManipulator.OnInternalMouseUp(MouseUpEvent)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_UpdateView">LBSManipulator.UpdateView()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnMouseLeave_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_MouseLeaveEvent_">LBSManipulator.OnMouseLeave(VisualElement, MouseLeaveEvent)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnMouseEnter_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_MouseEnterEvent_">LBSManipulator.OnMouseEnter(VisualElement, MouseEnterEvent)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnKeyDown_UnityEngine_UIElements_KeyDownEvent_">LBSManipulator.OnKeyDown(KeyDownEvent)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnKeyUp_UnityEngine_UIElements_KeyUpEvent_">LBSManipulator.OnKeyUp(KeyUpEvent)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnWheelEvent_UnityEngine_UIElements_WheelEvent_">LBSManipulator.OnWheelEvent(WheelEvent)</a>
     </div>
     <div>
       <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_Adder">LBSManipulator.Adder</a>
@@ -232,6 +177,102 @@ Class PrintInArea
     </div>
     <div>
       <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_EndPosition">LBSManipulator.EndPosition</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_SetRemover_ISILab_LBS_Manipulators_LBSManipulator_">LBSManipulator.SetRemover(LBSManipulator)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationNotification">LBSManipulator.OnManipulationNotification</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationStart">LBSManipulator.OnManipulationStart</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationUpdate">LBSManipulator.OnManipulationUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationEnd">LBSManipulator.OnManipulationEnd</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationMove">LBSManipulator.OnManipulationMove</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationRightClick">LBSManipulator.OnManipulationRightClick</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationRightClickEnd">LBSManipulator.OnManipulationRightClickEnd</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnManipulationLeftClickCtrl">LBSManipulator.OnManipulationLeftClickCtrl</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_RegisterCallbacksOnTarget">LBSManipulator.RegisterCallbacksOnTarget()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_UnregisterCallbacksFromTarget">LBSManipulator.UnregisterCallbacksFromTarget()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_SetFeedback_ISILab_LBS_VisualElements_Feedback_">LBSManipulator.SetFeedback(Feedback)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnInternalMouseDown_UnityEngine_UIElements_MouseDownEvent_">LBSManipulator.OnInternalMouseDown(MouseDownEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnInternalMouseMove_UnityEngine_UIElements_MouseMoveEvent_">LBSManipulator.OnInternalMouseMove(MouseMoveEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnInternalMouseUp_UnityEngine_UIElements_MouseUpEvent_">LBSManipulator.OnInternalMouseUp(MouseUpEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_UpdateView">LBSManipulator.UpdateView()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnMouseLeave_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_MouseLeaveEvent_">LBSManipulator.OnMouseLeave(VisualElement, MouseLeaveEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnMouseEnter_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_MouseEnterEvent_">LBSManipulator.OnMouseEnter(VisualElement, MouseEnterEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnKeyDown_UnityEngine_UIElements_KeyDownEvent_">LBSManipulator.OnKeyDown(KeyDownEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnKeyUp_UnityEngine_UIElements_KeyUpEvent_">LBSManipulator.OnKeyUp(KeyUpEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Manipulators.LBSManipulator.html#ISILab_LBS_Manipulators_LBSManipulator_OnWheelEvent_UnityEngine_UIElements_WheelEvent_">LBSManipulator.OnWheelEvent(WheelEvent)</a>
+    </div>
+    <div>
+      <span class="xref">MouseManipulator.CanStartManipulation(IMouseEvent)</span>
+    </div>
+    <div>
+      <span class="xref">MouseManipulator.CanStopManipulation(IMouseEvent)</span>
+    </div>
+    <div>
+      <span class="xref">MouseManipulator.activators</span>
+    </div>
+    <div>
+      <span class="xref">Manipulator.target</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 

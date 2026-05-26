@@ -5,7 +5,6 @@ items:
   id: BundleManagerWindow.BundleCategory
   parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
   children:
-  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.#ctor
   - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles
   - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List
   - ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup
@@ -21,6 +20,10 @@ items:
   nameWithType: BundleManagerWindow.BundleCategory
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
   type: Class
+  source:
+    id: BundleCategory
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleManager\BundleManagerWindow.cs
+    startLine: 21
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
@@ -30,13 +33,138 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles
+  id: Bundles
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
+  langs:
+  - csharp
+  - vb
+  name: Bundles
+  nameWithType: BundleManagerWindow.BundleCategory.Bundles
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles
+  type: Property
+  source:
+    id: Bundles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleManager\BundleManagerWindow.cs
+    startLine: 32
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public List<BundleManagerWindow.BundleContainer> Bundles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer}
+    content.vb: Public ReadOnly Property Bundles As List(Of BundleManagerWindow.BundleContainer)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List
+  id: List
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
+  langs:
+  - csharp
+  - vb
+  name: List
+  nameWithType: BundleManagerWindow.BundleCategory.List
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List
+  type: Property
+  source:
+    id: List
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleManager\BundleManagerWindow.cs
+    startLine: 33
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public ListView List { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.ListView
+    content.vb: Public Property List As ListView
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup
+  id: ListGroup
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
+  langs:
+  - csharp
+  - vb
+  name: ListGroup
+  nameWithType: BundleManagerWindow.BundleCategory.ListGroup
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup
+  type: Property
+  source:
+    id: ListGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleManager\BundleManagerWindow.cs
+    startLine: 34
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public BundleManagerListGroup ListGroup { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup
+    content.vb: Public Property ListGroup As BundleManagerListGroup
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName
+  id: ListName
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
+  langs:
+  - csharp
+  - vb
+  name: ListName
+  nameWithType: BundleManagerWindow.BundleCategory.ListName
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName
+  type: Property
+  source:
+    id: ListName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleManager\BundleManagerWindow.cs
+    startLine: 35
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public string ListName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ListName As String
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Main
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Main
+  id: Main
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
+  langs:
+  - csharp
+  - vb
+  name: Main
+  nameWithType: BundleManagerWindow.BundleCategory.Main
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Main
+  type: Property
+  source:
+    id: Main
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleManager\BundleManagerWindow.cs
+    startLine: 36
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  syntax:
+    content: public bool Main { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Main As Boolean
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Main*
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetListGroup(System.String,UnityEngine.UIElements.VisualElement)
   commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetListGroup(System.String,UnityEngine.UIElements.VisualElement)
   id: SetListGroup(System.String,UnityEngine.UIElements.VisualElement)
@@ -48,6 +176,10 @@ items:
   nameWithType: BundleManagerWindow.BundleCategory.SetListGroup(string, VisualElement)
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetListGroup(string, UnityEngine.UIElements.VisualElement)
   type: Method
+  source:
+    id: SetListGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleManager\BundleManagerWindow.cs
+    startLine: 38
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
@@ -74,6 +206,10 @@ items:
   nameWithType: BundleManagerWindow.BundleCategory.SetBundleListViewItem()
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetBundleListViewItem()
   type: Method
+  source:
+    id: SetBundleListViewItem
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleManager\BundleManagerWindow.cs
+    startLine: 44
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
@@ -92,6 +228,10 @@ items:
   nameWithType: BundleManagerWindow.BundleCategory.SetExpandButtonSetting(BundleManagerWindow)
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetExpandButtonSetting(ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow)
   type: Method
+  source:
+    id: SetExpandButtonSetting
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleManager\BundleManagerWindow.cs
+    startLine: 49
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
@@ -102,136 +242,9 @@ items:
       type: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
     content.vb: Public Sub SetExpandButtonSetting(inst As BundleManagerWindow)
   overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetExpandButtonSetting*
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.#ctor
-  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.#ctor
-  id: '#ctor'
-  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
-  langs:
-  - csharp
-  - vb
-  name: BundleCategory()
-  nameWithType: BundleManagerWindow.BundleCategory.BundleCategory()
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.BundleCategory()
-  type: Constructor
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
-  syntax:
-    content: public BundleCategory()
-    content.vb: Public Sub New()
-  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.#ctor*
-  nameWithType.vb: BundleManagerWindow.BundleCategory.New()
-  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.New()
-  name.vb: New()
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles
-  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles
-  id: Bundles
-  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
-  langs:
-  - csharp
-  - vb
-  name: Bundles
-  nameWithType: BundleManagerWindow.BundleCategory.Bundles
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
-  syntax:
-    content: public List<BundleManagerWindow.BundleContainer> Bundles { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer}
-    content.vb: Public ReadOnly Property Bundles As List(Of BundleManagerWindow.BundleContainer)
-  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles*
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List
-  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List
-  id: List
-  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
-  langs:
-  - csharp
-  - vb
-  name: List
-  nameWithType: BundleManagerWindow.BundleCategory.List
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
-  syntax:
-    content: public ListView List { get; set; }
-    parameters: []
-    return:
-      type: UnityEngine.UIElements.ListView
-    content.vb: Public Property List As ListView
-  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List*
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup
-  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup
-  id: ListGroup
-  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
-  langs:
-  - csharp
-  - vb
-  name: ListGroup
-  nameWithType: BundleManagerWindow.BundleCategory.ListGroup
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
-  syntax:
-    content: public BundleManagerListGroup ListGroup { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup
-    content.vb: Public Property ListGroup As BundleManagerListGroup
-  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup*
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName
-  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName
-  id: ListName
-  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
-  langs:
-  - csharp
-  - vb
-  name: ListName
-  nameWithType: BundleManagerWindow.BundleCategory.ListName
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
-  syntax:
-    content: public string ListName { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public ReadOnly Property ListName As String
-  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName*
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Main
-  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Main
-  id: Main
-  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory
-  langs:
-  - csharp
-  - vb
-  name: Main
-  nameWithType: BundleManagerWindow.BundleCategory.Main
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Main
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
-  syntax:
-    content: public bool Main { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property Main As Boolean
-  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Main*
 references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
   commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
   nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
@@ -239,72 +252,58 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
     name: BundleManager
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
     name: BundleManager
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.html
 - uid: System.Object
   commentId: T:System.Object
@@ -317,30 +316,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -407,51 +382,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -536,6 +466,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -543,64 +542,8 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetListGroup*
-  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetListGroup
-  isExternal: true
-  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_SetListGroup_System_String_UnityEngine_UIElements_VisualElement_
-  name: SetListGroup
-  nameWithType: BundleManagerWindow.BundleCategory.SetListGroup
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetListGroup
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: UnityEngine.UIElements.VisualElement
-  isExternal: true
-  name: VisualElement
-  nameWithType: VisualElement
-  fullName: UnityEngine.UIElements.VisualElement
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetBundleListViewItem*
-  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetBundleListViewItem
-  isExternal: true
-  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_SetBundleListViewItem
-  name: SetBundleListViewItem
-  nameWithType: BundleManagerWindow.BundleCategory.SetBundleListViewItem
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetBundleListViewItem
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetExpandButtonSetting*
-  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetExpandButtonSetting
-  isExternal: true
-  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_SetExpandButtonSetting_ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_
-  name: SetExpandButtonSetting
-  nameWithType: BundleManagerWindow.BundleCategory.SetExpandButtonSetting
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetExpandButtonSetting
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
-  commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
-  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
-  isExternal: true
-  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.html
-  name: BundleManagerWindow
-  nameWithType: BundleManagerWindow
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.#ctor*
-  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.#ctor
-  isExternal: true
-  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory__ctor
-  name: BundleCategory
-  nameWithType: BundleManagerWindow.BundleCategory.BundleCategory
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.BundleCategory
-  nameWithType.vb: BundleManagerWindow.BundleCategory.New
-  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.New
-  name.vb: New
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Bundles
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_Bundles
   name: Bundles
   nameWithType: BundleManagerWindow.BundleCategory.Bundles
@@ -624,12 +567,10 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
     name: BundleManagerWindow
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
     name: BundleContainer
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html
   - name: '>'
   spec.vb:
@@ -642,12 +583,10 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
     name: BundleManagerWindow
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer
     name: BundleContainer
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer.html
   - name: )
 - uid: System.Collections.Generic.List`1
@@ -717,19 +656,41 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_List
   name: List
   nameWithType: BundleManagerWindow.BundleCategory.List
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.List
 - uid: UnityEngine.UIElements.ListView
+  commentId: T:UnityEngine.UIElements.ListView
+  parent: UnityEngine.UIElements
   isExternal: true
   name: ListView
   nameWithType: ListView
   fullName: UnityEngine.UIElements.ListView
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListGroup
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_ListGroup
   name: ListGroup
   nameWithType: BundleManagerWindow.BundleCategory.ListGroup
@@ -737,21 +698,29 @@ references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup
   commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup
   parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup.html
   name: BundleManagerListGroup
   nameWithType: BundleManagerListGroup
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerListGroup
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_ListName
   name: ListName
   nameWithType: BundleManagerWindow.BundleCategory.ListName
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.ListName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Main*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.Main
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_Main
   name: Main
   nameWithType: BundleManagerWindow.BundleCategory.Main
@@ -767,4 +736,36 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetListGroup*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetListGroup
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_SetListGroup_System_String_UnityEngine_UIElements_VisualElement_
+  name: SetListGroup
+  nameWithType: BundleManagerWindow.BundleCategory.SetListGroup
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetListGroup
+- uid: UnityEngine.UIElements.VisualElement
+  commentId: T:UnityEngine.UIElements.VisualElement
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetBundleListViewItem*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetBundleListViewItem
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_SetBundleListViewItem
+  name: SetBundleListViewItem
+  nameWithType: BundleManagerWindow.BundleCategory.SetBundleListViewItem
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetBundleListViewItem
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetExpandButtonSetting*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetExpandButtonSetting
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_BundleCategory_SetExpandButtonSetting_ISILab_LBS_Plugin_UI_Editor_Windows_BundleManager_BundleManagerWindow_
+  name: SetExpandButtonSetting
+  nameWithType: BundleManagerWindow.BundleCategory.SetExpandButtonSetting
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleCategory.SetExpandButtonSetting
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
+  commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.html
+  name: BundleManagerWindow
+  nameWithType: BundleManagerWindow
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow
 shouldSkipMarkup: true

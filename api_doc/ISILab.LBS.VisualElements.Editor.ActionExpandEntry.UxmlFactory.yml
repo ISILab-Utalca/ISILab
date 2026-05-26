@@ -4,8 +4,7 @@ items:
   commentId: T:ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory
   id: ActionExpandEntry.UxmlFactory
   parent: ISILab.LBS.VisualElements.Editor
-  children:
-  - ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.#ctor
+  children: []
   langs:
   - csharp
   - vb
@@ -13,47 +12,39 @@ items:
   nameWithType: ActionExpandEntry.UxmlFactory
   fullName: ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory
   type: Class
+  source:
+    id: UxmlFactory
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Editor\Quest\Graph\ExpandAssistant\ActionExpandEntry.cs
+    startLine: 16
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements.Editor
   syntax:
-    content: public class ActionExpandEntry.UxmlFactory
-    content.vb: Public Class ActionExpandEntry.UxmlFactory
+    content: >-
+      [UxmlElement]
+
+      public class ActionExpandEntry.UxmlFactory
+    content.vb: >-
+      <UxmlElement>
+
+      Public Class ActionExpandEntry.UxmlFactory
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.#ctor
-  commentId: M:ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.#ctor
-  id: '#ctor'
-  parent: ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory
-  langs:
-  - csharp
-  - vb
-  name: UxmlFactory()
-  nameWithType: ActionExpandEntry.UxmlFactory.UxmlFactory()
-  fullName: ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.UxmlFactory()
-  type: Constructor
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.VisualElements.Editor
-  syntax:
-    content: public UxmlFactory()
-    content.vb: Public Sub New()
-  overload: ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.#ctor*
-  nameWithType.vb: ActionExpandEntry.UxmlFactory.New()
-  fullName.vb: ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.New()
-  name.vb: New()
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: UnityEngine.UIElements.UxmlElementAttribute
+    ctor: UnityEngine.UIElements.UxmlElementAttribute.#ctor
+    arguments: []
 references:
 - uid: ISILab.LBS.VisualElements.Editor
   commentId: N:ISILab.LBS.VisualElements.Editor
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.VisualElements.Editor
   nameWithType: ISILab.LBS.VisualElements.Editor
@@ -61,42 +52,34 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
   - name: .
   - uid: ISILab.LBS.VisualElements.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.VisualElements.Editor.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
   - name: .
   - uid: ISILab.LBS.VisualElements.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.VisualElements.Editor.html
 - uid: System.Object
   commentId: T:System.Object
@@ -109,30 +92,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -199,51 +158,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -328,6 +242,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -335,14 +318,4 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.#ctor*
-  commentId: Overload:ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.#ctor
-  isExternal: true
-  href: ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.html#ISILab_LBS_VisualElements_Editor_ActionExpandEntry_UxmlFactory__ctor
-  name: UxmlFactory
-  nameWithType: ActionExpandEntry.UxmlFactory.UxmlFactory
-  fullName: ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.UxmlFactory
-  nameWithType.vb: ActionExpandEntry.UxmlFactory.New
-  fullName.vb: ISILab.LBS.VisualElements.Editor.ActionExpandEntry.UxmlFactory.New
-  name.vb: New
 shouldSkipMarkup: true

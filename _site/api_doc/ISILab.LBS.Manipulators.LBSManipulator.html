@@ -101,7 +101,8 @@ Class LBSManipulator
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class LBSManipulator : MouseManipulator</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public abstract class LBSManipulator : MouseManipulator, IManipulator</code></pre>
   </div>
 
 
@@ -111,10 +112,18 @@ Class LBSManipulator
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Manipulator</span></div>
+      <div><span class="xref">MouseManipulator</span></div>
       <div><span class="xref">LBSManipulator</span></div>
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">IManipulator</span></div>
+    </dd>
+  </dl>
 
   <dl class="typelist derived">
     <dt>Derived</dt>
@@ -153,6 +162,43 @@ Class LBSManipulator
     </dd>
   </dl>
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">MouseManipulator.CanStartManipulation(IMouseEvent)</span>
+    </div>
+    <div>
+      <span class="xref">MouseManipulator.CanStopManipulation(IMouseEvent)</span>
+    </div>
+    <div>
+      <span class="xref">MouseManipulator.activators</span>
+    </div>
+    <div>
+      <span class="xref">Manipulator.target</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
 
 
 
@@ -504,7 +550,7 @@ Class LBSManipulator
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">referenced by deleters. If activatedByOther, sets adder as manipulator in MainView</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -845,7 +891,7 @@ Class LBSManipulator
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">referenced by adders. usable by right click</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -975,7 +1021,7 @@ Class LBSManipulator
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Handles the internal mouse down event.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1006,7 +1052,7 @@ Class LBSManipulator
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Handles the internal mouse move event.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1037,7 +1083,7 @@ Class LBSManipulator
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Handles the internal mouse up event.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1332,7 +1378,7 @@ Class LBSManipulator
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Registers mouse event callbacks on the target element.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1389,7 +1435,8 @@ Class LBSManipulator
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Sets the manipulator that removes for the current manipulator's adding function.
+Only assign this from an Adder manipulator.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1420,7 +1467,7 @@ Class LBSManipulator
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Unregisters mouse event callbacks from the target element.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

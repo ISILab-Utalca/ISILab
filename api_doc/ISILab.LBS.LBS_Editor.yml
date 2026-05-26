@@ -19,6 +19,10 @@ items:
   nameWithType: LBS_Editor
   fullName: ISILab.LBS.LBS_Editor
   type: Class
+  source:
+    id: LBS_Editor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Attributes\Editor\LBSCustomEditorAttribute.cs
+    startLine: 21
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -28,13 +32,13 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.LBS.LBS_Editor.pairsEditors
   commentId: F:ISILab.LBS.LBS_Editor.pairsEditors
   id: pairsEditors
@@ -46,6 +50,10 @@ items:
   nameWithType: LBS_Editor.pairsEditors
   fullName: ISILab.LBS.LBS_Editor.pairsEditors
   type: Field
+  source:
+    id: pairsEditors
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Attributes\Editor\LBSCustomEditorAttribute.cs
+    startLine: 23
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -65,6 +73,10 @@ items:
   nameWithType: LBS_Editor.pairDrawers
   fullName: ISILab.LBS.LBS_Editor.pairDrawers
   type: Field
+  source:
+    id: pairDrawers
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Attributes\Editor\LBSCustomEditorAttribute.cs
+    startLine: 25
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -84,6 +96,10 @@ items:
   nameWithType: LBS_Editor.GetEditor<T>()
   fullName: ISILab.LBS.LBS_Editor.GetEditor<T>()
   type: Method
+  source:
+    id: GetEditor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Attributes\Editor\LBSCustomEditorAttribute.cs
+    startLine: 27
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -109,6 +125,10 @@ items:
   nameWithType: LBS_Editor.GetEditor(Type)
   fullName: ISILab.LBS.LBS_Editor.GetEditor(System.Type)
   type: Method
+  source:
+    id: GetEditor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Attributes\Editor\LBSCustomEditorAttribute.cs
+    startLine: 32
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -132,6 +152,10 @@ items:
   nameWithType: LBS_Editor.LoadEditor(VisualElement, object)
   fullName: ISILab.LBS.LBS_Editor.LoadEditor(UnityEngine.UIElements.VisualElement, object)
   type: Method
+  source:
+    id: LoadEditor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Attributes\Editor\LBSCustomEditorAttribute.cs
+    startLine: 48
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -158,6 +182,10 @@ items:
   nameWithType: LBS_Editor.GetDrawer<T>()
   fullName: ISILab.LBS.LBS_Editor.GetDrawer<T>()
   type: Method
+  source:
+    id: GetDrawer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Attributes\Editor\LBSCustomEditorAttribute.cs
+    startLine: 68
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -183,6 +211,10 @@ items:
   nameWithType: LBS_Editor.GetDrawer(Type)
   fullName: ISILab.LBS.LBS_Editor.GetDrawer(System.Type)
   type: Method
+  source:
+    id: GetDrawer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Attributes\Editor\LBSCustomEditorAttribute.cs
+    startLine: 73
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -198,7 +230,6 @@ items:
 references:
 - uid: ISILab.LBS
   commentId: N:ISILab.LBS
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS
   nameWithType: ISILab.LBS
@@ -206,22 +237,18 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
 - uid: System.Object
   commentId: T:System.Object
@@ -234,30 +261,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -324,51 +327,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -453,6 +411,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -495,7 +522,6 @@ references:
   - name: <
   - uid: ISILab.LBS.LBSCustomEditorAttribute
     name: LBSCustomEditorAttribute
-    isExternal: true
     href: ISILab.LBS.LBSCustomEditorAttribute.html
   - name: '>'
   - name: '>'
@@ -530,7 +556,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.LBSCustomEditorAttribute
     name: LBSCustomEditorAttribute
-    isExternal: true
     href: ISILab.LBS.LBSCustomEditorAttribute.html
   - name: )
   - name: )
@@ -635,7 +660,6 @@ references:
   - name: <
   - uid: ISILab.LBS.DrawerAttribute
     name: DrawerAttribute
-    isExternal: true
     href: ISILab.LBS.DrawerAttribute.html
   - name: '>'
   - name: '>'
@@ -670,14 +694,12 @@ references:
   - name: " "
   - uid: ISILab.LBS.DrawerAttribute
     name: DrawerAttribute
-    isExternal: true
     href: ISILab.LBS.DrawerAttribute.html
   - name: )
   - name: )
   - name: )
 - uid: ISILab.LBS.LBS_Editor.GetEditor*
   commentId: Overload:ISILab.LBS.LBS_Editor.GetEditor
-  isExternal: true
   href: ISILab.LBS.LBS_Editor.html#ISILab_LBS_LBS_Editor_GetEditor__1
   name: GetEditor
   nameWithType: LBS_Editor.GetEditor
@@ -692,19 +714,41 @@ references:
   fullName: System.Type
 - uid: ISILab.LBS.LBS_Editor.LoadEditor*
   commentId: Overload:ISILab.LBS.LBS_Editor.LoadEditor
-  isExternal: true
   href: ISILab.LBS.LBS_Editor.html#ISILab_LBS_LBS_Editor_LoadEditor_UnityEngine_UIElements_VisualElement_System_Object_
   name: LoadEditor
   nameWithType: LBS_Editor.LoadEditor
   fullName: ISILab.LBS.LBS_Editor.LoadEditor
 - uid: UnityEngine.UIElements.VisualElement
+  commentId: T:UnityEngine.UIElements.VisualElement
+  parent: UnityEngine.UIElements
   isExternal: true
   name: VisualElement
   nameWithType: VisualElement
   fullName: UnityEngine.UIElements.VisualElement
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
 - uid: ISILab.LBS.LBS_Editor.GetDrawer*
   commentId: Overload:ISILab.LBS.LBS_Editor.GetDrawer
-  isExternal: true
   href: ISILab.LBS.LBS_Editor.html#ISILab_LBS_LBS_Editor_GetDrawer__1
   name: GetDrawer
   nameWithType: LBS_Editor.GetDrawer

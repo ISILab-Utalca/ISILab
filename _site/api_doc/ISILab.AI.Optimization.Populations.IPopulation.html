@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IPopulation | lbs-api_docs ">
       
-      
+      <meta name="description" content="Defines an interface for a population of candidate solutions (chromosomes).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,7 @@ Interface IPopulation
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Defines an interface for a population of candidate solutions (chromosomes).</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -158,7 +158,7 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the best chromosome.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -172,7 +172,7 @@ Interface IPopulation
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a></dt>
-    <dd></dd>
+    <dd>The best chromosome.</dd>
   </dl>
 
 
@@ -189,7 +189,7 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the creation date.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -220,7 +220,7 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the current generation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -234,7 +234,7 @@ Interface IPopulation
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="ISILab.AI.Optimization.Populations.Generation.html">Generation</a></dt>
-    <dd></dd>
+    <dd>The current generation.</dd>
   </dl>
 
 
@@ -251,7 +251,7 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets or sets the generation strategy.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -282,7 +282,10 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the generations.
+<remarks>
+The information of Generations can vary depending of the IGenerationStrategy used.
+</remarks></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -296,7 +299,7 @@ Interface IPopulation
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.Populations.Generation.html">Generation</a>&gt;</dt>
-    <dd></dd>
+    <dd>The generations.</dd>
   </dl>
 
 
@@ -313,7 +316,10 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the total number of generations executed.
+<remarks>
+Use this information to know how many generations have been executed, because Generations.Count can vary depending of the IGenerationStrategy used.
+</remarks></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -344,7 +350,7 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets or sets the size of the max.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -358,7 +364,7 @@ Interface IPopulation
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The size of the max.</dd>
   </dl>
 
 
@@ -375,7 +381,7 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets or sets the minimum size.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -389,7 +395,7 @@ Interface IPopulation
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The minimum size.</dd>
   </dl>
 
 
@@ -406,7 +412,7 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Occurs when best chromosome changed.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -441,7 +447,7 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates the initial generation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -472,7 +478,7 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates a new generation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -482,7 +488,7 @@ Interface IPopulation
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>chromosomes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The chromosomes for new generation.</dd>
   </dl>
 
 
@@ -503,7 +509,7 @@ Interface IPopulation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Ends the current generation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

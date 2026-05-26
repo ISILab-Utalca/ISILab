@@ -164,7 +164,16 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Grammar.GrammarElement.html">GrammarElement</a></dt>
-      <dd></dd>
+      <dd>A rule contains definitions, which would be used to expand the rule into terminal actions
+or more rules within. For example:
+GoTo:
+    go to
+    go to -&gt; explore
+    Get -&gt; go to
+
+Get:
+    go to -&gt; steal
+    go to -&gt; take</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Grammar.GrammarEventHook.html">GrammarEventHook</a></dt>
@@ -228,7 +237,10 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Grammar.GrammarTerminal.html">GrammarTerminal</a></dt>
-      <dd></dd>
+      <dd>The action that gest added into the graph for example:
+    go to
+    explore
+    kill</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Grammar.KillTrigger.html">KillTrigger</a></dt>

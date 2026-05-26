@@ -388,7 +388,7 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.InspectorContentPanel.html">InspectorContentPanel</a></dt>
-      <dd></dd>
+      <dd>Visual Element Class that displays the different behaviors within the behavior's panel</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.InteriorContainer.html">InteriorContainer</a></dt>
@@ -400,7 +400,8 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.LBSDirectionedChanceEditor.html">LBSDirectionedChanceEditor</a></dt>
-      <dd></dd>
+      <dd>Shows what was captured using CaptureChance() in AssistantWFC. It orders the information into a treeview, in which
+the data can be partially manipulated, like the chance, but not which new tiles will appear.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.LBSDirectionedGroupEditor.html">LBSDirectionedGroupEditor</a></dt>
@@ -412,7 +413,11 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.LBSFocusHighlight.html">LBSFocusHighlight</a></dt>
-      <dd></dd>
+      <dd>Meant to be used to highlight any VisualElement so the user knows where to find
+information. To use:
+
+<pre><code class="lang-csharp">VisualElement ve = new VisualElement();
+LBSFocusHighlight.Highlight(ve);</code></pre></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.LBSGrammarEditor.html">LBSGrammarEditor</a></dt>
@@ -696,7 +701,7 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.SuggestionActionButton.html">SuggestionActionButton</a></dt>
-      <dd></dd>
+      <dd>Button to apply an effect to a Quest Action</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.SuggestionActionButton.UxmlSerializedData.html">SuggestionActionButton.UxmlSerializedData</a></dt>
@@ -704,7 +709,8 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.SuggestionElementArea.html">SuggestionElementArea</a></dt>
-      <dd></dd>
+      <dd>Visual representation of a suggestion area inside the graph.
+Provides UI for applying or discarding quest suggestions.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.TileEditor.html">TileEditor</a></dt>
@@ -740,7 +746,17 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.TriggerElementArea.html">TriggerElementArea</a></dt>
-      <dd></dd>
+      <dd>Represents a visual element on the quest graph used to indicate a trigger area or region.
+
+This element is associated with a <a class="xref" href="ISILab.LBS.Components.QuestNodeData.html">QuestNodeData</a> and draws a visual box on the graph.
+
+Supports interaction such as:
+- Dragging to reposition
+- Resizing via a handle
+- Updating the logical data when moved
+- An Icon that represents the node type for easier readability.
+
+Also handles custom visual generation through <span class="xref">UnityEngine.UIElements.MeshGenerationContext</span> to draw lines between this element and its node origin.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.VertexExteriorTileView.html">VertexExteriorTileView</a></dt>
@@ -779,7 +795,7 @@ Structs
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.VisualElements.VisualElementWorld.html">VisualElementWorld</a></dt>
-      <dd></dd>
+      <dd>Simple container class to store world positions and a visual element</dd>
     </dl>
     <h3 id="enums">
 Enums

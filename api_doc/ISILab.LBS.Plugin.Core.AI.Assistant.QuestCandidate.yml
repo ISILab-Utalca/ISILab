@@ -18,9 +18,18 @@ items:
   nameWithType: QuestCandidate
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
   type: Class
+  source:
+    id: QuestCandidate
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\QuestAssistant.cs
+    startLine: 22
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  summary: >-
+    Represents a potential quest configuration mapping a <xref href="ISILab.AI.Grammar.GrammarTerminal" data-throw-if-not-resolved="false"></xref> 
+
+    to compatible world entities (<xref href="ISILab.LBS.Modules.TileBundleGroup" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: 'public class QuestCandidate : IEquatable<QuestCandidate>'
     content.vb: Public Class QuestCandidate Implements IEquatable(Of QuestCandidate)
@@ -29,12 +38,87 @@ items:
   implements:
   - System.IEquatable{ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate}
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer
+  id: ContextLayer
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
+  langs:
+  - csharp
+  - vb
+  name: ContextLayer
+  nameWithType: QuestCandidate.ContextLayer
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer
+  type: Property
+  source:
+    id: ContextLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\QuestAssistant.cs
+    startLine: 24
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public LBSLayer ContextLayer { get; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public ReadOnly Property ContextLayer As LBSLayer
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles
+  id: Tiles
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
+  langs:
+  - csharp
+  - vb
+  name: Tiles
+  nameWithType: QuestCandidate.Tiles
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles
+  type: Property
+  source:
+    id: Tiles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\QuestAssistant.cs
+    startLine: 25
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public List<TileBundleGroup> Tiles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
+    content.vb: Public ReadOnly Property Tiles As List(Of TileBundleGroup)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal
+  id: Terminal
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
+  langs:
+  - csharp
+  - vb
+  name: Terminal
+  nameWithType: QuestCandidate.Terminal
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal
+  type: Property
+  source:
+    id: Terminal
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\QuestAssistant.cs
+    startLine: 26
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public GrammarTerminal Terminal { get; }
+    parameters: []
+    return:
+      type: ISILab.AI.Grammar.GrammarTerminal
+    content.vb: Public ReadOnly Property Terminal As GrammarTerminal
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal*
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.#ctor(LBS.Components.LBSLayer,ISILab.AI.Grammar.GrammarTerminal,System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup})
   commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.#ctor(LBS.Components.LBSLayer,ISILab.AI.Grammar.GrammarTerminal,System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup})
   id: '#ctor(LBS.Components.LBSLayer,ISILab.AI.Grammar.GrammarTerminal,System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup})'
@@ -46,6 +130,10 @@ items:
   nameWithType: QuestCandidate.QuestCandidate(LBSLayer, GrammarTerminal, List<TileBundleGroup>)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.QuestCandidate(LBS.Components.LBSLayer, ISILab.AI.Grammar.GrammarTerminal, System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\QuestAssistant.cs
+    startLine: 28
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -74,6 +162,10 @@ items:
   nameWithType: QuestCandidate.Equals(QuestCandidate)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Equals(ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\QuestAssistant.cs
+    startLine: 35
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -100,6 +192,10 @@ items:
   nameWithType: QuestCandidate.GetHashCode()
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\QuestAssistant.cs
+    startLine: 42
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -111,73 +207,23 @@ items:
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.Object.GetHashCode
   overload: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.GetHashCode*
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer
-  id: ContextLayer
-  parent: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
-  langs:
-  - csharp
-  - vb
-  name: ContextLayer
-  nameWithType: QuestCandidate.ContextLayer
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
-  syntax:
-    content: public LBSLayer ContextLayer { get; }
-    parameters: []
-    return:
-      type: LBS.Components.LBSLayer
-    content.vb: Public ReadOnly Property ContextLayer As LBSLayer
-  overload: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer*
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles
-  id: Tiles
-  parent: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
-  langs:
-  - csharp
-  - vb
-  name: Tiles
-  nameWithType: QuestCandidate.Tiles
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
-  syntax:
-    content: public List<TileBundleGroup> Tiles { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
-    content.vb: Public ReadOnly Property Tiles As List(Of TileBundleGroup)
-  overload: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles*
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal
-  id: Terminal
-  parent: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
-  langs:
-  - csharp
-  - vb
-  name: Terminal
-  nameWithType: QuestCandidate.Terminal
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
-  syntax:
-    content: public GrammarTerminal Terminal { get; }
-    parameters: []
-    return:
-      type: ISILab.AI.Grammar.GrammarTerminal
-    content.vb: Public ReadOnly Property Terminal As GrammarTerminal
-  overload: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal*
 references:
+- uid: ISILab.AI.Grammar.GrammarTerminal
+  commentId: T:ISILab.AI.Grammar.GrammarTerminal
+  parent: ISILab.AI.Grammar
+  href: ISILab.AI.Grammar.GrammarTerminal.html
+  name: GrammarTerminal
+  nameWithType: GrammarTerminal
+  fullName: ISILab.AI.Grammar.GrammarTerminal
+- uid: ISILab.LBS.Modules.TileBundleGroup
+  commentId: T:ISILab.LBS.Modules.TileBundleGroup
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.TileBundleGroup.html
+  name: TileBundleGroup
+  nameWithType: TileBundleGroup
+  fullName: ISILab.LBS.Modules.TileBundleGroup
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant
   commentId: N:ISILab.LBS.Plugin.Core.AI.Assistant
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Core.AI.Assistant
   nameWithType: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -185,62 +231,50 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Assistant
     name: Assistant
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Assistant.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Assistant
     name: Assistant
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Assistant.html
 - uid: System.Object
   commentId: T:System.Object
@@ -272,7 +306,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
     name: QuestCandidate
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html
   - name: '>'
   spec.vb:
@@ -285,80 +318,7 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
     name: QuestCandidate
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -438,6 +398,54 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -483,6 +491,90 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    href: ISILab.AI.Grammar.html
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    href: ISILab.LBS.Modules.html
 - uid: System
   commentId: N:System
   isExternal: true
@@ -518,32 +610,47 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.#ctor*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.#ctor
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html#ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate__ctor_LBS_Components_LBSLayer_ISILab_AI_Grammar_GrammarTerminal_System_Collections_Generic_List_ISILab_LBS_Modules_TileBundleGroup__
-  name: QuestCandidate
-  nameWithType: QuestCandidate.QuestCandidate
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.QuestCandidate
-  nameWithType.vb: QuestCandidate.New
-  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.New
-  name.vb: New
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html#ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate_ContextLayer
+  name: ContextLayer
+  nameWithType: QuestCandidate.ContextLayer
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer
 - uid: LBS.Components.LBSLayer
   commentId: T:LBS.Components.LBSLayer
   parent: LBS.Components
-  isExternal: true
   href: LBS.Components.LBSLayer.html
   name: LBSLayer
   nameWithType: LBSLayer
   fullName: LBS.Components.LBSLayer
-- uid: ISILab.AI.Grammar.GrammarTerminal
-  commentId: T:ISILab.AI.Grammar.GrammarTerminal
-  parent: ISILab.AI.Grammar
-  isExternal: true
-  href: ISILab.AI.Grammar.GrammarTerminal.html
-  name: GrammarTerminal
-  nameWithType: GrammarTerminal
-  fullName: ISILab.AI.Grammar.GrammarTerminal
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html#ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate_Tiles
+  name: Tiles
+  nameWithType: QuestCandidate.Tiles
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles
 - uid: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
   commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
   parent: System.Collections.Generic
@@ -563,7 +670,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Modules.TileBundleGroup
     name: TileBundleGroup
-    isExternal: true
     href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: '>'
   spec.vb:
@@ -576,73 +682,8 @@ references:
   - name: " "
   - uid: ISILab.LBS.Modules.TileBundleGroup
     name: TileBundleGroup
-    isExternal: true
     href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: )
-- uid: LBS.Components
-  commentId: N:LBS.Components
-  isExternal: true
-  href: LBS.html
-  name: LBS.Components
-  nameWithType: LBS.Components
-  fullName: LBS.Components
-  spec.csharp:
-  - uid: LBS
-    name: LBS
-    isExternal: true
-    href: LBS.html
-  - name: .
-  - uid: LBS.Components
-    name: Components
-    isExternal: true
-    href: LBS.Components.html
-  spec.vb:
-  - uid: LBS
-    name: LBS
-    isExternal: true
-    href: LBS.html
-  - name: .
-  - uid: LBS.Components
-    name: Components
-    isExternal: true
-    href: LBS.Components.html
-- uid: ISILab.AI.Grammar
-  commentId: N:ISILab.AI.Grammar
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.AI.Grammar
-  nameWithType: ISILab.AI.Grammar
-  fullName: ISILab.AI.Grammar
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.AI
-    name: AI
-    isExternal: true
-    href: ISILab.AI.html
-  - name: .
-  - uid: ISILab.AI.Grammar
-    name: Grammar
-    isExternal: true
-    href: ISILab.AI.Grammar.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.AI
-    name: AI
-    isExternal: true
-    href: ISILab.AI.html
-  - name: .
-  - uid: ISILab.AI.Grammar
-    name: Grammar
-    isExternal: true
-    href: ISILab.AI.Grammar.html
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
   isExternal: true
@@ -708,9 +749,23 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html#ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate_Terminal
+  name: Terminal
+  nameWithType: QuestCandidate.Terminal
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.#ctor
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html#ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate__ctor_LBS_Components_LBSLayer_ISILab_AI_Grammar_GrammarTerminal_System_Collections_Generic_List_ISILab_LBS_Modules_TileBundleGroup__
+  name: QuestCandidate
+  nameWithType: QuestCandidate.QuestCandidate
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.QuestCandidate
+  nameWithType.vb: QuestCandidate.New
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.New
+  name.vb: New
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Equals*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Equals
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html#ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate_Equals_ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate_
   name: Equals
   nameWithType: QuestCandidate.Equals
@@ -733,7 +788,6 @@ references:
   - name: (
   - uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
     name: QuestCandidate
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html
   - name: )
   spec.vb:
@@ -744,13 +798,11 @@ references:
   - name: (
   - uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
     name: QuestCandidate
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
   commentId: T:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate
   parent: ISILab.LBS.Plugin.Core.AI.Assistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html
   name: QuestCandidate
   nameWithType: QuestCandidate
@@ -817,7 +869,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.GetHashCode*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html#ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate_GetHashCode
   name: GetHashCode
   nameWithType: QuestCandidate.GetHashCode
@@ -833,25 +884,4 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html#ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate_ContextLayer
-  name: ContextLayer
-  nameWithType: QuestCandidate.ContextLayer
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.ContextLayer
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html#ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate_Tiles
-  name: Tiles
-  nameWithType: QuestCandidate.Tiles
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Tiles
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.html#ISILab_LBS_Plugin_Core_AI_Assistant_QuestCandidate_Terminal
-  name: Terminal
-  nameWithType: QuestCandidate.Terminal
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate.Terminal
 shouldSkipMarkup: true

@@ -101,7 +101,8 @@ Class GrammarField
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class GrammarField : ICloneable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public abstract class GrammarField : ICloneable</code></pre>
   </div>
 
 
@@ -134,51 +135,21 @@ Class GrammarField
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
   </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="ISILab_AI_Grammar_GrammarField__ctor_" data-uid="ISILab.AI.Grammar.GrammarField.#ctor*"></a>
-
-  <h3 id="ISILab_AI_Grammar_GrammarField__ctor" data-uid="ISILab.AI.Grammar.GrammarField.#ctor">
-  GrammarField()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected GrammarField()</code></pre>
-  </div>
-
-
-
-
-
-
-
 
 
 
@@ -229,7 +200,9 @@ Class GrammarField
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QuestNodeData data</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[HideInInspector]
+public QuestNodeData data</code></pre>
   </div>
 
 
@@ -259,7 +232,8 @@ Class GrammarField
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ReadOnly(true)]
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[ReadOnly(true)]
 public string name</code></pre>
   </div>
 

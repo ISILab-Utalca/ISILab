@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface ISelection | lbs-api_docs ">
       
-      
+      <meta name="description" content="Defines a interface for selection. Selection is the stage of a genetic algorithm in which individual genomes are chosen from a population for later breeding (recombination or crossover). Wikipedia A Review of Selection Methods in Genetic Algorithm">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,10 @@ Interface ISelection
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Defines a interface for selection.
+Selection is the stage of a genetic algorithm in which individual genomes are chosen from a population for later breeding (recombination or crossover).
+<a href="http://en.wikipedia.org/wiki/Selection_(genetic_algorithm)">Wikipedia</a>
+<a href=" http://www.ijest.info/docs/IJEST11-03-05-190.pdf">A Review of Selection Methods in Genetic Algorithm</a></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -165,7 +168,7 @@ Interface ISelection
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Selects the number of chromosomes from the generation specified.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -175,15 +178,15 @@ Interface ISelection
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The number of chromosomes to select.</dd>
     <dt><code>generation</code> <a class="xref" href="ISILab.AI.Optimization.Populations.Generation.html">Generation</a></dt>
-    <dd></dd>
+    <dd>The generation where the selection will be made.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The selected chromosomes.</dd>
   </dl>
 
 

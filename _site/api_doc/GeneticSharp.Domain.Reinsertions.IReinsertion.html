@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IReinsertion | lbs-api_docs ">
       
-      
+      <meta name="description" content="Defines an interface for reinsertions.  If less offspring are produced than the min size of the original population then to  maintain the size of the population, the offspring have to be reinserted  into the old population. Similarly, if not all offspring are to be used at each  generation or if more offspring are generated than the max size of the   population then a reinsertion scheme must be used to determine which individuals are to exist in the new population Generalized Nets Model of offspring Reinsertion in Genetic Algorithm">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,15 @@ Interface IReinsertion
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Defines an interface for reinsertions.
+<remarks>
+If less offspring are produced than the min size of the original population then to 
+maintain the size of the population, the offspring have to be reinserted 
+into the old population. Similarly, if not all offspring are to be used at each 
+generation or if more offspring are generated than the max size of the  
+population then a reinsertion scheme must be used to determine which individuals are to exist in the new population
+<a href="http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>
+</remarks></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -127,7 +135,7 @@ Interface IReinsertion
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets a value indicating whether can collapse the number of selected chromosomes for reinsertion.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -158,7 +166,7 @@ Interface IReinsertion
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets a value indicating whether can expand the number of selected chromosomes for reinsertion.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -193,7 +201,7 @@ Interface IReinsertion
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Selects the chromosomes which will be reinserted.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -203,17 +211,17 @@ Interface IReinsertion
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>population</code> <a class="xref" href="ISILab.AI.Optimization.Populations.IPopulation.html">IPopulation</a></dt>
-    <dd></dd>
+    <dd>The population.</dd>
     <dt><code>offspring</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The offspring.</dd>
     <dt><code>parents</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The parents.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The chromosomes to be reinserted in next generation..</dd>
   </dl>
 
 

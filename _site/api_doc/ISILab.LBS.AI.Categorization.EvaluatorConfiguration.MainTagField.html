@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class EvaluatorConfiguration.MainTagField | lbs-api_docs ">
       
-      
+      <meta name="description" content="Evaluator Configuration Field that represents a single tag.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,11 +97,12 @@ Class EvaluatorConfiguration.MainTagField
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Evaluator Configuration Field that represents a single tag.</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class EvaluatorConfiguration.MainTagField : EvaluatorConfiguration.EvaluatorConfigurationField</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class EvaluatorConfiguration.MainTagField : EvaluatorConfiguration.EvaluatorConfigurationField</code></pre>
   </div>
 
 
@@ -134,19 +135,19 @@ Class EvaluatorConfiguration.MainTagField
       <a class="xref" href="ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetHashCode">EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode()</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -166,7 +167,7 @@ Class EvaluatorConfiguration.MainTagField
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Simplified constructor. Uses the field name as both the field and tag names.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -176,11 +177,11 @@ Class EvaluatorConfiguration.MainTagField
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>fieldName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd>Identifier of the field <b>and</b> tag.</dd>
     <dt><code>tagChar</code> <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html">LBSCharacteristic</a></dt>
-    <dd></dd>
+    <dd>Characteristic containing the LBSTag.</dd>
     <dt><code>tooltip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd>Short description of the field's purpose.</dd>
   </dl>
 
 
@@ -201,7 +202,7 @@ Class EvaluatorConfiguration.MainTagField
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><b>The standard constructor.</b></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -211,13 +212,13 @@ Class EvaluatorConfiguration.MainTagField
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>fieldName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd>Identifier of the field.</dd>
     <dt><code>tagName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd>Name of the LBSTag.</dd>
     <dt><code>tagChar</code> <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html">LBSCharacteristic</a></dt>
-    <dd></dd>
+    <dd>Characteristic containing the LBSTag.</dd>
     <dt><code>tooltip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd>Short description of the field's purpose.</dd>
   </dl>
 
 
@@ -238,7 +239,7 @@ Class EvaluatorConfiguration.MainTagField
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Constructor for a special case of Tag Field that does not uses a name.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -248,9 +249,9 @@ Class EvaluatorConfiguration.MainTagField
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>tagNameAndChar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.tuple-2">Tuple</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html">LBSCharacteristic</a>&gt;</dt>
-    <dd></dd>
+    <dd>A tuple containing the name of the LBSTag and its characteristic.</dd>
     <dt><code>tooltip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd>Short description of the field's purpose.</dd>
   </dl>
 
 
@@ -275,7 +276,7 @@ Class EvaluatorConfiguration.MainTagField
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Clearer field type name to show.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -306,7 +307,8 @@ Class EvaluatorConfiguration.MainTagField
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Property for <span class="xref">ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.field</span>. <br>
+If null, it initializes a new Object Field.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -337,7 +339,8 @@ Class EvaluatorConfiguration.MainTagField
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Property for <span class="xref">ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.tagChar</span>. <br>
+If null, searches for the tag using <span class="xref">ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.tagName</span>.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -383,7 +386,7 @@ Class EvaluatorConfiguration.MainTagField
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">VisualElement</span></dt>
-    <dd></dd>
+    <dd>The Visual Element representing the configurable field.</dd>
   </dl>
 
 
@@ -414,7 +417,7 @@ Class EvaluatorConfiguration.MainTagField
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>The value contained in the field as an object.</dd>
   </dl>
 
 
@@ -434,7 +437,7 @@ Class EvaluatorConfiguration.MainTagField
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes the Visual Element that represents the configurable field and sets its value.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

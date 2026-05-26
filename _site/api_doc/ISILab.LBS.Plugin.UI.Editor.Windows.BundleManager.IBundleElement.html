@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IBundleElement | lbs-api_docs ">
       
-      
+      <meta name="description" content="Interface meant to be implemented by a visual element of a list view from , representing a .  Current implementations: ,">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,10 @@ Interface IBundleElement
   <dl><dt>Assembly</dt><dd>LBS.Editor.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Interface meant to be implemented by a visual element of a list view from <a class="xref" href="ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.html">BundleManagerWindow</a>, representing a <a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a>.
+<p>
+Current implementations: <a class="xref" href="ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerElement.html">BundleManagerElement</a>, <a class="xref" href="ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement.html">BundleWizardElement</a>
+</p></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -193,7 +196,7 @@ Interface IBundleElement
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Sets references for the represented bundle and the list view it belongs to.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -203,11 +206,11 @@ Interface IBundleElement
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>bundle</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a></dt>
-    <dd></dd>
+    <dd>The bundle represented by this visual element.</dd>
     <dt><code>list</code> <span class="xref">ListView</span></dt>
-    <dd></dd>
+    <dd>The list containing the visual element.</dd>
     <dt><code>boolParam</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>Additional boolean parameter for specific implementations.</dd>
   </dl>
 
 
@@ -228,7 +231,7 @@ Interface IBundleElement
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Identifies an icon by its name and sets it as visible or not visible.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

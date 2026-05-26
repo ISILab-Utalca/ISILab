@@ -101,7 +101,8 @@ Class QuestGraph
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class QuestGraph : LBSModule, ICloneable, ISelectable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class QuestGraph : LBSModule, ICloneable, ISelectable</code></pre>
   </div>
 
 
@@ -132,6 +133,12 @@ Class QuestGraph
       <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id">LBSModule.id</a>
     </div>
     <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer">LBSModule.OwnerLayer</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID">LBSModule.ID</a>
+    </div>
+    <div>
       <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged">LBSModule.OnChanged</a>
     </div>
     <div>
@@ -141,10 +148,13 @@ Class QuestGraph
       <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_">LBSModule.OnDetach(LBSLayer)</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer">LBSModule.OwnerLayer</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID">LBSModule.ID</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
@@ -153,19 +163,10 @@ Class QuestGraph
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -919,7 +920,7 @@ Class QuestGraph
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Cleans all the information saved in.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -945,7 +946,7 @@ Class QuestGraph
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates a copy of the representation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -976,7 +977,7 @@ Class QuestGraph
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Inserts all the nodes to replace the reference node</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -986,9 +987,9 @@ Class QuestGraph
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>expandActions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
+    <dd>all the actions that correspond to a new node</dd>
     <dt><code>referenceNode</code> <a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
-    <dd></dd>
+    <dd>the node that will be expanded(replaced)</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -1014,7 +1015,7 @@ Class QuestGraph
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the bounding rectangle of the representation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1164,7 +1165,7 @@ Class QuestGraph
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QuestNode GetNodeSuggestion(string action, List&lt;QuestNode&gt; tempSuggestions, Vector2 pos = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public QuestNode GetNodeSuggestion(string action, List&lt;QuestNode&gt; tempSuggestions, Vector2 pos = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1303,7 +1304,9 @@ Class QuestGraph
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">finds the edge of a referenced node. makes a new action that turns into the "To"
+of the connection and makes a new edge from the new action and the original "To"
+of the referenced node</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1313,9 +1316,9 @@ Class QuestGraph
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd>The action type for the new node</dd>
     <dt><code>referenceNode</code> <a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
-    <dd></dd>
+    <dd>The node after which the new node will be inserted</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -1341,7 +1344,7 @@ Class QuestGraph
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Inserts a new node before a specified reference node</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1351,9 +1354,9 @@ Class QuestGraph
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd>The action type for the new node</dd>
     <dt><code>referenceNode</code> <a class="xref" href="ISILab.LBS.Components.QuestNode.html">QuestNode</a></dt>
-    <dd></dd>
+    <dd>The node before which the new node will be inserted</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -1379,7 +1382,7 @@ Class QuestGraph
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Determines whether the representation is empty.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1450,7 +1453,8 @@ Class QuestGraph
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">prints by console basic information of 
+the representation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1569,7 +1573,7 @@ Class QuestGraph
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Rewrites the representation based on another LBSModule.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

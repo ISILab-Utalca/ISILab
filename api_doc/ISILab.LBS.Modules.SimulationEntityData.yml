@@ -15,19 +15,33 @@ items:
   nameWithType: SimulationEntityData
   fullName: ISILab.LBS.Modules.SimulationEntityData
   type: Struct
+  source:
+    id: SimulationEntityData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\PathOSStorage.cs
+    startLine: 8
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
   syntax:
-    content: public struct SimulationEntityData
-    content.vb: Public Structure SimulationEntityData
+    content: >-
+      [Serializable]
+
+      public struct SimulationEntityData
+    content.vb: >-
+      <Serializable>
+
+      Public Structure SimulationEntityData
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Modules.SimulationEntityData.image
   commentId: F:ISILab.LBS.Modules.SimulationEntityData.image
   id: image
@@ -39,6 +53,10 @@ items:
   nameWithType: SimulationEntityData.image
   fullName: ISILab.LBS.Modules.SimulationEntityData.image
   type: Field
+  source:
+    id: image
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\PathOSStorage.cs
+    startLine: 11
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -58,6 +76,10 @@ items:
   nameWithType: SimulationEntityData.color
   fullName: ISILab.LBS.Modules.SimulationEntityData.color
   type: Field
+  source:
+    id: color
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\PathOSStorage.cs
+    startLine: 12
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -77,6 +99,10 @@ items:
   nameWithType: SimulationEntityData.SimulationEntityData(VectorImage, Color)
   fullName: ISILab.LBS.Modules.SimulationEntityData.SimulationEntityData(UnityEngine.UIElements.VectorImage, UnityEngine.Color)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\PathOSStorage.cs
+    startLine: 14
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -95,7 +121,6 @@ items:
 references:
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -103,32 +128,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: System.ValueType.Equals(System.Object)
   commentId: M:System.ValueType.Equals(System.Object)
@@ -207,30 +226,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -275,6 +270,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -348,18 +367,49 @@ references:
   nameWithType: System
   fullName: System
 - uid: UnityEngine.UIElements.VectorImage
+  commentId: T:UnityEngine.UIElements.VectorImage
+  parent: UnityEngine.UIElements
   isExternal: true
   name: VectorImage
   nameWithType: VectorImage
   fullName: UnityEngine.UIElements.VectorImage
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
 - uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
   isExternal: true
   name: Color
   nameWithType: Color
   fullName: UnityEngine.Color
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.Modules.SimulationEntityData.#ctor*
   commentId: Overload:ISILab.LBS.Modules.SimulationEntityData.#ctor
-  isExternal: true
   href: ISILab.LBS.Modules.SimulationEntityData.html#ISILab_LBS_Modules_SimulationEntityData__ctor_UnityEngine_UIElements_VectorImage_UnityEngine_Color_
   name: SimulationEntityData
   nameWithType: SimulationEntityData.SimulationEntityData

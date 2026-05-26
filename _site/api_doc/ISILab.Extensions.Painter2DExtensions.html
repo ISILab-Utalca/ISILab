@@ -121,16 +121,10 @@ Class Painter2DExtensions
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
@@ -140,6 +134,12 @@ Class Painter2DExtensions
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -203,7 +203,7 @@ Class Painter2DExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Create a triangle arrow facing <code>arrowDirection</code>.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -215,17 +215,17 @@ Class Painter2DExtensions
     <dt><code>painter</code> <span class="xref">Painter2D</span></dt>
     <dd></dd>
     <dt><code>center</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>The Vector2 center point.</dd>
     <dt><code>arrowDirection</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>A normalized vector facing direction</dd>
     <dt><code>arrowWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>the width of the triangle face</dd>
     <dt><code>arrowLengthFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>factor applied to width, to get the tip length</dd>
     <dt><code>color</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>Fill color</dd>
     <dt><code>closed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>Close the arrow paint</dd>
   </dl>
 
 
@@ -294,7 +294,7 @@ Class Painter2DExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Draws a circle on a 2D canvas with the given position vector, radius and color.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -304,13 +304,13 @@ Class Painter2DExtensions
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>paint2D</code> <span class="xref">Painter2D</span></dt>
-    <dd></dd>
+    <dd>The 2D canvas to draw on.</dd>
     <dt><code>pos</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>The position vector of the center of the circle.</dd>
     <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The radius of the circle.</dd>
     <dt><code>color</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The color of the circle.</dd>
   </dl>
 
 
@@ -370,7 +370,7 @@ Class Painter2DExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Draws a dotted line on a 2D canvas between two given positions with the given color, stroke and line width.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -380,17 +380,17 @@ Class Painter2DExtensions
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>paint2D</code> <span class="xref">Painter2D</span></dt>
-    <dd></dd>
+    <dd>The 2D canvas to draw on.</dd>
     <dt><code>initPos</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>The starting position of the dotted line.</dd>
     <dt><code>endPos</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>The ending position of the dotted line.</dd>
     <dt><code>color</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The color of the dotted line.</dd>
     <dt><code>stroke</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The distance between two consecutive dots in the dotted line.</dd>
     <dt><code>lineWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The width of the line.</dd>
   </dl>
 
 
@@ -450,7 +450,7 @@ Class Painter2DExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Create a triangle arrow facing <code>arrowDirection</code>.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -462,15 +462,15 @@ Class Painter2DExtensions
     <dt><code>painter</code> <span class="xref">Painter2D</span></dt>
     <dd></dd>
     <dt><code>center</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>The Vector2 center point.</dd>
     <dt><code>arrowDirection</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>A normalized vector facing direction</dd>
     <dt><code>arrowWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>the width of the triangle face</dd>
     <dt><code>color</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>Fill color</dd>
     <dt><code>closed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>Close the arrow paint</dd>
   </dl>
 
 
@@ -491,7 +491,7 @@ Class Painter2DExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Draws a shape with holes on a 2D canvas using a list of paths defined by a set of points.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -501,15 +501,15 @@ Class Painter2DExtensions
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>paint2D</code> <span class="xref">Painter2D</span></dt>
-    <dd></dd>
+    <dd>The 2D canvas to draw on.</dd>
     <dt><code>points</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector2</span>&gt;&gt;</dt>
-    <dd></dd>
+    <dd>A list of paths defined by a set of points.</dd>
     <dt><code>color</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The fill color of the shape.</dd>
     <dt><code>border</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The stroke color of the shape.</dd>
     <dt><code>stroke</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The width of the stroke. Default value is 1.</dd>
   </dl>
 
 
@@ -530,7 +530,7 @@ Class Painter2DExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Draw a line with given points, color and stroke.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -569,7 +569,7 @@ Class Painter2DExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Draws a polygon shape with given points, color, and border. Allows setting stroke width and whether the polygon is closed or not.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -579,17 +579,17 @@ Class Painter2DExtensions
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>paint2D</code> <span class="xref">Painter2D</span></dt>
-    <dd></dd>
+    <dd>The 2D painter object to use for drawing.</dd>
     <dt><code>point</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
-    <dd></dd>
+    <dd>The list of points that define the polygon shape.</dd>
     <dt><code>color</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The fill color of the polygon.</dd>
     <dt><code>border</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The border color of the polygon.</dd>
     <dt><code>stroke</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The width of the polygon border stroke. Defaults to 1.</dd>
     <dt><code>closed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>Whether the polygon shape should be closed or not. Defaults to false.</dd>
   </dl>
 
 
@@ -610,7 +610,7 @@ Class Painter2DExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Draws a selection box on a 2D canvas with the given position vectors and color.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -620,15 +620,15 @@ Class Painter2DExtensions
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>paint2D</code> <span class="xref">Painter2D</span></dt>
-    <dd></dd>
+    <dd>The 2D canvas to draw on.</dd>
     <dt><code>pos1</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>The starting position vector of the selection box.</dd>
     <dt><code>pos2</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>The ending position vector of the selection box.</dd>
     <dt><code>color</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The color of the selection box.</dd>
     <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The width of the selection box border. Default value is 1.</dd>
   </dl>
 
 
@@ -649,7 +649,7 @@ Class Painter2DExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Draws a grid of squares with given points, color, and border. Allows setting stroke width, scale, and rotation angle.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -659,19 +659,19 @@ Class Painter2DExtensions
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>paint2D</code> <span class="xref">Painter2D</span></dt>
-    <dd></dd>
+    <dd>The 2D painter object to use for drawing.</dd>
     <dt><code>points</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector2</span>&gt;&gt;</dt>
-    <dd></dd>
+    <dd>A list of lists of Vector2 points, where each inner list represents a row of squares.</dd>
     <dt><code>color</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The fill color of the squares.</dd>
     <dt><code>border</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The border color of the squares.</dd>
     <dt><code>stroke</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The width of the square border stroke.</dd>
     <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The scale factor to apply to each square.</dd>
     <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The rotation angle, in degrees, to apply to the grid.</dd>
   </dl>
 
 

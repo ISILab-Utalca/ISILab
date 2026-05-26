@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ChromosomeBase | lbs-api_docs ">
       
-      
+      <meta name="description" content="A base class for chromosomes.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,11 +97,12 @@ Class ChromosomeBase
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">A base class for chromosomes.</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
   </div>
 
 
@@ -134,19 +135,19 @@ Class ChromosomeBase
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -192,7 +193,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a> class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -202,7 +203,7 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The length, in genes, of the chromosome.</dd>
     <dt><code>immutables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
     <dd></dd>
     <dt><code>invalids</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
@@ -325,7 +326,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets or sets the fitness of the chromosome in the current problem.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -387,7 +388,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the length, in genes, of the chromosome.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -418,7 +419,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets or sets the fitness.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -432,7 +433,7 @@ Class ChromosomeBase
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd></dd>
+    <dd>The fitness.</dd>
   </dl>
 
 
@@ -449,7 +450,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets or sets the fitness.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -463,7 +464,7 @@ Class ChromosomeBase
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd></dd>
+    <dd>The fitness.</dd>
   </dl>
 
 
@@ -515,7 +516,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates a clone.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -526,7 +527,7 @@ Class ChromosomeBase
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The chromosome clone.</dd>
   </dl>
 
 
@@ -546,7 +547,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Compares the current object with another object of the same type.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -556,13 +557,13 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>other</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The other chromosome.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The to.</dd>
   </dl>
 
 
@@ -582,7 +583,11 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates the gene on specified index.
+<remarks>
+It's a shortcut to:  
+<pre><code class="lang-csharp">ReplaceGene(index, GenerateGene(index));</code></pre>
+</remarks></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -592,7 +597,7 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The gene index.</dd>
   </dl>
 
 
@@ -613,7 +618,14 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates all genes
+<remarks>
+It's a shortcut to: 
+<pre><code class="lang-csharp">for (int i = 0; i &lt; Length; i++)
+{
+    ReplaceGene(i, GenerateGene(i));
+}</code></pre>
+</remarks></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -639,7 +651,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates a new chromosome using the same structure of this.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -650,7 +662,7 @@ Class ChromosomeBase
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The new chromosome.</dd>
   </dl>
 
 
@@ -670,7 +682,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Determines whether the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> is equal to the current <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -680,13 +692,14 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> to compare with the current <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><code>true</code> if the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> is equal to the current
+    <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>; otherwise, <code>false</code>.</dd>
   </dl>
 
 
@@ -845,7 +858,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the gene in the specified index.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -855,13 +868,13 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The gene index.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">T</span></dt>
-    <dd></dd>
+    <dd>The gene.</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
@@ -917,7 +930,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the genes.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -928,7 +941,7 @@ Class ChromosomeBase
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt>T[]</dt>
-    <dd></dd>
+    <dd>The genes.</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
@@ -953,7 +966,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Returns a hash code for this instance.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -964,7 +977,7 @@ Class ChromosomeBase
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</dd>
   </dl>
 
 
@@ -1087,7 +1100,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Replaces the gene in the specified index.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1097,9 +1110,9 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The gene index to replace.</dd>
     <dt><code>gene</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd>The new gene.</dd>
   </dl>
 
 
@@ -1115,6 +1128,11 @@ Class ChromosomeBase
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd>index;There is no Gene on index {0} to be replaced..With(index)</dd>
+  </dl>
 
 
 
@@ -1125,7 +1143,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Replaces the genes starting in the specified index.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1135,9 +1153,9 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>startIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>Start index.</dd>
     <dt><code>genes</code> T[]</dt>
-    <dd></dd>
+    <dd>The genes.</dd>
   </dl>
 
 
@@ -1152,6 +1170,8 @@ Class ChromosomeBase
 
 
 
+  <h4 class="section" id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0____remarks">Remarks</h4>
+  <div class="markdown level1 remarks">The genes to be replaced can't be greater than the available space between the start index and the end of the chromosome.</div>
 
 
 
@@ -1163,7 +1183,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Resizes the chromosome to the new length.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1173,7 +1193,7 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>newLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The new length.</dd>
   </dl>
 
 
@@ -1301,7 +1321,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Implements the operator ==.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1311,15 +1331,15 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>first</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The first.</dd>
     <dt><code>second</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The second.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>The result of the operator.</dd>
   </dl>
 
 
@@ -1339,7 +1359,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Implements the operator &gt;.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1349,15 +1369,15 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>first</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The first.</dd>
     <dt><code>second</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The second.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>The result of the operator.</dd>
   </dl>
 
 
@@ -1377,7 +1397,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Implements the operator !=.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1387,15 +1407,15 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>first</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The first.</dd>
     <dt><code>second</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The second.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>The result of the operator.</dd>
   </dl>
 
 
@@ -1415,7 +1435,7 @@ Class ChromosomeBase
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Implements the operator &lt;.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1425,15 +1445,15 @@ Class ChromosomeBase
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>first</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The first.</dd>
     <dt><code>second</code> <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a></dt>
-    <dd></dd>
+    <dd>The second.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>The result of the operator.</dd>
   </dl>
 
 

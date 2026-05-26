@@ -1,5 +1,5 @@
 {
-  "source_base_path": "C:/Users/roth8/Documents/Repos/LevelBuildingSidekick/LevelBuildingSidekick/Assets/ISILab",
+  "source_base_path": "C:/Users/Alice/Documents/GitHub/LevelBuildingSidekick/LevelBuildingSidekick/Assets/ISILab",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -72,7 +72,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Chromosomes.BinaryChromosomeBase",
-      "Summary": null
+      "Summary": "A base class for binary chromosome of 0 and 1 genes."
     },
     {
       "type": "ManagedReference",
@@ -86,7 +86,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Chromosomes.ChromosomeBase",
-      "Summary": null
+      "Summary": "A base class for chromosomes."
     },
     {
       "type": "ManagedReference",
@@ -100,7 +100,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Chromosomes.ChromosomeExtensions",
-      "Summary": null
+      "Summary": "Chromosome extensions."
     },
     {
       "type": "ManagedReference",
@@ -114,7 +114,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Chromosomes.IBinaryChromosome",
-      "Summary": null
+      "Summary": "Defines a interface of a binary chromosome of 0 and 1 genes."
     },
     {
       "type": "ManagedReference",
@@ -128,7 +128,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Chromosomes.IChromosome",
-      "Summary": null
+      "Summary": "Defines an interface for a chromosome.\n<remarks>\nIn genetic algorithms, a chromosome (also sometimes called a genome) is a set of parameters \nwhich define a proposed solution to the problem that the genetic algorithm is trying to solve. \nThe chromosome is often represented as a simple string, although a wide variety of other data \nstructures are also used.\n<a href=\"http://en.wikipedia.org/wiki/Chromosome_(genetic_algorithm)\">http://en.wikipedia.org/wiki/Chromosome_(genetic_algorithm)</a> \n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -142,7 +142,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Chromosomes.IChromosomeOperator",
-      "Summary": null
+      "Summary": "Defines a basic interface for operators which works with chromosomes."
     },
     {
       "type": "ManagedReference",
@@ -156,7 +156,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Chromosomes.IntegerChromosome",
-      "Summary": null
+      "Summary": "Integer chromosome with binary values (0 and 1)."
     },
     {
       "type": "ManagedReference",
@@ -184,7 +184,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.AlternatingPositionCrossover",
-      "Summary": null
+      "Summary": "Alternating-position (AP).\n<remarks>\n<p>\nThe alternating position crossover operator (Larrañaga et al. 1996a) simply creates an offspring by selecting alternately the next \nelement of the first parent and the next element of the second parent, omitting the elements already present in the offspring\n</p>\n<p>\nFor example, if parent 1 is (1 2 3 4 5 6 7 8) and parent 2 is (3 7 5 1 6 8 2 4) \nthe AP operator gives the following offspring: (1 3 2 7 5 4 6 8)\n</p>\n<p>\nExchanging the parents results in (3 1 7 2 5 4 6 8).\n<a href=\"../docs/Genetic Algorithms for the Travelling Salesman Problem - A Review of Representations and Operators.pdf\">Genetic Algorithms for the Travelling Salesman Problem: A Review of Representations and Operators</a>\n</p>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -198,7 +198,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.CrossoverBase",
-      "Summary": null
+      "Summary": "A base class for crossovers."
     },
     {
       "type": "ManagedReference",
@@ -212,7 +212,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.CrossoverException",
-      "Summary": null
+      "Summary": "Exception throw when an error occurs during the execution of cross."
     },
     {
       "type": "ManagedReference",
@@ -226,7 +226,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.CrossoverService",
-      "Summary": null
+      "Summary": "Crossover service."
     },
     {
       "type": "ManagedReference",
@@ -240,7 +240,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.CutAndSpliceCrossover",
-      "Summary": null
+      "Summary": "Cut and Splice crossover.\n<remarks>\nResults in a change in length of the children strings. The reason for this difference is that each parent string has a separate choice of crossover point.\n<a href=\"http://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)#.22Cut_and_splice.22\">Wikipedia</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -254,7 +254,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.CycleCrossover",
-      "Summary": null
+      "Summary": "Cycle Crossover (CX).\n<remarks>\nThe Cycle Crossover (CX) proposed by Oliver builds offspring in such a way that each \ncity (and its position) comes from one of the parents.\n<a href=\"http://arxiv.org/ftp/arxiv/papers/1203/1203.3097.pdf\">A Comparative Study of Adaptive Crossover Operators for Genetic Algorithms to Resolve the Traveling Salesman Problem</a>\n<p>\nThe Cycle Crossover operator identifies a number of so-called cycles between two parent chromosomes. \nThen, to form Child 1, cycle one is copied from parent 1, cycle 2 from parent 2, cycle 3 from parent 1, and so on.\n<see ref=\"http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/CycleCrossoverOperator.aspx\">Crossover Technique: Cycle Crossover</see>\n</p>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -268,7 +268,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.ICrossover",
-      "Summary": null
+      "Summary": "Defines a interface for a crossover genetic operator.\n<remarks>\nIn genetic algorithms, crossover is a genetic operator used to vary the programming of a chromosome\nor chromosomes from one generation to the next. \n<p>\nIt is analogous to reproduction and biological crossover, upon which genetic algorithms are based. \nCross over is a process of taking more than one parent solutions and producing a child solution from them.\n</p>\n<a href=\"http://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)\">Crossover (Genetic Algorithm)</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -282,7 +282,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.OnePointCrossover",
-      "Summary": null
+      "Summary": "One-Point crossover (C1).\n<remarks>\nA single crossover point on both parents is selected. \nAll data beyond that point in either is swapped between the two parents.    \n<a href=\"http://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)#One-point_crossover\">One-point crossover</a>\n<example>\nParents: \n|0|0|0| x |1|1|1|\nHave two swap points indexes: 0 and 1.\n<p>\n1) \nnew OnePointCrossover(0);\nChildren result:\n|0|1|1| and |1|0|0|\n</p>\n<p>\n2) \nnew OnePointCrossover(1);\nChildren result:\n|0|0|1| and |1|1|0|\n</p>\n</example>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -296,7 +296,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.OrderBasedCrossover",
-      "Summary": null
+      "Summary": "Order-based crossover (OX2).\n<remarks>\nOX2 was suggested in connection with schedule problems, is a modification of the OX1 operator. \nThe OX2 operator selects at random several positions in a parent string, and the order of the elements in the \nselected positions of this parent is imposed on the other parent. For example, consider the parents \n(1 2 3 4 5 6 7 8) and (2 4 6 8 7 5 3 1), and suppose that in the second parent in the second, third \nand sixth positions are selected. The elements in these positions are 4, 6 and 5 respectively. \nIn the first parent, these elements are present at the fourth, fifth and sixth positions. \nNow the offspring are equal to parent 1 except in the fourth, fifth and sixth positions: (1 2 3 * * * 7 8). \nWe add the missing elements to the offspring in the same order in which they appear in the second parent. \nThis results in (1 2 3 4 6 5 7 8). Exchanging the role of the first parent and the second parent gives, \nusing the same selected positions, (2 4 3 8 7 5 6 1).\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -310,7 +310,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.OrderedCrossover",
-      "Summary": null
+      "Summary": "Ordered Crossover (OX1).\n<remarks>\nAlso know as: Order Crossover.\n<p>\nA portion of one parent is mapped to a portion of the other parent. \nFrom the replaced portion on, the rest is filled up by the remaining genes, where already present genes are omitted and the order is preserved.\n<a href=\"http://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)#Crossover_for_Ordered_Chromosomes\">Crossover for Ordered Chromosomes</a>\n</p>\n<p>\nThe Ordered Crossover method is presented by Goldberg, is used when the problem is of order based, \nfor example in Ushaped assembly line balancing etc. Given two parent \nchromosomes, two random crossover points are selected \npartitioning them into a left, middle and right portion. The \nordered two-point crossover behaves in the following way: \nchild1 inherits its left and right section from parent1, and its middle section is determined.\n<a href=\"http://arxiv.org/ftp/arxiv/papers/1203/1203.3097.pdf\">A Comparative Study of Adaptive Crossover Operators for Genetic Algorithms to Resolve the Traveling Salesman Problem</a>\n</p>\n<p>\nThe order crossover operator (Figure 4) was proposed by Davis (1985). \nThe OX1 exploits a property of the path representation, that the order of cities (not their positions) are important. \n<a href=\"http://lev4projdissertation.googlecode.com/svn-history/r100/trunk/reading/read/aiRev99.pdf\">Genetic Algorithms for the Travelling Salesman Problem - A Review of Representations and Operators</a>\n</p>\n<p>\nOrder 1 Crossover is a fairly simple permutation crossover. \nBasically, a swath of consecutive alleles from parent 1 drops down, \nand remaining values are placed in the child in the order which they appear in parent 2.\n<a href=\"http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/Order1CrossoverOperator.aspx\">Order 1 Crossover</a>\n</p>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -324,7 +324,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.PartiallyMappedCrossover",
-      "Summary": null
+      "Summary": "Partially mapped crossover (PMX).\n<remarks>\nThe partially-mapped crossover operator was suggested by Gold- berg and Lingle (1985). \nIt passes on ordering and value information from the parent tours to the offspring tours. \nA portion of one parent’s string is mapped onto a portion of the other parent’s string and the remaining information is exchanged.\n<a href=\"http://www.dca.fee.unicamp.br/~gomide/courses/EA072/artigos/Genetic_Algorithm_TSPR_eview_Larranaga_1999.pdf\">Genetic Algorithms for the Travelling Salesman Problem - A Review of Representations and Operators</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -338,7 +338,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.PositionBasedCrossover",
-      "Summary": null
+      "Summary": "Position-based crossover (POS).\n<remarks>\nThe position-based crossover operator (POS), which was also suggested in connection with schedule problems, \nis a second modification of the OX1 operator. It also starts with selecting a random set of positions in \nthe parent strings. However, this operator imposes the position of the selected elements on the \ncorresponding elements of the other parent. For example, consider the parents (1 2 3 4 5 6 7 8) \nand (2 4 6 8 7 5 3 1), and suppose that the second, third and sixth positions are selected. \nThis leads to the following offspring: (1 4 6 2 3 5 7 8) and (4 2 3 8 7 6 5 1).\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -352,7 +352,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.ThreeParentCrossover",
-      "Summary": null
+      "Summary": "Three Parent Crossover.\n<remarks>\nIn this technique, the child is derived from three parents. \nThey are randomly chosen. Each bit of first parent is checked with bit of second parent whether they are same. \nIf same then the bit is taken for the offspring otherwise the bit from the third parent is taken for the offspring.\n<a href=\"http://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)#Three_parent_crossover\">Wikipedia</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -366,7 +366,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.TwoPointCrossover",
-      "Summary": null
+      "Summary": "Two-Point Crossover (C2)\n<remarks>\nTwo-point crossover calls for two points to be selected on the parents. \nEverything between the two points is swapped between the parents, rendering two children.\n<a href=\"http://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)#Two-point_crossover\">Wikipedia</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -380,7 +380,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Crossovers.UniformCrossover",
-      "Summary": null
+      "Summary": "The Uniform Crossover uses a fixed mixing ratio between two parents. \nUnlike one-point and two-point crossover, the Uniform Crossover enables the parent chromosomes to contribute the gene level rather than the segment level.\n<remarks>\nIf the mix probability is 0.5, the offspring has approximately half of the genes from first parent and the other half from second parent, although cross over points can be randomly chosen.\n</remarks>\n<a href=\"http://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)#Uniform_Crossover_and_Half_Uniform_Crossover\">Wikipedia</a>"
     },
     {
       "type": "ManagedReference",
@@ -422,7 +422,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.DefaultOperatorsStrategy",
-      "Summary": null
+      "Summary": "Defines an operators strategy which use a linear execution"
     },
     {
       "type": "ManagedReference",
@@ -436,7 +436,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.IOperatorsStrategy",
-      "Summary": null
+      "Summary": "Defines an interface for operators strategy."
     },
     {
       "type": "ManagedReference",
@@ -450,7 +450,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.DisplacementMutation",
-      "Summary": null
+      "Summary": "Displacement Mutation.\n<remarks>\nIn the displacement mutation operator, a substring is randomly selected from chromosome, is removed, then replaced at a randomly selected position. \nOn implementation, we take a sequence S limited by two positions i and j randomly chosen, The selected substring in this sequence \nwill be left shifted or right shifted randomly to give the effect of removing the substring and inserting it on another position.\n<a href=\"https://web.cs.elte.hu/blobs/diplomamunkak/bsc_alkmat/2017/keresztury_bence.pdf\">Genetic algorithms and the Traveling Salesman Problem</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -464,7 +464,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.FlipBitMutation",
-      "Summary": null
+      "Summary": "Takes the chosen genome and inverts the bits (i.e. if the genome bit is 1, it is changed to 0 and vice versa)."
     },
     {
       "type": "ManagedReference",
@@ -478,7 +478,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.IMutation",
-      "Summary": null
+      "Summary": "Mutation is a genetic operator used to maintain genetic diversity from one generation of a population of genetic algorithm \nchromosomes to the next. It is analogous to biological mutation. Mutation alters one or more gene values in a chromosome from \nits initial state. In mutation, the solution may change entirely from the previous solution. Hence GA can come to better solution \nby using mutation. Mutation occurs during evolution according to a user-definable mutation probability. This probability should be \nset low. If it is set too high, the search will turn into a primitive random search.\n<p>\nThe classic example of a mutation operator involves a probability that an arbitrary bit in a genetic sequence will be changed \nfrom its original state. A common method of implementing the mutation operator involves generating a random variable for each bit \nin a sequence. This random variable tells whether or not a particular bit will be modified.This mutation procedure, based on the \nbiological point mutation, is called single point mutation. Other types are inversion and floating point mutation. When the gene \nencoding is restrictive as in permutation problems, mutations are swaps, inversions, and scrambles.\n</p>\n<p>\nThe purpose of mutation in GAs is preserving and introducing diversity. Mutation should allow the algorithm to avoid local minima \nby preventing the population of chromosomes from becoming too similar to each other, thus slowing or even stopping evolution. \nThis reasoning also explains the fact that most GA systems avoid only taking the fittest of the population in generating the next \nbut rather a random (or semi-random) selection with a weighting toward those that are fitter.\n</p>\n<a href=\"http://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)\">http://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)</a>"
     },
     {
       "type": "ManagedReference",
@@ -492,7 +492,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.InsertionMutation",
-      "Summary": null
+      "Summary": "Insertion Mutation.\n<remarks>\nIn the insertion mutation operator, a gene is randomly selected from chromosome, is removed, then replaced at a randomly selected position. \nOn implementation, we take a sequence S limited by two positions i and j randomly chosen, The selected gene in this sequence \nwill be left shifted or right shifted randomly to give the effect of removing the gene and inserting it on another position.\n<a href=\"https://web.cs.elte.hu/blobs/diplomamunkak/bsc_alkmat/2017/keresztury_bence.pdf\">Genetic algorithms and the Traveling Salesman Problem</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -506,7 +506,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.MutationBase",
-      "Summary": null
+      "Summary": "Base class for IMutation's implementation."
     },
     {
       "type": "ManagedReference",
@@ -520,7 +520,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.MutationException",
-      "Summary": null
+      "Summary": "Exception throw when an error occurs during the execution of mutate."
     },
     {
       "type": "ManagedReference",
@@ -534,7 +534,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.MutationService",
-      "Summary": null
+      "Summary": "Mutation service."
     },
     {
       "type": "ManagedReference",
@@ -548,7 +548,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.PartialShuffleMutation",
-      "Summary": null
+      "Summary": "Partial Shuffle Mutation (PSM).\n<remarks>\nIn the partial shuffle mutation operator, we take a sequence S limited by two \npositions i and j randomly chosen, such that i&lt;j. The gene order in this sequence \nwill be shuffled. Sequence will be shuffled until it becomes different than the starting order\n<a href=\"http://arxiv.org/ftp/arxiv/papers/1203/1203.3099.pdf\">Analyzing the Performance of Mutation Operators to Solve the Travelling Salesman Problem</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -562,7 +562,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.ReverseSequenceMutation",
-      "Summary": null
+      "Summary": "Reverse Sequence Mutation (RSM).\n<remarks>\nIn the reverse sequence mutation operator, we take a sequence S limited by two \npositions i and j randomly chosen, such that i&lt;j. The gene order in this sequence \nwill be reversed by the same way as what has been covered in the previous operation.\n<a href=\"http://arxiv.org/ftp/arxiv/papers/1203/1203.3099.pdf\">Analyzing the Performance of Mutation Operators to Solve the Travelling Salesman Problem</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -576,7 +576,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.SequenceMutationBase",
-      "Summary": null
+      "Summary": "Base class for Mutations on a Sub-Sequence."
     },
     {
       "type": "ManagedReference",
@@ -590,7 +590,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.TworsMutation",
-      "Summary": null
+      "Summary": "Twors mutation allows the exchange of position of two genes randomly chosen.\n<remarks>\n<a href=\"http://arxiv.org/ftp/arxiv/papers/1203/1203.3099.pdf\">Analyzing the Performance of Mutation Operators to Solve the Travelling Salesman Problem</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -604,7 +604,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Mutations.UniformMutation",
-      "Summary": null
+      "Summary": "This operator replaces the value of the chosen gene with a uniform random value selected \nbetween the user-specified upper and lower bounds for that gene. \n<a href=\"http://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)\">Wikipedia</a>"
     },
     {
       "type": "ManagedReference",
@@ -632,7 +632,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.OperatorsStrategyBase",
-      "Summary": null
+      "Summary": "Defines an operators base strategy to be inherited either with linear or parallel execution"
     },
     {
       "type": "ManagedReference",
@@ -646,7 +646,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Randomizations.BasicRandomization",
-      "Summary": null
+      "Summary": "An IRandomization implementation using System.Random has pseudo-number generator."
     },
     {
       "type": "ManagedReference",
@@ -660,7 +660,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Randomizations.FastRandomRandomization",
-      "Summary": null
+      "Summary": "An IRandomization using FastRandom has pseudo-number generator.\n<a href=\"http://www.codeproject.com/Articles/9187/A-fast-equivalent-for-System-Random\">http://www.codeproject.com/Articles/9187/A-fast-equivalent-for-System-Random</a>"
     },
     {
       "type": "ManagedReference",
@@ -674,7 +674,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Randomizations.IRandomization",
-      "Summary": null
+      "Summary": "Defines an interface for randomization."
     },
     {
       "type": "ManagedReference",
@@ -688,7 +688,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Randomizations.RandomizationBase",
-      "Summary": null
+      "Summary": "Base class for randomization."
     },
     {
       "type": "ManagedReference",
@@ -702,7 +702,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Randomizations.RandomizationExtensions",
-      "Summary": null
+      "Summary": "Extension methods for IRandomization."
     },
     {
       "type": "ManagedReference",
@@ -716,7 +716,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Randomizations.RandomizationProvider",
-      "Summary": null
+      "Summary": "The randomization provider use for all elements of current genetic algorithm execution."
     },
     {
       "type": "ManagedReference",
@@ -744,7 +744,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Reinsertions.ElitistReinsertion",
-      "Summary": null
+      "Summary": "Elitist reinsertion.\n<remarks>\nWhen there are less offspring than parents, select the best parents to be reinserted together with the offspring. \n<a href=\"http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf\">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -758,7 +758,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Reinsertions.FitnessBasedReinsertion",
-      "Summary": null
+      "Summary": "Fitness Based Reinsertion.\n<remarks>\nWhen there are more offspring than parents, select the only the best offspring to be reinserted, the parents are discarded.     \n<a href=\"http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf\">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -772,7 +772,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Reinsertions.IReinsertion",
-      "Summary": null
+      "Summary": "Defines an interface for reinsertions.\n<remarks>\nIf less offspring are produced than the min size of the original population then to \nmaintain the size of the population, the offspring have to be reinserted \ninto the old population. Similarly, if not all offspring are to be used at each \ngeneration or if more offspring are generated than the max size of the  \npopulation then a reinsertion scheme must be used to determine which individuals are to exist in the new population\n<a href=\"http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf\">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -786,7 +786,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Reinsertions.PureReinsertion",
-      "Summary": null
+      "Summary": "Pure Reinsertion.\n<remarks>\nWhen there are same number of offspring than parents, select the offspring to be reinserted, the parents are discarded. \n<a href=\"http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf\">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -800,7 +800,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Reinsertions.ReinsertionBase",
-      "Summary": null
+      "Summary": "Base class for IReinsertion's implementations."
     },
     {
       "type": "ManagedReference",
@@ -814,7 +814,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Reinsertions.ReinsertionException",
-      "Summary": null
+      "Summary": "Exception throw when an error occurs during the execution of reinsert."
     },
     {
       "type": "ManagedReference",
@@ -828,7 +828,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Reinsertions.ReinsertionService",
-      "Summary": null
+      "Summary": "Reinsertion service."
     },
     {
       "type": "ManagedReference",
@@ -842,7 +842,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.Reinsertions.UniformReinsertion",
-      "Summary": null
+      "Summary": "Uniform Reinsertion.\n<remarks>\nWhen there are less offspring than parents, select the offspring uniformly at random to be reinserted, the parents are discarded. \n<a href=\"http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf\">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -870,7 +870,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "GeneticSharp.Domain.TplOperatorsStrategy",
-      "Summary": null
+      "Summary": "An IOperatorsStrategy's implmentation which use Task Parallel Library (TPL) for parallel execution."
     },
     {
       "type": "ManagedReference",
@@ -1542,7 +1542,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Grammar.GrammarElement",
-      "Summary": null
+      "Summary": "A rule contains definitions, which would be used to expand the rule into terminal actions\nor more rules within. For example:\nGoTo:\n    go to\n    go to -&gt; explore\n    Get -&gt; go to\n\nGet:\n    go to -&gt; steal\n    go to -&gt; take"
     },
     {
       "type": "ManagedReference",
@@ -1780,7 +1780,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Grammar.GrammarTerminal",
-      "Summary": null
+      "Summary": "The action that gest added into the graph for example:\n    go to\n    explore\n    kill"
     },
     {
       "type": "ManagedReference",
@@ -2060,7 +2060,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Populations.Generation",
-      "Summary": null
+      "Summary": "Represents a generation of a population."
     },
     {
       "type": "ManagedReference",
@@ -2074,7 +2074,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Populations.IGenerationStrategy",
-      "Summary": null
+      "Summary": "Defines a strategy to some key points of generation behavior inside a population."
     },
     {
       "type": "ManagedReference",
@@ -2088,7 +2088,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Populations.IPopulation",
-      "Summary": null
+      "Summary": "Defines an interface for a population of candidate solutions (chromosomes)."
     },
     {
       "type": "ManagedReference",
@@ -2102,7 +2102,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Populations.PerformanceGenerationStrategy",
-      "Summary": null
+      "Summary": "An IGenerationStrategy's implementation which takes into account the performance and just keep the last one generations in the population.\n<remarks>\nThis strategy is not good for tracking all the generations, for this case use TrackingGenerationStrategy, \nbut is the best one when you have a very long term termination.\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -2116,7 +2116,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Populations.Population",
-      "Summary": null
+      "Summary": "Represents a population of candidate solutions (chromosomes)."
     },
     {
       "type": "ManagedReference",
@@ -2130,7 +2130,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Populations.PopulationService",
-      "Summary": null
+      "Summary": "Population service."
     },
     {
       "type": "ManagedReference",
@@ -2144,7 +2144,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Populations.TplPopulation",
-      "Summary": null
+      "Summary": "Represents a population of candidate solutions (chromosomes) using TPL to create them."
     },
     {
       "type": "ManagedReference",
@@ -2158,7 +2158,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Populations.TrackingGenerationStrategy",
-      "Summary": null
+      "Summary": "An IGenerationStrategy's implementation that keeps all generations to further evaluation.\n<remarks>\nThis strategy can be slow and can suffer of OutOfMemoryException when you have great population and a long term termination.\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -2200,7 +2200,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Selections.EliteSelection",
-      "Summary": null
+      "Summary": "Selects the chromosomes with the best fitness."
     },
     {
       "type": "ManagedReference",
@@ -2214,7 +2214,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Selections.ISelection",
-      "Summary": null
+      "Summary": "Defines a interface for selection.\nSelection is the stage of a genetic algorithm in which individual genomes are chosen from a population for later breeding (recombination or crossover).\n<a href=\"http://en.wikipedia.org/wiki/Selection_(genetic_algorithm)\">Wikipedia</a>\n<a href=\" http://www.ijest.info/docs/IJEST11-03-05-190.pdf\">A Review of Selection Methods in Genetic Algorithm</a>"
     },
     {
       "type": "ManagedReference",
@@ -2228,7 +2228,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Selections.RankSelection",
-      "Summary": null
+      "Summary": "Rank Selection\n<remarks>\nIs a kind of Fitness Proportionate Selection. \n<a href=\" https://www.obitko.com/tutorials/genetic-algorithms/selection.php\">Rank Selection</a>\n<p>\nThe Rank selection method, is similar to the <xref href=\"ISILab.AI.Optimization.Selections.RouletteWheelSelection\" data-throw-if-not-resolved=\"false\"></xref>. However the size of the wheel and sectors are\ncalculated differently.\n</p>\n<p>\nIn the Rank selection method, the first step is to sort the population by fitness and assign a new fitness value from 1 to n.\nThe worst chromosome is given a fitness of 1, the best a fitness of n.\n</p>\n<p>\nThen, an array is built containing cumulative probabilities of the individuals. So, n random numbers are generated in the range 0 to fitness sum.\nand for each random number an array element which can have higher value is searched for. Therefore, individuals are selected according to their \nprobabilities of selection. \n</p>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -2242,7 +2242,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Selections.RouletteWheelSelection",
-      "Summary": null
+      "Summary": "Roulette Wheel Selection\n<remarks>\nIs a kind of Fitness Proportionate Selection. \n<a href=\" http://watchmaker.uncommons.org/manual/ch03s02.html\">Fitness-Proportionate Selection</a>\n<p>\nIn the Roulette wheel selection method [Holland, 1992], the first step is to calculate the cumulative fitness of the \nwhole population through the sum of the fitness of all individuals. After that, the probability of selection is \ncalculated for each individual.\n</p>\n<p>\nThen, an array is built containing cumulative probabilities of the individuals. So, n random numbers are generated in the range 0 to fitness sum.\nand for each random number an array element which can have higher value is searched for. Therefore, individuals are selected according to their \nprobabilities of selection. \n</p>\n<a href=\"http://en.wikipedia.org/wiki/Fitness_proportionate_selection\">Wikipedia</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -2256,7 +2256,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Selections.SelectionBase",
-      "Summary": null
+      "Summary": "A base class for selection."
     },
     {
       "type": "ManagedReference",
@@ -2270,7 +2270,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Selections.SelectionException",
-      "Summary": null
+      "Summary": "Exception throw when an error occurs during the execution of selection."
     },
     {
       "type": "ManagedReference",
@@ -2284,7 +2284,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Selections.SelectionService",
-      "Summary": null
+      "Summary": "Selection service."
     },
     {
       "type": "ManagedReference",
@@ -2312,7 +2312,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Selections.StochasticUniversalSamplingSelection",
-      "Summary": null
+      "Summary": "Stochastic Universal Sampling.\n<remarks>\nAlso know as: Roulette wheel selection.\nIs a kind of Fitness Proportionate Selection. \n<a href=\" http://watchmaker.uncommons.org/manual/ch03s02.html\">Fitness-Proportionate Selection</a>\n<p>\nStochastic Universal Sampling is an elaborately-named variation of roulette wheel selection. \nStochastic Universal Sampling ensures that the observed selection frequencies of each individual \nare in line with the expected frequencies. So if we have an individual that occupies 4.5% of the \nwheel and we select 100 individuals, we would expect on average for that individual to be selected \nbetween four and five times. Stochastic Universal Sampling guarantees this. The individual will be \nselected either four times or five times, not three times, not zero times and not 100 times. \nStandard roulette wheel selection does not make this guarantee.\n</p>\n<a href=\"http://en.wikipedia.org/wiki/Stochastic_universal_sampling\">Wikipedia</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -2326,7 +2326,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Selections.TournamentSelection",
-      "Summary": null
+      "Summary": "Tournament selection involves running several \"tournaments\" among a few individuals chosen at random from the population.\nThe winner of each tournament (the one with the best fitness) is selected for crossover. \n<remarks>    \nSelection pressure is easily adjusted by changing the tournament size. \nIf the tournament size is larger, weak individuals have a smaller chance to be selected.\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -2368,7 +2368,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Terminations.AndTermination",
-      "Summary": null
+      "Summary": "An termination where you can combine others ITerminations with a AND logical operator."
     },
     {
       "type": "ManagedReference",
@@ -2382,7 +2382,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Terminations.FitnessStagnationTermination",
-      "Summary": null
+      "Summary": "Fitness Stagnation Termination.    \n<remarks>\nThe genetic algorithm will be terminate when the best chromosome's fitness has no change in the last generations specified.\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -2396,7 +2396,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Terminations.FitnessThresholdTermination",
-      "Summary": null
+      "Summary": "Fitness Threshold Termination\n<remarks>\nThe genetic algorithm will be terminate when the best chromosome reach the expected fitness.\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -2410,7 +2410,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Terminations.GenerationNumberTermination",
-      "Summary": null
+      "Summary": "Generation number termination.\n<remarks>\nThe genetic algorithm will be terminate when reach the expected generation number.\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -2424,7 +2424,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Terminations.ITermination",
-      "Summary": null
+      "Summary": "Defines the interface for a termination condition."
     },
     {
       "type": "ManagedReference",
@@ -2438,7 +2438,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Terminations.LogicalOperatorTerminationBase",
-      "Summary": null
+      "Summary": "A base class for logical operator terminations."
     },
     {
       "type": "ManagedReference",
@@ -2452,7 +2452,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Terminations.OrTermination",
-      "Summary": null
+      "Summary": "An termination where you can combine others ITerminations with a OR logical operator."
     },
     {
       "type": "ManagedReference",
@@ -2466,7 +2466,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Terminations.TerminationBase",
-      "Summary": null
+      "Summary": "Base class for ITerminations implementations."
     },
     {
       "type": "ManagedReference",
@@ -2480,7 +2480,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Terminations.TerminationService",
-      "Summary": null
+      "Summary": "Termination service."
     },
     {
       "type": "ManagedReference",
@@ -2494,7 +2494,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.AI.Optimization.Terminations.TimeEvolvingTermination",
-      "Summary": null
+      "Summary": "Time Evolving Termination.\n<remarks>\nThe genetic algorithm will be terminate when the evolving exceed the max time specified.\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -2634,7 +2634,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.Commons.Directions.Bidimencional",
-      "Summary": null
+      "Summary": "A static class that provides predefined lists of 2D vectors \nrepresenting edges, diagonals, and all directions."
     },
     {
       "type": "ManagedReference",
@@ -2648,7 +2648,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.Commons.Directions.Tridimensional",
-      "Summary": null
+      "Summary": "A static class that provides predefined lists of 3D vectors\nrepresenting centers, edges, and diagonals in a 3D space."
     },
     {
       "type": "ManagedReference",
@@ -3404,7 +3404,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EnumConfigurationField",
-      "Summary": null
+      "Summary": ""
     },
     {
       "type": "ManagedReference",
@@ -3418,7 +3418,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField",
-      "Summary": null
+      "Summary": "Abstract base class for a field of a configurable evaluator."
     },
     {
       "type": "ManagedReference",
@@ -3432,7 +3432,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.AI.Categorization.EvaluatorConfiguration.FloatConfigurationField",
-      "Summary": null
+      "Summary": "Evaluator Configuration Field that represents a single floating-point value."
     },
     {
       "type": "ManagedReference",
@@ -3446,7 +3446,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.AI.Categorization.EvaluatorConfiguration.GroupedTagsField",
-      "Summary": null
+      "Summary": "Evaluator Configuration Field that represents multiples tags."
     },
     {
       "type": "ManagedReference",
@@ -3460,7 +3460,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.AI.Categorization.EvaluatorConfiguration.IntegerConfigurationField",
-      "Summary": null
+      "Summary": "Evaluator Configuration Field that represents a single integer value."
     },
     {
       "type": "ManagedReference",
@@ -3474,7 +3474,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField",
-      "Summary": null
+      "Summary": "Evaluator Configuration Field that represents a single tag."
     },
     {
       "type": "ManagedReference",
@@ -3488,7 +3488,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MinMaxConfigurationField",
-      "Summary": null
+      "Summary": "Evaluator Configuration Field that represents a range composed of two values."
     },
     {
       "type": "ManagedReference",
@@ -3502,7 +3502,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.AI.Categorization.EvaluatorConfiguration",
-      "Summary": null
+      "Summary": "Scriptable Object that represents the current configuration data of a MAP Elites evaluator. Every instance of an evaluator uses the same configuration."
     },
     {
       "type": "ManagedReference",
@@ -3810,7 +3810,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Characteristics.LBSCharacteristic",
-      "Summary": null
+      "Summary": "Requiere que las cosas que hereden de el tengan un contructor por defecto sin parametros"
     },
     {
       "type": "ManagedReference",
@@ -3866,7 +3866,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Characteristics.LBSDirectionedChance",
-      "Summary": null
+      "Summary": "The replacement for LBSDirectionedGroup characteristic, allowing to define chances based on each direction\nof the tile."
     },
     {
       "type": "ManagedReference",
@@ -3992,7 +3992,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Characteristics.LBSTerrainConnectionGrid",
-      "Summary": null
+      "Summary": "The main class handling the 'Terrain Connection Grid' sorting characteristic. <br /> \nA Connection Grid allows its respective bundle to flag their assets' \npossible connections individually, allowing consistent pattern generation."
     },
     {
       "type": "ManagedReference",
@@ -4202,7 +4202,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Components.BundleTargetGraph",
-      "Summary": null
+      "Summary": "Saves the bundle guid and the position in the graph to get in the scene"
     },
     {
       "type": "ManagedReference",
@@ -4510,7 +4510,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.CustomComponents.LBSButtonListFilter",
-      "Summary": null
+      "Summary": "A window that shows a list of buttons representing bundles (or any list of objects), with a search bar to filter them."
     },
     {
       "type": "ManagedReference",
@@ -5658,7 +5658,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Editor.AssistantMapEliteEditor",
-      "Summary": null
+      "Summary": "Reemplazar los VisualElements de Configuration y Content con PopulationAssistantWindow para permitirles ser una ventana independiente."
     },
     {
       "type": "ManagedReference",
@@ -5854,7 +5854,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Editor.Windows.LBSMainWindow",
-      "Summary": null
+      "Summary": "The General LBS Main Windows"
     },
     {
       "type": "ManagedReference",
@@ -6274,7 +6274,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Manipulators.ConnectionPicker",
-      "Summary": null
+      "Summary": "Allows selecting a population bundle from any layer and assigns it to the selected quest node if compatible."
     },
     {
       "type": "ManagedReference",
@@ -6386,7 +6386,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Manipulators.PrintInArea",
-      "Summary": null
+      "Summary": "Prints a blueprint (data, objects, layer, etc.) into the graph"
     },
     {
       "type": "ManagedReference",
@@ -6414,7 +6414,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Manipulators.QuestPicker",
-      "Summary": null
+      "Summary": "Allows selecting a population bundle from any layer and assigns it to the selected quest node if compatible."
     },
     {
       "type": "ManagedReference",
@@ -7016,7 +7016,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Modules.TileBundleGroup",
-      "Summary": null
+      "Summary": "So TileBundlePairs are a little too limited in functionality since they only link a tile to bundle data and that's it.\nI made a reworked version that SHOULD allow for multiple tiles to be stored with an ID."
     },
     {
       "type": "ManagedReference",
@@ -7478,7 +7478,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.Components.Data.Quest.Runtime.DestroyNotifier",
-      "Summary": null
+      "Summary": "TODO Change into a health on death/Kill indicates better what's used for (link to tag on population bundle)?"
     },
     {
       "type": "ManagedReference",
@@ -7590,7 +7590,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.Components.Data.UnityActionStored",
-      "Summary": null
+      "Summary": "Meant to store necessary data to create Unity Actions.\nHas function to generate a UnityAction"
     },
     {
       "type": "ManagedReference",
@@ -7786,7 +7786,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate",
-      "Summary": null
+      "Summary": "Represents a potential quest configuration mapping a <xref href=\"ISILab.AI.Grammar.GrammarTerminal\" data-throw-if-not-resolved=\"false\"></xref> \nto compatible world entities (<xref href=\"ISILab.LBS.Modules.TileBundleGroup\" data-throw-if-not-resolved=\"false\"></xref>)."
     },
     {
       "type": "ManagedReference",
@@ -7814,7 +7814,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.Core.AI.Assistant.TileChance",
-      "Summary": null
+      "Summary": "A TileConnectionPair which holds how many times it appears adjacent to another tile, and in which direction."
     },
     {
       "type": "ManagedReference",
@@ -7884,7 +7884,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable",
-      "Summary": null
+      "Summary": "Struct to store and represent an \"IEvaluable\" object along with its \"xFitness\" and \"yFitness\" values."
     },
     {
       "type": "ManagedReference",
@@ -8066,7 +8066,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator",
-      "Summary": null
+      "Summary": "Defines an interface for fitness function.\n<remarks>\nA fitness function is a particular type of objective function that is used to summarize, as a single figure of merit, how close a given design solution is to achieving the set aims.\n<a href=\"http://en.wikipedia.org/wiki/Fitness_function\">Wikipedia</a>\n</remarks>"
     },
     {
       "type": "ManagedReference",
@@ -8080,7 +8080,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator",
-      "Summary": null
+      "Summary": "Represents a ranged evaluator."
     },
     {
       "type": "ManagedReference",
@@ -8836,7 +8836,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.MapTools.CustomGizmo.Editor.Custom3DGizmoEditorBase<T>",
-      "Summary": null
+      "Summary": "Generic base class for 3D gizmo editors using UI Toolkit overlays.\nHandles SceneView UI positioning and lifecycle."
     },
     {
       "type": "ManagedReference",
@@ -9116,7 +9116,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.MapTools.Generators.LBSGenerated",
-      "Summary": null
+      "Summary": "Component added to any game objects created by the LBS tool.\nMain function is to contain a reference to the object's bundle, for different functionalities."
     },
     {
       "type": "ManagedReference",
@@ -9438,7 +9438,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch",
-      "Summary": null
+      "Summary": "Represents a branching condition in the quest system.\nDefines child triggers, a destination trigger, and logic\nfor AND/OR evaluation."
     },
     {
       "type": "ManagedReference",
@@ -9494,7 +9494,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest",
-      "Summary": null
+      "Summary": "Visual Element used to indicate a single quest objective\nin the QuestVisualTree (TreeView).\nDisplays the state of each quest step."
     },
     {
       "type": "ManagedReference",
@@ -10054,7 +10054,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.LayerContainer",
-      "Summary": null
+      "Summary": "Stores visual GraphElements associated with logical components (keys), grouped by layer."
     },
     {
       "type": "ManagedReference",
@@ -10082,7 +10082,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.MainView",
-      "Summary": null
+      "Summary": "Main canvas view used in the editor graph system. Handles layers, manipulators, and visual elements."
     },
     {
       "type": "ManagedReference",
@@ -10222,7 +10222,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElement.EVParameterElement",
-      "Summary": null
+      "Summary": "Visual element used to show parameters in a list."
     },
     {
       "type": "ManagedReference",
@@ -10264,7 +10264,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElement.EvaluatorElement",
-      "Summary": null
+      "Summary": "Visual element used to show evaluators in a list."
     },
     {
       "type": "ManagedReference",
@@ -10306,7 +10306,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EvaluatorElementTitle.EvaluatorElementTitle",
-      "Summary": null
+      "Summary": "Visual element used to show evaluators in a list."
     },
     {
       "type": "ManagedReference",
@@ -10488,7 +10488,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder",
-      "Summary": null
+      "Summary": "Class meant to collect data entered by the user through the Wizard, and create a main <xref href=\"ISILab.LBS.Plugin.Components.Bundles.Bundle\" data-throw-if-not-resolved=\"false\"></xref> asset."
     },
     {
       "type": "ManagedReference",
@@ -10614,7 +10614,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerElement",
-      "Summary": null
+      "Summary": "<b>For <xref href=\"ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow\" data-throw-if-not-resolved=\"false\"></xref> exclusive use.</b><br />\nVisual element representing a <xref href=\"ISILab.LBS.Plugin.Components.Bundles.Bundle\" data-throw-if-not-resolved=\"false\"></xref> that exists in the project."
     },
     {
       "type": "ManagedReference",
@@ -10684,7 +10684,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow.BundleContainer",
-      "Summary": null
+      "Summary": "Class containing a <xref href=\"ISILab.LBS.Plugin.Components.Bundles.Bundle\" data-throw-if-not-resolved=\"false\"></xref> and its children."
     },
     {
       "type": "ManagedReference",
@@ -10726,7 +10726,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardCharacteristicElement",
-      "Summary": null
+      "Summary": "<b>For <xref href=\"ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSetCharacteristMenu\" data-throw-if-not-resolved=\"false\"></xref> exclusive use.</b><br />\nVisual element for choosing a single <xref href=\"ISILab.LBS.Characteristics.LBSCharacteristic\" data-throw-if-not-resolved=\"false\"></xref>."
     },
     {
       "type": "ManagedReference",
@@ -10768,7 +10768,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement",
-      "Summary": null
+      "Summary": "<b>For <xref href=\"ISILab.LBS.Plugin.UI.Editor.Windows.BundleWizardPopup\" data-throw-if-not-resolved=\"false\"></xref> exclusive use.</b><br />\nVisual element representing a child <xref href=\"ISILab.LBS.Plugin.Components.Bundles.Bundle\" data-throw-if-not-resolved=\"false\"></xref> that can be renamed and selected or deselected."
     },
     {
       "type": "ManagedReference",
@@ -10796,7 +10796,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSelectBundleType",
-      "Summary": null
+      "Summary": "Bundle Wizard tab for naming the new main <xref href=\"ISILab.LBS.Plugin.Components.Bundles.Bundle\" data-throw-if-not-resolved=\"false\"></xref> and choosing a layer type."
     },
     {
       "type": "ManagedReference",
@@ -10824,7 +10824,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSetAssetsMenu",
-      "Summary": null
+      "Summary": "Bundle Wizard tab for dragging prefabs from the project to create child bundles."
     },
     {
       "type": "ManagedReference",
@@ -10852,7 +10852,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSetBundleMenu",
-      "Summary": null
+      "Summary": "Bundle Wizard tab for choosing additional existent bundles from the project to use as child bundles."
     },
     {
       "type": "ManagedReference",
@@ -10908,7 +10908,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardSetCharacteristMenu",
-      "Summary": null
+      "Summary": "Bundle Wizard tab for choosing characteristics."
     },
     {
       "type": "ManagedReference",
@@ -10950,7 +10950,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.IBundleWizardTab",
-      "Summary": null
+      "Summary": "Interface holding a reference to the <xref href=\"ISILab.LBS.Plugin.UI.Editor.Windows.BundleBuilder\" data-throw-if-not-resolved=\"false\"></xref> and useful methods for the Wizard flow."
     },
     {
       "type": "ManagedReference",
@@ -10978,7 +10978,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.IBundleElement",
-      "Summary": null
+      "Summary": "Interface meant to be implemented by a visual element of a list view from <xref href=\"ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow\" data-throw-if-not-resolved=\"false\"></xref>, representing a <xref href=\"ISILab.LBS.Plugin.Components.Bundles.Bundle\" data-throw-if-not-resolved=\"false\"></xref>.\n<p>\nCurrent implementations: <xref href=\"ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerElement\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleWizard.BundleWizardElement\" data-throw-if-not-resolved=\"false\"></xref>\n</p>"
     },
     {
       "type": "ManagedReference",
@@ -11020,7 +11020,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.Plugin.UI.Editor.Windows.BundleWizardPopup",
-      "Summary": null
+      "Summary": "Provides a quick way for <xref href=\"ISILab.LBS.Plugin.Components.Bundles.Bundle\" data-throw-if-not-resolved=\"false\"></xref> creation and basic configuration. Displayed as a pop-up in the <xref href=\"ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWindow\" data-throw-if-not-resolved=\"false\"></xref>."
     },
     {
       "type": "ManagedReference",
@@ -12994,7 +12994,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.VisualElements.InspectorContentPanel",
-      "Summary": null
+      "Summary": "Visual Element Class that displays the different behaviors within the behavior's panel"
     },
     {
       "type": "ManagedReference",
@@ -13050,7 +13050,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.VisualElements.LBSDirectionedChanceEditor",
-      "Summary": null
+      "Summary": "Shows what was captured using CaptureChance() in AssistantWFC. It orders the information into a treeview, in which\nthe data can be partially manipulated, like the chance, but not which new tiles will appear."
     },
     {
       "type": "ManagedReference",
@@ -13092,7 +13092,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.VisualElements.LBSFocusHighlight",
-      "Summary": null
+      "Summary": "Meant to be used to highlight any VisualElement so the user knows where to find\ninformation. To use:\n\n<pre><code class=\"lang-csharp\">VisualElement ve = new VisualElement();\nLBSFocusHighlight.Highlight(ve);</code></pre>"
     },
     {
       "type": "ManagedReference",
@@ -14142,7 +14142,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.VisualElements.SuggestionActionButton",
-      "Summary": null
+      "Summary": "Button to apply an effect to a Quest Action"
     },
     {
       "type": "ManagedReference",
@@ -14156,7 +14156,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.VisualElements.SuggestionElementArea",
-      "Summary": null
+      "Summary": "Visual representation of a suggestion area inside the graph.\nProvides UI for applying or discarding quest suggestions."
     },
     {
       "type": "ManagedReference",
@@ -14282,7 +14282,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.VisualElements.TriggerElementArea",
-      "Summary": null
+      "Summary": "Represents a visual element on the quest graph used to indicate a trigger area or region.\n\nThis element is associated with a <xref href=\"ISILab.LBS.Components.QuestNodeData\" data-throw-if-not-resolved=\"false\"></xref> and draws a visual box on the graph.\n\nSupports interaction such as:\n- Dragging to reposition\n- Resizing via a handle\n- Updating the logical data when moved\n- An Icon that represents the node type for easier readability.\n\nAlso handles custom visual generation through <xref href=\"UnityEngine.UIElements.MeshGenerationContext\" data-throw-if-not-resolved=\"false\"></xref> to draw lines between this element and its node origin."
     },
     {
       "type": "ManagedReference",
@@ -14310,7 +14310,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ISILab.LBS.VisualElements.VisualElementWorld",
-      "Summary": null
+      "Summary": "Simple container class to store world positions and a visual element"
     },
     {
       "type": "ManagedReference",
@@ -14492,7 +14492,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "LBS.Components.BundleQueryUtility",
-      "Summary": null
+      "Summary": "A static class that finds bundles with a certain characteristic within their children or themselves.\nUseful for LBSButtonListFilter component."
     },
     {
       "type": "ManagedReference",

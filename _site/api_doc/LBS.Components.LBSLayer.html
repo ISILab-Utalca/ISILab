@@ -101,7 +101,8 @@ Class LBSLayer
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LBSLayer : ICloneable, IBlueprintable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class LBSLayer : ICloneable, IBlueprintable</code></pre>
   </div>
 
 
@@ -128,19 +129,19 @@ Class LBSLayer
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -242,7 +243,9 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string iconGuid</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonRequired]
+public string iconGuid</code></pre>
   </div>
 
 
@@ -272,7 +275,9 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int index</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonRequired]
+public int index</code></pre>
   </div>
 
 
@@ -307,7 +312,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ActiveFloor { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public int ActiveFloor { get; }</code></pre>
   </div>
 
 
@@ -338,7 +344,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;LBSAssistant&gt; Assistants { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;LBSAssistant&gt; Assistants { get; }</code></pre>
   </div>
 
 
@@ -369,7 +376,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;LBSBehaviour&gt; Behaviours { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;LBSBehaviour&gt; Behaviours { get; }</code></pre>
   </div>
 
 
@@ -400,7 +408,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int FloorCount { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public int FloorCount { get; }</code></pre>
   </div>
 
 
@@ -431,7 +440,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;LBSGeneratorRule&gt; GeneratorRules { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;LBSGeneratorRule&gt; GeneratorRules { get; }</code></pre>
   </div>
 
 
@@ -462,7 +472,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ID { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public string ID { get; set; }</code></pre>
   </div>
 
 
@@ -493,7 +504,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsBlocked { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public bool IsBlocked { get; set; }</code></pre>
   </div>
 
 
@@ -524,7 +536,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsLocked { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public bool IsLocked { get; set; }</code></pre>
   </div>
 
 
@@ -555,7 +568,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsVisible { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public bool IsVisible { get; set; }</code></pre>
   </div>
 
 
@@ -586,7 +600,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public string Name { get; set; }</code></pre>
   </div>
 
 
@@ -617,7 +632,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LBSLevelData Parent { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public LBSLevelData Parent { get; set; }</code></pre>
   </div>
 
 
@@ -648,7 +664,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LBSGenerator3DSettings Settings { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public LBSGenerator3DSettings Settings { get; set; }</code></pre>
   </div>
 
 
@@ -679,7 +696,8 @@ Class LBSLayer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2Int TileSize { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Vector2Int TileSize { get; set; }</code></pre>
   </div>
 
 
@@ -841,7 +859,8 @@ Class LBSLayer
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Should return an object (module, behavior, assistant, etc) with a clone 
+of the selected area</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -851,15 +870,15 @@ Class LBSLayer
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>min</code> <span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>top left corner</dd>
     <dt><code>max</code> <span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>bottom right corner</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>true if there is any content within the area. Meaning to store the layer</dd>
   </dl>
 
 
@@ -1077,7 +1096,7 @@ Class LBSLayer
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the anchor/origin of this layer's objects</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1088,7 +1107,7 @@ Class LBSLayer
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>the top left object coordinate</dd>
   </dl>
 
 
@@ -1108,7 +1127,7 @@ Class LBSLayer
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Returns a clone that only has data within a given area</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1118,9 +1137,9 @@ Class LBSLayer
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>s</code> <span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>Start Position</dd>
     <dt><code>e</code> <span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>End Position</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -1603,7 +1622,7 @@ Class LBSLayer
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Merges two layers into one</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1613,9 +1632,9 @@ Class LBSLayer
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>incoming</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>the layer that is merged</dd>
     <dt><code>overwrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>true -&gt; incoming overrides original</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -1974,7 +1993,7 @@ Class LBSLayer
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Add an offset to the content of a given object type</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1986,7 +2005,7 @@ Class LBSLayer
     <dt><code>parentAnchor</code> <span class="xref">Vector2Int</span></dt>
     <dd></dd>
     <dt><code>delta</code> <span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>value to apply to move an obejct</dd>
   </dl>
 
 

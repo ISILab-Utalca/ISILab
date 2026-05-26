@@ -20,21 +20,35 @@ items:
   nameWithType: LBSTile
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
   type: Class
+  source:
+    id: LBSTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\LBSTile.cs
+    startLine: 6
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
   syntax:
-    content: 'public class LBSTile : ICloneable'
-    content.vb: Public Class LBSTile Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public class LBSTile : ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public Class LBSTile Implements ICloneable
   inheritance:
   - System.Object
   implements:
   - System.ICloneable
   inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.x
   commentId: F:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.x
   id: x
@@ -46,14 +60,35 @@ items:
   nameWithType: LBSTile.x
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.x
   type: Field
+  source:
+    id: x
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\LBSTile.cs
+    startLine: 11
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
   syntax:
-    content: public int x
+    content: >-
+      [SerializeField]
+
+      [JsonRequired]
+
+      public int x
     return:
       type: System.Int32
-    content.vb: Public x As Integer
+    content.vb: >-
+      <SerializeField>
+
+      <JsonRequired>
+
+      Public x As Integer
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonRequiredAttribute
+    ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.y
   commentId: F:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.y
   id: y
@@ -65,14 +100,70 @@ items:
   nameWithType: LBSTile.y
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.y
   type: Field
+  source:
+    id: y
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\LBSTile.cs
+    startLine: 11
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
   syntax:
-    content: public int y
+    content: >-
+      [SerializeField]
+
+      [JsonRequired]
+
+      public int y
     return:
       type: System.Int32
-    content.vb: Public y As Integer
+    content.vb: >-
+      <SerializeField>
+
+      <JsonRequired>
+
+      Public y As Integer
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonRequiredAttribute
+    ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position
+  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position
+  id: Position
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: LBSTile.Position
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position
+  type: Property
+  source:
+    id: Position
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\LBSTile.cs
+    startLine: 20
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Vector2Int Position { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property Position As Vector2Int
+  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.#ctor(UnityEngine.Vector2)
   commentId: M:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.#ctor(UnityEngine.Vector2)
   id: '#ctor(UnityEngine.Vector2)'
@@ -84,6 +175,10 @@ items:
   nameWithType: LBSTile.LBSTile(Vector2)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.LBSTile(UnityEngine.Vector2)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\LBSTile.cs
+    startLine: 29
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -108,6 +203,10 @@ items:
   nameWithType: LBSTile.Equals(object)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\LBSTile.cs
+    startLine: 37
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -136,6 +235,10 @@ items:
   nameWithType: LBSTile.GetHashCode()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\LBSTile.cs
+    startLine: 49
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -158,6 +261,10 @@ items:
   nameWithType: LBSTile.Clone()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\LBSTile.cs
+    startLine: 54
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -181,6 +288,10 @@ items:
   nameWithType: LBSTile.ToString()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.ToString()
   type: Method
+  source:
+    id: ToString
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\LBSTile.cs
+    startLine: 59
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -192,31 +303,9 @@ items:
     content.vb: Public Overrides Function ToString() As String
   overridden: System.Object.ToString
   overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.ToString*
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position
-  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position
-  id: Position
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
-  langs:
-  - csharp
-  - vb
-  name: Position
-  nameWithType: LBSTile.Position
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  syntax:
-    content: public Vector2Int Position { get; set; }
-    parameters: []
-    return:
-      type: UnityEngine.Vector2Int
-    content.vb: Public Property Position As Vector2Int
-  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position*
 references:
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
   commentId: N:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
   nameWithType: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -224,72 +313,58 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
     name: Tessellation
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
     name: TileMap
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
     name: Tessellation
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
     name: TileMap
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
 - uid: System.Object
   commentId: T:System.Object
@@ -310,6 +385,51 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -357,51 +477,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -466,9 +541,27 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_Position
+  name: Position
+  nameWithType: LBSTile.Position
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position
+- uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.#ctor
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__ctor_UnityEngine_Vector2_
   name: LBSTile
   nameWithType: LBSTile.LBSTile
@@ -477,6 +570,8 @@ references:
   fullName.vb: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.New
   name.vb: New
 - uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
@@ -516,7 +611,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Equals*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Equals
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_Equals_System_Object_
   name: Equals
   nameWithType: LBSTile.Equals
@@ -558,14 +652,12 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.GetHashCode*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_GetHashCode
   name: GetHashCode
   nameWithType: LBSTile.GetHashCode
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.GetHashCode
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Clone*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Clone
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_Clone
   name: Clone
   nameWithType: LBSTile.Clone
@@ -618,7 +710,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.ToString*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.ToString
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_ToString
   name: ToString
   nameWithType: LBSTile.ToString
@@ -634,16 +725,4 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_Position
-  name: Position
-  nameWithType: LBSTile.Position
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.Position
-- uid: UnityEngine.Vector2Int
-  isExternal: true
-  name: Vector2Int
-  nameWithType: Vector2Int
-  fullName: UnityEngine.Vector2Int
 shouldSkipMarkup: true

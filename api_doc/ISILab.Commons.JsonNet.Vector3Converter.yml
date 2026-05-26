@@ -5,7 +5,6 @@ items:
   id: Vector3Converter
   parent: ISILab.Commons.JsonNet
   children:
-  - ISILab.Commons.JsonNet.Vector3Converter.#ctor
   - ISILab.Commons.JsonNet.Vector3Converter.CanConvert(System.Type)
   - ISILab.Commons.JsonNet.Vector3Converter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
   - ISILab.Commons.JsonNet.Vector3Converter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
@@ -16,6 +15,10 @@ items:
   nameWithType: Vector3Converter
   fullName: ISILab.Commons.JsonNet.Vector3Converter
   type: Class
+  source:
+    id: Vector3Converter
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\JsonNet\Vector3Converter.cs
+    startLine: 5
   assemblies:
   - Commons
   namespace: ISILab.Commons.JsonNet
@@ -24,6 +27,17 @@ items:
     content.vb: Public Class Vector3Converter Inherits JsonConverter
   inheritance:
   - System.Object
+  - Newtonsoft.Json.JsonConverter
+  inheritedMembers:
+  - Newtonsoft.Json.JsonConverter.CanRead
+  - Newtonsoft.Json.JsonConverter.CanWrite
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.Commons.JsonNet.Vector3Converter.CanConvert(System.Type)
   commentId: M:ISILab.Commons.JsonNet.Vector3Converter.CanConvert(System.Type)
   id: CanConvert(System.Type)
@@ -35,18 +49,26 @@ items:
   nameWithType: Vector3Converter.CanConvert(Type)
   fullName: ISILab.Commons.JsonNet.Vector3Converter.CanConvert(System.Type)
   type: Method
+  source:
+    id: CanConvert
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\JsonNet\Vector3Converter.cs
+    startLine: 7
   assemblies:
   - Commons
   namespace: ISILab.Commons.JsonNet
+  summary: Determines whether this instance can convert the specified object type.
   example: []
   syntax:
     content: public override bool CanConvert(Type objectType)
     parameters:
     - id: objectType
       type: System.Type
+      description: Type of the object.
     return:
       type: System.Boolean
+      description: <code>true</code> if this instance can convert the specified object type; otherwise, <code>false</code>.
     content.vb: Public Overrides Function CanConvert(objectType As Type) As Boolean
+  overridden: Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
   overload: ISILab.Commons.JsonNet.Vector3Converter.CanConvert*
 - uid: ISILab.Commons.JsonNet.Vector3Converter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
   commentId: M:ISILab.Commons.JsonNet.Vector3Converter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
@@ -59,24 +81,35 @@ items:
   nameWithType: Vector3Converter.ReadJson(JsonReader, Type, object, JsonSerializer)
   fullName: ISILab.Commons.JsonNet.Vector3Converter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, object, Newtonsoft.Json.JsonSerializer)
   type: Method
+  source:
+    id: ReadJson
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\JsonNet\Vector3Converter.cs
+    startLine: 12
   assemblies:
   - Commons
   namespace: ISILab.Commons.JsonNet
+  summary: Reads the JSON representation of the object.
   example: []
   syntax:
     content: public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
     parameters:
     - id: reader
       type: Newtonsoft.Json.JsonReader
+      description: The <xref href="Newtonsoft.Json.JsonReader" data-throw-if-not-resolved="false"></xref> to read from.
     - id: objectType
       type: System.Type
+      description: Type of the object.
     - id: existingValue
       type: System.Object
+      description: The existing value of object being read.
     - id: serializer
       type: Newtonsoft.Json.JsonSerializer
+      description: The calling serializer.
     return:
       type: System.Object
+      description: The object value.
     content.vb: Public Overrides Function ReadJson(reader As JsonReader, objectType As Type, existingValue As Object, serializer As JsonSerializer) As Object
+  overridden: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
   overload: ISILab.Commons.JsonNet.Vector3Converter.ReadJson*
   nameWithType.vb: Vector3Converter.ReadJson(JsonReader, Type, Object, JsonSerializer)
   fullName.vb: ISILab.Commons.JsonNet.Vector3Converter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, Object, Newtonsoft.Json.JsonSerializer)
@@ -92,49 +125,36 @@ items:
   nameWithType: Vector3Converter.WriteJson(JsonWriter, object, JsonSerializer)
   fullName: ISILab.Commons.JsonNet.Vector3Converter.WriteJson(Newtonsoft.Json.JsonWriter, object, Newtonsoft.Json.JsonSerializer)
   type: Method
+  source:
+    id: WriteJson
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\JsonNet\Vector3Converter.cs
+    startLine: 18
   assemblies:
   - Commons
   namespace: ISILab.Commons.JsonNet
+  summary: Writes the JSON representation of the object.
   example: []
   syntax:
     content: public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
     parameters:
     - id: writer
       type: Newtonsoft.Json.JsonWriter
+      description: The <xref href="Newtonsoft.Json.JsonWriter" data-throw-if-not-resolved="false"></xref> to write to.
     - id: value
       type: System.Object
+      description: The value.
     - id: serializer
       type: Newtonsoft.Json.JsonSerializer
+      description: The calling serializer.
     content.vb: Public Overrides Sub WriteJson(writer As JsonWriter, value As Object, serializer As JsonSerializer)
+  overridden: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
   overload: ISILab.Commons.JsonNet.Vector3Converter.WriteJson*
   nameWithType.vb: Vector3Converter.WriteJson(JsonWriter, Object, JsonSerializer)
   fullName.vb: ISILab.Commons.JsonNet.Vector3Converter.WriteJson(Newtonsoft.Json.JsonWriter, Object, Newtonsoft.Json.JsonSerializer)
   name.vb: WriteJson(JsonWriter, Object, JsonSerializer)
-- uid: ISILab.Commons.JsonNet.Vector3Converter.#ctor
-  commentId: M:ISILab.Commons.JsonNet.Vector3Converter.#ctor
-  id: '#ctor'
-  parent: ISILab.Commons.JsonNet.Vector3Converter
-  langs:
-  - csharp
-  - vb
-  name: Vector3Converter()
-  nameWithType: Vector3Converter.Vector3Converter()
-  fullName: ISILab.Commons.JsonNet.Vector3Converter.Vector3Converter()
-  type: Constructor
-  assemblies:
-  - Commons
-  namespace: ISILab.Commons.JsonNet
-  syntax:
-    content: public Vector3Converter()
-    content.vb: Public Sub New()
-  overload: ISILab.Commons.JsonNet.Vector3Converter.#ctor*
-  nameWithType.vb: Vector3Converter.New()
-  fullName.vb: ISILab.Commons.JsonNet.Vector3Converter.New()
-  name.vb: New()
 references:
 - uid: ISILab.Commons.JsonNet
   commentId: N:ISILab.Commons.JsonNet
-  isExternal: true
   href: ISILab.html
   name: ISILab.Commons.JsonNet
   nameWithType: ISILab.Commons.JsonNet
@@ -142,32 +162,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.Commons
     name: Commons
-    isExternal: true
     href: ISILab.Commons.html
   - name: .
   - uid: ISILab.Commons.JsonNet
     name: JsonNet
-    isExternal: true
     href: ISILab.Commons.JsonNet.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.Commons
     name: Commons
-    isExternal: true
     href: ISILab.Commons.html
   - name: .
   - uid: ISILab.Commons.JsonNet
     name: JsonNet
-    isExternal: true
     href: ISILab.Commons.JsonNet.html
 - uid: System.Object
   commentId: T:System.Object
@@ -180,6 +194,246 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: Newtonsoft.Json.JsonConverter
+  commentId: T:Newtonsoft.Json.JsonConverter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonConverter
+  nameWithType: JsonConverter
+  fullName: Newtonsoft.Json.JsonConverter
+- uid: Newtonsoft.Json.JsonConverter.CanRead
+  commentId: P:Newtonsoft.Json.JsonConverter.CanRead
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  name: CanRead
+  nameWithType: JsonConverter.CanRead
+  fullName: Newtonsoft.Json.JsonConverter.CanRead
+- uid: Newtonsoft.Json.JsonConverter.CanWrite
+  commentId: P:Newtonsoft.Json.JsonConverter.CanWrite
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  name: CanWrite
+  nameWithType: JsonConverter.CanWrite
+  fullName: Newtonsoft.Json.JsonConverter.CanWrite
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -187,9 +441,58 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+  commentId: M:Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: CanConvert(Type)
+  nameWithType: JsonConverter.CanConvert(Type)
+  fullName: Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+    name: CanConvert
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+    name: CanConvert
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
 - uid: ISILab.Commons.JsonNet.Vector3Converter.CanConvert*
   commentId: Overload:ISILab.Commons.JsonNet.Vector3Converter.CanConvert
-  isExternal: true
   href: ISILab.Commons.JsonNet.Vector3Converter.html#ISILab_Commons_JsonNet_Vector3Converter_CanConvert_System_Type_
   name: CanConvert
   nameWithType: Vector3Converter.CanConvert
@@ -213,43 +516,151 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: ISILab.Commons.JsonNet.Vector3Converter.ReadJson*
-  commentId: Overload:ISILab.Commons.JsonNet.Vector3Converter.ReadJson
-  isExternal: true
-  href: ISILab.Commons.JsonNet.Vector3Converter.html#ISILab_Commons_JsonNet_Vector3Converter_ReadJson_Newtonsoft_Json_JsonReader_System_Type_System_Object_Newtonsoft_Json_JsonSerializer_
-  name: ReadJson
-  nameWithType: Vector3Converter.ReadJson
-  fullName: ISILab.Commons.JsonNet.Vector3Converter.ReadJson
 - uid: Newtonsoft.Json.JsonReader
+  commentId: T:Newtonsoft.Json.JsonReader
+  parent: Newtonsoft.Json
   isExternal: true
   name: JsonReader
   nameWithType: JsonReader
   fullName: Newtonsoft.Json.JsonReader
+- uid: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: ReadJson(JsonReader, Type, object, JsonSerializer)
+  nameWithType: JsonConverter.ReadJson(JsonReader, Type, object, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, object, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: ReadJson(JsonReader, Type, Object, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: ISILab.Commons.JsonNet.Vector3Converter.ReadJson*
+  commentId: Overload:ISILab.Commons.JsonNet.Vector3Converter.ReadJson
+  href: ISILab.Commons.JsonNet.Vector3Converter.html#ISILab_Commons_JsonNet_Vector3Converter_ReadJson_Newtonsoft_Json_JsonReader_System_Type_System_Object_Newtonsoft_Json_JsonSerializer_
+  name: ReadJson
+  nameWithType: Vector3Converter.ReadJson
+  fullName: ISILab.Commons.JsonNet.Vector3Converter.ReadJson
 - uid: Newtonsoft.Json.JsonSerializer
+  commentId: T:Newtonsoft.Json.JsonSerializer
+  parent: Newtonsoft.Json
   isExternal: true
   name: JsonSerializer
   nameWithType: JsonSerializer
   fullName: Newtonsoft.Json.JsonSerializer
-- uid: ISILab.Commons.JsonNet.Vector3Converter.WriteJson*
-  commentId: Overload:ISILab.Commons.JsonNet.Vector3Converter.WriteJson
-  isExternal: true
-  href: ISILab.Commons.JsonNet.Vector3Converter.html#ISILab_Commons_JsonNet_Vector3Converter_WriteJson_Newtonsoft_Json_JsonWriter_System_Object_Newtonsoft_Json_JsonSerializer_
-  name: WriteJson
-  nameWithType: Vector3Converter.WriteJson
-  fullName: ISILab.Commons.JsonNet.Vector3Converter.WriteJson
 - uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
   isExternal: true
   name: JsonWriter
   nameWithType: JsonWriter
   fullName: Newtonsoft.Json.JsonWriter
-- uid: ISILab.Commons.JsonNet.Vector3Converter.#ctor*
-  commentId: Overload:ISILab.Commons.JsonNet.Vector3Converter.#ctor
+- uid: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  parent: Newtonsoft.Json.JsonConverter
   isExternal: true
-  href: ISILab.Commons.JsonNet.Vector3Converter.html#ISILab_Commons_JsonNet_Vector3Converter__ctor
-  name: Vector3Converter
-  nameWithType: Vector3Converter.Vector3Converter
-  fullName: ISILab.Commons.JsonNet.Vector3Converter.Vector3Converter
-  nameWithType.vb: Vector3Converter.New
-  fullName.vb: ISILab.Commons.JsonNet.Vector3Converter.New
-  name.vb: New
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: WriteJson(JsonWriter, object, JsonSerializer)
+  nameWithType: JsonConverter.WriteJson(JsonWriter, object, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter, object, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter.WriteJson(JsonWriter, Object, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: WriteJson(JsonWriter, Object, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: ISILab.Commons.JsonNet.Vector3Converter.WriteJson*
+  commentId: Overload:ISILab.Commons.JsonNet.Vector3Converter.WriteJson
+  href: ISILab.Commons.JsonNet.Vector3Converter.html#ISILab_Commons_JsonNet_Vector3Converter_WriteJson_Newtonsoft_Json_JsonWriter_System_Object_Newtonsoft_Json_JsonSerializer_
+  name: WriteJson
+  nameWithType: Vector3Converter.WriteJson
+  fullName: ISILab.Commons.JsonNet.Vector3Converter.WriteJson
 shouldSkipMarkup: true

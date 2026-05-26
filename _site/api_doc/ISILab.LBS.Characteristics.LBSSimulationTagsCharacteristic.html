@@ -101,7 +101,8 @@ Class LBSSimulationTagsCharacteristic
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LBSSimulationTagsCharacteristic : LBSCharacteristic, ICloneable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class LBSSimulationTagsCharacteristic : LBSCharacteristic, ICloneable</code></pre>
   </div>
 
 
@@ -137,6 +138,9 @@ Class LBSSimulationTagsCharacteristic
       <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_initialized">LBSCharacteristic.initialized</a>
     </div>
     <div>
+      <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Owner">LBSCharacteristic.Owner</a>
+    </div>
+    <div>
       <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Init_ISILab_LBS_Plugin_Components_Bundles_Bundle_">LBSCharacteristic.Init(Bundle)</a>
     </div>
     <div>
@@ -152,7 +156,7 @@ Class LBSSimulationTagsCharacteristic
       <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnRefresh">LBSCharacteristic.OnRefresh()</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Owner">LBSCharacteristic.Owner</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
@@ -161,13 +165,10 @@ Class LBSSimulationTagsCharacteristic
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -258,7 +259,9 @@ Class LBSSimulationTagsCharacteristic
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected SimulationTag value</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonIgnore]
+protected SimulationTag value</code></pre>
   </div>
 
 
@@ -293,7 +296,8 @@ Class LBSSimulationTagsCharacteristic
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimulationTag Value { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public SimulationTag Value { get; set; }</code></pre>
   </div>
 
 

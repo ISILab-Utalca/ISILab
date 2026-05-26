@@ -101,7 +101,8 @@ Class ConnectedTileMapModule
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ConnectedTileMapModule : LBSModule, ICloneable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class ConnectedTileMapModule : LBSModule, ICloneable</code></pre>
   </div>
 
 
@@ -131,6 +132,12 @@ Class ConnectedTileMapModule
       <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id">LBSModule.id</a>
     </div>
     <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer">LBSModule.OwnerLayer</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID">LBSModule.ID</a>
+    </div>
+    <div>
       <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged">LBSModule.OnChanged</a>
     </div>
     <div>
@@ -140,10 +147,7 @@ Class ConnectedTileMapModule
       <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_">LBSModule.OnDetach(LBSLayer)</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer">LBSModule.OwnerLayer</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID">LBSModule.ID</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
@@ -152,13 +156,10 @@ Class ConnectedTileMapModule
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -285,7 +286,8 @@ Class ConnectedTileMapModule
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ConnectedDirections { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public int ConnectedDirections { get; set; }</code></pre>
   </div>
 
 
@@ -316,7 +318,8 @@ Class ConnectedTileMapModule
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ConnectedTileMapModule.ConnectedTileType GridType { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public ConnectedTileMapModule.ConnectedTileType GridType { get; }</code></pre>
   </div>
 
 
@@ -347,7 +350,8 @@ Class ConnectedTileMapModule
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dictionary&lt;Vector2Int, int[]&gt; JPSDistances { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Dictionary&lt;Vector2Int, int[]&gt; JPSDistances { get; set; }</code></pre>
   </div>
 
 
@@ -378,7 +382,8 @@ Class ConnectedTileMapModule
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;TileConnectionsPair&gt; Pairs { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;TileConnectionsPair&gt; Pairs { get; }</code></pre>
   </div>
 
 
@@ -409,7 +414,8 @@ Class ConnectedTileMapModule
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EvaluatorHelper.AStarNode[] PathfindNodes { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public EvaluatorHelper.AStarNode[] PathfindNodes { get; set; }</code></pre>
   </div>
 
 
@@ -475,7 +481,7 @@ Class ConnectedTileMapModule
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Cleans all the information saved in.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -501,7 +507,7 @@ Class ConnectedTileMapModule
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates a copy of the representation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -604,7 +610,7 @@ Class ConnectedTileMapModule
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the bounding rectangle of the representation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -874,7 +880,7 @@ Class ConnectedTileMapModule
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Determines whether the representation is empty.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -905,7 +911,8 @@ Class ConnectedTileMapModule
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">prints by console basic information of 
+the representation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1024,7 +1031,7 @@ Class ConnectedTileMapModule
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Rewrites the representation based on another LBSModule.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

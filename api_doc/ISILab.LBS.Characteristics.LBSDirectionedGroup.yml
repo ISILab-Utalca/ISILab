@@ -25,12 +25,22 @@ items:
   nameWithType: LBSDirectionedGroup
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup
   type: Class
+  source:
+    id: LBSDirectionedGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 11
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
   syntax:
-    content: 'public class LBSDirectionedGroup : LBSCharacteristic, ICloneable'
-    content.vb: Public Class LBSDirectionedGroup Inherits LBSCharacteristic Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public class LBSDirectionedGroup : LBSCharacteristic, ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public Class LBSDirectionedGroup Inherits LBSCharacteristic Implements ICloneable
   inheritance:
   - System.Object
   - ISILab.LBS.Characteristics.LBSCharacteristic
@@ -40,17 +50,21 @@ items:
   - ISILab.LBS.Characteristics.LBSCharacteristic.unique
   - ISILab.LBS.Characteristics.LBSCharacteristic.exclusives
   - ISILab.LBS.Characteristics.LBSCharacteristic.initialized
+  - ISILab.LBS.Characteristics.LBSCharacteristic.Owner
   - ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
   - ISILab.LBS.Characteristics.LBSCharacteristic.IsUnique(System.Type)
   - ISILab.LBS.Characteristics.LBSCharacteristic.IsExclusive(System.Type,System.Collections.Generic.List{System.Collections.Generic.List{System.Type}}@)
   - ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh
-  - ISILab.LBS.Characteristics.LBSCharacteristic.Owner
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   extensionMethods:
   - ISILab.LBS.Characteristics.LBSCharacteristic.ISILab.Extensions.LBSCharacteristicExtensions.FirstTag
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.Weights
   commentId: F:ISILab.LBS.Characteristics.LBSDirectionedGroup.Weights
   id: Weights
@@ -62,14 +76,28 @@ items:
   nameWithType: LBSDirectionedGroup.Weights
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.Weights
   type: Field
+  source:
+    id: Weights
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 28
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
   syntax:
-    content: public List<LBSDirectionedGroup.WeightStruct> Weights
+    content: >-
+      [SerializeField]
+
+      public List<LBSDirectionedGroup.WeightStruct> Weights
     return:
       type: System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct}
-    content.vb: Public Weights As List(Of LBSDirectionedGroup.WeightStruct)
+    content.vb: >-
+      <SerializeField>
+
+      Public Weights As List(Of LBSDirectionedGroup.WeightStruct)
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.currentType
   commentId: F:ISILab.LBS.Characteristics.LBSDirectionedGroup.currentType
   id: currentType
@@ -81,14 +109,28 @@ items:
   nameWithType: LBSDirectionedGroup.currentType
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.currentType
   type: Field
+  source:
+    id: currentType
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 31
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
   syntax:
-    content: public ConnectedTileMapModule.ConnectedTileType currentType
+    content: >-
+      [SerializeField]
+
+      public ConnectedTileMapModule.ConnectedTileType currentType
     return:
       type: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
-    content.vb: Public currentType As ConnectedTileMapModule.ConnectedTileType
+    content.vb: >-
+      <SerializeField>
+
+      Public currentType As ConnectedTileMapModule.ConnectedTileType
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.OnAddOwnerChild
   commentId: F:ISILab.LBS.Characteristics.LBSDirectionedGroup.OnAddOwnerChild
   id: OnAddOwnerChild
@@ -100,14 +142,28 @@ items:
   nameWithType: LBSDirectionedGroup.OnAddOwnerChild
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.OnAddOwnerChild
   type: Field
+  source:
+    id: OnAddOwnerChild
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 34
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
   syntax:
-    content: public Action OnAddOwnerChild
+    content: >-
+      [JsonIgnore]
+
+      public Action OnAddOwnerChild
     return:
       type: System.Action
-    content.vb: Public OnAddOwnerChild As Action
+    content.vb: >-
+      <JsonIgnore>
+
+      Public OnAddOwnerChild As Action
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.OnRemoveOwnerChild
   commentId: F:ISILab.LBS.Characteristics.LBSDirectionedGroup.OnRemoveOwnerChild
   id: OnRemoveOwnerChild
@@ -119,14 +175,28 @@ items:
   nameWithType: LBSDirectionedGroup.OnRemoveOwnerChild
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.OnRemoveOwnerChild
   type: Field
+  source:
+    id: OnRemoveOwnerChild
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 36
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
   syntax:
-    content: public Action OnRemoveOwnerChild
+    content: >-
+      [JsonIgnore]
+
+      public Action OnRemoveOwnerChild
     return:
       type: System.Action
-    content.vb: Public OnRemoveOwnerChild As Action
+    content.vb: >-
+      <JsonIgnore>
+
+      Public OnRemoveOwnerChild As Action
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.#ctor
   commentId: M:ISILab.LBS.Characteristics.LBSDirectionedGroup.#ctor
   id: '#ctor'
@@ -138,6 +208,10 @@ items:
   nameWithType: LBSDirectionedGroup.LBSDirectionedGroup()
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.LBSDirectionedGroup()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -159,6 +233,10 @@ items:
   nameWithType: LBSDirectionedGroup.OnEnable()
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.OnEnable()
   type: Method
+  source:
+    id: OnEnable
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 43
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -179,6 +257,10 @@ items:
   nameWithType: LBSDirectionedGroup._Update()
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup._Update()
   type: Method
+  source:
+    id: _Update
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 54
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -197,6 +279,10 @@ items:
   nameWithType: LBSDirectionedGroup.Clone()
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 103
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -221,6 +307,10 @@ items:
   nameWithType: LBSDirectionedGroup.GetDirs()
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.GetDirs()
   type: Method
+  source:
+    id: GetDirs
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 109
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -241,6 +331,10 @@ items:
   nameWithType: LBSDirectionedGroup.Equals(object)
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 119
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -269,6 +363,10 @@ items:
   nameWithType: LBSDirectionedGroup.ToString()
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.ToString()
   type: Method
+  source:
+    id: ToString
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 124
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -291,6 +389,10 @@ items:
   nameWithType: LBSDirectionedGroup.GetHashCode()
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 129
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -313,6 +415,10 @@ items:
   nameWithType: LBSDirectionedGroup.Validate()
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.Validate()
   type: Method
+  source:
+    id: Validate
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSDirectionedGroup.cs
+    startLine: 134
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -327,7 +433,6 @@ items:
 references:
 - uid: ISILab.LBS.Characteristics
   commentId: N:ISILab.LBS.Characteristics
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Characteristics
   nameWithType: ISILab.LBS.Characteristics
@@ -335,32 +440,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Characteristics
     name: Characteristics
-    isExternal: true
     href: ISILab.LBS.Characteristics.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Characteristics
     name: Characteristics
-    isExternal: true
     href: ISILab.LBS.Characteristics.html
 - uid: System.Object
   commentId: T:System.Object
@@ -376,7 +475,6 @@ references:
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic
   commentId: T:ISILab.LBS.Characteristics.LBSCharacteristic
   parent: ISILab.LBS.Characteristics
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html
   name: LBSCharacteristic
   nameWithType: LBSCharacteristic
@@ -392,7 +490,6 @@ references:
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.unique
   commentId: F:ISILab.LBS.Characteristics.LBSCharacteristic.unique
   parent: ISILab.LBS.Characteristics.LBSCharacteristic
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_unique
   name: unique
   nameWithType: LBSCharacteristic.unique
@@ -400,7 +497,6 @@ references:
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.exclusives
   commentId: F:ISILab.LBS.Characteristics.LBSCharacteristic.exclusives
   parent: ISILab.LBS.Characteristics.LBSCharacteristic
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_exclusives
   name: exclusives
   nameWithType: LBSCharacteristic.exclusives
@@ -408,15 +504,20 @@ references:
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.initialized
   commentId: F:ISILab.LBS.Characteristics.LBSCharacteristic.initialized
   parent: ISILab.LBS.Characteristics.LBSCharacteristic
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_initialized
   name: initialized
   nameWithType: LBSCharacteristic.initialized
   fullName: ISILab.LBS.Characteristics.LBSCharacteristic.initialized
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic.Owner
+  commentId: P:ISILab.LBS.Characteristics.LBSCharacteristic.Owner
+  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Owner
+  name: Owner
+  nameWithType: LBSCharacteristic.Owner
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.Owner
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
   commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
   parent: ISILab.LBS.Characteristics.LBSCharacteristic
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Init_ISILab_LBS_Plugin_Components_Bundles_Bundle_
   name: Init(Bundle)
   nameWithType: LBSCharacteristic.Init(Bundle)
@@ -424,23 +525,19 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
     name: Init
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Init_ISILab_LBS_Plugin_Components_Bundles_Bundle_
   - name: (
   - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
     name: Bundle
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Init(ISILab.LBS.Plugin.Components.Bundles.Bundle)
     name: Init
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Init_ISILab_LBS_Plugin_Components_Bundles_Bundle_
   - name: (
   - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
     name: Bundle
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
   - name: )
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsUnique(System.Type)
@@ -454,7 +551,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsUnique(System.Type)
     name: IsUnique
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_IsUnique_System_Type_
   - name: (
   - uid: System.Type
@@ -465,7 +561,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsUnique(System.Type)
     name: IsUnique
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_IsUnique_System_Type_
   - name: (
   - uid: System.Type
@@ -487,7 +582,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsExclusive(System.Type,System.Collections.Generic.List{System.Collections.Generic.List{System.Type}}@)
     name: IsExclusive
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_IsExclusive_System_Type_System_Collections_Generic_List_System_Collections_Generic_List_System_Type____
   - name: (
   - uid: System.Type
@@ -518,7 +612,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.IsExclusive(System.Type,System.Collections.Generic.List{System.Collections.Generic.List{System.Type}}@)
     name: IsExclusive
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_IsExclusive_System_Type_System_Collections_Generic_List_System_Collections_Generic_List_System_Type____
   - name: (
   - uid: System.Type
@@ -551,7 +644,6 @@ references:
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh
   commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh
   parent: ISILab.LBS.Characteristics.LBSCharacteristic
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnRefresh
   name: OnRefresh()
   nameWithType: LBSCharacteristic.OnRefresh()
@@ -559,25 +651,60 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh
     name: OnRefresh
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnRefresh
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnRefresh
     name: OnRefresh
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnRefresh
   - name: (
   - name: )
-- uid: ISILab.LBS.Characteristics.LBSCharacteristic.Owner
-  commentId: P:ISILab.LBS.Characteristics.LBSCharacteristic.Owner
-  parent: ISILab.LBS.Characteristics.LBSCharacteristic
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
   isExternal: true
-  href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Owner
-  name: Owner
-  nameWithType: LBSCharacteristic.Owner
-  fullName: ISILab.LBS.Characteristics.LBSCharacteristic.Owner
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -625,51 +752,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -727,23 +809,19 @@ references:
   spec.csharp:
   - uid: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
     name: FirstTag
-    isExternal: true
     href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
   - name: (
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic
     name: LBSCharacteristic
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html
   - name: )
   spec.vb:
   - uid: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
     name: FirstTag
-    isExternal: true
     href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
   - name: (
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic
     name: LBSCharacteristic
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html
   - name: )
 - uid: System
@@ -755,7 +833,6 @@ references:
   fullName: System
 - uid: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
   commentId: M:ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
-  isExternal: true
   href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
   name: FirstTag(LBSCharacteristic)
   nameWithType: LBSCharacteristicExtensions.FirstTag(LBSCharacteristic)
@@ -763,36 +840,30 @@ references:
   spec.csharp:
   - uid: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
     name: FirstTag
-    isExternal: true
     href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
   - name: (
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic
     name: LBSCharacteristic
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html
   - name: )
   spec.vb:
   - uid: ISILab.Extensions.LBSCharacteristicExtensions.FirstTag(ISILab.LBS.Characteristics.LBSCharacteristic)
     name: FirstTag
-    isExternal: true
     href: ISILab.Extensions.LBSCharacteristicExtensions.html#ISILab_Extensions_LBSCharacteristicExtensions_FirstTag_ISILab_LBS_Characteristics_LBSCharacteristic_
   - name: (
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic
     name: LBSCharacteristic
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html
   - name: )
 - uid: ISILab.Extensions.LBSCharacteristicExtensions
   commentId: T:ISILab.Extensions.LBSCharacteristicExtensions
   parent: ISILab.Extensions
-  isExternal: true
   href: ISILab.Extensions.LBSCharacteristicExtensions.html
   name: LBSCharacteristicExtensions
   nameWithType: LBSCharacteristicExtensions
   fullName: ISILab.Extensions.LBSCharacteristicExtensions
 - uid: ISILab.Extensions
   commentId: N:ISILab.Extensions
-  isExternal: true
   href: ISILab.html
   name: ISILab.Extensions
   nameWithType: ISILab.Extensions
@@ -800,22 +871,18 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.Extensions
     name: Extensions
-    isExternal: true
     href: ISILab.Extensions.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.Extensions
     name: Extensions
-    isExternal: true
     href: ISILab.Extensions.html
 - uid: System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct}
   commentId: T:System.Collections.Generic.List{ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct}
@@ -836,12 +903,10 @@ references:
   - name: <
   - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup
     name: LBSDirectionedGroup
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html
   - name: .
   - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct
     name: WeightStruct
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct.html
   - name: '>'
   spec.vb:
@@ -854,12 +919,10 @@ references:
   - name: " "
   - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup
     name: LBSDirectionedGroup
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html
   - name: .
   - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct
     name: WeightStruct
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSDirectionedGroup.WeightStruct.html
   - name: )
 - uid: System.Collections.Generic.List`1
@@ -930,7 +993,6 @@ references:
 - uid: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
   commentId: T:ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   name: ConnectedTileMapModule.ConnectedTileType
   nameWithType: ConnectedTileMapModule.ConnectedTileType
@@ -938,26 +1000,21 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule
     name: ConnectedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   - name: .
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
     name: ConnectedTileType
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType.html
   spec.vb:
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule
     name: ConnectedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   - name: .
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
     name: ConnectedTileType
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType.html
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -965,32 +1022,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: System.Action
   commentId: T:System.Action
@@ -1002,7 +1053,6 @@ references:
   fullName: System.Action
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.#ctor*
   commentId: Overload:ISILab.LBS.Characteristics.LBSDirectionedGroup.#ctor
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html#ISILab_LBS_Characteristics_LBSDirectionedGroup__ctor
   name: LBSDirectionedGroup
   nameWithType: LBSDirectionedGroup.LBSDirectionedGroup
@@ -1013,7 +1063,6 @@ references:
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnEnable
   commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.OnEnable
   parent: ISILab.LBS.Characteristics.LBSCharacteristic
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnEnable
   name: OnEnable()
   nameWithType: LBSCharacteristic.OnEnable()
@@ -1021,27 +1070,23 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnEnable
     name: OnEnable
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnEnable
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.OnEnable
     name: OnEnable
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnEnable
   - name: (
   - name: )
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.OnEnable*
   commentId: Overload:ISILab.LBS.Characteristics.LBSDirectionedGroup.OnEnable
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html#ISILab_LBS_Characteristics_LBSDirectionedGroup_OnEnable
   name: OnEnable
   nameWithType: LBSDirectionedGroup.OnEnable
   fullName: ISILab.LBS.Characteristics.LBSDirectionedGroup.OnEnable
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup._Update*
   commentId: Overload:ISILab.LBS.Characteristics.LBSDirectionedGroup._Update
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html#ISILab_LBS_Characteristics_LBSDirectionedGroup__Update
   name: _Update
   nameWithType: LBSDirectionedGroup._Update
@@ -1049,7 +1094,6 @@ references:
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Clone
   commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.Clone
   parent: ISILab.LBS.Characteristics.LBSCharacteristic
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Clone
   name: Clone()
   nameWithType: LBSCharacteristic.Clone()
@@ -1057,20 +1101,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.Clone*
   commentId: Overload:ISILab.LBS.Characteristics.LBSDirectionedGroup.Clone
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html#ISILab_LBS_Characteristics_LBSDirectionedGroup_Clone
   name: Clone
   nameWithType: LBSDirectionedGroup.Clone
@@ -1099,7 +1140,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.GetDirs*
   commentId: Overload:ISILab.LBS.Characteristics.LBSDirectionedGroup.GetDirs
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html#ISILab_LBS_Characteristics_LBSDirectionedGroup_GetDirs
   name: GetDirs
   nameWithType: LBSDirectionedGroup.GetDirs
@@ -1123,7 +1163,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Characteristics.LBSDirection
     name: LBSDirection
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSDirection.html
   - name: '>'
   spec.vb:
@@ -1136,7 +1175,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Characteristics.LBSDirection
     name: LBSDirection
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSDirection.html
   - name: )
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Equals(System.Object)
@@ -1153,7 +1191,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Equals(System.Object)
     name: Equals
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Equals_System_Object_
   - name: (
   - uid: System.Object
@@ -1164,7 +1201,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Equals(System.Object)
     name: Equals
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Equals_System_Object_
   - name: (
   - uid: System.Object
@@ -1174,7 +1210,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.Equals*
   commentId: Overload:ISILab.LBS.Characteristics.LBSDirectionedGroup.Equals
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html#ISILab_LBS_Characteristics_LBSDirectionedGroup_Equals_System_Object_
   name: Equals
   nameWithType: LBSDirectionedGroup.Equals
@@ -1216,7 +1251,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.ToString*
   commentId: Overload:ISILab.LBS.Characteristics.LBSDirectionedGroup.ToString
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html#ISILab_LBS_Characteristics_LBSDirectionedGroup_ToString
   name: ToString
   nameWithType: LBSDirectionedGroup.ToString
@@ -1235,7 +1269,6 @@ references:
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.GetHashCode
   commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.GetHashCode
   parent: ISILab.LBS.Characteristics.LBSCharacteristic
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_GetHashCode
   name: GetHashCode()
   nameWithType: LBSCharacteristic.GetHashCode()
@@ -1243,20 +1276,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.GetHashCode
     name: GetHashCode
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_GetHashCode
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.GetHashCode
     name: GetHashCode
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_GetHashCode
   - name: (
   - name: )
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.GetHashCode*
   commentId: Overload:ISILab.LBS.Characteristics.LBSDirectionedGroup.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html#ISILab_LBS_Characteristics_LBSDirectionedGroup_GetHashCode
   name: GetHashCode
   nameWithType: LBSDirectionedGroup.GetHashCode
@@ -1275,7 +1305,6 @@ references:
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Validate
   commentId: M:ISILab.LBS.Characteristics.LBSCharacteristic.Validate
   parent: ISILab.LBS.Characteristics.LBSCharacteristic
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Validate
   name: Validate()
   nameWithType: LBSCharacteristic.Validate()
@@ -1283,20 +1312,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Validate
     name: Validate
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Validate
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic.Validate
     name: Validate
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Validate
   - name: (
   - name: )
 - uid: ISILab.LBS.Characteristics.LBSDirectionedGroup.Validate*
   commentId: Overload:ISILab.LBS.Characteristics.LBSDirectionedGroup.Validate
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSDirectionedGroup.html#ISILab_LBS_Characteristics_LBSDirectionedGroup_Validate
   name: Validate
   nameWithType: LBSDirectionedGroup.Validate

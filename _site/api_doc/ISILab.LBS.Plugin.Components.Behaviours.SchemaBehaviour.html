@@ -101,7 +101,8 @@ Class SchemaBehaviour
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[RequieredModule(new Type[] { typeof(TileMapModule), typeof(ConnectedTileMapModule), typeof(SectorizedTileMapModule), typeof(ConnectedZonesModule), typeof(StairsModule), typeof(NoteModule) })]
+    <pre><code class="lang-csharp hljs">[Serializable]
+[RequieredModule(new Type[] { typeof(TileMapModule), typeof(ConnectedTileMapModule), typeof(SectorizedTileMapModule), typeof(ConnectedZonesModule), typeof(StairsModule), typeof(NoteModule) })]
 public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></pre>
   </div>
 
@@ -133,30 +134,6 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
       <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_visible">LBSBehaviour.visible</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules">LBSBehaviour.GetRequiredModules()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_">LBSBehaviour.RequestTilePaint(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_">LBSBehaviour.RequestTileRemove(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles">LBSBehaviour.RetrieveNewTiles()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles">LBSBehaviour.RetrieveExpiredTiles()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__">LBSBehaviour.UpdateKeys(List&lt;object&gt;)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_">LBSBehaviour.OnOnBehaviourUpdated(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__">LBSBehaviour.RequestFullRepaint&lt;T&gt;(List&lt;T&gt;, List&lt;T&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint">LBSBehaviour.ColorTint</a>
     </div>
     <div>
@@ -181,19 +158,43 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
       <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnBehaviourUpdated">LBSBehaviour.OnBehaviourUpdated</a>
     </div>
     <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules">LBSBehaviour.GetRequiredModules()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_">LBSBehaviour.RequestTilePaint(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_">LBSBehaviour.RequestTileRemove(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles">LBSBehaviour.RetrieveNewTiles()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles">LBSBehaviour.RetrieveExpiredTiles()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__">LBSBehaviour.UpdateKeys(List&lt;object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_">LBSBehaviour.OnOnBehaviourUpdated(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__">LBSBehaviour.RequestFullRepaint&lt;T&gt;(List&lt;T&gt;, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -495,7 +496,9 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string conectionToSet</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+[HideInInspector]
+public string conectionToSet</code></pre>
   </div>
 
 
@@ -561,7 +564,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Vector2Int&gt; Directions { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;Vector2Int&gt; Directions { get; }</code></pre>
   </div>
 
 
@@ -592,7 +596,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool MultiLayerConnections { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public bool MultiLayerConnections { get; set; }</code></pre>
   </div>
 
 
@@ -623,7 +628,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Bundle PressetInsideStyle { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Bundle PressetInsideStyle { get; set; }</code></pre>
   </div>
 
 
@@ -654,7 +660,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Bundle PressetOutsideStyle { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Bundle PressetOutsideStyle { get; set; }</code></pre>
   </div>
 
 
@@ -685,7 +692,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Zone RoomToSet { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Zone RoomToSet { get; set; }</code></pre>
   </div>
 
 
@@ -716,7 +724,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;LBSStair&gt; Stairs { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;LBSStair&gt; Stairs { get; }</code></pre>
   </div>
 
 
@@ -809,7 +818,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;LBSTile&gt; Tiles { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;LBSTile&gt; Tiles { get; }</code></pre>
   </div>
 
 
@@ -840,7 +850,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool ValidArea { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public bool ValidArea { get; }</code></pre>
   </div>
 
 
@@ -871,7 +882,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Zone&gt; Zones { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;Zone&gt; Zones { get; }</code></pre>
   </div>
 
 
@@ -902,7 +914,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Zone&gt; ZonesWithTiles { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;Zone&gt; ZonesWithTiles { get; }</code></pre>
   </div>
 
 
@@ -1037,7 +1050,8 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Should return an object (module, behavior, assistant, etc) with a clone 
+of the selected area</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1055,7 +1069,7 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>true if there is any content within the area. Meaning to store the layer</dd>
   </dl>
 
 
@@ -1201,7 +1215,7 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the anchor/origin of this layer's objects</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1212,7 +1226,7 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>the top left object coordinate</dd>
   </dl>
 
 
@@ -1517,7 +1531,7 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Merges two layers into one</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1527,9 +1541,9 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>incoming</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>the layer that is merged</dd>
     <dt><code>overwrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>true -&gt; incoming overrides original</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -1946,7 +1960,7 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Add an offset to the content of a given object type</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1958,7 +1972,7 @@ public class SchemaBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></
     <dt><code>parentAnchor</code> <span class="xref">Vector2Int</span></dt>
     <dd></dd>
     <dt><code>delta</code> <span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>value to apply to move an obejct</dd>
   </dl>
 
 

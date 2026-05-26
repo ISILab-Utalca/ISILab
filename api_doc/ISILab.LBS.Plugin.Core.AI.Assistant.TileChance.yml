@@ -20,20 +20,26 @@ items:
   nameWithType: TileChance
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance
   type: Class
+  source:
+    id: TileChance
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\AssistantWFC.cs
+    startLine: 1653
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  summary: A TileConnectionPair which holds how many times it appears adjacent to another tile, and in which direction.
+  example: []
   syntax:
     content: public class TileChance
     content.vb: Public Class TileChance
   inheritance:
   - System.Object
   inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.tile
   commentId: F:ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.tile
   id: tile
@@ -45,6 +51,10 @@ items:
   nameWithType: TileChance.tile
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.tile
   type: Field
+  source:
+    id: tile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\AssistantWFC.cs
+    startLine: 1655
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -64,6 +74,10 @@ items:
   nameWithType: TileChance.count
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.count
   type: Field
+  source:
+    id: count
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\AssistantWFC.cs
+    startLine: 1656
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -83,6 +97,10 @@ items:
   nameWithType: TileChance.direction
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.direction
   type: Field
+  source:
+    id: direction
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\AssistantWFC.cs
+    startLine: 1658
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -102,6 +120,10 @@ items:
   nameWithType: TileChance.TileChance(TileConnectionsPair, int, int)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.TileChance(ISILab.LBS.Modules.TileConnectionsPair, int, int)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\AssistantWFC.cs
+    startLine: 1664
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -130,6 +152,10 @@ items:
   nameWithType: TileChance.TileChance(TileConnectionsPair, int)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.TileChance(ISILab.LBS.Modules.TileConnectionsPair, int)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\AssistantWFC.cs
+    startLine: 1671
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -156,6 +182,10 @@ items:
   nameWithType: TileChance.TileChance(int)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.TileChance(int)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\AssistantWFC.cs
+    startLine: 1679
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -180,6 +210,10 @@ items:
   nameWithType: TileChance.Equals(object)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\AssistantWFC.cs
+    startLine: 1687
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -208,6 +242,10 @@ items:
   nameWithType: TileChance.GetHashCode()
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\AssistantWFC.cs
+    startLine: 1699
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -222,7 +260,6 @@ items:
 references:
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant
   commentId: N:ISILab.LBS.Plugin.Core.AI.Assistant
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Core.AI.Assistant
   nameWithType: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -230,62 +267,50 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Assistant
     name: Assistant
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Assistant.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Assistant
     name: Assistant
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Assistant.html
 - uid: System.Object
   commentId: T:System.Object
@@ -298,6 +323,51 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -346,75 +416,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -460,6 +461,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -470,14 +495,12 @@ references:
 - uid: ISILab.LBS.Modules.TileConnectionsPair
   commentId: T:ISILab.LBS.Modules.TileConnectionsPair
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.TileConnectionsPair.html
   name: TileConnectionsPair
   nameWithType: TileConnectionsPair
   fullName: ISILab.LBS.Modules.TileConnectionsPair
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -485,32 +508,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: System.Int32
   commentId: T:System.Int32
@@ -525,7 +542,6 @@ references:
   name.vb: Integer
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.#ctor
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.html#ISILab_LBS_Plugin_Core_AI_Assistant_TileChance__ctor_ISILab_LBS_Modules_TileConnectionsPair_System_Int32_System_Int32_
   name: TileChance
   nameWithType: TileChance.TileChance
@@ -568,7 +584,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.Equals*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.Equals
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.html#ISILab_LBS_Plugin_Core_AI_Assistant_TileChance_Equals_System_Object_
   name: Equals
   nameWithType: TileChance.Equals
@@ -610,7 +625,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.GetHashCode*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.TileChance.html#ISILab_LBS_Plugin_Core_AI_Assistant_TileChance_GetHashCode
   name: GetHashCode
   nameWithType: TileChance.GetHashCode

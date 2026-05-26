@@ -101,7 +101,8 @@ Class GrammarBundleGraphList
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[GrammarField(&quot;List.tile&quot;)]
+    <pre><code class="lang-csharp hljs">[Serializable]
+[GrammarField(&quot;List.tile&quot;)]
 public class GrammarBundleGraphList : GrammarListField&lt;GrammarBundleGraph&gt;, ICloneable, GrammarListFieldMarker</code></pre>
   </div>
 
@@ -134,13 +135,13 @@ public class GrammarBundleGraphList : GrammarListField&lt;GrammarBundleGraph&gt;
       <a class="xref" href="ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1_value">GrammarListField&lt;GrammarBundleGraph&gt;.value</a>
     </div>
     <div>
+      <a class="xref" href="ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1_ItemsSource">GrammarListField&lt;GrammarBundleGraph&gt;.ItemsSource</a>
+    </div>
+    <div>
       <a class="xref" href="ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1_Clone">GrammarListField&lt;GrammarBundleGraph&gt;.Clone()</a>
     </div>
     <div>
       <a class="xref" href="ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1_SetValue_System_Object_">GrammarListField&lt;GrammarBundleGraph&gt;.SetValue(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1_ItemsSource">GrammarListField&lt;GrammarBundleGraph&gt;.ItemsSource</a>
     </div>
     <div>
       <a class="xref" href="ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_data">GrammarField.data</a>
@@ -150,6 +151,9 @@ public class GrammarBundleGraphList : GrammarListField&lt;GrammarBundleGraph&gt;
     </div>
     <div>
       <a class="xref" href="ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Refresh">GrammarField.Refresh</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsList">GrammarField.IsList</a>
     </div>
     <div>
       <a class="xref" href="ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_CreateField_System_String_System_String_">GrammarField.CreateField(string, string)</a>
@@ -164,7 +168,10 @@ public class GrammarBundleGraphList : GrammarListField&lt;GrammarBundleGraph&gt;
       <a class="xref" href="ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ToString">GrammarField.ToString()</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsList">GrammarField.IsList</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
@@ -173,45 +180,9 @@ public class GrammarBundleGraphList : GrammarListField&lt;GrammarBundleGraph&gt;
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
   </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="ISILab_AI_Grammar_GrammarBundleGraphList__ctor_" data-uid="ISILab.AI.Grammar.GrammarBundleGraphList.#ctor*"></a>
-
-  <h3 id="ISILab_AI_Grammar_GrammarBundleGraphList__ctor" data-uid="ISILab.AI.Grammar.GrammarBundleGraphList.#ctor">
-  GrammarBundleGraphList()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GrammarBundleGraphList()</code></pre>
-  </div>
-
-
-
-
-
-
-
 
 
 
@@ -229,7 +200,9 @@ public class GrammarBundleGraphList : GrammarListField&lt;GrammarBundleGraph&gt;
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Primitive type used by this field
+GrammarIntList -&gt; GrammarInt
+GrammarInt     -&gt; GrammarInt</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

@@ -22,22 +22,36 @@ items:
   nameWithType: Constraint
   fullName: ISILab.LBS.Modules.Constraint
   type: Class
+  source:
+    id: Constraint
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 239
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
   syntax:
-    content: 'public class Constraint : ICloneable'
-    content.vb: Public Class Constraint Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public class Constraint : ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public Class Constraint Implements ICloneable
   inheritance:
   - System.Object
   implements:
   - System.ICloneable
   inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Modules.Constraint.minWidth
   commentId: F:ISILab.LBS.Modules.Constraint.minWidth
   id: minWidth
@@ -49,6 +63,10 @@ items:
   nameWithType: Constraint.minWidth
   fullName: ISILab.LBS.Modules.Constraint.minWidth
   type: Field
+  source:
+    id: minWidth
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 242
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -68,6 +86,10 @@ items:
   nameWithType: Constraint.minHeight
   fullName: ISILab.LBS.Modules.Constraint.minHeight
   type: Field
+  source:
+    id: minHeight
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 243
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -87,6 +109,10 @@ items:
   nameWithType: Constraint.maxWidth
   fullName: ISILab.LBS.Modules.Constraint.maxWidth
   type: Field
+  source:
+    id: maxWidth
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 244
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -106,6 +132,10 @@ items:
   nameWithType: Constraint.maxHeight
   fullName: ISILab.LBS.Modules.Constraint.maxHeight
   type: Field
+  source:
+    id: maxHeight
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 245
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -114,6 +144,76 @@ items:
     return:
       type: System.Single
     content.vb: Public maxHeight As Single
+- uid: ISILab.LBS.Modules.Constraint.WidthMid
+  commentId: P:ISILab.LBS.Modules.Constraint.WidthMid
+  id: WidthMid
+  parent: ISILab.LBS.Modules.Constraint
+  langs:
+  - csharp
+  - vb
+  name: WidthMid
+  nameWithType: Constraint.WidthMid
+  fullName: ISILab.LBS.Modules.Constraint.WidthMid
+  type: Property
+  source:
+    id: WidthMid
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 247
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public float WidthMid { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property WidthMid As Single
+  overload: ISILab.LBS.Modules.Constraint.WidthMid*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Modules.Constraint.HeightMid
+  commentId: P:ISILab.LBS.Modules.Constraint.HeightMid
+  id: HeightMid
+  parent: ISILab.LBS.Modules.Constraint
+  langs:
+  - csharp
+  - vb
+  name: HeightMid
+  nameWithType: Constraint.HeightMid
+  fullName: ISILab.LBS.Modules.Constraint.HeightMid
+  type: Property
+  source:
+    id: HeightMid
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 249
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public float HeightMid { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property HeightMid As Single
+  overload: ISILab.LBS.Modules.Constraint.HeightMid*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Modules.Constraint.#ctor(System.Single,System.Single,System.Single,System.Single)
   commentId: M:ISILab.LBS.Modules.Constraint.#ctor(System.Single,System.Single,System.Single,System.Single)
   id: '#ctor(System.Single,System.Single,System.Single,System.Single)'
@@ -125,6 +225,10 @@ items:
   nameWithType: Constraint.Constraint(float, float, float, float)
   fullName: ISILab.LBS.Modules.Constraint.Constraint(float, float, float, float)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 252
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -155,6 +259,10 @@ items:
   nameWithType: Constraint.Clone()
   fullName: ISILab.LBS.Modules.Constraint.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 260
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -178,6 +286,10 @@ items:
   nameWithType: Constraint.Equals(object)
   fullName: ISILab.LBS.Modules.Constraint.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 266
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -206,6 +318,10 @@ items:
   nameWithType: Constraint.GetHashCode()
   fullName: ISILab.LBS.Modules.Constraint.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\ConstrainsZonesModule.cs
+    startLine: 280
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -217,52 +333,9 @@ items:
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.Object.GetHashCode
   overload: ISILab.LBS.Modules.Constraint.GetHashCode*
-- uid: ISILab.LBS.Modules.Constraint.WidthMid
-  commentId: P:ISILab.LBS.Modules.Constraint.WidthMid
-  id: WidthMid
-  parent: ISILab.LBS.Modules.Constraint
-  langs:
-  - csharp
-  - vb
-  name: WidthMid
-  nameWithType: Constraint.WidthMid
-  fullName: ISILab.LBS.Modules.Constraint.WidthMid
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public float WidthMid { get; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public ReadOnly Property WidthMid As Single
-  overload: ISILab.LBS.Modules.Constraint.WidthMid*
-- uid: ISILab.LBS.Modules.Constraint.HeightMid
-  commentId: P:ISILab.LBS.Modules.Constraint.HeightMid
-  id: HeightMid
-  parent: ISILab.LBS.Modules.Constraint
-  langs:
-  - csharp
-  - vb
-  name: HeightMid
-  nameWithType: Constraint.HeightMid
-  fullName: ISILab.LBS.Modules.Constraint.HeightMid
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public float HeightMid { get; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public ReadOnly Property HeightMid As Single
-  overload: ISILab.LBS.Modules.Constraint.HeightMid*
 references:
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -270,32 +343,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: System.Object
   commentId: T:System.Object
@@ -316,6 +383,51 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -364,75 +476,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -478,6 +521,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -496,9 +563,20 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: ISILab.LBS.Modules.Constraint.WidthMid*
+  commentId: Overload:ISILab.LBS.Modules.Constraint.WidthMid
+  href: ISILab.LBS.Modules.Constraint.html#ISILab_LBS_Modules_Constraint_WidthMid
+  name: WidthMid
+  nameWithType: Constraint.WidthMid
+  fullName: ISILab.LBS.Modules.Constraint.WidthMid
+- uid: ISILab.LBS.Modules.Constraint.HeightMid*
+  commentId: Overload:ISILab.LBS.Modules.Constraint.HeightMid
+  href: ISILab.LBS.Modules.Constraint.html#ISILab_LBS_Modules_Constraint_HeightMid
+  name: HeightMid
+  nameWithType: Constraint.HeightMid
+  fullName: ISILab.LBS.Modules.Constraint.HeightMid
 - uid: ISILab.LBS.Modules.Constraint.#ctor*
   commentId: Overload:ISILab.LBS.Modules.Constraint.#ctor
-  isExternal: true
   href: ISILab.LBS.Modules.Constraint.html#ISILab_LBS_Modules_Constraint__ctor_System_Single_System_Single_System_Single_System_Single_
   name: Constraint
   nameWithType: Constraint.Constraint
@@ -508,7 +586,6 @@ references:
   name.vb: New
 - uid: ISILab.LBS.Modules.Constraint.Clone*
   commentId: Overload:ISILab.LBS.Modules.Constraint.Clone
-  isExternal: true
   href: ISILab.LBS.Modules.Constraint.html#ISILab_LBS_Modules_Constraint_Clone
   name: Clone
   nameWithType: Constraint.Clone
@@ -570,7 +647,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Modules.Constraint.Equals*
   commentId: Overload:ISILab.LBS.Modules.Constraint.Equals
-  isExternal: true
   href: ISILab.LBS.Modules.Constraint.html#ISILab_LBS_Modules_Constraint_Equals_System_Object_
   name: Equals
   nameWithType: Constraint.Equals
@@ -612,7 +688,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Modules.Constraint.GetHashCode*
   commentId: Overload:ISILab.LBS.Modules.Constraint.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Modules.Constraint.html#ISILab_LBS_Modules_Constraint_GetHashCode
   name: GetHashCode
   nameWithType: Constraint.GetHashCode
@@ -628,18 +703,4 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: ISILab.LBS.Modules.Constraint.WidthMid*
-  commentId: Overload:ISILab.LBS.Modules.Constraint.WidthMid
-  isExternal: true
-  href: ISILab.LBS.Modules.Constraint.html#ISILab_LBS_Modules_Constraint_WidthMid
-  name: WidthMid
-  nameWithType: Constraint.WidthMid
-  fullName: ISILab.LBS.Modules.Constraint.WidthMid
-- uid: ISILab.LBS.Modules.Constraint.HeightMid*
-  commentId: Overload:ISILab.LBS.Modules.Constraint.HeightMid
-  isExternal: true
-  href: ISILab.LBS.Modules.Constraint.html#ISILab_LBS_Modules_Constraint_HeightMid
-  name: HeightMid
-  nameWithType: Constraint.HeightMid
-  fullName: ISILab.LBS.Modules.Constraint.HeightMid
 shouldSkipMarkup: true

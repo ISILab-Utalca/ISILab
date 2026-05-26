@@ -254,7 +254,7 @@ Interface IAssistantThreadedEditor
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void OnAssistantTermination(string log = &quot;&quot;, LogType type = 3, Object loadedLevel = null)</code></pre>
+    <pre><code class="lang-csharp hljs">void OnAssistantTermination(string log = &quot;&quot;, LogType type = LogType.Log, Object loadedLevel = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -349,7 +349,8 @@ Interface IAssistantThreadedEditor
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Will hook up all the different actions and functions for the cancellation, progress update and
+termination of a threaded task from an assistant.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -359,9 +360,9 @@ Interface IAssistantThreadedEditor
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>InterfaceOwner</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>object that implements the interface from which the task is called</dd>
     <dt><code>Assistant</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html">LBSAssistant</a></dt>
-    <dd></dd>
+    <dd>The <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html">LBSAssistant</a> whose method will be called within the task</dd>
   </dl>
 
 
@@ -371,6 +372,12 @@ Interface IAssistantThreadedEditor
 
 
 
+  <h4 class="section" id="ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_SetUpTask_System_Object_ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant__remarks">Remarks</h4>
+  <div class="markdown level1 remarks">Use the method like this:
+<pre><code class="lang-csharp">((IAssistantThreadedEditor)this).SetUpTask(this, assistant);</code></pre>
+Before the Task runs
+
+Make sure your assistant calls <a class="xref" href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnTermination">OnTermination</a> once it finishes</div>
 
 
 

@@ -14,9 +14,15 @@ items:
   nameWithType: IOperatorsStrategy
   fullName: GeneticSharp.Domain.IOperatorsStrategy
   type: Interface
+  source:
+    id: IOperatorsStrategy
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\OperatorsStrategy\IOperatorsStrategy.cs
+    startLine: 11
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain
+  summary: Defines an interface for operators strategy.
+  example: []
   syntax:
     content: public interface IOperatorsStrategy
     content.vb: Public Interface IOperatorsStrategy
@@ -35,9 +41,15 @@ items:
   nameWithType: IOperatorsStrategy.Cross(IPopulation, ICrossover, float, IList<ChromosomeBase>)
   fullName: GeneticSharp.Domain.IOperatorsStrategy.Cross(ISILab.AI.Optimization.Populations.IPopulation, GeneticSharp.Domain.Crossovers.ICrossover, float, System.Collections.Generic.IList<GeneticSharp.Domain.Chromosomes.ChromosomeBase>)
   type: Method
+  source:
+    id: Cross
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\OperatorsStrategy\IOperatorsStrategy.cs
+    startLine: 20
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain
+  summary: Crosses the specified parents.
+  example: []
   syntax:
     content: IList<ChromosomeBase> Cross(IPopulation population, ICrossover crossover, float crossoverProbability, IList<ChromosomeBase> parents)
     parameters:
@@ -45,12 +57,16 @@ items:
       type: ISILab.AI.Optimization.Populations.IPopulation
     - id: crossover
       type: GeneticSharp.Domain.Crossovers.ICrossover
+      description: The crossover class.
     - id: crossoverProbability
       type: System.Single
+      description: The crossover probability.
     - id: parents
       type: System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase}
+      description: The parents.
     return:
       type: System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase}
+      description: The result chromosomes.
     content.vb: Function Cross(population As IPopulation, crossover As ICrossover, crossoverProbability As Single, parents As IList(Of ChromosomeBase)) As IList(Of ChromosomeBase)
   overload: GeneticSharp.Domain.IOperatorsStrategy.Cross*
   nameWithType.vb: IOperatorsStrategy.Cross(IPopulation, ICrossover, Single, IList(Of ChromosomeBase))
@@ -67,18 +83,27 @@ items:
   nameWithType: IOperatorsStrategy.Mutate(IMutation, float, IList<ChromosomeBase>)
   fullName: GeneticSharp.Domain.IOperatorsStrategy.Mutate(GeneticSharp.Domain.Mutations.IMutation, float, System.Collections.Generic.IList<GeneticSharp.Domain.Chromosomes.ChromosomeBase>)
   type: Method
+  source:
+    id: Mutate
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\OperatorsStrategy\IOperatorsStrategy.cs
+    startLine: 28
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain
+  summary: Mutate the specified chromosomes.
+  example: []
   syntax:
     content: void Mutate(IMutation mutation, float mutationProbability, IList<ChromosomeBase> chromosomes)
     parameters:
     - id: mutation
       type: GeneticSharp.Domain.Mutations.IMutation
+      description: The mutation class.
     - id: mutationProbability
       type: System.Single
+      description: The mutation probability.
     - id: chromosomes
       type: System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase}
+      description: The chromosomes.
     content.vb: Sub Mutate(mutation As IMutation, mutationProbability As Single, chromosomes As IList(Of ChromosomeBase))
   overload: GeneticSharp.Domain.IOperatorsStrategy.Mutate*
   nameWithType.vb: IOperatorsStrategy.Mutate(IMutation, Single, IList(Of ChromosomeBase))
@@ -87,7 +112,6 @@ items:
 references:
 - uid: GeneticSharp.Domain
   commentId: N:GeneticSharp.Domain
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain
   nameWithType: GeneticSharp.Domain
@@ -95,26 +119,21 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
 - uid: GeneticSharp.Domain.IOperatorsStrategy.Cross*
   commentId: Overload:GeneticSharp.Domain.IOperatorsStrategy.Cross
-  isExternal: true
   href: GeneticSharp.Domain.IOperatorsStrategy.html#GeneticSharp_Domain_IOperatorsStrategy_Cross_ISILab_AI_Optimization_Populations_IPopulation_GeneticSharp_Domain_Crossovers_ICrossover_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
   name: Cross
   nameWithType: IOperatorsStrategy.Cross
@@ -122,7 +141,6 @@ references:
 - uid: ISILab.AI.Optimization.Populations.IPopulation
   commentId: T:ISILab.AI.Optimization.Populations.IPopulation
   parent: ISILab.AI.Optimization.Populations
-  isExternal: true
   href: ISILab.AI.Optimization.Populations.IPopulation.html
   name: IPopulation
   nameWithType: IPopulation
@@ -130,7 +148,6 @@ references:
 - uid: GeneticSharp.Domain.Crossovers.ICrossover
   commentId: T:GeneticSharp.Domain.Crossovers.ICrossover
   parent: GeneticSharp.Domain.Crossovers
-  isExternal: true
   href: GeneticSharp.Domain.Crossovers.ICrossover.html
   name: ICrossover
   nameWithType: ICrossover
@@ -165,7 +182,6 @@ references:
   - name: <
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: '>'
   spec.vb:
@@ -178,12 +194,10 @@ references:
   - name: " "
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: )
 - uid: ISILab.AI.Optimization.Populations
   commentId: N:ISILab.AI.Optimization.Populations
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization.Populations
   nameWithType: ISILab.AI.Optimization.Populations
@@ -191,46 +205,37 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Populations
     name: Populations
-    isExternal: true
     href: ISILab.AI.Optimization.Populations.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Populations
     name: Populations
-    isExternal: true
     href: ISILab.AI.Optimization.Populations.html
 - uid: GeneticSharp.Domain.Crossovers
   commentId: N:GeneticSharp.Domain.Crossovers
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Crossovers
   nameWithType: GeneticSharp.Domain.Crossovers
@@ -238,32 +243,26 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Crossovers
     name: Crossovers
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Crossovers
     name: Crossovers
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.html
 - uid: System
   commentId: N:System
@@ -339,7 +338,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: GeneticSharp.Domain.IOperatorsStrategy.Mutate*
   commentId: Overload:GeneticSharp.Domain.IOperatorsStrategy.Mutate
-  isExternal: true
   href: GeneticSharp.Domain.IOperatorsStrategy.html#GeneticSharp_Domain_IOperatorsStrategy_Mutate_GeneticSharp_Domain_Mutations_IMutation_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
   name: Mutate
   nameWithType: IOperatorsStrategy.Mutate
@@ -347,14 +345,12 @@ references:
 - uid: GeneticSharp.Domain.Mutations.IMutation
   commentId: T:GeneticSharp.Domain.Mutations.IMutation
   parent: GeneticSharp.Domain.Mutations
-  isExternal: true
   href: GeneticSharp.Domain.Mutations.IMutation.html
   name: IMutation
   nameWithType: IMutation
   fullName: GeneticSharp.Domain.Mutations.IMutation
 - uid: GeneticSharp.Domain.Mutations
   commentId: N:GeneticSharp.Domain.Mutations
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Mutations
   nameWithType: GeneticSharp.Domain.Mutations
@@ -362,31 +358,25 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Mutations
     name: Mutations
-    isExternal: true
     href: GeneticSharp.Domain.Mutations.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Mutations
     name: Mutations
-    isExternal: true
     href: GeneticSharp.Domain.Mutations.html
 shouldSkipMarkup: true
