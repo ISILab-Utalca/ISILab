@@ -121,25 +121,25 @@ Class RectExtensions
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -159,7 +159,8 @@ Class RectExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the minimum and maximum x and y axis points of it's own rectangle and another (forming the area), 
+and applies said area to itself.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -192,7 +193,8 @@ Class RectExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the minimum and maximum x and y axis points of the two rectangles (forming the area), 
+and applies said area to itself.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -265,7 +267,7 @@ Class RectExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Indicates whether the evaluated rectangle has a non-zero equivalent area or not.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -339,7 +341,7 @@ Class RectExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Converts a 2D position to an index in a 1D array.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -351,7 +353,7 @@ Class RectExtensions
     <dt><code>rect</code> <span class="xref">Rect</span></dt>
     <dd></dd>
     <dt><code>pos</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>The 2D position to convert.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -377,7 +379,7 @@ Class RectExtensions
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Converts an index in a 1D array to a 2D position.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -389,7 +391,7 @@ Class RectExtensions
     <dt><code>rect</code> <span class="xref">Rect</span></dt>
     <dd></dd>
     <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The index in the 1D array to convert.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>

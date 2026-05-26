@@ -20,6 +20,10 @@ items:
   nameWithType: IAssistantThreadedEditor
   fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor
   type: Interface
+  source:
+    id: IAssistantThreadedEditor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\AssistantThreads\IAssistantThreadedEditor.cs
+    startLine: 11
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
@@ -36,6 +40,81 @@ items:
   - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorNew
   - ISILab.LBS.VisualElements.Editor.PopulationAssistantWindow
   - ISILab.LBS.VisualElements.HillClimbingAssistantEditor
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelToken
+  commentId: P:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelToken
+  id: CancelToken
+  parent: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor
+  langs:
+  - csharp
+  - vb
+  name: CancelToken
+  nameWithType: IAssistantThreadedEditor.CancelToken
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelToken
+  type: Property
+  source:
+    id: CancelToken
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\AssistantThreads\IAssistantThreadedEditor.cs
+    startLine: 13
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
+  syntax:
+    content: CancellationToken CancelToken { get; set; }
+    parameters: []
+    return:
+      type: System.Threading.CancellationToken
+    content.vb: Property CancelToken As CancellationToken
+  overload: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelToken*
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancellationTokenSource
+  commentId: P:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancellationTokenSource
+  id: CancellationTokenSource
+  parent: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor
+  langs:
+  - csharp
+  - vb
+  name: CancellationTokenSource
+  nameWithType: IAssistantThreadedEditor.CancellationTokenSource
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancellationTokenSource
+  type: Property
+  source:
+    id: CancellationTokenSource
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\AssistantThreads\IAssistantThreadedEditor.cs
+    startLine: 14
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
+  syntax:
+    content: CancellationTokenSource CancellationTokenSource { get; set; }
+    parameters: []
+    return:
+      type: System.Threading.CancellationTokenSource
+    content.vb: Property CancellationTokenSource As CancellationTokenSource
+  overload: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancellationTokenSource*
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.TaskBar
+  commentId: P:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.TaskBar
+  id: TaskBar
+  parent: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor
+  langs:
+  - csharp
+  - vb
+  name: TaskBar
+  nameWithType: IAssistantThreadedEditor.TaskBar
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.TaskBar
+  type: Property
+  source:
+    id: TaskBar
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\AssistantThreads\IAssistantThreadedEditor.cs
+    startLine: 15
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
+  syntax:
+    content: ToolBarMain TaskBar { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
+    content.vb: Property TaskBar As ToolBarMain
+  overload: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.TaskBar*
 - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination(System.String,UnityEngine.LogType,UnityEngine.Object)
   commentId: M:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination(System.String,UnityEngine.LogType,UnityEngine.Object)
   id: OnAssistantTermination(System.String,UnityEngine.LogType,UnityEngine.Object)
@@ -47,11 +126,15 @@ items:
   nameWithType: IAssistantThreadedEditor.OnAssistantTermination(string, LogType, Object)
   fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination(string, UnityEngine.LogType, UnityEngine.Object)
   type: Method
+  source:
+    id: OnAssistantTermination
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\AssistantThreads\IAssistantThreadedEditor.cs
+    startLine: 18
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
   syntax:
-    content: void OnAssistantTermination(string log = "", LogType type = 3, Object loadedLevel = null)
+    content: void OnAssistantTermination(string log = "", LogType type = LogType.Log, Object loadedLevel = null)
     parameters:
     - id: log
       type: System.String
@@ -59,7 +142,7 @@ items:
       type: UnityEngine.LogType
     - id: loadedLevel
       type: UnityEngine.Object
-    content.vb: Sub OnAssistantTermination(log As String = "", type As LogType = 3, loadedLevel As [Object] = Nothing)
+    content.vb: Sub OnAssistantTermination(log As String = "", type As LogType = LogType.Log, loadedLevel As [Object] = Nothing)
   overload: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination*
   nameWithType.vb: IAssistantThreadedEditor.OnAssistantTermination(String, LogType, Object)
   fullName.vb: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination(String, UnityEngine.LogType, UnityEngine.Object)
@@ -75,6 +158,10 @@ items:
   nameWithType: IAssistantThreadedEditor.OnTaskException(Exception, LBSAssistant)
   fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnTaskException(System.Exception, ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant)
   type: Method
+  source:
+    id: OnTaskException
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\AssistantThreads\IAssistantThreadedEditor.cs
+    startLine: 21
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
@@ -98,6 +185,10 @@ items:
   nameWithType: IAssistantThreadedEditor.CancelCurrentTask()
   fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelCurrentTask()
   type: Method
+  source:
+    id: CancelCurrentTask
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\AssistantThreads\IAssistantThreadedEditor.cs
+    startLine: 30
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
@@ -116,16 +207,36 @@ items:
   nameWithType: IAssistantThreadedEditor.SetUpTask(object, LBSAssistant)
   fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.SetUpTask(object, ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant)
   type: Method
+  source:
+    id: SetUpTask
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\AssistantThreads\IAssistantThreadedEditor.cs
+    startLine: 53
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
+  summary: >-
+    Will hook up all the different actions and functions for the cancellation, progress update and
+
+    termination of a threaded task from an assistant.
+  remarks: >-
+    Use the method like this:
+
+    <pre><code class="lang-csharp">((IAssistantThreadedEditor)this).SetUpTask(this, assistant);</code></pre>
+
+    Before the Task runs
+
+
+    Make sure your assistant calls <xref href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination" data-throw-if-not-resolved="false"></xref> once it finishes
+  example: []
   syntax:
     content: void SetUpTask(object InterfaceOwner, LBSAssistant Assistant)
     parameters:
     - id: InterfaceOwner
       type: System.Object
+      description: object that implements the interface from which the task is called
     - id: Assistant
       type: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+      description: The <xref href="ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant" data-throw-if-not-resolved="false"></xref> whose method will be called within the task
     content.vb: Sub SetUpTask(InterfaceOwner As Object, Assistant As LBSAssistant)
   overload: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.SetUpTask*
   nameWithType.vb: IAssistantThreadedEditor.SetUpTask(Object, LBSAssistant)
@@ -142,6 +253,10 @@ items:
   nameWithType: IAssistantThreadedEditor.ReportProgress(float)
   fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.ReportProgress(float)
   type: Method
+  source:
+    id: ReportProgress
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\AssistantThreads\IAssistantThreadedEditor.cs
+    startLine: 88
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
@@ -155,73 +270,9 @@ items:
   nameWithType.vb: IAssistantThreadedEditor.ReportProgress(Single)
   fullName.vb: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.ReportProgress(Single)
   name.vb: ReportProgress(Single)
-- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelToken
-  commentId: P:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelToken
-  id: CancelToken
-  parent: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor
-  langs:
-  - csharp
-  - vb
-  name: CancelToken
-  nameWithType: IAssistantThreadedEditor.CancelToken
-  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelToken
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
-  syntax:
-    content: CancellationToken CancelToken { get; set; }
-    parameters: []
-    return:
-      type: System.Threading.CancellationToken
-    content.vb: Property CancelToken As CancellationToken
-  overload: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelToken*
-- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancellationTokenSource
-  commentId: P:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancellationTokenSource
-  id: CancellationTokenSource
-  parent: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor
-  langs:
-  - csharp
-  - vb
-  name: CancellationTokenSource
-  nameWithType: IAssistantThreadedEditor.CancellationTokenSource
-  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancellationTokenSource
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
-  syntax:
-    content: CancellationTokenSource CancellationTokenSource { get; set; }
-    parameters: []
-    return:
-      type: System.Threading.CancellationTokenSource
-    content.vb: Property CancellationTokenSource As CancellationTokenSource
-  overload: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancellationTokenSource*
-- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.TaskBar
-  commentId: P:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.TaskBar
-  id: TaskBar
-  parent: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor
-  langs:
-  - csharp
-  - vb
-  name: TaskBar
-  nameWithType: IAssistantThreadedEditor.TaskBar
-  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.TaskBar
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
-  syntax:
-    content: ToolBarMain TaskBar { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
-    content.vb: Property TaskBar As ToolBarMain
-  overload: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.TaskBar*
 references:
 - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
   commentId: N:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
   nameWithType: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
@@ -229,224 +280,53 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
     name: AssistantThreads
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
     name: AssistantThreads
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.html
-- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination*
-  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination
-  isExternal: true
-  href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_OnAssistantTermination_System_String_UnityEngine_LogType_UnityEngine_Object_
-  name: OnAssistantTermination
-  nameWithType: IAssistantThreadedEditor.OnAssistantTermination
-  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: UnityEngine.LogType
-  isExternal: true
-  name: LogType
-  nameWithType: LogType
-  fullName: UnityEngine.LogType
-- uid: UnityEngine.Object
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: UnityEngine.Object
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
-- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnTaskException*
-  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnTaskException
-  isExternal: true
-  href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_OnTaskException_System_Exception_ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_
-  name: OnTaskException
-  nameWithType: IAssistantThreadedEditor.OnTaskException
-  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnTaskException
-- uid: System.Exception
-  commentId: T:System.Exception
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.exception
-  name: Exception
-  nameWithType: Exception
-  fullName: System.Exception
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  commentId: T:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  parent: ISILab.LBS.Plugin.Components.Behaviours
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html
-  name: LBSAssistant
-  nameWithType: LBSAssistant
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-- uid: ISILab.LBS.Plugin.Components.Behaviours
-  commentId: N:ISILab.LBS.Plugin.Components.Behaviours
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.LBS.Plugin.Components.Behaviours
-  nameWithType: ISILab.LBS.Plugin.Components.Behaviours
-  fullName: ISILab.LBS.Plugin.Components.Behaviours
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Plugin
-    name: Plugin
-    isExternal: true
-    href: ISILab.LBS.Plugin.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components
-    name: Components
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Behaviours
-    name: Behaviours
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Behaviours.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Plugin
-    name: Plugin
-    isExternal: true
-    href: ISILab.LBS.Plugin.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components
-    name: Components
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Behaviours
-    name: Behaviours
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Behaviours.html
-- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelCurrentTask*
-  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelCurrentTask
-  isExternal: true
-  href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_CancelCurrentTask
-  name: CancelCurrentTask
-  nameWithType: IAssistantThreadedEditor.CancelCurrentTask
-  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelCurrentTask
-- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.SetUpTask*
-  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.SetUpTask
-  isExternal: true
-  href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_SetUpTask_System_Object_ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_
-  name: SetUpTask
-  nameWithType: IAssistantThreadedEditor.SetUpTask
-  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.SetUpTask
-- uid: System.Object
-  commentId: T:System.Object
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object
-  name: object
-  nameWithType: object
-  fullName: object
-  nameWithType.vb: Object
-  fullName.vb: Object
-  name.vb: Object
-- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.ReportProgress*
-  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.ReportProgress
-  isExternal: true
-  href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_ReportProgress_System_Single_
-  name: ReportProgress
-  nameWithType: IAssistantThreadedEditor.ReportProgress
-  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.ReportProgress
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
 - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelToken*
   commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelToken
-  isExternal: true
   href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_CancelToken
   name: CancelToken
   nameWithType: IAssistantThreadedEditor.CancelToken
@@ -488,7 +368,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.threading
 - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancellationTokenSource*
   commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancellationTokenSource
-  isExternal: true
   href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_CancellationTokenSource
   name: CancellationTokenSource
   nameWithType: IAssistantThreadedEditor.CancellationTokenSource
@@ -503,7 +382,6 @@ references:
   fullName: System.Threading.CancellationTokenSource
 - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.TaskBar*
   commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.TaskBar
-  isExternal: true
   href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_TaskBar
   name: TaskBar
   nameWithType: IAssistantThreadedEditor.TaskBar
@@ -511,14 +389,12 @@ references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
   commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
   parent: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain.html
   name: ToolBarMain
   nameWithType: ToolBarMain
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
   commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
   nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
@@ -526,71 +402,215 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
     name: ToolBar
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
     name: ToolBar
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.html
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination*
+  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination
+  href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_OnAssistantTermination_System_String_UnityEngine_LogType_UnityEngine_Object_
+  name: OnAssistantTermination
+  nameWithType: IAssistantThreadedEditor.OnAssistantTermination
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnAssistantTermination
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityEngine.LogType
+  commentId: T:UnityEngine.LogType
+  parent: UnityEngine
+  isExternal: true
+  name: LogType
+  nameWithType: LogType
+  fullName: UnityEngine.LogType
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnTaskException*
+  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnTaskException
+  href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_OnTaskException_System_Exception_ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_
+  name: OnTaskException
+  nameWithType: IAssistantThreadedEditor.OnTaskException
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.OnTaskException
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  commentId: T:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  parent: ISILab.LBS.Plugin.Components.Behaviours
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html
+  name: LBSAssistant
+  nameWithType: LBSAssistant
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+- uid: ISILab.LBS.Plugin.Components.Behaviours
+  commentId: N:ISILab.LBS.Plugin.Components.Behaviours
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Behaviours
+  nameWithType: ISILab.LBS.Plugin.Components.Behaviours
+  fullName: ISILab.LBS.Plugin.Components.Behaviours
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Behaviours
+    name: Behaviours
+    href: ISILab.LBS.Plugin.Components.Behaviours.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Behaviours
+    name: Behaviours
+    href: ISILab.LBS.Plugin.Components.Behaviours.html
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelCurrentTask*
+  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelCurrentTask
+  href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_CancelCurrentTask
+  name: CancelCurrentTask
+  nameWithType: IAssistantThreadedEditor.CancelCurrentTask
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.CancelCurrentTask
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnTermination
+  name: OnTermination
+  nameWithType: LBSAssistant.OnTermination
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.SetUpTask*
+  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.SetUpTask
+  href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_SetUpTask_System_Object_ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_
+  name: SetUpTask
+  nameWithType: IAssistantThreadedEditor.SetUpTask
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.SetUpTask
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.ReportProgress*
+  commentId: Overload:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.ReportProgress
+  href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html#ISILab_LBS_Plugin_VisualElements_Editor_AssistantThreads_IAssistantThreadedEditor_ReportProgress_System_Single_
+  name: ReportProgress
+  nameWithType: IAssistantThreadedEditor.ReportProgress
+  fullName: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.ReportProgress
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
 shouldSkipMarkup: true

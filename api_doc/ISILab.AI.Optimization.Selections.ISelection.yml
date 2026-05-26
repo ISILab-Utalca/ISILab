@@ -14,9 +14,22 @@ items:
   nameWithType: ISelection
   fullName: ISILab.AI.Optimization.Selections.ISelection
   type: Interface
+  source:
+    id: ISelection
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\ISelection.cs
+    startLine: 13
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Selections
+  summary: >-
+    Defines a interface for selection.
+
+    Selection is the stage of a genetic algorithm in which individual genomes are chosen from a population for later breeding (recombination or crossover).
+
+    <a href="http://en.wikipedia.org/wiki/Selection_(genetic_algorithm)">Wikipedia</a>
+
+    <a href=" http://www.ijest.info/docs/IJEST11-03-05-190.pdf">A Review of Selection Methods in Genetic Algorithm</a>
+  example: []
   syntax:
     content: public interface ISelection
     content.vb: Public Interface ISelection
@@ -39,18 +52,27 @@ items:
   nameWithType: ISelection.SelectEvaluables(int, Generation)
   fullName: ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables(int, ISILab.AI.Optimization.Populations.Generation)
   type: Method
+  source:
+    id: SelectEvaluables
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\ISelection.cs
+    startLine: 21
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Selections
+  summary: Selects the number of chromosomes from the generation specified.
+  example: []
   syntax:
     content: IList<IOptimizable> SelectEvaluables(int number, Generation generation)
     parameters:
     - id: number
       type: System.Int32
+      description: The number of chromosomes to select.
     - id: generation
       type: ISILab.AI.Optimization.Populations.Generation
+      description: The generation where the selection will be made.
     return:
       type: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+      description: The selected chromosomes.
     content.vb: Function SelectEvaluables(number As Integer, generation As Generation) As IList(Of IOptimizable)
   overload: ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables*
   nameWithType.vb: ISelection.SelectEvaluables(Integer, Generation)
@@ -67,6 +89,10 @@ items:
   nameWithType: ISelection.GetBetters(IEvaluator, double?)
   fullName: ISILab.AI.Optimization.Selections.ISelection.GetBetters(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator, double?)
   type: Method
+  source:
+    id: GetBetters
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\ISelection.cs
+    startLine: 22
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Selections
@@ -87,7 +113,6 @@ items:
 references:
 - uid: ISILab.AI.Optimization.Selections
   commentId: N:ISILab.AI.Optimization.Selections
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization.Selections
   nameWithType: ISILab.AI.Optimization.Selections
@@ -95,46 +120,37 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Selections
     name: Selections
-    isExternal: true
     href: ISILab.AI.Optimization.Selections.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Selections
     name: Selections
-    isExternal: true
     href: ISILab.AI.Optimization.Selections.html
 - uid: ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables*
   commentId: Overload:ISILab.AI.Optimization.Selections.ISelection.SelectEvaluables
-  isExternal: true
   href: ISILab.AI.Optimization.Selections.ISelection.html#ISILab_AI_Optimization_Selections_ISelection_SelectEvaluables_System_Int32_ISILab_AI_Optimization_Populations_Generation_
   name: SelectEvaluables
   nameWithType: ISelection.SelectEvaluables
@@ -153,7 +169,6 @@ references:
 - uid: ISILab.AI.Optimization.Populations.Generation
   commentId: T:ISILab.AI.Optimization.Populations.Generation
   parent: ISILab.AI.Optimization.Populations
-  isExternal: true
   href: ISILab.AI.Optimization.Populations.Generation.html
   name: Generation
   nameWithType: Generation
@@ -177,7 +192,6 @@ references:
   - name: <
   - uid: ISILab.AI.Optimization.IOptimizable
     name: IOptimizable
-    isExternal: true
     href: ISILab.AI.Optimization.IOptimizable.html
   - name: '>'
   spec.vb:
@@ -190,7 +204,6 @@ references:
   - name: " "
   - uid: ISILab.AI.Optimization.IOptimizable
     name: IOptimizable
-    isExternal: true
     href: ISILab.AI.Optimization.IOptimizable.html
   - name: )
 - uid: System
@@ -202,7 +215,6 @@ references:
   fullName: System
 - uid: ISILab.AI.Optimization.Populations
   commentId: N:ISILab.AI.Optimization.Populations
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization.Populations
   nameWithType: ISILab.AI.Optimization.Populations
@@ -210,42 +222,34 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Populations
     name: Populations
-    isExternal: true
     href: ISILab.AI.Optimization.Populations.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Populations
     name: Populations
-    isExternal: true
     href: ISILab.AI.Optimization.Populations.html
 - uid: System.Collections.Generic.IList`1
   commentId: T:System.Collections.Generic.IList`1
@@ -314,7 +318,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.AI.Optimization.Selections.ISelection.GetBetters*
   commentId: Overload:ISILab.AI.Optimization.Selections.ISelection.GetBetters
-  isExternal: true
   href: ISILab.AI.Optimization.Selections.ISelection.html#ISILab_AI_Optimization_Selections_ISelection_GetBetters_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_System_Nullable_System_Double__
   name: GetBetters
   nameWithType: ISelection.GetBetters
@@ -322,7 +325,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
   commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html
   name: IEvaluator
   nameWithType: IEvaluator
@@ -369,7 +371,6 @@ references:
   - name: <
   - uid: ISILab.AI.Optimization.IOptimizable
     name: IOptimizable
-    isExternal: true
     href: ISILab.AI.Optimization.IOptimizable.html
   - name: '>'
   spec.vb:
@@ -382,12 +383,10 @@ references:
   - name: " "
   - uid: ISILab.AI.Optimization.IOptimizable
     name: IOptimizable
-    isExternal: true
     href: ISILab.AI.Optimization.IOptimizable.html
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
   commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
   nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -395,82 +394,66 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
     name: EvolutionaryAlgorithm
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
     name: Evaluators
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
     name: EvolutionaryAlgorithm
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
     name: Evaluators
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
 - uid: System.Nullable`1
   commentId: T:System.Nullable`1

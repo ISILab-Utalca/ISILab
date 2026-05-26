@@ -36,12 +36,22 @@ items:
   nameWithType: LBSBehaviour
   fullName: ISILab.LBS.Behaviours.LBSBehaviour
   type: Class
+  source:
+    id: LBSBehaviour
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 14
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: 'public abstract class LBSBehaviour : ICloneable'
-    content.vb: Public MustInherit Class LBSBehaviour Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public abstract class LBSBehaviour : ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public MustInherit Class LBSBehaviour Implements ICloneable
   inheritance:
   - System.Object
   derivedClasses:
@@ -57,13 +67,17 @@ items:
   implements:
   - System.ICloneable
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.visible
   commentId: F:ISILab.LBS.Behaviours.LBSBehaviour.visible
   id: visible
@@ -75,14 +89,267 @@ items:
   nameWithType: LBSBehaviour.visible
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.visible
   type: Field
+  source:
+    id: visible
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 19
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public bool visible
+    content: >-
+      [SerializeField]
+
+      [JsonRequired]
+
+      [HideInInspector]
+
+      public bool visible
     return:
       type: System.Boolean
-    content.vb: Public visible As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      <JsonRequired>
+
+      <HideInInspector>
+
+      Public visible As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonRequiredAttribute
+    ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
+    arguments: []
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  id: ColorTint
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  langs:
+  - csharp
+  - vb
+  name: ColorTint
+  nameWithType: LBSBehaviour.ColorTint
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  type: Property
+  source:
+    id: ColorTint
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 40
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Color ColorTint { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property ColorTint As Color
+  overload: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  id: OwnerLayer
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  langs:
+  - csharp
+  - vb
+  name: OwnerLayer
+  nameWithType: LBSBehaviour.OwnerLayer
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  type: Property
+  source:
+    id: OwnerLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 47
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public LBSLayer OwnerLayer { get; set; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property OwnerLayer As LBSLayer
+  overload: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  id: Icon
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: LBSBehaviour.Icon
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  type: Property
+  source:
+    id: Icon
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 62
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public VectorImage Icon { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Public Property Icon As VectorImage
+  overload: ISILab.LBS.Behaviours.LBSBehaviour.Icon*
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  id: IconGuid
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  langs:
+  - csharp
+  - vb
+  name: IconGuid
+  nameWithType: LBSBehaviour.IconGuid
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  type: Property
+  source:
+    id: IconGuid
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 77
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public string IconGuid { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property IconGuid As String
+  overload: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Name
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Name
+  id: Name
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: LBSBehaviour.Name
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Name
+  type: Property
+  source:
+    id: Name
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 84
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: ISILab.LBS.Behaviours.LBSBehaviour.Name*
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Keys
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Keys
+  id: Keys
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Keys
+  nameWithType: LBSBehaviour.Keys
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Keys
+  type: Property
+  source:
+    id: Keys
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 86
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public HashSet<object> Keys { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.HashSet{System.Object}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Keys As HashSet(Of Object)
+  overload: ISILab.LBS.Behaviours.LBSBehaviour.Keys*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  id: LevelChangedCallback
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  langs:
+  - csharp
+  - vb
+  name: LevelChangedCallback
+  nameWithType: LBSBehaviour.LevelChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  type: Property
+  source:
+    id: LevelChangedCallback
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 89
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Action<int> LevelChangedCallback { get; set; }
+    parameters: []
+    return:
+      type: System.Action{System.Int32}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property LevelChangedCallback As Action(Of Integer)
+  overload: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
   id: '#ctor(System.String,System.String,UnityEngine.Color)'
@@ -94,6 +361,10 @@ items:
   nameWithType: LBSBehaviour.LBSBehaviour(string, string, Color)
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.LBSBehaviour(string, string, UnityEngine.Color)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 98
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -111,6 +382,29 @@ items:
   nameWithType.vb: LBSBehaviour.New(String, String, Color)
   fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.New(String, String, UnityEngine.Color)
   name.vb: New(String, String, Color)
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  commentId: E:ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  id: OnBehaviourUpdated
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  langs:
+  - csharp
+  - vb
+  name: OnBehaviourUpdated
+  nameWithType: LBSBehaviour.OnBehaviourUpdated
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  type: Event
+  source:
+    id: OnBehaviourUpdated
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 107
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public event Action<object> OnBehaviourUpdated
+    return:
+      type: System.Action{System.Object}
+    content.vb: Public Event OnBehaviourUpdated As Action(Of Object)
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   id: GetRequiredModules
@@ -122,6 +416,10 @@ items:
   nameWithType: LBSBehaviour.GetRequiredModules()
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules()
   type: Method
+  source:
+    id: GetRequiredModules
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 112
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -142,6 +440,10 @@ items:
   nameWithType: LBSBehaviour.OnAttachLayer(LBSLayer)
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: OnAttachLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 129
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -163,6 +465,10 @@ items:
   nameWithType: LBSBehaviour.OnDetachLayer(LBSLayer)
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: OnDetachLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 131
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -184,6 +490,10 @@ items:
   nameWithType: LBSBehaviour.Clone()
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 133
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -207,6 +517,10 @@ items:
   nameWithType: LBSBehaviour.OnGUI()
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI()
   type: Method
+  source:
+    id: OnGUI
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 135
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -225,6 +539,10 @@ items:
   nameWithType: LBSBehaviour.RequestTilePaint(object)
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(object)
   type: Method
+  source:
+    id: RequestTilePaint
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 174
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -249,6 +567,10 @@ items:
   nameWithType: LBSBehaviour.RequestTileRemove(object)
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(object)
   type: Method
+  source:
+    id: RequestTileRemove
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 183
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -275,9 +597,18 @@ items:
   nameWithType: LBSBehaviour.RetrieveNewTiles()
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles()
   type: Method
+  source:
+    id: RetrieveNewTiles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 202
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
+  summary: >-
+    Get all new tiles that have been created since the last time they were retrieved.
+
+    The memory of new tiles will be cleared after calling this method.
+  example: []
   syntax:
     content: public virtual object[] RetrieveNewTiles()
     return:
@@ -295,9 +626,18 @@ items:
   nameWithType: LBSBehaviour.RetrieveExpiredTiles()
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles()
   type: Method
+  source:
+    id: RetrieveExpiredTiles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 220
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
+  summary: >-
+    Get all tiles that are marked for erasing since the last time they were retrieved.
+
+    The memory of new tiles will be cleared after calling this method.
+  example: []
   syntax:
     content: public virtual object[] RetrieveExpiredTiles()
     return:
@@ -315,6 +655,10 @@ items:
   nameWithType: LBSBehaviour.CheckKeys()
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys()
   type: Method
+  source:
+    id: CheckKeys
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 234
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -333,6 +677,10 @@ items:
   nameWithType: LBSBehaviour.UpdateKeys(List<object>)
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List<object>)
   type: Method
+  source:
+    id: UpdateKeys
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 236
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -357,6 +705,10 @@ items:
   nameWithType: LBSBehaviour.OnOnBehaviourUpdated(object)
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(object)
   type: Method
+  source:
+    id: OnOnBehaviourUpdated
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 261
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -381,6 +733,10 @@ items:
   nameWithType: LBSBehaviour.ChangeLevelRender(int, int)
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(int, int)
   type: Method
+  source:
+    id: ChangeLevelRender
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 265
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -407,6 +763,10 @@ items:
   nameWithType: LBSBehaviour.RequestFullRepaint<T>(List<T>, List<T>)
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint<T>(System.Collections.Generic.List<T>, System.Collections.Generic.List<T>)
   type: Method
+  source:
+    id: RequestFullRepaint
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Behaviour\LBSBehaviour.cs
+    startLine: 270
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -424,176 +784,9 @@ items:
   nameWithType.vb: LBSBehaviour.RequestFullRepaint(Of T)(List(Of T), List(Of T))
   fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint(Of T)(System.Collections.Generic.List(Of T), System.Collections.Generic.List(Of T))
   name.vb: RequestFullRepaint(Of T)(List(Of T), List(Of T))
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-  id: ColorTint
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  langs:
-  - csharp
-  - vb
-  name: ColorTint
-  nameWithType: LBSBehaviour.ColorTint
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public Color ColorTint { get; set; }
-    parameters: []
-    return:
-      type: UnityEngine.Color
-    content.vb: Public Property ColorTint As Color
-  overload: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint*
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-  id: OwnerLayer
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  langs:
-  - csharp
-  - vb
-  name: OwnerLayer
-  nameWithType: LBSBehaviour.OwnerLayer
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public LBSLayer OwnerLayer { get; set; }
-    parameters: []
-    return:
-      type: LBS.Components.LBSLayer
-    content.vb: Public Property OwnerLayer As LBSLayer
-  overload: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer*
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Icon
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Icon
-  id: Icon
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  langs:
-  - csharp
-  - vb
-  name: Icon
-  nameWithType: LBSBehaviour.Icon
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Icon
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public VectorImage Icon { get; set; }
-    parameters: []
-    return:
-      type: UnityEngine.UIElements.VectorImage
-    content.vb: Public Property Icon As VectorImage
-  overload: ISILab.LBS.Behaviours.LBSBehaviour.Icon*
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
-  id: IconGuid
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  langs:
-  - csharp
-  - vb
-  name: IconGuid
-  nameWithType: LBSBehaviour.IconGuid
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public string IconGuid { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property IconGuid As String
-  overload: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid*
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Name
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Name
-  id: Name
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  langs:
-  - csharp
-  - vb
-  name: Name
-  nameWithType: LBSBehaviour.Name
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Name
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public string Name { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public ReadOnly Property Name As String
-  overload: ISILab.LBS.Behaviours.LBSBehaviour.Name*
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  id: Keys
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  langs:
-  - csharp
-  - vb
-  name: Keys
-  nameWithType: LBSBehaviour.Keys
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public HashSet<object> Keys { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.HashSet{System.Object}
-    content.vb: Public ReadOnly Property Keys As HashSet(Of Object)
-  overload: ISILab.LBS.Behaviours.LBSBehaviour.Keys*
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  id: LevelChangedCallback
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  langs:
-  - csharp
-  - vb
-  name: LevelChangedCallback
-  nameWithType: LBSBehaviour.LevelChangedCallback
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public Action<int> LevelChangedCallback { get; set; }
-    parameters: []
-    return:
-      type: System.Action{System.Int32}
-    content.vb: Public Property LevelChangedCallback As Action(Of Integer)
-  overload: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback*
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
-  commentId: E:ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
-  id: OnBehaviourUpdated
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  langs:
-  - csharp
-  - vb
-  name: OnBehaviourUpdated
-  nameWithType: LBSBehaviour.OnBehaviourUpdated
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
-  type: Event
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public event Action<object> OnBehaviourUpdated
-    return:
-      type: System.Action{System.Object}
-    content.vb: Public Event OnBehaviourUpdated As Action(Of Object)
 references:
 - uid: ISILab.LBS.Behaviours
   commentId: N:ISILab.LBS.Behaviours
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Behaviours
   nameWithType: ISILab.LBS.Behaviours
@@ -601,32 +794,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Behaviours.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Behaviours.html
 - uid: System.Object
   commentId: T:System.Object
@@ -647,78 +834,6 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -797,6 +912,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -842,28 +1029,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -884,16 +1071,101 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.#ctor*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.#ctor
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint
+  name: ColorTint
+  nameWithType: LBSBehaviour.ColorTint
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
   isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour__ctor_System_String_System_String_UnityEngine_Color_
-  name: LBSBehaviour
-  nameWithType: LBSBehaviour.LBSBehaviour
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LBSBehaviour
-  nameWithType.vb: LBSBehaviour.New
-  fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.New
-  name.vb: New
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSBehaviour.OwnerLayer
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Icon*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Icon
+  name: Icon
+  nameWithType: LBSBehaviour.Icon
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Icon
+- uid: UnityEngine.UIElements.VectorImage
+  commentId: T:UnityEngine.UIElements.VectorImage
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: VectorImage
+  nameWithType: VectorImage
+  fullName: UnityEngine.UIElements.VectorImage
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_IconGuid
+  name: IconGuid
+  nameWithType: LBSBehaviour.IconGuid
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -905,407 +1177,14 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: UnityEngine.Color
-  isExternal: true
-  name: Color
-  nameWithType: Color
-  fullName: UnityEngine.Color
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
-  name: GetRequiredModules
-  nameWithType: LBSBehaviour.GetRequiredModules
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
-- uid: System.Collections.Generic.List{System.Type}
-  commentId: T:System.Collections.Generic.List{System.Type}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<Type>
-  nameWithType: List<Type>
-  fullName: System.Collections.Generic.List<System.Type>
-  nameWithType.vb: List(Of Type)
-  fullName.vb: System.Collections.Generic.List(Of System.Type)
-  name.vb: List(Of Type)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
-  name: OnAttachLayer
-  nameWithType: LBSBehaviour.OnAttachLayer
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer
-- uid: LBS.Components.LBSLayer
-  commentId: T:LBS.Components.LBSLayer
-  parent: LBS.Components
-  isExternal: true
-  href: LBS.Components.LBSLayer.html
-  name: LBSLayer
-  nameWithType: LBSLayer
-  fullName: LBS.Components.LBSLayer
-- uid: LBS.Components
-  commentId: N:LBS.Components
-  isExternal: true
-  href: LBS.html
-  name: LBS.Components
-  nameWithType: LBS.Components
-  fullName: LBS.Components
-  spec.csharp:
-  - uid: LBS
-    name: LBS
-    isExternal: true
-    href: LBS.html
-  - name: .
-  - uid: LBS.Components
-    name: Components
-    isExternal: true
-    href: LBS.Components.html
-  spec.vb:
-  - uid: LBS
-    name: LBS
-    isExternal: true
-    href: LBS.html
-  - name: .
-  - uid: LBS.Components
-    name: Components
-    isExternal: true
-    href: LBS.Components.html
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
-  name: OnDetachLayer
-  nameWithType: LBSBehaviour.OnDetachLayer
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.Clone
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
-  name: Clone
-  nameWithType: LBSBehaviour.Clone
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Clone
-- uid: System.ICloneable.Clone
-  commentId: M:System.ICloneable.Clone
-  parent: System.ICloneable
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
-  name: Clone()
-  nameWithType: ICloneable.Clone()
-  fullName: System.ICloneable.Clone()
-  spec.csharp:
-  - uid: System.ICloneable.Clone
-    name: Clone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ICloneable.Clone
-    name: Clone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
-  - name: (
-  - name: )
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
-  name: OnGUI
-  nameWithType: LBSBehaviour.OnGUI
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_
-  name: RequestTilePaint
-  nameWithType: LBSBehaviour.RequestTilePaint
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_
-  name: RequestTileRemove
-  nameWithType: LBSBehaviour.RequestTileRemove
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
-  name: RetrieveNewTiles
-  nameWithType: LBSBehaviour.RetrieveNewTiles
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
-- uid: System.Object[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object
-  name: object[]
-  nameWithType: object[]
-  fullName: object[]
-  nameWithType.vb: Object()
-  fullName.vb: Object()
-  name.vb: Object()
-  spec.csharp:
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: (
-  - name: )
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
-  name: RetrieveExpiredTiles
-  nameWithType: LBSBehaviour.RetrieveExpiredTiles
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
-  name: CheckKeys
-  nameWithType: LBSBehaviour.CheckKeys
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__
-  name: UpdateKeys
-  nameWithType: LBSBehaviour.UpdateKeys
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys
-- uid: System.Collections.Generic.List{System.Object}
-  commentId: T:System.Collections.Generic.List{System.Object}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<object>
-  nameWithType: List<object>
-  fullName: System.Collections.Generic.List<object>
-  nameWithType.vb: List(Of Object)
-  fullName.vb: System.Collections.Generic.List(Of Object)
-  name.vb: List(Of Object)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_
-  name: OnOnBehaviourUpdated
-  nameWithType: LBSBehaviour.OnOnBehaviourUpdated
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ChangeLevelRender_System_Int32_System_Int32_
-  name: ChangeLevelRender
-  nameWithType: LBSBehaviour.ChangeLevelRender
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
-  name: RequestFullRepaint
-  nameWithType: LBSBehaviour.RequestFullRepaint
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint
-- uid: System.Collections.Generic.List{{T}}
-  commentId: T:System.Collections.Generic.List{``0}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint
-  name: ColorTint
-  nameWithType: LBSBehaviour.ColorTint
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OwnerLayer
-  name: OwnerLayer
-  nameWithType: LBSBehaviour.OwnerLayer
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Icon*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.Icon
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Icon
-  name: Icon
-  nameWithType: LBSBehaviour.Icon
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Icon
-- uid: UnityEngine.UIElements.VectorImage
-  isExternal: true
-  name: VectorImage
-  nameWithType: VectorImage
-  fullName: UnityEngine.UIElements.VectorImage
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_IconGuid
-  name: IconGuid
-  nameWithType: LBSBehaviour.IconGuid
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.Name*
   commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.Name
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Name
   name: Name
   nameWithType: LBSBehaviour.Name
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.Name
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.Keys*
   commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Keys
   name: Keys
   nameWithType: LBSBehaviour.Keys
@@ -1373,9 +1252,45 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback*
   commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
   name: LevelChangedCallback
   nameWithType: LBSBehaviour.LevelChangedCallback
@@ -1443,6 +1358,15 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.#ctor*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.#ctor
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour__ctor_System_String_System_String_UnityEngine_Color_
+  name: LBSBehaviour
+  nameWithType: LBSBehaviour.LBSBehaviour
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LBSBehaviour
+  nameWithType.vb: LBSBehaviour.New
+  fullName.vb: ISILab.LBS.Behaviours.LBSBehaviour.New
+  name.vb: New
 - uid: System.Action{System.Object}
   commentId: T:System.Action{System.Object}
   parent: System
@@ -1477,5 +1401,272 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
+  name: GetRequiredModules
+  nameWithType: LBSBehaviour.GetRequiredModules
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
+- uid: System.Collections.Generic.List{System.Type}
+  commentId: T:System.Collections.Generic.List{System.Type}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Type>
+  nameWithType: List<Type>
+  fullName: System.Collections.Generic.List<System.Type>
+  nameWithType.vb: List(Of Type)
+  fullName.vb: System.Collections.Generic.List(Of System.Type)
+  name.vb: List(Of Type)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
+  name: OnAttachLayer
+  nameWithType: LBSBehaviour.OnAttachLayer
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
+  name: OnDetachLayer
+  nameWithType: LBSBehaviour.OnDetachLayer
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.Clone
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
+  name: Clone
+  nameWithType: LBSBehaviour.Clone
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
+  name: OnGUI
+  nameWithType: LBSBehaviour.OnGUI
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_
+  name: RequestTilePaint
+  nameWithType: LBSBehaviour.RequestTilePaint
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_
+  name: RequestTileRemove
+  nameWithType: LBSBehaviour.RequestTileRemove
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
+  name: RetrieveNewTiles
+  nameWithType: LBSBehaviour.RetrieveNewTiles
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
+  name: RetrieveExpiredTiles
+  nameWithType: LBSBehaviour.RetrieveExpiredTiles
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
+  name: CheckKeys
+  nameWithType: LBSBehaviour.CheckKeys
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__
+  name: UpdateKeys
+  nameWithType: LBSBehaviour.UpdateKeys
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys
+- uid: System.Collections.Generic.List{System.Object}
+  commentId: T:System.Collections.Generic.List{System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<object>
+  nameWithType: List<object>
+  fullName: System.Collections.Generic.List<object>
+  nameWithType.vb: List(Of Object)
+  fullName.vb: System.Collections.Generic.List(Of Object)
+  name.vb: List(Of Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_
+  name: OnOnBehaviourUpdated
+  nameWithType: LBSBehaviour.OnOnBehaviourUpdated
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ChangeLevelRender_System_Int32_System_Int32_
+  name: ChangeLevelRender
+  nameWithType: LBSBehaviour.ChangeLevelRender
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
+  name: RequestFullRepaint
+  nameWithType: LBSBehaviour.RequestFullRepaint
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
   - name: )
 shouldSkipMarkup: true

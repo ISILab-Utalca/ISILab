@@ -102,6 +102,7 @@ Class ResourcesSafetyFairness
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Obsolete(&quot;Currently not in use.&quot;)]
+[Serializable]
 public class ResourcesSafetyFairness : IRangedEvaluator, IEvaluator, ICloneable</code></pre>
   </div>
 
@@ -130,57 +131,27 @@ public class ResourcesSafetyFairness : IRangedEvaluator, IEvaluator, ICloneable<
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="ISILab_AI_Categorization_ResourcesSafetyFairness__ctor_" data-uid="ISILab.AI.Categorization.ResourcesSafetyFairness.#ctor*"></a>
-
-  <h3 id="ISILab_AI_Categorization_ResourcesSafetyFairness__ctor" data-uid="ISILab.AI.Categorization.ResourcesSafetyFairness.#ctor">
-  ResourcesSafetyFairness()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ResourcesSafetyFairness()</code></pre>
-  </div>
-
-
-
-
-
-
-
 
 
 
@@ -201,7 +172,9 @@ public class ResourcesSafetyFairness : IRangedEvaluator, IEvaluator, ICloneable<
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LBSCharacteristic playerCharacteristc</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[SerializeReference]
+public LBSCharacteristic playerCharacteristc</code></pre>
   </div>
 
 
@@ -231,7 +204,9 @@ public class ResourcesSafetyFairness : IRangedEvaluator, IEvaluator, ICloneable<
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;LBSCharacteristic&gt; resourceCharactersitic</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[SerializeReference]
+public List&lt;LBSCharacteristic&gt; resourceCharactersitic</code></pre>
   </div>
 
 
@@ -390,7 +365,7 @@ public class ResourcesSafetyFairness : IRangedEvaluator, IEvaluator, ICloneable<
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Performs the evaluation against the specified chromosome.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -406,7 +381,7 @@ public class ResourcesSafetyFairness : IRangedEvaluator, IEvaluator, ICloneable<
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The fitness of the chromosome.</dd>
   </dl>
 
 

@@ -13,9 +13,16 @@ items:
   nameWithType: ITermination
   fullName: ISILab.AI.Optimization.Terminations.ITermination
   type: Interface
+  source:
+    id: ITermination
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Terminations\ITermination.cs
+    startLine: 9
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Terminations
+  summary: Defines the interface for a termination condition.
+  remarks: <a href="http://en.wikipedia.org/wiki/Genetic_algorithm#Termination">Wikipedia</a>
+  example: []
   syntax:
     content: public interface ITermination
     content.vb: Public Interface ITermination
@@ -39,9 +46,15 @@ items:
   nameWithType: ITermination.HasReached(BaseOptimizer)
   fullName: ISILab.AI.Optimization.Terminations.ITermination.HasReached(ISILab.AI.Optimization.BaseOptimizer)
   type: Method
+  source:
+    id: HasReached
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Terminations\ITermination.cs
+    startLine: 17
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Terminations
+  summary: Determines whether the specified geneticAlgorithm reached the termination condition.
+  example: []
   syntax:
     content: bool HasReached(BaseOptimizer optimizer)
     parameters:
@@ -49,12 +62,12 @@ items:
       type: ISILab.AI.Optimization.BaseOptimizer
     return:
       type: System.Boolean
+      description: True if termination has been reached, otherwise false.
     content.vb: Function HasReached(optimizer As BaseOptimizer) As Boolean
   overload: ISILab.AI.Optimization.Terminations.ITermination.HasReached*
 references:
 - uid: ISILab.AI.Optimization.Terminations
   commentId: N:ISILab.AI.Optimization.Terminations
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization.Terminations
   nameWithType: ISILab.AI.Optimization.Terminations
@@ -62,46 +75,37 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Terminations
     name: Terminations
-    isExternal: true
     href: ISILab.AI.Optimization.Terminations.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Terminations
     name: Terminations
-    isExternal: true
     href: ISILab.AI.Optimization.Terminations.html
 - uid: ISILab.AI.Optimization.Terminations.ITermination.HasReached*
   commentId: Overload:ISILab.AI.Optimization.Terminations.ITermination.HasReached
-  isExternal: true
   href: ISILab.AI.Optimization.Terminations.ITermination.html#ISILab_AI_Optimization_Terminations_ITermination_HasReached_ISILab_AI_Optimization_BaseOptimizer_
   name: HasReached
   nameWithType: ITermination.HasReached
@@ -109,7 +113,6 @@ references:
 - uid: ISILab.AI.Optimization.BaseOptimizer
   commentId: T:ISILab.AI.Optimization.BaseOptimizer
   parent: ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.AI.Optimization.BaseOptimizer.html
   name: BaseOptimizer
   nameWithType: BaseOptimizer
@@ -127,7 +130,6 @@ references:
   name.vb: Boolean
 - uid: ISILab.AI.Optimization
   commentId: N:ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization
   nameWithType: ISILab.AI.Optimization
@@ -135,32 +137,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
 - uid: System
   commentId: N:System

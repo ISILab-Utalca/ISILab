@@ -21,6 +21,10 @@ items:
   nameWithType: EvaluatorHelper.AStarNode
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode
   type: Class
+  source:
+    id: AStarNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\EvaluatorHelper.cs
+    startLine: 679
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -34,9 +38,9 @@ items:
   implements:
   - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable
   inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.parent
   commentId: F:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.parent
@@ -49,6 +53,10 @@ items:
   nameWithType: EvaluatorHelper.AStarNode.parent
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.parent
   type: Field
+  source:
+    id: parent
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\EvaluatorHelper.cs
+    startLine: 681
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -68,6 +76,10 @@ items:
   nameWithType: EvaluatorHelper.AStarNode.pos
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.pos
   type: Field
+  source:
+    id: pos
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\EvaluatorHelper.cs
+    startLine: 683
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -87,6 +99,10 @@ items:
   nameWithType: EvaluatorHelper.AStarNode.givenCost
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.givenCost
   type: Field
+  source:
+    id: givenCost
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\EvaluatorHelper.cs
+    startLine: 685
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -106,6 +122,10 @@ items:
   nameWithType: EvaluatorHelper.AStarNode.finalCost
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.finalCost
   type: Field
+  source:
+    id: finalCost
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\EvaluatorHelper.cs
+    startLine: 687
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -114,6 +134,34 @@ items:
     return:
       type: System.Single
     content.vb: Public finalCost As Single
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index
+  id: Index
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode
+  langs:
+  - csharp
+  - vb
+  name: Index
+  nameWithType: EvaluatorHelper.AStarNode.Index
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index
+  type: Property
+  source:
+    id: Index
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\EvaluatorHelper.cs
+    startLine: 689
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  example: []
+  syntax:
+    content: public int Index { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Index As Integer
+  overload: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.Index
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.#ctor(UnityEngine.Vector2Int)
   commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.#ctor(UnityEngine.Vector2Int)
   id: '#ctor(UnityEngine.Vector2Int)'
@@ -125,6 +173,10 @@ items:
   nameWithType: EvaluatorHelper.AStarNode.AStarNode(Vector2Int)
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.AStarNode(UnityEngine.Vector2Int)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\EvaluatorHelper.cs
+    startLine: 691
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -149,6 +201,10 @@ items:
   nameWithType: EvaluatorHelper.AStarNode.Equals(object)
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\EvaluatorHelper.cs
+    startLine: 693
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -177,6 +233,10 @@ items:
   nameWithType: EvaluatorHelper.AStarNode.GetHashCode()
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\EvaluatorHelper.cs
+    startLine: 699
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -199,6 +259,10 @@ items:
   nameWithType: EvaluatorHelper.AStarNode.ToString()
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.ToString()
   type: Method
+  source:
+    id: ToString
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\EvaluatorHelper.cs
+    startLine: 704
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -210,34 +274,9 @@ items:
     content.vb: Public Overrides Function ToString() As String
   overridden: System.Object.ToString
   overload: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.ToString*
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index
-  id: Index
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode
-  langs:
-  - csharp
-  - vb
-  name: Index
-  nameWithType: EvaluatorHelper.AStarNode.Index
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  example: []
-  syntax:
-    content: public int Index { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property Index As Integer
-  overload: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index*
-  implements:
-  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.Index
 references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
   commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
   nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -245,82 +284,66 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
     name: EvolutionaryAlgorithm
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
     name: Evaluators
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
     name: EvolutionaryAlgorithm
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
     name: Evaluators
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
 - uid: System.Object
   commentId: T:System.Object
@@ -336,7 +359,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable
   commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.html
   name: EvaluatorHelper.IIndexable
   nameWithType: EvaluatorHelper.IIndexable
@@ -344,23 +366,64 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper
     name: EvaluatorHelper
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable
     name: IIndexable
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.html
   spec.vb:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper
     name: EvaluatorHelper
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable
     name: IIndexable
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.html
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -408,51 +471,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -509,7 +527,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode
   commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.html
   name: EvaluatorHelper.AStarNode
   nameWithType: EvaluatorHelper.AStarNode
@@ -517,28 +534,32 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper
     name: EvaluatorHelper
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode
     name: AStarNode
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html
   spec.vb:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper
     name: EvaluatorHelper
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode
     name: AStarNode
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html
 - uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
   isExternal: true
   name: Vector2Int
   nameWithType: Vector2Int
   fullName: UnityEngine.Vector2Int
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -550,9 +571,32 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_EvaluatorHelper_AStarNode_Index
+  name: Index
+  nameWithType: EvaluatorHelper.AStarNode.Index
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.Index
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.Index
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_EvaluatorHelper_IIndexable_Index
+  name: Index
+  nameWithType: EvaluatorHelper.IIndexable.Index
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.Index
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.#ctor
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_EvaluatorHelper_AStarNode__ctor_UnityEngine_Vector2Int_
   name: AStarNode
   nameWithType: EvaluatorHelper.AStarNode.AStarNode
@@ -595,7 +639,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Equals*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Equals
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_EvaluatorHelper_AStarNode_Equals_System_Object_
   name: Equals
   nameWithType: EvaluatorHelper.AStarNode.Equals
@@ -637,22 +680,10 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.GetHashCode*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_EvaluatorHelper_AStarNode_GetHashCode
   name: GetHashCode
   nameWithType: EvaluatorHelper.AStarNode.GetHashCode
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.GetHashCode
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: System.Object.ToString
   commentId: M:System.Object.ToString
   parent: System.Object
@@ -679,7 +710,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.ToString*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.ToString
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_EvaluatorHelper_AStarNode_ToString
   name: ToString
   nameWithType: EvaluatorHelper.AStarNode.ToString
@@ -695,19 +725,4 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_EvaluatorHelper_AStarNode_Index
-  name: Index
-  nameWithType: EvaluatorHelper.AStarNode.Index
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.Index
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.Index
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.Index
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_EvaluatorHelper_IIndexable_Index
-  name: Index
-  nameWithType: EvaluatorHelper.IIndexable.Index
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.IIndexable.Index
 shouldSkipMarkup: true

@@ -18,22 +18,106 @@ items:
   nameWithType: ZoneEdge
   fullName: ISILab.LBS.Components.ZoneEdge
   type: Class
+  source:
+    id: ZoneEdge
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Graph\ConnectedZonesModule.cs
+    startLine: 223
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: 'public class ZoneEdge : ICloneable'
-    content.vb: Public Class ZoneEdge Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public class ZoneEdge : ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public Class ZoneEdge Implements ICloneable
   inheritance:
   - System.Object
   implements:
   - System.ICloneable
   inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Components.ZoneEdge.First
+  commentId: P:ISILab.LBS.Components.ZoneEdge.First
+  id: First
+  parent: ISILab.LBS.Components.ZoneEdge
+  langs:
+  - csharp
+  - vb
+  name: First
+  nameWithType: ZoneEdge.First
+  fullName: ISILab.LBS.Components.ZoneEdge.First
+  type: Property
+  source:
+    id: First
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Graph\ConnectedZonesModule.cs
+    startLine: 235
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Zone First { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property First As Zone
+  overload: ISILab.LBS.Components.ZoneEdge.First*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Components.ZoneEdge.Second
+  commentId: P:ISILab.LBS.Components.ZoneEdge.Second
+  id: Second
+  parent: ISILab.LBS.Components.ZoneEdge
+  langs:
+  - csharp
+  - vb
+  name: Second
+  nameWithType: ZoneEdge.Second
+  fullName: ISILab.LBS.Components.ZoneEdge.Second
+  type: Property
+  source:
+    id: Second
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Graph\ConnectedZonesModule.cs
+    startLine: 242
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Zone Second { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.Zone
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property Second As Zone
+  overload: ISILab.LBS.Components.ZoneEdge.Second*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.ZoneEdge.#ctor(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
   commentId: M:ISILab.LBS.Components.ZoneEdge.#ctor(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)
   id: '#ctor(ISILab.LBS.Plugin.Components.Data.Zone,ISILab.LBS.Plugin.Components.Data.Zone)'
@@ -45,6 +129,10 @@ items:
   nameWithType: ZoneEdge.ZoneEdge(Zone, Zone)
   fullName: ISILab.LBS.Components.ZoneEdge.ZoneEdge(ISILab.LBS.Plugin.Components.Data.Zone, ISILab.LBS.Plugin.Components.Data.Zone)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Graph\ConnectedZonesModule.cs
+    startLine: 251
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -71,6 +159,10 @@ items:
   nameWithType: ZoneEdge.Clone()
   fullName: ISILab.LBS.Components.ZoneEdge.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Graph\ConnectedZonesModule.cs
+    startLine: 259
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -94,6 +186,10 @@ items:
   nameWithType: ZoneEdge.Equals(object)
   fullName: ISILab.LBS.Components.ZoneEdge.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Graph\ConnectedZonesModule.cs
+    startLine: 265
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -122,6 +218,10 @@ items:
   nameWithType: ZoneEdge.GetHashCode()
   fullName: ISILab.LBS.Components.ZoneEdge.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Graph\ConnectedZonesModule.cs
+    startLine: 278
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -133,52 +233,9 @@ items:
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.Object.GetHashCode
   overload: ISILab.LBS.Components.ZoneEdge.GetHashCode*
-- uid: ISILab.LBS.Components.ZoneEdge.First
-  commentId: P:ISILab.LBS.Components.ZoneEdge.First
-  id: First
-  parent: ISILab.LBS.Components.ZoneEdge
-  langs:
-  - csharp
-  - vb
-  name: First
-  nameWithType: ZoneEdge.First
-  fullName: ISILab.LBS.Components.ZoneEdge.First
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public Zone First { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Plugin.Components.Data.Zone
-    content.vb: Public Property First As Zone
-  overload: ISILab.LBS.Components.ZoneEdge.First*
-- uid: ISILab.LBS.Components.ZoneEdge.Second
-  commentId: P:ISILab.LBS.Components.ZoneEdge.Second
-  id: Second
-  parent: ISILab.LBS.Components.ZoneEdge
-  langs:
-  - csharp
-  - vb
-  name: Second
-  nameWithType: ZoneEdge.Second
-  fullName: ISILab.LBS.Components.ZoneEdge.Second
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public Zone Second { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Plugin.Components.Data.Zone
-    content.vb: Public Property Second As Zone
-  overload: ISILab.LBS.Components.ZoneEdge.Second*
 references:
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Components
   nameWithType: ISILab.LBS.Components
@@ -186,32 +243,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
 - uid: System.Object
   commentId: T:System.Object
@@ -232,6 +283,51 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -280,75 +376,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -394,6 +421,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -401,27 +452,21 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.Components.ZoneEdge.#ctor*
-  commentId: Overload:ISILab.LBS.Components.ZoneEdge.#ctor
-  isExternal: true
-  href: ISILab.LBS.Components.ZoneEdge.html#ISILab_LBS_Components_ZoneEdge__ctor_ISILab_LBS_Plugin_Components_Data_Zone_ISILab_LBS_Plugin_Components_Data_Zone_
-  name: ZoneEdge
-  nameWithType: ZoneEdge.ZoneEdge
-  fullName: ISILab.LBS.Components.ZoneEdge.ZoneEdge
-  nameWithType.vb: ZoneEdge.New
-  fullName.vb: ISILab.LBS.Components.ZoneEdge.New
-  name.vb: New
+- uid: ISILab.LBS.Components.ZoneEdge.First*
+  commentId: Overload:ISILab.LBS.Components.ZoneEdge.First
+  href: ISILab.LBS.Components.ZoneEdge.html#ISILab_LBS_Components_ZoneEdge_First
+  name: First
+  nameWithType: ZoneEdge.First
+  fullName: ISILab.LBS.Components.ZoneEdge.First
 - uid: ISILab.LBS.Plugin.Components.Data.Zone
   commentId: T:ISILab.LBS.Plugin.Components.Data.Zone
   parent: ISILab.LBS.Plugin.Components.Data
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Zone.html
   name: Zone
   nameWithType: Zone
   fullName: ISILab.LBS.Plugin.Components.Data.Zone
 - uid: ISILab.LBS.Plugin.Components.Data
   commentId: N:ISILab.LBS.Plugin.Components.Data
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Data
   nameWithType: ISILab.LBS.Plugin.Components.Data
@@ -429,56 +474,60 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
+- uid: ISILab.LBS.Components.ZoneEdge.Second*
+  commentId: Overload:ISILab.LBS.Components.ZoneEdge.Second
+  href: ISILab.LBS.Components.ZoneEdge.html#ISILab_LBS_Components_ZoneEdge_Second
+  name: Second
+  nameWithType: ZoneEdge.Second
+  fullName: ISILab.LBS.Components.ZoneEdge.Second
+- uid: ISILab.LBS.Components.ZoneEdge.#ctor*
+  commentId: Overload:ISILab.LBS.Components.ZoneEdge.#ctor
+  href: ISILab.LBS.Components.ZoneEdge.html#ISILab_LBS_Components_ZoneEdge__ctor_ISILab_LBS_Plugin_Components_Data_Zone_ISILab_LBS_Plugin_Components_Data_Zone_
+  name: ZoneEdge
+  nameWithType: ZoneEdge.ZoneEdge
+  fullName: ISILab.LBS.Components.ZoneEdge.ZoneEdge
+  nameWithType.vb: ZoneEdge.New
+  fullName.vb: ISILab.LBS.Components.ZoneEdge.New
+  name.vb: New
 - uid: ISILab.LBS.Components.ZoneEdge.Clone*
   commentId: Overload:ISILab.LBS.Components.ZoneEdge.Clone
-  isExternal: true
   href: ISILab.LBS.Components.ZoneEdge.html#ISILab_LBS_Components_ZoneEdge_Clone
   name: Clone
   nameWithType: ZoneEdge.Clone
@@ -540,7 +589,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Components.ZoneEdge.Equals*
   commentId: Overload:ISILab.LBS.Components.ZoneEdge.Equals
-  isExternal: true
   href: ISILab.LBS.Components.ZoneEdge.html#ISILab_LBS_Components_ZoneEdge_Equals_System_Object_
   name: Equals
   nameWithType: ZoneEdge.Equals
@@ -582,7 +630,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Components.ZoneEdge.GetHashCode*
   commentId: Overload:ISILab.LBS.Components.ZoneEdge.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Components.ZoneEdge.html#ISILab_LBS_Components_ZoneEdge_GetHashCode
   name: GetHashCode
   nameWithType: ZoneEdge.GetHashCode
@@ -598,18 +645,4 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: ISILab.LBS.Components.ZoneEdge.First*
-  commentId: Overload:ISILab.LBS.Components.ZoneEdge.First
-  isExternal: true
-  href: ISILab.LBS.Components.ZoneEdge.html#ISILab_LBS_Components_ZoneEdge_First
-  name: First
-  nameWithType: ZoneEdge.First
-  fullName: ISILab.LBS.Components.ZoneEdge.First
-- uid: ISILab.LBS.Components.ZoneEdge.Second*
-  commentId: Overload:ISILab.LBS.Components.ZoneEdge.Second
-  isExternal: true
-  href: ISILab.LBS.Components.ZoneEdge.html#ISILab_LBS_Components_ZoneEdge_Second
-  name: Second
-  nameWithType: ZoneEdge.Second
-  fullName: ISILab.LBS.Components.ZoneEdge.Second
 shouldSkipMarkup: true

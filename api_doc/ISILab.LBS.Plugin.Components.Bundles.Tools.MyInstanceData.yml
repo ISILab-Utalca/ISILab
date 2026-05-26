@@ -12,6 +12,10 @@ items:
   nameWithType: MyInstanceData
   fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MyInstanceData
   type: Struct
+  source:
+    id: MyInstanceData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\MicroGen\ScatterAreaBase.cs
+    startLine: 311
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
@@ -28,8 +32,8 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   attributes:
   - type: Unity.Burst.BurstCompileAttribute
@@ -38,7 +42,6 @@ items:
 references:
 - uid: ISILab.LBS.Plugin.Components.Bundles.Tools
   commentId: N:ISILab.LBS.Plugin.Components.Bundles.Tools
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Bundles.Tools
   nameWithType: ISILab.LBS.Plugin.Components.Bundles.Tools
@@ -46,62 +49,50 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles.Tools
     name: Tools
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.Tools.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles.Tools
     name: Tools
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.Tools.html
 - uid: System.ValueType.Equals(System.Object)
   commentId: M:System.ValueType.Equals(System.Object)
@@ -180,30 +171,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -248,6 +215,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)

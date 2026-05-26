@@ -19,6 +19,10 @@ items:
   nameWithType: Op_State
   fullName: ISILab.AI.Optimization.Op_State
   type: Enum
+  source:
+    id: Op_State
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\BaseOptimizer.cs
+    startLine: 343
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization
@@ -36,9 +40,15 @@ items:
   nameWithType: Op_State.NotStarted
   fullName: ISILab.AI.Optimization.Op_State.NotStarted
   type: Field
+  source:
+    id: NotStarted
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\BaseOptimizer.cs
+    startLine: 348
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization
+  summary: The Optimizer has not been started yet.
+  example: []
   syntax:
     content: NotStarted = 0
     return:
@@ -54,9 +64,15 @@ items:
   nameWithType: Op_State.Started
   fullName: ISILab.AI.Optimization.Op_State.Started
   type: Field
+  source:
+    id: Started
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\BaseOptimizer.cs
+    startLine: 353
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization
+  summary: The Optimizer has been started and is running.
+  example: []
   syntax:
     content: Started = 1
     return:
@@ -72,9 +88,15 @@ items:
   nameWithType: Op_State.Stopped
   fullName: ISILab.AI.Optimization.Op_State.Stopped
   type: Field
+  source:
+    id: Stopped
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\BaseOptimizer.cs
+    startLine: 358
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization
+  summary: The Optimizer has been stopped and is not running.
+  example: []
   syntax:
     content: Stopped = 2
     return:
@@ -90,9 +112,15 @@ items:
   nameWithType: Op_State.Resumed
   fullName: ISILab.AI.Optimization.Op_State.Resumed
   type: Field
+  source:
+    id: Resumed
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\BaseOptimizer.cs
+    startLine: 363
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization
+  summary: The Optimizer has been resumed after a stop or termination reach and is running.
+  example: []
   syntax:
     content: Resumed = 3
     return:
@@ -108,9 +136,15 @@ items:
   nameWithType: Op_State.Running
   fullName: ISILab.AI.Optimization.Op_State.Running
   type: Field
+  source:
+    id: Running
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\BaseOptimizer.cs
+    startLine: 368
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization
+  summary: The Optimizer has not been stopped or reached termination and is still running.
+  example: []
   syntax:
     content: Running = 4
     return:
@@ -126,9 +160,15 @@ items:
   nameWithType: Op_State.TerminationReached
   fullName: ISILab.AI.Optimization.Op_State.TerminationReached
   type: Field
+  source:
+    id: TerminationReached
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\BaseOptimizer.cs
+    startLine: 373
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization
+  summary: The Optimizer has reach the termination condition and is not running.
+  example: []
   syntax:
     content: TerminationReached = 5
     return:
@@ -144,9 +184,15 @@ items:
   nameWithType: Op_State.Paused
   fullName: ISILab.AI.Optimization.Op_State.Paused
   type: Field
+  source:
+    id: Paused
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\BaseOptimizer.cs
+    startLine: 378
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization
+  summary: The Optimizer has been paused and is not running.
+  example: []
   syntax:
     content: Paused = 6
     return:
@@ -154,7 +200,6 @@ items:
 references:
 - uid: ISILab.AI.Optimization
   commentId: N:ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization
   nameWithType: ISILab.AI.Optimization
@@ -162,37 +207,30 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
 - uid: ISILab.AI.Optimization.Op_State
   commentId: T:ISILab.AI.Optimization.Op_State
   parent: ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.AI.Optimization.Op_State.html
   name: Op_State
   nameWithType: Op_State

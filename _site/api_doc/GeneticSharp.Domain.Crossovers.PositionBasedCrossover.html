@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class PositionBasedCrossover | lbs-api_docs ">
       
-      
+      <meta name="description" content="Position-based crossover (POS).  The position-based crossover operator (POS), which was also suggested in connection with schedule problems,  is a second modification of the OX1 operator. It also starts with selecting a random set of positions in  the parent strings. However, this operator imposes the position of the selected elements on the  corresponding elements of the other parent. For example, consider the parents (1 2 3 4 5 6 7 8)  and (2 4 6 8 7 5 3 1), and suppose that the second, third and sixth positions are selected.  This leads to the following offspring: (1 4 6 2 3 5 7 8) and (4 2 3 8 7 6 5 1).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,15 @@ Class PositionBasedCrossover
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Position-based crossover (POS).
+<remarks>
+The position-based crossover operator (POS), which was also suggested in connection with schedule problems, 
+is a second modification of the OX1 operator. It also starts with selecting a random set of positions in 
+the parent strings. However, this operator imposes the position of the selected elements on the 
+corresponding elements of the other parent. For example, consider the parents (1 2 3 4 5 6 7 8) 
+and (2 4 6 8 7 5 3 1), and suppose that the second, third and sixth positions are selected. 
+This leads to the following offspring: (1 4 6 2 3 5 7 8) and (4 2 3 8 7 6 5 1).
+</remarks></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -133,9 +141,6 @@ Class PositionBasedCrossover
       <a class="xref" href="GeneticSharp.Domain.Crossovers.OrderBasedCrossover.html#GeneticSharp_Domain_Crossovers_OrderBasedCrossover_PerformCross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__">OrderBasedCrossover.PerformCross(IList&lt;ChromosomeBase&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_Cross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__">CrossoverBase.Cross(IList&lt;ChromosomeBase&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_IsOrdered">CrossoverBase.IsOrdered</a>
     </div>
     <div>
@@ -148,13 +153,7 @@ Class PositionBasedCrossover
       <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_MinLength">CrossoverBase.MinLength</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_Cross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__">CrossoverBase.Cross(IList&lt;ChromosomeBase&gt;)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -163,10 +162,19 @@ Class PositionBasedCrossover
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -186,7 +194,7 @@ Class PositionBasedCrossover
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="GeneticSharp.Domain.Crossovers.PositionBasedCrossover.html">PositionBasedCrossover</a> class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -216,7 +224,7 @@ Class PositionBasedCrossover
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates the child.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -226,17 +234,17 @@ Class PositionBasedCrossover
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>firstParent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd></dd>
+    <dd>First parent.</dd>
     <dt><code>secondParent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd></dd>
+    <dd>Second parent.</dd>
     <dt><code>swapIndexes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
-    <dd></dd>
+    <dd>The swap indexes.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd></dd>
+    <dd>The child.</dd>
   </dl>
 
 
@@ -256,7 +264,7 @@ Class PositionBasedCrossover
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Validates the parents.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -266,7 +274,7 @@ Class PositionBasedCrossover
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>parents</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]&gt;</dt>
-    <dd></dd>
+    <dd>The parents.</dd>
   </dl>
 
 

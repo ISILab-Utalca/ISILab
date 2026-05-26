@@ -4,8 +4,7 @@ items:
   commentId: T:Samples.Editor.General.DragAndDropWindow
   id: DragAndDropWindow
   parent: Samples.Editor.General
-  children:
-  - Samples.Editor.General.DragAndDropWindow.#ctor
+  children: []
   langs:
   - csharp
   - vb
@@ -13,6 +12,10 @@ items:
   nameWithType: DragAndDropWindow
   fullName: Samples.Editor.General.DragAndDropWindow
   type: Class
+  source:
+    id: DragAndDropWindow
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleManager\BundleWizard\DragAndDrop\DragAndDropManipulator.cs
+    startLine: 9
   assemblies:
   - LBS.Editor
   namespace: Samples.Editor.General
@@ -22,38 +25,16 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: Samples.Editor.General.DragAndDropWindow.#ctor
-  commentId: M:Samples.Editor.General.DragAndDropWindow.#ctor
-  id: '#ctor'
-  parent: Samples.Editor.General.DragAndDropWindow
-  langs:
-  - csharp
-  - vb
-  name: DragAndDropWindow()
-  nameWithType: DragAndDropWindow.DragAndDropWindow()
-  fullName: Samples.Editor.General.DragAndDropWindow.DragAndDropWindow()
-  type: Constructor
-  assemblies:
-  - LBS.Editor
-  namespace: Samples.Editor.General
-  syntax:
-    content: public DragAndDropWindow()
-    content.vb: Public Sub New()
-  overload: Samples.Editor.General.DragAndDropWindow.#ctor*
-  nameWithType.vb: DragAndDropWindow.New()
-  fullName.vb: Samples.Editor.General.DragAndDropWindow.New()
-  name.vb: New()
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 references:
 - uid: Samples.Editor.General
   commentId: N:Samples.Editor.General
-  isExternal: true
   href: Samples.html
   name: Samples.Editor.General
   nameWithType: Samples.Editor.General
@@ -61,32 +42,26 @@ references:
   spec.csharp:
   - uid: Samples
     name: Samples
-    isExternal: true
     href: Samples.html
   - name: .
   - uid: Samples.Editor
     name: Editor
-    isExternal: true
     href: Samples.Editor.html
   - name: .
   - uid: Samples.Editor.General
     name: General
-    isExternal: true
     href: Samples.Editor.General.html
   spec.vb:
   - uid: Samples
     name: Samples
-    isExternal: true
     href: Samples.html
   - name: .
   - uid: Samples.Editor
     name: Editor
-    isExternal: true
     href: Samples.Editor.html
   - name: .
   - uid: Samples.Editor.General
     name: General
-    isExternal: true
     href: Samples.Editor.General.html
 - uid: System.Object
   commentId: T:System.Object
@@ -99,30 +74,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -189,51 +140,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -318,6 +224,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -325,14 +300,4 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Samples.Editor.General.DragAndDropWindow.#ctor*
-  commentId: Overload:Samples.Editor.General.DragAndDropWindow.#ctor
-  isExternal: true
-  href: Samples.Editor.General.DragAndDropWindow.html#Samples_Editor_General_DragAndDropWindow__ctor
-  name: DragAndDropWindow
-  nameWithType: DragAndDropWindow.DragAndDropWindow
-  fullName: Samples.Editor.General.DragAndDropWindow.DragAndDropWindow
-  nameWithType.vb: DragAndDropWindow.New
-  fullName.vb: Samples.Editor.General.DragAndDropWindow.New
-  name.vb: New
 shouldSkipMarkup: true

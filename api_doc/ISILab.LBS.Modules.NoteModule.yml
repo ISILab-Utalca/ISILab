@@ -20,12 +20,22 @@ items:
   nameWithType: NoteModule
   fullName: ISILab.LBS.Modules.NoteModule
   type: Class
+  source:
+    id: NoteModule
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\NoteModule.cs
+    startLine: 8
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
   syntax:
-    content: 'public class NoteModule : LBSModule, ICloneable'
-    content.vb: Public Class NoteModule Inherits LBSModule Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public class NoteModule : LBSModule, ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public Class NoteModule Inherits LBSModule Implements ICloneable
   inheritance:
   - System.Object
   - ISILab.LBS.Modules.LBSModule
@@ -33,21 +43,50 @@ items:
   - System.ICloneable
   inheritedMembers:
   - ISILab.LBS.Modules.LBSModule.id
+  - ISILab.LBS.Modules.LBSModule.OwnerLayer
+  - ISILab.LBS.Modules.LBSModule.ID
   - ISILab.LBS.Modules.LBSModule.OnChanged
   - ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
   - ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
   - ISILab.LBS.Modules.LBSModule.Print
   - ISILab.LBS.Modules.LBSModule.GetBounds
   - ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
-  - ISILab.LBS.Modules.LBSModule.OwnerLayer
-  - ISILab.LBS.Modules.LBSModule.ID
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Modules.NoteModule.Notes
+  commentId: P:ISILab.LBS.Modules.NoteModule.Notes
+  id: Notes
+  parent: ISILab.LBS.Modules.NoteModule
+  langs:
+  - csharp
+  - vb
+  name: Notes
+  nameWithType: NoteModule.Notes
+  fullName: ISILab.LBS.Modules.NoteModule.Notes
+  type: Property
+  source:
+    id: Notes
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\NoteModule.cs
+    startLine: 14
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<LBSNote> Notes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.LBSNote}
+    content.vb: Public ReadOnly Property Notes As List(Of LBSNote)
+  overload: ISILab.LBS.Modules.NoteModule.Notes*
 - uid: ISILab.LBS.Modules.NoteModule.#ctor
   commentId: M:ISILab.LBS.Modules.NoteModule.#ctor
   id: '#ctor'
@@ -59,6 +98,10 @@ items:
   nameWithType: NoteModule.NoteModule()
   fullName: ISILab.LBS.Modules.NoteModule.NoteModule()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\NoteModule.cs
+    startLine: 16
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -80,6 +123,10 @@ items:
   nameWithType: NoteModule.NoteModule(List<LBSNote>)
   fullName: ISILab.LBS.Modules.NoteModule.NoteModule(System.Collections.Generic.List<ISILab.LBS.Modules.LBSNote>)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\NoteModule.cs
+    startLine: 18
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -104,6 +151,10 @@ items:
   nameWithType: NoteModule.AddNote(LBSNote)
   fullName: ISILab.LBS.Modules.NoteModule.AddNote(ISILab.LBS.Modules.LBSNote)
   type: Method
+  source:
+    id: AddNote
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\NoteModule.cs
+    startLine: 23
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -125,6 +176,10 @@ items:
   nameWithType: NoteModule.RemoveNote(LBSNote)
   fullName: ISILab.LBS.Modules.NoteModule.RemoveNote(ISILab.LBS.Modules.LBSNote)
   type: Method
+  source:
+    id: RemoveNote
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\NoteModule.cs
+    startLine: 29
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -148,9 +203,14 @@ items:
   nameWithType: NoteModule.Clear()
   fullName: ISILab.LBS.Modules.NoteModule.Clear()
   type: Method
+  source:
+    id: Clear
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\NoteModule.cs
+    startLine: 34
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Cleans all the information saved in.
   example: []
   syntax:
     content: public override void Clear()
@@ -168,14 +228,20 @@ items:
   nameWithType: NoteModule.Clone()
   fullName: ISILab.LBS.Modules.NoteModule.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\NoteModule.cs
+    startLine: 39
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Creates a copy of the representation.
   example: []
   syntax:
     content: public override object Clone()
     return:
       type: System.Object
+      description: ''
     content.vb: Public Overrides Function Clone() As Object
   overridden: ISILab.LBS.Modules.LBSModule.Clone
   overload: ISILab.LBS.Modules.NoteModule.Clone*
@@ -190,42 +256,26 @@ items:
   nameWithType: NoteModule.IsEmpty()
   fullName: ISILab.LBS.Modules.NoteModule.IsEmpty()
   type: Method
+  source:
+    id: IsEmpty
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\NoteModule.cs
+    startLine: 44
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Determines whether the representation is empty.
   example: []
   syntax:
     content: public override bool IsEmpty()
     return:
       type: System.Boolean
+      description: ''
     content.vb: Public Overrides Function IsEmpty() As Boolean
   overridden: ISILab.LBS.Modules.LBSModule.IsEmpty
   overload: ISILab.LBS.Modules.NoteModule.IsEmpty*
-- uid: ISILab.LBS.Modules.NoteModule.Notes
-  commentId: P:ISILab.LBS.Modules.NoteModule.Notes
-  id: Notes
-  parent: ISILab.LBS.Modules.NoteModule
-  langs:
-  - csharp
-  - vb
-  name: Notes
-  nameWithType: NoteModule.Notes
-  fullName: ISILab.LBS.Modules.NoteModule.Notes
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public List<LBSNote> Notes { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Modules.LBSNote}
-    content.vb: Public ReadOnly Property Notes As List(Of LBSNote)
-  overload: ISILab.LBS.Modules.NoteModule.Notes*
 references:
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -233,32 +283,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: System.Object
   commentId: T:System.Object
@@ -274,7 +318,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule
   commentId: T:ISILab.LBS.Modules.LBSModule
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html
   name: LBSModule
   nameWithType: LBSModule
@@ -290,157 +333,13 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.id
   commentId: F:ISILab.LBS.Modules.LBSModule.id
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id
   name: id
   nameWithType: LBSModule.id
   fullName: ISILab.LBS.Modules.LBSModule.id
-- uid: ISILab.LBS.Modules.LBSModule.OnChanged
-  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
-  name: OnChanged
-  nameWithType: LBSModule.OnChanged
-  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
-- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  name: OnAttach(LBSLayer)
-  nameWithType: LBSModule.OnAttach(LBSLayer)
-  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-    name: OnAttach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-    name: OnAttach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  name: OnDetach(LBSLayer)
-  nameWithType: LBSModule.OnDetach(LBSLayer)
-  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-    name: OnDetach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-    name: OnDetach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-- uid: ISILab.LBS.Modules.LBSModule.Print
-  commentId: M:ISILab.LBS.Modules.LBSModule.Print
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
-  name: Print()
-  nameWithType: LBSModule.Print()
-  fullName: ISILab.LBS.Modules.LBSModule.Print()
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.Print
-    name: Print
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.Print
-    name: Print
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
-  - name: (
-  - name: )
-- uid: ISILab.LBS.Modules.LBSModule.GetBounds
-  commentId: M:ISILab.LBS.Modules.LBSModule.GetBounds
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
-  name: GetBounds()
-  nameWithType: LBSModule.GetBounds()
-  fullName: ISILab.LBS.Modules.LBSModule.GetBounds()
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
-    name: GetBounds
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
-    name: GetBounds
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
-  - name: (
-  - name: )
-- uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
-  commentId: M:ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
-  name: Rewrite(LBSModule)
-  nameWithType: LBSModule.Rewrite(LBSModule)
-  fullName: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
-    name: Rewrite
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
-  - name: (
-  - uid: ISILab.LBS.Modules.LBSModule
-    name: LBSModule
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
-    name: Rewrite
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
-  - name: (
-  - uid: ISILab.LBS.Modules.LBSModule
-    name: LBSModule
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html
-  - name: )
 - uid: ISILab.LBS.Modules.LBSModule.OwnerLayer
   commentId: P:ISILab.LBS.Modules.LBSModule.OwnerLayer
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer
   name: OwnerLayer
   nameWithType: LBSModule.OwnerLayer
@@ -448,82 +347,129 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.ID
   commentId: P:ISILab.LBS.Modules.LBSModule.ID
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID
   name: ID
   nameWithType: LBSModule.ID
   fullName: ISILab.LBS.Modules.LBSModule.ID
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
+- uid: ISILab.LBS.Modules.LBSModule.OnChanged
+  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
+  name: OnChanged
+  nameWithType: LBSModule.OnChanged
+  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
+- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  name: OnAttach(LBSLayer)
+  nameWithType: LBSModule.OnAttach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
   spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  name: OnDetach(LBSLayer)
+  nameWithType: LBSModule.OnDetach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.Print
+  commentId: M:ISILab.LBS.Modules.LBSModule.Print
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  name: Print()
+  nameWithType: LBSModule.Print()
+  fullName: ISILab.LBS.Modules.LBSModule.Print()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
   - name: (
   - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
+- uid: ISILab.LBS.Modules.LBSModule.GetBounds
+  commentId: M:ISILab.LBS.Modules.LBSModule.GetBounds
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  name: GetBounds()
+  nameWithType: LBSModule.GetBounds()
+  fullName: ISILab.LBS.Modules.LBSModule.GetBounds()
   spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+- uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  commentId: M:ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  name: Rewrite(LBSModule)
+  nameWithType: LBSModule.Rewrite(LBSModule)
+  fullName: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    href: ISILab.LBS.Modules.LBSModule.html
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    href: ISILab.LBS.Modules.LBSModule.html
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -603,6 +549,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -648,28 +666,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -679,16 +697,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.Modules.NoteModule.#ctor*
-  commentId: Overload:ISILab.LBS.Modules.NoteModule.#ctor
-  isExternal: true
-  href: ISILab.LBS.Modules.NoteModule.html#ISILab_LBS_Modules_NoteModule__ctor
-  name: NoteModule
-  nameWithType: NoteModule.NoteModule
-  fullName: ISILab.LBS.Modules.NoteModule.NoteModule
-  nameWithType.vb: NoteModule.New
-  fullName.vb: ISILab.LBS.Modules.NoteModule.New
-  name.vb: New
+- uid: ISILab.LBS.Modules.NoteModule.Notes*
+  commentId: Overload:ISILab.LBS.Modules.NoteModule.Notes
+  href: ISILab.LBS.Modules.NoteModule.html#ISILab_LBS_Modules_NoteModule_Notes
+  name: Notes
+  nameWithType: NoteModule.Notes
+  fullName: ISILab.LBS.Modules.NoteModule.Notes
 - uid: System.Collections.Generic.List{ISILab.LBS.Modules.LBSNote}
   commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.LBSNote}
   parent: System.Collections.Generic
@@ -708,7 +722,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Modules.LBSNote
     name: LBSNote
-    isExternal: true
     href: ISILab.LBS.Modules.LBSNote.html
   - name: '>'
   spec.vb:
@@ -721,7 +734,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Modules.LBSNote
     name: LBSNote
-    isExternal: true
     href: ISILab.LBS.Modules.LBSNote.html
   - name: )
 - uid: System.Collections.Generic.List`1
@@ -789,9 +801,17 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Modules.NoteModule.#ctor*
+  commentId: Overload:ISILab.LBS.Modules.NoteModule.#ctor
+  href: ISILab.LBS.Modules.NoteModule.html#ISILab_LBS_Modules_NoteModule__ctor
+  name: NoteModule
+  nameWithType: NoteModule.NoteModule
+  fullName: ISILab.LBS.Modules.NoteModule.NoteModule
+  nameWithType.vb: NoteModule.New
+  fullName.vb: ISILab.LBS.Modules.NoteModule.New
+  name.vb: New
 - uid: ISILab.LBS.Modules.NoteModule.AddNote*
   commentId: Overload:ISILab.LBS.Modules.NoteModule.AddNote
-  isExternal: true
   href: ISILab.LBS.Modules.NoteModule.html#ISILab_LBS_Modules_NoteModule_AddNote_ISILab_LBS_Modules_LBSNote_
   name: AddNote
   nameWithType: NoteModule.AddNote
@@ -799,14 +819,12 @@ references:
 - uid: ISILab.LBS.Modules.LBSNote
   commentId: T:ISILab.LBS.Modules.LBSNote
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.LBSNote.html
   name: LBSNote
   nameWithType: LBSNote
   fullName: ISILab.LBS.Modules.LBSNote
 - uid: ISILab.LBS.Modules.NoteModule.RemoveNote*
   commentId: Overload:ISILab.LBS.Modules.NoteModule.RemoveNote
-  isExternal: true
   href: ISILab.LBS.Modules.NoteModule.html#ISILab_LBS_Modules_NoteModule_RemoveNote_ISILab_LBS_Modules_LBSNote_
   name: RemoveNote
   nameWithType: NoteModule.RemoveNote
@@ -825,7 +843,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Clear
   commentId: M:ISILab.LBS.Modules.LBSModule.Clear
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   name: Clear()
   nameWithType: LBSModule.Clear()
@@ -833,20 +850,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Clear
     name: Clear
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Clear
     name: Clear
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.NoteModule.Clear*
   commentId: Overload:ISILab.LBS.Modules.NoteModule.Clear
-  isExternal: true
   href: ISILab.LBS.Modules.NoteModule.html#ISILab_LBS_Modules_NoteModule_Clear
   name: Clear
   nameWithType: NoteModule.Clear
@@ -854,7 +868,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Clone
   commentId: M:ISILab.LBS.Modules.LBSModule.Clone
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   name: Clone()
   nameWithType: LBSModule.Clone()
@@ -862,20 +875,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.NoteModule.Clone*
   commentId: Overload:ISILab.LBS.Modules.NoteModule.Clone
-  isExternal: true
   href: ISILab.LBS.Modules.NoteModule.html#ISILab_LBS_Modules_NoteModule_Clone
   name: Clone
   nameWithType: NoteModule.Clone
@@ -883,7 +893,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
   commentId: M:ISILab.LBS.Modules.LBSModule.IsEmpty
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   name: IsEmpty()
   nameWithType: LBSModule.IsEmpty()
@@ -891,29 +900,19 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
     name: IsEmpty
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
     name: IsEmpty
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.NoteModule.IsEmpty*
   commentId: Overload:ISILab.LBS.Modules.NoteModule.IsEmpty
-  isExternal: true
   href: ISILab.LBS.Modules.NoteModule.html#ISILab_LBS_Modules_NoteModule_IsEmpty
   name: IsEmpty
   nameWithType: NoteModule.IsEmpty
   fullName: ISILab.LBS.Modules.NoteModule.IsEmpty
-- uid: ISILab.LBS.Modules.NoteModule.Notes*
-  commentId: Overload:ISILab.LBS.Modules.NoteModule.Notes
-  isExternal: true
-  href: ISILab.LBS.Modules.NoteModule.html#ISILab_LBS_Modules_NoteModule_Notes
-  name: Notes
-  nameWithType: NoteModule.Notes
-  fullName: ISILab.LBS.Modules.NoteModule.Notes
 shouldSkipMarkup: true

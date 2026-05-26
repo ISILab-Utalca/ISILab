@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class OrderedCrossover | lbs-api_docs ">
       
-      
+      <meta name="description" content="Ordered Crossover (OX1).  Also know as: Order Crossover.  A portion of one parent is mapped to a portion of the other parent.  From the replaced portion on, the rest is filled up by the remaining genes, where already present genes are omitted and the order is preserved. Crossover for Ordered Chromosomes   The Ordered Crossover method is presented by Goldberg, is used when the problem is of order based,  for example in Ushaped assembly line balancing etc. Given two parent  chromosomes, two random crossover points are selected  partitioning them into a left, middle and right portion. The  ordered two-point crossover behaves in the following way:  child1 inherits its left and right section from parent1, and its middle section is determined. A Comparative Study of Adaptive Crossover Operators for Genetic Algorithms to Resolve the Traveling Salesman Problem   The order crossover operator (Figure 4) was proposed by Davis (1985).  The OX1 exploits a property of the path representation, that the order of cities (not their positions) are important.  Genetic Algorithms for the Travelling Salesman Problem - A Review of Representations and Operators   Order 1 Crossover is a fairly simple permutation crossover.  Basically, a swath of consecutive alleles from parent 1 drops down,  and remaining values are placed in the child in the order which they appear in parent 2. Order 1 Crossover">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,35 @@ Class OrderedCrossover
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Ordered Crossover (OX1).
+<remarks>
+Also know as: Order Crossover.
+<p>
+A portion of one parent is mapped to a portion of the other parent. 
+From the replaced portion on, the rest is filled up by the remaining genes, where already present genes are omitted and the order is preserved.
+<a href="http://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)#Crossover_for_Ordered_Chromosomes">Crossover for Ordered Chromosomes</a>
+</p>
+<p>
+The Ordered Crossover method is presented by Goldberg, is used when the problem is of order based, 
+for example in Ushaped assembly line balancing etc. Given two parent 
+chromosomes, two random crossover points are selected 
+partitioning them into a left, middle and right portion. The 
+ordered two-point crossover behaves in the following way: 
+child1 inherits its left and right section from parent1, and its middle section is determined.
+<a href="http://arxiv.org/ftp/arxiv/papers/1203/1203.3097.pdf">A Comparative Study of Adaptive Crossover Operators for Genetic Algorithms to Resolve the Traveling Salesman Problem</a>
+</p>
+<p>
+The order crossover operator (Figure 4) was proposed by Davis (1985). 
+The OX1 exploits a property of the path representation, that the order of cities (not their positions) are important. 
+<a href="http://lev4projdissertation.googlecode.com/svn-history/r100/trunk/reading/read/aiRev99.pdf">Genetic Algorithms for the Travelling Salesman Problem - A Review of Representations and Operators</a>
+</p>
+<p>
+Order 1 Crossover is a fairly simple permutation crossover. 
+Basically, a swath of consecutive alleles from parent 1 drops down, 
+and remaining values are placed in the child in the order which they appear in parent 2.
+<a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/Order1CrossoverOperator.aspx">Order 1 Crossover</a>
+</p>
+</remarks></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -129,9 +157,6 @@ Class OrderedCrossover
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_Cross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__">CrossoverBase.Cross(IList&lt;ChromosomeBase&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_IsOrdered">CrossoverBase.IsOrdered</a>
     </div>
     <div>
@@ -144,10 +169,7 @@ Class OrderedCrossover
       <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_MinLength">CrossoverBase.MinLength</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_Cross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__">CrossoverBase.Cross(IList&lt;ChromosomeBase&gt;)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -156,10 +178,16 @@ Class OrderedCrossover
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -179,7 +207,7 @@ Class OrderedCrossover
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="GeneticSharp.Domain.Crossovers.OrderedCrossover.html">OrderedCrossover</a> class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -209,7 +237,7 @@ Class OrderedCrossover
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Performs the cross with specified parents generating the children.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -219,13 +247,13 @@ Class OrderedCrossover
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>parents</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>&gt;</dt>
-    <dd></dd>
+    <dd>The parents chromosomes.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>&gt;</dt>
-    <dd></dd>
+    <dd>The offspring (children) of the parents.</dd>
   </dl>
 
 

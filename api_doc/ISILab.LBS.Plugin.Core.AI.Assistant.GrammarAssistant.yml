@@ -29,15 +29,23 @@ items:
   nameWithType: GrammarAssistant
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
   type: Class
+  source:
+    id: GrammarAssistant
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 21
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
   syntax:
     content: >-
+      [Serializable]
+
       [RequieredModule(new Type[] { typeof(QuestGraph) })]
 
       public class GrammarAssistant : LBSAssistant, ICloneable
     content.vb: >-
+      <Serializable>
+
       <RequieredModule(New Type() { GetType(QuestGraph) })>
 
       Public Class GrammarAssistant Inherits LBSAssistant Implements ICloneable
@@ -48,6 +56,11 @@ items:
   - System.ICloneable
   inheritedMembers:
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
@@ -57,18 +70,17 @@ items:
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnCallAssistant
   commentId: F:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnCallAssistant
   id: OnCallAssistant
@@ -80,6 +92,10 @@ items:
   nameWithType: GrammarAssistant.OnCallAssistant
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnCallAssistant
   type: Field
+  source:
+    id: OnCallAssistant
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 32
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -88,6 +104,91 @@ items:
     return:
       type: System.Action{ISILab.LBS.Components.GraphNode}
     content.vb: Public OnCallAssistant As Action(Of GraphNode)
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
+  id: Disabled
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: GrammarAssistant.Disabled
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
+  type: Property
+  source:
+    id: Disabled
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 33
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public bool Disabled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Disabled As Boolean
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
+  id: Graph
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
+  langs:
+  - csharp
+  - vb
+  name: Graph
+  nameWithType: GrammarAssistant.Graph
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
+  type: Property
+  source:
+    id: Graph
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 34
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public QuestGraph Graph { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Modules.QuestGraph
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Graph As QuestGraph
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
+  id: Behavior
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
+  langs:
+  - csharp
+  - vb
+  name: Behavior
+  nameWithType: GrammarAssistant.Behavior
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
+  type: Property
+  source:
+    id: Behavior
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 36
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public QuestBehaviour Behavior { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Behaviours.QuestBehaviour
+    content.vb: Public ReadOnly Property Behavior As QuestBehaviour
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior*
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.#ctor(System.String,System.String,UnityEngine.Color)
   commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.#ctor(System.String,System.String,UnityEngine.Color)
   id: '#ctor(System.String,System.String,UnityEngine.Color)'
@@ -99,6 +200,10 @@ items:
   nameWithType: GrammarAssistant.GrammarAssistant(string, string, Color)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GrammarAssistant(string, string, UnityEngine.Color)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 39
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -127,6 +232,10 @@ items:
   nameWithType: GrammarAssistant.Clone()
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 42
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -149,6 +258,10 @@ items:
   nameWithType: GrammarAssistant.ValidateQuestGraph()
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph()
   type: Method
+  source:
+    id: ValidateQuestGraph
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 48
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -169,6 +282,10 @@ items:
   nameWithType: GrammarAssistant.ValidateEdgeGrammar(QuestEdge)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar(ISILab.LBS.Modules.QuestEdge)
   type: Method
+  source:
+    id: ValidateEdgeGrammar
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -192,6 +309,10 @@ items:
   nameWithType: GrammarAssistant.GetAllValidNextActionsInsert(string, Action<float>, CancellationToken)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidNextActionsInsert(string, System.Action<float>, System.Threading.CancellationToken)
   type: Method
+  source:
+    id: GetAllValidNextActionsInsert
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 146
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -222,6 +343,10 @@ items:
   nameWithType: GrammarAssistant.GetAllValidPrevActionsInsert(string, Action<float>, CancellationToken)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidPrevActionsInsert(string, System.Action<float>, System.Threading.CancellationToken)
   type: Method
+  source:
+    id: GetAllValidPrevActionsInsert
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 160
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -252,6 +377,10 @@ items:
   nameWithType: GrammarAssistant.GetAllExpansions(string, Action<float>, CancellationToken)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllExpansions(string, System.Action<float>, System.Threading.CancellationToken)
   type: Method
+  source:
+    id: GetAllExpansions
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 173
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -282,6 +411,10 @@ items:
   nameWithType: GrammarAssistant.ExpandAction(List<string>, QuestNode)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ExpandAction(System.Collections.Generic.List<string>, ISILab.LBS.Components.QuestNode)
   type: Method
+  source:
+    id: ExpandAction
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 235
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -310,6 +443,10 @@ items:
   nameWithType: GrammarAssistant.InsertNextAction(string, QuestNode)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertNextAction(string, ISILab.LBS.Components.QuestNode)
   type: Method
+  source:
+    id: InsertNextAction
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 253
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -338,6 +475,10 @@ items:
   nameWithType: GrammarAssistant.InsertPreviousAction(string, QuestNode)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertPreviousAction(string, ISILab.LBS.Components.QuestNode)
   type: Method
+  source:
+    id: InsertPreviousAction
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 261
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -366,6 +507,10 @@ items:
   nameWithType: GrammarAssistant.OnAttachLayer(LBSLayer)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnAttachLayer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: OnAttachLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 277
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -389,6 +534,10 @@ items:
   nameWithType: GrammarAssistant.OnGUI()
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnGUI()
   type: Method
+  source:
+    id: OnGUI
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 312
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -409,6 +558,10 @@ items:
   nameWithType: GrammarAssistant.ExecuteTest(bool)
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ExecuteTest(bool)
   type: Method
+  source:
+    id: ExecuteTest
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    startLine: 315
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -424,73 +577,9 @@ items:
   nameWithType.vb: GrammarAssistant.ExecuteTest(Boolean)
   fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ExecuteTest(Boolean)
   name.vb: ExecuteTest(Boolean)
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
-  id: Disabled
-  parent: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
-  langs:
-  - csharp
-  - vb
-  name: Disabled
-  nameWithType: GrammarAssistant.Disabled
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
-  syntax:
-    content: public bool Disabled { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public ReadOnly Property Disabled As Boolean
-  overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled*
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
-  id: Graph
-  parent: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
-  langs:
-  - csharp
-  - vb
-  name: Graph
-  nameWithType: GrammarAssistant.Graph
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
-  syntax:
-    content: public QuestGraph Graph { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Modules.QuestGraph
-    content.vb: Public ReadOnly Property Graph As QuestGraph
-  overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph*
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
-  id: Behavior
-  parent: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
-  langs:
-  - csharp
-  - vb
-  name: Behavior
-  nameWithType: GrammarAssistant.Behavior
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
-  syntax:
-    content: public QuestBehaviour Behavior { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Behaviours.QuestBehaviour
-    content.vb: Public ReadOnly Property Behavior As QuestBehaviour
-  overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior*
 references:
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant
   commentId: N:ISILab.LBS.Plugin.Core.AI.Assistant
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Core.AI.Assistant
   nameWithType: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -498,62 +587,50 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Assistant
     name: Assistant
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Assistant.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Assistant
     name: Assistant
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Assistant.html
 - uid: System.Object
   commentId: T:System.Object
@@ -569,7 +646,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
   commentId: T:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
   parent: ISILab.LBS.Plugin.Components.Behaviours
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html
   name: LBSAssistant
   nameWithType: LBSAssistant
@@ -585,15 +661,48 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
   commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_visible
   name: visible
   nameWithType: LBSAssistant.visible
   fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_ColorTint
+  name: ColorTint
+  nameWithType: LBSAssistant.ColorTint
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSAssistant.OwnerLayer
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Icon
+  name: Icon
+  nameWithType: LBSAssistant.Icon
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_IconGuid
+  name: IconGuid
+  nameWithType: LBSAssistant.IconGuid
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Name
+  name: Name
+  nameWithType: LBSAssistant.Name
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
   commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnStart
   name: OnStart
   nameWithType: LBSAssistant.OnStart
@@ -601,7 +710,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
   commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnTermination
   name: OnTermination
   nameWithType: LBSAssistant.OnTermination
@@ -609,7 +717,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
   commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnCancellation
   name: OnCancellation
   nameWithType: LBSAssistant.OnCancellation
@@ -617,7 +724,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
   name: OnDetachLayer(LBSLayer)
   nameWithType: LBSAssistant.OnDetachLayer(LBSLayer)
@@ -625,29 +731,24 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
     name: OnDetachLayer
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
     name: OnDetachLayer
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
   name: GetRequiredModules()
   nameWithType: LBSAssistant.GetRequiredModules()
@@ -655,14 +756,12 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
     name: GetRequiredModules
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
     name: GetRequiredModules
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
   - name: (
   - name: )
@@ -680,7 +779,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
     name: RequestTilePaint
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_
   - name: (
   - uid: System.Object
@@ -691,7 +789,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
     name: RequestTilePaint
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_
   - name: (
   - uid: System.Object
@@ -713,7 +810,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
     name: RequestTileRemove
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_
   - name: (
   - uid: System.Object
@@ -724,7 +820,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
     name: RequestTileRemove
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_
   - name: (
   - uid: System.Object
@@ -735,7 +830,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
   name: RetrieveNewTiles()
   nameWithType: LBSAssistant.RetrieveNewTiles()
@@ -743,21 +837,18 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
     name: RetrieveNewTiles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
     name: RetrieveNewTiles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
   name: RetrieveExpiredTiles()
   nameWithType: LBSAssistant.RetrieveExpiredTiles()
@@ -765,127 +856,13 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
-  - name: (
-  - name: )
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_ColorTint
-  name: ColorTint
-  nameWithType: LBSAssistant.ColorTint
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OwnerLayer
-  name: OwnerLayer
-  nameWithType: LBSAssistant.OwnerLayer
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Icon
-  name: Icon
-  nameWithType: LBSAssistant.Icon
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_IconGuid
-  name: IconGuid
-  nameWithType: LBSAssistant.IconGuid
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Name
-  name: Name
-  nameWithType: LBSAssistant.Name
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
@@ -966,6 +943,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -1011,28 +1060,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -1044,7 +1093,6 @@ references:
   fullName: System
 - uid: ISILab.LBS.Plugin.Components.Behaviours
   commentId: N:ISILab.LBS.Plugin.Components.Behaviours
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Behaviours
   nameWithType: ISILab.LBS.Plugin.Components.Behaviours
@@ -1052,52 +1100,42 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.html
 - uid: System.Action{ISILab.LBS.Components.GraphNode}
   commentId: T:System.Action{ISILab.LBS.Components.GraphNode}
@@ -1118,7 +1156,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Components.GraphNode
     name: GraphNode
-    isExternal: true
     href: ISILab.LBS.Components.GraphNode.html
   - name: '>'
   spec.vb:
@@ -1131,7 +1168,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Components.GraphNode
     name: GraphNode
-    isExternal: true
     href: ISILab.LBS.Components.GraphNode.html
   - name: )
 - uid: System.Action`1
@@ -1162,9 +1198,111 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_Disabled
+  name: Disabled
+  nameWithType: GrammarAssistant.Disabled
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_Graph
+  name: Graph
+  nameWithType: GrammarAssistant.Graph
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
+- uid: ISILab.LBS.Modules.QuestGraph
+  commentId: T:ISILab.LBS.Modules.QuestGraph
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.QuestGraph.html
+  name: QuestGraph
+  nameWithType: QuestGraph
+  fullName: ISILab.LBS.Modules.QuestGraph
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    href: ISILab.LBS.Modules.html
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_Behavior
+  name: Behavior
+  nameWithType: GrammarAssistant.Behavior
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
+- uid: ISILab.LBS.Behaviours.QuestBehaviour
+  commentId: T:ISILab.LBS.Behaviours.QuestBehaviour
+  parent: ISILab.LBS.Behaviours
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html
+  name: QuestBehaviour
+  nameWithType: QuestBehaviour
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour
+- uid: ISILab.LBS.Behaviours
+  commentId: N:ISILab.LBS.Behaviours
+  href: ISILab.html
+  name: ISILab.LBS.Behaviours
+  nameWithType: ISILab.LBS.Behaviours
+  fullName: ISILab.LBS.Behaviours
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Behaviours
+    name: Behaviours
+    href: ISILab.LBS.Behaviours.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Behaviours
+    name: Behaviours
+    href: ISILab.LBS.Behaviours.html
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.#ctor
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant__ctor_System_String_System_String_UnityEngine_Color_
   name: GrammarAssistant
   nameWithType: GrammarAssistant.GrammarAssistant
@@ -1184,14 +1322,21 @@ references:
   fullName.vb: String
   name.vb: String
 - uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
   isExternal: true
   name: Color
   nameWithType: Color
   fullName: UnityEngine.Color
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
   name: Clone()
   nameWithType: LBSAssistant.Clone()
@@ -1199,45 +1344,29 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Clone*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Clone
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_Clone
   name: Clone
   nameWithType: GrammarAssistant.Clone
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Clone
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_ValidateQuestGraph
   name: ValidateQuestGraph
   nameWithType: GrammarAssistant.ValidateQuestGraph
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_ValidateEdgeGrammar_ISILab_LBS_Modules_QuestEdge_
   name: ValidateEdgeGrammar
   nameWithType: GrammarAssistant.ValidateEdgeGrammar
@@ -1245,51 +1374,12 @@ references:
 - uid: ISILab.LBS.Modules.QuestEdge
   commentId: T:ISILab.LBS.Modules.QuestEdge
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.QuestEdge.html
   name: QuestEdge
   nameWithType: QuestEdge
   fullName: ISILab.LBS.Modules.QuestEdge
-- uid: ISILab.LBS.Modules
-  commentId: N:ISILab.LBS.Modules
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.LBS.Modules
-  nameWithType: ISILab.LBS.Modules
-  fullName: ISILab.LBS.Modules
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Modules
-    name: Modules
-    isExternal: true
-    href: ISILab.LBS.Modules.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Modules
-    name: Modules
-    isExternal: true
-    href: ISILab.LBS.Modules.html
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidNextActionsInsert*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidNextActionsInsert
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_GetAllValidNextActionsInsert_System_String_System_Action_System_Single__System_Threading_CancellationToken_
   name: GetAllValidNextActionsInsert
   nameWithType: GrammarAssistant.GetAllValidNextActionsInsert
@@ -1466,14 +1556,12 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidPrevActionsInsert*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidPrevActionsInsert
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_GetAllValidPrevActionsInsert_System_String_System_Action_System_Single__System_Threading_CancellationToken_
   name: GetAllValidPrevActionsInsert
   nameWithType: GrammarAssistant.GetAllValidPrevActionsInsert
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidPrevActionsInsert
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllExpansions*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllExpansions
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_GetAllExpansions_System_String_System_Action_System_Single__System_Threading_CancellationToken_
   name: GetAllExpansions
   nameWithType: GrammarAssistant.GetAllExpansions
@@ -1529,7 +1617,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ExpandAction*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ExpandAction
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_ExpandAction_System_Collections_Generic_List_System_String__ISILab_LBS_Components_QuestNode_
   name: ExpandAction
   nameWithType: GrammarAssistant.ExpandAction
@@ -1537,7 +1624,6 @@ references:
 - uid: ISILab.LBS.Components.QuestNode
   commentId: T:ISILab.LBS.Components.QuestNode
   parent: ISILab.LBS.Components
-  isExternal: true
   href: ISILab.LBS.Components.QuestNode.html
   name: QuestNode
   nameWithType: QuestNode
@@ -1552,7 +1638,6 @@ references:
   fullName: System.Action
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Components
   nameWithType: ISILab.LBS.Components
@@ -1560,43 +1645,35 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertNextAction*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertNextAction
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_InsertNextAction_System_String_ISILab_LBS_Components_QuestNode_
   name: InsertNextAction
   nameWithType: GrammarAssistant.InsertNextAction
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertNextAction
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertPreviousAction*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertPreviousAction
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_InsertPreviousAction_System_String_ISILab_LBS_Components_QuestNode_
   name: InsertPreviousAction
   nameWithType: GrammarAssistant.InsertPreviousAction
@@ -1604,7 +1681,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
   name: OnAttachLayer(LBSLayer)
   nameWithType: LBSAssistant.OnAttachLayer(LBSLayer)
@@ -1612,28 +1688,23 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
     name: OnAttachLayer
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
     name: OnAttachLayer
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnAttachLayer*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnAttachLayer
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_OnAttachLayer_LBS_Components_LBSLayer_
   name: OnAttachLayer
   nameWithType: GrammarAssistant.OnAttachLayer
@@ -1641,14 +1712,12 @@ references:
 - uid: LBS.Components.LBSLayer
   commentId: T:LBS.Components.LBSLayer
   parent: LBS.Components
-  isExternal: true
   href: LBS.Components.LBSLayer.html
   name: LBSLayer
   nameWithType: LBSLayer
   fullName: LBS.Components.LBSLayer
 - uid: LBS.Components
   commentId: N:LBS.Components
-  isExternal: true
   href: LBS.html
   name: LBS.Components
   nameWithType: LBS.Components
@@ -1656,27 +1725,22 @@ references:
   spec.csharp:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
   spec.vb:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
   name: OnGUI()
   nameWithType: LBSAssistant.OnGUI()
@@ -1684,103 +1748,25 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
     name: OnGUI
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
     name: OnGUI
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnGUI*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnGUI
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_OnGUI
   name: OnGUI
   nameWithType: GrammarAssistant.OnGUI
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnGUI
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ExecuteTest*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ExecuteTest
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_ExecuteTest_System_Boolean_
   name: ExecuteTest
   nameWithType: GrammarAssistant.ExecuteTest
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ExecuteTest
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_Disabled
-  name: Disabled
-  nameWithType: GrammarAssistant.Disabled
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_Graph
-  name: Graph
-  nameWithType: GrammarAssistant.Graph
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
-- uid: ISILab.LBS.Modules.QuestGraph
-  commentId: T:ISILab.LBS.Modules.QuestGraph
-  parent: ISILab.LBS.Modules
-  isExternal: true
-  href: ISILab.LBS.Modules.QuestGraph.html
-  name: QuestGraph
-  nameWithType: QuestGraph
-  fullName: ISILab.LBS.Modules.QuestGraph
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_Behavior
-  name: Behavior
-  nameWithType: GrammarAssistant.Behavior
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
-- uid: ISILab.LBS.Behaviours.QuestBehaviour
-  commentId: T:ISILab.LBS.Behaviours.QuestBehaviour
-  parent: ISILab.LBS.Behaviours
-  isExternal: true
-  href: ISILab.LBS.Behaviours.QuestBehaviour.html
-  name: QuestBehaviour
-  nameWithType: QuestBehaviour
-  fullName: ISILab.LBS.Behaviours.QuestBehaviour
-- uid: ISILab.LBS.Behaviours
-  commentId: N:ISILab.LBS.Behaviours
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.LBS.Behaviours
-  nameWithType: ISILab.LBS.Behaviours
-  fullName: ISILab.LBS.Behaviours
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Behaviours
-    name: Behaviours
-    isExternal: true
-    href: ISILab.LBS.Behaviours.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Behaviours
-    name: Behaviours
-    isExternal: true
-    href: ISILab.LBS.Behaviours.html
 shouldSkipMarkup: true

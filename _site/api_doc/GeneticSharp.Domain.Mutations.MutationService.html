@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class MutationService | lbs-api_docs ">
       
-      
+      <meta name="description" content="Mutation service.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,7 @@ Class MutationService
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Mutation service.</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -121,25 +121,25 @@ Class MutationService
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -159,7 +159,7 @@ Class MutationService
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates the IMutation's implementation with the specified name.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -169,15 +169,15 @@ Class MutationService
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd>The IMutation name.</dd>
     <dt><code>constructorArgs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd></dd>
+    <dd>Constructor arguments.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="GeneticSharp.Domain.Mutations.IMutation.html">IMutation</a></dt>
-    <dd></dd>
+    <dd>The IMutation's implementation instance.</dd>
   </dl>
 
 
@@ -197,7 +197,7 @@ Class MutationService
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the available mutation names.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -208,7 +208,7 @@ Class MutationService
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
+    <dd>The mutation names.</dd>
   </dl>
 
 
@@ -228,7 +228,7 @@ Class MutationService
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the mutation type by the name.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -238,13 +238,13 @@ Class MutationService
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd>The name of mutation.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd></dd>
+    <dd>The mutation type.</dd>
   </dl>
 
 
@@ -264,7 +264,7 @@ Class MutationService
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets available mutation types.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -275,7 +275,7 @@ Class MutationService
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
-    <dd></dd>
+    <dd>All available mutation types.</dd>
   </dl>
 
 
@@ -295,7 +295,7 @@ Class MutationService
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Shift sequence to left.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -305,15 +305,15 @@ Class MutationService
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd>source of sequence</dd>
     <dt><code>valueToShift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>count of units to be shifted</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd>The sequence shifted to left.</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
@@ -338,7 +338,7 @@ Class MutationService
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Shift sequence to right.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -348,15 +348,15 @@ Class MutationService
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd>source of sequence</dd>
     <dt><code>valueToShift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>count of units to be shifted</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd>The sequence shifted to right.</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
@@ -381,7 +381,7 @@ Class MutationService
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Shuffle sequence.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -391,15 +391,15 @@ Class MutationService
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd>Source of sequence.</dd>
     <dt><code>randomization</code> <a class="xref" href="GeneticSharp.Domain.Randomizations.IRandomization.html">IRandomization</a></dt>
-    <dd></dd>
+    <dd>Random number generator to select next index to shuffle.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd>The shuffled sequence.</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>

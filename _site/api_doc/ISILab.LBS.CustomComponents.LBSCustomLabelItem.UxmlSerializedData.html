@@ -101,7 +101,8 @@ Class LBSCustomLabelItem.UxmlSerializedData
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LBSCustomLabelItem.UxmlSerializedData : Label.UxmlSerializedData</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class LBSCustomLabelItem.UxmlSerializedData : Label.UxmlSerializedData</code></pre>
   </div>
 
 
@@ -111,42 +112,45 @@ Class LBSCustomLabelItem.UxmlSerializedData
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">UxmlSerializedData</span></div>
+      <div><span class="xref">VisualElement</span>.<span class="xref">UxmlSerializedData</span></div>
+      <div><span class="xref">BindableElement</span>.<span class="xref">UxmlSerializedData</span></div>
+      <div><span class="xref">TextElement</span>.<span class="xref">UxmlSerializedData</span></div>
+      <div><span class="xref">Label</span>.<span class="xref">UxmlSerializedData</span></div>
       <div><span class="xref">LBSCustomLabelItem.UxmlSerializedData</span></div>
     </dd>
   </dl>
 
 
 
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="ISILab_LBS_CustomComponents_LBSCustomLabelItem_UxmlSerializedData__ctor_" data-uid="ISILab.LBS.CustomComponents.LBSCustomLabelItem.UxmlSerializedData.#ctor*"></a>
-
-  <h3 id="ISILab_LBS_CustomComponents_LBSCustomLabelItem_UxmlSerializedData__ctor" data-uid="ISILab.LBS.CustomComponents.LBSCustomLabelItem.UxmlSerializedData.#ctor">
-  UxmlSerializedData()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public UxmlSerializedData()</code></pre>
-  </div>
-
-
-
-
-
-
-
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">UxmlSerializedData.ShouldWriteAttributeValue(UxmlSerializedData.UxmlAttributeFlags)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
 
 
 
@@ -164,7 +168,9 @@ Class LBSCustomLabelItem.UxmlSerializedData
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>
+Returns an instance of the declaring element.
+</p></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -175,7 +181,7 @@ Class LBSCustomLabelItem.UxmlSerializedData
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The new instance of the declaring element.</p></dd>
   </dl>
 
 
@@ -195,7 +201,9 @@ Class LBSCustomLabelItem.UxmlSerializedData
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>
+Applies serialized field values to a compatible visual element.
+</p></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -205,7 +213,7 @@ Class LBSCustomLabelItem.UxmlSerializedData
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>The element to have the serialized data applied to.</dd>
   </dl>
 
 
@@ -230,7 +238,8 @@ Class LBSCustomLabelItem.UxmlSerializedData
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Conditional(&quot;UNITY_EDITOR&quot;)]
+    <pre><code class="lang-csharp hljs">[RegisterUxmlCache]
+[Conditional(&quot;UNITY_EDITOR&quot;)]
 public static void Register()</code></pre>
   </div>
 

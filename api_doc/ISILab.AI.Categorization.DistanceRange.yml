@@ -5,7 +5,6 @@ items:
   id: DistanceRange
   parent: ISILab.AI.Categorization
   children:
-  - ISILab.AI.Categorization.DistanceRange.#ctor
   - ISILab.AI.Categorization.DistanceRange.Clone
   - ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
   - ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
@@ -30,6 +29,10 @@ items:
   nameWithType: DistanceRange
   fullName: ISILab.AI.Categorization.DistanceRange
   type: Class
+  source:
+    id: DistanceRange
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 19
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -51,19 +54,243 @@ items:
   - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
   - System.ICloneable
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   attributes:
   - type: System.ObsoleteAttribute
     ctor: System.ObsoleteAttribute.#ctor(System.String)
     arguments:
     - type: System.String
       value: Not implemented yet.
+- uid: ISILab.AI.Categorization.DistanceRange.MaxValue
+  commentId: P:ISILab.AI.Categorization.DistanceRange.MaxValue
+  id: MaxValue
+  parent: ISILab.AI.Categorization.DistanceRange
+  langs:
+  - csharp
+  - vb
+  name: MaxValue
+  nameWithType: DistanceRange.MaxValue
+  fullName: ISILab.AI.Categorization.DistanceRange.MaxValue
+  type: Property
+  source:
+    id: MaxValue
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 22
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public float MaxValue { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property MaxValue As Single
+  overload: ISILab.AI.Categorization.DistanceRange.MaxValue*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
+- uid: ISILab.AI.Categorization.DistanceRange.MinValue
+  commentId: P:ISILab.AI.Categorization.DistanceRange.MinValue
+  id: MinValue
+  parent: ISILab.AI.Categorization.DistanceRange
+  langs:
+  - csharp
+  - vb
+  name: MinValue
+  nameWithType: DistanceRange.MinValue
+  fullName: ISILab.AI.Categorization.DistanceRange.MinValue
+  type: Property
+  source:
+    id: MinValue
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 23
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public float MinValue { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property MinValue As Single
+  overload: ISILab.AI.Categorization.DistanceRange.MinValue*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
+- uid: ISILab.AI.Categorization.DistanceRange.ContextLayers
+  commentId: P:ISILab.AI.Categorization.DistanceRange.ContextLayers
+  id: ContextLayers
+  parent: ISILab.AI.Categorization.DistanceRange
+  langs:
+  - csharp
+  - vb
+  name: ContextLayers
+  nameWithType: DistanceRange.ContextLayers
+  fullName: ISILab.AI.Categorization.DistanceRange.ContextLayers
+  type: Property
+  source:
+    id: ContextLayers
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 25
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public List<LBSLayer> ContextLayers { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
+    content.vb: Public Property ContextLayers As List(Of LBSLayer)
+  overload: ISILab.AI.Categorization.DistanceRange.ContextLayers*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.ContextLayers
+- uid: ISILab.AI.Categorization.DistanceRange.CombinedLayer
+  commentId: P:ISILab.AI.Categorization.DistanceRange.CombinedLayer
+  id: CombinedLayer
+  parent: ISILab.AI.Categorization.DistanceRange
+  langs:
+  - csharp
+  - vb
+  name: CombinedLayer
+  nameWithType: DistanceRange.CombinedLayer
+  fullName: ISILab.AI.Categorization.DistanceRange.CombinedLayer
+  type: Property
+  source:
+    id: CombinedLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 26
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public LBSLayer CombinedLayer { get; set; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public Property CombinedLayer As LBSLayer
+  overload: ISILab.AI.Categorization.DistanceRange.CombinedLayer*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedLayer
+- uid: ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
+  commentId: P:ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
+  id: CombinedInteriorLayer
+  parent: ISILab.AI.Categorization.DistanceRange
+  langs:
+  - csharp
+  - vb
+  name: CombinedInteriorLayer
+  nameWithType: DistanceRange.CombinedInteriorLayer
+  fullName: ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
+  type: Property
+  source:
+    id: CombinedInteriorLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 27
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public LBSLayer CombinedInteriorLayer { get; set; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public Property CombinedInteriorLayer As LBSLayer
+  overload: ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedInteriorLayer
+- uid: ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
+  commentId: P:ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
+  id: CombinedExteriorLayer
+  parent: ISILab.AI.Categorization.DistanceRange
+  langs:
+  - csharp
+  - vb
+  name: CombinedExteriorLayer
+  nameWithType: DistanceRange.CombinedExteriorLayer
+  fullName: ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
+  type: Property
+  source:
+    id: CombinedExteriorLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 28
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public LBSLayer CombinedExteriorLayer { get; set; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public Property CombinedExteriorLayer As LBSLayer
+  overload: ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedExteriorLayer
+- uid: ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer
+  commentId: P:ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer
+  id: CombinedPopulationLayer
+  parent: ISILab.AI.Categorization.DistanceRange
+  langs:
+  - csharp
+  - vb
+  name: CombinedPopulationLayer
+  nameWithType: DistanceRange.CombinedPopulationLayer
+  fullName: ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer
+  type: Property
+  source:
+    id: CombinedPopulationLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 29
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public LBSLayer CombinedPopulationLayer { get; set; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public Property CombinedPopulationLayer As LBSLayer
+  overload: ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedPopulationLayer
+- uid: ISILab.AI.Categorization.DistanceRange.Tooltip
+  commentId: P:ISILab.AI.Categorization.DistanceRange.Tooltip
+  id: Tooltip
+  parent: ISILab.AI.Categorization.DistanceRange
+  langs:
+  - csharp
+  - vb
+  name: Tooltip
+  nameWithType: DistanceRange.Tooltip
+  fullName: ISILab.AI.Categorization.DistanceRange.Tooltip
+  type: Property
+  source:
+    id: Tooltip
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 31
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public string Tooltip { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Tooltip As String
+  overload: ISILab.AI.Categorization.DistanceRange.Tooltip*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
 - uid: ISILab.AI.Categorization.DistanceRange.config
   commentId: F:ISILab.AI.Categorization.DistanceRange.config
   id: config
@@ -75,6 +302,10 @@ items:
   nameWithType: DistanceRange.config
   fullName: ISILab.AI.Categorization.DistanceRange.config
   type: Field
+  source:
+    id: config
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 37
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -94,14 +325,35 @@ items:
   nameWithType: DistanceRange.item1Characteristic
   fullName: ISILab.AI.Categorization.DistanceRange.item1Characteristic
   type: Field
+  source:
+    id: item1Characteristic
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 43
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
   syntax:
-    content: public LBSCharacteristic item1Characteristic
+    content: >-
+      [SerializeField]
+
+      [SerializeReference]
+
+      public LBSCharacteristic item1Characteristic
     return:
       type: ISILab.LBS.Characteristics.LBSCharacteristic
-    content.vb: Public item1Characteristic As LBSCharacteristic
+    content.vb: >-
+      <SerializeField>
+
+      <SerializeReference>
+
+      Public item1Characteristic As LBSCharacteristic
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: UnityEngine.SerializeReference
+    ctor: UnityEngine.SerializeReference.#ctor
+    arguments: []
 - uid: ISILab.AI.Categorization.DistanceRange.item2Characteristic
   commentId: F:ISILab.AI.Categorization.DistanceRange.item2Characteristic
   id: item2Characteristic
@@ -113,14 +365,35 @@ items:
   nameWithType: DistanceRange.item2Characteristic
   fullName: ISILab.AI.Categorization.DistanceRange.item2Characteristic
   type: Field
+  source:
+    id: item2Characteristic
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 45
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
   syntax:
-    content: public LBSCharacteristic item2Characteristic
+    content: >-
+      [SerializeField]
+
+      [SerializeReference]
+
+      public LBSCharacteristic item2Characteristic
     return:
       type: ISILab.LBS.Characteristics.LBSCharacteristic
-    content.vb: Public item2Characteristic As LBSCharacteristic
+    content.vb: >-
+      <SerializeField>
+
+      <SerializeReference>
+
+      Public item2Characteristic As LBSCharacteristic
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: UnityEngine.SerializeReference
+    ctor: UnityEngine.SerializeReference.#ctor
+    arguments: []
 - uid: ISILab.AI.Categorization.DistanceRange.Evaluate(ISILab.AI.Optimization.IOptimizable)
   commentId: M:ISILab.AI.Categorization.DistanceRange.Evaluate(ISILab.AI.Optimization.IOptimizable)
   id: Evaluate(ISILab.AI.Optimization.IOptimizable)
@@ -132,9 +405,14 @@ items:
   nameWithType: DistanceRange.Evaluate(IOptimizable)
   fullName: ISILab.AI.Categorization.DistanceRange.Evaluate(ISILab.AI.Optimization.IOptimizable)
   type: Method
+  source:
+    id: Evaluate
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 56
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
+  summary: Performs the evaluation against the specified chromosome.
   example: []
   syntax:
     content: public float Evaluate(IOptimizable evaluable)
@@ -143,6 +421,7 @@ items:
       type: ISILab.AI.Optimization.IOptimizable
     return:
       type: System.Single
+      description: The fitness of the chromosome.
     content.vb: Public Function Evaluate(evaluable As IOptimizable) As Single
   overload: ISILab.AI.Categorization.DistanceRange.Evaluate*
   implements:
@@ -158,6 +437,10 @@ items:
   nameWithType: DistanceRange.InitializeContext(List<LBSLayer>, Rect)
   fullName: ISILab.AI.Categorization.DistanceRange.InitializeContext(System.Collections.Generic.List<LBS.Components.LBSLayer>, UnityEngine.Rect)
   type: Method
+  source:
+    id: InitializeContext
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 126
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -187,6 +470,10 @@ items:
   nameWithType: DistanceRange.InitializeDefault()
   fullName: ISILab.AI.Categorization.DistanceRange.InitializeDefault()
   type: Method
+  source:
+    id: InitializeDefault
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 136
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -208,6 +495,10 @@ items:
   nameWithType: DistanceRange.ReadConfiguration()
   fullName: ISILab.AI.Categorization.DistanceRange.ReadConfiguration()
   type: Method
+  source:
+    id: ReadConfiguration
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 148
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -229,6 +520,10 @@ items:
   nameWithType: DistanceRange.GetEvaluatorFields()
   fullName: ISILab.AI.Categorization.DistanceRange.GetEvaluatorFields()
   type: Method
+  source:
+    id: GetEvaluatorFields
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 155
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -252,6 +547,10 @@ items:
   nameWithType: DistanceRange.Clone()
   fullName: ISILab.AI.Categorization.DistanceRange.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Generic\DistanceRange.cs
+    startLine: 167
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -264,223 +563,9 @@ items:
   overload: ISILab.AI.Categorization.DistanceRange.Clone*
   implements:
   - System.ICloneable.Clone
-- uid: ISILab.AI.Categorization.DistanceRange.#ctor
-  commentId: M:ISILab.AI.Categorization.DistanceRange.#ctor
-  id: '#ctor'
-  parent: ISILab.AI.Categorization.DistanceRange
-  langs:
-  - csharp
-  - vb
-  name: DistanceRange()
-  nameWithType: DistanceRange.DistanceRange()
-  fullName: ISILab.AI.Categorization.DistanceRange.DistanceRange()
-  type: Constructor
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  syntax:
-    content: public DistanceRange()
-    content.vb: Public Sub New()
-  overload: ISILab.AI.Categorization.DistanceRange.#ctor*
-  nameWithType.vb: DistanceRange.New()
-  fullName.vb: ISILab.AI.Categorization.DistanceRange.New()
-  name.vb: New()
-- uid: ISILab.AI.Categorization.DistanceRange.MaxValue
-  commentId: P:ISILab.AI.Categorization.DistanceRange.MaxValue
-  id: MaxValue
-  parent: ISILab.AI.Categorization.DistanceRange
-  langs:
-  - csharp
-  - vb
-  name: MaxValue
-  nameWithType: DistanceRange.MaxValue
-  fullName: ISILab.AI.Categorization.DistanceRange.MaxValue
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  example: []
-  syntax:
-    content: public float MaxValue { get; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public ReadOnly Property MaxValue As Single
-  overload: ISILab.AI.Categorization.DistanceRange.MaxValue*
-  implements:
-  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
-- uid: ISILab.AI.Categorization.DistanceRange.MinValue
-  commentId: P:ISILab.AI.Categorization.DistanceRange.MinValue
-  id: MinValue
-  parent: ISILab.AI.Categorization.DistanceRange
-  langs:
-  - csharp
-  - vb
-  name: MinValue
-  nameWithType: DistanceRange.MinValue
-  fullName: ISILab.AI.Categorization.DistanceRange.MinValue
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  example: []
-  syntax:
-    content: public float MinValue { get; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public ReadOnly Property MinValue As Single
-  overload: ISILab.AI.Categorization.DistanceRange.MinValue*
-  implements:
-  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
-- uid: ISILab.AI.Categorization.DistanceRange.ContextLayers
-  commentId: P:ISILab.AI.Categorization.DistanceRange.ContextLayers
-  id: ContextLayers
-  parent: ISILab.AI.Categorization.DistanceRange
-  langs:
-  - csharp
-  - vb
-  name: ContextLayers
-  nameWithType: DistanceRange.ContextLayers
-  fullName: ISILab.AI.Categorization.DistanceRange.ContextLayers
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  example: []
-  syntax:
-    content: public List<LBSLayer> ContextLayers { get; set; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
-    content.vb: Public Property ContextLayers As List(Of LBSLayer)
-  overload: ISILab.AI.Categorization.DistanceRange.ContextLayers*
-  implements:
-  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.ContextLayers
-- uid: ISILab.AI.Categorization.DistanceRange.CombinedLayer
-  commentId: P:ISILab.AI.Categorization.DistanceRange.CombinedLayer
-  id: CombinedLayer
-  parent: ISILab.AI.Categorization.DistanceRange
-  langs:
-  - csharp
-  - vb
-  name: CombinedLayer
-  nameWithType: DistanceRange.CombinedLayer
-  fullName: ISILab.AI.Categorization.DistanceRange.CombinedLayer
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  example: []
-  syntax:
-    content: public LBSLayer CombinedLayer { get; set; }
-    parameters: []
-    return:
-      type: LBS.Components.LBSLayer
-    content.vb: Public Property CombinedLayer As LBSLayer
-  overload: ISILab.AI.Categorization.DistanceRange.CombinedLayer*
-  implements:
-  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedLayer
-- uid: ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
-  commentId: P:ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
-  id: CombinedInteriorLayer
-  parent: ISILab.AI.Categorization.DistanceRange
-  langs:
-  - csharp
-  - vb
-  name: CombinedInteriorLayer
-  nameWithType: DistanceRange.CombinedInteriorLayer
-  fullName: ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  example: []
-  syntax:
-    content: public LBSLayer CombinedInteriorLayer { get; set; }
-    parameters: []
-    return:
-      type: LBS.Components.LBSLayer
-    content.vb: Public Property CombinedInteriorLayer As LBSLayer
-  overload: ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer*
-  implements:
-  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedInteriorLayer
-- uid: ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
-  commentId: P:ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
-  id: CombinedExteriorLayer
-  parent: ISILab.AI.Categorization.DistanceRange
-  langs:
-  - csharp
-  - vb
-  name: CombinedExteriorLayer
-  nameWithType: DistanceRange.CombinedExteriorLayer
-  fullName: ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  example: []
-  syntax:
-    content: public LBSLayer CombinedExteriorLayer { get; set; }
-    parameters: []
-    return:
-      type: LBS.Components.LBSLayer
-    content.vb: Public Property CombinedExteriorLayer As LBSLayer
-  overload: ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer*
-  implements:
-  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedExteriorLayer
-- uid: ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer
-  commentId: P:ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer
-  id: CombinedPopulationLayer
-  parent: ISILab.AI.Categorization.DistanceRange
-  langs:
-  - csharp
-  - vb
-  name: CombinedPopulationLayer
-  nameWithType: DistanceRange.CombinedPopulationLayer
-  fullName: ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  example: []
-  syntax:
-    content: public LBSLayer CombinedPopulationLayer { get; set; }
-    parameters: []
-    return:
-      type: LBS.Components.LBSLayer
-    content.vb: Public Property CombinedPopulationLayer As LBSLayer
-  overload: ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer*
-  implements:
-  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedPopulationLayer
-- uid: ISILab.AI.Categorization.DistanceRange.Tooltip
-  commentId: P:ISILab.AI.Categorization.DistanceRange.Tooltip
-  id: Tooltip
-  parent: ISILab.AI.Categorization.DistanceRange
-  langs:
-  - csharp
-  - vb
-  name: Tooltip
-  nameWithType: DistanceRange.Tooltip
-  fullName: ISILab.AI.Categorization.DistanceRange.Tooltip
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  example: []
-  syntax:
-    content: public string Tooltip { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public ReadOnly Property Tooltip As String
-  overload: ISILab.AI.Categorization.DistanceRange.Tooltip*
-  implements:
-  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
 references:
 - uid: ISILab.AI.Categorization
   commentId: N:ISILab.AI.Categorization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Categorization
   nameWithType: ISILab.AI.Categorization
@@ -488,32 +573,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
 - uid: System.Object
   commentId: T:System.Object
@@ -529,7 +608,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
   commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html
   name: IContextualEvaluator
   nameWithType: IContextualEvaluator
@@ -537,7 +615,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator
   commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.html
   name: IConfigurableEvaluator
   nameWithType: IConfigurableEvaluator
@@ -545,7 +622,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
   commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html
   name: IRangedEvaluator
   nameWithType: IRangedEvaluator
@@ -553,7 +629,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
   commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html
   name: IEvaluator
   nameWithType: IEvaluator
@@ -566,78 +641,6 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -716,6 +719,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -761,28 +836,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -794,7 +869,6 @@ references:
   fullName: System
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
   commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
   nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -802,228 +876,80 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
     name: EvolutionaryAlgorithm
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
     name: Evaluators
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
     name: EvolutionaryAlgorithm
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
     name: Evaluators
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
-  commentId: T:ISILab.LBS.AI.Categorization.EvaluatorConfiguration
-  parent: ISILab.LBS.AI.Categorization
-  isExternal: true
-  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
-  name: EvaluatorConfiguration
-  nameWithType: EvaluatorConfiguration
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
-- uid: ISILab.LBS.AI.Categorization
-  commentId: N:ISILab.LBS.AI.Categorization
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.LBS.AI.Categorization
-  nameWithType: ISILab.LBS.AI.Categorization
-  fullName: ISILab.LBS.AI.Categorization
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.AI
-    name: AI
-    isExternal: true
-    href: ISILab.LBS.AI.html
-  - name: .
-  - uid: ISILab.LBS.AI.Categorization
-    name: Categorization
-    isExternal: true
-    href: ISILab.LBS.AI.Categorization.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.AI
-    name: AI
-    isExternal: true
-    href: ISILab.LBS.AI.html
-  - name: .
-  - uid: ISILab.LBS.AI.Categorization
-    name: Categorization
-    isExternal: true
-    href: ISILab.LBS.AI.Categorization.html
-- uid: ISILab.LBS.Characteristics.LBSCharacteristic
-  commentId: T:ISILab.LBS.Characteristics.LBSCharacteristic
-  parent: ISILab.LBS.Characteristics
-  isExternal: true
-  href: ISILab.LBS.Characteristics.LBSCharacteristic.html
-  name: LBSCharacteristic
-  nameWithType: LBSCharacteristic
-  fullName: ISILab.LBS.Characteristics.LBSCharacteristic
-- uid: ISILab.LBS.Characteristics
-  commentId: N:ISILab.LBS.Characteristics
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.LBS.Characteristics
-  nameWithType: ISILab.LBS.Characteristics
-  fullName: ISILab.LBS.Characteristics
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Characteristics
-    name: Characteristics
-    isExternal: true
-    href: ISILab.LBS.Characteristics.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Characteristics
-    name: Characteristics
-    isExternal: true
-    href: ISILab.LBS.Characteristics.html
-- uid: ISILab.AI.Categorization.DistanceRange.Evaluate*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.Evaluate
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_Evaluate_ISILab_AI_Optimization_IOptimizable_
-  name: Evaluate
-  nameWithType: DistanceRange.Evaluate
-  fullName: ISILab.AI.Categorization.DistanceRange.Evaluate
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
-  commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
-  name: Evaluate(IOptimizable)
-  nameWithType: IEvaluator.Evaluate(IOptimizable)
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
-  spec.csharp:
-  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
-    name: Evaluate
-    isExternal: true
-    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
-  - name: (
-  - uid: ISILab.AI.Optimization.IOptimizable
-    name: IOptimizable
-    isExternal: true
-    href: ISILab.AI.Optimization.IOptimizable.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
-    name: Evaluate
-    isExternal: true
-    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
-  - name: (
-  - uid: ISILab.AI.Optimization.IOptimizable
-    name: IOptimizable
-    isExternal: true
-    href: ISILab.AI.Optimization.IOptimizable.html
-  - name: )
-- uid: ISILab.AI.Optimization.IOptimizable
-  commentId: T:ISILab.AI.Optimization.IOptimizable
-  parent: ISILab.AI.Optimization
-  isExternal: true
-  href: ISILab.AI.Optimization.IOptimizable.html
-  name: IOptimizable
-  nameWithType: IOptimizable
-  fullName: ISILab.AI.Optimization.IOptimizable
+- uid: ISILab.AI.Categorization.DistanceRange.MaxValue*
+  commentId: Overload:ISILab.AI.Categorization.DistanceRange.MaxValue
+  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_MaxValue
+  name: MaxValue
+  nameWithType: DistanceRange.MaxValue
+  fullName: ISILab.AI.Categorization.DistanceRange.MaxValue
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_MaxValue
+  name: MaxValue
+  nameWithType: IRangedEvaluator.MaxValue
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -1035,107 +961,32 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
-- uid: ISILab.AI.Optimization
-  commentId: N:ISILab.AI.Optimization
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.AI.Optimization
-  nameWithType: ISILab.AI.Optimization
-  fullName: ISILab.AI.Optimization
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.AI
-    name: AI
-    isExternal: true
-    href: ISILab.AI.html
-  - name: .
-  - uid: ISILab.AI.Optimization
-    name: Optimization
-    isExternal: true
-    href: ISILab.AI.Optimization.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.AI
-    name: AI
-    isExternal: true
-    href: ISILab.AI.html
-  - name: .
-  - uid: ISILab.AI.Optimization
-    name: Optimization
-    isExternal: true
-    href: ISILab.AI.Optimization.html
-- uid: ISILab.AI.Categorization.DistanceRange.InitializeContext*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.InitializeContext
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_InitializeContext_System_Collections_Generic_List_LBS_Components_LBSLayer__UnityEngine_Rect_
-  name: InitializeContext
-  nameWithType: DistanceRange.InitializeContext
-  fullName: ISILab.AI.Categorization.DistanceRange.InitializeContext
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List{LBS.Components.LBSLayer},UnityEngine.Rect)
-  commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List{LBS.Components.LBSLayer},UnityEngine.Rect)
+- uid: ISILab.AI.Categorization.DistanceRange.MinValue*
+  commentId: Overload:ISILab.AI.Categorization.DistanceRange.MinValue
+  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_MinValue
+  name: MinValue
+  nameWithType: DistanceRange.MinValue
+  fullName: ISILab.AI.Categorization.DistanceRange.MinValue
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_MinValue
+  name: MinValue
+  nameWithType: IRangedEvaluator.MinValue
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
+- uid: ISILab.AI.Categorization.DistanceRange.ContextLayers*
+  commentId: Overload:ISILab.AI.Categorization.DistanceRange.ContextLayers
+  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_ContextLayers
+  name: ContextLayers
+  nameWithType: DistanceRange.ContextLayers
+  fullName: ISILab.AI.Categorization.DistanceRange.ContextLayers
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.ContextLayers
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.ContextLayers
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_InitializeContext_System_Collections_Generic_List_LBS_Components_LBSLayer__UnityEngine_Rect_
-  name: InitializeContext(List<LBSLayer>, Rect)
-  nameWithType: IContextualEvaluator.InitializeContext(List<LBSLayer>, Rect)
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List<LBS.Components.LBSLayer>, UnityEngine.Rect)
-  nameWithType.vb: IContextualEvaluator.InitializeContext(List(Of LBSLayer), Rect)
-  fullName.vb: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List(Of LBS.Components.LBSLayer), UnityEngine.Rect)
-  name.vb: InitializeContext(List(Of LBSLayer), Rect)
-  spec.csharp:
-  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List{LBS.Components.LBSLayer},UnityEngine.Rect)
-    name: InitializeContext
-    isExternal: true
-    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_InitializeContext_System_Collections_Generic_List_LBS_Components_LBSLayer__UnityEngine_Rect_
-  - name: (
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: '>'
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Rect
-    name: Rect
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List{LBS.Components.LBSLayer},UnityEngine.Rect)
-    name: InitializeContext
-    isExternal: true
-    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_InitializeContext_System_Collections_Generic_List_LBS_Components_LBSLayer__UnityEngine_Rect_
-  - name: (
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Rect
-    name: Rect
-    isExternal: true
-  - name: )
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_ContextLayers
+  name: ContextLayers
+  nameWithType: IContextualEvaluator.ContextLayers
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.ContextLayers
 - uid: System.Collections.Generic.List{LBS.Components.LBSLayer}
   commentId: T:System.Collections.Generic.List{LBS.Components.LBSLayer}
   parent: System.Collections.Generic
@@ -1155,7 +1006,6 @@ references:
   - name: <
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: '>'
   spec.vb:
@@ -1168,14 +1018,8 @@ references:
   - name: " "
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
-- uid: UnityEngine.Rect
-  isExternal: true
-  name: Rect
-  nameWithType: Rect
-  fullName: UnityEngine.Rect
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
   isExternal: true
@@ -1241,9 +1085,335 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.AI.Categorization.DistanceRange.CombinedLayer*
+  commentId: Overload:ISILab.AI.Categorization.DistanceRange.CombinedLayer
+  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_CombinedLayer
+  name: CombinedLayer
+  nameWithType: DistanceRange.CombinedLayer
+  fullName: ISILab.AI.Categorization.DistanceRange.CombinedLayer
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedLayer
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedLayer
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_CombinedLayer
+  name: CombinedLayer
+  nameWithType: IContextualEvaluator.CombinedLayer
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedLayer
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+- uid: ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer*
+  commentId: Overload:ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
+  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_CombinedInteriorLayer
+  name: CombinedInteriorLayer
+  nameWithType: DistanceRange.CombinedInteriorLayer
+  fullName: ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedInteriorLayer
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedInteriorLayer
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_CombinedInteriorLayer
+  name: CombinedInteriorLayer
+  nameWithType: IContextualEvaluator.CombinedInteriorLayer
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedInteriorLayer
+- uid: ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer*
+  commentId: Overload:ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
+  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_CombinedExteriorLayer
+  name: CombinedExteriorLayer
+  nameWithType: DistanceRange.CombinedExteriorLayer
+  fullName: ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedExteriorLayer
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedExteriorLayer
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_CombinedExteriorLayer
+  name: CombinedExteriorLayer
+  nameWithType: IContextualEvaluator.CombinedExteriorLayer
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedExteriorLayer
+- uid: ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer*
+  commentId: Overload:ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer
+  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_CombinedPopulationLayer
+  name: CombinedPopulationLayer
+  nameWithType: DistanceRange.CombinedPopulationLayer
+  fullName: ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedPopulationLayer
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedPopulationLayer
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_CombinedPopulationLayer
+  name: CombinedPopulationLayer
+  nameWithType: IContextualEvaluator.CombinedPopulationLayer
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedPopulationLayer
+- uid: ISILab.AI.Categorization.DistanceRange.Tooltip*
+  commentId: Overload:ISILab.AI.Categorization.DistanceRange.Tooltip
+  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_Tooltip
+  name: Tooltip
+  nameWithType: DistanceRange.Tooltip
+  fullName: ISILab.AI.Categorization.DistanceRange.Tooltip
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Tooltip
+  name: Tooltip
+  nameWithType: IEvaluator.Tooltip
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  commentId: T:ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+  parent: ISILab.LBS.AI.Categorization
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
+  name: EvaluatorConfiguration
+  nameWithType: EvaluatorConfiguration
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
+- uid: ISILab.LBS.AI.Categorization
+  commentId: N:ISILab.LBS.AI.Categorization
+  href: ISILab.html
+  name: ISILab.LBS.AI.Categorization
+  nameWithType: ISILab.LBS.AI.Categorization
+  fullName: ISILab.LBS.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    href: ISILab.LBS.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    href: ISILab.LBS.AI.Categorization.html
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic
+  commentId: T:ISILab.LBS.Characteristics.LBSCharacteristic
+  parent: ISILab.LBS.Characteristics
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html
+  name: LBSCharacteristic
+  nameWithType: LBSCharacteristic
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic
+- uid: ISILab.LBS.Characteristics
+  commentId: N:ISILab.LBS.Characteristics
+  href: ISILab.html
+  name: ISILab.LBS.Characteristics
+  nameWithType: ISILab.LBS.Characteristics
+  fullName: ISILab.LBS.Characteristics
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    href: ISILab.LBS.Characteristics.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    href: ISILab.LBS.Characteristics.html
+- uid: ISILab.AI.Categorization.DistanceRange.Evaluate*
+  commentId: Overload:ISILab.AI.Categorization.DistanceRange.Evaluate
+  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_Evaluate_ISILab_AI_Optimization_IOptimizable_
+  name: Evaluate
+  nameWithType: DistanceRange.Evaluate
+  fullName: ISILab.AI.Categorization.DistanceRange.Evaluate
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
+  name: Evaluate(IOptimizable)
+  nameWithType: IEvaluator.Evaluate(IOptimizable)
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+    name: Evaluate
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
+  - name: (
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+    name: Evaluate
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
+  - name: (
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+- uid: ISILab.AI.Optimization.IOptimizable
+  commentId: T:ISILab.AI.Optimization.IOptimizable
+  parent: ISILab.AI.Optimization
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable
+  nameWithType: IOptimizable
+  fullName: ISILab.AI.Optimization.IOptimizable
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    href: ISILab.AI.Optimization.html
+- uid: ISILab.AI.Categorization.DistanceRange.InitializeContext*
+  commentId: Overload:ISILab.AI.Categorization.DistanceRange.InitializeContext
+  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_InitializeContext_System_Collections_Generic_List_LBS_Components_LBSLayer__UnityEngine_Rect_
+  name: InitializeContext
+  nameWithType: DistanceRange.InitializeContext
+  fullName: ISILab.AI.Categorization.DistanceRange.InitializeContext
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List{LBS.Components.LBSLayer},UnityEngine.Rect)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List{LBS.Components.LBSLayer},UnityEngine.Rect)
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_InitializeContext_System_Collections_Generic_List_LBS_Components_LBSLayer__UnityEngine_Rect_
+  name: InitializeContext(List<LBSLayer>, Rect)
+  nameWithType: IContextualEvaluator.InitializeContext(List<LBSLayer>, Rect)
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List<LBS.Components.LBSLayer>, UnityEngine.Rect)
+  nameWithType.vb: IContextualEvaluator.InitializeContext(List(Of LBSLayer), Rect)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List(Of LBS.Components.LBSLayer), UnityEngine.Rect)
+  name.vb: InitializeContext(List(Of LBSLayer), Rect)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List{LBS.Components.LBSLayer},UnityEngine.Rect)
+    name: InitializeContext
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_InitializeContext_System_Collections_Generic_List_LBS_Components_LBSLayer__UnityEngine_Rect_
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.InitializeContext(System.Collections.Generic.List{LBS.Components.LBSLayer},UnityEngine.Rect)
+    name: InitializeContext
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_InitializeContext_System_Collections_Generic_List_LBS_Components_LBSLayer__UnityEngine_Rect_
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.AI.Categorization.DistanceRange.InitializeDefault*
   commentId: Overload:ISILab.AI.Categorization.DistanceRange.InitializeDefault
-  isExternal: true
   href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_InitializeDefault
   name: InitializeDefault
   nameWithType: DistanceRange.InitializeDefault
@@ -1251,7 +1421,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
   commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_InitializeDefault
   name: InitializeDefault()
   nameWithType: IEvaluator.InitializeDefault()
@@ -1259,20 +1428,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
     name: InitializeDefault
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_InitializeDefault
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
     name: InitializeDefault
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_InitializeDefault
   - name: (
   - name: )
 - uid: ISILab.AI.Categorization.DistanceRange.ReadConfiguration*
   commentId: Overload:ISILab.AI.Categorization.DistanceRange.ReadConfiguration
-  isExternal: true
   href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_ReadConfiguration
   name: ReadConfiguration
   nameWithType: DistanceRange.ReadConfiguration
@@ -1280,7 +1446,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.ReadConfiguration
   commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.ReadConfiguration
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IConfigurableEvaluator_ReadConfiguration
   name: ReadConfiguration()
   nameWithType: IConfigurableEvaluator.ReadConfiguration()
@@ -1288,20 +1453,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.ReadConfiguration
     name: ReadConfiguration
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IConfigurableEvaluator_ReadConfiguration
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.ReadConfiguration
     name: ReadConfiguration
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IConfigurableEvaluator_ReadConfiguration
   - name: (
   - name: )
 - uid: ISILab.AI.Categorization.DistanceRange.GetEvaluatorFields*
   commentId: Overload:ISILab.AI.Categorization.DistanceRange.GetEvaluatorFields
-  isExternal: true
   href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_GetEvaluatorFields
   name: GetEvaluatorFields
   nameWithType: DistanceRange.GetEvaluatorFields
@@ -1309,7 +1471,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.GetEvaluatorFields
   commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.GetEvaluatorFields
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IConfigurableEvaluator_GetEvaluatorFields
   name: GetEvaluatorFields()
   nameWithType: IConfigurableEvaluator.GetEvaluatorFields()
@@ -1317,14 +1478,12 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.GetEvaluatorFields
     name: GetEvaluatorFields
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IConfigurableEvaluator_GetEvaluatorFields
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.GetEvaluatorFields
     name: GetEvaluatorFields
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IConfigurableEvaluator_GetEvaluatorFields
   - name: (
   - name: )
@@ -1347,12 +1506,10 @@ references:
   - name: <
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
     name: EvaluatorConfiguration
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
   - name: .
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
     name: EvaluatorConfigurationField
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
   - name: '>'
   spec.vb:
@@ -1365,17 +1522,14 @@ references:
   - name: " "
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
     name: EvaluatorConfiguration
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
   - name: .
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
     name: EvaluatorConfigurationField
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
   - name: )
 - uid: ISILab.AI.Categorization.DistanceRange.Clone*
   commentId: Overload:ISILab.AI.Categorization.DistanceRange.Clone
-  isExternal: true
   href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_Clone
   name: Clone
   nameWithType: DistanceRange.Clone
@@ -1402,180 +1556,4 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
   - name: (
   - name: )
-- uid: ISILab.AI.Categorization.DistanceRange.#ctor*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.#ctor
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange__ctor
-  name: DistanceRange
-  nameWithType: DistanceRange.DistanceRange
-  fullName: ISILab.AI.Categorization.DistanceRange.DistanceRange
-  nameWithType.vb: DistanceRange.New
-  fullName.vb: ISILab.AI.Categorization.DistanceRange.New
-  name.vb: New
-- uid: ISILab.AI.Categorization.DistanceRange.MaxValue*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.MaxValue
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_MaxValue
-  name: MaxValue
-  nameWithType: DistanceRange.MaxValue
-  fullName: ISILab.AI.Categorization.DistanceRange.MaxValue
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_MaxValue
-  name: MaxValue
-  nameWithType: IRangedEvaluator.MaxValue
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
-- uid: ISILab.AI.Categorization.DistanceRange.MinValue*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.MinValue
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_MinValue
-  name: MinValue
-  nameWithType: DistanceRange.MinValue
-  fullName: ISILab.AI.Categorization.DistanceRange.MinValue
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_MinValue
-  name: MinValue
-  nameWithType: IRangedEvaluator.MinValue
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
-- uid: ISILab.AI.Categorization.DistanceRange.ContextLayers*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.ContextLayers
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_ContextLayers
-  name: ContextLayers
-  nameWithType: DistanceRange.ContextLayers
-  fullName: ISILab.AI.Categorization.DistanceRange.ContextLayers
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.ContextLayers
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.ContextLayers
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_ContextLayers
-  name: ContextLayers
-  nameWithType: IContextualEvaluator.ContextLayers
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.ContextLayers
-- uid: ISILab.AI.Categorization.DistanceRange.CombinedLayer*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.CombinedLayer
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_CombinedLayer
-  name: CombinedLayer
-  nameWithType: DistanceRange.CombinedLayer
-  fullName: ISILab.AI.Categorization.DistanceRange.CombinedLayer
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedLayer
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedLayer
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_CombinedLayer
-  name: CombinedLayer
-  nameWithType: IContextualEvaluator.CombinedLayer
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedLayer
-- uid: LBS.Components.LBSLayer
-  commentId: T:LBS.Components.LBSLayer
-  parent: LBS.Components
-  isExternal: true
-  href: LBS.Components.LBSLayer.html
-  name: LBSLayer
-  nameWithType: LBSLayer
-  fullName: LBS.Components.LBSLayer
-- uid: LBS.Components
-  commentId: N:LBS.Components
-  isExternal: true
-  href: LBS.html
-  name: LBS.Components
-  nameWithType: LBS.Components
-  fullName: LBS.Components
-  spec.csharp:
-  - uid: LBS
-    name: LBS
-    isExternal: true
-    href: LBS.html
-  - name: .
-  - uid: LBS.Components
-    name: Components
-    isExternal: true
-    href: LBS.Components.html
-  spec.vb:
-  - uid: LBS
-    name: LBS
-    isExternal: true
-    href: LBS.html
-  - name: .
-  - uid: LBS.Components
-    name: Components
-    isExternal: true
-    href: LBS.Components.html
-- uid: ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_CombinedInteriorLayer
-  name: CombinedInteriorLayer
-  nameWithType: DistanceRange.CombinedInteriorLayer
-  fullName: ISILab.AI.Categorization.DistanceRange.CombinedInteriorLayer
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedInteriorLayer
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedInteriorLayer
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_CombinedInteriorLayer
-  name: CombinedInteriorLayer
-  nameWithType: IContextualEvaluator.CombinedInteriorLayer
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedInteriorLayer
-- uid: ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_CombinedExteriorLayer
-  name: CombinedExteriorLayer
-  nameWithType: DistanceRange.CombinedExteriorLayer
-  fullName: ISILab.AI.Categorization.DistanceRange.CombinedExteriorLayer
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedExteriorLayer
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedExteriorLayer
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_CombinedExteriorLayer
-  name: CombinedExteriorLayer
-  nameWithType: IContextualEvaluator.CombinedExteriorLayer
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedExteriorLayer
-- uid: ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_CombinedPopulationLayer
-  name: CombinedPopulationLayer
-  nameWithType: DistanceRange.CombinedPopulationLayer
-  fullName: ISILab.AI.Categorization.DistanceRange.CombinedPopulationLayer
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedPopulationLayer
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedPopulationLayer
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IContextualEvaluator_CombinedPopulationLayer
-  name: CombinedPopulationLayer
-  nameWithType: IContextualEvaluator.CombinedPopulationLayer
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IContextualEvaluator.CombinedPopulationLayer
-- uid: ISILab.AI.Categorization.DistanceRange.Tooltip*
-  commentId: Overload:ISILab.AI.Categorization.DistanceRange.Tooltip
-  isExternal: true
-  href: ISILab.AI.Categorization.DistanceRange.html#ISILab_AI_Categorization_DistanceRange_Tooltip
-  name: Tooltip
-  nameWithType: DistanceRange.Tooltip
-  fullName: ISILab.AI.Categorization.DistanceRange.Tooltip
-- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
-  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Tooltip
-  name: Tooltip
-  nameWithType: IEvaluator.Tooltip
-  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
 shouldSkipMarkup: true

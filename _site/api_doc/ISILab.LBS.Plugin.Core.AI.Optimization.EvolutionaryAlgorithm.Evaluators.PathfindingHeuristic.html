@@ -102,7 +102,8 @@ Enum PathfindingHeuristic
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum PathfindingHeuristic</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public enum PathfindingHeuristic</code></pre>
   </div>
 
 
@@ -118,13 +119,13 @@ Enum PathfindingHeuristic
   <dl class="parameters">
     <dt id="ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_Chebyshev"><code>Chebyshev = 2</code></dt>
   
-  <dd></dd>
+  <dd>Diagonals = x</dd>
     <dt id="ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_Manhattan"><code>Manhattan = 0</code></dt>
   
-  <dd></dd>
+  <dd>No diagonals</dd>
     <dt id="ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_Octile"><code>Octile = 1</code></dt>
   
-  <dd></dd>
+  <dd>Diagonals = x sqrt(2)</dd>
   </dl>
 
 

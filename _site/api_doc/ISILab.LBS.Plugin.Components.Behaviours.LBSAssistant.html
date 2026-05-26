@@ -101,7 +101,8 @@ Class LBSAssistant
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class LBSAssistant : ICloneable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public abstract class LBSAssistant : ICloneable</code></pre>
   </div>
 
 
@@ -139,25 +140,25 @@ Class LBSAssistant
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -221,7 +222,8 @@ Class LBSAssistant
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action OnCancellation</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Action OnCancellation</code></pre>
   </div>
 
 
@@ -251,7 +253,8 @@ Class LBSAssistant
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action OnStart</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Action OnStart</code></pre>
   </div>
 
 
@@ -281,7 +284,8 @@ Class LBSAssistant
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;string, LogType, Object&gt; OnTermination</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Action&lt;string, LogType, Object&gt; OnTermination</code></pre>
   </div>
 
 
@@ -311,7 +315,10 @@ Class LBSAssistant
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool visible</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonRequired]
+[HideInInspector]
+public bool visible</code></pre>
   </div>
 
 
@@ -346,7 +353,8 @@ Class LBSAssistant
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color ColorTint { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Color ColorTint { get; set; }</code></pre>
   </div>
 
 
@@ -408,7 +416,8 @@ Class LBSAssistant
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string IconGuid { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public string IconGuid { get; set; }</code></pre>
   </div>
 
 
@@ -439,7 +448,8 @@ Class LBSAssistant
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public string Name { get; }</code></pre>
   </div>
 
 
@@ -470,7 +480,8 @@ Class LBSAssistant
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LBSLayer OwnerLayer { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public LBSLayer OwnerLayer { get; set; }</code></pre>
   </div>
 
 
@@ -713,7 +724,8 @@ Class LBSAssistant
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Get all tiles' position that   since the last time they were retrieved.
+The memory of new tiles will be cleared after calling this method.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -744,7 +756,8 @@ Class LBSAssistant
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Get all new tiles' position that have been created since the last time they were retrieved.
+The memory of new tiles will be cleared after calling this method.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

@@ -57,12 +57,22 @@ items:
   nameWithType: QuestGraph
   fullName: ISILab.LBS.Modules.QuestGraph
   type: Class
+  source:
+    id: QuestGraph
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 13
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
   syntax:
-    content: 'public class QuestGraph : LBSModule, ICloneable, ISelectable'
-    content.vb: Public Class QuestGraph Inherits LBSModule Implements ICloneable, ISelectable
+    content: >-
+      [Serializable]
+
+      public class QuestGraph : LBSModule, ICloneable, ISelectable
+    content.vb: >-
+      <Serializable>
+
+      Public Class QuestGraph Inherits LBSModule Implements ICloneable, ISelectable
   inheritance:
   - System.Object
   - ISILab.LBS.Modules.LBSModule
@@ -71,18 +81,22 @@ items:
   - ISILab.LBS.Modules.ISelectable
   inheritedMembers:
   - ISILab.LBS.Modules.LBSModule.id
+  - ISILab.LBS.Modules.LBSModule.OwnerLayer
+  - ISILab.LBS.Modules.LBSModule.ID
   - ISILab.LBS.Modules.LBSModule.OnChanged
   - ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
   - ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  - ISILab.LBS.Modules.LBSModule.OwnerLayer
-  - ISILab.LBS.Modules.LBSModule.ID
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Modules.QuestGraph.ViewNodeWidthOffset
   commentId: F:ISILab.LBS.Modules.QuestGraph.ViewNodeWidthOffset
   id: ViewNodeWidthOffset
@@ -94,6 +108,10 @@ items:
   nameWithType: QuestGraph.ViewNodeWidthOffset
   fullName: ISILab.LBS.Modules.QuestGraph.ViewNodeWidthOffset
   type: Field
+  source:
+    id: ViewNodeWidthOffset
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 18
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -113,6 +131,10 @@ items:
   nameWithType: QuestGraph.SuggestionDistance
   fullName: ISILab.LBS.Modules.QuestGraph.SuggestionDistance
   type: Field
+  source:
+    id: SuggestionDistance
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 19
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -121,6 +143,181 @@ items:
     return:
       type: System.Single
     content.vb: Public Const SuggestionDistance As Single = 1.5
+- uid: ISILab.LBS.Modules.QuestGraph.Root
+  commentId: P:ISILab.LBS.Modules.QuestGraph.Root
+  id: Root
+  parent: ISILab.LBS.Modules.QuestGraph
+  langs:
+  - csharp
+  - vb
+  name: Root
+  nameWithType: QuestGraph.Root
+  fullName: ISILab.LBS.Modules.QuestGraph.Root
+  type: Property
+  source:
+    id: Root
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 42
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public QuestNode Root { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public ReadOnly Property Root As QuestNode
+  overload: ISILab.LBS.Modules.QuestGraph.Root*
+- uid: ISILab.LBS.Modules.QuestGraph.GraphNodes
+  commentId: P:ISILab.LBS.Modules.QuestGraph.GraphNodes
+  id: GraphNodes
+  parent: ISILab.LBS.Modules.QuestGraph
+  langs:
+  - csharp
+  - vb
+  name: GraphNodes
+  nameWithType: QuestGraph.GraphNodes
+  fullName: ISILab.LBS.Modules.QuestGraph.GraphNodes
+  type: Property
+  source:
+    id: GraphNodes
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 43
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<GraphNode> GraphNodes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
+    content.vb: Public ReadOnly Property GraphNodes As List(Of GraphNode)
+  overload: ISILab.LBS.Modules.QuestGraph.GraphNodes*
+- uid: ISILab.LBS.Modules.QuestGraph.GraphEdges
+  commentId: P:ISILab.LBS.Modules.QuestGraph.GraphEdges
+  id: GraphEdges
+  parent: ISILab.LBS.Modules.QuestGraph
+  langs:
+  - csharp
+  - vb
+  name: GraphEdges
+  nameWithType: QuestGraph.GraphEdges
+  fullName: ISILab.LBS.Modules.QuestGraph.GraphEdges
+  type: Property
+  source:
+    id: GraphEdges
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 45
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<QuestEdge> GraphEdges { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.QuestEdge}
+    content.vb: Public ReadOnly Property GraphEdges As List(Of QuestEdge)
+  overload: ISILab.LBS.Modules.QuestGraph.GraphEdges*
+- uid: ISILab.LBS.Modules.QuestGraph.Grammar
+  commentId: P:ISILab.LBS.Modules.QuestGraph.Grammar
+  id: Grammar
+  parent: ISILab.LBS.Modules.QuestGraph
+  langs:
+  - csharp
+  - vb
+  name: Grammar
+  nameWithType: QuestGraph.Grammar
+  fullName: ISILab.LBS.Modules.QuestGraph.Grammar
+  type: Property
+  source:
+    id: Grammar
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 47
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public LBSGrammar Grammar { get; set; }
+    parameters: []
+    return:
+      type: ISILab.AI.Grammar.LBSGrammar
+    content.vb: Public Property Grammar As LBSGrammar
+  overload: ISILab.LBS.Modules.QuestGraph.Grammar*
+- uid: ISILab.LBS.Modules.QuestGraph.SelectedGraphNode
+  commentId: P:ISILab.LBS.Modules.QuestGraph.SelectedGraphNode
+  id: SelectedGraphNode
+  parent: ISILab.LBS.Modules.QuestGraph
+  langs:
+  - csharp
+  - vb
+  name: SelectedGraphNode
+  nameWithType: QuestGraph.SelectedGraphNode
+  fullName: ISILab.LBS.Modules.QuestGraph.SelectedGraphNode
+  type: Property
+  source:
+    id: SelectedGraphNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 66
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public GraphNode SelectedGraphNode { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.GraphNode
+    content.vb: Public Property SelectedGraphNode As GraphNode
+  overload: ISILab.LBS.Modules.QuestGraph.SelectedGraphNode*
+- uid: ISILab.LBS.Modules.QuestGraph.SelectedQuestData
+  commentId: P:ISILab.LBS.Modules.QuestGraph.SelectedQuestData
+  id: SelectedQuestData
+  parent: ISILab.LBS.Modules.QuestGraph
+  langs:
+  - csharp
+  - vb
+  name: SelectedQuestData
+  nameWithType: QuestGraph.SelectedQuestData
+  fullName: ISILab.LBS.Modules.QuestGraph.SelectedQuestData
+  type: Property
+  source:
+    id: SelectedQuestData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 91
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public QuestNodeData SelectedQuestData { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.QuestNodeData
+    content.vb: Public ReadOnly Property SelectedQuestData As QuestNodeData
+  overload: ISILab.LBS.Modules.QuestGraph.SelectedQuestData*
+- uid: ISILab.LBS.Modules.QuestGraph.SelectedQuestNode
+  commentId: P:ISILab.LBS.Modules.QuestGraph.SelectedQuestNode
+  id: SelectedQuestNode
+  parent: ISILab.LBS.Modules.QuestGraph
+  langs:
+  - csharp
+  - vb
+  name: SelectedQuestNode
+  nameWithType: QuestGraph.SelectedQuestNode
+  fullName: ISILab.LBS.Modules.QuestGraph.SelectedQuestNode
+  type: Property
+  source:
+    id: SelectedQuestNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 93
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public QuestNode SelectedQuestNode { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public ReadOnly Property SelectedQuestNode As QuestNode
+  overload: ISILab.LBS.Modules.QuestGraph.SelectedQuestNode*
 - uid: ISILab.LBS.Modules.QuestGraph.OnUpdateGraph
   commentId: F:ISILab.LBS.Modules.QuestGraph.OnUpdateGraph
   id: OnUpdateGraph
@@ -132,6 +329,10 @@ items:
   nameWithType: QuestGraph.OnUpdateGraph
   fullName: ISILab.LBS.Modules.QuestGraph.OnUpdateGraph
   type: Field
+  source:
+    id: OnUpdateGraph
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 99
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -151,6 +352,10 @@ items:
   nameWithType: QuestGraph.OnNodeSelected
   fullName: ISILab.LBS.Modules.QuestGraph.OnNodeSelected
   type: Field
+  source:
+    id: OnNodeSelected
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 101
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -170,6 +375,10 @@ items:
   nameWithType: QuestGraph.GoToNodeInGraph
   fullName: ISILab.LBS.Modules.QuestGraph.GoToNodeInGraph
   type: Field
+  source:
+    id: GoToNodeInGraph
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 106
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -189,6 +398,10 @@ items:
   nameWithType: QuestGraph.OnAddEdge
   fullName: ISILab.LBS.Modules.QuestGraph.OnAddEdge
   type: Field
+  source:
+    id: OnAddEdge
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 107
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -208,6 +421,10 @@ items:
   nameWithType: QuestGraph.OnRemoveEdge
   fullName: ISILab.LBS.Modules.QuestGraph.OnRemoveEdge
   type: Field
+  source:
+    id: OnRemoveEdge
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 108
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -227,6 +444,10 @@ items:
   nameWithType: QuestGraph.OnAddNode
   fullName: ISILab.LBS.Modules.QuestGraph.OnAddNode
   type: Field
+  source:
+    id: OnAddNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 109
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -246,6 +467,10 @@ items:
   nameWithType: QuestGraph.OnRemoveNode
   fullName: ISILab.LBS.Modules.QuestGraph.OnRemoveNode
   type: Field
+  source:
+    id: OnRemoveNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 110
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -265,6 +490,10 @@ items:
   nameWithType: QuestGraph.QuestGraph()
   fullName: ISILab.LBS.Modules.QuestGraph.QuestGraph()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 115
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -286,6 +515,10 @@ items:
   nameWithType: QuestGraph.Reselect()
   fullName: ISILab.LBS.Modules.QuestGraph.Reselect()
   type: Method
+  source:
+    id: Reselect
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 131
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -304,6 +537,10 @@ items:
   nameWithType: QuestGraph.ValidateGraph()
   fullName: ISILab.LBS.Modules.QuestGraph.ValidateGraph()
   type: Method
+  source:
+    id: ValidateGraph
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 209
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -322,6 +559,10 @@ items:
   nameWithType: QuestGraph.GetNodeAtPosition<T>(Vector2)
   fullName: ISILab.LBS.Modules.QuestGraph.GetNodeAtPosition<T>(UnityEngine.Vector2)
   type: Method
+  source:
+    id: GetNodeAtPosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 229
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -350,6 +591,10 @@ items:
   nameWithType: QuestGraph.GetQuestNodes()
   fullName: ISILab.LBS.Modules.QuestGraph.GetQuestNodes()
   type: Method
+  source:
+    id: GetQuestNodes
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 239
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -370,6 +615,10 @@ items:
   nameWithType: QuestGraph.AddNewNode(QuestBehaviour, Vector2)
   fullName: ISILab.LBS.Modules.QuestGraph.AddNewNode(ISILab.LBS.Behaviours.QuestBehaviour, UnityEngine.Vector2)
   type: Method
+  source:
+    id: AddNewNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 242
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -395,11 +644,15 @@ items:
   nameWithType: QuestGraph.GetNodeSuggestion(string, List<QuestNode>, Vector2)
   fullName: ISILab.LBS.Modules.QuestGraph.GetNodeSuggestion(string, System.Collections.Generic.List<ISILab.LBS.Components.QuestNode>, UnityEngine.Vector2)
   type: Method
+  source:
+    id: GetNodeSuggestion
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 260
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
   syntax:
-    content: public QuestNode GetNodeSuggestion(string action, List<QuestNode> tempSuggestions, Vector2 pos = null)
+    content: public QuestNode GetNodeSuggestion(string action, List<QuestNode> tempSuggestions, Vector2 pos = default)
     parameters:
     - id: action
       type: System.String
@@ -425,6 +678,10 @@ items:
   nameWithType: QuestGraph.AddNewQuestNode(string, Vector2)
   fullName: ISILab.LBS.Modules.QuestGraph.AddNewQuestNode(string, UnityEngine.Vector2)
   type: Method
+  source:
+    id: AddNewQuestNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 267
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -453,6 +710,10 @@ items:
   nameWithType: QuestGraph.AddSuggestionNode(QuestNode)
   fullName: ISILab.LBS.Modules.QuestGraph.AddSuggestionNode(ISILab.LBS.Components.QuestNode)
   type: Method
+  source:
+    id: AddSuggestionNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 275
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -474,6 +735,10 @@ items:
   nameWithType: QuestGraph.AddNodeToGraph(GraphNode)
   fullName: ISILab.LBS.Modules.QuestGraph.AddNodeToGraph(ISILab.LBS.Components.GraphNode)
   type: Method
+  source:
+    id: AddNodeToGraph
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 301
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -495,6 +760,10 @@ items:
   nameWithType: QuestGraph.RemoveQuestNode(GraphNode)
   fullName: ISILab.LBS.Modules.QuestGraph.RemoveQuestNode(ISILab.LBS.Components.GraphNode)
   type: Method
+  source:
+    id: RemoveQuestNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 314
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -516,6 +785,10 @@ items:
   nameWithType: QuestGraph.AddEdge(GraphNode, GraphNode)
   fullName: ISILab.LBS.Modules.QuestGraph.AddEdge(ISILab.LBS.Components.GraphNode, ISILab.LBS.Components.GraphNode)
   type: Method
+  source:
+    id: AddEdge
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 329
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -541,6 +814,10 @@ items:
   nameWithType: QuestGraph.IsLooped(GraphNode, GraphNode, HashSet<GraphNode>)
   fullName: ISILab.LBS.Modules.QuestGraph.IsLooped(ISILab.LBS.Components.GraphNode, ISILab.LBS.Components.GraphNode, System.Collections.Generic.HashSet<ISILab.LBS.Components.GraphNode>)
   type: Method
+  source:
+    id: IsLooped
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 338
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -571,6 +848,10 @@ items:
   nameWithType: QuestGraph.RemoveEdge(QuestEdge)
   fullName: ISILab.LBS.Modules.QuestGraph.RemoveEdge(ISILab.LBS.Modules.QuestEdge)
   type: Method
+  source:
+    id: RemoveEdge
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 380
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -594,6 +875,10 @@ items:
   nameWithType: QuestGraph.GetEdge(Vector2, float)
   fullName: ISILab.LBS.Modules.QuestGraph.GetEdge(UnityEngine.Vector2, float)
   type: Method
+  source:
+    id: GetEdge
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 388
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -622,6 +907,10 @@ items:
   nameWithType: QuestGraph.GetBranches(GraphNode)
   fullName: ISILab.LBS.Modules.QuestGraph.GetBranches(ISILab.LBS.Components.GraphNode)
   type: Method
+  source:
+    id: GetBranches
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 406
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -645,6 +934,10 @@ items:
   nameWithType: QuestGraph.GetRoots(GraphNode)
   fullName: ISILab.LBS.Modules.QuestGraph.GetRoots(ISILab.LBS.Components.GraphNode)
   type: Method
+  source:
+    id: GetRoots
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 435
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -668,16 +961,29 @@ items:
   nameWithType: QuestGraph.InsertQuestNodeAfter(string, QuestNode)
   fullName: ISILab.LBS.Modules.QuestGraph.InsertQuestNodeAfter(string, ISILab.LBS.Components.QuestNode)
   type: Method
+  source:
+    id: InsertQuestNodeAfter
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 473
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: >-
+    finds the edge of a referenced node. makes a new action that turns into the "To"
+
+    of the connection and makes a new edge from the new action and the original "To"
+
+    of the referenced node
+  example: []
   syntax:
     content: public QuestNode InsertQuestNodeAfter(string action, QuestNode referenceNode)
     parameters:
     - id: action
       type: System.String
+      description: The action type for the new node
     - id: referenceNode
       type: ISILab.LBS.Components.QuestNode
+      description: The node after which the new node will be inserted
     return:
       type: ISILab.LBS.Components.QuestNode
     content.vb: Public Function InsertQuestNodeAfter(action As String, referenceNode As QuestNode) As QuestNode
@@ -696,16 +1002,24 @@ items:
   nameWithType: QuestGraph.InsertQuestNodeBefore(string, QuestNode)
   fullName: ISILab.LBS.Modules.QuestGraph.InsertQuestNodeBefore(string, ISILab.LBS.Components.QuestNode)
   type: Method
+  source:
+    id: InsertQuestNodeBefore
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 508
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Inserts a new node before a specified reference node
+  example: []
   syntax:
     content: public QuestNode InsertQuestNodeBefore(string action, QuestNode referenceNode)
     parameters:
     - id: action
       type: System.String
+      description: The action type for the new node
     - id: referenceNode
       type: ISILab.LBS.Components.QuestNode
+      description: The node before which the new node will be inserted
     return:
       type: ISILab.LBS.Components.QuestNode
     content.vb: Public Function InsertQuestNodeBefore(action As String, referenceNode As QuestNode) As QuestNode
@@ -724,16 +1038,24 @@ items:
   nameWithType: QuestGraph.ExpandNode(List<string>, QuestNode)
   fullName: ISILab.LBS.Modules.QuestGraph.ExpandNode(System.Collections.Generic.List<string>, ISILab.LBS.Components.QuestNode)
   type: Method
+  source:
+    id: ExpandNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 547
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Inserts all the nodes to replace the reference node
+  example: []
   syntax:
     content: public QuestNode ExpandNode(List<string> expandActions, QuestNode referenceNode)
     parameters:
     - id: expandActions
       type: System.Collections.Generic.List{System.String}
+      description: all the actions that correspond to a new node
     - id: referenceNode
       type: ISILab.LBS.Components.QuestNode
+      description: the node that will be expanded(replaced)
     return:
       type: ISILab.LBS.Components.QuestNode
     content.vb: Public Function ExpandNode(expandActions As List(Of String), referenceNode As QuestNode) As QuestNode
@@ -752,6 +1074,10 @@ items:
   nameWithType: QuestGraph.SetRoot(QuestNode)
   fullName: ISILab.LBS.Modules.QuestGraph.SetRoot(ISILab.LBS.Components.QuestNode)
   type: Method
+  source:
+    id: SetRoot
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 588
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -773,14 +1099,20 @@ items:
   nameWithType: QuestGraph.IsEmpty()
   fullName: ISILab.LBS.Modules.QuestGraph.IsEmpty()
   type: Method
+  source:
+    id: IsEmpty
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 618
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Determines whether the representation is empty.
   example: []
   syntax:
     content: public override bool IsEmpty()
     return:
       type: System.Boolean
+      description: ''
     content.vb: Public Overrides Function IsEmpty() As Boolean
   overridden: ISILab.LBS.Modules.LBSModule.IsEmpty
   overload: ISILab.LBS.Modules.QuestGraph.IsEmpty*
@@ -795,14 +1127,20 @@ items:
   nameWithType: QuestGraph.Clone()
   fullName: ISILab.LBS.Modules.QuestGraph.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 620
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Creates a copy of the representation.
   example: []
   syntax:
     content: public override object Clone()
     return:
       type: System.Object
+      description: ''
     content.vb: Public Overrides Function Clone() As Object
   overridden: ISILab.LBS.Modules.LBSModule.Clone
   overload: ISILab.LBS.Modules.QuestGraph.Clone*
@@ -819,6 +1157,10 @@ items:
   nameWithType: QuestGraph.GetSelected(Vector2Int)
   fullName: ISILab.LBS.Modules.QuestGraph.GetSelected(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: GetSelected
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 650
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -845,6 +1187,10 @@ items:
   nameWithType: QuestGraph.ChangeConnection(QuestEdge, Type)
   fullName: ISILab.LBS.Modules.QuestGraph.ChangeConnection(ISILab.LBS.Modules.QuestEdge, System.Type)
   type: Method
+  source:
+    id: ChangeConnection
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 664
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -868,9 +1214,17 @@ items:
   nameWithType: QuestGraph.Print()
   fullName: ISILab.LBS.Modules.QuestGraph.Print()
   type: Method
+  source:
+    id: Print
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 667
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: >-
+    prints by console basic information of 
+
+    the representation.
   example: []
   syntax:
     content: public override void Print()
@@ -888,9 +1242,14 @@ items:
   nameWithType: QuestGraph.Clear()
   fullName: ISILab.LBS.Modules.QuestGraph.Clear()
   type: Method
+  source:
+    id: Clear
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 668
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Cleans all the information saved in.
   example: []
   syntax:
     content: public override void Clear()
@@ -908,14 +1267,20 @@ items:
   nameWithType: QuestGraph.GetBounds()
   fullName: ISILab.LBS.Modules.QuestGraph.GetBounds()
   type: Method
+  source:
+    id: GetBounds
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 669
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Gets the bounding rectangle of the representation.
   example: []
   syntax:
     content: public override Rect GetBounds()
     return:
       type: UnityEngine.Rect
+      description: ''
     content.vb: Public Overrides Function GetBounds() As Rect
   overridden: ISILab.LBS.Modules.LBSModule.GetBounds
   overload: ISILab.LBS.Modules.QuestGraph.GetBounds*
@@ -930,169 +1295,27 @@ items:
   nameWithType: QuestGraph.Rewrite(LBSModule)
   fullName: ISILab.LBS.Modules.QuestGraph.Rewrite(ISILab.LBS.Modules.LBSModule)
   type: Method
+  source:
+    id: Rewrite
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraph.cs
+    startLine: 670
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
+  summary: Rewrites the representation based on another LBSModule.
   example: []
   syntax:
     content: public override void Rewrite(LBSModule other)
     parameters:
     - id: other
       type: ISILab.LBS.Modules.LBSModule
+      description: ''
     content.vb: Public Overrides Sub Rewrite(other As LBSModule)
   overridden: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
   overload: ISILab.LBS.Modules.QuestGraph.Rewrite*
-- uid: ISILab.LBS.Modules.QuestGraph.Root
-  commentId: P:ISILab.LBS.Modules.QuestGraph.Root
-  id: Root
-  parent: ISILab.LBS.Modules.QuestGraph
-  langs:
-  - csharp
-  - vb
-  name: Root
-  nameWithType: QuestGraph.Root
-  fullName: ISILab.LBS.Modules.QuestGraph.Root
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public QuestNode Root { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Components.QuestNode
-    content.vb: Public ReadOnly Property Root As QuestNode
-  overload: ISILab.LBS.Modules.QuestGraph.Root*
-- uid: ISILab.LBS.Modules.QuestGraph.GraphNodes
-  commentId: P:ISILab.LBS.Modules.QuestGraph.GraphNodes
-  id: GraphNodes
-  parent: ISILab.LBS.Modules.QuestGraph
-  langs:
-  - csharp
-  - vb
-  name: GraphNodes
-  nameWithType: QuestGraph.GraphNodes
-  fullName: ISILab.LBS.Modules.QuestGraph.GraphNodes
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public List<GraphNode> GraphNodes { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
-    content.vb: Public ReadOnly Property GraphNodes As List(Of GraphNode)
-  overload: ISILab.LBS.Modules.QuestGraph.GraphNodes*
-- uid: ISILab.LBS.Modules.QuestGraph.GraphEdges
-  commentId: P:ISILab.LBS.Modules.QuestGraph.GraphEdges
-  id: GraphEdges
-  parent: ISILab.LBS.Modules.QuestGraph
-  langs:
-  - csharp
-  - vb
-  name: GraphEdges
-  nameWithType: QuestGraph.GraphEdges
-  fullName: ISILab.LBS.Modules.QuestGraph.GraphEdges
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public List<QuestEdge> GraphEdges { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Modules.QuestEdge}
-    content.vb: Public ReadOnly Property GraphEdges As List(Of QuestEdge)
-  overload: ISILab.LBS.Modules.QuestGraph.GraphEdges*
-- uid: ISILab.LBS.Modules.QuestGraph.Grammar
-  commentId: P:ISILab.LBS.Modules.QuestGraph.Grammar
-  id: Grammar
-  parent: ISILab.LBS.Modules.QuestGraph
-  langs:
-  - csharp
-  - vb
-  name: Grammar
-  nameWithType: QuestGraph.Grammar
-  fullName: ISILab.LBS.Modules.QuestGraph.Grammar
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public LBSGrammar Grammar { get; set; }
-    parameters: []
-    return:
-      type: ISILab.AI.Grammar.LBSGrammar
-    content.vb: Public Property Grammar As LBSGrammar
-  overload: ISILab.LBS.Modules.QuestGraph.Grammar*
-- uid: ISILab.LBS.Modules.QuestGraph.SelectedGraphNode
-  commentId: P:ISILab.LBS.Modules.QuestGraph.SelectedGraphNode
-  id: SelectedGraphNode
-  parent: ISILab.LBS.Modules.QuestGraph
-  langs:
-  - csharp
-  - vb
-  name: SelectedGraphNode
-  nameWithType: QuestGraph.SelectedGraphNode
-  fullName: ISILab.LBS.Modules.QuestGraph.SelectedGraphNode
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public GraphNode SelectedGraphNode { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Components.GraphNode
-    content.vb: Public Property SelectedGraphNode As GraphNode
-  overload: ISILab.LBS.Modules.QuestGraph.SelectedGraphNode*
-- uid: ISILab.LBS.Modules.QuestGraph.SelectedQuestData
-  commentId: P:ISILab.LBS.Modules.QuestGraph.SelectedQuestData
-  id: SelectedQuestData
-  parent: ISILab.LBS.Modules.QuestGraph
-  langs:
-  - csharp
-  - vb
-  name: SelectedQuestData
-  nameWithType: QuestGraph.SelectedQuestData
-  fullName: ISILab.LBS.Modules.QuestGraph.SelectedQuestData
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public QuestNodeData SelectedQuestData { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Components.QuestNodeData
-    content.vb: Public ReadOnly Property SelectedQuestData As QuestNodeData
-  overload: ISILab.LBS.Modules.QuestGraph.SelectedQuestData*
-- uid: ISILab.LBS.Modules.QuestGraph.SelectedQuestNode
-  commentId: P:ISILab.LBS.Modules.QuestGraph.SelectedQuestNode
-  id: SelectedQuestNode
-  parent: ISILab.LBS.Modules.QuestGraph
-  langs:
-  - csharp
-  - vb
-  name: SelectedQuestNode
-  nameWithType: QuestGraph.SelectedQuestNode
-  fullName: ISILab.LBS.Modules.QuestGraph.SelectedQuestNode
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public QuestNode SelectedQuestNode { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Components.QuestNode
-    content.vb: Public ReadOnly Property SelectedQuestNode As QuestNode
-  overload: ISILab.LBS.Modules.QuestGraph.SelectedQuestNode*
 references:
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -1100,32 +1323,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: System.Object
   commentId: T:System.Object
@@ -1141,7 +1358,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule
   commentId: T:ISILab.LBS.Modules.LBSModule
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html
   name: LBSModule
   nameWithType: LBSModule
@@ -1157,7 +1373,6 @@ references:
 - uid: ISILab.LBS.Modules.ISelectable
   commentId: T:ISILab.LBS.Modules.ISelectable
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.ISelectable.html
   name: ISelectable
   nameWithType: ISelectable
@@ -1165,83 +1380,13 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.id
   commentId: F:ISILab.LBS.Modules.LBSModule.id
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id
   name: id
   nameWithType: LBSModule.id
   fullName: ISILab.LBS.Modules.LBSModule.id
-- uid: ISILab.LBS.Modules.LBSModule.OnChanged
-  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
-  name: OnChanged
-  nameWithType: LBSModule.OnChanged
-  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
-- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  name: OnAttach(LBSLayer)
-  nameWithType: LBSModule.OnAttach(LBSLayer)
-  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-    name: OnAttach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-    name: OnAttach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  name: OnDetach(LBSLayer)
-  nameWithType: LBSModule.OnDetach(LBSLayer)
-  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-    name: OnDetach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-    name: OnDetach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
 - uid: ISILab.LBS.Modules.LBSModule.OwnerLayer
   commentId: P:ISILab.LBS.Modules.LBSModule.OwnerLayer
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer
   name: OwnerLayer
   nameWithType: LBSModule.OwnerLayer
@@ -1249,82 +1394,66 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.ID
   commentId: P:ISILab.LBS.Modules.LBSModule.ID
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID
   name: ID
   nameWithType: LBSModule.ID
   fullName: ISILab.LBS.Modules.LBSModule.ID
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
+- uid: ISILab.LBS.Modules.LBSModule.OnChanged
+  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
+  name: OnChanged
+  nameWithType: LBSModule.OnChanged
+  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
+- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  name: OnAttach(LBSLayer)
+  nameWithType: LBSModule.OnAttach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
   spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
   - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
   - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
   - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
+- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  name: OnDetach(LBSLayer)
+  nameWithType: LBSModule.OnDetach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
   spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
   - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
   - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -1404,6 +1533,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -1449,28 +1650,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -1491,6 +1692,267 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: ISILab.LBS.Modules.QuestGraph.Root*
+  commentId: Overload:ISILab.LBS.Modules.QuestGraph.Root
+  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_Root
+  name: Root
+  nameWithType: QuestGraph.Root
+  fullName: ISILab.LBS.Modules.QuestGraph.Root
+- uid: ISILab.LBS.Components.QuestNode
+  commentId: T:ISILab.LBS.Components.QuestNode
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.QuestNode.html
+  name: QuestNode
+  nameWithType: QuestNode
+  fullName: ISILab.LBS.Components.QuestNode
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.Modules.QuestGraph.GraphNodes*
+  commentId: Overload:ISILab.LBS.Modules.QuestGraph.GraphNodes
+  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GraphNodes
+  name: GraphNodes
+  nameWithType: QuestGraph.GraphNodes
+  fullName: ISILab.LBS.Modules.QuestGraph.GraphNodes
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GraphNode>
+  nameWithType: List<GraphNode>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.GraphNode>
+  nameWithType.vb: List(Of GraphNode)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.GraphNode)
+  name.vb: List(Of GraphNode)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.GraphNode
+    name: GraphNode
+    href: ISILab.LBS.Components.GraphNode.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.GraphNode
+    name: GraphNode
+    href: ISILab.LBS.Components.GraphNode.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Modules.QuestGraph.GraphEdges*
+  commentId: Overload:ISILab.LBS.Modules.QuestGraph.GraphEdges
+  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GraphEdges
+  name: GraphEdges
+  nameWithType: QuestGraph.GraphEdges
+  fullName: ISILab.LBS.Modules.QuestGraph.GraphEdges
+- uid: System.Collections.Generic.List{ISILab.LBS.Modules.QuestEdge}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.QuestEdge}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<QuestEdge>
+  nameWithType: List<QuestEdge>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.QuestEdge>
+  nameWithType.vb: List(Of QuestEdge)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.QuestEdge)
+  name.vb: List(Of QuestEdge)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Modules.QuestEdge
+    name: QuestEdge
+    href: ISILab.LBS.Modules.QuestEdge.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.QuestEdge
+    name: QuestEdge
+    href: ISILab.LBS.Modules.QuestEdge.html
+  - name: )
+- uid: ISILab.LBS.Modules.QuestGraph.Grammar*
+  commentId: Overload:ISILab.LBS.Modules.QuestGraph.Grammar
+  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_Grammar
+  name: Grammar
+  nameWithType: QuestGraph.Grammar
+  fullName: ISILab.LBS.Modules.QuestGraph.Grammar
+- uid: ISILab.AI.Grammar.LBSGrammar
+  commentId: T:ISILab.AI.Grammar.LBSGrammar
+  parent: ISILab.AI.Grammar
+  href: ISILab.AI.Grammar.LBSGrammar.html
+  name: LBSGrammar
+  nameWithType: LBSGrammar
+  fullName: ISILab.AI.Grammar.LBSGrammar
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    href: ISILab.AI.Grammar.html
+- uid: ISILab.LBS.Modules.QuestGraph.SelectedGraphNode*
+  commentId: Overload:ISILab.LBS.Modules.QuestGraph.SelectedGraphNode
+  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_SelectedGraphNode
+  name: SelectedGraphNode
+  nameWithType: QuestGraph.SelectedGraphNode
+  fullName: ISILab.LBS.Modules.QuestGraph.SelectedGraphNode
+- uid: ISILab.LBS.Components.GraphNode
+  commentId: T:ISILab.LBS.Components.GraphNode
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.GraphNode.html
+  name: GraphNode
+  nameWithType: GraphNode
+  fullName: ISILab.LBS.Components.GraphNode
+- uid: ISILab.LBS.Modules.QuestGraph.SelectedQuestData*
+  commentId: Overload:ISILab.LBS.Modules.QuestGraph.SelectedQuestData
+  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_SelectedQuestData
+  name: SelectedQuestData
+  nameWithType: QuestGraph.SelectedQuestData
+  fullName: ISILab.LBS.Modules.QuestGraph.SelectedQuestData
+- uid: ISILab.LBS.Components.QuestNodeData
+  commentId: T:ISILab.LBS.Components.QuestNodeData
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.QuestNodeData.html
+  name: QuestNodeData
+  nameWithType: QuestNodeData
+  fullName: ISILab.LBS.Components.QuestNodeData
+- uid: ISILab.LBS.Modules.QuestGraph.SelectedQuestNode*
+  commentId: Overload:ISILab.LBS.Modules.QuestGraph.SelectedQuestNode
+  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_SelectedQuestNode
+  name: SelectedQuestNode
+  nameWithType: QuestGraph.SelectedQuestNode
+  fullName: ISILab.LBS.Modules.QuestGraph.SelectedQuestNode
 - uid: System.Action
   commentId: T:System.Action
   parent: System
@@ -1518,7 +1980,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Components.GraphNode
     name: GraphNode
-    isExternal: true
     href: ISILab.LBS.Components.GraphNode.html
   - name: '>'
   spec.vb:
@@ -1531,7 +1992,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Components.GraphNode
     name: GraphNode
-    isExternal: true
     href: ISILab.LBS.Components.GraphNode.html
   - name: )
 - uid: System.Action`1
@@ -1614,7 +2074,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Modules.QuestEdge
     name: QuestEdge
-    isExternal: true
     href: ISILab.LBS.Modules.QuestEdge.html
   - name: '>'
   spec.vb:
@@ -1627,7 +2086,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Modules.QuestEdge
     name: QuestEdge
-    isExternal: true
     href: ISILab.LBS.Modules.QuestEdge.html
   - name: )
 - uid: System.Action{ISILab.LBS.Components.QuestNode}
@@ -1649,7 +2107,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Components.QuestNode
     name: QuestNode
-    isExternal: true
     href: ISILab.LBS.Components.QuestNode.html
   - name: '>'
   spec.vb:
@@ -1662,12 +2119,10 @@ references:
   - name: " "
   - uid: ISILab.LBS.Components.QuestNode
     name: QuestNode
-    isExternal: true
     href: ISILab.LBS.Components.QuestNode.html
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.#ctor*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.#ctor
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph__ctor
   name: QuestGraph
   nameWithType: QuestGraph.QuestGraph
@@ -1677,26 +2132,25 @@ references:
   name.vb: New
 - uid: ISILab.LBS.Modules.QuestGraph.Reselect*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.Reselect
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_Reselect
   name: Reselect
   nameWithType: QuestGraph.Reselect
   fullName: ISILab.LBS.Modules.QuestGraph.Reselect
 - uid: ISILab.LBS.Modules.QuestGraph.ValidateGraph*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.ValidateGraph
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_ValidateGraph
   name: ValidateGraph
   nameWithType: QuestGraph.ValidateGraph
   fullName: ISILab.LBS.Modules.QuestGraph.ValidateGraph
 - uid: ISILab.LBS.Modules.QuestGraph.GetNodeAtPosition*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.GetNodeAtPosition
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GetNodeAtPosition__1_UnityEngine_Vector2_
   name: GetNodeAtPosition
   nameWithType: QuestGraph.GetNodeAtPosition
   fullName: ISILab.LBS.Modules.QuestGraph.GetNodeAtPosition
 - uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
@@ -1707,13 +2161,18 @@ references:
   name: T
   nameWithType: T
   fullName: T
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: T
   name: T
   nameWithType: T
   fullName: T
 - uid: ISILab.LBS.Modules.QuestGraph.GetQuestNodes*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.GetQuestNodes
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GetQuestNodes
   name: GetQuestNodes
   nameWithType: QuestGraph.GetQuestNodes
@@ -1737,7 +2196,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Components.QuestNode
     name: QuestNode
-    isExternal: true
     href: ISILab.LBS.Components.QuestNode.html
   - name: '>'
   spec.vb:
@@ -1750,77 +2208,10 @@ references:
   - name: " "
   - uid: ISILab.LBS.Components.QuestNode
     name: QuestNode
-    isExternal: true
     href: ISILab.LBS.Components.QuestNode.html
   - name: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.LBS.Modules.QuestGraph.AddNewNode*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.AddNewNode
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_AddNewNode_ISILab_LBS_Behaviours_QuestBehaviour_UnityEngine_Vector2_
   name: AddNewNode
   nameWithType: QuestGraph.AddNewNode
@@ -1828,22 +2219,12 @@ references:
 - uid: ISILab.LBS.Behaviours.QuestBehaviour
   commentId: T:ISILab.LBS.Behaviours.QuestBehaviour
   parent: ISILab.LBS.Behaviours
-  isExternal: true
   href: ISILab.LBS.Behaviours.QuestBehaviour.html
   name: QuestBehaviour
   nameWithType: QuestBehaviour
   fullName: ISILab.LBS.Behaviours.QuestBehaviour
-- uid: ISILab.LBS.Components.GraphNode
-  commentId: T:ISILab.LBS.Components.GraphNode
-  parent: ISILab.LBS.Components
-  isExternal: true
-  href: ISILab.LBS.Components.GraphNode.html
-  name: GraphNode
-  nameWithType: GraphNode
-  fullName: ISILab.LBS.Components.GraphNode
 - uid: ISILab.LBS.Behaviours
   commentId: N:ISILab.LBS.Behaviours
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Behaviours
   nameWithType: ISILab.LBS.Behaviours
@@ -1851,73 +2232,29 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Behaviours.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Behaviours.html
-- uid: ISILab.LBS.Components
-  commentId: N:ISILab.LBS.Components
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.LBS.Components
-  nameWithType: ISILab.LBS.Components
-  fullName: ISILab.LBS.Components
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Components
-    name: Components
-    isExternal: true
-    href: ISILab.LBS.Components.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Components
-    name: Components
-    isExternal: true
-    href: ISILab.LBS.Components.html
 - uid: ISILab.LBS.Modules.QuestGraph.GetNodeSuggestion*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.GetNodeSuggestion
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GetNodeSuggestion_System_String_System_Collections_Generic_List_ISILab_LBS_Components_QuestNode__UnityEngine_Vector2_
   name: GetNodeSuggestion
   nameWithType: QuestGraph.GetNodeSuggestion
@@ -1933,45 +2270,32 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: ISILab.LBS.Components.QuestNode
-  commentId: T:ISILab.LBS.Components.QuestNode
-  parent: ISILab.LBS.Components
-  isExternal: true
-  href: ISILab.LBS.Components.QuestNode.html
-  name: QuestNode
-  nameWithType: QuestNode
-  fullName: ISILab.LBS.Components.QuestNode
 - uid: ISILab.LBS.Modules.QuestGraph.AddNewQuestNode*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.AddNewQuestNode
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_AddNewQuestNode_System_String_UnityEngine_Vector2_
   name: AddNewQuestNode
   nameWithType: QuestGraph.AddNewQuestNode
   fullName: ISILab.LBS.Modules.QuestGraph.AddNewQuestNode
 - uid: ISILab.LBS.Modules.QuestGraph.AddSuggestionNode*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.AddSuggestionNode
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_AddSuggestionNode_ISILab_LBS_Components_QuestNode_
   name: AddSuggestionNode
   nameWithType: QuestGraph.AddSuggestionNode
   fullName: ISILab.LBS.Modules.QuestGraph.AddSuggestionNode
 - uid: ISILab.LBS.Modules.QuestGraph.AddNodeToGraph*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.AddNodeToGraph
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_AddNodeToGraph_ISILab_LBS_Components_GraphNode_
   name: AddNodeToGraph
   nameWithType: QuestGraph.AddNodeToGraph
   fullName: ISILab.LBS.Modules.QuestGraph.AddNodeToGraph
 - uid: ISILab.LBS.Modules.QuestGraph.RemoveQuestNode*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.RemoveQuestNode
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_RemoveQuestNode_ISILab_LBS_Components_GraphNode_
   name: RemoveQuestNode
   nameWithType: QuestGraph.RemoveQuestNode
   fullName: ISILab.LBS.Modules.QuestGraph.RemoveQuestNode
 - uid: ISILab.LBS.Modules.QuestGraph.AddEdge*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.AddEdge
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_AddEdge_ISILab_LBS_Components_GraphNode_ISILab_LBS_Components_GraphNode_
   name: AddEdge
   nameWithType: QuestGraph.AddEdge
@@ -2057,7 +2381,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.IsLooped*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.IsLooped
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_IsLooped_ISILab_LBS_Components_GraphNode_ISILab_LBS_Components_GraphNode_System_Collections_Generic_HashSet_ISILab_LBS_Components_GraphNode__
   name: IsLooped
   nameWithType: QuestGraph.IsLooped
@@ -2081,7 +2404,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Components.GraphNode
     name: GraphNode
-    isExternal: true
     href: ISILab.LBS.Components.GraphNode.html
   - name: '>'
   spec.vb:
@@ -2094,7 +2416,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Components.GraphNode
     name: GraphNode
-    isExternal: true
     href: ISILab.LBS.Components.GraphNode.html
   - name: )
 - uid: System.Boolean
@@ -2138,7 +2459,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.RemoveEdge*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.RemoveEdge
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_RemoveEdge_ISILab_LBS_Modules_QuestEdge_
   name: RemoveEdge
   nameWithType: QuestGraph.RemoveEdge
@@ -2146,84 +2466,42 @@ references:
 - uid: ISILab.LBS.Modules.QuestEdge
   commentId: T:ISILab.LBS.Modules.QuestEdge
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.QuestEdge.html
   name: QuestEdge
   nameWithType: QuestEdge
   fullName: ISILab.LBS.Modules.QuestEdge
 - uid: ISILab.LBS.Modules.QuestGraph.GetEdge*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.GetEdge
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GetEdge_UnityEngine_Vector2_System_Single_
   name: GetEdge
   nameWithType: QuestGraph.GetEdge
   fullName: ISILab.LBS.Modules.QuestGraph.GetEdge
 - uid: ISILab.LBS.Modules.QuestGraph.GetBranches*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.GetBranches
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GetBranches_ISILab_LBS_Components_GraphNode_
   name: GetBranches
   nameWithType: QuestGraph.GetBranches
   fullName: ISILab.LBS.Modules.QuestGraph.GetBranches
-- uid: System.Collections.Generic.List{ISILab.LBS.Modules.QuestEdge}
-  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.QuestEdge}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<QuestEdge>
-  nameWithType: List<QuestEdge>
-  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.QuestEdge>
-  nameWithType.vb: List(Of QuestEdge)
-  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.QuestEdge)
-  name.vb: List(Of QuestEdge)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: ISILab.LBS.Modules.QuestEdge
-    name: QuestEdge
-    isExternal: true
-    href: ISILab.LBS.Modules.QuestEdge.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Modules.QuestEdge
-    name: QuestEdge
-    isExternal: true
-    href: ISILab.LBS.Modules.QuestEdge.html
-  - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.GetRoots*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.GetRoots
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GetRoots_ISILab_LBS_Components_GraphNode_
   name: GetRoots
   nameWithType: QuestGraph.GetRoots
   fullName: ISILab.LBS.Modules.QuestGraph.GetRoots
 - uid: ISILab.LBS.Modules.QuestGraph.InsertQuestNodeAfter*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.InsertQuestNodeAfter
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_InsertQuestNodeAfter_System_String_ISILab_LBS_Components_QuestNode_
   name: InsertQuestNodeAfter
   nameWithType: QuestGraph.InsertQuestNodeAfter
   fullName: ISILab.LBS.Modules.QuestGraph.InsertQuestNodeAfter
 - uid: ISILab.LBS.Modules.QuestGraph.InsertQuestNodeBefore*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.InsertQuestNodeBefore
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_InsertQuestNodeBefore_System_String_ISILab_LBS_Components_QuestNode_
   name: InsertQuestNodeBefore
   nameWithType: QuestGraph.InsertQuestNodeBefore
   fullName: ISILab.LBS.Modules.QuestGraph.InsertQuestNodeBefore
 - uid: ISILab.LBS.Modules.QuestGraph.ExpandNode*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.ExpandNode
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_ExpandNode_System_Collections_Generic_List_System_String__ISILab_LBS_Components_QuestNode_
   name: ExpandNode
   nameWithType: QuestGraph.ExpandNode
@@ -2265,7 +2543,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.SetRoot*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.SetRoot
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_SetRoot_ISILab_LBS_Components_QuestNode_
   name: SetRoot
   nameWithType: QuestGraph.SetRoot
@@ -2273,7 +2550,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
   commentId: M:ISILab.LBS.Modules.LBSModule.IsEmpty
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   name: IsEmpty()
   nameWithType: LBSModule.IsEmpty()
@@ -2281,20 +2557,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
     name: IsEmpty
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
     name: IsEmpty
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.IsEmpty*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.IsEmpty
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_IsEmpty
   name: IsEmpty
   nameWithType: QuestGraph.IsEmpty
@@ -2302,7 +2575,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Clone
   commentId: M:ISILab.LBS.Modules.LBSModule.Clone
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   name: Clone()
   nameWithType: LBSModule.Clone()
@@ -2310,20 +2582,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.Clone*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.Clone
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_Clone
   name: Clone
   nameWithType: QuestGraph.Clone
@@ -2352,7 +2621,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.GetSelected*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.GetSelected
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GetSelected_UnityEngine_Vector2Int_
   name: GetSelected
   nameWithType: QuestGraph.GetSelected
@@ -2368,7 +2636,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
     name: GetSelected
-    isExternal: true
     href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
   - name: (
   - uid: UnityEngine.Vector2Int
@@ -2378,7 +2645,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
     name: GetSelected
-    isExternal: true
     href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
   - name: (
   - uid: UnityEngine.Vector2Int
@@ -2386,6 +2652,8 @@ references:
     isExternal: true
   - name: )
 - uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
   isExternal: true
   name: Vector2Int
   nameWithType: Vector2Int
@@ -2427,7 +2695,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.ChangeConnection*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.ChangeConnection
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_ChangeConnection_ISILab_LBS_Modules_QuestEdge_System_Type_
   name: ChangeConnection
   nameWithType: QuestGraph.ChangeConnection
@@ -2443,7 +2710,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Print
   commentId: M:ISILab.LBS.Modules.LBSModule.Print
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
   name: Print()
   nameWithType: LBSModule.Print()
@@ -2451,20 +2717,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Print
     name: Print
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Print
     name: Print
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.Print*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.Print
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_Print
   name: Print
   nameWithType: QuestGraph.Print
@@ -2472,7 +2735,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Clear
   commentId: M:ISILab.LBS.Modules.LBSModule.Clear
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   name: Clear()
   nameWithType: LBSModule.Clear()
@@ -2480,20 +2742,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Clear
     name: Clear
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Clear
     name: Clear
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.Clear*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.Clear
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_Clear
   name: Clear
   nameWithType: QuestGraph.Clear
@@ -2501,7 +2760,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.GetBounds
   commentId: M:ISILab.LBS.Modules.LBSModule.GetBounds
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   name: GetBounds()
   nameWithType: LBSModule.GetBounds()
@@ -2509,25 +2767,24 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.GetBounds
     name: GetBounds
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.GetBounds
     name: GetBounds
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.GetBounds*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.GetBounds
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GetBounds
   name: GetBounds
   nameWithType: QuestGraph.GetBounds
   fullName: ISILab.LBS.Modules.QuestGraph.GetBounds
 - uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
   isExternal: true
   name: Rect
   nameWithType: Rect
@@ -2535,7 +2792,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
   commentId: M:ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   name: Rewrite(LBSModule)
   nameWithType: LBSModule.Rewrite(LBSModule)
@@ -2543,167 +2799,25 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
     name: Rewrite
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   - name: (
   - uid: ISILab.LBS.Modules.LBSModule
     name: LBSModule
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
     name: Rewrite
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   - name: (
   - uid: ISILab.LBS.Modules.LBSModule
     name: LBSModule
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html
   - name: )
 - uid: ISILab.LBS.Modules.QuestGraph.Rewrite*
   commentId: Overload:ISILab.LBS.Modules.QuestGraph.Rewrite
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_Rewrite_ISILab_LBS_Modules_LBSModule_
   name: Rewrite
   nameWithType: QuestGraph.Rewrite
   fullName: ISILab.LBS.Modules.QuestGraph.Rewrite
-- uid: ISILab.LBS.Modules.QuestGraph.Root*
-  commentId: Overload:ISILab.LBS.Modules.QuestGraph.Root
-  isExternal: true
-  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_Root
-  name: Root
-  nameWithType: QuestGraph.Root
-  fullName: ISILab.LBS.Modules.QuestGraph.Root
-- uid: ISILab.LBS.Modules.QuestGraph.GraphNodes*
-  commentId: Overload:ISILab.LBS.Modules.QuestGraph.GraphNodes
-  isExternal: true
-  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GraphNodes
-  name: GraphNodes
-  nameWithType: QuestGraph.GraphNodes
-  fullName: ISILab.LBS.Modules.QuestGraph.GraphNodes
-- uid: System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
-  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<GraphNode>
-  nameWithType: List<GraphNode>
-  fullName: System.Collections.Generic.List<ISILab.LBS.Components.GraphNode>
-  nameWithType.vb: List(Of GraphNode)
-  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.GraphNode)
-  name.vb: List(Of GraphNode)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    isExternal: true
-    href: ISILab.LBS.Components.GraphNode.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    isExternal: true
-    href: ISILab.LBS.Components.GraphNode.html
-  - name: )
-- uid: ISILab.LBS.Modules.QuestGraph.GraphEdges*
-  commentId: Overload:ISILab.LBS.Modules.QuestGraph.GraphEdges
-  isExternal: true
-  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_GraphEdges
-  name: GraphEdges
-  nameWithType: QuestGraph.GraphEdges
-  fullName: ISILab.LBS.Modules.QuestGraph.GraphEdges
-- uid: ISILab.LBS.Modules.QuestGraph.Grammar*
-  commentId: Overload:ISILab.LBS.Modules.QuestGraph.Grammar
-  isExternal: true
-  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_Grammar
-  name: Grammar
-  nameWithType: QuestGraph.Grammar
-  fullName: ISILab.LBS.Modules.QuestGraph.Grammar
-- uid: ISILab.AI.Grammar.LBSGrammar
-  commentId: T:ISILab.AI.Grammar.LBSGrammar
-  parent: ISILab.AI.Grammar
-  isExternal: true
-  href: ISILab.AI.Grammar.LBSGrammar.html
-  name: LBSGrammar
-  nameWithType: LBSGrammar
-  fullName: ISILab.AI.Grammar.LBSGrammar
-- uid: ISILab.AI.Grammar
-  commentId: N:ISILab.AI.Grammar
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.AI.Grammar
-  nameWithType: ISILab.AI.Grammar
-  fullName: ISILab.AI.Grammar
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.AI
-    name: AI
-    isExternal: true
-    href: ISILab.AI.html
-  - name: .
-  - uid: ISILab.AI.Grammar
-    name: Grammar
-    isExternal: true
-    href: ISILab.AI.Grammar.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.AI
-    name: AI
-    isExternal: true
-    href: ISILab.AI.html
-  - name: .
-  - uid: ISILab.AI.Grammar
-    name: Grammar
-    isExternal: true
-    href: ISILab.AI.Grammar.html
-- uid: ISILab.LBS.Modules.QuestGraph.SelectedGraphNode*
-  commentId: Overload:ISILab.LBS.Modules.QuestGraph.SelectedGraphNode
-  isExternal: true
-  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_SelectedGraphNode
-  name: SelectedGraphNode
-  nameWithType: QuestGraph.SelectedGraphNode
-  fullName: ISILab.LBS.Modules.QuestGraph.SelectedGraphNode
-- uid: ISILab.LBS.Modules.QuestGraph.SelectedQuestData*
-  commentId: Overload:ISILab.LBS.Modules.QuestGraph.SelectedQuestData
-  isExternal: true
-  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_SelectedQuestData
-  name: SelectedQuestData
-  nameWithType: QuestGraph.SelectedQuestData
-  fullName: ISILab.LBS.Modules.QuestGraph.SelectedQuestData
-- uid: ISILab.LBS.Components.QuestNodeData
-  commentId: T:ISILab.LBS.Components.QuestNodeData
-  parent: ISILab.LBS.Components
-  isExternal: true
-  href: ISILab.LBS.Components.QuestNodeData.html
-  name: QuestNodeData
-  nameWithType: QuestNodeData
-  fullName: ISILab.LBS.Components.QuestNodeData
-- uid: ISILab.LBS.Modules.QuestGraph.SelectedQuestNode*
-  commentId: Overload:ISILab.LBS.Modules.QuestGraph.SelectedQuestNode
-  isExternal: true
-  href: ISILab.LBS.Modules.QuestGraph.html#ISILab_LBS_Modules_QuestGraph_SelectedQuestNode
-  name: SelectedQuestNode
-  nameWithType: QuestGraph.SelectedQuestNode
-  fullName: ISILab.LBS.Modules.QuestGraph.SelectedQuestNode
 shouldSkipMarkup: true

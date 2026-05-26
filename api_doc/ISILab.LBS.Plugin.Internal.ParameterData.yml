@@ -18,19 +18,33 @@ items:
   nameWithType: ParameterData
   fullName: ISILab.LBS.Plugin.Internal.ParameterData
   type: Struct
+  source:
+    id: ParameterData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Resources\EvaluatorsDatabase.cs
+    startLine: 62
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Internal
   syntax:
-    content: public struct ParameterData
-    content.vb: Public Structure ParameterData
+    content: >-
+      [Serializable]
+
+      public struct ParameterData
+    content.vb: >-
+      <Serializable>
+
+      Public Structure ParameterData
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Internal.ParameterData.name
   commentId: F:ISILab.LBS.Plugin.Internal.ParameterData.name
   id: name
@@ -42,6 +56,10 @@ items:
   nameWithType: ParameterData.name
   fullName: ISILab.LBS.Plugin.Internal.ParameterData.name
   type: Field
+  source:
+    id: name
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Resources\EvaluatorsDatabase.cs
+    startLine: 65
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Internal
@@ -61,6 +79,10 @@ items:
   nameWithType: ParameterData.varTypeAsString
   fullName: ISILab.LBS.Plugin.Internal.ParameterData.varTypeAsString
   type: Field
+  source:
+    id: varTypeAsString
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Resources\EvaluatorsDatabase.cs
+    startLine: 66
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Internal
@@ -80,6 +102,10 @@ items:
   nameWithType: ParameterData.initialValue
   fullName: ISILab.LBS.Plugin.Internal.ParameterData.initialValue
   type: Field
+  source:
+    id: initialValue
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Resources\EvaluatorsDatabase.cs
+    startLine: 67
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Internal
@@ -99,6 +125,10 @@ items:
   nameWithType: ParameterData.isDeletable
   fullName: ISILab.LBS.Plugin.Internal.ParameterData.isDeletable
   type: Field
+  source:
+    id: isDeletable
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Resources\EvaluatorsDatabase.cs
+    startLine: 68
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Internal
@@ -118,6 +148,10 @@ items:
   nameWithType: ParameterData.ParameterData(string, string, string, bool)
   fullName: ISILab.LBS.Plugin.Internal.ParameterData.ParameterData(string, string, string, bool)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Resources\EvaluatorsDatabase.cs
+    startLine: 70
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Internal
@@ -148,6 +182,10 @@ items:
   nameWithType: ParameterData.VarType
   fullName: ISILab.LBS.Plugin.Internal.ParameterData.VarType
   type: Property
+  source:
+    id: VarType
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Resources\EvaluatorsDatabase.cs
+    startLine: 78
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Internal
@@ -161,7 +199,6 @@ items:
 references:
 - uid: ISILab.LBS.Plugin.Internal
   commentId: N:ISILab.LBS.Plugin.Internal
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Internal
   nameWithType: ISILab.LBS.Plugin.Internal
@@ -169,42 +206,34 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Internal
     name: Internal
-    isExternal: true
     href: ISILab.LBS.Plugin.Internal.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Internal
     name: Internal
-    isExternal: true
     href: ISILab.LBS.Plugin.Internal.html
 - uid: System.ValueType.Equals(System.Object)
   commentId: M:System.ValueType.Equals(System.Object)
@@ -283,30 +312,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -351,6 +356,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -447,7 +476,6 @@ references:
   name.vb: Boolean
 - uid: ISILab.LBS.Plugin.Internal.ParameterData.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.Internal.ParameterData.#ctor
-  isExternal: true
   href: ISILab.LBS.Plugin.Internal.ParameterData.html#ISILab_LBS_Plugin_Internal_ParameterData__ctor_System_String_System_String_System_String_System_Boolean_
   name: ParameterData
   nameWithType: ParameterData.ParameterData
@@ -457,7 +485,6 @@ references:
   name.vb: New
 - uid: ISILab.LBS.Plugin.Internal.ParameterData.VarType*
   commentId: Overload:ISILab.LBS.Plugin.Internal.ParameterData.VarType
-  isExternal: true
   href: ISILab.LBS.Plugin.Internal.ParameterData.html#ISILab_LBS_Plugin_Internal_ParameterData_VarType
   name: VarType
   nameWithType: ParameterData.VarType

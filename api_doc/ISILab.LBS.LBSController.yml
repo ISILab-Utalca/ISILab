@@ -20,6 +20,10 @@ items:
   nameWithType: LBSController
   fullName: ISILab.LBS.LBSController
   type: Class
+  source:
+    id: LBSController
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Main\Editor\LBSController.cs
+    startLine: 10
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -29,13 +33,13 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.LBS.LBSController.OnLoadLevel
   commentId: F:ISILab.LBS.LBSController.OnLoadLevel
   id: OnLoadLevel
@@ -47,6 +51,10 @@ items:
   nameWithType: LBSController.OnLoadLevel
   fullName: ISILab.LBS.LBSController.OnLoadLevel
   type: Field
+  source:
+    id: OnLoadLevel
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Main\Editor\LBSController.cs
+    startLine: 14
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -66,6 +74,10 @@ items:
   nameWithType: LBSController.OnSaveLevel
   fullName: ISILab.LBS.LBSController.OnSaveLevel
   type: Field
+  source:
+    id: OnSaveLevel
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Main\Editor\LBSController.cs
+    startLine: 15
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -74,6 +86,31 @@ items:
     return:
       type: System.Action{ISILab.LBS.LBSLevelData}
     content.vb: Public Shared OnSaveLevel As Action(Of LBSLevelData)
+- uid: ISILab.LBS.LBSController.CurrentLevel
+  commentId: P:ISILab.LBS.LBSController.CurrentLevel
+  id: CurrentLevel
+  parent: ISILab.LBS.LBSController
+  langs:
+  - csharp
+  - vb
+  name: CurrentLevel
+  nameWithType: LBSController.CurrentLevel
+  fullName: ISILab.LBS.LBSController.CurrentLevel
+  type: Property
+  source:
+    id: CurrentLevel
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Main\Editor\LBSController.cs
+    startLine: 17
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static LoadedLevel CurrentLevel { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.LoadedLevel
+    content.vb: Public Shared Property CurrentLevel As LoadedLevel
+  overload: ISILab.LBS.LBSController.CurrentLevel*
 - uid: ISILab.LBS.LBSController.LoadFile(System.String)
   commentId: M:ISILab.LBS.LBSController.LoadFile(System.String)
   id: LoadFile(System.String)
@@ -85,14 +122,21 @@ items:
   nameWithType: LBSController.LoadFile(string)
   fullName: ISILab.LBS.LBSController.LoadFile(string)
   type: Method
+  source:
+    id: LoadFile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Main\Editor\LBSController.cs
+    startLine: 40
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
+  summary: Loads a file from the specified path and initializes a new level based on the data obtained.
+  example: []
   syntax:
     content: public static void LoadFile(string path)
     parameters:
     - id: path
       type: System.String
+      description: The path of the file to be loaded.
     content.vb: Public Shared Sub LoadFile(path As String)
   overload: ISILab.LBS.LBSController.LoadFile*
   nameWithType.vb: LBSController.LoadFile(String)
@@ -109,13 +153,23 @@ items:
   nameWithType: LBSController.LoadFile()
   fullName: ISILab.LBS.LBSController.LoadFile()
   type: Method
+  source:
+    id: LoadFile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Main\Editor\LBSController.cs
+    startLine: 58
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
+  summary: Prompts the user with a dialog to open a file and loads the level data based on the user's choice.
+  example: []
   syntax:
     content: public static LoadedLevel LoadFile()
     return:
       type: ISILab.LBS.LoadedLevel
+      description: >-
+        The loaded level as a <xref href="ISILab.LBS.LoadedLevel" data-throw-if-not-resolved="false"></xref> object, 
+
+        or null if the operation is canceled or no file is selected.
     content.vb: Public Shared Function LoadFile() As LoadedLevel
   overload: ISILab.LBS.LBSController.LoadFile*
 - uid: ISILab.LBS.LBSController.SaveFile
@@ -129,9 +183,20 @@ items:
   nameWithType: LBSController.SaveFile()
   fullName: ISILab.LBS.LBSController.SaveFile()
   type: Method
+  source:
+    id: SaveFile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Main\Editor\LBSController.cs
+    startLine: 107
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
+  summary: >-
+    Saves the current level data to the file it was loaded from,
+
+    or prompts the user to save it as a new file if it has not been
+
+    saved before.
+  example: []
   syntax:
     content: public static bool SaveFile()
     return:
@@ -149,9 +214,18 @@ items:
   nameWithType: LBSController.SaveFileAs()
   fullName: ISILab.LBS.LBSController.SaveFileAs()
   type: Method
+  source:
+    id: SaveFileAs
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Main\Editor\LBSController.cs
+    startLine: 133
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
+  summary: >-
+    Saves the current level data to a new file,
+
+    prompting the user to choose the file path.
+  example: []
   syntax:
     content: public static bool SaveFileAs()
     return:
@@ -169,46 +243,32 @@ items:
   nameWithType: LBSController.CreateNewLevel(string)
   fullName: ISILab.LBS.LBSController.CreateNewLevel(string)
   type: Method
+  source:
+    id: CreateNewLevel
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Main\Editor\LBSController.cs
+    startLine: 175
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
+  summary: Creates a new level with the specified name and size.
+  example: []
   syntax:
     content: public static LoadedLevel CreateNewLevel(string levelName = "new file")
     parameters:
     - id: levelName
       type: System.String
+      description: ''
     return:
       type: ISILab.LBS.LoadedLevel
+      description: ''
     content.vb: Public Shared Function CreateNewLevel(levelName As String = "new file") As LoadedLevel
   overload: ISILab.LBS.LBSController.CreateNewLevel*
   nameWithType.vb: LBSController.CreateNewLevel(String)
   fullName.vb: ISILab.LBS.LBSController.CreateNewLevel(String)
   name.vb: CreateNewLevel(String)
-- uid: ISILab.LBS.LBSController.CurrentLevel
-  commentId: P:ISILab.LBS.LBSController.CurrentLevel
-  id: CurrentLevel
-  parent: ISILab.LBS.LBSController
-  langs:
-  - csharp
-  - vb
-  name: CurrentLevel
-  nameWithType: LBSController.CurrentLevel
-  fullName: ISILab.LBS.LBSController.CurrentLevel
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS
-  syntax:
-    content: public static LoadedLevel CurrentLevel { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.LoadedLevel
-    content.vb: Public Shared Property CurrentLevel As LoadedLevel
-  overload: ISILab.LBS.LBSController.CurrentLevel*
 references:
 - uid: ISILab.LBS
   commentId: N:ISILab.LBS
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS
   nameWithType: ISILab.LBS
@@ -216,22 +276,18 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
 - uid: System.Object
   commentId: T:System.Object
@@ -244,30 +300,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -334,51 +366,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -463,6 +450,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -489,7 +545,6 @@ references:
   - name: <
   - uid: ISILab.LBS.LBSLevelData
     name: LBSLevelData
-    isExternal: true
     href: ISILab.LBS.LBSLevelData.html
   - name: '>'
   spec.vb:
@@ -502,7 +557,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.LBSLevelData
     name: LBSLevelData
-    isExternal: true
     href: ISILab.LBS.LBSLevelData.html
   - name: )
 - uid: System.Action`1
@@ -533,9 +587,21 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: ISILab.LBS.LBSController.CurrentLevel*
+  commentId: Overload:ISILab.LBS.LBSController.CurrentLevel
+  href: ISILab.LBS.LBSController.html#ISILab_LBS_LBSController_CurrentLevel
+  name: CurrentLevel
+  nameWithType: LBSController.CurrentLevel
+  fullName: ISILab.LBS.LBSController.CurrentLevel
+- uid: ISILab.LBS.LoadedLevel
+  commentId: T:ISILab.LBS.LoadedLevel
+  parent: ISILab.LBS
+  href: ISILab.LBS.LoadedLevel.html
+  name: LoadedLevel
+  nameWithType: LoadedLevel
+  fullName: ISILab.LBS.LoadedLevel
 - uid: ISILab.LBS.LBSController.LoadFile*
   commentId: Overload:ISILab.LBS.LBSController.LoadFile
-  isExternal: true
   href: ISILab.LBS.LBSController.html#ISILab_LBS_LBSController_LoadFile_System_String_
   name: LoadFile
   nameWithType: LBSController.LoadFile
@@ -551,17 +617,8 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: ISILab.LBS.LoadedLevel
-  commentId: T:ISILab.LBS.LoadedLevel
-  parent: ISILab.LBS
-  isExternal: true
-  href: ISILab.LBS.LoadedLevel.html
-  name: LoadedLevel
-  nameWithType: LoadedLevel
-  fullName: ISILab.LBS.LoadedLevel
 - uid: ISILab.LBS.LBSController.SaveFile*
   commentId: Overload:ISILab.LBS.LBSController.SaveFile
-  isExternal: true
   href: ISILab.LBS.LBSController.html#ISILab_LBS_LBSController_SaveFile
   name: SaveFile
   nameWithType: LBSController.SaveFile
@@ -579,23 +636,14 @@ references:
   name.vb: Boolean
 - uid: ISILab.LBS.LBSController.SaveFileAs*
   commentId: Overload:ISILab.LBS.LBSController.SaveFileAs
-  isExternal: true
   href: ISILab.LBS.LBSController.html#ISILab_LBS_LBSController_SaveFileAs
   name: SaveFileAs
   nameWithType: LBSController.SaveFileAs
   fullName: ISILab.LBS.LBSController.SaveFileAs
 - uid: ISILab.LBS.LBSController.CreateNewLevel*
   commentId: Overload:ISILab.LBS.LBSController.CreateNewLevel
-  isExternal: true
   href: ISILab.LBS.LBSController.html#ISILab_LBS_LBSController_CreateNewLevel_System_String_
   name: CreateNewLevel
   nameWithType: LBSController.CreateNewLevel
   fullName: ISILab.LBS.LBSController.CreateNewLevel
-- uid: ISILab.LBS.LBSController.CurrentLevel*
-  commentId: Overload:ISILab.LBS.LBSController.CurrentLevel
-  isExternal: true
-  href: ISILab.LBS.LBSController.html#ISILab_LBS_LBSController_CurrentLevel
-  name: CurrentLevel
-  nameWithType: LBSController.CurrentLevel
-  fullName: ISILab.LBS.LBSController.CurrentLevel
 shouldSkipMarkup: true

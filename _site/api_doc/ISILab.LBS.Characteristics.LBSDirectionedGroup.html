@@ -101,7 +101,8 @@ Class LBSDirectionedGroup
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LBSDirectionedGroup : LBSCharacteristic, ICloneable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class LBSDirectionedGroup : LBSCharacteristic, ICloneable</code></pre>
   </div>
 
 
@@ -137,6 +138,9 @@ Class LBSDirectionedGroup
       <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_initialized">LBSCharacteristic.initialized</a>
     </div>
     <div>
+      <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Owner">LBSCharacteristic.Owner</a>
+    </div>
+    <div>
       <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Init_ISILab_LBS_Plugin_Components_Bundles_Bundle_">LBSCharacteristic.Init(Bundle)</a>
     </div>
     <div>
@@ -149,16 +153,13 @@ Class LBSDirectionedGroup
       <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnRefresh">LBSCharacteristic.OnRefresh()</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Owner">LBSCharacteristic.Owner</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
@@ -221,7 +222,8 @@ Class LBSDirectionedGroup
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action OnAddOwnerChild</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Action OnAddOwnerChild</code></pre>
   </div>
 
 
@@ -251,7 +253,8 @@ Class LBSDirectionedGroup
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action OnRemoveOwnerChild</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Action OnRemoveOwnerChild</code></pre>
   </div>
 
 
@@ -281,7 +284,8 @@ Class LBSDirectionedGroup
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;LBSDirectionedGroup.WeightStruct&gt; Weights</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+public List&lt;LBSDirectionedGroup.WeightStruct&gt; Weights</code></pre>
   </div>
 
 
@@ -311,7 +315,8 @@ Class LBSDirectionedGroup
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ConnectedTileMapModule.ConnectedTileType currentType</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+public ConnectedTileMapModule.ConnectedTileType currentType</code></pre>
   </div>
 
 

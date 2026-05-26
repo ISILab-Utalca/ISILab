@@ -19,6 +19,10 @@ items:
   nameWithType: ChromosomeBase2D
   fullName: ISILab.AI.Categorization.ChromosomeBase2D
   type: Class
+  source:
+    id: ChromosomeBase2D
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    startLine: 7
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -37,6 +41,11 @@ items:
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,{T})
@@ -61,16 +70,36 @@ items:
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
-  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
-  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
-  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
-  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
-  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ISILab.AI.Categorization.ChromosomeBase2D.Rect
+  commentId: P:ISILab.AI.Categorization.ChromosomeBase2D.Rect
+  id: Rect
+  parent: ISILab.AI.Categorization.ChromosomeBase2D
+  langs:
+  - csharp
+  - vb
+  name: Rect
+  nameWithType: ChromosomeBase2D.Rect
+  fullName: ISILab.AI.Categorization.ChromosomeBase2D.Rect
+  type: Property
+  source:
+    id: Rect
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    startLine: 9
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: public Rect Rect { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public Property Rect As Rect
+  overload: ISILab.AI.Categorization.ChromosomeBase2D.Rect*
 - uid: ISILab.AI.Categorization.ChromosomeBase2D.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
   commentId: M:ISILab.AI.Categorization.ChromosomeBase2D.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
   id: '#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])'
@@ -82,6 +111,10 @@ items:
   nameWithType: ChromosomeBase2D.ChromosomeBase2D(Rect, int[], int[])
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ChromosomeBase2D(UnityEngine.Rect, int[], int[])
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    startLine: 11
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -110,6 +143,10 @@ items:
   nameWithType: ChromosomeBase2D.ChromosomeBase2D()
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ChromosomeBase2D()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    startLine: 16
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -131,14 +168,21 @@ items:
   nameWithType: ChromosomeBase2D.ToIndex(Vector2)
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToIndex(UnityEngine.Vector2)
   type: Method
+  source:
+    id: ToIndex
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    startLine: 27
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
+  summary: Converts a 2D position to an index in a 1D array.
+  example: []
   syntax:
     content: public int ToIndex(Vector2 pos)
     parameters:
     - id: pos
       type: UnityEngine.Vector2
+      description: The 2D position to convert.
     return:
       type: System.Int32
     content.vb: Public Function ToIndex(pos As Vector2) As Integer
@@ -154,6 +198,10 @@ items:
   nameWithType: ChromosomeBase2D.GlobalToIndex(Vector2)
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex(UnityEngine.Vector2)
   type: Method
+  source:
+    id: GlobalToIndex
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    startLine: 34
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -177,14 +225,21 @@ items:
   nameWithType: ChromosomeBase2D.ToMatrixPosition(int)
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition(int)
   type: Method
+  source:
+    id: ToMatrixPosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    startLine: 40
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
+  summary: Converts an index in a 1D array to a 2D position.
+  example: []
   syntax:
     content: public Vector2Int ToMatrixPosition(int index)
     parameters:
     - id: index
       type: System.Int32
+      description: The index in the 1D array to convert.
     return:
       type: UnityEngine.Vector2Int
     content.vb: Public Function ToMatrixPosition(index As Integer) As Vector2Int
@@ -203,6 +258,10 @@ items:
   nameWithType: ChromosomeBase2D.ToGlobalPosition(int)
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(int)
   type: Method
+  source:
+    id: ToGlobalPosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    startLine: 45
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -218,31 +277,9 @@ items:
   nameWithType.vb: ChromosomeBase2D.ToGlobalPosition(Integer)
   fullName.vb: ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(Integer)
   name.vb: ToGlobalPosition(Integer)
-- uid: ISILab.AI.Categorization.ChromosomeBase2D.Rect
-  commentId: P:ISILab.AI.Categorization.ChromosomeBase2D.Rect
-  id: Rect
-  parent: ISILab.AI.Categorization.ChromosomeBase2D
-  langs:
-  - csharp
-  - vb
-  name: Rect
-  nameWithType: ChromosomeBase2D.Rect
-  fullName: ISILab.AI.Categorization.ChromosomeBase2D.Rect
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Categorization
-  syntax:
-    content: public Rect Rect { get; set; }
-    parameters: []
-    return:
-      type: UnityEngine.Rect
-    content.vb: Public Property Rect As Rect
-  overload: ISILab.AI.Categorization.ChromosomeBase2D.Rect*
 references:
 - uid: ISILab.AI.Categorization
   commentId: N:ISILab.AI.Categorization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Categorization
   nameWithType: ISILab.AI.Categorization
@@ -250,32 +287,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
 - uid: System.Object
   commentId: T:System.Object
@@ -291,7 +322,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
   commentId: T:GeneticSharp.Domain.Chromosomes.ChromosomeBase
   parent: GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   name: ChromosomeBase
   nameWithType: ChromosomeBase
@@ -299,7 +329,6 @@ references:
 - uid: ISILab.AI.Optimization.IOptimizable
   commentId: T:ISILab.AI.Optimization.IOptimizable
   parent: ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.AI.Optimization.IOptimizable.html
   name: IOptimizable
   nameWithType: IOptimizable
@@ -315,7 +344,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
   commentId: F:GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_genes
   name: genes
   nameWithType: ChromosomeBase.genes
@@ -323,7 +351,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
   commentId: F:GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_immutableIndexes
   name: immutableIndexes
   nameWithType: ChromosomeBase.immutableIndexes
@@ -331,15 +358,48 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
   commentId: F:GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_invalidIndexes
   name: invalidIndexes
   nameWithType: ChromosomeBase.invalidIndexes
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Fitness
+  name: Fitness
+  nameWithType: ChromosomeBase.Fitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_xFitness
+  name: xFitness
+  nameWithType: ChromosomeBase.xFitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_yFitness
+  name: yFitness
+  nameWithType: ChromosomeBase.yFitness
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Length
+  name: Length
+  nameWithType: ChromosomeBase.Length
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ImmutablesCount
+  name: ImmutablesCount
+  nameWithType: ChromosomeBase.ImmutablesCount
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateNewChromosome
   name: CreateNewChromosome()
   nameWithType: ChromosomeBase.CreateNewChromosome()
@@ -347,21 +407,18 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
     name: CreateNewChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateNewChromosome
   - name: (
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome
     name: CreateNewChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateNewChromosome
   - name: (
   - name: )
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CloneChromosome
   name: CloneChromosome()
   nameWithType: ChromosomeBase.CloneChromosome()
@@ -369,14 +426,12 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
     name: CloneChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CloneChromosome
   - name: (
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
     name: CloneChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CloneChromosome
   - name: (
   - name: )
@@ -394,7 +449,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
     name: ReplaceGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
   - name: <
   - name: T
@@ -411,7 +465,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
     name: ReplaceGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
   - name: (
   - name: Of
@@ -441,7 +494,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
     name: ReplaceGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
   - name: <
   - name: T
@@ -460,7 +512,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
     name: ReplaceGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
   - name: (
   - name: Of
@@ -492,7 +543,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)
     name: Resize
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Resize_System_Int32_
   - name: (
   - uid: System.Int32
@@ -503,7 +553,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)
     name: Resize
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Resize_System_Int32_
   - name: (
   - uid: System.Int32
@@ -525,7 +574,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)
     name: GetGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene__1_System_Int32_
   - name: <
   - name: T
@@ -539,7 +587,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)
     name: GetGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene__1_System_Int32_
   - name: (
   - name: Of
@@ -555,7 +602,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes__1
   name: GetGenes<T>()
   nameWithType: ChromosomeBase.GetGenes<T>()
@@ -566,7 +612,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
     name: GetGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes__1
   - name: <
   - name: T
@@ -576,7 +621,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1
     name: GetGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes__1
   - name: (
   - name: Of
@@ -588,7 +632,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CompareTo_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
   name: CompareTo(ChromosomeBase)
   nameWithType: ChromosomeBase.CompareTo(ChromosomeBase)
@@ -596,23 +639,19 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
     name: CompareTo
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CompareTo_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
     name: CompareTo
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CompareTo_GeneticSharp_Domain_Chromosomes_ChromosomeBase_
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: )
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
@@ -629,7 +668,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
     name: Equals
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Equals_System_Object_
   - name: (
   - uid: System.Object
@@ -640,7 +678,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)
     name: Equals
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Equals_System_Object_
   - name: (
   - uid: System.Object
@@ -651,7 +688,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetHashCode
   name: GetHashCode()
   nameWithType: ChromosomeBase.GetHashCode()
@@ -659,14 +695,12 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
     name: GetHashCode
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetHashCode
   - name: (
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode
     name: GetHashCode
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetHashCode
   - name: (
   - name: )
@@ -684,7 +718,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)
     name: CreateGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGene_System_Int32_
   - name: (
   - uid: System.Int32
@@ -695,7 +728,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)
     name: CreateGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGene_System_Int32_
   - name: (
   - uid: System.Int32
@@ -706,7 +738,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGenes
   name: CreateGenes()
   nameWithType: ChromosomeBase.CreateGenes()
@@ -714,14 +745,12 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
     name: CreateGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGenes
   - name: (
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes
     name: CreateGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGenes
   - name: (
   - name: )
@@ -739,7 +768,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)
     name: GetGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene_System_Int32_
   - name: (
   - uid: System.Int32
@@ -750,7 +778,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)
     name: GetGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene_System_Int32_
   - name: (
   - uid: System.Int32
@@ -761,7 +788,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes
   name: GetGenes()
   nameWithType: ChromosomeBase.GetGenes()
@@ -769,21 +795,18 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
     name: GetGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes
   - name: (
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes
     name: GetGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes
   - name: (
   - name: )
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GenerateGene
   name: GenerateGene()
   nameWithType: ChromosomeBase.GenerateGene()
@@ -791,21 +814,18 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
     name: GenerateGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GenerateGene
   - name: (
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene
     name: GenerateGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GenerateGene
   - name: (
   - name: )
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Clone
   name: Clone()
   nameWithType: ChromosomeBase.Clone()
@@ -813,21 +833,18 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
     name: Clone
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
     name: Clone
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Clone
   - name: (
   - name: )
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsValid
   name: IsValid()
   nameWithType: ChromosomeBase.IsValid()
@@ -835,14 +852,12 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
     name: IsValid
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsValid
   - name: (
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid
     name: IsValid
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsValid
   - name: (
   - name: )
@@ -860,7 +875,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
     name: SetDataSequence
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
   - name: <
   - name: T
@@ -873,7 +887,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
     name: SetDataSequence
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
   - name: (
   - name: Of
@@ -888,7 +901,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetData__1
   name: GetData<T>()
   nameWithType: ChromosomeBase.GetData<T>()
@@ -899,7 +911,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
     name: GetData
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetData__1
   - name: <
   - name: T
@@ -909,7 +920,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1
     name: GetData
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetData__1
   - name: (
   - name: Of
@@ -921,7 +931,6 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetDataSquence__1
   name: GetDataSquence<T>()
   nameWithType: ChromosomeBase.GetDataSquence<T>()
@@ -932,7 +941,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
     name: GetDataSquence
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetDataSquence__1
   - name: <
   - name: T
@@ -942,7 +950,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1
     name: GetDataSquence
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetDataSquence__1
   - name: (
   - name: Of
@@ -965,7 +972,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
     name: SetData
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
   - name: <
   - name: T
@@ -976,7 +982,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
     name: SetData
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
   - name: (
   - name: Of
@@ -1000,7 +1005,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
     name: IsImmutable
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsImmutable_System_Int32_
   - name: (
   - uid: System.Int32
@@ -1011,7 +1015,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)
     name: IsImmutable
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsImmutable_System_Int32_
   - name: (
   - uid: System.Int32
@@ -1033,7 +1036,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
     name: IsInvalid
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsInvalid_System_Int32_
   - name: (
   - uid: System.Int32
@@ -1044,7 +1046,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)
     name: IsInvalid
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsInvalid_System_Int32_
   - name: (
   - uid: System.Int32
@@ -1066,7 +1067,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
     name: SetDeafult
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDeafult_System_Int32_
   - name: (
   - uid: System.Int32
@@ -1077,7 +1077,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)
     name: SetDeafult
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDeafult_System_Int32_
   - name: (
   - uid: System.Int32
@@ -1085,46 +1084,51 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
-- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
-  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
-  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
   isExternal: true
-  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Fitness
-  name: Fitness
-  nameWithType: ChromosomeBase.Fitness
-  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
-- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
-  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
-  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
-  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_xFitness
-  name: xFitness
-  nameWithType: ChromosomeBase.xFitness
-  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
-- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
-  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
-  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
-  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_yFitness
-  name: yFitness
-  nameWithType: ChromosomeBase.yFitness
-  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
-- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
-  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
-  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
-  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_Length
-  name: Length
-  nameWithType: ChromosomeBase.Length
-  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
-- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
-  commentId: P:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
-  parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
-  isExternal: true
-  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ImmutablesCount
-  name: ImmutablesCount
-  nameWithType: ChromosomeBase.ImmutablesCount
-  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -1173,75 +1177,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -1287,6 +1222,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -1296,7 +1255,6 @@ references:
   fullName: System
 - uid: GeneticSharp.Domain.Chromosomes
   commentId: N:GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Chromosomes
   nameWithType: GeneticSharp.Domain.Chromosomes
@@ -1304,36 +1262,29 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Chromosomes
     name: Chromosomes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Chromosomes
     name: Chromosomes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.html
 - uid: ISILab.AI.Optimization
   commentId: N:ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization
   nameWithType: ISILab.AI.Optimization
@@ -1341,32 +1292,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
@@ -1381,7 +1326,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
     name: ReplaceGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
   - name: <
   - name: T
@@ -1398,7 +1342,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)
     name: ReplaceGene
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_
   - name: (
   - name: Of
@@ -1427,7 +1370,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
     name: ReplaceGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
   - name: <
   - name: T
@@ -1446,7 +1388,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])
     name: ReplaceGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___
   - name: (
   - name: Of
@@ -1466,7 +1407,6 @@ references:
   - name: )
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
   name: SetDataSequence<T>(T[])
   nameWithType: ChromosomeBase.SetDataSequence<T>(T[])
@@ -1477,7 +1417,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
     name: SetDataSequence
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
   - name: <
   - name: T
@@ -1490,7 +1429,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])
     name: SetDataSequence
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___
   - name: (
   - name: Of
@@ -1504,7 +1442,6 @@ references:
   - name: )
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
   name: SetData<T>(T)
   nameWithType: ChromosomeBase.SetData<T>(T)
@@ -1515,7 +1452,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
     name: SetData
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
   - name: <
   - name: T
@@ -1526,7 +1462,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)
     name: SetData
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_
   - name: (
   - name: Of
@@ -1536,9 +1471,27 @@ references:
   - name: (
   - name: T
   - name: )
+- uid: ISILab.AI.Categorization.ChromosomeBase2D.Rect*
+  commentId: Overload:ISILab.AI.Categorization.ChromosomeBase2D.Rect
+  href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_Rect
+  name: Rect
+  nameWithType: ChromosomeBase2D.Rect
+  fullName: ISILab.AI.Categorization.ChromosomeBase2D.Rect
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.AI.Categorization.ChromosomeBase2D.#ctor*
   commentId: Overload:ISILab.AI.Categorization.ChromosomeBase2D.#ctor
-  isExternal: true
   href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D__ctor_UnityEngine_Rect_System_Int32___System_Int32___
   name: ChromosomeBase2D
   nameWithType: ChromosomeBase2D.ChromosomeBase2D
@@ -1546,11 +1499,6 @@ references:
   nameWithType.vb: ChromosomeBase2D.New
   fullName.vb: ISILab.AI.Categorization.ChromosomeBase2D.New
   name.vb: New
-- uid: UnityEngine.Rect
-  isExternal: true
-  name: Rect
-  nameWithType: Rect
-  fullName: UnityEngine.Rect
 - uid: System.Int32[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.int32
@@ -1576,12 +1524,13 @@ references:
   - name: )
 - uid: ISILab.AI.Categorization.ChromosomeBase2D.ToIndex*
   commentId: Overload:ISILab.AI.Categorization.ChromosomeBase2D.ToIndex
-  isExternal: true
   href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToIndex_UnityEngine_Vector2_
   name: ToIndex
   nameWithType: ChromosomeBase2D.ToIndex
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToIndex
 - uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
@@ -1599,35 +1548,27 @@ references:
   name.vb: Integer
 - uid: ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex*
   commentId: Overload:ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex
-  isExternal: true
   href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_GlobalToIndex_UnityEngine_Vector2_
   name: GlobalToIndex
   nameWithType: ChromosomeBase2D.GlobalToIndex
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex
 - uid: ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition*
   commentId: Overload:ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition
-  isExternal: true
   href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToMatrixPosition_System_Int32_
   name: ToMatrixPosition
   nameWithType: ChromosomeBase2D.ToMatrixPosition
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition
 - uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
   isExternal: true
   name: Vector2Int
   nameWithType: Vector2Int
   fullName: UnityEngine.Vector2Int
 - uid: ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition*
   commentId: Overload:ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition
-  isExternal: true
   href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToGlobalPosition_System_Int32_
   name: ToGlobalPosition
   nameWithType: ChromosomeBase2D.ToGlobalPosition
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition
-- uid: ISILab.AI.Categorization.ChromosomeBase2D.Rect*
-  commentId: Overload:ISILab.AI.Categorization.ChromosomeBase2D.Rect
-  isExternal: true
-  href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_Rect
-  name: Rect
-  nameWithType: ChromosomeBase2D.Rect
-  fullName: ISILab.AI.Categorization.ChromosomeBase2D.Rect
 shouldSkipMarkup: true

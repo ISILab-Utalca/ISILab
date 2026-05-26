@@ -15,19 +15,33 @@ items:
   nameWithType: BoolIntPair
   fullName: ISILab.LBS.VisualElements.BoolIntPair
   type: Struct
+  source:
+    id: BoolIntPair
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\FloatingPanels\QuickAssistantPanel\Containers\Population\PopulationContainer.cs
+    startLine: 394
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
   syntax:
-    content: public struct BoolIntPair
-    content.vb: Public Structure BoolIntPair
+    content: >-
+      [SerializeField]
+
+      public struct BoolIntPair
+    content.vb: >-
+      <SerializeField>
+
+      Public Structure BoolIntPair
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.VisualElements.BoolIntPair.boolean
   commentId: F:ISILab.LBS.VisualElements.BoolIntPair.boolean
   id: boolean
@@ -39,6 +53,10 @@ items:
   nameWithType: BoolIntPair.boolean
   fullName: ISILab.LBS.VisualElements.BoolIntPair.boolean
   type: Field
+  source:
+    id: boolean
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\FloatingPanels\QuickAssistantPanel\Containers\Population\PopulationContainer.cs
+    startLine: 397
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -58,6 +76,10 @@ items:
   nameWithType: BoolIntPair.integer
   fullName: ISILab.LBS.VisualElements.BoolIntPair.integer
   type: Field
+  source:
+    id: integer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\FloatingPanels\QuickAssistantPanel\Containers\Population\PopulationContainer.cs
+    startLine: 398
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -77,6 +99,10 @@ items:
   nameWithType: BoolIntPair.BoolIntPair(bool, int)
   fullName: ISILab.LBS.VisualElements.BoolIntPair.BoolIntPair(bool, int)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\FloatingPanels\QuickAssistantPanel\Containers\Population\PopulationContainer.cs
+    startLine: 399
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -95,7 +121,6 @@ items:
 references:
 - uid: ISILab.LBS.VisualElements
   commentId: N:ISILab.LBS.VisualElements
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.VisualElements
   nameWithType: ISILab.LBS.VisualElements
@@ -103,32 +128,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
 - uid: System.ValueType.Equals(System.Object)
   commentId: M:System.ValueType.Equals(System.Object)
@@ -252,6 +271,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -296,30 +339,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.ValueType
   commentId: T:System.ValueType
@@ -371,7 +390,6 @@ references:
   name.vb: Integer
 - uid: ISILab.LBS.VisualElements.BoolIntPair.#ctor*
   commentId: Overload:ISILab.LBS.VisualElements.BoolIntPair.#ctor
-  isExternal: true
   href: ISILab.LBS.VisualElements.BoolIntPair.html#ISILab_LBS_VisualElements_BoolIntPair__ctor_System_Boolean_System_Int32_
   name: BoolIntPair
   nameWithType: BoolIntPair.BoolIntPair

@@ -121,16 +121,10 @@ Class DrawManager
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
@@ -140,6 +134,12 @@ Class DrawManager
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -394,7 +394,8 @@ Class DrawManager
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Disables the picking mode of all the existing elements but the exception.
+Stores the picking mode of each existing element to restore afterwards</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -404,9 +405,9 @@ Class DrawManager
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>newPickingMode</code> <span class="xref">PickingMode</span></dt>
-    <dd></dd>
+    <dd>the picking mode that will be assigned to all visual elements</dd>
     <dt><code>exceptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">VisualElement</span>&gt;</dt>
-    <dd></dd>
+    <dd>the visual elements that wont be affected</dd>
   </dl>
 
 
@@ -427,7 +428,7 @@ Class DrawManager
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Restores the picking mode of all elements if they were stored using ChangePickingModeAll</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

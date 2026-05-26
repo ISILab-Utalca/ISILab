@@ -22,25 +22,39 @@ items:
   nameWithType: TileTrigger
   fullName: ISILab.LBS.Components.TileTrigger
   type: Class
+  source:
+    id: TileTrigger
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 25
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: 'public class TileTrigger : ISerializationCallbackReceiver, ICloneable'
-    content.vb: Public Class TileTrigger Implements ISerializationCallbackReceiver, ICloneable
+    content: >-
+      [Serializable]
+
+      public class TileTrigger : ISerializationCallbackReceiver, ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public Class TileTrigger Implements ISerializationCallbackReceiver, ICloneable
   inheritance:
   - System.Object
   implements:
   - UnityEngine.ISerializationCallbackReceiver
   - System.ICloneable
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.TileTrigger.areaColor
   commentId: F:ISILab.LBS.Components.TileTrigger.areaColor
   id: areaColor
@@ -52,14 +66,28 @@ items:
   nameWithType: TileTrigger.areaColor
   fullName: ISILab.LBS.Components.TileTrigger.areaColor
   type: Field
+  source:
+    id: areaColor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 28
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: public Color areaColor
+    content: >-
+      [SerializeField]
+
+      public Color areaColor
     return:
       type: UnityEngine.Color
-    content.vb: Public areaColor As Color
+    content.vb: >-
+      <SerializeField>
+
+      Public areaColor As Color
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.TileTrigger.isVisible
   commentId: F:ISILab.LBS.Components.TileTrigger.isVisible
   id: isVisible
@@ -71,14 +99,28 @@ items:
   nameWithType: TileTrigger.isVisible
   fullName: ISILab.LBS.Components.TileTrigger.isVisible
   type: Field
+  source:
+    id: isVisible
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 30
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: public bool isVisible
+    content: >-
+      [SerializeField]
+
+      public bool isVisible
     return:
       type: System.Boolean
-    content.vb: Public isVisible As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      Public isVisible As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.TileTrigger.Range
   commentId: F:ISILab.LBS.Components.TileTrigger.Range
   id: Range
@@ -90,14 +132,28 @@ items:
   nameWithType: TileTrigger.Range
   fullName: ISILab.LBS.Components.TileTrigger.Range
   type: Field
+  source:
+    id: Range
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 32
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: public float Range
+    content: >-
+      [SerializeField]
+
+      public float Range
     return:
       type: System.Single
-    content.vb: Public Range As Single
+    content.vb: >-
+      <SerializeField>
+
+      Public Range As Single
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.TileTrigger.activationMode
   commentId: F:ISILab.LBS.Components.TileTrigger.activationMode
   id: activationMode
@@ -109,14 +165,28 @@ items:
   nameWithType: TileTrigger.activationMode
   fullName: ISILab.LBS.Components.TileTrigger.activationMode
   type: Field
+  source:
+    id: activationMode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 34
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: public TriggerActivationMode activationMode
+    content: >-
+      [SerializeField]
+
+      public TriggerActivationMode activationMode
     return:
       type: ISILab.LBS.Components.TriggerActivationMode
-    content.vb: Public activationMode As TriggerActivationMode
+    content.vb: >-
+      <SerializeField>
+
+      Public activationMode As TriggerActivationMode
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.TileTrigger.Ttype
   commentId: F:ISILab.LBS.Components.TileTrigger.Ttype
   id: Ttype
@@ -128,14 +198,28 @@ items:
   nameWithType: TileTrigger.Ttype
   fullName: ISILab.LBS.Components.TileTrigger.Ttype
   type: Field
+  source:
+    id: Ttype
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 36
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: public TileTriggerType Ttype
+    content: >-
+      [SerializeField]
+
+      public TileTriggerType Ttype
     return:
       type: ISILab.LBS.Components.TileTriggerType
-    content.vb: Public Ttype As TileTriggerType
+    content.vb: >-
+      <SerializeField>
+
+      Public Ttype As TileTriggerType
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.TileTrigger._eventHooker
   commentId: F:ISILab.LBS.Components.TileTrigger._eventHooker
   id: _eventHooker
@@ -147,14 +231,28 @@ items:
   nameWithType: TileTrigger._eventHooker
   fullName: ISILab.LBS.Components.TileTrigger._eventHooker
   type: Field
+  source:
+    id: _eventHooker
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: public LBSEventHooker _eventHooker
+    content: >-
+      [SerializeReference]
+
+      public LBSEventHooker _eventHooker
     return:
       type: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
-    content.vb: Public _eventHooker As LBSEventHooker
+    content.vb: >-
+      <SerializeReference>
+
+      Public _eventHooker As LBSEventHooker
+  attributes:
+  - type: UnityEngine.SerializeReference
+    ctor: UnityEngine.SerializeReference.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.TileTrigger.#ctor
   commentId: M:ISILab.LBS.Components.TileTrigger.#ctor
   id: '#ctor'
@@ -166,6 +264,10 @@ items:
   nameWithType: TileTrigger.TileTrigger()
   fullName: ISILab.LBS.Components.TileTrigger.TileTrigger()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 40
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -187,6 +289,10 @@ items:
   nameWithType: TileTrigger.Clone()
   fullName: ISILab.LBS.Components.TileTrigger.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 49
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -210,13 +316,21 @@ items:
   nameWithType: TileTrigger.OnAfterDeserialize()
   fullName: ISILab.LBS.Components.TileTrigger.OnAfterDeserialize()
   type: Method
+  source:
+    id: OnAfterDeserialize
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 63
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
+  summary: <p>Implement this callback to transform data back into runtime data types after an object is deserialized.</p>
+  example: []
   syntax:
     content: public void OnAfterDeserialize()
     content.vb: Public Sub OnAfterDeserialize()
   overload: ISILab.LBS.Components.TileTrigger.OnAfterDeserialize*
+  implements:
+  - UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize
 - uid: ISILab.LBS.Components.TileTrigger.OnBeforeSerialize
   commentId: M:ISILab.LBS.Components.TileTrigger.OnBeforeSerialize
   id: OnBeforeSerialize
@@ -228,17 +342,24 @@ items:
   nameWithType: TileTrigger.OnBeforeSerialize()
   fullName: ISILab.LBS.Components.TileTrigger.OnBeforeSerialize()
   type: Method
+  source:
+    id: OnBeforeSerialize
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\BundleTileMapAddons.cs
+    startLine: 68
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
+  summary: <p>Implement this callback to transform data into serializable data types immediately before an object is serialized.</p>
+  example: []
   syntax:
     content: public void OnBeforeSerialize()
     content.vb: Public Sub OnBeforeSerialize()
   overload: ISILab.LBS.Components.TileTrigger.OnBeforeSerialize*
+  implements:
+  - UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize
 references:
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Components
   nameWithType: ISILab.LBS.Components
@@ -246,32 +367,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
 - uid: System.Object
   commentId: T:System.Object
@@ -285,6 +400,8 @@ references:
   fullName.vb: Object
   name.vb: Object
 - uid: UnityEngine.ISerializationCallbackReceiver
+  commentId: T:UnityEngine.ISerializationCallbackReceiver
+  parent: UnityEngine
   isExternal: true
   name: ISerializationCallbackReceiver
   nameWithType: ISerializationCallbackReceiver
@@ -297,78 +414,6 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -447,6 +492,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -492,28 +609,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -523,7 +640,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
   isExternal: true
   name: Color
   nameWithType: Color
@@ -553,7 +678,6 @@ references:
 - uid: ISILab.LBS.Components.TriggerActivationMode
   commentId: T:ISILab.LBS.Components.TriggerActivationMode
   parent: ISILab.LBS.Components
-  isExternal: true
   href: ISILab.LBS.Components.TriggerActivationMode.html
   name: TriggerActivationMode
   nameWithType: TriggerActivationMode
@@ -561,7 +685,6 @@ references:
 - uid: ISILab.LBS.Components.TileTriggerType
   commentId: T:ISILab.LBS.Components.TileTriggerType
   parent: ISILab.LBS.Components
-  isExternal: true
   href: ISILab.LBS.Components.TileTriggerType.html
   name: TileTriggerType
   nameWithType: TileTriggerType
@@ -569,14 +692,12 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
   commentId: T:ISILab.LBS.Plugin.Components.Data.LBSEventHooker
   parent: ISILab.LBS.Plugin.Components.Data
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.LBSEventHooker.html
   name: LBSEventHooker
   nameWithType: LBSEventHooker
   fullName: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
 - uid: ISILab.LBS.Plugin.Components.Data
   commentId: N:ISILab.LBS.Plugin.Components.Data
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Data
   nameWithType: ISILab.LBS.Plugin.Components.Data
@@ -584,56 +705,45 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
 - uid: ISILab.LBS.Components.TileTrigger.#ctor*
   commentId: Overload:ISILab.LBS.Components.TileTrigger.#ctor
-  isExternal: true
   href: ISILab.LBS.Components.TileTrigger.html#ISILab_LBS_Components_TileTrigger__ctor
   name: TileTrigger
   nameWithType: TileTrigger.TileTrigger
@@ -643,7 +753,6 @@ references:
   name.vb: New
 - uid: ISILab.LBS.Components.TileTrigger.Clone*
   commentId: Overload:ISILab.LBS.Components.TileTrigger.Clone
-  isExternal: true
   href: ISILab.LBS.Components.TileTrigger.html#ISILab_LBS_Components_TileTrigger_Clone
   name: Clone
   nameWithType: TileTrigger.Clone
@@ -672,16 +781,52 @@ references:
   - name: )
 - uid: ISILab.LBS.Components.TileTrigger.OnAfterDeserialize*
   commentId: Overload:ISILab.LBS.Components.TileTrigger.OnAfterDeserialize
-  isExternal: true
   href: ISILab.LBS.Components.TileTrigger.html#ISILab_LBS_Components_TileTrigger_OnAfterDeserialize
   name: OnAfterDeserialize
   nameWithType: TileTrigger.OnAfterDeserialize
   fullName: ISILab.LBS.Components.TileTrigger.OnAfterDeserialize
+- uid: UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize
+  commentId: M:UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize
+  parent: UnityEngine.ISerializationCallbackReceiver
+  isExternal: true
+  name: OnAfterDeserialize()
+  nameWithType: ISerializationCallbackReceiver.OnAfterDeserialize()
+  fullName: UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize()
+  spec.csharp:
+  - uid: UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize
+    name: OnAfterDeserialize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize
+    name: OnAfterDeserialize
+    isExternal: true
+  - name: (
+  - name: )
 - uid: ISILab.LBS.Components.TileTrigger.OnBeforeSerialize*
   commentId: Overload:ISILab.LBS.Components.TileTrigger.OnBeforeSerialize
-  isExternal: true
   href: ISILab.LBS.Components.TileTrigger.html#ISILab_LBS_Components_TileTrigger_OnBeforeSerialize
   name: OnBeforeSerialize
   nameWithType: TileTrigger.OnBeforeSerialize
   fullName: ISILab.LBS.Components.TileTrigger.OnBeforeSerialize
+- uid: UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize
+  commentId: M:UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize
+  parent: UnityEngine.ISerializationCallbackReceiver
+  isExternal: true
+  name: OnBeforeSerialize()
+  nameWithType: ISerializationCallbackReceiver.OnBeforeSerialize()
+  fullName: UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize()
+  spec.csharp:
+  - uid: UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize
+    name: OnBeforeSerialize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize
+    name: OnBeforeSerialize
+    isExternal: true
+  - name: (
+  - name: )
 shouldSkipMarkup: true

@@ -16,22 +16,28 @@ items:
   nameWithType: SelectionService
   fullName: ISILab.AI.Optimization.Selections.SelectionService
   type: Class
+  source:
+    id: SelectionService
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\SelectionService.cs
+    startLine: 10
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Selections
+  summary: Selection service.
+  example: []
   syntax:
     content: public static class SelectionService
     content.vb: Public Module SelectionService
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionTypes
   commentId: M:ISILab.AI.Optimization.Selections.SelectionService.GetSelectionTypes
   id: GetSelectionTypes
@@ -43,13 +49,20 @@ items:
   nameWithType: SelectionService.GetSelectionTypes()
   fullName: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionTypes()
   type: Method
+  source:
+    id: GetSelectionTypes
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\SelectionService.cs
+    startLine: 17
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Selections
+  summary: Gets available selection types.
+  example: []
   syntax:
     content: public static IList<Type> GetSelectionTypes()
     return:
       type: System.Collections.Generic.IList{System.Type}
+      description: All available selection types.
     content.vb: Public Shared Function GetSelectionTypes() As IList(Of Type)
   overload: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionTypes*
 - uid: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionNames
@@ -63,13 +76,20 @@ items:
   nameWithType: SelectionService.GetSelectionNames()
   fullName: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionNames()
   type: Method
+  source:
+    id: GetSelectionNames
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\SelectionService.cs
+    startLine: 26
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Selections
+  summary: Gets the available selection names.
+  example: []
   syntax:
     content: public static IList<string> GetSelectionNames()
     return:
       type: System.Collections.Generic.IList{System.String}
+      description: The selection names.
     content.vb: Public Shared Function GetSelectionNames() As IList(Of String)
   overload: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionNames*
 - uid: ISILab.AI.Optimization.Selections.SelectionService.CreateSelectionByName(System.String,System.Object[])
@@ -83,18 +103,27 @@ items:
   nameWithType: SelectionService.CreateSelectionByName(string, params object[])
   fullName: ISILab.AI.Optimization.Selections.SelectionService.CreateSelectionByName(string, params object[])
   type: Method
+  source:
+    id: CreateSelectionByName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\SelectionService.cs
+    startLine: 37
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Selections
+  summary: Creates the ISelection's implementation with the specified name.
+  example: []
   syntax:
     content: public static ISelection CreateSelectionByName(string name, params object[] constructorArgs)
     parameters:
     - id: name
       type: System.String
+      description: The selection name.
     - id: constructorArgs
       type: System.Object[]
+      description: Constructor arguments.
     return:
       type: ISILab.AI.Optimization.Selections.ISelection
+      description: The selection implementation instance.
     content.vb: Public Shared Function CreateSelectionByName(name As String, ParamArray constructorArgs As Object()) As ISelection
   overload: ISILab.AI.Optimization.Selections.SelectionService.CreateSelectionByName*
   nameWithType.vb: SelectionService.CreateSelectionByName(String, ParamArray Object())
@@ -111,16 +140,24 @@ items:
   nameWithType: SelectionService.GetSelectionTypeByName(string)
   fullName: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionTypeByName(string)
   type: Method
+  source:
+    id: GetSelectionTypeByName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\SelectionService.cs
+    startLine: 47
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Selections
+  summary: Gets the selection type by the name.
+  example: []
   syntax:
     content: public static Type GetSelectionTypeByName(string name)
     parameters:
     - id: name
       type: System.String
+      description: The name of selection.
     return:
       type: System.Type
+      description: The selection type.
     content.vb: Public Shared Function GetSelectionTypeByName(name As String) As Type
   overload: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionTypeByName*
   nameWithType.vb: SelectionService.GetSelectionTypeByName(String)
@@ -129,7 +166,6 @@ items:
 references:
 - uid: ISILab.AI.Optimization.Selections
   commentId: N:ISILab.AI.Optimization.Selections
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization.Selections
   nameWithType: ISILab.AI.Optimization.Selections
@@ -137,42 +173,34 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Selections
     name: Selections
-    isExternal: true
     href: ISILab.AI.Optimization.Selections.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   - name: .
   - uid: ISILab.AI.Optimization.Selections
     name: Selections
-    isExternal: true
     href: ISILab.AI.Optimization.Selections.html
 - uid: System.Object
   commentId: T:System.Object
@@ -185,78 +213,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -335,6 +291,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -380,28 +408,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -413,7 +441,6 @@ references:
   fullName: System
 - uid: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionTypes*
   commentId: Overload:ISILab.AI.Optimization.Selections.SelectionService.GetSelectionTypes
-  isExternal: true
   href: ISILab.AI.Optimization.Selections.SelectionService.html#ISILab_AI_Optimization_Selections_SelectionService_GetSelectionTypes
   name: GetSelectionTypes
   nameWithType: SelectionService.GetSelectionTypes
@@ -520,7 +547,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionNames*
   commentId: Overload:ISILab.AI.Optimization.Selections.SelectionService.GetSelectionNames
-  isExternal: true
   href: ISILab.AI.Optimization.Selections.SelectionService.html#ISILab_AI_Optimization_Selections_SelectionService_GetSelectionNames
   name: GetSelectionNames
   nameWithType: SelectionService.GetSelectionNames
@@ -562,7 +588,6 @@ references:
   - name: )
 - uid: ISILab.AI.Optimization.Selections.SelectionService.CreateSelectionByName*
   commentId: Overload:ISILab.AI.Optimization.Selections.SelectionService.CreateSelectionByName
-  isExternal: true
   href: ISILab.AI.Optimization.Selections.SelectionService.html#ISILab_AI_Optimization_Selections_SelectionService_CreateSelectionByName_System_String_System_Object___
   name: CreateSelectionByName
   nameWithType: SelectionService.CreateSelectionByName
@@ -604,14 +629,12 @@ references:
 - uid: ISILab.AI.Optimization.Selections.ISelection
   commentId: T:ISILab.AI.Optimization.Selections.ISelection
   parent: ISILab.AI.Optimization.Selections
-  isExternal: true
   href: ISILab.AI.Optimization.Selections.ISelection.html
   name: ISelection
   nameWithType: ISelection
   fullName: ISILab.AI.Optimization.Selections.ISelection
 - uid: ISILab.AI.Optimization.Selections.SelectionService.GetSelectionTypeByName*
   commentId: Overload:ISILab.AI.Optimization.Selections.SelectionService.GetSelectionTypeByName
-  isExternal: true
   href: ISILab.AI.Optimization.Selections.SelectionService.html#ISILab_AI_Optimization_Selections_SelectionService_GetSelectionTypeByName_System_String_
   name: GetSelectionTypeByName
   nameWithType: SelectionService.GetSelectionTypeByName

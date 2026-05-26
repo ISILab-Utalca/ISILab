@@ -39,15 +39,23 @@ items:
   nameWithType: SimulationBehaviour
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour
   type: Class
+  source:
+    id: SimulationBehaviour
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 19
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
     content: >-
+      [Serializable]
+
       [RequieredModule(new Type[] { typeof(SimulationModule) })]
 
       public class SimulationBehaviour : LBSBehaviour, ICloneable
     content.vb: >-
+      <Serializable>
+
       <RequieredModule(New Type() { GetType(SimulationModule) })>
 
       Public Class SimulationBehaviour Inherits LBSBehaviour Implements ICloneable
@@ -58,14 +66,6 @@ items:
   - System.ICloneable
   inheritedMembers:
   - ISILab.LBS.Behaviours.LBSBehaviour.visible
-  - ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
-  - ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
-  - ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
-  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
-  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
-  - ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
-  - ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
-  - ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{{T}},System.Collections.Generic.List{{T}})
   - ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
   - ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
   - ISILab.LBS.Behaviours.LBSBehaviour.Icon
@@ -74,11 +74,23 @@ items:
   - ISILab.LBS.Behaviours.LBSBehaviour.Keys
   - ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
   - ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  - ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
+  - ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
+  - ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
+  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
+  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+  - ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
+  - ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
+  - ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{{T}},System.Collections.Generic.List{{T}})
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.selectedToSet
   commentId: F:ISILab.LBS.Behaviours.SimulationBehaviour.selectedToSet
   id: selectedToSet
@@ -90,14 +102,28 @@ items:
   nameWithType: SimulationBehaviour.selectedToSet
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.selectedToSet
   type: Field
+  source:
+    id: selectedToSet
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 30
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public Bundle selectedToSet
+    content: >-
+      [JsonIgnore]
+
+      public Bundle selectedToSet
     return:
       type: ISILab.LBS.Plugin.Components.Bundles.Bundle
-    content.vb: Public selectedToSet As Bundle
+    content.vb: >-
+      <JsonIgnore>
+
+      Public selectedToSet As Bundle
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.upStairTag
   commentId: F:ISILab.LBS.Behaviours.SimulationBehaviour.upStairTag
   id: upStairTag
@@ -109,14 +135,28 @@ items:
   nameWithType: SimulationBehaviour.upStairTag
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.upStairTag
   type: Field
+  source:
+    id: upStairTag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 33
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public LBSTag upStairTag
+    content: >-
+      [JsonIgnore]
+
+      public LBSTag upStairTag
     return:
       type: ISILab.LBS.Components.LBSTag
-    content.vb: Public upStairTag As LBSTag
+    content.vb: >-
+      <JsonIgnore>
+
+      Public upStairTag As LBSTag
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.downStairTag
   commentId: F:ISILab.LBS.Behaviours.SimulationBehaviour.downStairTag
   id: downStairTag
@@ -128,14 +168,28 @@ items:
   nameWithType: SimulationBehaviour.downStairTag
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.downStairTag
   type: Field
+  source:
+    id: downStairTag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 35
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public LBSTag downStairTag
+    content: >-
+      [JsonIgnore]
+
+      public LBSTag downStairTag
     return:
       type: ISILab.LBS.Components.LBSTag
-    content.vb: Public downStairTag As LBSTag
+    content.vb: >-
+      <JsonIgnore>
+
+      Public downStairTag As LBSTag
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.pathOSBundles
   commentId: F:ISILab.LBS.Behaviours.SimulationBehaviour.pathOSBundles
   id: pathOSBundles
@@ -147,6 +201,10 @@ items:
   nameWithType: SimulationBehaviour.pathOSBundles
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.pathOSBundles
   type: Field
+  source:
+    id: pathOSBundles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 37
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -155,6 +213,150 @@ items:
     return:
       type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle}
     content.vb: Public pathOSBundles As List(Of Bundle)
+- uid: ISILab.LBS.Behaviours.SimulationBehaviour.Tiles
+  commentId: P:ISILab.LBS.Behaviours.SimulationBehaviour.Tiles
+  id: Tiles
+  parent: ISILab.LBS.Behaviours.SimulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Tiles
+  nameWithType: SimulationBehaviour.Tiles
+  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.Tiles
+  type: Property
+  source:
+    id: Tiles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 41
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public List<SimulationTile> Tiles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+    content.vb: Public Property Tiles As List(Of SimulationTile)
+  overload: ISILab.LBS.Behaviours.SimulationBehaviour.Tiles*
+- uid: ISILab.LBS.Behaviours.SimulationBehaviour.Bundles
+  commentId: P:ISILab.LBS.Behaviours.SimulationBehaviour.Bundles
+  id: Bundles
+  parent: ISILab.LBS.Behaviours.SimulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Bundles
+  nameWithType: SimulationBehaviour.Bundles
+  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.Bundles
+  type: Property
+  source:
+    id: Bundles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 43
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public List<Bundle> Bundles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle}
+    content.vb: Public ReadOnly Property Bundles As List(Of Bundle)
+  overload: ISILab.LBS.Behaviours.SimulationBehaviour.Bundles*
+- uid: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap
+  commentId: P:ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap
+  id: AutoMap
+  parent: ISILab.LBS.Behaviours.SimulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: AutoMap
+  nameWithType: SimulationBehaviour.AutoMap
+  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap
+  type: Property
+  source:
+    id: AutoMap
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 54
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public bool AutoMap { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AutoMap As Boolean
+  overload: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap*
+- uid: ISILab.LBS.Behaviours.SimulationBehaviour.OnAddTile
+  commentId: E:ISILab.LBS.Behaviours.SimulationBehaviour.OnAddTile
+  id: OnAddTile
+  parent: ISILab.LBS.Behaviours.SimulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: OnAddTile
+  nameWithType: SimulationBehaviour.OnAddTile
+  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.OnAddTile
+  type: Event
+  source:
+    id: OnAddTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 58
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public event Action<SimulationModule, SimulationTile> OnAddTile
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+    content.vb: Public Event OnAddTile As Action(Of SimulationModule, SimulationTile)
+- uid: ISILab.LBS.Behaviours.SimulationBehaviour.OnApplyEventTile
+  commentId: E:ISILab.LBS.Behaviours.SimulationBehaviour.OnApplyEventTile
+  id: OnApplyEventTile
+  parent: ISILab.LBS.Behaviours.SimulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: OnApplyEventTile
+  nameWithType: SimulationBehaviour.OnApplyEventTile
+  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.OnApplyEventTile
+  type: Event
+  source:
+    id: OnApplyEventTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 63
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public event Action<SimulationModule, SimulationTile> OnApplyEventTile
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+    content.vb: Public Event OnApplyEventTile As Action(Of SimulationModule, SimulationTile)
+- uid: ISILab.LBS.Behaviours.SimulationBehaviour.OnRemoveTile
+  commentId: E:ISILab.LBS.Behaviours.SimulationBehaviour.OnRemoveTile
+  id: OnRemoveTile
+  parent: ISILab.LBS.Behaviours.SimulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: OnRemoveTile
+  nameWithType: SimulationBehaviour.OnRemoveTile
+  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.OnRemoveTile
+  type: Event
+  source:
+    id: OnRemoveTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 68
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public event Action<SimulationModule, SimulationTile> OnRemoveTile
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+    content.vb: Public Event OnRemoveTile As Action(Of SimulationModule, SimulationTile)
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMapCallback
   commentId: F:ISILab.LBS.Behaviours.SimulationBehaviour.AutoMapCallback
   id: AutoMapCallback
@@ -166,6 +368,10 @@ items:
   nameWithType: SimulationBehaviour.AutoMapCallback
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMapCallback
   type: Field
+  source:
+    id: AutoMapCallback
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 74
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -185,6 +391,10 @@ items:
   nameWithType: SimulationBehaviour.RemoveAutoMapCallbacks
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.RemoveAutoMapCallbacks
   type: Field
+  source:
+    id: RemoveAutoMapCallbacks
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 75
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -204,6 +414,10 @@ items:
   nameWithType: SimulationBehaviour.SimulationBehaviour(string, string, Color)
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.SimulationBehaviour(string, string, UnityEngine.Color)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 79
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -232,6 +446,10 @@ items:
   nameWithType: SimulationBehaviour.AddTile(LBSTag, int, int, EntityType, bool, LBSStair)
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.AddTile(ISILab.LBS.Components.LBSTag, int, int, PathOS.EntityType, bool, ISILab.LBS.Modules.LBSStair)
   type: Method
+  source:
+    id: AddTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 83
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -266,6 +484,10 @@ items:
   nameWithType: SimulationBehaviour.RemoveTile(int, int)
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.RemoveTile(int, int)
   type: Method
+  source:
+    id: RemoveTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 144
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -292,6 +514,10 @@ items:
   nameWithType: SimulationBehaviour.RemoveTile(SimulationTile)
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.RemoveTile(ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
   type: Method
+  source:
+    id: RemoveTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 151
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -313,6 +539,10 @@ items:
   nameWithType: SimulationBehaviour.GetTile(int, int)
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.GetTile(int, int)
   type: Method
+  source:
+    id: GetTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 157
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -341,6 +571,10 @@ items:
   nameWithType: SimulationBehaviour.MapToPopulation(List<TileBundleGroup>, List<LBSTile>, List<LBSTile>, List<LBSStair>)
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.MapToPopulation(System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>, System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>, System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>, System.Collections.Generic.List<ISILab.LBS.Modules.LBSStair>)
   type: Method
+  source:
+    id: MapToPopulation
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 162
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -371,6 +605,10 @@ items:
   nameWithType: SimulationBehaviour.ClearMapping()
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.ClearMapping()
   type: Method
+  source:
+    id: ClearMapping
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 237
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -389,6 +627,10 @@ items:
   nameWithType: SimulationBehaviour.ChangeLevelRender(int, int)
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.ChangeLevelRender(int, int)
   type: Method
+  source:
+    id: ChangeLevelRender
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 247
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -417,6 +659,10 @@ items:
   nameWithType: SimulationBehaviour.Clone()
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 271
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -439,6 +685,10 @@ items:
   nameWithType: SimulationBehaviour.OnAttachLayer(LBSLayer)
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: OnAttachLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 276
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -462,6 +712,10 @@ items:
   nameWithType: SimulationBehaviour.OnDetachLayer(LBSLayer)
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: OnDetachLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 283
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -485,6 +739,10 @@ items:
   nameWithType: SimulationBehaviour.CheckKeys()
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.CheckKeys()
   type: Method
+  source:
+    id: CheckKeys
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 289
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -505,6 +763,10 @@ items:
   nameWithType: SimulationBehaviour.OnGUI()
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.OnGUI()
   type: Method
+  source:
+    id: OnGUI
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 294
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -525,6 +787,10 @@ items:
   nameWithType: SimulationBehaviour.Equals(object)
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 299
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -553,6 +819,10 @@ items:
   nameWithType: SimulationBehaviour.GetHashCode()
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Modules\Simulation\LBSPathOSBridge\SimulationBehaviour.cs
+    startLine: 310
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -564,130 +834,9 @@ items:
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.Object.GetHashCode
   overload: ISILab.LBS.Behaviours.SimulationBehaviour.GetHashCode*
-- uid: ISILab.LBS.Behaviours.SimulationBehaviour.Tiles
-  commentId: P:ISILab.LBS.Behaviours.SimulationBehaviour.Tiles
-  id: Tiles
-  parent: ISILab.LBS.Behaviours.SimulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: Tiles
-  nameWithType: SimulationBehaviour.Tiles
-  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.Tiles
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public List<SimulationTile> Tiles { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
-    content.vb: Public ReadOnly Property Tiles As List(Of SimulationTile)
-  overload: ISILab.LBS.Behaviours.SimulationBehaviour.Tiles*
-- uid: ISILab.LBS.Behaviours.SimulationBehaviour.Bundles
-  commentId: P:ISILab.LBS.Behaviours.SimulationBehaviour.Bundles
-  id: Bundles
-  parent: ISILab.LBS.Behaviours.SimulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: Bundles
-  nameWithType: SimulationBehaviour.Bundles
-  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.Bundles
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public List<Bundle> Bundles { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle}
-    content.vb: Public ReadOnly Property Bundles As List(Of Bundle)
-  overload: ISILab.LBS.Behaviours.SimulationBehaviour.Bundles*
-- uid: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap
-  commentId: P:ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap
-  id: AutoMap
-  parent: ISILab.LBS.Behaviours.SimulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: AutoMap
-  nameWithType: SimulationBehaviour.AutoMap
-  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public bool AutoMap { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public ReadOnly Property AutoMap As Boolean
-  overload: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap*
-- uid: ISILab.LBS.Behaviours.SimulationBehaviour.OnAddTile
-  commentId: E:ISILab.LBS.Behaviours.SimulationBehaviour.OnAddTile
-  id: OnAddTile
-  parent: ISILab.LBS.Behaviours.SimulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: OnAddTile
-  nameWithType: SimulationBehaviour.OnAddTile
-  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.OnAddTile
-  type: Event
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public event Action<SimulationModule, SimulationTile> OnAddTile
-    return:
-      type: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
-    content.vb: Public Event OnAddTile As Action(Of SimulationModule, SimulationTile)
-- uid: ISILab.LBS.Behaviours.SimulationBehaviour.OnApplyEventTile
-  commentId: E:ISILab.LBS.Behaviours.SimulationBehaviour.OnApplyEventTile
-  id: OnApplyEventTile
-  parent: ISILab.LBS.Behaviours.SimulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: OnApplyEventTile
-  nameWithType: SimulationBehaviour.OnApplyEventTile
-  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.OnApplyEventTile
-  type: Event
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public event Action<SimulationModule, SimulationTile> OnApplyEventTile
-    return:
-      type: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
-    content.vb: Public Event OnApplyEventTile As Action(Of SimulationModule, SimulationTile)
-- uid: ISILab.LBS.Behaviours.SimulationBehaviour.OnRemoveTile
-  commentId: E:ISILab.LBS.Behaviours.SimulationBehaviour.OnRemoveTile
-  id: OnRemoveTile
-  parent: ISILab.LBS.Behaviours.SimulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: OnRemoveTile
-  nameWithType: SimulationBehaviour.OnRemoveTile
-  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.OnRemoveTile
-  type: Event
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public event Action<SimulationModule, SimulationTile> OnRemoveTile
-    return:
-      type: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
-    content.vb: Public Event OnRemoveTile As Action(Of SimulationModule, SimulationTile)
 references:
 - uid: ISILab.LBS.Behaviours
   commentId: N:ISILab.LBS.Behaviours
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Behaviours
   nameWithType: ISILab.LBS.Behaviours
@@ -695,32 +844,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Behaviours.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Behaviours.html
 - uid: System.Object
   commentId: T:System.Object
@@ -736,7 +879,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour
   commentId: T:ISILab.LBS.Behaviours.LBSBehaviour
   parent: ISILab.LBS.Behaviours
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html
   name: LBSBehaviour
   nameWithType: LBSBehaviour
@@ -752,15 +894,69 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.visible
   commentId: F:ISILab.LBS.Behaviours.LBSBehaviour.visible
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_visible
   name: visible
   nameWithType: LBSBehaviour.visible
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.visible
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint
+  name: ColorTint
+  nameWithType: LBSBehaviour.ColorTint
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSBehaviour.OwnerLayer
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Icon
+  name: Icon
+  nameWithType: LBSBehaviour.Icon
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Icon
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_IconGuid
+  name: IconGuid
+  nameWithType: LBSBehaviour.IconGuid
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Name
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Name
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Name
+  name: Name
+  nameWithType: LBSBehaviour.Name
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Name
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Keys
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Keys
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Keys
+  name: Keys
+  nameWithType: LBSBehaviour.Keys
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Keys
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
+  name: LevelChangedCallback
+  nameWithType: LBSBehaviour.LevelChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  commentId: E:ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnBehaviourUpdated
+  name: OnBehaviourUpdated
+  nameWithType: LBSBehaviour.OnBehaviourUpdated
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
   name: GetRequiredModules()
   nameWithType: LBSBehaviour.GetRequiredModules()
@@ -768,14 +964,12 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
     name: GetRequiredModules
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
     name: GetRequiredModules
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
   - name: (
   - name: )
@@ -793,7 +987,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
     name: RequestTilePaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_
   - name: (
   - uid: System.Object
@@ -804,7 +997,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
     name: RequestTilePaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_
   - name: (
   - uid: System.Object
@@ -826,7 +1018,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
     name: RequestTileRemove
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_
   - name: (
   - uid: System.Object
@@ -837,7 +1028,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
     name: RequestTileRemove
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_
   - name: (
   - uid: System.Object
@@ -848,7 +1038,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
   name: RetrieveNewTiles()
   nameWithType: LBSBehaviour.RetrieveNewTiles()
@@ -856,21 +1045,18 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
     name: RetrieveNewTiles
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
     name: RetrieveNewTiles
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
   name: RetrieveExpiredTiles()
   nameWithType: LBSBehaviour.RetrieveExpiredTiles()
@@ -878,14 +1064,12 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
   - name: (
   - name: )
@@ -903,7 +1087,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
     name: UpdateKeys
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__
   - name: (
   - uid: System.Collections.Generic.List`1
@@ -920,7 +1103,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
     name: UpdateKeys
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__
   - name: (
   - uid: System.Collections.Generic.List`1
@@ -950,7 +1132,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
     name: OnOnBehaviourUpdated
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_
   - name: (
   - uid: System.Object
@@ -961,7 +1142,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
     name: OnOnBehaviourUpdated
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_
   - name: (
   - uid: System.Object
@@ -983,7 +1163,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
     name: RequestFullRepaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
   - name: <
   - name: T
@@ -1009,7 +1188,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
     name: RequestFullRepaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
   - name: (
   - name: Of
@@ -1038,70 +1216,51 @@ references:
   - name: T
   - name: )
   - name: )
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
   isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint
-  name: ColorTint
-  nameWithType: LBSBehaviour.ColorTint
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OwnerLayer
-  name: OwnerLayer
-  nameWithType: LBSBehaviour.OwnerLayer
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Icon
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Icon
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Icon
-  name: Icon
-  nameWithType: LBSBehaviour.Icon
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Icon
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_IconGuid
-  name: IconGuid
-  nameWithType: LBSBehaviour.IconGuid
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Name
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Name
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Name
-  name: Name
-  nameWithType: LBSBehaviour.Name
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Name
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Keys
-  name: Keys
-  nameWithType: LBSBehaviour.Keys
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Keys
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
-  name: LevelChangedCallback
-  nameWithType: LBSBehaviour.LevelChangedCallback
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
-  commentId: E:ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnBehaviourUpdated
-  name: OnBehaviourUpdated
-  nameWithType: LBSBehaviour.OnBehaviourUpdated
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -1150,75 +1309,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -1264,6 +1354,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -1284,7 +1398,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
     name: RequestFullRepaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
   - name: <
   - name: T
@@ -1310,7 +1423,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
     name: RequestFullRepaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
   - name: (
   - name: Of
@@ -1342,14 +1454,12 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
   commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle
   parent: ISILab.LBS.Plugin.Components.Bundles
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
   name: Bundle
   nameWithType: Bundle
   fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle
 - uid: ISILab.LBS.Plugin.Components.Bundles
   commentId: N:ISILab.LBS.Plugin.Components.Bundles
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Bundles
   nameWithType: ISILab.LBS.Plugin.Components.Bundles
@@ -1357,64 +1467,52 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
 - uid: ISILab.LBS.Components.LBSTag
   commentId: T:ISILab.LBS.Components.LBSTag
   parent: ISILab.LBS.Components
-  isExternal: true
   href: ISILab.LBS.Components.LBSTag.html
   name: LBSTag
   nameWithType: LBSTag
   fullName: ISILab.LBS.Components.LBSTag
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Components
   nameWithType: ISILab.LBS.Components
@@ -1422,32 +1520,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
 - uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle}
   commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Bundles.Bundle}
@@ -1468,7 +1560,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
     name: Bundle
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
   - name: '>'
   spec.vb:
@@ -1481,7 +1572,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
     name: Bundle
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
   - name: )
 - uid: System.Collections.Generic.List`1
@@ -1549,6 +1639,145 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Behaviours.SimulationBehaviour.Tiles*
+  commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.Tiles
+  href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_Tiles
+  name: Tiles
+  nameWithType: SimulationBehaviour.Tiles
+  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.Tiles
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<SimulationTile>
+  nameWithType: List<SimulationTile>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile>
+  nameWithType.vb: List(Of SimulationTile)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  name.vb: List(Of SimulationTile)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    name: SimulationTile
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    name: SimulationTile
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
+  - name: )
+- uid: ISILab.LBS.Behaviours.SimulationBehaviour.Bundles*
+  commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.Bundles
+  href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_Bundles
+  name: Bundles
+  nameWithType: SimulationBehaviour.Bundles
+  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.Bundles
+- uid: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap*
+  commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap
+  href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_AutoMap
+  name: AutoMap
+  nameWithType: SimulationBehaviour.AutoMap
+  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+  commentId: T:System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<SimulationModule, SimulationTile>
+  nameWithType: Action<SimulationModule, SimulationTile>
+  fullName: System.Action<ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule, ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile>
+  nameWithType.vb: Action(Of SimulationModule, SimulationTile)
+  fullName.vb: System.Action(Of ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule, ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
+  name.vb: Action(Of SimulationModule, SimulationTile)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+    name: SimulationModule
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    name: SimulationTile
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
+    name: SimulationModule
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
+    name: SimulationTile
+    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
 - uid: System.Action
   commentId: T:System.Action
   parent: System
@@ -1559,7 +1788,6 @@ references:
   fullName: System.Action
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.#ctor*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.#ctor
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour__ctor_System_String_System_String_UnityEngine_Color_
   name: SimulationBehaviour
   nameWithType: SimulationBehaviour.SimulationBehaviour
@@ -1579,13 +1807,20 @@ references:
   fullName.vb: String
   name.vb: String
 - uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
   isExternal: true
   name: Color
   nameWithType: Color
   fullName: UnityEngine.Color
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.AddTile*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.AddTile
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_AddTile_ISILab_LBS_Components_LBSTag_System_Int32_System_Int32_PathOS_EntityType_System_Boolean_ISILab_LBS_Modules_LBSStair_
   name: AddTile
   nameWithType: SimulationBehaviour.AddTile
@@ -1604,40 +1839,23 @@ references:
 - uid: PathOS.EntityType
   commentId: T:PathOS.EntityType
   parent: PathOS
-  isExternal: true
-  href: PathOS.EntityType.html
   name: EntityType
   nameWithType: EntityType
   fullName: PathOS.EntityType
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: ISILab.LBS.Modules.LBSStair
   commentId: T:ISILab.LBS.Modules.LBSStair
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.LBSStair.html
   name: LBSStair
   nameWithType: LBSStair
   fullName: ISILab.LBS.Modules.LBSStair
 - uid: PathOS
   commentId: N:PathOS
-  isExternal: true
-  href: PathOS.html
   name: PathOS
   nameWithType: PathOS
   fullName: PathOS
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -1645,36 +1863,29 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.RemoveTile*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.RemoveTile
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_RemoveTile_System_Int32_System_Int32_
   name: RemoveTile
   nameWithType: SimulationBehaviour.RemoveTile
@@ -1682,14 +1893,12 @@ references:
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
   commentId: T:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
   parent: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
-  isExternal: true
   href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
   name: SimulationTile
   nameWithType: SimulationTile
   fullName: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
 - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
   commentId: N:ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
   nameWithType: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
@@ -1697,73 +1906,59 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules.Simulation
     name: Simulation
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
     name: LBSPathOSBridge
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules.Simulation
     name: Simulation
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.html
   - name: .
   - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
     name: LBSPathOSBridge
-    isExternal: true
     href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.html
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.GetTile*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.GetTile
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_GetTile_System_Int32_System_Int32_
   name: GetTile
   nameWithType: SimulationBehaviour.GetTile
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.GetTile
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.MapToPopulation*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.MapToPopulation
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_MapToPopulation_System_Collections_Generic_List_ISILab_LBS_Modules_TileBundleGroup__System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__System_Collections_Generic_List_ISILab_LBS_Modules_LBSStair__
   name: MapToPopulation
   nameWithType: SimulationBehaviour.MapToPopulation
@@ -1787,7 +1982,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Modules.TileBundleGroup
     name: TileBundleGroup
-    isExternal: true
     href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: '>'
   spec.vb:
@@ -1800,7 +1994,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Modules.TileBundleGroup
     name: TileBundleGroup
-    isExternal: true
     href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: )
 - uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
@@ -1822,7 +2015,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
     name: LBSTile
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
   - name: '>'
   spec.vb:
@@ -1835,7 +2027,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
     name: LBSTile
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
   - name: )
 - uid: System.Collections.Generic.List{ISILab.LBS.Modules.LBSStair}
@@ -1857,7 +2048,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Modules.LBSStair
     name: LBSStair
-    isExternal: true
     href: ISILab.LBS.Modules.LBSStair.html
   - name: '>'
   spec.vb:
@@ -1870,12 +2060,10 @@ references:
   - name: " "
   - uid: ISILab.LBS.Modules.LBSStair
     name: LBSStair
-    isExternal: true
     href: ISILab.LBS.Modules.LBSStair.html
   - name: )
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.ClearMapping*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.ClearMapping
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_ClearMapping
   name: ClearMapping
   nameWithType: SimulationBehaviour.ClearMapping
@@ -1894,7 +2082,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
     name: ChangeLevelRender
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ChangeLevelRender_System_Int32_System_Int32_
   - name: (
   - uid: System.Int32
@@ -1911,7 +2098,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
     name: ChangeLevelRender
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ChangeLevelRender_System_Int32_System_Int32_
   - name: (
   - uid: System.Int32
@@ -1927,7 +2113,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.ChangeLevelRender*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.ChangeLevelRender
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_ChangeLevelRender_System_Int32_System_Int32_
   name: ChangeLevelRender
   nameWithType: SimulationBehaviour.ChangeLevelRender
@@ -1935,7 +2120,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.Clone
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
   name: Clone()
   nameWithType: LBSBehaviour.Clone()
@@ -1943,20 +2127,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.Clone*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.Clone
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_Clone
   name: Clone
   nameWithType: SimulationBehaviour.Clone
@@ -1964,7 +2145,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
   name: OnAttachLayer(LBSLayer)
   nameWithType: LBSBehaviour.OnAttachLayer(LBSLayer)
@@ -1972,28 +2152,23 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
     name: OnAttachLayer
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
     name: OnAttachLayer
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.OnAttachLayer*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.OnAttachLayer
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
   name: OnAttachLayer
   nameWithType: SimulationBehaviour.OnAttachLayer
@@ -2001,14 +2176,12 @@ references:
 - uid: LBS.Components.LBSLayer
   commentId: T:LBS.Components.LBSLayer
   parent: LBS.Components
-  isExternal: true
   href: LBS.Components.LBSLayer.html
   name: LBSLayer
   nameWithType: LBSLayer
   fullName: LBS.Components.LBSLayer
 - uid: LBS.Components
   commentId: N:LBS.Components
-  isExternal: true
   href: LBS.html
   name: LBS.Components
   nameWithType: LBS.Components
@@ -2016,27 +2189,22 @@ references:
   spec.csharp:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
   spec.vb:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
   name: OnDetachLayer(LBSLayer)
   nameWithType: LBSBehaviour.OnDetachLayer(LBSLayer)
@@ -2044,28 +2212,23 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
     name: OnDetachLayer
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
     name: OnDetachLayer
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.OnDetachLayer*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.OnDetachLayer
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
   name: OnDetachLayer
   nameWithType: SimulationBehaviour.OnDetachLayer
@@ -2073,7 +2236,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
   name: CheckKeys()
   nameWithType: LBSBehaviour.CheckKeys()
@@ -2081,20 +2243,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
     name: CheckKeys
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
     name: CheckKeys
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.CheckKeys*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.CheckKeys
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_CheckKeys
   name: CheckKeys
   nameWithType: SimulationBehaviour.CheckKeys
@@ -2102,7 +2261,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
   name: OnGUI()
   nameWithType: LBSBehaviour.OnGUI()
@@ -2110,20 +2268,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
     name: OnGUI
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
     name: OnGUI
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.OnGUI*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.OnGUI
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_OnGUI
   name: OnGUI
   nameWithType: SimulationBehaviour.OnGUI
@@ -2163,7 +2318,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.Equals*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.Equals
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_Equals_System_Object_
   name: Equals
   nameWithType: SimulationBehaviour.Equals
@@ -2194,146 +2348,8 @@ references:
   - name: )
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.GetHashCode*
   commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_GetHashCode
   name: GetHashCode
   nameWithType: SimulationBehaviour.GetHashCode
   fullName: ISILab.LBS.Behaviours.SimulationBehaviour.GetHashCode
-- uid: ISILab.LBS.Behaviours.SimulationBehaviour.Tiles*
-  commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.Tiles
-  isExternal: true
-  href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_Tiles
-  name: Tiles
-  nameWithType: SimulationBehaviour.Tiles
-  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.Tiles
-- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
-  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<SimulationTile>
-  nameWithType: List<SimulationTile>
-  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile>
-  nameWithType.vb: List(Of SimulationTile)
-  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
-  name.vb: List(Of SimulationTile)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
-    name: SimulationTile
-    isExternal: true
-    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
-    name: SimulationTile
-    isExternal: true
-    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
-  - name: )
-- uid: ISILab.LBS.Behaviours.SimulationBehaviour.Bundles*
-  commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.Bundles
-  isExternal: true
-  href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_Bundles
-  name: Bundles
-  nameWithType: SimulationBehaviour.Bundles
-  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.Bundles
-- uid: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap*
-  commentId: Overload:ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap
-  isExternal: true
-  href: ISILab.LBS.Behaviours.SimulationBehaviour.html#ISILab_LBS_Behaviours_SimulationBehaviour_AutoMap
-  name: AutoMap
-  nameWithType: SimulationBehaviour.AutoMap
-  fullName: ISILab.LBS.Behaviours.SimulationBehaviour.AutoMap
-- uid: System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
-  commentId: T:System.Action{ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule,ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile}
-  parent: System
-  definition: System.Action`2
-  href: https://learn.microsoft.com/dotnet/api/system.action-2
-  name: Action<SimulationModule, SimulationTile>
-  nameWithType: Action<SimulationModule, SimulationTile>
-  fullName: System.Action<ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule, ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile>
-  nameWithType.vb: Action(Of SimulationModule, SimulationTile)
-  fullName.vb: System.Action(Of ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule, ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile)
-  name.vb: Action(Of SimulationModule, SimulationTile)
-  spec.csharp:
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: <
-  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
-    name: SimulationModule
-    isExternal: true
-    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html
-  - name: ','
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
-    name: SimulationTile
-    isExternal: true
-    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule
-    name: SimulationModule
-    isExternal: true
-    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationModule.html
-  - name: ','
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile
-    name: SimulationTile
-    isExternal: true
-    href: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge.SimulationTile.html
-  - name: )
-- uid: System.Action`2
-  commentId: T:System.Action`2
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.action-2
-  name: Action<T1, T2>
-  nameWithType: Action<T1, T2>
-  fullName: System.Action<T1, T2>
-  nameWithType.vb: Action(Of T1, T2)
-  fullName.vb: System.Action(Of T1, T2)
-  name.vb: Action(Of T1, T2)
-  spec.csharp:
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: <
-  - name: T1
-  - name: ','
-  - name: " "
-  - name: T2
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T1
-  - name: ','
-  - name: " "
-  - name: T2
-  - name: )
 shouldSkipMarkup: true

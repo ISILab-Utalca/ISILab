@@ -5,7 +5,6 @@ items:
   id: FastRandomRandomization
   parent: GeneticSharp.Domain.Randomizations
   children:
-  - GeneticSharp.Domain.Randomizations.FastRandomRandomization.#ctor
   - GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetDouble
   - GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetFloat
   - GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetInt(System.Int32,System.Int32)
@@ -16,9 +15,18 @@ items:
   nameWithType: FastRandomRandomization
   fullName: GeneticSharp.Domain.Randomizations.FastRandomRandomization
   type: Class
+  source:
+    id: FastRandomRandomization
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\FastRandomRandomization.cs
+    startLine: 10
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: >-
+    An IRandomization using FastRandom has pseudo-number generator.
+
+    <a href="http://www.codeproject.com/Articles/9187/A-fast-equivalent-for-System-Random">http://www.codeproject.com/Articles/9187/A-fast-equivalent-for-System-Random</a>
+  example: []
   syntax:
     content: 'public class FastRandomRandomization : RandomizationBase, IRandomization'
     content.vb: Public Class FastRandomRandomization Inherits RandomizationBase Implements IRandomization
@@ -32,13 +40,13 @@ items:
   - GeneticSharp.Domain.Randomizations.RandomizationBase.GetUniqueInts(System.Int32,System.Int32,System.Int32)
   - GeneticSharp.Domain.Randomizations.RandomizationBase.GetFloat(System.Single,System.Single)
   - GeneticSharp.Domain.Randomizations.RandomizationBase.GetDouble(System.Double,System.Double)
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   extensionMethods:
   - GeneticSharp.Domain.Randomizations.IRandomization.GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(System.Int32,System.Int32)
   - GeneticSharp.Domain.Randomizations.IRandomization.GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetOddInt(System.Int32,System.Int32)
@@ -53,19 +61,27 @@ items:
   nameWithType: FastRandomRandomization.GetInt(int, int)
   fullName: GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetInt(int, int)
   type: Method
+  source:
+    id: GetInt
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\FastRandomRandomization.cs
+    startLine: 45
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Gets an integer value between minimum value (inclusive) and maximum value (exclusive).
   example: []
   syntax:
     content: public override int GetInt(int min, int max)
     parameters:
     - id: min
       type: System.Int32
+      description: Minimum value (inclusive).
     - id: max
       type: System.Int32
+      description: Maximum value (exclusive).
     return:
       type: System.Int32
+      description: The integer.
     content.vb: Public Overrides Function GetInt(min As Integer, max As Integer) As Integer
   overridden: GeneticSharp.Domain.Randomizations.RandomizationBase.GetInt(System.Int32,System.Int32)
   overload: GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetInt*
@@ -83,14 +99,20 @@ items:
   nameWithType: FastRandomRandomization.GetFloat()
   fullName: GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetFloat()
   type: Method
+  source:
+    id: GetFloat
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\FastRandomRandomization.cs
+    startLine: 56
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Gets a float value between 0.0 and 1.0.
   example: []
   syntax:
     content: public override float GetFloat()
     return:
       type: System.Single
+      description: The float value.
     content.vb: Public Overrides Function GetFloat() As Single
   overridden: GeneticSharp.Domain.Randomizations.RandomizationBase.GetFloat
   overload: GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetFloat*
@@ -105,42 +127,26 @@ items:
   nameWithType: FastRandomRandomization.GetDouble()
   fullName: GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetDouble()
   type: Method
+  source:
+    id: GetDouble
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Randomizations\FastRandomRandomization.cs
+    startLine: 65
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Randomizations
+  summary: Gets a double value between 0.0 and 1.0.
   example: []
   syntax:
     content: public override double GetDouble()
     return:
       type: System.Double
+      description: The double value.
     content.vb: Public Overrides Function GetDouble() As Double
   overridden: GeneticSharp.Domain.Randomizations.RandomizationBase.GetDouble
   overload: GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetDouble*
-- uid: GeneticSharp.Domain.Randomizations.FastRandomRandomization.#ctor
-  commentId: M:GeneticSharp.Domain.Randomizations.FastRandomRandomization.#ctor
-  id: '#ctor'
-  parent: GeneticSharp.Domain.Randomizations.FastRandomRandomization
-  langs:
-  - csharp
-  - vb
-  name: FastRandomRandomization()
-  nameWithType: FastRandomRandomization.FastRandomRandomization()
-  fullName: GeneticSharp.Domain.Randomizations.FastRandomRandomization.FastRandomRandomization()
-  type: Constructor
-  assemblies:
-  - LBS
-  namespace: GeneticSharp.Domain.Randomizations
-  syntax:
-    content: public FastRandomRandomization()
-    content.vb: Public Sub New()
-  overload: GeneticSharp.Domain.Randomizations.FastRandomRandomization.#ctor*
-  nameWithType.vb: FastRandomRandomization.New()
-  fullName.vb: GeneticSharp.Domain.Randomizations.FastRandomRandomization.New()
-  name.vb: New()
 references:
 - uid: GeneticSharp.Domain.Randomizations
   commentId: N:GeneticSharp.Domain.Randomizations
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Randomizations
   nameWithType: GeneticSharp.Domain.Randomizations
@@ -148,32 +154,26 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Randomizations
     name: Randomizations
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Randomizations
     name: Randomizations
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.html
 - uid: System.Object
   commentId: T:System.Object
@@ -189,7 +189,6 @@ references:
 - uid: GeneticSharp.Domain.Randomizations.RandomizationBase
   commentId: T:GeneticSharp.Domain.Randomizations.RandomizationBase
   parent: GeneticSharp.Domain.Randomizations
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.RandomizationBase.html
   name: RandomizationBase
   nameWithType: RandomizationBase
@@ -197,7 +196,6 @@ references:
 - uid: GeneticSharp.Domain.Randomizations.IRandomization
   commentId: T:GeneticSharp.Domain.Randomizations.IRandomization
   parent: GeneticSharp.Domain.Randomizations
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.IRandomization.html
   name: IRandomization
   nameWithType: IRandomization
@@ -216,7 +214,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetInts(System.Int32,System.Int32,System.Int32)
     name: GetInts
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetInts_System_Int32_System_Int32_System_Int32_
   - name: (
   - uid: System.Int32
@@ -239,7 +236,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetInts(System.Int32,System.Int32,System.Int32)
     name: GetInts
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetInts_System_Int32_System_Int32_System_Int32_
   - name: (
   - uid: System.Int32
@@ -273,7 +269,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetUniqueInts(System.Int32,System.Int32,System.Int32)
     name: GetUniqueInts
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetUniqueInts_System_Int32_System_Int32_System_Int32_
   - name: (
   - uid: System.Int32
@@ -296,7 +291,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetUniqueInts(System.Int32,System.Int32,System.Int32)
     name: GetUniqueInts
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetUniqueInts_System_Int32_System_Int32_System_Int32_
   - name: (
   - uid: System.Int32
@@ -330,7 +324,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetFloat(System.Single,System.Single)
     name: GetFloat
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetFloat_System_Single_System_Single_
   - name: (
   - uid: System.Single
@@ -347,7 +340,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetFloat(System.Single,System.Single)
     name: GetFloat
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetFloat_System_Single_System_Single_
   - name: (
   - uid: System.Single
@@ -375,7 +367,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetDouble(System.Double,System.Double)
     name: GetDouble
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetDouble_System_Double_System_Double_
   - name: (
   - uid: System.Double
@@ -392,7 +383,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetDouble(System.Double,System.Double)
     name: GetDouble
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetDouble_System_Double_System_Double_
   - name: (
   - uid: System.Double
@@ -405,78 +395,6 @@ references:
     name: Double
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -556,6 +474,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -601,28 +591,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: GeneticSharp.Domain.Randomizations.IRandomization.GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(System.Int32,System.Int32)
@@ -639,12 +629,10 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetEvenInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetEvenInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -662,12 +650,10 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetEvenInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetEvenInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -696,12 +682,10 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetOddInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetOddInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetOddInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -719,12 +703,10 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetOddInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetOddInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetOddInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -759,12 +741,10 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetEvenInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetEvenInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -782,12 +762,10 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetEvenInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetEvenInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetEvenInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -805,7 +783,6 @@ references:
 - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions
   commentId: T:GeneticSharp.Domain.Randomizations.RandomizationExtensions
   parent: GeneticSharp.Domain.Randomizations
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html
   name: RandomizationExtensions
   nameWithType: RandomizationExtensions
@@ -823,12 +800,10 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetOddInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetOddInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetOddInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -846,12 +821,10 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationExtensions.GetOddInt(GeneticSharp.Domain.Randomizations.IRandomization,System.Int32,System.Int32)
     name: GetOddInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationExtensions.html#GeneticSharp_Domain_Randomizations_RandomizationExtensions_GetOddInt_GeneticSharp_Domain_Randomizations_IRandomization_System_Int32_System_Int32_
   - name: (
   - uid: GeneticSharp.Domain.Randomizations.IRandomization
     name: IRandomization
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.IRandomization.html
   - name: ','
   - name: " "
@@ -880,7 +853,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetInt(System.Int32,System.Int32)
     name: GetInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetInt_System_Int32_System_Int32_
   - name: (
   - uid: System.Int32
@@ -897,7 +869,6 @@ references:
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetInt(System.Int32,System.Int32)
     name: GetInt
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetInt_System_Int32_System_Int32_
   - name: (
   - uid: System.Int32
@@ -913,7 +884,6 @@ references:
   - name: )
 - uid: GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetInt*
   commentId: Overload:GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetInt
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.FastRandomRandomization.html#GeneticSharp_Domain_Randomizations_FastRandomRandomization_GetInt_System_Int32_System_Int32_
   name: GetInt
   nameWithType: FastRandomRandomization.GetInt
@@ -932,7 +902,6 @@ references:
 - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetFloat
   commentId: M:GeneticSharp.Domain.Randomizations.RandomizationBase.GetFloat
   parent: GeneticSharp.Domain.Randomizations.RandomizationBase
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetFloat
   name: GetFloat()
   nameWithType: RandomizationBase.GetFloat()
@@ -940,20 +909,17 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetFloat
     name: GetFloat
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetFloat
   - name: (
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetFloat
     name: GetFloat
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetFloat
   - name: (
   - name: )
 - uid: GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetFloat*
   commentId: Overload:GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetFloat
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.FastRandomRandomization.html#GeneticSharp_Domain_Randomizations_FastRandomRandomization_GetFloat
   name: GetFloat
   nameWithType: FastRandomRandomization.GetFloat
@@ -972,7 +938,6 @@ references:
 - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetDouble
   commentId: M:GeneticSharp.Domain.Randomizations.RandomizationBase.GetDouble
   parent: GeneticSharp.Domain.Randomizations.RandomizationBase
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetDouble
   name: GetDouble()
   nameWithType: RandomizationBase.GetDouble()
@@ -980,20 +945,17 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetDouble
     name: GetDouble
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetDouble
   - name: (
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Randomizations.RandomizationBase.GetDouble
     name: GetDouble
-    isExternal: true
     href: GeneticSharp.Domain.Randomizations.RandomizationBase.html#GeneticSharp_Domain_Randomizations_RandomizationBase_GetDouble
   - name: (
   - name: )
 - uid: GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetDouble*
   commentId: Overload:GeneticSharp.Domain.Randomizations.FastRandomRandomization.GetDouble
-  isExternal: true
   href: GeneticSharp.Domain.Randomizations.FastRandomRandomization.html#GeneticSharp_Domain_Randomizations_FastRandomRandomization_GetDouble
   name: GetDouble
   nameWithType: FastRandomRandomization.GetDouble
@@ -1009,14 +971,4 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
-- uid: GeneticSharp.Domain.Randomizations.FastRandomRandomization.#ctor*
-  commentId: Overload:GeneticSharp.Domain.Randomizations.FastRandomRandomization.#ctor
-  isExternal: true
-  href: GeneticSharp.Domain.Randomizations.FastRandomRandomization.html#GeneticSharp_Domain_Randomizations_FastRandomRandomization__ctor
-  name: FastRandomRandomization
-  nameWithType: FastRandomRandomization.FastRandomRandomization
-  fullName: GeneticSharp.Domain.Randomizations.FastRandomRandomization.FastRandomRandomization
-  nameWithType.vb: FastRandomRandomization.New
-  fullName.vb: GeneticSharp.Domain.Randomizations.FastRandomRandomization.New
-  name.vb: New
 shouldSkipMarkup: true

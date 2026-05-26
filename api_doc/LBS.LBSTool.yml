@@ -24,6 +24,10 @@ items:
   nameWithType: LBSTool
   fullName: LBS.LBSTool
   type: Class
+  source:
+    id: LBSTool
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 13
   assemblies:
   - LBS.Editor
   namespace: LBS
@@ -33,12 +37,227 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LBS.LBSTool.Icon
+  commentId: P:LBS.LBSTool.Icon
+  id: Icon
+  parent: LBS.LBSTool
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: LBSTool.Icon
+  fullName: LBS.LBSTool.Icon
+  type: Property
+  source:
+    id: Icon
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 16
+  assemblies:
+  - LBS.Editor
+  namespace: LBS
+  syntax:
+    content: public VectorImage Icon { get; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Public ReadOnly Property Icon As VectorImage
+  overload: LBS.LBSTool.Icon*
+- uid: LBS.LBSTool.Name
+  commentId: P:LBS.LBSTool.Name
+  id: Name
+  parent: LBS.LBSTool
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: LBSTool.Name
+  fullName: LBS.LBSTool.Name
+  type: Property
+  source:
+    id: Name
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 18
+  assemblies:
+  - LBS.Editor
+  namespace: LBS
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: LBS.LBSTool.Name*
+- uid: LBS.LBSTool.Description
+  commentId: P:LBS.LBSTool.Description
+  id: Description
+  parent: LBS.LBSTool
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: LBSTool.Description
+  fullName: LBS.LBSTool.Description
+  type: Property
+  source:
+    id: Description
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 20
+  assemblies:
+  - LBS.Editor
+  namespace: LBS
+  syntax:
+    content: public string Description { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Description As String
+  overload: LBS.LBSTool.Description*
+- uid: LBS.LBSTool.Manipulator
+  commentId: P:LBS.LBSTool.Manipulator
+  id: Manipulator
+  parent: LBS.LBSTool
+  langs:
+  - csharp
+  - vb
+  name: Manipulator
+  nameWithType: LBSTool.Manipulator
+  fullName: LBS.LBSTool.Manipulator
+  type: Property
+  source:
+    id: Manipulator
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 22
+  assemblies:
+  - LBS.Editor
+  namespace: LBS
+  syntax:
+    content: public LBSManipulator Manipulator { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Manipulators.LBSManipulator
+    content.vb: Public ReadOnly Property Manipulator As LBSManipulator
+  overload: LBS.LBSTool.Manipulator*
+- uid: LBS.LBSTool.OnSelect
+  commentId: E:LBS.LBSTool.OnSelect
+  id: OnSelect
+  parent: LBS.LBSTool
+  langs:
+  - csharp
+  - vb
+  name: OnSelect
+  nameWithType: LBSTool.OnSelect
+  fullName: LBS.LBSTool.OnSelect
+  type: Event
+  source:
+    id: OnSelect
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 27
+  assemblies:
+  - LBS.Editor
+  namespace: LBS
+  syntax:
+    content: public event Action OnSelect
+    return:
+      type: System.Action
+    content.vb: Public Event OnSelect As Action
+- uid: LBS.LBSTool.OnDeselect
+  commentId: E:LBS.LBSTool.OnDeselect
+  id: OnDeselect
+  parent: LBS.LBSTool
+  langs:
+  - csharp
+  - vb
+  name: OnDeselect
+  nameWithType: LBSTool.OnDeselect
+  fullName: LBS.LBSTool.OnDeselect
+  type: Event
+  source:
+    id: OnDeselect
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 28
+  assemblies:
+  - LBS.Editor
+  namespace: LBS
+  syntax:
+    content: public event Action OnDeselect
+    return:
+      type: System.Action
+    content.vb: Public Event OnDeselect As Action
+- uid: LBS.LBSTool.OnStart
+  commentId: E:LBS.LBSTool.OnStart
+  id: OnStart
+  parent: LBS.LBSTool
+  langs:
+  - csharp
+  - vb
+  name: OnStart
+  nameWithType: LBSTool.OnStart
+  fullName: LBS.LBSTool.OnStart
+  type: Event
+  source:
+    id: OnStart
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 29
+  assemblies:
+  - LBS.Editor
+  namespace: LBS
+  syntax:
+    content: public event Action<LBSLayer> OnStart
+    return:
+      type: System.Action{LBS.Components.LBSLayer}
+    content.vb: Public Event OnStart As Action(Of LBSLayer)
+- uid: LBS.LBSTool.OnPressed
+  commentId: E:LBS.LBSTool.OnPressed
+  id: OnPressed
+  parent: LBS.LBSTool
+  langs:
+  - csharp
+  - vb
+  name: OnPressed
+  nameWithType: LBSTool.OnPressed
+  fullName: LBS.LBSTool.OnPressed
+  type: Event
+  source:
+    id: OnPressed
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 30
+  assemblies:
+  - LBS.Editor
+  namespace: LBS
+  syntax:
+    content: public event Action<LBSLayer> OnPressed
+    return:
+      type: System.Action{LBS.Components.LBSLayer}
+    content.vb: Public Event OnPressed As Action(Of LBSLayer)
+- uid: LBS.LBSTool.OnEnd
+  commentId: E:LBS.LBSTool.OnEnd
+  id: OnEnd
+  parent: LBS.LBSTool
+  langs:
+  - csharp
+  - vb
+  name: OnEnd
+  nameWithType: LBSTool.OnEnd
+  fullName: LBS.LBSTool.OnEnd
+  type: Event
+  source:
+    id: OnEnd
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 31
+  assemblies:
+  - LBS.Editor
+  namespace: LBS
+  syntax:
+    content: public event Action<LBSLayer> OnEnd
+    return:
+      type: System.Action{LBS.Components.LBSLayer}
+    content.vb: Public Event OnEnd As Action(Of LBSLayer)
 - uid: LBS.LBSTool.#ctor(ISILab.LBS.Manipulators.LBSManipulator)
   commentId: M:LBS.LBSTool.#ctor(ISILab.LBS.Manipulators.LBSManipulator)
   id: '#ctor(ISILab.LBS.Manipulators.LBSManipulator)'
@@ -50,6 +269,10 @@ items:
   nameWithType: LBSTool.LBSTool(LBSManipulator)
   fullName: LBS.LBSTool.LBSTool(ISILab.LBS.Manipulators.LBSManipulator)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 35
   assemblies:
   - LBS.Editor
   namespace: LBS
@@ -74,6 +297,10 @@ items:
   nameWithType: LBSTool.Init(LBSLayer, object)
   fullName: LBS.LBSTool.Init(LBS.Components.LBSLayer, object)
   type: Method
+  source:
+    id: Init
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 45
   assemblies:
   - LBS.Editor
   namespace: LBS
@@ -100,6 +327,10 @@ items:
   nameWithType: LBSTool.BindButton(ToolButton)
   fullName: LBS.LBSTool.BindButton(ISILab.LBS.VisualElements.ToolButton)
   type: Method
+  source:
+    id: BindButton
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Tools\LBSTool.cs
+    startLine: 63
   assemblies:
   - LBS.Editor
   namespace: LBS
@@ -110,189 +341,9 @@ items:
       type: ISILab.LBS.VisualElements.ToolButton
     content.vb: Public Sub BindButton(button As ToolButton)
   overload: LBS.LBSTool.BindButton*
-- uid: LBS.LBSTool.Icon
-  commentId: P:LBS.LBSTool.Icon
-  id: Icon
-  parent: LBS.LBSTool
-  langs:
-  - csharp
-  - vb
-  name: Icon
-  nameWithType: LBSTool.Icon
-  fullName: LBS.LBSTool.Icon
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: LBS
-  syntax:
-    content: public VectorImage Icon { get; }
-    parameters: []
-    return:
-      type: UnityEngine.UIElements.VectorImage
-    content.vb: Public ReadOnly Property Icon As VectorImage
-  overload: LBS.LBSTool.Icon*
-- uid: LBS.LBSTool.Name
-  commentId: P:LBS.LBSTool.Name
-  id: Name
-  parent: LBS.LBSTool
-  langs:
-  - csharp
-  - vb
-  name: Name
-  nameWithType: LBSTool.Name
-  fullName: LBS.LBSTool.Name
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: LBS
-  syntax:
-    content: public string Name { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public ReadOnly Property Name As String
-  overload: LBS.LBSTool.Name*
-- uid: LBS.LBSTool.Description
-  commentId: P:LBS.LBSTool.Description
-  id: Description
-  parent: LBS.LBSTool
-  langs:
-  - csharp
-  - vb
-  name: Description
-  nameWithType: LBSTool.Description
-  fullName: LBS.LBSTool.Description
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: LBS
-  syntax:
-    content: public string Description { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public ReadOnly Property Description As String
-  overload: LBS.LBSTool.Description*
-- uid: LBS.LBSTool.Manipulator
-  commentId: P:LBS.LBSTool.Manipulator
-  id: Manipulator
-  parent: LBS.LBSTool
-  langs:
-  - csharp
-  - vb
-  name: Manipulator
-  nameWithType: LBSTool.Manipulator
-  fullName: LBS.LBSTool.Manipulator
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: LBS
-  syntax:
-    content: public LBSManipulator Manipulator { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Manipulators.LBSManipulator
-    content.vb: Public ReadOnly Property Manipulator As LBSManipulator
-  overload: LBS.LBSTool.Manipulator*
-- uid: LBS.LBSTool.OnSelect
-  commentId: E:LBS.LBSTool.OnSelect
-  id: OnSelect
-  parent: LBS.LBSTool
-  langs:
-  - csharp
-  - vb
-  name: OnSelect
-  nameWithType: LBSTool.OnSelect
-  fullName: LBS.LBSTool.OnSelect
-  type: Event
-  assemblies:
-  - LBS.Editor
-  namespace: LBS
-  syntax:
-    content: public event Action OnSelect
-    return:
-      type: System.Action
-    content.vb: Public Event OnSelect As Action
-- uid: LBS.LBSTool.OnDeselect
-  commentId: E:LBS.LBSTool.OnDeselect
-  id: OnDeselect
-  parent: LBS.LBSTool
-  langs:
-  - csharp
-  - vb
-  name: OnDeselect
-  nameWithType: LBSTool.OnDeselect
-  fullName: LBS.LBSTool.OnDeselect
-  type: Event
-  assemblies:
-  - LBS.Editor
-  namespace: LBS
-  syntax:
-    content: public event Action OnDeselect
-    return:
-      type: System.Action
-    content.vb: Public Event OnDeselect As Action
-- uid: LBS.LBSTool.OnStart
-  commentId: E:LBS.LBSTool.OnStart
-  id: OnStart
-  parent: LBS.LBSTool
-  langs:
-  - csharp
-  - vb
-  name: OnStart
-  nameWithType: LBSTool.OnStart
-  fullName: LBS.LBSTool.OnStart
-  type: Event
-  assemblies:
-  - LBS.Editor
-  namespace: LBS
-  syntax:
-    content: public event Action<LBSLayer> OnStart
-    return:
-      type: System.Action{LBS.Components.LBSLayer}
-    content.vb: Public Event OnStart As Action(Of LBSLayer)
-- uid: LBS.LBSTool.OnPressed
-  commentId: E:LBS.LBSTool.OnPressed
-  id: OnPressed
-  parent: LBS.LBSTool
-  langs:
-  - csharp
-  - vb
-  name: OnPressed
-  nameWithType: LBSTool.OnPressed
-  fullName: LBS.LBSTool.OnPressed
-  type: Event
-  assemblies:
-  - LBS.Editor
-  namespace: LBS
-  syntax:
-    content: public event Action<LBSLayer> OnPressed
-    return:
-      type: System.Action{LBS.Components.LBSLayer}
-    content.vb: Public Event OnPressed As Action(Of LBSLayer)
-- uid: LBS.LBSTool.OnEnd
-  commentId: E:LBS.LBSTool.OnEnd
-  id: OnEnd
-  parent: LBS.LBSTool
-  langs:
-  - csharp
-  - vb
-  name: OnEnd
-  nameWithType: LBSTool.OnEnd
-  fullName: LBS.LBSTool.OnEnd
-  type: Event
-  assemblies:
-  - LBS.Editor
-  namespace: LBS
-  syntax:
-    content: public event Action<LBSLayer> OnEnd
-    return:
-      type: System.Action{LBS.Components.LBSLayer}
-    content.vb: Public Event OnEnd As Action(Of LBSLayer)
 references:
 - uid: LBS
   commentId: N:LBS
-  isExternal: true
   href: LBS.html
   name: LBS
   nameWithType: LBS
@@ -308,30 +359,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -410,51 +437,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.GetHashCode
   commentId: M:System.Object.GetHashCode
   parent: System.Object
@@ -503,6 +485,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gettype
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -510,170 +561,43 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: LBS.LBSTool.#ctor*
-  commentId: Overload:LBS.LBSTool.#ctor
-  isExternal: true
-  href: LBS.LBSTool.html#LBS_LBSTool__ctor_ISILab_LBS_Manipulators_LBSManipulator_
-  name: LBSTool
-  nameWithType: LBSTool.LBSTool
-  fullName: LBS.LBSTool.LBSTool
-  nameWithType.vb: LBSTool.New
-  fullName.vb: LBS.LBSTool.New
-  name.vb: New
-- uid: ISILab.LBS.Manipulators.LBSManipulator
-  commentId: T:ISILab.LBS.Manipulators.LBSManipulator
-  parent: ISILab.LBS.Manipulators
-  isExternal: true
-  href: ISILab.LBS.Manipulators.LBSManipulator.html
-  name: LBSManipulator
-  nameWithType: LBSManipulator
-  fullName: ISILab.LBS.Manipulators.LBSManipulator
-- uid: ISILab.LBS.Manipulators
-  commentId: N:ISILab.LBS.Manipulators
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.LBS.Manipulators
-  nameWithType: ISILab.LBS.Manipulators
-  fullName: ISILab.LBS.Manipulators
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Manipulators
-    name: Manipulators
-    isExternal: true
-    href: ISILab.LBS.Manipulators.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Manipulators
-    name: Manipulators
-    isExternal: true
-    href: ISILab.LBS.Manipulators.html
-- uid: LBS.LBSTool.Init*
-  commentId: Overload:LBS.LBSTool.Init
-  isExternal: true
-  href: LBS.LBSTool.html#LBS_LBSTool_Init_LBS_Components_LBSLayer_System_Object_
-  name: Init
-  nameWithType: LBSTool.Init
-  fullName: LBS.LBSTool.Init
-- uid: LBS.Components.LBSLayer
-  commentId: T:LBS.Components.LBSLayer
-  parent: LBS.Components
-  isExternal: true
-  href: LBS.Components.LBSLayer.html
-  name: LBSLayer
-  nameWithType: LBSLayer
-  fullName: LBS.Components.LBSLayer
-- uid: LBS.Components
-  commentId: N:LBS.Components
-  isExternal: true
-  href: LBS.html
-  name: LBS.Components
-  nameWithType: LBS.Components
-  fullName: LBS.Components
-  spec.csharp:
-  - uid: LBS
-    name: LBS
-    isExternal: true
-    href: LBS.html
-  - name: .
-  - uid: LBS.Components
-    name: Components
-    isExternal: true
-    href: LBS.Components.html
-  spec.vb:
-  - uid: LBS
-    name: LBS
-    isExternal: true
-    href: LBS.html
-  - name: .
-  - uid: LBS.Components
-    name: Components
-    isExternal: true
-    href: LBS.Components.html
-- uid: LBS.LBSTool.BindButton*
-  commentId: Overload:LBS.LBSTool.BindButton
-  isExternal: true
-  href: LBS.LBSTool.html#LBS_LBSTool_BindButton_ISILab_LBS_VisualElements_ToolButton_
-  name: BindButton
-  nameWithType: LBSTool.BindButton
-  fullName: LBS.LBSTool.BindButton
-- uid: ISILab.LBS.VisualElements.ToolButton
-  commentId: T:ISILab.LBS.VisualElements.ToolButton
-  parent: ISILab.LBS.VisualElements
-  isExternal: true
-  href: ISILab.LBS.VisualElements.ToolButton.html
-  name: ToolButton
-  nameWithType: ToolButton
-  fullName: ISILab.LBS.VisualElements.ToolButton
-- uid: ISILab.LBS.VisualElements
-  commentId: N:ISILab.LBS.VisualElements
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.LBS.VisualElements
-  nameWithType: ISILab.LBS.VisualElements
-  fullName: ISILab.LBS.VisualElements
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.VisualElements
-    name: VisualElements
-    isExternal: true
-    href: ISILab.LBS.VisualElements.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.VisualElements
-    name: VisualElements
-    isExternal: true
-    href: ISILab.LBS.VisualElements.html
 - uid: LBS.LBSTool.Icon*
   commentId: Overload:LBS.LBSTool.Icon
-  isExternal: true
   href: LBS.LBSTool.html#LBS_LBSTool_Icon
   name: Icon
   nameWithType: LBSTool.Icon
   fullName: LBS.LBSTool.Icon
 - uid: UnityEngine.UIElements.VectorImage
+  commentId: T:UnityEngine.UIElements.VectorImage
+  parent: UnityEngine.UIElements
   isExternal: true
   name: VectorImage
   nameWithType: VectorImage
   fullName: UnityEngine.UIElements.VectorImage
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
 - uid: LBS.LBSTool.Name*
   commentId: Overload:LBS.LBSTool.Name
-  isExternal: true
   href: LBS.LBSTool.html#LBS_LBSTool_Name
   name: Name
   nameWithType: LBSTool.Name
@@ -691,18 +615,53 @@ references:
   name.vb: String
 - uid: LBS.LBSTool.Description*
   commentId: Overload:LBS.LBSTool.Description
-  isExternal: true
   href: LBS.LBSTool.html#LBS_LBSTool_Description
   name: Description
   nameWithType: LBSTool.Description
   fullName: LBS.LBSTool.Description
 - uid: LBS.LBSTool.Manipulator*
   commentId: Overload:LBS.LBSTool.Manipulator
-  isExternal: true
   href: LBS.LBSTool.html#LBS_LBSTool_Manipulator
   name: Manipulator
   nameWithType: LBSTool.Manipulator
   fullName: LBS.LBSTool.Manipulator
+- uid: ISILab.LBS.Manipulators.LBSManipulator
+  commentId: T:ISILab.LBS.Manipulators.LBSManipulator
+  parent: ISILab.LBS.Manipulators
+  href: ISILab.LBS.Manipulators.LBSManipulator.html
+  name: LBSManipulator
+  nameWithType: LBSManipulator
+  fullName: ISILab.LBS.Manipulators.LBSManipulator
+- uid: ISILab.LBS.Manipulators
+  commentId: N:ISILab.LBS.Manipulators
+  href: ISILab.html
+  name: ISILab.LBS.Manipulators
+  nameWithType: ISILab.LBS.Manipulators
+  fullName: ISILab.LBS.Manipulators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Manipulators
+    name: Manipulators
+    href: ISILab.LBS.Manipulators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Manipulators
+    name: Manipulators
+    href: ISILab.LBS.Manipulators.html
 - uid: System.Action
   commentId: T:System.Action
   parent: System
@@ -730,7 +689,6 @@ references:
   - name: <
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: '>'
   spec.vb:
@@ -743,7 +701,6 @@ references:
   - name: " "
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
 - uid: System.Action`1
@@ -774,4 +731,91 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: LBS.LBSTool.#ctor*
+  commentId: Overload:LBS.LBSTool.#ctor
+  href: LBS.LBSTool.html#LBS_LBSTool__ctor_ISILab_LBS_Manipulators_LBSManipulator_
+  name: LBSTool
+  nameWithType: LBSTool.LBSTool
+  fullName: LBS.LBSTool.LBSTool
+  nameWithType.vb: LBSTool.New
+  fullName.vb: LBS.LBSTool.New
+  name.vb: New
+- uid: LBS.LBSTool.Init*
+  commentId: Overload:LBS.LBSTool.Init
+  href: LBS.LBSTool.html#LBS_LBSTool_Init_LBS_Components_LBSLayer_System_Object_
+  name: Init
+  nameWithType: LBSTool.Init
+  fullName: LBS.LBSTool.Init
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+- uid: LBS.LBSTool.BindButton*
+  commentId: Overload:LBS.LBSTool.BindButton
+  href: LBS.LBSTool.html#LBS_LBSTool_BindButton_ISILab_LBS_VisualElements_ToolButton_
+  name: BindButton
+  nameWithType: LBSTool.BindButton
+  fullName: LBS.LBSTool.BindButton
+- uid: ISILab.LBS.VisualElements.ToolButton
+  commentId: T:ISILab.LBS.VisualElements.ToolButton
+  parent: ISILab.LBS.VisualElements
+  href: ISILab.LBS.VisualElements.ToolButton.html
+  name: ToolButton
+  nameWithType: ToolButton
+  fullName: ISILab.LBS.VisualElements.ToolButton
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    href: ISILab.LBS.VisualElements.html
 shouldSkipMarkup: true

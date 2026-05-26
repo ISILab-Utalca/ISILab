@@ -27,6 +27,10 @@ items:
   nameWithType: DrawManager
   fullName: ISILab.LBS.DrawManager
   type: Class
+  source:
+    id: DrawManager
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 17
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -36,13 +40,38 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ISILab.LBS.DrawManager.Instance
+  commentId: P:ISILab.LBS.DrawManager.Instance
+  id: Instance
+  parent: ISILab.LBS.DrawManager
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: DrawManager.Instance
+  fullName: ISILab.LBS.DrawManager.Instance
+  type: Property
+  source:
+    id: Instance
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 22
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public static DrawManager Instance { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.DrawManager
+    content.vb: Public Shared Property Instance As DrawManager
+  overload: ISILab.LBS.DrawManager.Instance*
 - uid: ISILab.LBS.DrawManager.#ctor
   commentId: M:ISILab.LBS.DrawManager.#ctor
   id: '#ctor'
@@ -54,6 +83,10 @@ items:
   nameWithType: DrawManager.DrawManager()
   fullName: ISILab.LBS.DrawManager.DrawManager()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 28
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -75,6 +108,10 @@ items:
   nameWithType: DrawManager.AddContainer(LBSLayer)
   fullName: ISILab.LBS.DrawManager.AddContainer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: AddContainer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 33
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -96,6 +133,10 @@ items:
   nameWithType: DrawManager.RemoveContainer(LBSLayer)
   fullName: ISILab.LBS.DrawManager.RemoveContainer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: RemoveContainer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 38
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -117,6 +158,10 @@ items:
   nameWithType: DrawManager.ReDraw()
   fullName: ISILab.LBS.DrawManager.ReDraw()
   type: Method
+  source:
+    id: ReDraw
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 43
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -135,6 +180,10 @@ items:
   nameWithType: DrawManager.UpdateLayer(LBSLayer)
   fullName: ISILab.LBS.DrawManager.UpdateLayer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: UpdateLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 61
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -156,6 +205,10 @@ items:
   nameWithType: DrawManager.DrawSingleComponent<T>(T, LBSLayer, bool)
   fullName: ISILab.LBS.DrawManager.DrawSingleComponent<T>(T, LBS.Components.LBSLayer, bool)
   type: Method
+  source:
+    id: DrawSingleComponent
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 123
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -186,6 +239,10 @@ items:
   nameWithType: DrawManager.UpdateSingleComponent<T>(T, LBSLayer)
   fullName: ISILab.LBS.DrawManager.UpdateSingleComponent<T>(T, LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: UpdateSingleComponent
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 132
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -214,6 +271,10 @@ items:
   nameWithType: DrawManager.RedrawLayer(LBSLayer)
   fullName: ISILab.LBS.DrawManager.RedrawLayer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: RedrawLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 193
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -235,6 +296,10 @@ items:
   nameWithType: DrawManager.RedrawLevel(LBSLevelData, bool)
   fullName: ISILab.LBS.DrawManager.RedrawLevel(ISILab.LBS.LBSLevelData, bool)
   type: Method
+  source:
+    id: RedrawLevel
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 199
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -261,6 +326,10 @@ items:
   nameWithType: DrawManager.ChangeOpacityAll(float)
   fullName: ISILab.LBS.DrawManager.ChangeOpacityAll(float)
   type: Method
+  source:
+    id: ChangeOpacityAll
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 240
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -285,6 +354,10 @@ items:
   nameWithType: DrawManager.ChangeLayerOpacity(LBSLayer, float)
   fullName: ISILab.LBS.DrawManager.ChangeLayerOpacity(LBS.Components.LBSLayer, float)
   type: Method
+  source:
+    id: ChangeLayerOpacity
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 251
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -311,16 +384,27 @@ items:
   nameWithType: DrawManager.PickingModeChangeAll(PickingMode, List<VisualElement>)
   fullName: ISILab.LBS.DrawManager.PickingModeChangeAll(UnityEngine.UIElements.PickingMode, System.Collections.Generic.List<UnityEngine.UIElements.VisualElement>)
   type: Method
+  source:
+    id: PickingModeChangeAll
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 268
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
+  summary: >-
+    Disables the picking mode of all the existing elements but the exception.
+
+    Stores the picking mode of each existing element to restore afterwards
+  example: []
   syntax:
     content: public void PickingModeChangeAll(PickingMode newPickingMode, List<VisualElement> exceptions)
     parameters:
     - id: newPickingMode
       type: UnityEngine.UIElements.PickingMode
+      description: the picking mode that will be assigned to all visual elements
     - id: exceptions
       type: System.Collections.Generic.List{UnityEngine.UIElements.VisualElement}
+      description: the visual elements that wont be affected
     content.vb: Public Sub PickingModeChangeAll(newPickingMode As PickingMode, exceptions As List(Of VisualElement))
   overload: ISILab.LBS.DrawManager.PickingModeChangeAll*
   nameWithType.vb: DrawManager.PickingModeChangeAll(PickingMode, List(Of VisualElement))
@@ -337,6 +421,10 @@ items:
   nameWithType: DrawManager.ChangePickingMode(VisualElement, PickingMode, List<VisualElement>)
   fullName: ISILab.LBS.DrawManager.ChangePickingMode(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.PickingMode, System.Collections.Generic.List<UnityEngine.UIElements.VisualElement>)
   type: Method
+  source:
+    id: ChangePickingMode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 298
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -365,38 +453,22 @@ items:
   nameWithType: DrawManager.PickingModeRestoreAll()
   fullName: ISILab.LBS.DrawManager.PickingModeRestoreAll()
   type: Method
+  source:
+    id: PickingModeRestoreAll
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\Editor\Drawer\DrawManager.cs
+    startLine: 321
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
+  summary: Restores the picking mode of all elements if they were stored using ChangePickingModeAll
+  example: []
   syntax:
     content: public void PickingModeRestoreAll()
     content.vb: Public Sub PickingModeRestoreAll()
   overload: ISILab.LBS.DrawManager.PickingModeRestoreAll*
-- uid: ISILab.LBS.DrawManager.Instance
-  commentId: P:ISILab.LBS.DrawManager.Instance
-  id: Instance
-  parent: ISILab.LBS.DrawManager
-  langs:
-  - csharp
-  - vb
-  name: Instance
-  nameWithType: DrawManager.Instance
-  fullName: ISILab.LBS.DrawManager.Instance
-  type: Property
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS
-  syntax:
-    content: public static DrawManager Instance { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.DrawManager
-    content.vb: Public Shared ReadOnly Property Instance As DrawManager
-  overload: ISILab.LBS.DrawManager.Instance*
 references:
 - uid: ISILab.LBS
   commentId: N:ISILab.LBS
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS
   nameWithType: ISILab.LBS
@@ -404,22 +476,18 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
 - uid: System.Object
   commentId: T:System.Object
@@ -432,30 +500,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -522,51 +566,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -651,6 +650,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -658,9 +726,21 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: ISILab.LBS.DrawManager.Instance*
+  commentId: Overload:ISILab.LBS.DrawManager.Instance
+  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_Instance
+  name: Instance
+  nameWithType: DrawManager.Instance
+  fullName: ISILab.LBS.DrawManager.Instance
+- uid: ISILab.LBS.DrawManager
+  commentId: T:ISILab.LBS.DrawManager
+  parent: ISILab.LBS
+  href: ISILab.LBS.DrawManager.html
+  name: DrawManager
+  nameWithType: DrawManager
+  fullName: ISILab.LBS.DrawManager
 - uid: ISILab.LBS.DrawManager.#ctor*
   commentId: Overload:ISILab.LBS.DrawManager.#ctor
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager__ctor
   name: DrawManager
   nameWithType: DrawManager.DrawManager
@@ -670,7 +750,6 @@ references:
   name.vb: New
 - uid: ISILab.LBS.DrawManager.AddContainer*
   commentId: Overload:ISILab.LBS.DrawManager.AddContainer
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_AddContainer_LBS_Components_LBSLayer_
   name: AddContainer
   nameWithType: DrawManager.AddContainer
@@ -678,14 +757,12 @@ references:
 - uid: LBS.Components.LBSLayer
   commentId: T:LBS.Components.LBSLayer
   parent: LBS.Components
-  isExternal: true
   href: LBS.Components.LBSLayer.html
   name: LBSLayer
   nameWithType: LBSLayer
   fullName: LBS.Components.LBSLayer
 - uid: LBS.Components
   commentId: N:LBS.Components
-  isExternal: true
   href: LBS.html
   name: LBS.Components
   nameWithType: LBS.Components
@@ -693,47 +770,39 @@ references:
   spec.csharp:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
   spec.vb:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
 - uid: ISILab.LBS.DrawManager.RemoveContainer*
   commentId: Overload:ISILab.LBS.DrawManager.RemoveContainer
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_RemoveContainer_LBS_Components_LBSLayer_
   name: RemoveContainer
   nameWithType: DrawManager.RemoveContainer
   fullName: ISILab.LBS.DrawManager.RemoveContainer
 - uid: ISILab.LBS.DrawManager.ReDraw*
   commentId: Overload:ISILab.LBS.DrawManager.ReDraw
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_ReDraw
   name: ReDraw
   nameWithType: DrawManager.ReDraw
   fullName: ISILab.LBS.DrawManager.ReDraw
 - uid: ISILab.LBS.DrawManager.UpdateLayer*
   commentId: Overload:ISILab.LBS.DrawManager.UpdateLayer
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_UpdateLayer_LBS_Components_LBSLayer_
   name: UpdateLayer
   nameWithType: DrawManager.UpdateLayer
   fullName: ISILab.LBS.DrawManager.UpdateLayer
 - uid: ISILab.LBS.DrawManager.DrawSingleComponent*
   commentId: Overload:ISILab.LBS.DrawManager.DrawSingleComponent
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_DrawSingleComponent__1___0_LBS_Components_LBSLayer_System_Boolean_
   name: DrawSingleComponent
   nameWithType: DrawManager.DrawSingleComponent
@@ -761,21 +830,18 @@ references:
   fullName: T
 - uid: ISILab.LBS.DrawManager.UpdateSingleComponent*
   commentId: Overload:ISILab.LBS.DrawManager.UpdateSingleComponent
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_UpdateSingleComponent__1___0_LBS_Components_LBSLayer_
   name: UpdateSingleComponent
   nameWithType: DrawManager.UpdateSingleComponent
   fullName: ISILab.LBS.DrawManager.UpdateSingleComponent
 - uid: ISILab.LBS.DrawManager.RedrawLayer*
   commentId: Overload:ISILab.LBS.DrawManager.RedrawLayer
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_RedrawLayer_LBS_Components_LBSLayer_
   name: RedrawLayer
   nameWithType: DrawManager.RedrawLayer
   fullName: ISILab.LBS.DrawManager.RedrawLayer
 - uid: ISILab.LBS.DrawManager.RedrawLevel*
   commentId: Overload:ISILab.LBS.DrawManager.RedrawLevel
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_RedrawLevel_ISILab_LBS_LBSLevelData_System_Boolean_
   name: RedrawLevel
   nameWithType: DrawManager.RedrawLevel
@@ -783,14 +849,12 @@ references:
 - uid: ISILab.LBS.LBSLevelData
   commentId: T:ISILab.LBS.LBSLevelData
   parent: ISILab.LBS
-  isExternal: true
   href: ISILab.LBS.LBSLevelData.html
   name: LBSLevelData
   nameWithType: LBSLevelData
   fullName: ISILab.LBS.LBSLevelData
 - uid: ISILab.LBS.DrawManager.ChangeOpacityAll*
   commentId: Overload:ISILab.LBS.DrawManager.ChangeOpacityAll
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_ChangeOpacityAll_System_Single_
   name: ChangeOpacityAll
   nameWithType: DrawManager.ChangeOpacityAll
@@ -808,19 +872,19 @@ references:
   name.vb: Single
 - uid: ISILab.LBS.DrawManager.ChangeLayerOpacity*
   commentId: Overload:ISILab.LBS.DrawManager.ChangeLayerOpacity
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_ChangeLayerOpacity_LBS_Components_LBSLayer_System_Single_
   name: ChangeLayerOpacity
   nameWithType: DrawManager.ChangeLayerOpacity
   fullName: ISILab.LBS.DrawManager.ChangeLayerOpacity
 - uid: ISILab.LBS.DrawManager.PickingModeChangeAll*
   commentId: Overload:ISILab.LBS.DrawManager.PickingModeChangeAll
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_PickingModeChangeAll_UnityEngine_UIElements_PickingMode_System_Collections_Generic_List_UnityEngine_UIElements_VisualElement__
   name: PickingModeChangeAll
   nameWithType: DrawManager.PickingModeChangeAll
   fullName: ISILab.LBS.DrawManager.PickingModeChangeAll
 - uid: UnityEngine.UIElements.PickingMode
+  commentId: T:UnityEngine.UIElements.PickingMode
+  parent: UnityEngine.UIElements
   isExternal: true
   name: PickingMode
   nameWithType: PickingMode
@@ -858,6 +922,28 @@ references:
     name: VisualElement
     isExternal: true
   - name: )
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
   isExternal: true
@@ -925,36 +1011,21 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.LBS.DrawManager.ChangePickingMode*
   commentId: Overload:ISILab.LBS.DrawManager.ChangePickingMode
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_ChangePickingMode_UnityEngine_UIElements_VisualElement_UnityEngine_UIElements_PickingMode_System_Collections_Generic_List_UnityEngine_UIElements_VisualElement__
   name: ChangePickingMode
   nameWithType: DrawManager.ChangePickingMode
   fullName: ISILab.LBS.DrawManager.ChangePickingMode
 - uid: UnityEngine.UIElements.VisualElement
+  commentId: T:UnityEngine.UIElements.VisualElement
+  parent: UnityEngine.UIElements
   isExternal: true
   name: VisualElement
   nameWithType: VisualElement
   fullName: UnityEngine.UIElements.VisualElement
 - uid: ISILab.LBS.DrawManager.PickingModeRestoreAll*
   commentId: Overload:ISILab.LBS.DrawManager.PickingModeRestoreAll
-  isExternal: true
   href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_PickingModeRestoreAll
   name: PickingModeRestoreAll
   nameWithType: DrawManager.PickingModeRestoreAll
   fullName: ISILab.LBS.DrawManager.PickingModeRestoreAll
-- uid: ISILab.LBS.DrawManager.Instance*
-  commentId: Overload:ISILab.LBS.DrawManager.Instance
-  isExternal: true
-  href: ISILab.LBS.DrawManager.html#ISILab_LBS_DrawManager_Instance
-  name: Instance
-  nameWithType: DrawManager.Instance
-  fullName: ISILab.LBS.DrawManager.Instance
-- uid: ISILab.LBS.DrawManager
-  commentId: T:ISILab.LBS.DrawManager
-  parent: ISILab.LBS
-  isExternal: true
-  href: ISILab.LBS.DrawManager.html
-  name: DrawManager
-  nameWithType: DrawManager
-  fullName: ISILab.LBS.DrawManager
 shouldSkipMarkup: true

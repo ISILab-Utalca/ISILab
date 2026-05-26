@@ -19,6 +19,10 @@ items:
   nameWithType: IGrupable
   fullName: ISILab.LBS.IGrupable
   type: Interface
+  source:
+    id: IGrupable
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\GrupableButtons\IGroupable.cs
+    startLine: 8
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -28,6 +32,52 @@ items:
   derivedClasses:
   - ISILab.LBS.VisualElements.GrupalbeButton
   - ISILab.LBS.VisualElements.ToolButton
+- uid: ISILab.LBS.IGrupable.OnFocusEvent
+  commentId: E:ISILab.LBS.IGrupable.OnFocusEvent
+  id: OnFocusEvent
+  parent: ISILab.LBS.IGrupable
+  langs:
+  - csharp
+  - vb
+  name: OnFocusEvent
+  nameWithType: IGrupable.OnFocusEvent
+  fullName: ISILab.LBS.IGrupable.OnFocusEvent
+  type: Event
+  source:
+    id: OnFocusEvent
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\GrupableButtons\IGroupable.cs
+    startLine: 11
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: event Action OnFocusEvent
+    return:
+      type: System.Action
+    content.vb: Event OnFocusEvent As Action
+- uid: ISILab.LBS.IGrupable.OnBlurEvent
+  commentId: E:ISILab.LBS.IGrupable.OnBlurEvent
+  id: OnBlurEvent
+  parent: ISILab.LBS.IGrupable
+  langs:
+  - csharp
+  - vb
+  name: OnBlurEvent
+  nameWithType: IGrupable.OnBlurEvent
+  fullName: ISILab.LBS.IGrupable.OnBlurEvent
+  type: Event
+  source:
+    id: OnBlurEvent
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\GrupableButtons\IGroupable.cs
+    startLine: 12
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: event Action OnBlurEvent
+    return:
+      type: System.Action
+    content.vb: Event OnBlurEvent As Action
 - uid: ISILab.LBS.IGrupable.GetLabel
   commentId: M:ISILab.LBS.IGrupable.GetLabel
   id: GetLabel
@@ -39,6 +89,10 @@ items:
   nameWithType: IGrupable.GetLabel()
   fullName: ISILab.LBS.IGrupable.GetLabel()
   type: Method
+  source:
+    id: GetLabel
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\GrupableButtons\IGroupable.cs
+    startLine: 14
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -59,6 +113,10 @@ items:
   nameWithType: IGrupable.SetColorGroup(Color, Color)
   fullName: ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color, UnityEngine.Color)
   type: Method
+  source:
+    id: SetColorGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\GrupableButtons\IGroupable.cs
+    startLine: 15
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -82,6 +140,10 @@ items:
   nameWithType: IGrupable.AddGroupEvent(Action)
   fullName: ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
   type: Method
+  source:
+    id: AddGroupEvent
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\GrupableButtons\IGroupable.cs
+    startLine: 16
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -103,6 +165,10 @@ items:
   nameWithType: IGrupable.OnBlur()
   fullName: ISILab.LBS.IGrupable.OnBlur()
   type: Method
+  source:
+    id: OnBlur
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\GrupableButtons\IGroupable.cs
+    startLine: 17
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -121,6 +187,10 @@ items:
   nameWithType: IGrupable.OnFocus()
   fullName: ISILab.LBS.IGrupable.OnFocus()
   type: Method
+  source:
+    id: OnFocus
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\GrupableButtons\IGroupable.cs
+    startLine: 18
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS
@@ -128,48 +198,9 @@ items:
     content: void OnFocus()
     content.vb: Sub OnFocus()
   overload: ISILab.LBS.IGrupable.OnFocus*
-- uid: ISILab.LBS.IGrupable.OnFocusEvent
-  commentId: E:ISILab.LBS.IGrupable.OnFocusEvent
-  id: OnFocusEvent
-  parent: ISILab.LBS.IGrupable
-  langs:
-  - csharp
-  - vb
-  name: OnFocusEvent
-  nameWithType: IGrupable.OnFocusEvent
-  fullName: ISILab.LBS.IGrupable.OnFocusEvent
-  type: Event
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS
-  syntax:
-    content: event Action OnFocusEvent
-    return:
-      type: System.Action
-    content.vb: Event OnFocusEvent As Action
-- uid: ISILab.LBS.IGrupable.OnBlurEvent
-  commentId: E:ISILab.LBS.IGrupable.OnBlurEvent
-  id: OnBlurEvent
-  parent: ISILab.LBS.IGrupable
-  langs:
-  - csharp
-  - vb
-  name: OnBlurEvent
-  nameWithType: IGrupable.OnBlurEvent
-  fullName: ISILab.LBS.IGrupable.OnBlurEvent
-  type: Event
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS
-  syntax:
-    content: event Action OnBlurEvent
-    return:
-      type: System.Action
-    content.vb: Event OnBlurEvent As Action
 references:
 - uid: ISILab.LBS
   commentId: N:ISILab.LBS
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS
   nameWithType: ISILab.LBS
@@ -177,26 +208,36 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: ISILab.LBS.IGrupable.GetLabel*
   commentId: Overload:ISILab.LBS.IGrupable.GetLabel
-  isExternal: true
   href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_GetLabel
   name: GetLabel
   nameWithType: IGrupable.GetLabel
@@ -212,50 +253,39 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: ISILab.LBS.IGrupable.SetColorGroup*
   commentId: Overload:ISILab.LBS.IGrupable.SetColorGroup
-  isExternal: true
   href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_SetColorGroup_UnityEngine_Color_UnityEngine_Color_
   name: SetColorGroup
   nameWithType: IGrupable.SetColorGroup
   fullName: ISILab.LBS.IGrupable.SetColorGroup
 - uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
   isExternal: true
   name: Color
   nameWithType: Color
   fullName: UnityEngine.Color
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.IGrupable.AddGroupEvent*
   commentId: Overload:ISILab.LBS.IGrupable.AddGroupEvent
-  isExternal: true
   href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_AddGroupEvent_System_Action_
   name: AddGroupEvent
   nameWithType: IGrupable.AddGroupEvent
   fullName: ISILab.LBS.IGrupable.AddGroupEvent
-- uid: System.Action
-  commentId: T:System.Action
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.action
-  name: Action
-  nameWithType: Action
-  fullName: System.Action
 - uid: ISILab.LBS.IGrupable.OnBlur*
   commentId: Overload:ISILab.LBS.IGrupable.OnBlur
-  isExternal: true
   href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_OnBlur
   name: OnBlur
   nameWithType: IGrupable.OnBlur
   fullName: ISILab.LBS.IGrupable.OnBlur
 - uid: ISILab.LBS.IGrupable.OnFocus*
   commentId: Overload:ISILab.LBS.IGrupable.OnFocus
-  isExternal: true
   href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_OnFocus
   name: OnFocus
   nameWithType: IGrupable.OnFocus

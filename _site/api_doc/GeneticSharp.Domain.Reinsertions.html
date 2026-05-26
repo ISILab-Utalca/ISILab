@@ -96,38 +96,62 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="GeneticSharp.Domain.Reinsertions.ElitistReinsertion.html">ElitistReinsertion</a></dt>
-      <dd></dd>
+      <dd>Elitist reinsertion.
+<remarks>
+When there are less offspring than parents, select the best parents to be reinserted together with the offspring. 
+<a href="http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>
+</remarks></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="GeneticSharp.Domain.Reinsertions.FitnessBasedReinsertion.html">FitnessBasedReinsertion</a></dt>
-      <dd></dd>
+      <dd>Fitness Based Reinsertion.
+<remarks>
+When there are more offspring than parents, select the only the best offspring to be reinserted, the parents are discarded.     
+<a href="http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>
+</remarks></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="GeneticSharp.Domain.Reinsertions.PureReinsertion.html">PureReinsertion</a></dt>
-      <dd></dd>
+      <dd>Pure Reinsertion.
+<remarks>
+When there are same number of offspring than parents, select the offspring to be reinserted, the parents are discarded. 
+<a href="http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>
+</remarks></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="GeneticSharp.Domain.Reinsertions.ReinsertionBase.html">ReinsertionBase</a></dt>
-      <dd></dd>
+      <dd>Base class for IReinsertion's implementations.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="GeneticSharp.Domain.Reinsertions.ReinsertionException.html">ReinsertionException</a></dt>
-      <dd></dd>
+      <dd>Exception throw when an error occurs during the execution of reinsert.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="GeneticSharp.Domain.Reinsertions.ReinsertionService.html">ReinsertionService</a></dt>
-      <dd></dd>
+      <dd>Reinsertion service.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="GeneticSharp.Domain.Reinsertions.UniformReinsertion.html">UniformReinsertion</a></dt>
-      <dd></dd>
+      <dd>Uniform Reinsertion.
+<remarks>
+When there are less offspring than parents, select the offspring uniformly at random to be reinserted, the parents are discarded. 
+<a href="http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>
+</remarks></dd>
     </dl>
     <h3 id="interfaces">
 Interfaces
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="GeneticSharp.Domain.Reinsertions.IReinsertion.html">IReinsertion</a></dt>
-      <dd></dd>
+      <dd>Defines an interface for reinsertions.
+<remarks>
+If less offspring are produced than the min size of the original population then to 
+maintain the size of the population, the offspring have to be reinserted 
+into the old population. Similarly, if not all offspring are to be used at each 
+generation or if more offspring are generated than the max size of the  
+population then a reinsertion scheme must be used to determine which individuals are to exist in the new population
+<a href="http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>
+</remarks></dd>
     </dl>
 
 

@@ -14,9 +14,15 @@ items:
   nameWithType: IRangedEvaluator
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
   type: Interface
+  source:
+    id: IRangedEvaluator
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\IRangedEvaluator.cs
+    startLine: 9
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  summary: Represents a ranged evaluator.
+  example: []
   syntax:
     content: 'public interface IRangedEvaluator : IEvaluator, ICloneable'
     content.vb: Public Interface IRangedEvaluator Inherits IEvaluator, ICloneable
@@ -49,6 +55,10 @@ items:
   nameWithType: IRangedEvaluator.MaxValue
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
   type: Property
+  source:
+    id: MaxValue
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\IRangedEvaluator.cs
+    startLine: 11
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -70,6 +80,10 @@ items:
   nameWithType: IRangedEvaluator.MinValue
   fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
   type: Property
+  source:
+    id: MinValue
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\IRangedEvaluator.cs
+    startLine: 12
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -83,7 +97,6 @@ items:
 references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
   commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
   nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
@@ -91,87 +104,70 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
     name: EvolutionaryAlgorithm
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
     name: Evaluators
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
     name: EvolutionaryAlgorithm
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
     name: Evaluators
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
   commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
   name: Evaluate(IOptimizable)
   nameWithType: IEvaluator.Evaluate(IOptimizable)
@@ -179,29 +175,24 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
     name: Evaluate
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
   - name: (
   - uid: ISILab.AI.Optimization.IOptimizable
     name: IOptimizable
-    isExternal: true
     href: ISILab.AI.Optimization.IOptimizable.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
     name: Evaluate
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
   - name: (
   - uid: ISILab.AI.Optimization.IOptimizable
     name: IOptimizable
-    isExternal: true
     href: ISILab.AI.Optimization.IOptimizable.html
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
   commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_InitializeDefault
   name: InitializeDefault()
   nameWithType: IEvaluator.InitializeDefault()
@@ -209,21 +200,18 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
     name: InitializeDefault
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_InitializeDefault
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
     name: InitializeDefault
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_InitializeDefault
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
   commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Tooltip
   name: Tooltip
   nameWithType: IEvaluator.Tooltip
@@ -253,7 +241,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
   commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
   parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html
   name: IEvaluator
   nameWithType: IEvaluator
@@ -275,7 +262,6 @@ references:
   fullName: System
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_MaxValue
   name: MaxValue
   nameWithType: IRangedEvaluator.MaxValue
@@ -293,7 +279,6 @@ references:
   name.vb: Single
 - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_MinValue
   name: MinValue
   nameWithType: IRangedEvaluator.MinValue

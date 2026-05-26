@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class PureReinsertion | lbs-api_docs ">
       
-      
+      <meta name="description" content="Pure Reinsertion.  When there are same number of offspring than parents, select the offspring to be reinserted, the parents are discarded.  Generalized Nets Model of offspring Reinsertion in Genetic Algorithm">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,11 @@ Class PureReinsertion
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Pure Reinsertion.
+<remarks>
+When there are same number of offspring than parents, select the offspring to be reinserted, the parents are discarded. 
+<a href="http://usb-bg.org/Bg/Annual_Informatics/2011/SUB-Informatics-2011-4-29-35.pdf">Generalized Nets Model of offspring Reinsertion in Genetic Algorithm</a>
+</remarks></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -128,22 +132,13 @@ Class PureReinsertion
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="GeneticSharp.Domain.Reinsertions.ReinsertionBase.html#GeneticSharp_Domain_Reinsertions_ReinsertionBase_SelectChromosomes_ISILab_AI_Optimization_Populations_IPopulation_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__">ReinsertionBase.SelectChromosomes(IPopulation, IList&lt;IOptimizable&gt;, IList&lt;IOptimizable&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="GeneticSharp.Domain.Reinsertions.ReinsertionBase.html#GeneticSharp_Domain_Reinsertions_ReinsertionBase_CanCollapse">ReinsertionBase.CanCollapse</a>
     </div>
     <div>
       <a class="xref" href="GeneticSharp.Domain.Reinsertions.ReinsertionBase.html#GeneticSharp_Domain_Reinsertions_ReinsertionBase_CanExpand">ReinsertionBase.CanExpand</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="GeneticSharp.Domain.Reinsertions.ReinsertionBase.html#GeneticSharp_Domain_Reinsertions_ReinsertionBase_SelectChromosomes_ISILab_AI_Optimization_Populations_IPopulation_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__">ReinsertionBase.SelectChromosomes(IPopulation, IList&lt;IOptimizable&gt;, IList&lt;IOptimizable&gt;)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -152,10 +147,19 @@ Class PureReinsertion
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -175,7 +179,7 @@ Class PureReinsertion
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="GeneticSharp.Domain.Reinsertions.PureReinsertion.html">PureReinsertion</a> class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -205,7 +209,7 @@ Class PureReinsertion
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Selects the chromosomes which will be reinserted.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -215,17 +219,17 @@ Class PureReinsertion
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>population</code> <a class="xref" href="ISILab.AI.Optimization.Populations.IPopulation.html">IPopulation</a></dt>
-    <dd></dd>
+    <dd>The population.</dd>
     <dt><code>offspring</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The offspring.</dd>
     <dt><code>parents</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The parents.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The chromosomes to be reinserted in next generation..</dd>
   </dl>
 
 

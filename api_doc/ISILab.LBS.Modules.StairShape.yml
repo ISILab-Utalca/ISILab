@@ -17,12 +17,26 @@ items:
   nameWithType: StairShape
   fullName: ISILab.LBS.Modules.StairShape
   type: Enum
+  source:
+    id: StairShape
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\StairsModule.cs
+    startLine: 252
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
   syntax:
-    content: public enum StairShape
-    content.vb: Public Enum StairShape
+    content: >-
+      [Serializable]
+
+      public enum StairShape
+    content.vb: >-
+      <Serializable>
+
+      Public Enum StairShape
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Modules.StairShape.None
   commentId: F:ISILab.LBS.Modules.StairShape.None
   id: None
@@ -34,6 +48,10 @@ items:
   nameWithType: StairShape.None
   fullName: ISILab.LBS.Modules.StairShape.None
   type: Field
+  source:
+    id: None
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\StairsModule.cs
+    startLine: 255
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -52,6 +70,10 @@ items:
   nameWithType: StairShape.Straight
   fullName: ISILab.LBS.Modules.StairShape.Straight
   type: Field
+  source:
+    id: Straight
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\StairsModule.cs
+    startLine: 256
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -70,6 +92,10 @@ items:
   nameWithType: StairShape.Corner
   fullName: ISILab.LBS.Modules.StairShape.Corner
   type: Field
+  source:
+    id: Corner
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\StairsModule.cs
+    startLine: 257
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -88,6 +114,10 @@ items:
   nameWithType: StairShape.U_Shape
   fullName: ISILab.LBS.Modules.StairShape.U_Shape
   type: Field
+  source:
+    id: U_Shape
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\StairsModule.cs
+    startLine: 258
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -106,6 +136,10 @@ items:
   nameWithType: StairShape.S_Shape
   fullName: ISILab.LBS.Modules.StairShape.S_Shape
   type: Field
+  source:
+    id: S_Shape
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\StairsModule.cs
+    startLine: 259
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -116,7 +150,6 @@ items:
 references:
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -124,37 +157,30 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: ISILab.LBS.Modules.StairShape
   commentId: T:ISILab.LBS.Modules.StairShape
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.StairShape.html
   name: StairShape
   nameWithType: StairShape

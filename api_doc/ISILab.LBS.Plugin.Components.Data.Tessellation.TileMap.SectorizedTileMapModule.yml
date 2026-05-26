@@ -61,12 +61,22 @@ items:
   nameWithType: SectorizedTileMapModule
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
   type: Class
+  source:
+    id: SectorizedTileMapModule
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 16
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
   syntax:
-    content: 'public class SectorizedTileMapModule : LBSModule, ICloneable, ISelectable'
-    content.vb: Public Class SectorizedTileMapModule Inherits LBSModule Implements ICloneable, ISelectable
+    content: >-
+      [Serializable]
+
+      public class SectorizedTileMapModule : LBSModule, ICloneable, ISelectable
+    content.vb: >-
+      <Serializable>
+
+      Public Class SectorizedTileMapModule Inherits LBSModule Implements ICloneable, ISelectable
   inheritance:
   - System.Object
   - ISILab.LBS.Modules.LBSModule
@@ -75,18 +85,269 @@ items:
   - ISILab.LBS.Modules.ISelectable
   inheritedMembers:
   - ISILab.LBS.Modules.LBSModule.id
+  - ISILab.LBS.Modules.LBSModule.OwnerLayer
+  - ISILab.LBS.Modules.LBSModule.ID
   - ISILab.LBS.Modules.LBSModule.OnChanged
   - ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
   - ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  - ISILab.LBS.Modules.LBSModule.OwnerLayer
-  - ISILab.LBS.Modules.LBSModule.ID
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
   extensionMethods:
   - ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ISILab.LBS.Modules.ModuleBuilder.BuildFromExterior(ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,System.Collections.Generic.List{System.String})
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles
+  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles
+  id: PairTiles
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: PairTiles
+  nameWithType: SectorizedTileMapModule.PairTiles
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles
+  type: Property
+  source:
+    id: PairTiles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 30
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public List<TileZonePair> PairTiles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property PairTiles As List(Of TileZonePair)
+  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones
+  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones
+  id: Zones
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: Zones
+  nameWithType: SectorizedTileMapModule.Zones
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones
+  type: Property
+  source:
+    id: Zones
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 33
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public List<Zone> Zones { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Zones As List(Of Zone)
+  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles
+  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles
+  id: ZonesWithTiles
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: ZonesWithTiles
+  nameWithType: SectorizedTileMapModule.ZonesWithTiles
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles
+  type: Property
+  source:
+    id: ZonesWithTiles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 36
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public List<Zone> ZonesWithTiles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property ZonesWithTiles As List(Of Zone)
+  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity
+  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity
+  id: ZonesProximity
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: ZonesProximity
+  nameWithType: SectorizedTileMapModule.ZonesProximity
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity
+  type: Property
+  source:
+    id: ZonesProximity
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 39
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  syntax:
+    content: public int[,] ZonesProximity { get; set; }
+    parameters: []
+    return:
+      type: System.Int32[,]
+    content.vb: Public Property ZonesProximity As Integer(,)
+  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity*
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones
+  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones
+  id: SelectedZones
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: SelectedZones
+  nameWithType: SectorizedTileMapModule.SelectedZones
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones
+  type: Property
+  source:
+    id: SelectedZones
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 41
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  syntax:
+    content: public List<Zone> SelectedZones { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+    content.vb: Public Property SelectedZones As List(Of Zone)
+  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones*
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddZone
+  commentId: E:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddZone
+  id: OnAddZone
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: OnAddZone
+  nameWithType: SectorizedTileMapModule.OnAddZone
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddZone
+  type: Event
+  source:
+    id: OnAddZone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 51
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  syntax:
+    content: public event Action<SectorizedTileMapModule, Zone> OnAddZone
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Zone}
+    content.vb: Public Event OnAddZone As Action(Of SectorizedTileMapModule, Zone)
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemoveZone
+  commentId: E:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemoveZone
+  id: OnRemoveZone
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: OnRemoveZone
+  nameWithType: SectorizedTileMapModule.OnRemoveZone
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemoveZone
+  type: Event
+  source:
+    id: OnRemoveZone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 52
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  syntax:
+    content: public event Action<SectorizedTileMapModule, Zone> OnRemoveZone
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Zone}
+    content.vb: Public Event OnRemoveZone As Action(Of SectorizedTileMapModule, Zone)
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddPair
+  commentId: E:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddPair
+  id: OnAddPair
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: OnAddPair
+  nameWithType: SectorizedTileMapModule.OnAddPair
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddPair
+  type: Event
+  source:
+    id: OnAddPair
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 53
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  syntax:
+    content: public event Action<SectorizedTileMapModule, TileZonePair> OnAddPair
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
+    content.vb: Public Event OnAddPair As Action(Of SectorizedTileMapModule, TileZonePair)
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemovePair
+  commentId: E:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemovePair
+  id: OnRemovePair
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: OnRemovePair
+  nameWithType: SectorizedTileMapModule.OnRemovePair
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemovePair
+  type: Event
+  source:
+    id: OnRemovePair
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 54
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  syntax:
+    content: public event Action<SectorizedTileMapModule, TileZonePair> OnRemovePair
+    return:
+      type: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
+    content.vb: Public Event OnRemovePair As Action(Of SectorizedTileMapModule, TileZonePair)
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.#ctor
   commentId: M:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.#ctor
   id: '#ctor'
@@ -98,6 +359,10 @@ items:
   nameWithType: SectorizedTileMapModule.SectorizedTileMapModule()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SectorizedTileMapModule()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -119,6 +384,10 @@ items:
   nameWithType: SectorizedTileMapModule.SectorizedTileMapModule(List<Zone>, List<TileZonePair>, string)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SectorizedTileMapModule(System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Zone>, System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair>, string)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 63
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -147,6 +416,10 @@ items:
   nameWithType: SectorizedTileMapModule.MoveArea(Zone, Vector2Int)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.MoveArea(ISILab.LBS.Plugin.Components.Data.Zone, UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: MoveArea
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 79
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -170,6 +443,10 @@ items:
   nameWithType: SectorizedTileMapModule.AddPair(TileZonePair)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair)
   type: Method
+  source:
+    id: AddPair
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 114
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -191,6 +468,10 @@ items:
   nameWithType: SectorizedTileMapModule.AddTile(LBSTile, Zone)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, ISILab.LBS.Plugin.Components.Data.Zone)
   type: Method
+  source:
+    id: AddTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 130
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -214,6 +495,10 @@ items:
   nameWithType: SectorizedTileMapModule.AddZone(Zone)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddZone(ISILab.LBS.Plugin.Components.Data.Zone)
   type: Method
+  source:
+    id: AddZone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 137
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -235,6 +520,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetZone(LBSTile)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
   type: Method
+  source:
+    id: GetZone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 144
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -258,6 +547,10 @@ items:
   nameWithType: SectorizedTileMapModule.RemoveZone(Zone)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemoveZone(ISILab.LBS.Plugin.Components.Data.Zone)
   type: Method
+  source:
+    id: RemoveZone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 152
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -279,6 +572,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetPairTile(LBSTile)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetPairTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
   type: Method
+  source:
+    id: GetPairTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 172
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -302,6 +599,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetPairTile(Vector2Int)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetPairTile(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: GetPairTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 186
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -325,6 +626,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetTiles(Zone)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTiles(ISILab.LBS.Plugin.Components.Data.Zone)
   type: Method
+  source:
+    id: GetTiles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 191
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -348,6 +653,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetZoneBounds(Zone, out List<LBSTile>)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZoneBounds(ISILab.LBS.Plugin.Components.Data.Zone, out System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>)
   type: Method
+  source:
+    id: GetZoneBounds
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 204
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -376,6 +685,10 @@ items:
   nameWithType: SectorizedTileMapModule.IsRectangular(Zone, Rect, List<LBSTile>)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsRectangular(ISILab.LBS.Plugin.Components.Data.Zone, UnityEngine.Rect, System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>)
   type: Method
+  source:
+    id: IsRectangular
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 210
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -406,6 +719,10 @@ items:
   nameWithType: SectorizedTileMapModule.RemovePair(LBSTile)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemovePair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
   type: Method
+  source:
+    id: RemovePair
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 226
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -427,6 +744,10 @@ items:
   nameWithType: SectorizedTileMapModule.RemovePair(int)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemovePair(int)
   type: Method
+  source:
+    id: RemovePair
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 234
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -451,6 +772,10 @@ items:
   nameWithType: SectorizedTileMapModule.Contains(LBSTile)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Contains(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
   type: Method
+  source:
+    id: Contains
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 242
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -474,6 +799,10 @@ items:
   nameWithType: SectorizedTileMapModule.Contains(Vector2Int)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Contains(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: Contains
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 249
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -497,6 +826,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetBounds(Zone)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetBounds(ISILab.LBS.Plugin.Components.Data.Zone)
   type: Method
+  source:
+    id: GetBounds
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 256
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -520,6 +853,10 @@ items:
   nameWithType: SectorizedTileMapModule.ZoneCentroid(Zone)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZoneCentroid(ISILab.LBS.Plugin.Components.Data.Zone)
   type: Method
+  source:
+    id: ZoneCentroid
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 261
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -543,6 +880,10 @@ items:
   nameWithType: SectorizedTileMapModule.RecalculateZonesProximity()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RecalculateZonesProximity()
   type: Method
+  source:
+    id: RecalculateZonesProximity
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 266
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -561,6 +902,10 @@ items:
   nameWithType: SectorizedTileMapModule.RecalculateZonesProximity(Rect, ConnectedTileMapModule)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RecalculateZonesProximity(UnityEngine.Rect, ISILab.LBS.Modules.ConnectedTileMapModule)
   type: Method
+  source:
+    id: RecalculateZonesProximity
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 268
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -584,6 +929,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetTilesWithDoors()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithDoors()
   type: Method
+  source:
+    id: GetTilesWithDoors
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 370
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -604,6 +953,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetTilesWithConnections(int, params string[])
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithConnections(int, params string[])
   type: Method
+  source:
+    id: GetTilesWithConnections
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 378
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -632,6 +985,10 @@ items:
   nameWithType: SectorizedTileMapModule.IsConvexCorner(Vector2, List<Vector2Int>)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConvexCorner(UnityEngine.Vector2, System.Collections.Generic.List<UnityEngine.Vector2Int>)
   type: Method
+  source:
+    id: IsConvexCorner
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 445
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -660,6 +1017,10 @@ items:
   nameWithType: SectorizedTileMapModule.IsConcaveCorner(Vector2, List<Vector2Int>)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConcaveCorner(UnityEngine.Vector2, System.Collections.Generic.List<UnityEngine.Vector2Int>)
   type: Method
+  source:
+    id: IsConcaveCorner
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 456
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -688,6 +1049,10 @@ items:
   nameWithType: SectorizedTileMapModule.IsWall(Vector2, List<Vector2Int>)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsWall(UnityEngine.Vector2, System.Collections.Generic.List<UnityEngine.Vector2Int>)
   type: Method
+  source:
+    id: IsWall
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 464
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -716,6 +1081,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetRoomDistance(Zone, Zone, List<LBSTile>, List<LBSTile>)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetRoomDistance(ISILab.LBS.Plugin.Components.Data.Zone, ISILab.LBS.Plugin.Components.Data.Zone, System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>, System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>)
   type: Method
+  source:
+    id: GetRoomDistance
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 619
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -748,6 +1117,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetWalls(Zone)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetWalls(ISILab.LBS.Plugin.Components.Data.Zone)
   type: Method
+  source:
+    id: GetWalls
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 646
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -771,6 +1144,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetZone(string)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone(string)
   type: Method
+  source:
+    id: GetZone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 654
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -797,6 +1174,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetZone(Vector2Int)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: GetZone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 664
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -820,6 +1201,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetSelected(Vector2Int)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetSelected(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: GetSelected
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 677
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -846,6 +1231,10 @@ items:
   nameWithType: SectorizedTileMapModule.UpdateZonePositions()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.UpdateZonePositions()
   type: Method
+  source:
+    id: UpdateZonePositions
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 691
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -864,14 +1253,20 @@ items:
   nameWithType: SectorizedTileMapModule.GetBounds()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetBounds()
   type: Method
+  source:
+    id: GetBounds
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 715
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  summary: Gets the bounding rectangle of the representation.
   example: []
   syntax:
     content: public override Rect GetBounds()
     return:
       type: UnityEngine.Rect
+      description: ''
     content.vb: Public Overrides Function GetBounds() As Rect
   overridden: ISILab.LBS.Modules.LBSModule.GetBounds
   overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetBounds*
@@ -886,14 +1281,20 @@ items:
   nameWithType: SectorizedTileMapModule.IsEmpty()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsEmpty()
   type: Method
+  source:
+    id: IsEmpty
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 725
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  summary: Determines whether the representation is empty.
   example: []
   syntax:
     content: public override bool IsEmpty()
     return:
       type: System.Boolean
+      description: ''
     content.vb: Public Overrides Function IsEmpty() As Boolean
   overridden: ISILab.LBS.Modules.LBSModule.IsEmpty
   overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsEmpty*
@@ -908,9 +1309,14 @@ items:
   nameWithType: SectorizedTileMapModule.Clear()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clear()
   type: Method
+  source:
+    id: Clear
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 730
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  summary: Cleans all the information saved in.
   example: []
   syntax:
     content: public override void Clear()
@@ -928,14 +1334,20 @@ items:
   nameWithType: SectorizedTileMapModule.Clone()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 739
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  summary: Creates a copy of the representation.
   example: []
   syntax:
     content: public override object Clone()
     return:
       type: System.Object
+      description: ''
     content.vb: Public Overrides Function Clone() As Object
   overridden: ISILab.LBS.Modules.LBSModule.Clone
   overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clone*
@@ -950,9 +1362,17 @@ items:
   nameWithType: SectorizedTileMapModule.Print()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Print()
   type: Method
+  source:
+    id: Print
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 756
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  summary: >-
+    prints by console basic information of 
+
+    the representation.
   example: []
   syntax:
     content: public override void Print()
@@ -970,15 +1390,21 @@ items:
   nameWithType: SectorizedTileMapModule.Rewrite(LBSModule)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Rewrite(ISILab.LBS.Modules.LBSModule)
   type: Method
+  source:
+    id: Rewrite
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 774
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  summary: Rewrites the representation based on another LBSModule.
   example: []
   syntax:
     content: public override void Rewrite(LBSModule other)
     parameters:
     - id: other
       type: ISILab.LBS.Modules.LBSModule
+      description: ''
     content.vb: Public Overrides Sub Rewrite(other As LBSModule)
   overridden: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
   overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Rewrite*
@@ -993,6 +1419,10 @@ items:
   nameWithType: SectorizedTileMapModule.Equals(object)
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 779
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -1021,6 +1451,10 @@ items:
   nameWithType: SectorizedTileMapModule.GetHashCode()
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\TileMap\SectorizedTileMapModule.cs
+    startLine: 812
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -1032,191 +1466,9 @@ items:
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.Object.GetHashCode
   overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetHashCode*
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles
-  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles
-  id: PairTiles
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-  langs:
-  - csharp
-  - vb
-  name: PairTiles
-  nameWithType: SectorizedTileMapModule.PairTiles
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  syntax:
-    content: public List<TileZonePair> PairTiles { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
-    content.vb: Public ReadOnly Property PairTiles As List(Of TileZonePair)
-  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles*
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones
-  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones
-  id: Zones
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-  langs:
-  - csharp
-  - vb
-  name: Zones
-  nameWithType: SectorizedTileMapModule.Zones
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  syntax:
-    content: public List<Zone> Zones { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
-    content.vb: Public ReadOnly Property Zones As List(Of Zone)
-  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones*
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles
-  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles
-  id: ZonesWithTiles
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-  langs:
-  - csharp
-  - vb
-  name: ZonesWithTiles
-  nameWithType: SectorizedTileMapModule.ZonesWithTiles
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  syntax:
-    content: public List<Zone> ZonesWithTiles { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
-    content.vb: Public ReadOnly Property ZonesWithTiles As List(Of Zone)
-  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles*
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity
-  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity
-  id: ZonesProximity
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-  langs:
-  - csharp
-  - vb
-  name: ZonesProximity
-  nameWithType: SectorizedTileMapModule.ZonesProximity
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  syntax:
-    content: public int[,] ZonesProximity { get; set; }
-    parameters: []
-    return:
-      type: System.Int32[,]
-    content.vb: Public Property ZonesProximity As Integer(,)
-  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity*
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones
-  commentId: P:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones
-  id: SelectedZones
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-  langs:
-  - csharp
-  - vb
-  name: SelectedZones
-  nameWithType: SectorizedTileMapModule.SelectedZones
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  syntax:
-    content: public List<Zone> SelectedZones { get; set; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
-    content.vb: Public Property SelectedZones As List(Of Zone)
-  overload: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones*
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddZone
-  commentId: E:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddZone
-  id: OnAddZone
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-  langs:
-  - csharp
-  - vb
-  name: OnAddZone
-  nameWithType: SectorizedTileMapModule.OnAddZone
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddZone
-  type: Event
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  syntax:
-    content: public event Action<SectorizedTileMapModule, Zone> OnAddZone
-    return:
-      type: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Zone}
-    content.vb: Public Event OnAddZone As Action(Of SectorizedTileMapModule, Zone)
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemoveZone
-  commentId: E:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemoveZone
-  id: OnRemoveZone
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-  langs:
-  - csharp
-  - vb
-  name: OnRemoveZone
-  nameWithType: SectorizedTileMapModule.OnRemoveZone
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemoveZone
-  type: Event
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  syntax:
-    content: public event Action<SectorizedTileMapModule, Zone> OnRemoveZone
-    return:
-      type: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Zone}
-    content.vb: Public Event OnRemoveZone As Action(Of SectorizedTileMapModule, Zone)
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddPair
-  commentId: E:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddPair
-  id: OnAddPair
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-  langs:
-  - csharp
-  - vb
-  name: OnAddPair
-  nameWithType: SectorizedTileMapModule.OnAddPair
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnAddPair
-  type: Event
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  syntax:
-    content: public event Action<SectorizedTileMapModule, TileZonePair> OnAddPair
-    return:
-      type: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
-    content.vb: Public Event OnAddPair As Action(Of SectorizedTileMapModule, TileZonePair)
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemovePair
-  commentId: E:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemovePair
-  id: OnRemovePair
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-  langs:
-  - csharp
-  - vb
-  name: OnRemovePair
-  nameWithType: SectorizedTileMapModule.OnRemovePair
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.OnRemovePair
-  type: Event
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  syntax:
-    content: public event Action<SectorizedTileMapModule, TileZonePair> OnRemovePair
-    return:
-      type: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
-    content.vb: Public Event OnRemovePair As Action(Of SectorizedTileMapModule, TileZonePair)
 references:
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
   commentId: N:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
   nameWithType: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
@@ -1224,72 +1476,58 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
     name: Tessellation
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
     name: TileMap
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
     name: Tessellation
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
     name: TileMap
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
 - uid: System.Object
   commentId: T:System.Object
@@ -1305,7 +1543,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule
   commentId: T:ISILab.LBS.Modules.LBSModule
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html
   name: LBSModule
   nameWithType: LBSModule
@@ -1321,7 +1558,6 @@ references:
 - uid: ISILab.LBS.Modules.ISelectable
   commentId: T:ISILab.LBS.Modules.ISelectable
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.ISelectable.html
   name: ISelectable
   nameWithType: ISelectable
@@ -1329,83 +1565,13 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.id
   commentId: F:ISILab.LBS.Modules.LBSModule.id
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id
   name: id
   nameWithType: LBSModule.id
   fullName: ISILab.LBS.Modules.LBSModule.id
-- uid: ISILab.LBS.Modules.LBSModule.OnChanged
-  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
-  name: OnChanged
-  nameWithType: LBSModule.OnChanged
-  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
-- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  name: OnAttach(LBSLayer)
-  nameWithType: LBSModule.OnAttach(LBSLayer)
-  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-    name: OnAttach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
-    name: OnAttach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
-  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  name: OnDetach(LBSLayer)
-  nameWithType: LBSModule.OnDetach(LBSLayer)
-  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-  spec.csharp:
-  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-    name: OnDetach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
-    name: OnDetach
-    isExternal: true
-    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
-  - name: (
-  - uid: LBS.Components.LBSLayer
-    name: LBSLayer
-    isExternal: true
-    href: LBS.Components.LBSLayer.html
-  - name: )
 - uid: ISILab.LBS.Modules.LBSModule.OwnerLayer
   commentId: P:ISILab.LBS.Modules.LBSModule.OwnerLayer
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer
   name: OwnerLayer
   nameWithType: LBSModule.OwnerLayer
@@ -1413,11 +1579,112 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.ID
   commentId: P:ISILab.LBS.Modules.LBSModule.ID
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID
   name: ID
   nameWithType: LBSModule.ID
   fullName: ISILab.LBS.Modules.LBSModule.ID
+- uid: ISILab.LBS.Modules.LBSModule.OnChanged
+  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
+  name: OnChanged
+  nameWithType: LBSModule.OnChanged
+  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
+- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  name: OnAttach(LBSLayer)
+  nameWithType: LBSModule.OnAttach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  name: OnDetach(LBSLayer)
+  nameWithType: LBSModule.OnDetach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -1466,75 +1733,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -1580,6 +1778,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ISILab.LBS.Modules.ModuleBuilder.BuildFromExterior(ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,System.Collections.Generic.List{System.String})
   commentId: M:ISILab.LBS.Modules.ModuleBuilder.BuildFromExterior(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,System.Collections.Generic.List{System.String})
   parent: ISILab.LBS.Modules.ModuleBuilder
@@ -1594,24 +1816,20 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.ModuleBuilder.BuildFromExterior(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,System.Collections.Generic.List{System.String})
     name: BuildFromExterior
-    isExternal: true
     href: ISILab.LBS.Modules.ModuleBuilder.html#ISILab_LBS_Modules_ModuleBuilder_BuildFromExterior_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ISILab_LBS_Modules_ConnectedTileMapModule_ISILab_LBS_Modules_ConnectedTileMapModule_System_Collections_Generic_List_System_String__
   - name: (
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
     name: SectorizedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule
     name: ConnectedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule
     name: ConnectedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   - name: ','
   - name: " "
@@ -1629,24 +1847,20 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Modules.ModuleBuilder.BuildFromExterior(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,System.Collections.Generic.List{System.String})
     name: BuildFromExterior
-    isExternal: true
     href: ISILab.LBS.Modules.ModuleBuilder.html#ISILab_LBS_Modules_ModuleBuilder_BuildFromExterior_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ISILab_LBS_Modules_ConnectedTileMapModule_ISILab_LBS_Modules_ConnectedTileMapModule_System_Collections_Generic_List_System_String__
   - name: (
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
     name: SectorizedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule
     name: ConnectedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule
     name: ConnectedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   - name: ','
   - name: " "
@@ -1672,7 +1886,6 @@ references:
   fullName: System
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -1680,32 +1893,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: ISILab.LBS.Modules.ModuleBuilder.BuildFromExterior(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,System.Collections.Generic.List{System.String})
   commentId: M:ISILab.LBS.Modules.ModuleBuilder.BuildFromExterior(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,System.Collections.Generic.List{System.String})
@@ -1720,24 +1927,20 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.ModuleBuilder.BuildFromExterior(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,System.Collections.Generic.List{System.String})
     name: BuildFromExterior
-    isExternal: true
     href: ISILab.LBS.Modules.ModuleBuilder.html#ISILab_LBS_Modules_ModuleBuilder_BuildFromExterior_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ISILab_LBS_Modules_ConnectedTileMapModule_ISILab_LBS_Modules_ConnectedTileMapModule_System_Collections_Generic_List_System_String__
   - name: (
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
     name: SectorizedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule
     name: ConnectedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule
     name: ConnectedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   - name: ','
   - name: " "
@@ -1755,24 +1958,20 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Modules.ModuleBuilder.BuildFromExterior(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.ConnectedTileMapModule,System.Collections.Generic.List{System.String})
     name: BuildFromExterior
-    isExternal: true
     href: ISILab.LBS.Modules.ModuleBuilder.html#ISILab_LBS_Modules_ModuleBuilder_BuildFromExterior_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ISILab_LBS_Modules_ConnectedTileMapModule_ISILab_LBS_Modules_ConnectedTileMapModule_System_Collections_Generic_List_System_String__
   - name: (
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
     name: SectorizedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule
     name: ConnectedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Modules.ConnectedTileMapModule
     name: ConnectedTileMapModule
-    isExternal: true
     href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   - name: ','
   - name: " "
@@ -1792,56 +1991,16 @@ references:
 - uid: ISILab.LBS.Modules.ModuleBuilder
   commentId: T:ISILab.LBS.Modules.ModuleBuilder
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.ModuleBuilder.html
   name: ModuleBuilder
   nameWithType: ModuleBuilder
   fullName: ISILab.LBS.Modules.ModuleBuilder
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.#ctor*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.#ctor
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule__ctor
-  name: SectorizedTileMapModule
-  nameWithType: SectorizedTileMapModule.SectorizedTileMapModule
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SectorizedTileMapModule
-  nameWithType.vb: SectorizedTileMapModule.New
-  fullName.vb: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.New
-  name.vb: New
-- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
-  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<Zone>
-  nameWithType: List<Zone>
-  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Zone>
-  nameWithType.vb: List(Of Zone)
-  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Zone)
-  name.vb: List(Of Zone)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: ISILab.LBS.Plugin.Components.Data.Zone
-    name: Zone
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Zone.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Components.Data.Zone
-    name: Zone
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Zone.html
-  - name: )
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_PairTiles
+  name: PairTiles
+  nameWithType: SectorizedTileMapModule.PairTiles
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles
 - uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
   commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
   parent: System.Collections.Generic
@@ -1861,7 +2020,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair
     name: TileZonePair
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html
   - name: '>'
   spec.vb:
@@ -1874,20 +2032,8 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair
     name: TileZonePair
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html
   - name: )
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
   isExternal: true
@@ -1953,9 +2099,230 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Zones
+  name: Zones
+  nameWithType: SectorizedTileMapModule.Zones
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Zone>
+  nameWithType: List<Zone>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Zone>
+  nameWithType.vb: List(Of Zone)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Zone)
+  name.vb: List(Of Zone)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Zone
+    name: Zone
+    href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Zone
+    name: Zone
+    href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZonesWithTiles
+  name: ZonesWithTiles
+  nameWithType: SectorizedTileMapModule.ZonesWithTiles
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZonesProximity
+  name: ZonesProximity
+  nameWithType: SectorizedTileMapModule.ZonesProximity
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity
+- uid: System.Int32[,]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[,]
+  nameWithType: int[,]
+  fullName: int[,]
+  nameWithType.vb: Integer(,)
+  fullName.vb: Integer(,)
+  name.vb: Integer(,)
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: ','
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_SelectedZones
+  name: SelectedZones
+  nameWithType: SectorizedTileMapModule.SelectedZones
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones
+- uid: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Zone}
+  commentId: T:System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Zone}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<SectorizedTileMapModule, Zone>
+  nameWithType: Action<SectorizedTileMapModule, Zone>
+  fullName: System.Action<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule, ISILab.LBS.Plugin.Components.Data.Zone>
+  nameWithType.vb: Action(Of SectorizedTileMapModule, Zone)
+  fullName.vb: System.Action(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule, ISILab.LBS.Plugin.Components.Data.Zone)
+  name.vb: Action(Of SectorizedTileMapModule, Zone)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+    name: SectorizedTileMapModule
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Zone
+    name: Zone
+    href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+    name: SectorizedTileMapModule
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Zone
+    name: Zone
+    href: ISILab.LBS.Plugin.Components.Data.Zone.html
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
+  commentId: T:System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<SectorizedTileMapModule, TileZonePair>
+  nameWithType: Action<SectorizedTileMapModule, TileZonePair>
+  fullName: System.Action<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule, ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair>
+  nameWithType.vb: Action(Of SectorizedTileMapModule, TileZonePair)
+  fullName.vb: System.Action(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule, ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair)
+  name.vb: Action(Of SectorizedTileMapModule, TileZonePair)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+    name: SectorizedTileMapModule
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair
+    name: TileZonePair
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
+    name: SectorizedTileMapModule
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair
+    name: TileZonePair
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.#ctor
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule__ctor
+  name: SectorizedTileMapModule
+  nameWithType: SectorizedTileMapModule.SectorizedTileMapModule
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SectorizedTileMapModule
+  nameWithType.vb: SectorizedTileMapModule.New
+  fullName.vb: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.MoveArea*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.MoveArea
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_MoveArea_ISILab_LBS_Plugin_Components_Data_Zone_UnityEngine_Vector2Int_
   name: MoveArea
   nameWithType: SectorizedTileMapModule.MoveArea
@@ -1963,19 +2330,19 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Data.Zone
   commentId: T:ISILab.LBS.Plugin.Components.Data.Zone
   parent: ISILab.LBS.Plugin.Components.Data
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Zone.html
   name: Zone
   nameWithType: Zone
   fullName: ISILab.LBS.Plugin.Components.Data.Zone
 - uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
   isExternal: true
   name: Vector2Int
   nameWithType: Vector2Int
   fullName: UnityEngine.Vector2Int
 - uid: ISILab.LBS.Plugin.Components.Data
   commentId: N:ISILab.LBS.Plugin.Components.Data
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Data
   nameWithType: ISILab.LBS.Plugin.Components.Data
@@ -1983,56 +2350,51 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddPair*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddPair
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_AddPair_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_TileZonePair_
   name: AddPair
   nameWithType: SectorizedTileMapModule.AddPair
@@ -2040,14 +2402,12 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair
   commentId: T:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair
   parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html
   name: TileZonePair
   nameWithType: TileZonePair
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddTile*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddTile
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_AddTile_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_ISILab_LBS_Plugin_Components_Data_Zone_
   name: AddTile
   nameWithType: SectorizedTileMapModule.AddTile
@@ -2055,42 +2415,36 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
   commentId: T:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
   parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
   name: LBSTile
   nameWithType: LBSTile
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddZone*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddZone
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_AddZone_ISILab_LBS_Plugin_Components_Data_Zone_
   name: AddZone
   nameWithType: SectorizedTileMapModule.AddZone
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.AddZone
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetZone_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
   name: GetZone
   nameWithType: SectorizedTileMapModule.GetZone
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZone
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemoveZone*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemoveZone
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RemoveZone_ISILab_LBS_Plugin_Components_Data_Zone_
   name: RemoveZone
   nameWithType: SectorizedTileMapModule.RemoveZone
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemoveZone
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetPairTile*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetPairTile
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetPairTile_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
   name: GetPairTile
   nameWithType: SectorizedTileMapModule.GetPairTile
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetPairTile
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTiles*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTiles
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetTiles_ISILab_LBS_Plugin_Components_Data_Zone_
   name: GetTiles
   nameWithType: SectorizedTileMapModule.GetTiles
@@ -2114,7 +2468,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
     name: LBSTile
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
   - name: '>'
   spec.vb:
@@ -2127,24 +2480,23 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
     name: LBSTile
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZoneBounds*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZoneBounds
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetZoneBounds_ISILab_LBS_Plugin_Components_Data_Zone_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile___
   name: GetZoneBounds
   nameWithType: SectorizedTileMapModule.GetZoneBounds
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetZoneBounds
 - uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
   isExternal: true
   name: Rect
   nameWithType: Rect
   fullName: UnityEngine.Rect
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsRectangular*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsRectangular
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsRectangular_ISILab_LBS_Plugin_Components_Data_Zone_UnityEngine_Rect_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__
   name: IsRectangular
   nameWithType: SectorizedTileMapModule.IsRectangular
@@ -2162,7 +2514,6 @@ references:
   name.vb: Boolean
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemovePair*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RemovePair
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RemovePair_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
   name: RemovePair
   nameWithType: SectorizedTileMapModule.RemovePair
@@ -2180,33 +2531,31 @@ references:
   name.vb: Integer
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Contains*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Contains
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Contains_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
   name: Contains
   nameWithType: SectorizedTileMapModule.Contains
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Contains
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetBounds*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetBounds
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetBounds_ISILab_LBS_Plugin_Components_Data_Zone_
   name: GetBounds
   nameWithType: SectorizedTileMapModule.GetBounds
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetBounds
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZoneCentroid*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZoneCentroid
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZoneCentroid_ISILab_LBS_Plugin_Components_Data_Zone_
   name: ZoneCentroid
   nameWithType: SectorizedTileMapModule.ZoneCentroid
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZoneCentroid
 - uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
   fullName: UnityEngine.Vector2
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RecalculateZonesProximity*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.RecalculateZonesProximity
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_RecalculateZonesProximity
   name: RecalculateZonesProximity
   nameWithType: SectorizedTileMapModule.RecalculateZonesProximity
@@ -2214,21 +2563,18 @@ references:
 - uid: ISILab.LBS.Modules.ConnectedTileMapModule
   commentId: T:ISILab.LBS.Modules.ConnectedTileMapModule
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.ConnectedTileMapModule.html
   name: ConnectedTileMapModule
   nameWithType: ConnectedTileMapModule
   fullName: ISILab.LBS.Modules.ConnectedTileMapModule
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithDoors*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithDoors
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetTilesWithDoors
   name: GetTilesWithDoors
   nameWithType: SectorizedTileMapModule.GetTilesWithDoors
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithDoors
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithConnections*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetTilesWithConnections
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetTilesWithConnections_System_Int32_System_String___
   name: GetTilesWithConnections
   nameWithType: SectorizedTileMapModule.GetTilesWithConnections
@@ -2286,7 +2632,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
     name: LBSTile
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
   - name: '>'
   - name: '>'
@@ -2313,7 +2658,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
     name: LBSTile
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
   - name: )
   - name: )
@@ -2353,7 +2697,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConvexCorner*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConvexCorner
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsConvexCorner_UnityEngine_Vector2_System_Collections_Generic_List_UnityEngine_Vector2Int__
   name: IsConvexCorner
   nameWithType: SectorizedTileMapModule.IsConvexCorner
@@ -2393,21 +2736,18 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConcaveCorner*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConcaveCorner
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsConcaveCorner_UnityEngine_Vector2_System_Collections_Generic_List_UnityEngine_Vector2Int__
   name: IsConcaveCorner
   nameWithType: SectorizedTileMapModule.IsConcaveCorner
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsConcaveCorner
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsWall*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsWall
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsWall_UnityEngine_Vector2_System_Collections_Generic_List_UnityEngine_Vector2Int__
   name: IsWall
   nameWithType: SectorizedTileMapModule.IsWall
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsWall
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetRoomDistance*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetRoomDistance
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetRoomDistance_ISILab_LBS_Plugin_Components_Data_Zone_ISILab_LBS_Plugin_Components_Data_Zone_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__
   name: GetRoomDistance
   nameWithType: SectorizedTileMapModule.GetRoomDistance
@@ -2425,7 +2765,6 @@ references:
   name.vb: Single
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetWalls*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetWalls
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetWalls_ISILab_LBS_Plugin_Components_Data_Zone_
   name: GetWalls
   nameWithType: SectorizedTileMapModule.GetWalls
@@ -2449,7 +2788,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Components.WallData
     name: WallData
-    isExternal: true
     href: ISILab.LBS.Components.WallData.html
   - name: '>'
   spec.vb:
@@ -2462,12 +2800,10 @@ references:
   - name: " "
   - uid: ISILab.LBS.Components.WallData
     name: WallData
-    isExternal: true
     href: ISILab.LBS.Components.WallData.html
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetSelected*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetSelected
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetSelected_UnityEngine_Vector2Int_
   name: GetSelected
   nameWithType: SectorizedTileMapModule.GetSelected
@@ -2483,7 +2819,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
     name: GetSelected
-    isExternal: true
     href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
   - name: (
   - uid: UnityEngine.Vector2Int
@@ -2493,7 +2828,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
     name: GetSelected
-    isExternal: true
     href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
   - name: (
   - uid: UnityEngine.Vector2Int
@@ -2537,7 +2871,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.UpdateZonePositions*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.UpdateZonePositions
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_UpdateZonePositions
   name: UpdateZonePositions
   nameWithType: SectorizedTileMapModule.UpdateZonePositions
@@ -2545,7 +2878,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.GetBounds
   commentId: M:ISILab.LBS.Modules.LBSModule.GetBounds
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   name: GetBounds()
   nameWithType: LBSModule.GetBounds()
@@ -2553,21 +2885,18 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.GetBounds
     name: GetBounds
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.GetBounds
     name: GetBounds
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
   - name: (
   - name: )
 - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
   commentId: M:ISILab.LBS.Modules.LBSModule.IsEmpty
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   name: IsEmpty()
   nameWithType: LBSModule.IsEmpty()
@@ -2575,20 +2904,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
     name: IsEmpty
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
     name: IsEmpty
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsEmpty*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.IsEmpty
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_IsEmpty
   name: IsEmpty
   nameWithType: SectorizedTileMapModule.IsEmpty
@@ -2596,7 +2922,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Clear
   commentId: M:ISILab.LBS.Modules.LBSModule.Clear
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   name: Clear()
   nameWithType: LBSModule.Clear()
@@ -2604,20 +2929,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Clear
     name: Clear
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Clear
     name: Clear
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clear*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clear
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Clear
   name: Clear
   nameWithType: SectorizedTileMapModule.Clear
@@ -2625,7 +2947,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Clone
   commentId: M:ISILab.LBS.Modules.LBSModule.Clone
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   name: Clone()
   nameWithType: LBSModule.Clone()
@@ -2633,20 +2954,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clone*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Clone
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Clone
   name: Clone
   nameWithType: SectorizedTileMapModule.Clone
@@ -2654,7 +2972,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Print
   commentId: M:ISILab.LBS.Modules.LBSModule.Print
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
   name: Print()
   nameWithType: LBSModule.Print()
@@ -2662,20 +2979,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Print
     name: Print
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Print
     name: Print
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Print*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Print
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Print
   name: Print
   nameWithType: SectorizedTileMapModule.Print
@@ -2683,7 +2997,6 @@ references:
 - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
   commentId: M:ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
   parent: ISILab.LBS.Modules.LBSModule
-  isExternal: true
   href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   name: Rewrite(LBSModule)
   nameWithType: LBSModule.Rewrite(LBSModule)
@@ -2691,28 +3004,23 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
     name: Rewrite
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   - name: (
   - uid: ISILab.LBS.Modules.LBSModule
     name: LBSModule
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
     name: Rewrite
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   - name: (
   - uid: ISILab.LBS.Modules.LBSModule
     name: LBSModule
-    isExternal: true
     href: ISILab.LBS.Modules.LBSModule.html
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Rewrite*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Rewrite
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Rewrite_ISILab_LBS_Modules_LBSModule_
   name: Rewrite
   nameWithType: SectorizedTileMapModule.Rewrite
@@ -2752,7 +3060,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Equals*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Equals
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Equals_System_Object_
   name: Equals
   nameWithType: SectorizedTileMapModule.Equals
@@ -2783,197 +3090,8 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetHashCode*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_GetHashCode
   name: GetHashCode
   nameWithType: SectorizedTileMapModule.GetHashCode
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.GetHashCode
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_PairTiles
-  name: PairTiles
-  nameWithType: SectorizedTileMapModule.PairTiles
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.PairTiles
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_Zones
-  name: Zones
-  nameWithType: SectorizedTileMapModule.Zones
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.Zones
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZonesWithTiles
-  name: ZonesWithTiles
-  nameWithType: SectorizedTileMapModule.ZonesWithTiles
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesWithTiles
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_ZonesProximity
-  name: ZonesProximity
-  nameWithType: SectorizedTileMapModule.ZonesProximity
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.ZonesProximity
-- uid: System.Int32[,]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int[,]
-  nameWithType: int[,]
-  fullName: int[,]
-  nameWithType.vb: Integer(,)
-  fullName.vb: Integer(,)
-  name.vb: Integer(,)
-  spec.csharp:
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '['
-  - name: ','
-  - name: ']'
-  spec.vb:
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: (
-  - name: ','
-  - name: )
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html#ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_SectorizedTileMapModule_SelectedZones
-  name: SelectedZones
-  nameWithType: SectorizedTileMapModule.SelectedZones
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.SelectedZones
-- uid: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Zone}
-  commentId: T:System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Zone}
-  parent: System
-  definition: System.Action`2
-  href: https://learn.microsoft.com/dotnet/api/system.action-2
-  name: Action<SectorizedTileMapModule, Zone>
-  nameWithType: Action<SectorizedTileMapModule, Zone>
-  fullName: System.Action<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule, ISILab.LBS.Plugin.Components.Data.Zone>
-  nameWithType.vb: Action(Of SectorizedTileMapModule, Zone)
-  fullName.vb: System.Action(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule, ISILab.LBS.Plugin.Components.Data.Zone)
-  name.vb: Action(Of SectorizedTileMapModule, Zone)
-  spec.csharp:
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: <
-  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-    name: SectorizedTileMapModule
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
-  - name: ','
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Components.Data.Zone
-    name: Zone
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Zone.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-    name: SectorizedTileMapModule
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
-  - name: ','
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Components.Data.Zone
-    name: Zone
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Zone.html
-  - name: )
-- uid: System.Action`2
-  commentId: T:System.Action`2
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.action-2
-  name: Action<T1, T2>
-  nameWithType: Action<T1, T2>
-  fullName: System.Action<T1, T2>
-  nameWithType.vb: Action(Of T1, T2)
-  fullName.vb: System.Action(Of T1, T2)
-  name.vb: Action(Of T1, T2)
-  spec.csharp:
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: <
-  - name: T1
-  - name: ','
-  - name: " "
-  - name: T2
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T1
-  - name: ','
-  - name: " "
-  - name: T2
-  - name: )
-- uid: System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
-  commentId: T:System.Action{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule,ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair}
-  parent: System
-  definition: System.Action`2
-  href: https://learn.microsoft.com/dotnet/api/system.action-2
-  name: Action<SectorizedTileMapModule, TileZonePair>
-  nameWithType: Action<SectorizedTileMapModule, TileZonePair>
-  fullName: System.Action<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule, ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair>
-  nameWithType.vb: Action(Of SectorizedTileMapModule, TileZonePair)
-  fullName.vb: System.Action(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule, ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair)
-  name.vb: Action(Of SectorizedTileMapModule, TileZonePair)
-  spec.csharp:
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: <
-  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-    name: SectorizedTileMapModule
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
-  - name: ','
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair
-    name: TileZonePair
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule
-    name: SectorizedTileMapModule
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.SectorizedTileMapModule.html
-  - name: ','
-  - name: " "
-  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair
-    name: TileZonePair
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.TileZonePair.html
-  - name: )
 shouldSkipMarkup: true

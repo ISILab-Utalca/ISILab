@@ -16,9 +16,15 @@ items:
   nameWithType: MappedIEvaluable
   fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable
   type: Struct
+  source:
+    id: MappedIEvaluable
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Categorization\MapElites\MapElites.cs
+    startLine: 505
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Categorization
+  summary: Struct to store and represent an "IEvaluable" object along with its "xFitness" and "yFitness" values.
+  example: []
   syntax:
     content: public struct MappedIEvaluable
     content.vb: Public Structure MappedIEvaluable
@@ -26,8 +32,8 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.xFitness
   commentId: F:ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.xFitness
@@ -40,6 +46,10 @@ items:
   nameWithType: MappedIEvaluable.xFitness
   fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.xFitness
   type: Field
+  source:
+    id: xFitness
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Categorization\MapElites\MapElites.cs
+    startLine: 507
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Categorization
@@ -59,6 +69,10 @@ items:
   nameWithType: MappedIEvaluable.yFitness
   fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.yFitness
   type: Field
+  source:
+    id: yFitness
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Categorization\MapElites\MapElites.cs
+    startLine: 508
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Categorization
@@ -78,6 +92,10 @@ items:
   nameWithType: MappedIEvaluable.evaluable
   fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.evaluable
   type: Field
+  source:
+    id: evaluable
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Categorization\MapElites\MapElites.cs
+    startLine: 509
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Categorization
@@ -97,6 +115,10 @@ items:
   nameWithType: MappedIEvaluable.MappedIEvaluable(IOptimizable, float, float)
   fullName: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.MappedIEvaluable(ISILab.AI.Optimization.IOptimizable, float, float)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Categorization\MapElites\MapElites.cs
+    startLine: 511
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Categorization
@@ -117,7 +139,6 @@ items:
 references:
 - uid: ISILab.LBS.Plugin.Core.AI.Categorization
   commentId: N:ISILab.LBS.Plugin.Core.AI.Categorization
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Core.AI.Categorization
   nameWithType: ISILab.LBS.Plugin.Core.AI.Categorization
@@ -125,62 +146,50 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Categorization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.AI.Categorization.html
 - uid: System.ValueType.Equals(System.Object)
   commentId: M:System.ValueType.Equals(System.Object)
@@ -259,30 +268,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -327,6 +312,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -413,14 +422,12 @@ references:
 - uid: ISILab.AI.Optimization.IOptimizable
   commentId: T:ISILab.AI.Optimization.IOptimizable
   parent: ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.AI.Optimization.IOptimizable.html
   name: IOptimizable
   nameWithType: IOptimizable
   fullName: ISILab.AI.Optimization.IOptimizable
 - uid: ISILab.AI.Optimization
   commentId: N:ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization
   nameWithType: ISILab.AI.Optimization
@@ -428,36 +435,29 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
 - uid: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.#ctor
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.AI.Categorization.MappedIEvaluable.html#ISILab_LBS_Plugin_Core_AI_Categorization_MappedIEvaluable__ctor_ISILab_AI_Optimization_IOptimizable_System_Single_System_Single_
   name: MappedIEvaluable
   nameWithType: MappedIEvaluable.MappedIEvaluable

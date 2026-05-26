@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class LBSTerrainConnectionGrid | lbs-api_docs ">
       
-      
+      <meta name="description" content="The main class handling the &#39;Terrain Connection Grid&#39; sorting characteristic.   A Connection Grid allows its respective bundle to flag their assets&#39;  possible connections individually, allowing consistent pattern generation.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,11 +97,14 @@ Class LBSTerrainConnectionGrid
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">The main class handling the 'Terrain Connection Grid' sorting characteristic. <br> 
+A Connection Grid allows its respective bundle to flag their assets' 
+possible connections individually, allowing consistent pattern generation.</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LBSTerrainConnectionGrid : LBSCharacteristic, ICloneable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class LBSTerrainConnectionGrid : LBSCharacteristic, ICloneable</code></pre>
   </div>
 
 
@@ -137,6 +140,9 @@ Class LBSTerrainConnectionGrid
       <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_initialized">LBSCharacteristic.initialized</a>
     </div>
     <div>
+      <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Owner">LBSCharacteristic.Owner</a>
+    </div>
+    <div>
       <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Init_ISILab_LBS_Plugin_Components_Bundles_Bundle_">LBSCharacteristic.Init(Bundle)</a>
     </div>
     <div>
@@ -152,7 +158,7 @@ Class LBSTerrainConnectionGrid
       <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_OnRefresh">LBSCharacteristic.OnRefresh()</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.LBS.Characteristics.LBSCharacteristic.html#ISILab_LBS_Characteristics_LBSCharacteristic_Owner">LBSCharacteristic.Owner</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
@@ -161,13 +167,10 @@ Class LBSTerrainConnectionGrid
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -194,7 +197,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Empty constructor. Necessary for the manipulation of the characteristic in Visual Elements.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -220,7 +223,8 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Alternative constructor with modifiable grid size.
+<b>NOTE</b>: Unused. Only the empty constructor is used.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -255,11 +259,13 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Points to the current assets stored in this characteristic's bundle. This list is used to assign each asset a corresponding blank 'Asset-Connection Grid'
+on generation of the characteristic.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Asset&gt; Assets { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;Asset&gt; Assets { get; }</code></pre>
   </div>
 
 
@@ -286,11 +292,12 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Pointer to the characteristic's color palette.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Color&gt; ColorPalette { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;Color&gt; ColorPalette { get; }</code></pre>
   </div>
 
 
@@ -317,7 +324,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Pointer to the characteristic's color palette ID list.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -348,7 +355,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Pointer to the characteristic's default asset to generate.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -379,11 +386,12 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Pointer to the 'Asset-Connection Grid' list.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;AssetConnectionGrid&gt; GridList { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public List&lt;AssetConnectionGrid&gt; GridList { get; }</code></pre>
   </div>
 
 
@@ -410,7 +418,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Pointer to the 'Asset-Connection Grid' size variable.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -445,7 +453,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Adds a new color ID to the grid's color palette. It is simultaneously added to both the color palette and the color ID palette.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -455,9 +463,9 @@ Class LBSTerrainConnectionGrid
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The ID of the new color.</dd>
     <dt><code>color</code> <span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The new color assigned.</dd>
   </dl>
 
 
@@ -478,7 +486,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Unimplemented.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -499,6 +507,11 @@ Class LBSTerrainConnectionGrid
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notimplementedexception">NotImplementedException</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -509,7 +522,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Checks if a color exists on the provided ID.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -519,13 +532,13 @@ Class LBSTerrainConnectionGrid
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The ID to search.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><code>true</code> if the the ID succesfully returns a color in the color ID palette. <code>false</code> otherwise.</dd>
   </dl>
 
 
@@ -545,7 +558,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Compares two 'Terrain Connection Grids'.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -555,13 +568,13 @@ Class LBSTerrainConnectionGrid
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>The object to compare to this.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><code>true</code> if the objects equal each other. <code>false</code> otherwise.</dd>
   </dl>
 
 
@@ -581,7 +594,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Returns a color in the color palette as per a provided ID.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -591,13 +604,13 @@ Class LBSTerrainConnectionGrid
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The ID to search.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">Color</span></dt>
-    <dd></dd>
+    <dd>The color in the same slot as the searched color ID. Returns <code>null</code> if it doesn't exist.</dd>
   </dl>
 
 
@@ -617,7 +630,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Obtains a particular 'Asset-Connection Grid' by looking for its asset reference.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -627,13 +640,13 @@ Class LBSTerrainConnectionGrid
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>asset</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Asset.html">Asset</a></dt>
-    <dd></dd>
+    <dd>The asset to be searched.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="ISILab.LBS.Characteristics.AssetConnectionGrid.html">AssetConnectionGrid</a></dt>
-    <dd></dd>
+    <dd>Returns the first Asset-Connection Grid that contains the given asset. Returns <code>null</code> otherwise.</dd>
   </dl>
 
 
@@ -653,7 +666,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Obtains a particular 'Asset-Connection Grid' by looking for a GameObject. The object is initially searched on the bundle's asset list.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -663,13 +676,13 @@ Class LBSTerrainConnectionGrid
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>obj</code> <span class="xref">GameObject</span></dt>
-    <dd></dd>
+    <dd>The GameObject to find.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="ISILab.LBS.Characteristics.AssetConnectionGrid.html">AssetConnectionGrid</a></dt>
-    <dd></dd>
+    <dd>Returns the first Asset-Connection Grid that contains the given GameObject (inside of an asset). Returns <code>null</code> otherwise.</dd>
   </dl>
 
 
@@ -689,7 +702,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Obtains multiple 'Asset-Connection Grids' by looking for a particular asset reference.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -699,13 +712,13 @@ Class LBSTerrainConnectionGrid
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>asset</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Asset.html">Asset</a></dt>
-    <dd></dd>
+    <dd>The asset to be searched.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Characteristics.AssetConnectionGrid.html">AssetConnectionGrid</a>&gt;</dt>
-    <dd></dd>
+    <dd>Returns a list of every Asset-Connection Grid that contains the given asset. The list may be empty.</dd>
   </dl>
 
 
@@ -725,7 +738,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Obtains the hash code of the object.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -736,7 +749,7 @@ Class LBSTerrainConnectionGrid
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>Returns hash code.</dd>
   </dl>
 
 
@@ -756,7 +769,8 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Sets the individual ID of every asset in the bundle if it doesn't exist. This allows the 'Terrain Connection Grid' Editor to properly differentiate
+between different iterations of the exact same asset within the bundle without modifications required.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -782,7 +796,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Removes a color ID. It uses the provided ID to simultaneously remove it from the color ID palette and the color palette.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -792,7 +806,7 @@ Class LBSTerrainConnectionGrid
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The ID of the color to remove.</dd>
   </dl>
 
 
@@ -844,7 +858,10 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates a new Grid List for the characteristic, then automatically populates it according to the bundle's Asset list. <br>
+To populate the Grid List, it individally checks every available Asset, then checks if an 'Asset-Connection Grid' exists for it. If multiple
+grids exist for the same asset, these are chequed in sequence and added accordingly. If no grid is found for a particular asset, 
+a blank grid is created.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -870,7 +887,7 @@ Class LBSTerrainConnectionGrid
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Validates the object and checks if it was correctly created and initialized.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -881,7 +898,7 @@ Class LBSTerrainConnectionGrid
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
+    <dd>Returns a list of warnings if any discrepances are found.</dd>
   </dl>
 
 

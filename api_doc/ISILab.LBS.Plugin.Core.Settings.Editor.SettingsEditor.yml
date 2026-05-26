@@ -5,7 +5,6 @@ items:
   id: SettingsEditor
   parent: ISILab.LBS.Plugin.Core.Settings.Editor
   children:
-  - ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.#ctor
   - ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.SearchSettingsInstance
   langs:
   - csharp
@@ -14,6 +13,10 @@ items:
   nameWithType: SettingsEditor
   fullName: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor
   type: Class
+  source:
+    id: SettingsEditor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\Editor\SettingEditor.cs
+    startLine: 4
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.Core.Settings.Editor
@@ -23,13 +26,13 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.SearchSettingsInstance
   commentId: M:ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.SearchSettingsInstance
   id: SearchSettingsInstance
@@ -41,6 +44,10 @@ items:
   nameWithType: SettingsEditor.SearchSettingsInstance()
   fullName: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.SearchSettingsInstance()
   type: Method
+  source:
+    id: SearchSettingsInstance
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\Editor\SettingEditor.cs
+    startLine: 6
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.Core.Settings.Editor
@@ -48,31 +55,9 @@ items:
     content: public static void SearchSettingsInstance()
     content.vb: Public Shared Sub SearchSettingsInstance()
   overload: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.SearchSettingsInstance*
-- uid: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.#ctor
-  commentId: M:ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.#ctor
-  id: '#ctor'
-  parent: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor
-  langs:
-  - csharp
-  - vb
-  name: SettingsEditor()
-  nameWithType: SettingsEditor.SettingsEditor()
-  fullName: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.SettingsEditor()
-  type: Constructor
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.Core.Settings.Editor
-  syntax:
-    content: public SettingsEditor()
-    content.vb: Public Sub New()
-  overload: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.#ctor*
-  nameWithType.vb: SettingsEditor.New()
-  fullName.vb: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.New()
-  name.vb: New()
 references:
 - uid: ISILab.LBS.Plugin.Core.Settings.Editor
   commentId: N:ISILab.LBS.Plugin.Core.Settings.Editor
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Core.Settings.Editor
   nameWithType: ISILab.LBS.Plugin.Core.Settings.Editor
@@ -80,62 +65,50 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.Settings
     name: Settings
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.Settings.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.Settings.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.Settings.Editor.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.Settings
     name: Settings
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.Settings.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.Settings.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.Settings.Editor.html
 - uid: System.Object
   commentId: T:System.Object
@@ -148,30 +121,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -238,51 +187,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -367,6 +271,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -376,19 +349,8 @@ references:
   fullName: System
 - uid: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.SearchSettingsInstance*
   commentId: Overload:ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.SearchSettingsInstance
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.html#ISILab_LBS_Plugin_Core_Settings_Editor_SettingsEditor_SearchSettingsInstance
   name: SearchSettingsInstance
   nameWithType: SettingsEditor.SearchSettingsInstance
   fullName: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.SearchSettingsInstance
-- uid: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.#ctor*
-  commentId: Overload:ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.#ctor
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.html#ISILab_LBS_Plugin_Core_Settings_Editor_SettingsEditor__ctor
-  name: SettingsEditor
-  nameWithType: SettingsEditor.SettingsEditor
-  fullName: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.SettingsEditor
-  nameWithType.vb: SettingsEditor.New
-  fullName.vb: ISILab.LBS.Plugin.Core.Settings.Editor.SettingsEditor.New
-  name.vb: New
 shouldSkipMarkup: true

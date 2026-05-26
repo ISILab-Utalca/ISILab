@@ -5,7 +5,6 @@ items:
   id: LBSGenerator3DSettings
   parent: ISILab.LBS.Plugin.Core.Settings
   children:
-  - ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.#ctor
   - ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.Equals(System.Object)
   - ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.GetHashCode
   - ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.ToString
@@ -28,19 +27,33 @@ items:
   nameWithType: LBSGenerator3DSettings
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
   type: Class
+  source:
+    id: LBSGenerator3DSettings
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 37
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public class LBSGenerator3DSettings
-    content.vb: Public Class LBSGenerator3DSettings
+    content: >-
+      [Serializable]
+
+      public class LBSGenerator3DSettings
+    content.vb: >-
+      <Serializable>
+
+      Public Class LBSGenerator3DSettings
   inheritance:
   - System.Object
   inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.useBundleSize
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.useBundleSize
   id: useBundleSize
@@ -52,14 +65,37 @@ items:
   nameWithType: LBSGenerator3DSettings.useBundleSize
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.useBundleSize
   type: Field
+  source:
+    id: useBundleSize
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 42
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public bool useBundleSize
+    content: >-
+      [SerializeField]
+
+      [JsonConverter(typeof(bool))]
+
+      public bool useBundleSize
     return:
       type: System.Boolean
-    content.vb: Public useBundleSize As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      <JsonConverter(GetType(Boolean))>
+
+      Public useBundleSize As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Boolean
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.lightVolume
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.lightVolume
   id: lightVolume
@@ -71,14 +107,37 @@ items:
   nameWithType: LBSGenerator3DSettings.lightVolume
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.lightVolume
   type: Field
+  source:
+    id: lightVolume
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 46
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public bool lightVolume
+    content: >-
+      [SerializeField]
+
+      [JsonConverter(typeof(bool))]
+
+      public bool lightVolume
     return:
       type: System.Boolean
-    content.vb: Public lightVolume As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      <JsonConverter(GetType(Boolean))>
+
+      Public lightVolume As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Boolean
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.reflectionProbe
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.reflectionProbe
   id: reflectionProbe
@@ -90,14 +149,37 @@ items:
   nameWithType: LBSGenerator3DSettings.reflectionProbe
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.reflectionProbe
   type: Field
+  source:
+    id: reflectionProbe
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 50
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public bool reflectionProbe
+    content: >-
+      [SerializeField]
+
+      [JsonConverter(typeof(bool))]
+
+      public bool reflectionProbe
     return:
       type: System.Boolean
-    content.vb: Public reflectionProbe As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      <JsonConverter(GetType(Boolean))>
+
+      Public reflectionProbe As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Boolean
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.scale
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.scale
   id: scale
@@ -109,14 +191,37 @@ items:
   nameWithType: LBSGenerator3DSettings.scale
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.scale
   type: Field
+  source:
+    id: scale
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 54
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public Vector3 scale
+    content: >-
+      [SerializeField]
+
+      [JsonConverter(typeof(Vector2Converter))]
+
+      public Vector3 scale
     return:
       type: UnityEngine.Vector3
-    content.vb: Public scale As Vector3
+    content.vb: >-
+      <SerializeField>
+
+      <JsonConverter(GetType(Vector2Converter))>
+
+      Public scale As Vector3
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: ISILab.Commons.JsonNet.Vector2Converter
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.resize
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.resize
   id: resize
@@ -128,14 +233,37 @@ items:
   nameWithType: LBSGenerator3DSettings.resize
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.resize
   type: Field
+  source:
+    id: resize
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public Vector2 resize
+    content: >-
+      [SerializeField]
+
+      [JsonConverter(typeof(Vector2Converter))]
+
+      public Vector2 resize
     return:
       type: UnityEngine.Vector2
-    content.vb: Public resize As Vector2
+    content.vb: >-
+      <SerializeField>
+
+      <JsonConverter(GetType(Vector2Converter))>
+
+      Public resize As Vector2
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: ISILab.Commons.JsonNet.Vector2Converter
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.position
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.position
   id: position
@@ -147,14 +275,37 @@ items:
   nameWithType: LBSGenerator3DSettings.position
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.position
   type: Field
+  source:
+    id: position
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 62
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public Vector3 position
+    content: >-
+      [SerializeField]
+
+      [JsonConverter(typeof(Vector3Converter))]
+
+      public Vector3 position
     return:
       type: UnityEngine.Vector3
-    content.vb: Public position As Vector3
+    content.vb: >-
+      <SerializeField>
+
+      <JsonConverter(GetType(Vector3Converter))>
+
+      Public position As Vector3
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: ISILab.Commons.JsonNet.Vector3Converter
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.replacePrevious
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.replacePrevious
   id: replacePrevious
@@ -166,14 +317,37 @@ items:
   nameWithType: LBSGenerator3DSettings.replacePrevious
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.replacePrevious
   type: Field
+  source:
+    id: replacePrevious
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 66
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public bool replacePrevious
+    content: >-
+      [SerializeField]
+
+      [JsonConverter(typeof(bool))]
+
+      public bool replacePrevious
     return:
       type: System.Boolean
-    content.vb: Public replacePrevious As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      <JsonConverter(GetType(Boolean))>
+
+      Public replacePrevious As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Boolean
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.buildLightProbes
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.buildLightProbes
   id: buildLightProbes
@@ -185,14 +359,37 @@ items:
   nameWithType: LBSGenerator3DSettings.buildLightProbes
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.buildLightProbes
   type: Field
+  source:
+    id: buildLightProbes
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 70
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public bool buildLightProbes
+    content: >-
+      [SerializeField]
+
+      [JsonConverter(typeof(bool))]
+
+      public bool buildLightProbes
     return:
       type: System.Boolean
-    content.vb: Public buildLightProbes As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      <JsonConverter(GetType(Boolean))>
+
+      Public buildLightProbes As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Boolean
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.bakeLights
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.bakeLights
   id: bakeLights
@@ -204,14 +401,37 @@ items:
   nameWithType: LBSGenerator3DSettings.bakeLights
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.bakeLights
   type: Field
+  source:
+    id: bakeLights
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 74
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public bool bakeLights
+    content: >-
+      [SerializeField]
+
+      [JsonConverter(typeof(bool))]
+
+      public bool bakeLights
     return:
       type: System.Boolean
-    content.vb: Public bakeLights As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      <JsonConverter(GetType(Boolean))>
+
+      Public bakeLights As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Boolean
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.optimization3d
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.optimization3d
   id: optimization3d
@@ -223,14 +443,28 @@ items:
   nameWithType: LBSGenerator3DSettings.optimization3d
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.optimization3d
   type: Field
+  source:
+    id: optimization3d
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 77
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public OptimizationGenMode optimization3d
+    content: >-
+      [SerializeField]
+
+      public OptimizationGenMode optimization3d
     return:
       type: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
-    content.vb: Public optimization3d As OptimizationGenMode
+    content.vb: >-
+      <SerializeField>
+
+      Public optimization3d As OptimizationGenMode
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.generatedRootName
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.generatedRootName
   id: generatedRootName
@@ -242,14 +476,35 @@ items:
   nameWithType: LBSGenerator3DSettings.generatedRootName
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.generatedRootName
   type: Field
+  source:
+    id: generatedRootName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 81
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public string generatedRootName
+    content: >-
+      [SerializeField]
+
+      [HideInInspector]
+
+      public string generatedRootName
     return:
       type: System.String
-    content.vb: Public generatedRootName As String
+    content.vb: >-
+      <SerializeField>
+
+      <HideInInspector>
+
+      Public generatedRootName As String
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.rootParentName
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.rootParentName
   id: rootParentName
@@ -261,14 +516,28 @@ items:
   nameWithType: LBSGenerator3DSettings.rootParentName
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.rootParentName
   type: Field
+  source:
+    id: rootParentName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 84
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
   syntax:
-    content: public string rootParentName
+    content: >-
+      [SerializeField]
+
+      public string rootParentName
     return:
       type: System.String
-    content.vb: Public rootParentName As String
+    content.vb: >-
+      <SerializeField>
+
+      Public rootParentName As String
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.Equals(System.Object)
   commentId: M:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.Equals(System.Object)
   id: Equals(System.Object)
@@ -280,6 +549,10 @@ items:
   nameWithType: LBSGenerator3DSettings.Equals(object)
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 86
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
@@ -308,6 +581,10 @@ items:
   nameWithType: LBSGenerator3DSettings.GetHashCode()
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 113
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
@@ -330,6 +607,10 @@ items:
   nameWithType: LBSGenerator3DSettings.ToString()
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.ToString()
   type: Method
+  source:
+    id: ToString
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Settings\LBSGenerator3DSettings.cs
+    startLine: 118
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
@@ -341,31 +622,9 @@ items:
     content.vb: Public Overrides Function ToString() As String
   overridden: System.Object.ToString
   overload: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.ToString*
-- uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.#ctor
-  commentId: M:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.#ctor
-  id: '#ctor'
-  parent: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
-  langs:
-  - csharp
-  - vb
-  name: LBSGenerator3DSettings()
-  nameWithType: LBSGenerator3DSettings.LBSGenerator3DSettings()
-  fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.LBSGenerator3DSettings()
-  type: Constructor
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.Settings
-  syntax:
-    content: public LBSGenerator3DSettings()
-    content.vb: Public Sub New()
-  overload: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.#ctor*
-  nameWithType.vb: LBSGenerator3DSettings.New()
-  fullName.vb: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.New()
-  name.vb: New()
 references:
 - uid: ISILab.LBS.Plugin.Core.Settings
   commentId: N:ISILab.LBS.Plugin.Core.Settings
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Core.Settings
   nameWithType: ISILab.LBS.Plugin.Core.Settings
@@ -373,52 +632,42 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.Settings
     name: Settings
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.Settings.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core
     name: Core
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.html
   - name: .
   - uid: ISILab.LBS.Plugin.Core.Settings
     name: Settings
-    isExternal: true
     href: ISILab.LBS.Plugin.Core.Settings.html
 - uid: System.Object
   commentId: T:System.Object
@@ -431,6 +680,51 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -478,51 +772,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -588,11 +837,21 @@ references:
   fullName.vb: Boolean
   name.vb: Boolean
 - uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
   isExternal: true
   name: Vector3
   nameWithType: Vector3
   fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
@@ -600,7 +859,6 @@ references:
 - uid: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
   commentId: T:ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode
   parent: ISILab.LBS.Plugin.Core.Settings
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.Settings.OptimizationGenMode.html
   name: OptimizationGenMode
   nameWithType: OptimizationGenMode
@@ -651,7 +909,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.Equals*
   commentId: Overload:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.Equals
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.html#ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_Equals_System_Object_
   name: Equals
   nameWithType: LBSGenerator3DSettings.Equals
@@ -682,7 +939,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.GetHashCode*
   commentId: Overload:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.html#ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_GetHashCode
   name: GetHashCode
   nameWithType: LBSGenerator3DSettings.GetHashCode
@@ -724,19 +980,8 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.ToString*
   commentId: Overload:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.ToString
-  isExternal: true
   href: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.html#ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_ToString
   name: ToString
   nameWithType: LBSGenerator3DSettings.ToString
   fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.ToString
-- uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.#ctor*
-  commentId: Overload:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.#ctor
-  isExternal: true
-  href: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.html#ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings__ctor
-  name: LBSGenerator3DSettings
-  nameWithType: LBSGenerator3DSettings.LBSGenerator3DSettings
-  fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.LBSGenerator3DSettings
-  nameWithType.vb: LBSGenerator3DSettings.New
-  fullName.vb: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.New
-  name.vb: New
 shouldSkipMarkup: true

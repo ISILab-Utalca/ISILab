@@ -15,9 +15,15 @@ items:
   nameWithType: VisualElementWorld
   fullName: ISILab.LBS.VisualElements.VisualElementWorld
   type: Struct
+  source:
+    id: VisualElementWorld
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\CustomGizmo\QuestGizmo\QuestBarView.cs
+    startLine: 19
   assemblies:
   - LBS
   namespace: ISILab.LBS.VisualElements
+  summary: Simple container class to store world positions and a visual element
+  example: []
   syntax:
     content: public struct VisualElementWorld
     content.vb: Public Structure VisualElementWorld
@@ -25,8 +31,8 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: ISILab.LBS.VisualElements.VisualElementWorld.Position
   commentId: F:ISILab.LBS.VisualElements.VisualElementWorld.Position
@@ -39,6 +45,10 @@ items:
   nameWithType: VisualElementWorld.Position
   fullName: ISILab.LBS.VisualElements.VisualElementWorld.Position
   type: Field
+  source:
+    id: Position
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\CustomGizmo\QuestGizmo\QuestBarView.cs
+    startLine: 21
   assemblies:
   - LBS
   namespace: ISILab.LBS.VisualElements
@@ -58,6 +68,10 @@ items:
   nameWithType: VisualElementWorld.Element
   fullName: ISILab.LBS.VisualElements.VisualElementWorld.Element
   type: Field
+  source:
+    id: Element
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\CustomGizmo\QuestGizmo\QuestBarView.cs
+    startLine: 22
   assemblies:
   - LBS
   namespace: ISILab.LBS.VisualElements
@@ -77,6 +91,10 @@ items:
   nameWithType: VisualElementWorld.VisualElementWorld(Vector3, VisualElement)
   fullName: ISILab.LBS.VisualElements.VisualElementWorld.VisualElementWorld(UnityEngine.Vector3, UnityEngine.UIElements.VisualElement)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\CustomGizmo\QuestGizmo\QuestBarView.cs
+    startLine: 23
   assemblies:
   - LBS
   namespace: ISILab.LBS.VisualElements
@@ -95,7 +113,6 @@ items:
 references:
 - uid: ISILab.LBS.VisualElements
   commentId: N:ISILab.LBS.VisualElements
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.VisualElements
   nameWithType: ISILab.LBS.VisualElements
@@ -103,32 +120,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
 - uid: System.ValueType.Equals(System.Object)
   commentId: M:System.ValueType.Equals(System.Object)
@@ -207,30 +218,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -275,6 +262,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -348,18 +359,49 @@ references:
   nameWithType: System
   fullName: System
 - uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
   isExternal: true
   name: Vector3
   nameWithType: Vector3
   fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: UnityEngine.UIElements.VisualElement
+  commentId: T:UnityEngine.UIElements.VisualElement
+  parent: UnityEngine.UIElements
   isExternal: true
   name: VisualElement
   nameWithType: VisualElement
   fullName: UnityEngine.UIElements.VisualElement
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
 - uid: ISILab.LBS.VisualElements.VisualElementWorld.#ctor*
   commentId: Overload:ISILab.LBS.VisualElements.VisualElementWorld.#ctor
-  isExternal: true
   href: ISILab.LBS.VisualElements.VisualElementWorld.html#ISILab_LBS_VisualElements_VisualElementWorld__ctor_UnityEngine_Vector3_UnityEngine_UIElements_VisualElement_
   name: VisualElementWorld
   nameWithType: VisualElementWorld.VisualElementWorld

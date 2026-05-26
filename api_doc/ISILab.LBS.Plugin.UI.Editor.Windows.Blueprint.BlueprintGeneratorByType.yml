@@ -16,6 +16,10 @@ items:
   nameWithType: BlueprintGeneratorByType
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType
   type: Class
+  source:
+    id: BlueprintGeneratorByType
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\Blueprints\BlueprintGeneratorByType.cs
+    startLine: 12
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
@@ -33,13 +37,18 @@ items:
   - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.modifiedLayers
   - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.generatedLayers
   - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.overwrite
-  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CreateBlueprint(System.Collections.Generic.List{LBS.Components.LBSLayer},ISILab.LBS.LoadedLevel,System.Boolean)
-  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.FindMergeTargetByType(System.Collections.Generic.List{LBS.Components.LBSLayer},LBS.Components.LBSLayer)
-  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.FindMergeTargetByName(System.Collections.Generic.List{LBS.Components.LBSLayer},LBS.Components.LBSLayer)
   - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancelToken
   - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancellationTokenSource
   - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.TaskBar
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CreateBlueprint(System.Collections.Generic.List{LBS.Components.LBSLayer},ISILab.LBS.LoadedLevel,System.Boolean)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.FindMergeTargetByType(System.Collections.Generic.List{LBS.Components.LBSLayer},LBS.Components.LBSLayer)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.FindMergeTargetByName(System.Collections.Generic.List{LBS.Components.LBSLayer},LBS.Components.LBSLayer)
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
@@ -50,18 +59,13 @@ items:
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
   - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.#ctor(System.String,System.String,UnityEngine.Color,System.Action)
   commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.#ctor(System.String,System.String,UnityEngine.Color,System.Action)
   id: '#ctor(System.String,System.String,UnityEngine.Color,System.Action)'
@@ -73,11 +77,15 @@ items:
   nameWithType: BlueprintGeneratorByType.BlueprintGeneratorByType(string, string, Color, Action)
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.BlueprintGeneratorByType(string, string, UnityEngine.Color, System.Action)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\Blueprints\BlueprintGeneratorByType.cs
+    startLine: 14
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
   syntax:
-    content: public BlueprintGeneratorByType(string IconGuid = "", string name = "", Color colorTint = null, Action onStart = null)
+    content: public BlueprintGeneratorByType(string IconGuid = "", string name = "", Color colorTint = default, Action onStart = null)
     parameters:
     - id: IconGuid
       type: System.String
@@ -103,6 +111,10 @@ items:
   nameWithType: BlueprintGeneratorByType.Clone()
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\Blueprints\BlueprintGeneratorByType.cs
+    startLine: 22
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
@@ -125,6 +137,10 @@ items:
   nameWithType: BlueprintGeneratorByType.OnGUI()
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.OnGUI()
   type: Method
+  source:
+    id: OnGUI
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\Blueprints\BlueprintGeneratorByType.cs
+    startLine: 23
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
@@ -145,6 +161,10 @@ items:
   nameWithType: BlueprintGeneratorByType.Generate(Action<float>, CancellationToken)
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.Generate(System.Action<float>, System.Threading.CancellationToken)
   type: Method
+  source:
+    id: Generate
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\Blueprints\BlueprintGeneratorByType.cs
+    startLine: 25
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
@@ -167,7 +187,6 @@ items:
 references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
   commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
   nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
@@ -175,72 +194,58 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
     name: Blueprint
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
     name: Blueprint
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.html
 - uid: System.Object
   commentId: T:System.Object
@@ -256,7 +261,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
   commentId: T:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
   parent: ISILab.LBS.Plugin.Components.Behaviours
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html
   name: LBSAssistant
   nameWithType: LBSAssistant
@@ -264,7 +268,6 @@ references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
   commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
   parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html
   name: BlueprintGenerator
   nameWithType: BlueprintGenerator
@@ -280,7 +283,6 @@ references:
 - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor
   commentId: T:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor
   parent: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
-  isExternal: true
   href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.IAssistantThreadedEditor.html
   name: IAssistantThreadedEditor
   nameWithType: IAssistantThreadedEditor
@@ -288,7 +290,6 @@ references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.modifiedLayers
   commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.modifiedLayers
   parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_modifiedLayers
   name: modifiedLayers
   nameWithType: BlueprintGenerator.modifiedLayers
@@ -296,7 +297,6 @@ references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.generatedLayers
   commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.generatedLayers
   parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_generatedLayers
   name: generatedLayers
   nameWithType: BlueprintGenerator.generatedLayers
@@ -304,11 +304,31 @@ references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.overwrite
   commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.overwrite
   parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_overwrite
   name: overwrite
   nameWithType: BlueprintGenerator.overwrite
   fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.overwrite
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancelToken
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancelToken
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_CancelToken
+  name: CancelToken
+  nameWithType: BlueprintGenerator.CancelToken
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancelToken
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancellationTokenSource
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancellationTokenSource
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_CancellationTokenSource
+  name: CancellationTokenSource
+  nameWithType: BlueprintGenerator.CancellationTokenSource
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancellationTokenSource
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.TaskBar
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.TaskBar
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_TaskBar
+  name: TaskBar
+  nameWithType: BlueprintGenerator.TaskBar
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.TaskBar
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CreateBlueprint(System.Collections.Generic.List{LBS.Components.LBSLayer},ISILab.LBS.LoadedLevel,System.Boolean)
   commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CreateBlueprint(System.Collections.Generic.List{LBS.Components.LBSLayer},ISILab.LBS.LoadedLevel,System.Boolean)
   parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
@@ -323,7 +343,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CreateBlueprint(System.Collections.Generic.List{LBS.Components.LBSLayer},ISILab.LBS.LoadedLevel,System.Boolean)
     name: CreateBlueprint
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_CreateBlueprint_System_Collections_Generic_List_LBS_Components_LBSLayer__ISILab_LBS_LoadedLevel_System_Boolean_
   - name: (
   - uid: System.Collections.Generic.List`1
@@ -333,13 +352,11 @@ references:
   - name: <
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: '>'
   - name: ','
   - name: " "
   - uid: ISILab.LBS.LoadedLevel
     name: LoadedLevel
-    isExternal: true
     href: ISILab.LBS.LoadedLevel.html
   - name: ','
   - name: " "
@@ -351,7 +368,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CreateBlueprint(System.Collections.Generic.List{LBS.Components.LBSLayer},ISILab.LBS.LoadedLevel,System.Boolean)
     name: CreateBlueprint
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_CreateBlueprint_System_Collections_Generic_List_LBS_Components_LBSLayer__ISILab_LBS_LoadedLevel_System_Boolean_
   - name: (
   - uid: System.Collections.Generic.List`1
@@ -363,13 +379,11 @@ references:
   - name: " "
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: )
   - name: ','
   - name: " "
   - uid: ISILab.LBS.LoadedLevel
     name: LoadedLevel
-    isExternal: true
     href: ISILab.LBS.LoadedLevel.html
   - name: ','
   - name: " "
@@ -392,7 +406,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.FindMergeTargetByType(System.Collections.Generic.List{LBS.Components.LBSLayer},LBS.Components.LBSLayer)
     name: FindMergeTargetByType
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_FindMergeTargetByType_System_Collections_Generic_List_LBS_Components_LBSLayer__LBS_Components_LBSLayer_
   - name: (
   - uid: System.Collections.Generic.List`1
@@ -402,18 +415,15 @@ references:
   - name: <
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: '>'
   - name: ','
   - name: " "
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.FindMergeTargetByType(System.Collections.Generic.List{LBS.Components.LBSLayer},LBS.Components.LBSLayer)
     name: FindMergeTargetByType
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_FindMergeTargetByType_System_Collections_Generic_List_LBS_Components_LBSLayer__LBS_Components_LBSLayer_
   - name: (
   - uid: System.Collections.Generic.List`1
@@ -425,13 +435,11 @@ references:
   - name: " "
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: )
   - name: ','
   - name: " "
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: )
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.FindMergeTargetByName(System.Collections.Generic.List{LBS.Components.LBSLayer},LBS.Components.LBSLayer)
   commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.FindMergeTargetByName(System.Collections.Generic.List{LBS.Components.LBSLayer},LBS.Components.LBSLayer)
@@ -447,7 +455,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.FindMergeTargetByName(System.Collections.Generic.List{LBS.Components.LBSLayer},LBS.Components.LBSLayer)
     name: FindMergeTargetByName
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_FindMergeTargetByName_System_Collections_Generic_List_LBS_Components_LBSLayer__LBS_Components_LBSLayer_
   - name: (
   - uid: System.Collections.Generic.List`1
@@ -457,18 +464,15 @@ references:
   - name: <
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: '>'
   - name: ','
   - name: " "
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.FindMergeTargetByName(System.Collections.Generic.List{LBS.Components.LBSLayer},LBS.Components.LBSLayer)
     name: FindMergeTargetByName
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_FindMergeTargetByName_System_Collections_Generic_List_LBS_Components_LBSLayer__LBS_Components_LBSLayer_
   - name: (
   - uid: System.Collections.Generic.List`1
@@ -480,50 +484,57 @@ references:
   - name: " "
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: )
   - name: ','
   - name: " "
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
   - name: )
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancelToken
-  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancelToken
-  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
-  isExternal: true
-  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_CancelToken
-  name: CancelToken
-  nameWithType: BlueprintGenerator.CancelToken
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancelToken
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancellationTokenSource
-  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancellationTokenSource
-  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
-  isExternal: true
-  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_CancellationTokenSource
-  name: CancellationTokenSource
-  nameWithType: BlueprintGenerator.CancellationTokenSource
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.CancellationTokenSource
-- uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.TaskBar
-  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.TaskBar
-  parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator
-  isExternal: true
-  href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_TaskBar
-  name: TaskBar
-  nameWithType: BlueprintGenerator.TaskBar
-  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.TaskBar
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
   commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_visible
   name: visible
   nameWithType: LBSAssistant.visible
   fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_ColorTint
+  name: ColorTint
+  nameWithType: LBSAssistant.ColorTint
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSAssistant.OwnerLayer
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Icon
+  name: Icon
+  nameWithType: LBSAssistant.Icon
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_IconGuid
+  name: IconGuid
+  nameWithType: LBSAssistant.IconGuid
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
+- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
+  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
+  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Name
+  name: Name
+  nameWithType: LBSAssistant.Name
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
   commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnStart
   name: OnStart
   nameWithType: LBSAssistant.OnStart
@@ -531,7 +542,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
   commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnTermination
   name: OnTermination
   nameWithType: LBSAssistant.OnTermination
@@ -539,7 +549,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
   commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnCancellation
   name: OnCancellation
   nameWithType: LBSAssistant.OnCancellation
@@ -547,7 +556,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
   name: OnAttachLayer(LBSLayer)
   nameWithType: LBSAssistant.OnAttachLayer(LBSLayer)
@@ -555,29 +563,24 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
     name: OnAttachLayer
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
     name: OnAttachLayer
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
   name: OnDetachLayer(LBSLayer)
   nameWithType: LBSAssistant.OnDetachLayer(LBSLayer)
@@ -585,29 +588,24 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
     name: OnDetachLayer
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
     name: OnDetachLayer
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
   name: GetRequiredModules()
   nameWithType: LBSAssistant.GetRequiredModules()
@@ -615,14 +613,12 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
     name: GetRequiredModules
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
     name: GetRequiredModules
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
   - name: (
   - name: )
@@ -640,7 +636,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
     name: RequestTilePaint
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_
   - name: (
   - uid: System.Object
@@ -651,7 +646,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
     name: RequestTilePaint
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_
   - name: (
   - uid: System.Object
@@ -673,7 +667,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
     name: RequestTileRemove
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_
   - name: (
   - uid: System.Object
@@ -684,7 +677,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
     name: RequestTileRemove
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_
   - name: (
   - uid: System.Object
@@ -695,7 +687,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
   name: RetrieveNewTiles()
   nameWithType: LBSAssistant.RetrieveNewTiles()
@@ -703,21 +694,18 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
     name: RetrieveNewTiles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
     name: RetrieveNewTiles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
   name: RetrieveExpiredTiles()
   nameWithType: LBSAssistant.RetrieveExpiredTiles()
@@ -725,79 +713,13 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
-  - name: (
-  - name: )
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_ColorTint
-  name: ColorTint
-  nameWithType: LBSAssistant.ColorTint
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OwnerLayer
-  name: OwnerLayer
-  nameWithType: LBSAssistant.OwnerLayer
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Icon
-  name: Icon
-  nameWithType: LBSAssistant.Icon
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_IconGuid
-  name: IconGuid
-  nameWithType: LBSAssistant.IconGuid
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Name
-  name: Name
-  nameWithType: LBSAssistant.Name
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
@@ -866,51 +788,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -995,6 +872,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -1004,7 +950,6 @@ references:
   fullName: System
 - uid: ISILab.LBS.Plugin.Components.Behaviours
   commentId: N:ISILab.LBS.Plugin.Components.Behaviours
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Behaviours
   nameWithType: ISILab.LBS.Plugin.Components.Behaviours
@@ -1012,56 +957,45 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.html
 - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
   commentId: N:ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
   nameWithType: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
@@ -1069,66 +1003,53 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
     name: AssistantThreads
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads
     name: AssistantThreads
-    isExternal: true
     href: ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads.html
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.#ctor
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGeneratorByType__ctor_System_String_System_String_UnityEngine_Color_System_Action_
   name: BlueprintGeneratorByType
   nameWithType: BlueprintGeneratorByType.BlueprintGeneratorByType
@@ -1148,6 +1069,8 @@ references:
   fullName.vb: String
   name.vb: String
 - uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
   isExternal: true
   name: Color
   nameWithType: Color
@@ -1160,10 +1083,15 @@ references:
   name: Action
   nameWithType: Action
   fullName: System.Action
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
   name: Clone()
   nameWithType: LBSAssistant.Clone()
@@ -1171,20 +1099,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.Clone*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.Clone
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGeneratorByType_Clone
   name: Clone
   nameWithType: BlueprintGeneratorByType.Clone
@@ -1192,7 +1117,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
   parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
   name: OnGUI()
   nameWithType: LBSAssistant.OnGUI()
@@ -1200,20 +1124,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
     name: OnGUI
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
     name: OnGUI
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.OnGUI*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.OnGUI
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGeneratorByType_OnGUI
   name: OnGUI
   nameWithType: BlueprintGeneratorByType.OnGUI
@@ -1232,7 +1153,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.Generate(System.Action{System.Single},System.Threading.CancellationToken)
     name: Generate
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_Generate_System_Action_System_Single__System_Threading_CancellationToken_
   - name: (
   - uid: System.Action`1
@@ -1255,7 +1175,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.Generate(System.Action{System.Single},System.Threading.CancellationToken)
     name: Generate
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGenerator.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGenerator_Generate_System_Action_System_Single__System_Threading_CancellationToken_
   - name: (
   - uid: System.Action`1
@@ -1279,7 +1198,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.Generate*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.Generate
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.BlueprintGeneratorByType.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_BlueprintGeneratorByType_Generate_System_Action_System_Single__System_Threading_CancellationToken_
   name: Generate
   nameWithType: BlueprintGeneratorByType.Generate
@@ -1346,7 +1264,6 @@ references:
   - name: <
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: '>'
   spec.vb:
@@ -1359,7 +1276,6 @@ references:
   - name: " "
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
 - uid: System.Action`1

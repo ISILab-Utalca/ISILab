@@ -101,7 +101,8 @@ Class TileGroupBehavior
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[RequieredModule(new Type[] { typeof(TileMapModule), typeof(BundleTileMap) })]
+    <pre><code class="lang-csharp hljs">[Serializable]
+[RequieredModule(new Type[] { typeof(TileMapModule), typeof(BundleTileMap) })]
 public class TileGroupBehavior : LBSBehaviour, ICloneable</code></pre>
   </div>
 
@@ -132,30 +133,6 @@ public class TileGroupBehavior : LBSBehaviour, ICloneable</code></pre>
       <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_visible">LBSBehaviour.visible</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules">LBSBehaviour.GetRequiredModules()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_">LBSBehaviour.RequestTilePaint(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_">LBSBehaviour.RequestTileRemove(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles">LBSBehaviour.RetrieveNewTiles()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles">LBSBehaviour.RetrieveExpiredTiles()</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__">LBSBehaviour.UpdateKeys(List&lt;object&gt;)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_">LBSBehaviour.OnOnBehaviourUpdated(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__">LBSBehaviour.RequestFullRepaint&lt;T&gt;(List&lt;T&gt;, List&lt;T&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint">LBSBehaviour.ColorTint</a>
     </div>
     <div>
@@ -180,19 +157,43 @@ public class TileGroupBehavior : LBSBehaviour, ICloneable</code></pre>
       <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnBehaviourUpdated">LBSBehaviour.OnBehaviourUpdated</a>
     </div>
     <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules">LBSBehaviour.GetRequiredModules()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_">LBSBehaviour.RequestTilePaint(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_">LBSBehaviour.RequestTileRemove(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles">LBSBehaviour.RetrieveNewTiles()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles">LBSBehaviour.RetrieveExpiredTiles()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__">LBSBehaviour.UpdateKeys(List&lt;object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_">LBSBehaviour.OnOnBehaviourUpdated(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__">LBSBehaviour.RequestFullRepaint&lt;T&gt;(List&lt;T&gt;, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 

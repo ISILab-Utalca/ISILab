@@ -101,7 +101,8 @@ Class LBSGenerator3DSettings
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LBSGenerator3DSettings</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class LBSGenerator3DSettings</code></pre>
   </div>
 
 
@@ -121,48 +122,18 @@ Class LBSGenerator3DSettings
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
   </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings__ctor_" data-uid="ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.#ctor*"></a>
-
-  <h3 id="ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings__ctor" data-uid="ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.#ctor">
-  LBSGenerator3DSettings()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LBSGenerator3DSettings()</code></pre>
-  </div>
-
-
-
-
-
-
-
 
 
 
@@ -183,7 +154,9 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool bakeLights</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonConverter(typeof(bool))]
+public bool bakeLights</code></pre>
   </div>
 
 
@@ -213,7 +186,9 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool buildLightProbes</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonConverter(typeof(bool))]
+public bool buildLightProbes</code></pre>
   </div>
 
 
@@ -243,7 +218,9 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string generatedRootName</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[HideInInspector]
+public string generatedRootName</code></pre>
   </div>
 
 
@@ -273,7 +250,9 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool lightVolume</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonConverter(typeof(bool))]
+public bool lightVolume</code></pre>
   </div>
 
 
@@ -303,7 +282,8 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OptimizationGenMode optimization3d</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+public OptimizationGenMode optimization3d</code></pre>
   </div>
 
 
@@ -333,7 +313,9 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 position</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonConverter(typeof(Vector3Converter))]
+public Vector3 position</code></pre>
   </div>
 
 
@@ -363,7 +345,9 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool reflectionProbe</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonConverter(typeof(bool))]
+public bool reflectionProbe</code></pre>
   </div>
 
 
@@ -393,7 +377,9 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool replacePrevious</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonConverter(typeof(bool))]
+public bool replacePrevious</code></pre>
   </div>
 
 
@@ -423,7 +409,9 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2 resize</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonConverter(typeof(Vector2Converter))]
+public Vector2 resize</code></pre>
   </div>
 
 
@@ -453,7 +441,8 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string rootParentName</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+public string rootParentName</code></pre>
   </div>
 
 
@@ -483,7 +472,9 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 scale</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonConverter(typeof(Vector2Converter))]
+public Vector3 scale</code></pre>
   </div>
 
 
@@ -513,7 +504,9 @@ Class LBSGenerator3DSettings
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool useBundleSize</code></pre>
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[JsonConverter(typeof(bool))]
+public bool useBundleSize</code></pre>
   </div>
 
 

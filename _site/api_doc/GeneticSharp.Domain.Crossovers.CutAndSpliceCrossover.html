@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class CutAndSpliceCrossover | lbs-api_docs ">
       
-      
+      <meta name="description" content="Cut and Splice crossover.  Results in a change in length of the children strings. The reason for this difference is that each parent string has a separate choice of crossover point. Wikipedia">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,11 @@ Class CutAndSpliceCrossover
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Cut and Splice crossover.
+<remarks>
+Results in a change in length of the children strings. The reason for this difference is that each parent string has a separate choice of crossover point.
+<a href="http://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)#.22Cut_and_splice.22">Wikipedia</a>
+</remarks></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -129,9 +133,6 @@ Class CutAndSpliceCrossover
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_Cross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__">CrossoverBase.Cross(IList&lt;ChromosomeBase&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_IsOrdered">CrossoverBase.IsOrdered</a>
     </div>
     <div>
@@ -144,13 +145,7 @@ Class CutAndSpliceCrossover
       <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_MinLength">CrossoverBase.MinLength</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_Cross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__">CrossoverBase.Cross(IList&lt;ChromosomeBase&gt;)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -159,10 +154,19 @@ Class CutAndSpliceCrossover
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -182,7 +186,7 @@ Class CutAndSpliceCrossover
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="GeneticSharp.Domain.Crossovers.CutAndSpliceCrossover.html">CutAndSpliceCrossover</a> class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -212,7 +216,7 @@ Class CutAndSpliceCrossover
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Performs the cross with specified parents generating the children.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -222,13 +226,13 @@ Class CutAndSpliceCrossover
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>parents</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>&gt;</dt>
-    <dd></dd>
+    <dd>The parents chromosomes.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>&gt;</dt>
-    <dd></dd>
+    <dd>The offspring (children) of the parents.</dd>
   </dl>
 
 

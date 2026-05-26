@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class RankSelection | lbs-api_docs ">
       
-      
+      <meta name="description" content="Rank Selection  Is a kind of Fitness Proportionate Selection.  Rank Selection  The Rank selection method, is similar to the . However the size of the wheel and sectors are calculated differently.   In the Rank selection method, the first step is to sort the population by fitness and assign a new fitness value from 1 to n. The worst chromosome is given a fitness of 1, the best a fitness of n.   Then, an array is built containing cumulative probabilities of the individuals. So, n random numbers are generated in the range 0 to fitness sum. and for each random number an array element which can have higher value is searched for. Therefore, individuals are selected according to their  probabilities of selection.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,24 @@ Class RankSelection
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Rank Selection
+<remarks>
+Is a kind of Fitness Proportionate Selection. 
+<a href=" https://www.obitko.com/tutorials/genetic-algorithms/selection.php">Rank Selection</a>
+<p>
+The Rank selection method, is similar to the <a class="xref" href="ISILab.AI.Optimization.Selections.RouletteWheelSelection.html">RouletteWheelSelection</a>. However the size of the wheel and sectors are
+calculated differently.
+</p>
+<p>
+In the Rank selection method, the first step is to sort the population by fitness and assign a new fitness value from 1 to n.
+The worst chromosome is given a fitness of 1, the best a fitness of n.
+</p>
+<p>
+Then, an array is built containing cumulative probabilities of the individuals. So, n random numbers are generated in the range 0 to fitness sum.
+and for each random number an array element which can have higher value is searched for. Therefore, individuals are selected according to their 
+probabilities of selection. 
+</p>
+</remarks></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -137,25 +154,25 @@ Class RankSelection
       <a class="xref" href="ISILab.AI.Optimization.Selections.SelectionBase.html#ISILab_AI_Optimization_Selections_SelectionBase_GetBetters_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_System_Nullable_System_Double__">SelectionBase.GetBetters(IEvaluator, double?)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -175,7 +192,7 @@ Class RankSelection
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes a new instance of the GeneticSharp.Domain.Selections.RankSelection class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -205,7 +222,7 @@ Class RankSelection
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Calculates the cumulative percent.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -215,9 +232,9 @@ Class RankSelection
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>chromosomes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The chromosomes.</dd>
     <dt><code>rankWheel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
-    <dd></dd>
+    <dd>The rank wheel.</dd>
   </dl>
 
 
@@ -238,7 +255,7 @@ Class RankSelection
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Performs the selection of chromosomes from the generation specified.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -248,15 +265,15 @@ Class RankSelection
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The number of chromosomes to select.</dd>
     <dt><code>generation</code> <a class="xref" href="ISILab.AI.Optimization.Populations.Generation.html">Generation</a></dt>
-    <dd></dd>
+    <dd>The generation where the selection will be made.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The select chromosomes.</dd>
   </dl>
 
 
@@ -276,7 +293,7 @@ Class RankSelection
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Selects from wheel.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -286,19 +303,19 @@ Class RankSelection
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>number</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The number.</dd>
     <dt><code>chromosomes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The chromosomes.</dd>
     <dt><code>rankWheel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
-    <dd></dd>
+    <dd>The rank wheel.</dd>
     <dt><code>GetPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
-    <dd></dd>
+    <dd>The get pointer.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
-    <dd></dd>
+    <dd>The selected chromosomes.</dd>
   </dl>
 
 

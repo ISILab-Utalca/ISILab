@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class InsertionMutation | lbs-api_docs ">
       
-      
+      <meta name="description" content="Insertion Mutation.  In the insertion mutation operator, a gene is randomly selected from chromosome, is removed, then replaced at a randomly selected position.  On implementation, we take a sequence S limited by two positions i and j randomly chosen, The selected gene in this sequence  will be left shifted or right shifted randomly to give the effect of removing the gene and inserting it on another position. Genetic algorithms and the Traveling Salesman Problem">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,13 @@ Class InsertionMutation
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Insertion Mutation.
+<remarks>
+In the insertion mutation operator, a gene is randomly selected from chromosome, is removed, then replaced at a randomly selected position. 
+On implementation, we take a sequence S limited by two positions i and j randomly chosen, The selected gene in this sequence 
+will be left shifted or right shifted randomly to give the effect of removing the gene and inserting it on another position.
+<a href="https://web.cs.elte.hu/blobs/diplomamunkak/bsc_alkmat/2017/keresztury_bence.pdf">Genetic algorithms and the Traveling Salesman Problem</a>
+</remarks></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -140,19 +146,10 @@ Class InsertionMutation
       <a class="xref" href="GeneticSharp.Domain.Mutations.SequenceMutationBase.html#GeneticSharp_Domain_Mutations_SequenceMutationBase_ValidateLength_System_Object___">SequenceMutationBase.ValidateLength(object[])</a>
     </div>
     <div>
-      <a class="xref" href="GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_">MutationBase.Mutate(ChromosomeBase, float)</a>
-    </div>
-    <div>
       <a class="xref" href="GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_IsOrdered">MutationBase.IsOrdered</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="GeneticSharp.Domain.Mutations.MutationBase.html#GeneticSharp_Domain_Mutations_MutationBase_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_">MutationBase.Mutate(ChromosomeBase, float)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -161,10 +158,19 @@ Class InsertionMutation
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -184,7 +190,7 @@ Class InsertionMutation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="GeneticSharp.Domain.Mutations.InsertionMutation.html">InsertionMutation</a> class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -214,7 +220,8 @@ Class InsertionMutation
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Determines genes to shift.
+<returns>Count of genes to be shifted</returns></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -224,7 +231,7 @@ Class InsertionMutation
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>maxCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>max possible count of genes to shift.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>

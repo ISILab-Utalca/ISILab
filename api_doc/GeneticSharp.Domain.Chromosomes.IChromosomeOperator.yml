@@ -13,9 +13,15 @@ items:
   nameWithType: IChromosomeOperator
   fullName: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
   type: Interface
+  source:
+    id: IChromosomeOperator
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Chromosomes\IChromosomeOperator.cs
+    startLine: 5
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: Defines a basic interface for operators which works with chromosomes.
+  example: []
   syntax:
     content: public interface IChromosomeOperator
     content.vb: Public Interface IChromosomeOperator
@@ -65,9 +71,15 @@ items:
   nameWithType: IChromosomeOperator.IsOrdered
   fullName: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered
   type: Property
+  source:
+    id: IsOrdered
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Chromosomes\IChromosomeOperator.cs
+    startLine: 10
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: Gets a value indicating whether the operator is ordered (if can keep the chromosome order).
+  example: []
   syntax:
     content: bool IsOrdered { get; }
     parameters: []
@@ -78,7 +90,6 @@ items:
 references:
 - uid: GeneticSharp.Domain.Chromosomes
   commentId: N:GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Chromosomes
   nameWithType: GeneticSharp.Domain.Chromosomes
@@ -86,36 +97,29 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Chromosomes
     name: Chromosomes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Chromosomes
     name: Chromosomes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.html
 - uid: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.html#GeneticSharp_Domain_Chromosomes_IChromosomeOperator_IsOrdered
   name: IsOrdered
   nameWithType: IChromosomeOperator.IsOrdered

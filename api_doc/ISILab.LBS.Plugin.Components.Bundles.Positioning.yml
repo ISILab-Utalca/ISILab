@@ -16,12 +16,26 @@ items:
   nameWithType: Positioning
   fullName: ISILab.LBS.Plugin.Components.Bundles.Positioning
   type: Enum
+  source:
+    id: Positioning
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 29
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
   syntax:
-    content: public enum Positioning
-    content.vb: Public Enum Positioning
+    content: >-
+      [Serializable]
+
+      public enum Positioning
+    content.vb: >-
+      <Serializable>
+
+      Public Enum Positioning
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Bundles.Positioning.Center
   commentId: F:ISILab.LBS.Plugin.Components.Bundles.Positioning.Center
   id: Center
@@ -33,6 +47,10 @@ items:
   nameWithType: Positioning.Center
   fullName: ISILab.LBS.Plugin.Components.Bundles.Positioning.Center
   type: Field
+  source:
+    id: Center
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 32
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
@@ -51,6 +69,10 @@ items:
   nameWithType: Positioning.Edge
   fullName: ISILab.LBS.Plugin.Components.Bundles.Positioning.Edge
   type: Field
+  source:
+    id: Edge
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 33
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
@@ -69,6 +91,10 @@ items:
   nameWithType: Positioning.Corner
   fullName: ISILab.LBS.Plugin.Components.Bundles.Positioning.Corner
   type: Field
+  source:
+    id: Corner
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 34
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
@@ -87,6 +113,10 @@ items:
   nameWithType: Positioning.Other
   fullName: ISILab.LBS.Plugin.Components.Bundles.Positioning.Other
   type: Field
+  source:
+    id: Other
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 35
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
@@ -97,7 +127,6 @@ items:
 references:
 - uid: ISILab.LBS.Plugin.Components.Bundles
   commentId: N:ISILab.LBS.Plugin.Components.Bundles
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Bundles
   nameWithType: ISILab.LBS.Plugin.Components.Bundles
@@ -105,57 +134,46 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
 - uid: ISILab.LBS.Plugin.Components.Bundles.Positioning
   commentId: T:ISILab.LBS.Plugin.Components.Bundles.Positioning
   parent: ISILab.LBS.Plugin.Components.Bundles
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Bundles.Positioning.html
   name: Positioning
   nameWithType: Positioning

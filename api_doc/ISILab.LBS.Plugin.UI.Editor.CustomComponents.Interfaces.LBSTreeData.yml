@@ -22,78 +22,35 @@ items:
   nameWithType: LBSTreeData
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
   type: Class
+  source:
+    id: LBSTreeData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\obj\Release\Unity.UIToolkit.SourceGenerator\Unity.UIToolkit.SourceGenerator.UxmlSerializedDataGenerator\ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.gen.cs
+    startLine: 5
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
   syntax:
-    content: public class LBSTreeData
-    content.vb: Public Class LBSTreeData
+    content: >-
+      [UxmlObject]
+
+      public class LBSTreeData
+    content.vb: >-
+      <UxmlObject>
+
+      Public Class LBSTreeData
   inheritance:
   - System.Object
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Id
-  commentId: F:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Id
-  id: Id
-  parent: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
-  langs:
-  - csharp
-  - vb
-  name: Id
-  nameWithType: LBSTreeData.Id
-  fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Id
-  type: Field
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
-  syntax:
-    content: public int Id
-    return:
-      type: System.Int32
-    content.vb: Public Id As Integer
-- uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.ItemName
-  commentId: F:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.ItemName
-  id: ItemName
-  parent: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
-  langs:
-  - csharp
-  - vb
-  name: ItemName
-  nameWithType: LBSTreeData.ItemName
-  fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.ItemName
-  type: Field
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
-  syntax:
-    content: public string ItemName
-    return:
-      type: System.String
-    content.vb: Public ItemName As String
-- uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Children
-  commentId: F:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Children
-  id: Children
-  parent: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
-  langs:
-  - csharp
-  - vb
-  name: Children
-  nameWithType: LBSTreeData.Children
-  fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Children
-  type: Field
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
-  syntax:
-    content: public List<LBSTreeData> Children
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}
-    content.vb: Public Children As List(Of LBSTreeData)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: UnityEngine.UIElements.UxmlObjectAttribute
+    ctor: UnityEngine.UIElements.UxmlObjectAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.#ctor
   commentId: M:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.#ctor
   id: '#ctor'
@@ -105,6 +62,10 @@ items:
   nameWithType: LBSTreeData.LBSTreeData()
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.LBSTreeData()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\CustomComponents\Interfaces\LBSTreeData.cs
+    startLine: 11
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
@@ -126,6 +87,10 @@ items:
   nameWithType: LBSTreeData.LBSTreeData(int)
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.LBSTreeData(int)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\CustomComponents\Interfaces\LBSTreeData.cs
+    startLine: 20
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
@@ -150,6 +115,10 @@ items:
   nameWithType: LBSTreeData.LBSTreeData(int, string)
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.LBSTreeData(int, string)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\CustomComponents\Interfaces\LBSTreeData.cs
+    startLine: 25
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
@@ -165,6 +134,109 @@ items:
   nameWithType.vb: LBSTreeData.New(Integer, String)
   fullName.vb: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.New(Integer, String)
   name.vb: New(Integer, String)
+- uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Id
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Id
+  id: Id
+  parent: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: LBSTreeData.Id
+  fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Id
+  type: Field
+  source:
+    id: Id
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\CustomComponents\Interfaces\LBSTreeData.cs
+    startLine: 30
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
+  syntax:
+    content: >-
+      [UxmlAttribute("id")]
+
+      public int Id
+    return:
+      type: System.Int32
+    content.vb: >-
+      <UxmlAttribute("id")>
+
+      Public Id As Integer
+  attributes:
+  - type: UnityEngine.UIElements.UxmlAttributeAttribute
+    ctor: UnityEngine.UIElements.UxmlAttributeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: id
+- uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.ItemName
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.ItemName
+  id: ItemName
+  parent: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
+  langs:
+  - csharp
+  - vb
+  name: ItemName
+  nameWithType: LBSTreeData.ItemName
+  fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.ItemName
+  type: Field
+  source:
+    id: ItemName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\CustomComponents\Interfaces\LBSTreeData.cs
+    startLine: 32
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
+  syntax:
+    content: >-
+      [UxmlAttribute("item-name")]
+
+      public string ItemName
+    return:
+      type: System.String
+    content.vb: >-
+      <UxmlAttribute("item-name")>
+
+      Public ItemName As String
+  attributes:
+  - type: UnityEngine.UIElements.UxmlAttributeAttribute
+    ctor: UnityEngine.UIElements.UxmlAttributeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: item-name
+- uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Children
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Children
+  id: Children
+  parent: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
+  langs:
+  - csharp
+  - vb
+  name: Children
+  nameWithType: LBSTreeData.Children
+  fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.Children
+  type: Field
+  source:
+    id: Children
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\CustomComponents\Interfaces\LBSTreeData.cs
+    startLine: 35
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
+  syntax:
+    content: >-
+      [UxmlObjectReference]
+
+      public List<LBSTreeData> Children
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}
+    content.vb: >-
+      <UxmlObjectReference>
+
+      Public Children As List(Of LBSTreeData)
+  attributes:
+  - type: UnityEngine.UIElements.UxmlObjectReferenceAttribute
+    ctor: UnityEngine.UIElements.UxmlObjectReferenceAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.AsTreeDataString
   commentId: M:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.AsTreeDataString
   id: AsTreeDataString
@@ -176,6 +248,10 @@ items:
   nameWithType: LBSTreeData.AsTreeDataString()
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.AsTreeDataString()
   type: Method
+  source:
+    id: AsTreeDataString
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\CustomComponents\Interfaces\LBSTreeData.cs
+    startLine: 37
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
@@ -196,6 +272,10 @@ items:
   nameWithType: LBSTreeData.AsTreeDataRaw()
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.AsTreeDataRaw()
   type: Method
+  source:
+    id: AsTreeDataRaw
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\CustomComponents\Interfaces\LBSTreeData.cs
+    startLine: 53
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
@@ -216,6 +296,10 @@ items:
   nameWithType: LBSTreeData.ToString()
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.ToString()
   type: Method
+  source:
+    id: ToString
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\CustomComponents\Interfaces\LBSTreeData.cs
+    startLine: 69
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
@@ -238,6 +322,10 @@ items:
   nameWithType: LBSTreeData.FromString(string)
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.FromString(string)
   type: Method
+  source:
+    id: FromString
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\CustomComponents\Interfaces\LBSTreeData.cs
+    startLine: 74
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
@@ -256,7 +344,6 @@ items:
 references:
 - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
   commentId: N:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
   nameWithType: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
@@ -264,72 +351,58 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents
     name: CustomComponents
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
     name: Interfaces
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents
     name: CustomComponents
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
     name: Interfaces
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.html
 - uid: System.Object
   commentId: T:System.Object
@@ -420,51 +493,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.GetHashCode
   commentId: M:System.Object.GetHashCode
   parent: System.Object
@@ -537,6 +565,51 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -544,6 +617,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.#ctor
+  href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html#ISILab_LBS_Plugin_UI_Editor_CustomComponents_Interfaces_LBSTreeData__ctor
+  name: LBSTreeData
+  nameWithType: LBSTreeData.LBSTreeData
+  fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.LBSTreeData
+  nameWithType.vb: LBSTreeData.New
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.New
+  name.vb: New
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -585,7 +667,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
     name: LBSTreeData
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html
   - name: '>'
   spec.vb:
@@ -598,7 +679,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
     name: LBSTreeData
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html
   - name: )
 - uid: System.Collections.Generic.List`1
@@ -666,25 +746,15 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.#ctor*
-  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.#ctor
-  isExternal: true
-  href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html#ISILab_LBS_Plugin_UI_Editor_CustomComponents_Interfaces_LBSTreeData__ctor
-  name: LBSTreeData
-  nameWithType: LBSTreeData.LBSTreeData
-  fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.LBSTreeData
-  nameWithType.vb: LBSTreeData.New
-  fullName.vb: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.New
-  name.vb: New
 - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.AsTreeDataString*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.AsTreeDataString
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html#ISILab_LBS_Plugin_UI_Editor_CustomComponents_Interfaces_LBSTreeData_AsTreeDataString
   name: AsTreeDataString
   nameWithType: LBSTreeData.AsTreeDataString
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.AsTreeDataString
 - uid: UnityEngine.UIElements.TreeViewItemData{System.String}
-  commentId: '!:UnityEngine.UIElements.TreeViewItemData{System.String}'
+  commentId: T:UnityEngine.UIElements.TreeViewItemData{System.String}
+  parent: UnityEngine.UIElements
   definition: UnityEngine.UIElements.TreeViewItemData`1
   href: https://learn.microsoft.com/dotnet/api/system.string
   name: TreeViewItemData<string>
@@ -716,18 +786,20 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 - uid: UnityEngine.UIElements.TreeViewItemData`1
+  commentId: T:UnityEngine.UIElements.TreeViewItemData`1
   isExternal: true
-  name: TreeViewItemData<>
-  nameWithType: TreeViewItemData<>
-  fullName: UnityEngine.UIElements.TreeViewItemData<>
-  nameWithType.vb: TreeViewItemData(Of )
-  fullName.vb: UnityEngine.UIElements.TreeViewItemData(Of )
-  name.vb: TreeViewItemData(Of )
+  name: TreeViewItemData<T>
+  nameWithType: TreeViewItemData<T>
+  fullName: UnityEngine.UIElements.TreeViewItemData<T>
+  nameWithType.vb: TreeViewItemData(Of T)
+  fullName.vb: UnityEngine.UIElements.TreeViewItemData(Of T)
+  name.vb: TreeViewItemData(Of T)
   spec.csharp:
   - uid: UnityEngine.UIElements.TreeViewItemData`1
     name: TreeViewItemData
     isExternal: true
   - name: <
+  - name: T
   - name: '>'
   spec.vb:
   - uid: UnityEngine.UIElements.TreeViewItemData`1
@@ -736,17 +808,39 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - name: ''
+  - name: T
   - name: )
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
 - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.AsTreeDataRaw*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.AsTreeDataRaw
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html#ISILab_LBS_Plugin_UI_Editor_CustomComponents_Interfaces_LBSTreeData_AsTreeDataRaw
   name: AsTreeDataRaw
   nameWithType: LBSTreeData.AsTreeDataRaw
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.AsTreeDataRaw
 - uid: UnityEngine.UIElements.TreeViewItemData{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}
-  commentId: '!:UnityEngine.UIElements.TreeViewItemData{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}'
+  commentId: T:UnityEngine.UIElements.TreeViewItemData{ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData}
+  parent: UnityEngine.UIElements
   definition: UnityEngine.UIElements.TreeViewItemData`1
   href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html
   name: TreeViewItemData<LBSTreeData>
@@ -762,7 +856,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
     name: LBSTreeData
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html
   - name: '>'
   spec.vb:
@@ -774,7 +867,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
     name: LBSTreeData
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html
   - name: )
 - uid: System.Object.ToString
@@ -803,14 +895,12 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.ToString*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.ToString
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html#ISILab_LBS_Plugin_UI_Editor_CustomComponents_Interfaces_LBSTreeData_ToString
   name: ToString
   nameWithType: LBSTreeData.ToString
   fullName: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.ToString
 - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.FromString*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.FromString
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html#ISILab_LBS_Plugin_UI_Editor_CustomComponents_Interfaces_LBSTreeData_FromString_System_String_
   name: FromString
   nameWithType: LBSTreeData.FromString
@@ -818,7 +908,6 @@ references:
 - uid: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
   commentId: T:ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData
   parent: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.CustomComponents.Interfaces.LBSTreeData.html
   name: LBSTreeData
   nameWithType: LBSTreeData

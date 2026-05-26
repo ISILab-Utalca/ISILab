@@ -13,6 +13,10 @@ items:
   nameWithType: ISelectable
   fullName: ISILab.LBS.Modules.ISelectable
   type: Interface
+  source:
+    id: ISelectable
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSModule.cs
+    startLine: 9
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -38,6 +42,10 @@ items:
   nameWithType: ISelectable.GetSelected(Vector2Int)
   fullName: ISILab.LBS.Modules.ISelectable.GetSelected(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: GetSelected
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSModule.cs
+    startLine: 11
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -53,7 +61,6 @@ items:
 references:
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -61,41 +68,36 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: ISILab.LBS.Modules.ISelectable.GetSelected*
   commentId: Overload:ISILab.LBS.Modules.ISelectable.GetSelected
-  isExternal: true
   href: ISILab.LBS.Modules.ISelectable.html#ISILab_LBS_Modules_ISelectable_GetSelected_UnityEngine_Vector2Int_
   name: GetSelected
   nameWithType: ISelectable.GetSelected
   fullName: ISILab.LBS.Modules.ISelectable.GetSelected
 - uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
   isExternal: true
   name: Vector2Int
   nameWithType: Vector2Int
@@ -135,6 +137,12 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
   isExternal: true

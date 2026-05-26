@@ -96,27 +96,59 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Selections.EliteSelection.html">EliteSelection</a></dt>
-      <dd></dd>
+      <dd>Selects the chromosomes with the best fitness.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Selections.RankSelection.html">RankSelection</a></dt>
-      <dd></dd>
+      <dd>Rank Selection
+<remarks>
+Is a kind of Fitness Proportionate Selection. 
+<a href=" https://www.obitko.com/tutorials/genetic-algorithms/selection.php">Rank Selection</a>
+<p>
+The Rank selection method, is similar to the <a class="xref" href="ISILab.AI.Optimization.Selections.RouletteWheelSelection.html">RouletteWheelSelection</a>. However the size of the wheel and sectors are
+calculated differently.
+</p>
+<p>
+In the Rank selection method, the first step is to sort the population by fitness and assign a new fitness value from 1 to n.
+The worst chromosome is given a fitness of 1, the best a fitness of n.
+</p>
+<p>
+Then, an array is built containing cumulative probabilities of the individuals. So, n random numbers are generated in the range 0 to fitness sum.
+and for each random number an array element which can have higher value is searched for. Therefore, individuals are selected according to their 
+probabilities of selection. 
+</p>
+</remarks></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Selections.RouletteWheelSelection.html">RouletteWheelSelection</a></dt>
-      <dd></dd>
+      <dd>Roulette Wheel Selection
+<remarks>
+Is a kind of Fitness Proportionate Selection. 
+<a href=" http://watchmaker.uncommons.org/manual/ch03s02.html">Fitness-Proportionate Selection</a>
+<p>
+In the Roulette wheel selection method [Holland, 1992], the first step is to calculate the cumulative fitness of the 
+whole population through the sum of the fitness of all individuals. After that, the probability of selection is 
+calculated for each individual.
+</p>
+<p>
+Then, an array is built containing cumulative probabilities of the individuals. So, n random numbers are generated in the range 0 to fitness sum.
+and for each random number an array element which can have higher value is searched for. Therefore, individuals are selected according to their 
+probabilities of selection. 
+</p>
+<a href="http://en.wikipedia.org/wiki/Fitness_proportionate_selection">Wikipedia</a>
+</remarks></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Selections.SelectionBase.html">SelectionBase</a></dt>
-      <dd></dd>
+      <dd>A base class for selection.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Selections.SelectionException.html">SelectionException</a></dt>
-      <dd></dd>
+      <dd>Exception throw when an error occurs during the execution of selection.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Selections.SelectionService.html">SelectionService</a></dt>
-      <dd></dd>
+      <dd>Selection service.</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Selections.StochasticElitistSelection.html">StochasticElitistSelection</a></dt>
@@ -124,18 +156,41 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Selections.StochasticUniversalSamplingSelection.html">StochasticUniversalSamplingSelection</a></dt>
-      <dd></dd>
+      <dd>Stochastic Universal Sampling.
+<remarks>
+Also know as: Roulette wheel selection.
+Is a kind of Fitness Proportionate Selection. 
+<a href=" http://watchmaker.uncommons.org/manual/ch03s02.html">Fitness-Proportionate Selection</a>
+<p>
+Stochastic Universal Sampling is an elaborately-named variation of roulette wheel selection. 
+Stochastic Universal Sampling ensures that the observed selection frequencies of each individual 
+are in line with the expected frequencies. So if we have an individual that occupies 4.5% of the 
+wheel and we select 100 individuals, we would expect on average for that individual to be selected 
+between four and five times. Stochastic Universal Sampling guarantees this. The individual will be 
+selected either four times or five times, not three times, not zero times and not 100 times. 
+Standard roulette wheel selection does not make this guarantee.
+</p>
+<a href="http://en.wikipedia.org/wiki/Stochastic_universal_sampling">Wikipedia</a>
+</remarks></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Selections.TournamentSelection.html">TournamentSelection</a></dt>
-      <dd></dd>
+      <dd>Tournament selection involves running several "tournaments" among a few individuals chosen at random from the population.
+The winner of each tournament (the one with the best fitness) is selected for crossover. 
+<remarks>    
+Selection pressure is easily adjusted by changing the tournament size. 
+If the tournament size is larger, weak individuals have a smaller chance to be selected.
+</remarks></dd>
     </dl>
     <h3 id="interfaces">
 Interfaces
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.AI.Optimization.Selections.ISelection.html">ISelection</a></dt>
-      <dd></dd>
+      <dd>Defines a interface for selection.
+Selection is the stage of a genetic algorithm in which individual genomes are chosen from a population for later breeding (recombination or crossover).
+<a href="http://en.wikipedia.org/wiki/Selection_(genetic_algorithm)">Wikipedia</a>
+<a href=" http://www.ijest.info/docs/IJEST11-03-05-190.pdf">A Review of Selection Methods in Genetic Algorithm</a></dd>
     </dl>
 
 

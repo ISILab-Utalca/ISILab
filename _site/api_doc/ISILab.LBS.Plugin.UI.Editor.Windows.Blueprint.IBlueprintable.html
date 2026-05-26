@@ -127,7 +127,8 @@ Interface IBlueprintable
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Should return an object (module, behavior, assistant, etc) with a clone 
+of the selected area</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -137,15 +138,15 @@ Interface IBlueprintable
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>min</code> <span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>top left corner</dd>
     <dt><code>max</code> <span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>bottom right corner</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>true if there is any content within the area. Meaning to store the layer</dd>
   </dl>
 
 
@@ -165,7 +166,7 @@ Interface IBlueprintable
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets the anchor/origin of this layer's objects</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -176,7 +177,7 @@ Interface IBlueprintable
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>the top left object coordinate</dd>
   </dl>
 
 
@@ -196,7 +197,7 @@ Interface IBlueprintable
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Merges two layers into one</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -206,9 +207,9 @@ Interface IBlueprintable
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>incoming</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>the layer that is merged</dd>
     <dt><code>overwrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>true -&gt; incoming overrides original</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -234,7 +235,7 @@ Interface IBlueprintable
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Add an offset to the content of a given object type</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -246,7 +247,7 @@ Interface IBlueprintable
     <dt><code>parentAnchor</code> <span class="xref">Vector2Int</span></dt>
     <dd></dd>
     <dt><code>delta</code> <span class="xref">Vector2Int</span></dt>
-    <dd></dd>
+    <dd>value to apply to move an obejct</dd>
   </dl>
 
 

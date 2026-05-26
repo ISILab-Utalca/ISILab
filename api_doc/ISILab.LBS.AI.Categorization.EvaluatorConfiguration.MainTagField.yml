@@ -21,12 +21,24 @@ items:
   nameWithType: EvaluatorConfiguration.MainTagField
   fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
   type: Class
+  source:
+    id: MainTagField
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Presets\Assistants\Evaluators\EvaluatorConfiguration.cs
+    startLine: 82
   assemblies:
   - LBS
   namespace: ISILab.LBS.AI.Categorization
+  summary: Evaluator Configuration Field that represents a single tag.
+  example: []
   syntax:
-    content: 'public class EvaluatorConfiguration.MainTagField : EvaluatorConfiguration.EvaluatorConfigurationField'
-    content.vb: Public Class EvaluatorConfiguration.MainTagField Inherits EvaluatorConfiguration.EvaluatorConfigurationField
+    content: >-
+      [Serializable]
+
+      public class EvaluatorConfiguration.MainTagField : EvaluatorConfiguration.EvaluatorConfigurationField
+    content.vb: >-
+      <Serializable>
+
+      Public Class EvaluatorConfiguration.MainTagField Inherits EvaluatorConfiguration.EvaluatorConfigurationField
   inheritance:
   - System.Object
   - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
@@ -35,159 +47,15 @@ items:
   - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
   - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
   - ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.String,System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)
-  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.String,System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)
-  id: '#ctor(System.String,System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)'
-  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
-  langs:
-  - csharp
-  - vb
-  name: MainTagField(string, string, LBSCharacteristic, string)
-  nameWithType: EvaluatorConfiguration.MainTagField.MainTagField(string, string, LBSCharacteristic, string)
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.MainTagField(string, string, ISILab.LBS.Characteristics.LBSCharacteristic, string)
-  type: Constructor
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.AI.Categorization
-  syntax:
-    content: public MainTagField(string fieldName, string tagName, LBSCharacteristic tagChar, string tooltip = "")
-    parameters:
-    - id: fieldName
-      type: System.String
-    - id: tagName
-      type: System.String
-    - id: tagChar
-      type: ISILab.LBS.Characteristics.LBSCharacteristic
-    - id: tooltip
-      type: System.String
-    content.vb: Public Sub New(fieldName As String, tagName As String, tagChar As LBSCharacteristic, tooltip As String = "")
-  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor*
-  nameWithType.vb: EvaluatorConfiguration.MainTagField.New(String, String, LBSCharacteristic, String)
-  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.New(String, String, ISILab.LBS.Characteristics.LBSCharacteristic, String)
-  name.vb: New(String, String, LBSCharacteristic, String)
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)
-  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)
-  id: '#ctor(System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)'
-  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
-  langs:
-  - csharp
-  - vb
-  name: MainTagField(string, LBSCharacteristic, string)
-  nameWithType: EvaluatorConfiguration.MainTagField.MainTagField(string, LBSCharacteristic, string)
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.MainTagField(string, ISILab.LBS.Characteristics.LBSCharacteristic, string)
-  type: Constructor
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.AI.Categorization
-  syntax:
-    content: public MainTagField(string fieldName, LBSCharacteristic tagChar, string tooltip = "")
-    parameters:
-    - id: fieldName
-      type: System.String
-    - id: tagChar
-      type: ISILab.LBS.Characteristics.LBSCharacteristic
-    - id: tooltip
-      type: System.String
-    content.vb: Public Sub New(fieldName As String, tagChar As LBSCharacteristic, tooltip As String = "")
-  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor*
-  nameWithType.vb: EvaluatorConfiguration.MainTagField.New(String, LBSCharacteristic, String)
-  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.New(String, ISILab.LBS.Characteristics.LBSCharacteristic, String)
-  name.vb: New(String, LBSCharacteristic, String)
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic},System.String)
-  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic},System.String)
-  id: '#ctor(System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic},System.String)'
-  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
-  langs:
-  - csharp
-  - vb
-  name: MainTagField(Tuple<string, LBSCharacteristic>, string)
-  nameWithType: EvaluatorConfiguration.MainTagField.MainTagField(Tuple<string, LBSCharacteristic>, string)
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.MainTagField(System.Tuple<string, ISILab.LBS.Characteristics.LBSCharacteristic>, string)
-  type: Constructor
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.AI.Categorization
-  syntax:
-    content: public MainTagField(Tuple<string, LBSCharacteristic> tagNameAndChar, string tooltip = "")
-    parameters:
-    - id: tagNameAndChar
-      type: System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}
-    - id: tooltip
-      type: System.String
-    content.vb: Public Sub New(tagNameAndChar As Tuple(Of String, LBSCharacteristic), tooltip As String = "")
-  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor*
-  nameWithType.vb: EvaluatorConfiguration.MainTagField.New(Tuple(Of String, LBSCharacteristic), String)
-  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.New(System.Tuple(Of String, ISILab.LBS.Characteristics.LBSCharacteristic), String)
-  name.vb: New(Tuple(Of String, LBSCharacteristic), String)
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField
-  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField
-  id: GetField
-  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
-  langs:
-  - csharp
-  - vb
-  name: GetField()
-  nameWithType: EvaluatorConfiguration.MainTagField.GetField()
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField()
-  type: Method
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.AI.Categorization
-  example: []
-  syntax:
-    content: public override VisualElement GetField()
-    return:
-      type: UnityEngine.UIElements.VisualElement
-    content.vb: Public Overrides Function GetField() As VisualElement
-  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
-  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField*
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.SetField
-  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.SetField
-  id: SetField
-  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
-  langs:
-  - csharp
-  - vb
-  name: SetField()
-  nameWithType: EvaluatorConfiguration.MainTagField.SetField()
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.SetField()
-  type: Method
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.AI.Categorization
-  example: []
-  syntax:
-    content: protected override void SetField()
-    content.vb: Protected Overrides Sub SetField()
-  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
-  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.SetField*
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue
-  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue
-  id: GetValue
-  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
-  langs:
-  - csharp
-  - vb
-  name: GetValue()
-  nameWithType: EvaluatorConfiguration.MainTagField.GetValue()
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue()
-  type: Method
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.AI.Categorization
-  example: []
-  syntax:
-    content: public override object GetValue()
-    return:
-      type: System.Object
-    content.vb: Public Overrides Function GetValue() As Object
-  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
-  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue*
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.DisplayTypeName
   commentId: P:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.DisplayTypeName
   id: DisplayTypeName
@@ -199,9 +67,14 @@ items:
   nameWithType: EvaluatorConfiguration.MainTagField.DisplayTypeName
   fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.DisplayTypeName
   type: Property
+  source:
+    id: DisplayTypeName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Presets\Assistants\Evaluators\EvaluatorConfiguration.cs
+    startLine: 85
   assemblies:
   - LBS
   namespace: ISILab.LBS.AI.Categorization
+  summary: Clearer field type name to show.
   example: []
   syntax:
     content: public override string DisplayTypeName { get; }
@@ -222,9 +95,18 @@ items:
   nameWithType: EvaluatorConfiguration.MainTagField.TagChar
   fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.TagChar
   type: Property
+  source:
+    id: TagChar
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Presets\Assistants\Evaluators\EvaluatorConfiguration.cs
+    startLine: 108
   assemblies:
   - LBS
   namespace: ISILab.LBS.AI.Categorization
+  summary: >-
+    Property for <xref href="ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.tagChar" data-throw-if-not-resolved="false"></xref>. <br />
+
+    If null, searches for the tag using <xref href="ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.tagName" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public LBSCharacteristic TagChar { get; }
     parameters: []
@@ -243,9 +125,18 @@ items:
   nameWithType: EvaluatorConfiguration.MainTagField.Field
   fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.Field
   type: Property
+  source:
+    id: Field
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Presets\Assistants\Evaluators\EvaluatorConfiguration.cs
+    startLine: 121
   assemblies:
   - LBS
   namespace: ISILab.LBS.AI.Categorization
+  summary: >-
+    Property for <xref href="ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.field" data-throw-if-not-resolved="false"></xref>. <br />
+
+    If null, it initializes a new Object Field.
+  example: []
   syntax:
     content: public ObjectField Field { get; }
     parameters: []
@@ -253,10 +144,201 @@ items:
       type: UnityEditor.UIElements.ObjectField
     content.vb: Public ReadOnly Property Field As ObjectField
   overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.Field*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.String,System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.String,System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)
+  id: '#ctor(System.String,System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)'
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
+  langs:
+  - csharp
+  - vb
+  name: MainTagField(string, string, LBSCharacteristic, string)
+  nameWithType: EvaluatorConfiguration.MainTagField.MainTagField(string, string, LBSCharacteristic, string)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.MainTagField(string, string, ISILab.LBS.Characteristics.LBSCharacteristic, string)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Presets\Assistants\Evaluators\EvaluatorConfiguration.cs
+    startLine: 138
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  summary: <b>The standard constructor.</b>
+  example: []
+  syntax:
+    content: public MainTagField(string fieldName, string tagName, LBSCharacteristic tagChar, string tooltip = "")
+    parameters:
+    - id: fieldName
+      type: System.String
+      description: Identifier of the field.
+    - id: tagName
+      type: System.String
+      description: Name of the LBSTag.
+    - id: tagChar
+      type: ISILab.LBS.Characteristics.LBSCharacteristic
+      description: Characteristic containing the LBSTag.
+    - id: tooltip
+      type: System.String
+      description: Short description of the field's purpose.
+    content.vb: Public Sub New(fieldName As String, tagName As String, tagChar As LBSCharacteristic, tooltip As String = "")
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor*
+  nameWithType.vb: EvaluatorConfiguration.MainTagField.New(String, String, LBSCharacteristic, String)
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.New(String, String, ISILab.LBS.Characteristics.LBSCharacteristic, String)
+  name.vb: New(String, String, LBSCharacteristic, String)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)
+  id: '#ctor(System.String,ISILab.LBS.Characteristics.LBSCharacteristic,System.String)'
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
+  langs:
+  - csharp
+  - vb
+  name: MainTagField(string, LBSCharacteristic, string)
+  nameWithType: EvaluatorConfiguration.MainTagField.MainTagField(string, LBSCharacteristic, string)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.MainTagField(string, ISILab.LBS.Characteristics.LBSCharacteristic, string)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Presets\Assistants\Evaluators\EvaluatorConfiguration.cs
+    startLine: 151
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  summary: Simplified constructor. Uses the field name as both the field and tag names.
+  example: []
+  syntax:
+    content: public MainTagField(string fieldName, LBSCharacteristic tagChar, string tooltip = "")
+    parameters:
+    - id: fieldName
+      type: System.String
+      description: Identifier of the field <b>and</b> tag.
+    - id: tagChar
+      type: ISILab.LBS.Characteristics.LBSCharacteristic
+      description: Characteristic containing the LBSTag.
+    - id: tooltip
+      type: System.String
+      description: Short description of the field's purpose.
+    content.vb: Public Sub New(fieldName As String, tagChar As LBSCharacteristic, tooltip As String = "")
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor*
+  nameWithType.vb: EvaluatorConfiguration.MainTagField.New(String, LBSCharacteristic, String)
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.New(String, ISILab.LBS.Characteristics.LBSCharacteristic, String)
+  name.vb: New(String, LBSCharacteristic, String)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic},System.String)
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor(System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic},System.String)
+  id: '#ctor(System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic},System.String)'
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
+  langs:
+  - csharp
+  - vb
+  name: MainTagField(Tuple<string, LBSCharacteristic>, string)
+  nameWithType: EvaluatorConfiguration.MainTagField.MainTagField(Tuple<string, LBSCharacteristic>, string)
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.MainTagField(System.Tuple<string, ISILab.LBS.Characteristics.LBSCharacteristic>, string)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Presets\Assistants\Evaluators\EvaluatorConfiguration.cs
+    startLine: 158
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  summary: Constructor for a special case of Tag Field that does not uses a name.
+  example: []
+  syntax:
+    content: public MainTagField(Tuple<string, LBSCharacteristic> tagNameAndChar, string tooltip = "")
+    parameters:
+    - id: tagNameAndChar
+      type: System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}
+      description: A tuple containing the name of the LBSTag and its characteristic.
+    - id: tooltip
+      type: System.String
+      description: Short description of the field's purpose.
+    content.vb: Public Sub New(tagNameAndChar As Tuple(Of String, LBSCharacteristic), tooltip As String = "")
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor*
+  nameWithType.vb: EvaluatorConfiguration.MainTagField.New(Tuple(Of String, LBSCharacteristic), String)
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.New(System.Tuple(Of String, ISILab.LBS.Characteristics.LBSCharacteristic), String)
+  name.vb: New(Tuple(Of String, LBSCharacteristic), String)
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField
+  id: GetField
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
+  langs:
+  - csharp
+  - vb
+  name: GetField()
+  nameWithType: EvaluatorConfiguration.MainTagField.GetField()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField()
+  type: Method
+  source:
+    id: GetField
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Presets\Assistants\Evaluators\EvaluatorConfiguration.cs
+    startLine: 160
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  summary: ''
+  example: []
+  syntax:
+    content: public override VisualElement GetField()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+      description: The Visual Element representing the configurable field.
+    content.vb: Public Overrides Function GetField() As VisualElement
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.SetField
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.SetField
+  id: SetField
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
+  langs:
+  - csharp
+  - vb
+  name: SetField()
+  nameWithType: EvaluatorConfiguration.MainTagField.SetField()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.SetField()
+  type: Method
+  source:
+    id: SetField
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Presets\Assistants\Evaluators\EvaluatorConfiguration.cs
+    startLine: 162
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  summary: Initializes the Visual Element that represents the configurable field and sets its value.
+  example: []
+  syntax:
+    content: protected override void SetField()
+    content.vb: Protected Overrides Sub SetField()
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.SetField*
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue
+  commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue
+  id: GetValue
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField
+  langs:
+  - csharp
+  - vb
+  name: GetValue()
+  nameWithType: EvaluatorConfiguration.MainTagField.GetValue()
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue()
+  type: Method
+  source:
+    id: GetValue
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Presets\Assistants\Evaluators\EvaluatorConfiguration.cs
+    startLine: 177
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.AI.Categorization
+  summary: ''
+  example: []
+  syntax:
+    content: public override object GetValue()
+    return:
+      type: System.Object
+      description: The value contained in the field as an object.
+    content.vb: Public Overrides Function GetValue() As Object
+  overridden: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
+  overload: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue*
 references:
 - uid: ISILab.LBS.AI.Categorization
   commentId: N:ISILab.LBS.AI.Categorization
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.AI.Categorization
   nameWithType: ISILab.LBS.AI.Categorization
@@ -264,42 +346,34 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.AI.html
   - name: .
   - uid: ISILab.LBS.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.AI
     name: AI
-    isExternal: true
     href: ISILab.LBS.AI.html
   - name: .
   - uid: ISILab.LBS.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.html
 - uid: System.Object
   commentId: T:System.Object
@@ -315,7 +389,6 @@ references:
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
   commentId: T:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
   parent: ISILab.LBS.AI.Categorization
-  isExternal: true
   href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
   name: EvaluatorConfiguration.EvaluatorConfigurationField
   nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField
@@ -323,27 +396,22 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
     name: EvaluatorConfiguration
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
   - name: .
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
     name: EvaluatorConfigurationField
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
   spec.vb:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration
     name: EvaluatorConfiguration
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.html
   - name: .
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
     name: EvaluatorConfigurationField
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
   commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
   parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
-  isExternal: true
   href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_fieldName
   name: fieldName
   nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.fieldName
@@ -351,7 +419,6 @@ references:
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
   commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
   parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
-  isExternal: true
   href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_tooltip
   name: tooltip
   nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.tooltip
@@ -370,7 +437,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
     name: Equals
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_Equals_System_Object_
   - name: (
   - uid: System.Object
@@ -381,7 +447,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.Equals(System.Object)
     name: Equals
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_Equals_System_Object_
   - name: (
   - uid: System.Object
@@ -392,7 +457,6 @@ references:
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
   commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
   parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
-  isExternal: true
   href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetHashCode
   name: GetHashCode()
   nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode()
@@ -400,16 +464,59 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
     name: GetHashCode
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetHashCode
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetHashCode
     name: GetHashCode
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetHashCode
   - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
@@ -459,75 +566,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -573,6 +611,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -580,16 +642,19 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor*
-  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor
-  isExternal: true
-  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField__ctor_System_String_System_String_ISILab_LBS_Characteristics_LBSCharacteristic_System_String_
-  name: MainTagField
-  nameWithType: EvaluatorConfiguration.MainTagField.MainTagField
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.MainTagField
-  nameWithType.vb: EvaluatorConfiguration.MainTagField.New
-  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.New
-  name.vb: New
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  commentId: P:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_DisplayTypeName
+  name: DisplayTypeName
+  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.DisplayTypeName*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.DisplayTypeName
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField_DisplayTypeName
+  name: DisplayTypeName
+  nameWithType: EvaluatorConfiguration.MainTagField.DisplayTypeName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.DisplayTypeName
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -601,17 +666,31 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.tagChar
+  commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.tagChar
+  name: tagChar
+  nameWithType: EvaluatorConfiguration.MainTagField.tagChar
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.tagChar
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.tagName
+  commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.tagName
+  name: tagName
+  nameWithType: EvaluatorConfiguration.MainTagField.tagName
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.tagName
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.TagChar*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.TagChar
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField_TagChar
+  name: TagChar
+  nameWithType: EvaluatorConfiguration.MainTagField.TagChar
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.TagChar
 - uid: ISILab.LBS.Characteristics.LBSCharacteristic
   commentId: T:ISILab.LBS.Characteristics.LBSCharacteristic
   parent: ISILab.LBS.Characteristics
-  isExternal: true
   href: ISILab.LBS.Characteristics.LBSCharacteristic.html
   name: LBSCharacteristic
   nameWithType: LBSCharacteristic
   fullName: ISILab.LBS.Characteristics.LBSCharacteristic
 - uid: ISILab.LBS.Characteristics
   commentId: N:ISILab.LBS.Characteristics
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Characteristics
   nameWithType: ISILab.LBS.Characteristics
@@ -619,33 +698,76 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Characteristics
     name: Characteristics
-    isExternal: true
     href: ISILab.LBS.Characteristics.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Characteristics
     name: Characteristics
-    isExternal: true
     href: ISILab.LBS.Characteristics.html
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.field
+  commentId: F:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.field
+  name: field
+  nameWithType: EvaluatorConfiguration.MainTagField.field
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.field
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.Field*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.Field
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField_Field
+  name: Field
+  nameWithType: EvaluatorConfiguration.MainTagField.Field
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.Field
+- uid: UnityEditor.UIElements.ObjectField
+  commentId: T:UnityEditor.UIElements.ObjectField
+  parent: UnityEditor.UIElements
+  isExternal: true
+  name: ObjectField
+  nameWithType: ObjectField
+  fullName: UnityEditor.UIElements.ObjectField
+- uid: UnityEditor.UIElements
+  commentId: N:UnityEditor.UIElements
+  isExternal: true
+  name: UnityEditor.UIElements
+  nameWithType: UnityEditor.UIElements
+  fullName: UnityEditor.UIElements
+  spec.csharp:
+  - uid: UnityEditor
+    name: UnityEditor
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEditor
+    name: UnityEditor
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.UIElements
+    name: UIElements
+    isExternal: true
+- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor*
+  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.#ctor
+  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField__ctor_System_String_System_String_ISILab_LBS_Characteristics_LBSCharacteristic_System_String_
+  name: MainTagField
+  nameWithType: EvaluatorConfiguration.MainTagField.MainTagField
+  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.MainTagField
+  nameWithType.vb: EvaluatorConfiguration.MainTagField.New
+  fullName.vb: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.New
+  name.vb: New
 - uid: System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}
   commentId: T:System.Tuple{System.String,ISILab.LBS.Characteristics.LBSCharacteristic}
   parent: System
@@ -671,7 +793,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic
     name: LBSCharacteristic
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html
   - name: '>'
   spec.vb:
@@ -690,7 +811,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Characteristics.LBSCharacteristic
     name: LBSCharacteristic
-    isExternal: true
     href: ISILab.LBS.Characteristics.LBSCharacteristic.html
   - name: )
 - uid: System.Tuple`2
@@ -730,7 +850,6 @@ references:
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
   commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
   parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
-  isExternal: true
   href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetField
   name: GetField()
   nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.GetField()
@@ -738,33 +857,53 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
     name: GetField
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetField
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetField
     name: GetField
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetField
   - name: (
   - name: )
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField*
   commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField
-  isExternal: true
   href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField_GetField
   name: GetField
   nameWithType: EvaluatorConfiguration.MainTagField.GetField
   fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetField
 - uid: UnityEngine.UIElements.VisualElement
+  commentId: T:UnityEngine.UIElements.VisualElement
+  parent: UnityEngine.UIElements
   isExternal: true
   name: VisualElement
   nameWithType: VisualElement
   fullName: UnityEngine.UIElements.VisualElement
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
   commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
   parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
-  isExternal: true
   href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_SetField
   name: SetField()
   nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.SetField()
@@ -772,20 +911,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
     name: SetField
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_SetField
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.SetField
     name: SetField
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_SetField
   - name: (
   - name: )
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.SetField*
   commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.SetField
-  isExternal: true
   href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField_SetField
   name: SetField
   nameWithType: EvaluatorConfiguration.MainTagField.SetField
@@ -793,7 +929,6 @@ references:
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
   commentId: M:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
   parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
-  isExternal: true
   href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetValue
   name: GetValue()
   nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.GetValue()
@@ -801,57 +936,19 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
     name: GetValue
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetValue
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.GetValue
     name: GetValue
-    isExternal: true
     href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_GetValue
   - name: (
   - name: )
 - uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue*
   commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue
-  isExternal: true
   href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField_GetValue
   name: GetValue
   nameWithType: EvaluatorConfiguration.MainTagField.GetValue
   fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.GetValue
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
-  commentId: P:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
-  parent: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField
-  isExternal: true
-  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_EvaluatorConfigurationField_DisplayTypeName
-  name: DisplayTypeName
-  nameWithType: EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.EvaluatorConfigurationField.DisplayTypeName
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.DisplayTypeName*
-  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.DisplayTypeName
-  isExternal: true
-  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField_DisplayTypeName
-  name: DisplayTypeName
-  nameWithType: EvaluatorConfiguration.MainTagField.DisplayTypeName
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.DisplayTypeName
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.TagChar*
-  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.TagChar
-  isExternal: true
-  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField_TagChar
-  name: TagChar
-  nameWithType: EvaluatorConfiguration.MainTagField.TagChar
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.TagChar
-- uid: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.Field*
-  commentId: Overload:ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.Field
-  isExternal: true
-  href: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.html#ISILab_LBS_AI_Categorization_EvaluatorConfiguration_MainTagField_Field
-  name: Field
-  nameWithType: EvaluatorConfiguration.MainTagField.Field
-  fullName: ISILab.LBS.AI.Categorization.EvaluatorConfiguration.MainTagField.Field
-- uid: UnityEditor.UIElements.ObjectField
-  commentId: '!:UnityEditor.UIElements.ObjectField'
-  isExternal: true
-  name: ObjectField
-  nameWithType: ObjectField
-  fullName: UnityEditor.UIElements.ObjectField
 shouldSkipMarkup: true

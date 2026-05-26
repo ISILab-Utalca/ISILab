@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IOperatorsStrategy | lbs-api_docs ">
       
-      
+      <meta name="description" content="Defines an interface for operators strategy.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,7 @@ Interface IOperatorsStrategy
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Defines an interface for operators strategy.</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -127,7 +127,7 @@ Interface IOperatorsStrategy
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Crosses the specified parents.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -139,17 +139,17 @@ Interface IOperatorsStrategy
     <dt><code>population</code> <a class="xref" href="ISILab.AI.Optimization.Populations.IPopulation.html">IPopulation</a></dt>
     <dd></dd>
     <dt><code>crossover</code> <a class="xref" href="GeneticSharp.Domain.Crossovers.ICrossover.html">ICrossover</a></dt>
-    <dd></dd>
+    <dd>The crossover class.</dd>
     <dt><code>crossoverProbability</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The crossover probability.</dd>
     <dt><code>parents</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>&gt;</dt>
-    <dd></dd>
+    <dd>The parents.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>&gt;</dt>
-    <dd></dd>
+    <dd>The result chromosomes.</dd>
   </dl>
 
 
@@ -169,7 +169,7 @@ Interface IOperatorsStrategy
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Mutate the specified chromosomes.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -179,11 +179,11 @@ Interface IOperatorsStrategy
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>mutation</code> <a class="xref" href="GeneticSharp.Domain.Mutations.IMutation.html">IMutation</a></dt>
-    <dd></dd>
+    <dd>The mutation class.</dd>
     <dt><code>mutationProbability</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd>The mutation probability.</dd>
     <dt><code>chromosomes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>&gt;</dt>
-    <dd></dd>
+    <dd>The chromosomes.</dd>
   </dl>
 
 

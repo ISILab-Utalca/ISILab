@@ -15,22 +15,31 @@ items:
   nameWithType: BundleQueryUtility
   fullName: LBS.Components.BundleQueryUtility
   type: Class
+  source:
+    id: BundleQueryUtility
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Editor\Utilities\BundleQueryUtility.cs
+    startLine: 17
   assemblies:
   - LBS.Editor
   namespace: LBS.Components
+  summary: >-
+    A static class that finds bundles with a certain characteristic within their children or themselves.
+
+    Useful for LBSButtonListFilter component.
+  example: []
   syntax:
     content: public static class BundleQueryUtility
     content.vb: Public Module BundleQueryUtility
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: LBS.Components.BundleQueryUtility.FindBundlesWithCharacteristic``1(System.Boolean)
   commentId: M:LBS.Components.BundleQueryUtility.FindBundlesWithCharacteristic``1(System.Boolean)
   id: FindBundlesWithCharacteristic``1(System.Boolean)
@@ -42,6 +51,10 @@ items:
   nameWithType: BundleQueryUtility.FindBundlesWithCharacteristic<TCharacteristic>(bool)
   fullName: LBS.Components.BundleQueryUtility.FindBundlesWithCharacteristic<TCharacteristic>(bool)
   type: Method
+  source:
+    id: FindBundlesWithCharacteristic
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Editor\Utilities\BundleQueryUtility.cs
+    startLine: 19
   assemblies:
   - LBS.Editor
   namespace: LBS.Components
@@ -70,9 +83,15 @@ items:
   nameWithType: BundleQueryUtility.FindBundlesWithCharacteristic(Type, bool)
   fullName: LBS.Components.BundleQueryUtility.FindBundlesWithCharacteristic(System.Type, bool)
   type: Method
+  source:
+    id: FindBundlesWithCharacteristic
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Editor\Utilities\BundleQueryUtility.cs
+    startLine: 28
   assemblies:
   - LBS.Editor
   namespace: LBS.Components
+  summary: Returns the bundles that contain the specified characteristic type.
+  example: []
   syntax:
     content: public static List<Bundle> FindBundlesWithCharacteristic(Type characteristicType, bool includeChildren = true)
     parameters:
@@ -98,6 +117,10 @@ items:
   nameWithType: BundleQueryUtility.FindBundlesWithFlag(List<BundleFlags>)
   fullName: LBS.Components.BundleQueryUtility.FindBundlesWithFlag(System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Bundles.BundleFlags>)
   type: Method
+  source:
+    id: FindBundlesWithFlag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Editor\Utilities\BundleQueryUtility.cs
+    startLine: 85
   assemblies:
   - LBS.Editor
   namespace: LBS.Components
@@ -116,7 +139,6 @@ items:
 references:
 - uid: LBS.Components
   commentId: N:LBS.Components
-  isExternal: true
   href: LBS.html
   name: LBS.Components
   nameWithType: LBS.Components
@@ -124,22 +146,18 @@ references:
   spec.csharp:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
   spec.vb:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
 - uid: System.Object
   commentId: T:System.Object
@@ -152,30 +170,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -242,51 +236,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -371,6 +320,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -380,7 +398,6 @@ references:
   fullName: System
 - uid: LBS.Components.BundleQueryUtility.FindBundlesWithCharacteristic*
   commentId: Overload:LBS.Components.BundleQueryUtility.FindBundlesWithCharacteristic
-  isExternal: true
   href: LBS.Components.BundleQueryUtility.html#LBS_Components_BundleQueryUtility_FindBundlesWithCharacteristic__1_System_Boolean_
   name: FindBundlesWithCharacteristic
   nameWithType: BundleQueryUtility.FindBundlesWithCharacteristic
@@ -415,7 +432,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
     name: Bundle
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
   - name: '>'
   spec.vb:
@@ -428,7 +444,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
     name: Bundle
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
   - name: )
 - uid: System.Collections.Generic.List`1
@@ -506,7 +521,6 @@ references:
   fullName: System.Type
 - uid: LBS.Components.BundleQueryUtility.FindBundlesWithFlag*
   commentId: Overload:LBS.Components.BundleQueryUtility.FindBundlesWithFlag
-  isExternal: true
   href: LBS.Components.BundleQueryUtility.html#LBS_Components_BundleQueryUtility_FindBundlesWithFlag_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Bundles_BundleFlags__
   name: FindBundlesWithFlag
   nameWithType: BundleQueryUtility.FindBundlesWithFlag
@@ -530,7 +544,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.Components.Bundles.BundleFlags
     name: BundleFlags
-    isExternal: true
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -542,6 +555,5 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Components.Bundles.BundleFlags
     name: BundleFlags
-    isExternal: true
   - name: )
 shouldSkipMarkup: true

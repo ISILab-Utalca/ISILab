@@ -5,7 +5,6 @@ items:
   id: GrammarListField`1
   parent: ISILab.AI.Grammar
   children:
-  - ISILab.AI.Grammar.GrammarListField`1.#ctor
   - ISILab.AI.Grammar.GrammarListField`1.Clone
   - ISILab.AI.Grammar.GrammarListField`1.ItemsSource
   - ISILab.AI.Grammar.GrammarListField`1.SetValue(System.Object)
@@ -17,14 +16,24 @@ items:
   nameWithType: GrammarListField<TField>
   fullName: ISILab.AI.Grammar.GrammarListField<TField>
   type: Class
+  source:
+    id: GrammarListField
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\GrammarFieldList.cs
+    startLine: 6
   assemblies:
   - LBS
   namespace: ISILab.AI.Grammar
   syntax:
-    content: 'public abstract class GrammarListField<TField> : GrammarField, ICloneable, GrammarListFieldMarker where TField : GrammarField, new()'
+    content: >-
+      [Serializable]
+
+      public abstract class GrammarListField<TField> : GrammarField, ICloneable, GrammarListFieldMarker where TField : GrammarField, new()
     typeParameters:
     - id: TField
-    content.vb: Public MustInherit Class GrammarListField(Of TField As {GrammarField, New}) Inherits GrammarField Implements ICloneable, GrammarListFieldMarker
+    content.vb: >-
+      <Serializable>
+
+      Public MustInherit Class GrammarListField(Of TField As {GrammarField, New}) Inherits GrammarField Implements ICloneable, GrammarListFieldMarker
   inheritance:
   - System.Object
   - ISILab.AI.Grammar.GrammarField
@@ -45,17 +54,21 @@ items:
   - ISILab.AI.Grammar.GrammarField.data
   - ISILab.AI.Grammar.GrammarField.name
   - ISILab.AI.Grammar.GrammarField.Refresh
+  - ISILab.AI.Grammar.GrammarField.PrimitiveType
+  - ISILab.AI.Grammar.GrammarField.IsList
   - ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
   - ISILab.AI.Grammar.GrammarField.GetValue
   - ISILab.AI.Grammar.GrammarField.GetHashCode
   - ISILab.AI.Grammar.GrammarField.ToString
-  - ISILab.AI.Grammar.GrammarField.PrimitiveType
-  - ISILab.AI.Grammar.GrammarField.IsList
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
   nameWithType.vb: GrammarListField(Of TField)
   fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField)
   name.vb: GrammarListField(Of TField)
@@ -70,6 +83,10 @@ items:
   nameWithType: GrammarListField<TField>.value
   fullName: ISILab.AI.Grammar.GrammarListField<TField>.value
   type: Field
+  source:
+    id: value
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\GrammarFieldList.cs
+    startLine: 10
   assemblies:
   - LBS
   namespace: ISILab.AI.Grammar
@@ -80,6 +97,36 @@ items:
     content.vb: Public value As List(Of TField)
   nameWithType.vb: GrammarListField(Of TField).value
   fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField).value
+- uid: ISILab.AI.Grammar.GrammarListField`1.ItemsSource
+  commentId: P:ISILab.AI.Grammar.GrammarListField`1.ItemsSource
+  id: ItemsSource
+  parent: ISILab.AI.Grammar.GrammarListField`1
+  langs:
+  - csharp
+  - vb
+  name: ItemsSource
+  nameWithType: GrammarListField<TField>.ItemsSource
+  fullName: ISILab.AI.Grammar.GrammarListField<TField>.ItemsSource
+  type: Property
+  source:
+    id: ItemsSource
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\GrammarFieldList.cs
+    startLine: 12
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  summary: Generic access for ListView.itemsSource
+  example: []
+  syntax:
+    content: public override IList ItemsSource { get; }
+    parameters: []
+    return:
+      type: System.Collections.IList
+    content.vb: Public Overrides ReadOnly Property ItemsSource As IList
+  overridden: ISILab.AI.Grammar.GrammarField.ItemsSource
+  overload: ISILab.AI.Grammar.GrammarListField`1.ItemsSource*
+  nameWithType.vb: GrammarListField(Of TField).ItemsSource
+  fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField).ItemsSource
 - uid: ISILab.AI.Grammar.GrammarListField`1.Clone
   commentId: M:ISILab.AI.Grammar.GrammarListField`1.Clone
   id: Clone
@@ -91,6 +138,10 @@ items:
   nameWithType: GrammarListField<TField>.Clone()
   fullName: ISILab.AI.Grammar.GrammarListField<TField>.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\GrammarFieldList.cs
+    startLine: 14
   assemblies:
   - LBS
   namespace: ISILab.AI.Grammar
@@ -115,6 +166,10 @@ items:
   nameWithType: GrammarListField<TField>.SetValue(object)
   fullName: ISILab.AI.Grammar.GrammarListField<TField>.SetValue(object)
   type: Method
+  source:
+    id: SetValue
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\GrammarFieldList.cs
+    startLine: 25
   assemblies:
   - LBS
   namespace: ISILab.AI.Grammar
@@ -130,56 +185,9 @@ items:
   nameWithType.vb: GrammarListField(Of TField).SetValue(Object)
   fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField).SetValue(Object)
   name.vb: SetValue(Object)
-- uid: ISILab.AI.Grammar.GrammarListField`1.#ctor
-  commentId: M:ISILab.AI.Grammar.GrammarListField`1.#ctor
-  id: '#ctor'
-  parent: ISILab.AI.Grammar.GrammarListField`1
-  langs:
-  - csharp
-  - vb
-  name: GrammarListField()
-  nameWithType: GrammarListField<TField>.GrammarListField()
-  fullName: ISILab.AI.Grammar.GrammarListField<TField>.GrammarListField()
-  type: Constructor
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Grammar
-  syntax:
-    content: protected GrammarListField()
-    content.vb: Protected Sub New()
-  overload: ISILab.AI.Grammar.GrammarListField`1.#ctor*
-  nameWithType.vb: GrammarListField(Of TField).New()
-  fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField).New()
-  name.vb: New()
-- uid: ISILab.AI.Grammar.GrammarListField`1.ItemsSource
-  commentId: P:ISILab.AI.Grammar.GrammarListField`1.ItemsSource
-  id: ItemsSource
-  parent: ISILab.AI.Grammar.GrammarListField`1
-  langs:
-  - csharp
-  - vb
-  name: ItemsSource
-  nameWithType: GrammarListField<TField>.ItemsSource
-  fullName: ISILab.AI.Grammar.GrammarListField<TField>.ItemsSource
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.AI.Grammar
-  example: []
-  syntax:
-    content: public override IList ItemsSource { get; }
-    parameters: []
-    return:
-      type: System.Collections.IList
-    content.vb: Public Overrides ReadOnly Property ItemsSource As IList
-  overridden: ISILab.AI.Grammar.GrammarField.ItemsSource
-  overload: ISILab.AI.Grammar.GrammarListField`1.ItemsSource*
-  nameWithType.vb: GrammarListField(Of TField).ItemsSource
-  fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField).ItemsSource
 references:
 - uid: ISILab.AI.Grammar
   commentId: N:ISILab.AI.Grammar
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Grammar
   nameWithType: ISILab.AI.Grammar
@@ -187,32 +195,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Grammar
     name: Grammar
-    isExternal: true
     href: ISILab.AI.Grammar.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Grammar
     name: Grammar
-    isExternal: true
     href: ISILab.AI.Grammar.html
 - uid: System.Object
   commentId: T:System.Object
@@ -228,7 +230,6 @@ references:
 - uid: ISILab.AI.Grammar.GrammarField
   commentId: T:ISILab.AI.Grammar.GrammarField
   parent: ISILab.AI.Grammar
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarField.html
   name: GrammarField
   nameWithType: GrammarField
@@ -244,7 +245,6 @@ references:
 - uid: ISILab.AI.Grammar.GrammarListFieldMarker
   commentId: T:ISILab.AI.Grammar.GrammarListFieldMarker
   parent: ISILab.AI.Grammar
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarListFieldMarker.html
   name: GrammarListFieldMarker
   nameWithType: GrammarListFieldMarker
@@ -252,7 +252,6 @@ references:
 - uid: ISILab.AI.Grammar.GrammarField.data
   commentId: F:ISILab.AI.Grammar.GrammarField.data
   parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_data
   name: data
   nameWithType: GrammarField.data
@@ -260,7 +259,6 @@ references:
 - uid: ISILab.AI.Grammar.GrammarField.name
   commentId: F:ISILab.AI.Grammar.GrammarField.name
   parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_name
   name: name
   nameWithType: GrammarField.name
@@ -268,11 +266,24 @@ references:
 - uid: ISILab.AI.Grammar.GrammarField.Refresh
   commentId: F:ISILab.AI.Grammar.GrammarField.Refresh
   parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Refresh
   name: Refresh
   nameWithType: GrammarField.Refresh
   fullName: ISILab.AI.Grammar.GrammarField.Refresh
+- uid: ISILab.AI.Grammar.GrammarField.PrimitiveType
+  commentId: P:ISILab.AI.Grammar.GrammarField.PrimitiveType
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_PrimitiveType
+  name: PrimitiveType
+  nameWithType: GrammarField.PrimitiveType
+  fullName: ISILab.AI.Grammar.GrammarField.PrimitiveType
+- uid: ISILab.AI.Grammar.GrammarField.IsList
+  commentId: P:ISILab.AI.Grammar.GrammarField.IsList
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsList
+  name: IsList
+  nameWithType: GrammarField.IsList
+  fullName: ISILab.AI.Grammar.GrammarField.IsList
 - uid: ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
   commentId: M:ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
   parent: ISILab.AI.Grammar.GrammarField
@@ -287,7 +298,6 @@ references:
   spec.csharp:
   - uid: ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
     name: CreateField
-    isExternal: true
     href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_CreateField_System_String_System_String_
   - name: (
   - uid: System.String
@@ -304,7 +314,6 @@ references:
   spec.vb:
   - uid: ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
     name: CreateField
-    isExternal: true
     href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_CreateField_System_String_System_String_
   - name: (
   - uid: System.String
@@ -321,7 +330,6 @@ references:
 - uid: ISILab.AI.Grammar.GrammarField.GetValue
   commentId: M:ISILab.AI.Grammar.GrammarField.GetValue
   parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValue
   name: GetValue()
   nameWithType: GrammarField.GetValue()
@@ -329,21 +337,18 @@ references:
   spec.csharp:
   - uid: ISILab.AI.Grammar.GrammarField.GetValue
     name: GetValue
-    isExternal: true
     href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValue
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.AI.Grammar.GrammarField.GetValue
     name: GetValue
-    isExternal: true
     href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValue
   - name: (
   - name: )
 - uid: ISILab.AI.Grammar.GrammarField.GetHashCode
   commentId: M:ISILab.AI.Grammar.GrammarField.GetHashCode
   parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetHashCode
   name: GetHashCode()
   nameWithType: GrammarField.GetHashCode()
@@ -351,21 +356,18 @@ references:
   spec.csharp:
   - uid: ISILab.AI.Grammar.GrammarField.GetHashCode
     name: GetHashCode
-    isExternal: true
     href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetHashCode
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.AI.Grammar.GrammarField.GetHashCode
     name: GetHashCode
-    isExternal: true
     href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetHashCode
   - name: (
   - name: )
 - uid: ISILab.AI.Grammar.GrammarField.ToString
   commentId: M:ISILab.AI.Grammar.GrammarField.ToString
   parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ToString
   name: ToString()
   nameWithType: GrammarField.ToString()
@@ -373,79 +375,13 @@ references:
   spec.csharp:
   - uid: ISILab.AI.Grammar.GrammarField.ToString
     name: ToString
-    isExternal: true
     href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ToString
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.AI.Grammar.GrammarField.ToString
     name: ToString
-    isExternal: true
     href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ToString
-  - name: (
-  - name: )
-- uid: ISILab.AI.Grammar.GrammarField.PrimitiveType
-  commentId: P:ISILab.AI.Grammar.GrammarField.PrimitiveType
-  parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
-  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_PrimitiveType
-  name: PrimitiveType
-  nameWithType: GrammarField.PrimitiveType
-  fullName: ISILab.AI.Grammar.GrammarField.PrimitiveType
-- uid: ISILab.AI.Grammar.GrammarField.IsList
-  commentId: P:ISILab.AI.Grammar.GrammarField.IsList
-  parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
-  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsList
-  name: IsList
-  nameWithType: GrammarField.IsList
-  fullName: ISILab.AI.Grammar.GrammarField.IsList
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
@@ -525,6 +461,54 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -672,100 +656,15 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: ISILab.AI.Grammar.GrammarField.Clone
-  commentId: M:ISILab.AI.Grammar.GrammarField.Clone
-  parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
-  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Clone
-  name: Clone()
-  nameWithType: GrammarField.Clone()
-  fullName: ISILab.AI.Grammar.GrammarField.Clone()
-  spec.csharp:
-  - uid: ISILab.AI.Grammar.GrammarField.Clone
-    name: Clone
-    isExternal: true
-    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Clone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: ISILab.AI.Grammar.GrammarField.Clone
-    name: Clone
-    isExternal: true
-    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Clone
-  - name: (
-  - name: )
-- uid: ISILab.AI.Grammar.GrammarListField`1.Clone*
-  commentId: Overload:ISILab.AI.Grammar.GrammarListField`1.Clone
-  isExternal: true
-  href: ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1_Clone
-  name: Clone
-  nameWithType: GrammarListField<TField>.Clone
-  fullName: ISILab.AI.Grammar.GrammarListField<TField>.Clone
-  nameWithType.vb: GrammarListField(Of TField).Clone
-  fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField).Clone
-- uid: ISILab.AI.Grammar.GrammarField.SetValue(System.Object)
-  commentId: M:ISILab.AI.Grammar.GrammarField.SetValue(System.Object)
-  parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
-  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_SetValue_System_Object_
-  name: SetValue(object)
-  nameWithType: GrammarField.SetValue(object)
-  fullName: ISILab.AI.Grammar.GrammarField.SetValue(object)
-  nameWithType.vb: GrammarField.SetValue(Object)
-  fullName.vb: ISILab.AI.Grammar.GrammarField.SetValue(Object)
-  name.vb: SetValue(Object)
-  spec.csharp:
-  - uid: ISILab.AI.Grammar.GrammarField.SetValue(System.Object)
-    name: SetValue
-    isExternal: true
-    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_SetValue_System_Object_
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: ISILab.AI.Grammar.GrammarField.SetValue(System.Object)
-    name: SetValue
-    isExternal: true
-    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_SetValue_System_Object_
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: ISILab.AI.Grammar.GrammarListField`1.SetValue*
-  commentId: Overload:ISILab.AI.Grammar.GrammarListField`1.SetValue
-  isExternal: true
-  href: ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1_SetValue_System_Object_
-  name: SetValue
-  nameWithType: GrammarListField<TField>.SetValue
-  fullName: ISILab.AI.Grammar.GrammarListField<TField>.SetValue
-  nameWithType.vb: GrammarListField(Of TField).SetValue
-  fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField).SetValue
-- uid: ISILab.AI.Grammar.GrammarListField`1.#ctor*
-  commentId: Overload:ISILab.AI.Grammar.GrammarListField`1.#ctor
-  isExternal: true
-  href: ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1__ctor
-  name: GrammarListField
-  nameWithType: GrammarListField<TField>.GrammarListField
-  fullName: ISILab.AI.Grammar.GrammarListField<TField>.GrammarListField
-  nameWithType.vb: GrammarListField(Of TField).New
-  fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField).New
-  name.vb: New
 - uid: ISILab.AI.Grammar.GrammarField.ItemsSource
   commentId: P:ISILab.AI.Grammar.GrammarField.ItemsSource
   parent: ISILab.AI.Grammar.GrammarField
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ItemsSource
   name: ItemsSource
   nameWithType: GrammarField.ItemsSource
   fullName: ISILab.AI.Grammar.GrammarField.ItemsSource
 - uid: ISILab.AI.Grammar.GrammarListField`1.ItemsSource*
   commentId: Overload:ISILab.AI.Grammar.GrammarListField`1.ItemsSource
-  isExternal: true
   href: ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1_ItemsSource
   name: ItemsSource
   nameWithType: GrammarListField<TField>.ItemsSource
@@ -807,4 +706,70 @@ references:
     name: Collections
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: ISILab.AI.Grammar.GrammarField.Clone
+  commentId: M:ISILab.AI.Grammar.GrammarField.Clone
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Clone
+  name: Clone()
+  nameWithType: GrammarField.Clone()
+  fullName: ISILab.AI.Grammar.GrammarField.Clone()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.Clone
+    name: Clone
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.Clone
+    name: Clone
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Clone
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarListField`1.Clone*
+  commentId: Overload:ISILab.AI.Grammar.GrammarListField`1.Clone
+  href: ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1_Clone
+  name: Clone
+  nameWithType: GrammarListField<TField>.Clone
+  fullName: ISILab.AI.Grammar.GrammarListField<TField>.Clone
+  nameWithType.vb: GrammarListField(Of TField).Clone
+  fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField).Clone
+- uid: ISILab.AI.Grammar.GrammarField.SetValue(System.Object)
+  commentId: M:ISILab.AI.Grammar.GrammarField.SetValue(System.Object)
+  parent: ISILab.AI.Grammar.GrammarField
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_SetValue_System_Object_
+  name: SetValue(object)
+  nameWithType: GrammarField.SetValue(object)
+  fullName: ISILab.AI.Grammar.GrammarField.SetValue(object)
+  nameWithType.vb: GrammarField.SetValue(Object)
+  fullName.vb: ISILab.AI.Grammar.GrammarField.SetValue(Object)
+  name.vb: SetValue(Object)
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.SetValue(System.Object)
+    name: SetValue
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_SetValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.SetValue(System.Object)
+    name: SetValue
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_SetValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarListField`1.SetValue*
+  commentId: Overload:ISILab.AI.Grammar.GrammarListField`1.SetValue
+  href: ISILab.AI.Grammar.GrammarListField-1.html#ISILab_AI_Grammar_GrammarListField_1_SetValue_System_Object_
+  name: SetValue
+  nameWithType: GrammarListField<TField>.SetValue
+  fullName: ISILab.AI.Grammar.GrammarListField<TField>.SetValue
+  nameWithType.vb: GrammarListField(Of TField).SetValue
+  fullName.vb: ISILab.AI.Grammar.GrammarListField(Of TField).SetValue
 shouldSkipMarkup: true

@@ -5,7 +5,6 @@ items:
   id: MicroGenTool
   parent: ISILab.LBS.Plugin.Components.Bundles.Tools
   children:
-  - ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.#ctor
   - ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.GetMargin
   - ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector(UnityEngine.Transform,UnityEngine.Vector2,System.Int32)
   - ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Spread
@@ -16,73 +15,36 @@ items:
   nameWithType: MicroGenTool
   fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
   type: Class
+  source:
+    id: MicroGenTool
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\MicroGen\MicroGenTool.cs
+    startLine: 10
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
   syntax:
-    content: public class MicroGenTool
-    content.vb: Public Class MicroGenTool
+    content: >-
+      [Serializable]
+
+      public class MicroGenTool
+    content.vb: >-
+      <Serializable>
+
+      Public Class MicroGenTool
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector(UnityEngine.Transform,UnityEngine.Vector2,System.Int32)
-  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector(UnityEngine.Transform,UnityEngine.Vector2,System.Int32)
-  id: MicroPosVector(UnityEngine.Transform,UnityEngine.Vector2,System.Int32)
-  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
-  langs:
-  - csharp
-  - vb
-  name: MicroPosVector(Transform, Vector2, int)
-  nameWithType: MicroGenTool.MicroPosVector(Transform, Vector2, int)
-  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector(UnityEngine.Transform, UnityEngine.Vector2, int)
-  type: Method
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
-  syntax:
-    content: public Vector3 MicroPosVector(Transform objTransform, Vector2 scale, int rotation)
-    parameters:
-    - id: objTransform
-      type: UnityEngine.Transform
-    - id: scale
-      type: UnityEngine.Vector2
-    - id: rotation
-      type: System.Int32
-    return:
-      type: UnityEngine.Vector3
-    content.vb: Public Function MicroPosVector(objTransform As Transform, scale As Vector2, rotation As Integer) As Vector3
-  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector*
-  nameWithType.vb: MicroGenTool.MicroPosVector(Transform, Vector2, Integer)
-  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector(UnityEngine.Transform, UnityEngine.Vector2, Integer)
-  name.vb: MicroPosVector(Transform, Vector2, Integer)
-- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.#ctor
-  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.#ctor
-  id: '#ctor'
-  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
-  langs:
-  - csharp
-  - vb
-  name: MicroGenTool()
-  nameWithType: MicroGenTool.MicroGenTool()
-  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroGenTool()
-  type: Constructor
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
-  syntax:
-    content: public MicroGenTool()
-    content.vb: Public Sub New()
-  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.#ctor*
-  nameWithType.vb: MicroGenTool.New()
-  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.New()
-  name.vb: New()
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Spread
   commentId: P:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Spread
   id: Spread
@@ -94,6 +56,10 @@ items:
   nameWithType: MicroGenTool.Spread
   fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Spread
   type: Property
+  source:
+    id: Spread
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\MicroGen\MicroGenTool.cs
+    startLine: 69
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
@@ -115,6 +81,10 @@ items:
   nameWithType: MicroGenTool.GetMargin
   fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.GetMargin
   type: Property
+  source:
+    id: GetMargin
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\MicroGen\MicroGenTool.cs
+    startLine: 74
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
@@ -125,10 +95,43 @@ items:
       type: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
     content.vb: Public ReadOnly Property GetMargin As MicroGenTool.Margin
   overload: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.GetMargin*
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector(UnityEngine.Transform,UnityEngine.Vector2,System.Int32)
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector(UnityEngine.Transform,UnityEngine.Vector2,System.Int32)
+  id: MicroPosVector(UnityEngine.Transform,UnityEngine.Vector2,System.Int32)
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
+  langs:
+  - csharp
+  - vb
+  name: MicroPosVector(Transform, Vector2, int)
+  nameWithType: MicroGenTool.MicroPosVector(Transform, Vector2, int)
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector(UnityEngine.Transform, UnityEngine.Vector2, int)
+  type: Method
+  source:
+    id: MicroPosVector
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\MicroGen\MicroGenTool.cs
+    startLine: 81
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public Vector3 MicroPosVector(Transform objTransform, Vector2 scale, int rotation)
+    parameters:
+    - id: objTransform
+      type: UnityEngine.Transform
+    - id: scale
+      type: UnityEngine.Vector2
+    - id: rotation
+      type: System.Int32
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Function MicroPosVector(objTransform As Transform, scale As Vector2, rotation As Integer) As Vector3
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector*
+  nameWithType.vb: MicroGenTool.MicroPosVector(Transform, Vector2, Integer)
+  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector(UnityEngine.Transform, UnityEngine.Vector2, Integer)
+  name.vb: MicroPosVector(Transform, Vector2, Integer)
 references:
 - uid: ISILab.LBS.Plugin.Components.Bundles.Tools
   commentId: N:ISILab.LBS.Plugin.Components.Bundles.Tools
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Bundles.Tools
   nameWithType: ISILab.LBS.Plugin.Components.Bundles.Tools
@@ -136,62 +139,50 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles.Tools
     name: Tools
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.Tools.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles.Tools
     name: Tools
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.Tools.html
 - uid: System.Object
   commentId: T:System.Object
@@ -204,78 +195,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -354,6 +273,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -399,28 +390,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -430,19 +421,80 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Spread*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Spread
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html#ISILab_LBS_Plugin_Components_Bundles_Tools_MicroGenTool_Spread
+  name: Spread
+  nameWithType: MicroGenTool.Spread
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Spread
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
+  name: MicroGenTool.SpreadType
+  nameWithType: MicroGenTool.SpreadType
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
+    name: MicroGenTool
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType
+    name: SpreadType
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
+    name: MicroGenTool
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType
+    name: SpreadType
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType.html
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.GetMargin*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.GetMargin
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html#ISILab_LBS_Plugin_Components_Bundles_Tools_MicroGenTool_GetMargin
+  name: GetMargin
+  nameWithType: MicroGenTool.GetMargin
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.GetMargin
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
+  name: MicroGenTool.Margin
+  nameWithType: MicroGenTool.Margin
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
+    name: MicroGenTool
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
+    name: Margin
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
+    name: MicroGenTool
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
+    name: Margin
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin.html
 - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector*
   commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html#ISILab_LBS_Plugin_Components_Bundles_Tools_MicroGenTool_MicroPosVector_UnityEngine_Transform_UnityEngine_Vector2_System_Int32_
   name: MicroPosVector
   nameWithType: MicroGenTool.MicroPosVector
   fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroPosVector
 - uid: UnityEngine.Transform
+  commentId: T:UnityEngine.Transform
+  parent: UnityEngine
   isExternal: true
   name: Transform
   nameWithType: Transform
   fullName: UnityEngine.Transform
 - uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
@@ -459,88 +511,16 @@ references:
   fullName.vb: Integer
   name.vb: Integer
 - uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
   isExternal: true
   name: Vector3
   nameWithType: Vector3
   fullName: UnityEngine.Vector3
-- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.#ctor*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.#ctor
+- uid: UnityEngine
+  commentId: N:UnityEngine
   isExternal: true
-  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html#ISILab_LBS_Plugin_Components_Bundles_Tools_MicroGenTool__ctor
-  name: MicroGenTool
-  nameWithType: MicroGenTool.MicroGenTool
-  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.MicroGenTool
-  nameWithType.vb: MicroGenTool.New
-  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.New
-  name.vb: New
-- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Spread*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Spread
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html#ISILab_LBS_Plugin_Components_Bundles_Tools_MicroGenTool_Spread
-  name: Spread
-  nameWithType: MicroGenTool.Spread
-  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Spread
-- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType
-  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType
-  parent: ISILab.LBS.Plugin.Components.Bundles.Tools
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
-  name: MicroGenTool.SpreadType
-  nameWithType: MicroGenTool.SpreadType
-  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType
-  spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
-    name: MicroGenTool
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType
-    name: SpreadType
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType.html
-  spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
-    name: MicroGenTool
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType
-    name: SpreadType
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.SpreadType.html
-- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.GetMargin*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.GetMargin
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html#ISILab_LBS_Plugin_Components_Bundles_Tools_MicroGenTool_GetMargin
-  name: GetMargin
-  nameWithType: MicroGenTool.GetMargin
-  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.GetMargin
-- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
-  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
-  parent: ISILab.LBS.Plugin.Components.Bundles.Tools
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
-  name: MicroGenTool.Margin
-  nameWithType: MicroGenTool.Margin
-  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
-  spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
-    name: MicroGenTool
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
-    name: Margin
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin.html
-  spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool
-    name: MicroGenTool
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin
-    name: Margin
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Bundles.Tools.MicroGenTool.Margin.html
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 shouldSkipMarkup: true

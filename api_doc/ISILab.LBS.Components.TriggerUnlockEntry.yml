@@ -16,24 +16,38 @@ items:
   nameWithType: TriggerUnlockEntry
   fullName: ISILab.LBS.Components.TriggerUnlockEntry
   type: Class
+  source:
+    id: TriggerUnlockEntry
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_TriggerUnlock.cs
+    startLine: 32
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: 'public class TriggerUnlockEntry : ICloneable'
-    content.vb: Public Class TriggerUnlockEntry Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public class TriggerUnlockEntry : ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public Class TriggerUnlockEntry Implements ICloneable
   inheritance:
   - System.Object
   implements:
   - System.ICloneable
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.TriggerUnlockEntry.ActivationMode
   commentId: F:ISILab.LBS.Components.TriggerUnlockEntry.ActivationMode
   id: ActivationMode
@@ -45,6 +59,10 @@ items:
   nameWithType: TriggerUnlockEntry.ActivationMode
   fullName: ISILab.LBS.Components.TriggerUnlockEntry.ActivationMode
   type: Field
+  source:
+    id: ActivationMode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_TriggerUnlock.cs
+    startLine: 35
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -64,6 +82,10 @@ items:
   nameWithType: TriggerUnlockEntry.Unlocks
   fullName: ISILab.LBS.Components.TriggerUnlockEntry.Unlocks
   type: Field
+  source:
+    id: Unlocks
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_TriggerUnlock.cs
+    startLine: 36
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -83,6 +105,10 @@ items:
   nameWithType: TriggerUnlockEntry.TriggerUnlockEntry()
   fullName: ISILab.LBS.Components.TriggerUnlockEntry.TriggerUnlockEntry()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_TriggerUnlock.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -104,6 +130,10 @@ items:
   nameWithType: TriggerUnlockEntry.Clone()
   fullName: ISILab.LBS.Components.TriggerUnlockEntry.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Tessellation\Population\Addons\Addon_TriggerUnlock.cs
+    startLine: 40
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -119,7 +149,6 @@ items:
 references:
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Components
   nameWithType: ISILab.LBS.Components
@@ -127,32 +156,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
 - uid: System.Object
   commentId: T:System.Object
@@ -173,78 +196,6 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -323,6 +274,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -368,28 +391,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -402,7 +425,6 @@ references:
 - uid: ISILab.LBS.Components.TriggerActivationMode
   commentId: T:ISILab.LBS.Components.TriggerActivationMode
   parent: ISILab.LBS.Components
-  isExternal: true
   href: ISILab.LBS.Components.TriggerActivationMode.html
   name: TriggerActivationMode
   nameWithType: TriggerActivationMode
@@ -426,7 +448,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Components.Addon_Unlock
     name: Addon_Unlock
-    isExternal: true
     href: ISILab.LBS.Components.Addon_Unlock.html
   - name: '>'
   spec.vb:
@@ -439,7 +460,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Components.Addon_Unlock
     name: Addon_Unlock
-    isExternal: true
     href: ISILab.LBS.Components.Addon_Unlock.html
   - name: )
 - uid: System.Collections.Generic.List`1
@@ -509,7 +529,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.LBS.Components.TriggerUnlockEntry.#ctor*
   commentId: Overload:ISILab.LBS.Components.TriggerUnlockEntry.#ctor
-  isExternal: true
   href: ISILab.LBS.Components.TriggerUnlockEntry.html#ISILab_LBS_Components_TriggerUnlockEntry__ctor
   name: TriggerUnlockEntry
   nameWithType: TriggerUnlockEntry.TriggerUnlockEntry
@@ -519,7 +538,6 @@ references:
   name.vb: New
 - uid: ISILab.LBS.Components.TriggerUnlockEntry.Clone*
   commentId: Overload:ISILab.LBS.Components.TriggerUnlockEntry.Clone
-  isExternal: true
   href: ISILab.LBS.Components.TriggerUnlockEntry.html#ISILab_LBS_Components_TriggerUnlockEntry_Clone
   name: Clone
   nameWithType: TriggerUnlockEntry.Clone

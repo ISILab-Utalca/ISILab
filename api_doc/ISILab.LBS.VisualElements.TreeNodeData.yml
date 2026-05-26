@@ -5,7 +5,6 @@ items:
   id: TreeNodeData
   parent: ISILab.LBS.VisualElements
   children:
-  - ISILab.LBS.VisualElements.TreeNodeData.#ctor
   - ISILab.LBS.VisualElements.TreeNodeData.Children
   - ISILab.LBS.VisualElements.TreeNodeData.Id
   - ISILab.LBS.VisualElements.TreeNodeData.Label
@@ -19,6 +18,10 @@ items:
   nameWithType: TreeNodeData
   fullName: ISILab.LBS.VisualElements.TreeNodeData
   type: Class
+  source:
+    id: TreeNodeData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\Editor\LBSDirectionedChanceEditor.cs
+    startLine: 244
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -28,34 +31,13 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: ISILab.LBS.VisualElements.TreeNodeData.#ctor
-  commentId: M:ISILab.LBS.VisualElements.TreeNodeData.#ctor
-  id: '#ctor'
-  parent: ISILab.LBS.VisualElements.TreeNodeData
-  langs:
-  - csharp
-  - vb
-  name: TreeNodeData()
-  nameWithType: TreeNodeData.TreeNodeData()
-  fullName: ISILab.LBS.VisualElements.TreeNodeData.TreeNodeData()
-  type: Constructor
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.VisualElements
-  syntax:
-    content: public TreeNodeData()
-    content.vb: Public Sub New()
-  overload: ISILab.LBS.VisualElements.TreeNodeData.#ctor*
-  nameWithType.vb: TreeNodeData.New()
-  fullName.vb: ISILab.LBS.VisualElements.TreeNodeData.New()
-  name.vb: New()
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.LBS.VisualElements.TreeNodeData.Id
   commentId: P:ISILab.LBS.VisualElements.TreeNodeData.Id
   id: Id
@@ -67,6 +49,10 @@ items:
   nameWithType: TreeNodeData.Id
   fullName: ISILab.LBS.VisualElements.TreeNodeData.Id
   type: Property
+  source:
+    id: Id
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\Editor\LBSDirectionedChanceEditor.cs
+    startLine: 246
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -88,6 +74,10 @@ items:
   nameWithType: TreeNodeData.Label
   fullName: ISILab.LBS.VisualElements.TreeNodeData.Label
   type: Property
+  source:
+    id: Label
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\Editor\LBSDirectionedChanceEditor.cs
+    startLine: 247
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -109,6 +99,10 @@ items:
   nameWithType: TreeNodeData.SliderValue
   fullName: ISILab.LBS.VisualElements.TreeNodeData.SliderValue
   type: Property
+  source:
+    id: SliderValue
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\Editor\LBSDirectionedChanceEditor.cs
+    startLine: 248
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -130,6 +124,10 @@ items:
   nameWithType: TreeNodeData.ObjectFieldValue
   fullName: ISILab.LBS.VisualElements.TreeNodeData.ObjectFieldValue
   type: Property
+  source:
+    id: ObjectFieldValue
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\Editor\LBSDirectionedChanceEditor.cs
+    startLine: 249
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -151,6 +149,10 @@ items:
   nameWithType: TreeNodeData.Type
   fullName: ISILab.LBS.VisualElements.TreeNodeData.Type
   type: Property
+  source:
+    id: Type
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\Editor\LBSDirectionedChanceEditor.cs
+    startLine: 250
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -172,6 +174,10 @@ items:
   nameWithType: TreeNodeData.Children
   fullName: ISILab.LBS.VisualElements.TreeNodeData.Children
   type: Property
+  source:
+    id: Children
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\Editor\LBSDirectionedChanceEditor.cs
+    startLine: 251
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -185,7 +191,6 @@ items:
 references:
 - uid: ISILab.LBS.VisualElements
   commentId: N:ISILab.LBS.VisualElements
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.VisualElements
   nameWithType: ISILab.LBS.VisualElements
@@ -193,32 +198,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
-    isExternal: true
     href: ISILab.LBS.VisualElements.html
 - uid: System.Object
   commentId: T:System.Object
@@ -231,30 +230,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -321,51 +296,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -450,6 +380,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -457,19 +456,8 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.VisualElements.TreeNodeData.#ctor*
-  commentId: Overload:ISILab.LBS.VisualElements.TreeNodeData.#ctor
-  isExternal: true
-  href: ISILab.LBS.VisualElements.TreeNodeData.html#ISILab_LBS_VisualElements_TreeNodeData__ctor
-  name: TreeNodeData
-  nameWithType: TreeNodeData.TreeNodeData
-  fullName: ISILab.LBS.VisualElements.TreeNodeData.TreeNodeData
-  nameWithType.vb: TreeNodeData.New
-  fullName.vb: ISILab.LBS.VisualElements.TreeNodeData.New
-  name.vb: New
 - uid: ISILab.LBS.VisualElements.TreeNodeData.Id*
   commentId: Overload:ISILab.LBS.VisualElements.TreeNodeData.Id
-  isExternal: true
   href: ISILab.LBS.VisualElements.TreeNodeData.html#ISILab_LBS_VisualElements_TreeNodeData_Id
   name: Id
   nameWithType: TreeNodeData.Id
@@ -487,7 +475,6 @@ references:
   name.vb: Integer
 - uid: ISILab.LBS.VisualElements.TreeNodeData.Label*
   commentId: Overload:ISILab.LBS.VisualElements.TreeNodeData.Label
-  isExternal: true
   href: ISILab.LBS.VisualElements.TreeNodeData.html#ISILab_LBS_VisualElements_TreeNodeData_Label
   name: Label
   nameWithType: TreeNodeData.Label
@@ -505,7 +492,6 @@ references:
   name.vb: String
 - uid: ISILab.LBS.VisualElements.TreeNodeData.SliderValue*
   commentId: Overload:ISILab.LBS.VisualElements.TreeNodeData.SliderValue
-  isExternal: true
   href: ISILab.LBS.VisualElements.TreeNodeData.html#ISILab_LBS_VisualElements_TreeNodeData_SliderValue
   name: SliderValue
   nameWithType: TreeNodeData.SliderValue
@@ -563,19 +549,25 @@ references:
   - name: )
 - uid: ISILab.LBS.VisualElements.TreeNodeData.ObjectFieldValue*
   commentId: Overload:ISILab.LBS.VisualElements.TreeNodeData.ObjectFieldValue
-  isExternal: true
   href: ISILab.LBS.VisualElements.TreeNodeData.html#ISILab_LBS_VisualElements_TreeNodeData_ObjectFieldValue
   name: ObjectFieldValue
   nameWithType: TreeNodeData.ObjectFieldValue
   fullName: ISILab.LBS.VisualElements.TreeNodeData.ObjectFieldValue
 - uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
   isExternal: true
   name: Object
   nameWithType: Object
   fullName: UnityEngine.Object
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.VisualElements.TreeNodeData.Type*
   commentId: Overload:ISILab.LBS.VisualElements.TreeNodeData.Type
-  isExternal: true
   href: ISILab.LBS.VisualElements.TreeNodeData.html#ISILab_LBS_VisualElements_TreeNodeData_Type
   name: Type
   nameWithType: TreeNodeData.Type
@@ -583,14 +575,12 @@ references:
 - uid: ISILab.LBS.VisualElements.NodeType
   commentId: T:ISILab.LBS.VisualElements.NodeType
   parent: ISILab.LBS.VisualElements
-  isExternal: true
   href: ISILab.LBS.VisualElements.NodeType.html
   name: NodeType
   nameWithType: NodeType
   fullName: ISILab.LBS.VisualElements.NodeType
 - uid: ISILab.LBS.VisualElements.TreeNodeData.Children*
   commentId: Overload:ISILab.LBS.VisualElements.TreeNodeData.Children
-  isExternal: true
   href: ISILab.LBS.VisualElements.TreeNodeData.html#ISILab_LBS_VisualElements_TreeNodeData_Children
   name: Children
   nameWithType: TreeNodeData.Children
@@ -614,7 +604,6 @@ references:
   - name: <
   - uid: ISILab.LBS.VisualElements.TreeNodeData
     name: TreeNodeData
-    isExternal: true
     href: ISILab.LBS.VisualElements.TreeNodeData.html
   - name: '>'
   spec.vb:
@@ -627,7 +616,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.VisualElements.TreeNodeData
     name: TreeNodeData
-    isExternal: true
     href: ISILab.LBS.VisualElements.TreeNodeData.html
   - name: )
 - uid: System.Collections.Generic.List`1

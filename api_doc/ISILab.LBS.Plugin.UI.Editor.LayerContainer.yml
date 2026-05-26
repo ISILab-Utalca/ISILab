@@ -5,7 +5,6 @@ items:
   id: LayerContainer
   parent: ISILab.LBS.Plugin.UI.Editor
   children:
-  - ISILab.LBS.Plugin.UI.Editor.LayerContainer.#ctor
   - ISILab.LBS.Plugin.UI.Editor.LayerContainer.AddElement(System.Object,UnityEditor.Experimental.GraphView.GraphElement)
   - ISILab.LBS.Plugin.UI.Editor.LayerContainer.Clear
   - ISILab.LBS.Plugin.UI.Editor.LayerContainer.ClearElement(System.Object)
@@ -20,22 +19,28 @@ items:
   nameWithType: LayerContainer
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer
   type: Class
+  source:
+    id: LayerContainer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\LayerContainer.cs
+    startLine: 9
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor
+  summary: Stores visual GraphElements associated with logical components (keys), grouped by layer.
+  example: []
   syntax:
     content: public class LayerContainer
     content.vb: Public Class LayerContainer
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.AddElement(System.Object,UnityEditor.Experimental.GraphView.GraphElement)
   commentId: M:ISILab.LBS.Plugin.UI.Editor.LayerContainer.AddElement(System.Object,UnityEditor.Experimental.GraphView.GraphElement)
   id: AddElement(System.Object,UnityEditor.Experimental.GraphView.GraphElement)
@@ -47,16 +52,24 @@ items:
   nameWithType: LayerContainer.AddElement(object, GraphElement)
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.AddElement(object, UnityEditor.Experimental.GraphView.GraphElement)
   type: Method
+  source:
+    id: AddElement
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\LayerContainer.cs
+    startLine: 19
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor
+  summary: Adds a GraphElement under a specific key (component or drawer).
+  example: []
   syntax:
     content: public void AddElement(object obj, GraphElement element)
     parameters:
     - id: obj
       type: System.Object
+      description: Key object (e.g., tile, behavior, etc.).
     - id: element
       type: UnityEditor.Experimental.GraphView.GraphElement
+      description: GraphElement to be added.
     content.vb: Public Sub AddElement(obj As Object, element As GraphElement)
   overload: ISILab.LBS.Plugin.UI.Editor.LayerContainer.AddElement*
   nameWithType.vb: LayerContainer.AddElement(Object, GraphElement)
@@ -73,16 +86,24 @@ items:
   nameWithType: LayerContainer.GetElement(object)
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.GetElement(object)
   type: Method
+  source:
+    id: GetElement
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\LayerContainer.cs
+    startLine: 35
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor
+  summary: Gets the list of GraphElements associated with a key.
+  example: []
   syntax:
     content: public List<GraphElement> GetElement(object obj)
     parameters:
     - id: obj
       type: System.Object
+      description: Key object.
     return:
       type: System.Collections.Generic.List{UnityEditor.Experimental.GraphView.GraphElement}
+      description: List of GraphElements, or null if not found.
     content.vb: Public Function GetElement(obj As Object) As List(Of GraphElement)
   overload: ISILab.LBS.Plugin.UI.Editor.LayerContainer.GetElement*
   nameWithType.vb: LayerContainer.GetElement(Object)
@@ -99,16 +120,24 @@ items:
   nameWithType: LayerContainer.ClearElement(object)
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.ClearElement(object)
   type: Method
+  source:
+    id: ClearElement
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\LayerContainer.cs
+    startLine: 45
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor
+  summary: Clears and removes the GraphElements for a specific key.
+  example: []
   syntax:
     content: public List<GraphElement> ClearElement(object obj)
     parameters:
     - id: obj
       type: System.Object
+      description: Key object.
     return:
       type: System.Collections.Generic.List{UnityEditor.Experimental.GraphView.GraphElement}
+      description: Removed list of GraphElements, or null if not found.
     content.vb: Public Function ClearElement(obj As Object) As List(Of GraphElement)
   overload: ISILab.LBS.Plugin.UI.Editor.LayerContainer.ClearElement*
   nameWithType.vb: LayerContainer.ClearElement(Object)
@@ -125,14 +154,21 @@ items:
   nameWithType: LayerContainer.Repaint(object)
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Repaint(object)
   type: Method
+  source:
+    id: Repaint
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\LayerContainer.cs
+    startLine: 54
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor
+  summary: Forces all GraphElements tied to a key to repaint.
+  example: []
   syntax:
     content: public void Repaint(object obj)
     parameters:
     - id: obj
       type: System.Object
+      description: Key object.
     content.vb: Public Sub Repaint(obj As Object)
   overload: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Repaint*
   nameWithType.vb: LayerContainer.Repaint(Object)
@@ -149,13 +185,20 @@ items:
   nameWithType: LayerContainer.Clear()
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Clear()
   type: Method
+  source:
+    id: Clear
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\LayerContainer.cs
+    startLine: 67
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor
+  summary: Clears the entire container, removing all keys and their GraphElements.
+  example: []
   syntax:
     content: public List<GraphElement> Clear()
     return:
       type: System.Collections.Generic.List{UnityEditor.Experimental.GraphView.GraphElement}
+      description: A flat list of all removed GraphElements.
     content.vb: Public Function Clear() As List(Of GraphElement)
   overload: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Clear*
 - uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Delete
@@ -169,6 +212,10 @@ items:
   nameWithType: LayerContainer.Delete()
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Delete()
   type: Method
+  source:
+    id: Delete
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\LayerContainer.cs
+    startLine: 89
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor
@@ -189,40 +236,24 @@ items:
   nameWithType: LayerContainer.GetAllElements()
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.GetAllElements()
   type: Method
+  source:
+    id: GetAllElements
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\LayerContainer.cs
+    startLine: 99
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor
+  summary: Returns all GraphElements in this container, flattened into a single list.
+  example: []
   syntax:
     content: public List<GraphElement> GetAllElements()
     return:
       type: System.Collections.Generic.List{UnityEditor.Experimental.GraphView.GraphElement}
     content.vb: Public Function GetAllElements() As List(Of GraphElement)
   overload: ISILab.LBS.Plugin.UI.Editor.LayerContainer.GetAllElements*
-- uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.#ctor
-  commentId: M:ISILab.LBS.Plugin.UI.Editor.LayerContainer.#ctor
-  id: '#ctor'
-  parent: ISILab.LBS.Plugin.UI.Editor.LayerContainer
-  langs:
-  - csharp
-  - vb
-  name: LayerContainer()
-  nameWithType: LayerContainer.LayerContainer()
-  fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.LayerContainer()
-  type: Constructor
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.Plugin.UI.Editor
-  syntax:
-    content: public LayerContainer()
-    content.vb: Public Sub New()
-  overload: ISILab.LBS.Plugin.UI.Editor.LayerContainer.#ctor*
-  nameWithType.vb: LayerContainer.New()
-  fullName.vb: ISILab.LBS.Plugin.UI.Editor.LayerContainer.New()
-  name.vb: New()
 references:
 - uid: ISILab.LBS.Plugin.UI.Editor
   commentId: N:ISILab.LBS.Plugin.UI.Editor
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.UI.Editor
   nameWithType: ISILab.LBS.Plugin.UI.Editor
@@ -230,52 +261,42 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
 - uid: System.Object
   commentId: T:System.Object
@@ -288,30 +309,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -378,51 +375,6 @@ references:
     name: Equals
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
   - name: (
   - uid: System.Object
     name: Object
@@ -507,6 +459,75 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -516,19 +537,49 @@ references:
   fullName: System
 - uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.AddElement*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.LayerContainer.AddElement
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.LayerContainer.html#ISILab_LBS_Plugin_UI_Editor_LayerContainer_AddElement_System_Object_UnityEditor_Experimental_GraphView_GraphElement_
   name: AddElement
   nameWithType: LayerContainer.AddElement
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.AddElement
 - uid: UnityEditor.Experimental.GraphView.GraphElement
+  commentId: T:UnityEditor.Experimental.GraphView.GraphElement
+  parent: UnityEditor.Experimental.GraphView
   isExternal: true
   name: GraphElement
   nameWithType: GraphElement
   fullName: UnityEditor.Experimental.GraphView.GraphElement
+- uid: UnityEditor.Experimental.GraphView
+  commentId: N:UnityEditor.Experimental.GraphView
+  isExternal: true
+  name: UnityEditor.Experimental.GraphView
+  nameWithType: UnityEditor.Experimental.GraphView
+  fullName: UnityEditor.Experimental.GraphView
+  spec.csharp:
+  - uid: UnityEditor
+    name: UnityEditor
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.Experimental
+    name: Experimental
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.Experimental.GraphView
+    name: GraphView
+    isExternal: true
+  spec.vb:
+  - uid: UnityEditor
+    name: UnityEditor
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.Experimental
+    name: Experimental
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.Experimental.GraphView
+    name: GraphView
+    isExternal: true
 - uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.GetElement*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.LayerContainer.GetElement
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.LayerContainer.html#ISILab_LBS_Plugin_UI_Editor_LayerContainer_GetElement_System_Object_
   name: GetElement
   nameWithType: LayerContainer.GetElement
@@ -633,47 +684,32 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.ClearElement*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.LayerContainer.ClearElement
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.LayerContainer.html#ISILab_LBS_Plugin_UI_Editor_LayerContainer_ClearElement_System_Object_
   name: ClearElement
   nameWithType: LayerContainer.ClearElement
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.ClearElement
 - uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Repaint*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.LayerContainer.Repaint
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.LayerContainer.html#ISILab_LBS_Plugin_UI_Editor_LayerContainer_Repaint_System_Object_
   name: Repaint
   nameWithType: LayerContainer.Repaint
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Repaint
 - uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Clear*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.LayerContainer.Clear
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.LayerContainer.html#ISILab_LBS_Plugin_UI_Editor_LayerContainer_Clear
   name: Clear
   nameWithType: LayerContainer.Clear
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Clear
 - uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Delete*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.LayerContainer.Delete
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.LayerContainer.html#ISILab_LBS_Plugin_UI_Editor_LayerContainer_Delete
   name: Delete
   nameWithType: LayerContainer.Delete
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.Delete
 - uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.GetAllElements*
   commentId: Overload:ISILab.LBS.Plugin.UI.Editor.LayerContainer.GetAllElements
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.LayerContainer.html#ISILab_LBS_Plugin_UI_Editor_LayerContainer_GetAllElements
   name: GetAllElements
   nameWithType: LayerContainer.GetAllElements
   fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.GetAllElements
-- uid: ISILab.LBS.Plugin.UI.Editor.LayerContainer.#ctor*
-  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.LayerContainer.#ctor
-  isExternal: true
-  href: ISILab.LBS.Plugin.UI.Editor.LayerContainer.html#ISILab_LBS_Plugin_UI_Editor_LayerContainer__ctor
-  name: LayerContainer
-  nameWithType: LayerContainer.LayerContainer
-  fullName: ISILab.LBS.Plugin.UI.Editor.LayerContainer.LayerContainer
-  nameWithType.vb: LayerContainer.New
-  fullName.vb: ISILab.LBS.Plugin.UI.Editor.LayerContainer.New
-  name.vb: New
 shouldSkipMarkup: true

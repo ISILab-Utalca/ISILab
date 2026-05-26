@@ -38,12 +38,22 @@ items:
   nameWithType: GraphNode
   fullName: ISILab.LBS.Components.GraphNode
   type: Class
+  source:
+    id: GraphNode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 16
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: 'public abstract class GraphNode : ICloneable'
-    content.vb: Public MustInherit Class GraphNode Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public abstract class GraphNode : ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public MustInherit Class GraphNode Implements ICloneable
   inheritance:
   - System.Object
   derivedClasses:
@@ -53,11 +63,15 @@ items:
   implements:
   - System.ICloneable
   inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.GraphNode.Or
   commentId: F:ISILab.LBS.Components.GraphNode.Or
   id: Or
@@ -69,6 +83,10 @@ items:
   nameWithType: GraphNode.Or
   fullName: ISILab.LBS.Components.GraphNode.Or
   type: Field
+  source:
+    id: Or
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 21
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -88,6 +106,10 @@ items:
   nameWithType: GraphNode.And
   fullName: ISILab.LBS.Components.GraphNode.And
   type: Field
+  source:
+    id: And
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 22
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -107,14 +129,28 @@ items:
   nameWithType: GraphNode.validGrammar
   fullName: ISILab.LBS.Components.GraphNode.validGrammar
   type: Field
+  source:
+    id: validGrammar
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 32
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: protected bool validGrammar
+    content: >-
+      [SerializeField]
+
+      protected bool validGrammar
     return:
       type: System.Boolean
-    content.vb: Protected validGrammar As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      Protected validGrammar As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.GraphNode.validConnections
   commentId: F:ISILab.LBS.Components.GraphNode.validConnections
   id: validConnections
@@ -126,14 +162,28 @@ items:
   nameWithType: GraphNode.validConnections
   fullName: ISILab.LBS.Components.GraphNode.validConnections
   type: Field
+  source:
+    id: validConnections
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 35
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: protected bool validConnections
+    content: >-
+      [SerializeField]
+
+      protected bool validConnections
     return:
       type: System.Boolean
-    content.vb: Protected validConnections As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      Protected validConnections As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.GraphNode.x
   commentId: F:ISILab.LBS.Components.GraphNode.x
   id: x
@@ -145,14 +195,35 @@ items:
   nameWithType: GraphNode.x
   fullName: ISILab.LBS.Components.GraphNode.x
   type: Field
+  source:
+    id: x
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: protected int x
+    content: >-
+      [SerializeField]
+
+      [HideInInspector]
+
+      protected int x
     return:
       type: System.Int32
-    content.vb: Protected x As Integer
+    content.vb: >-
+      <SerializeField>
+
+      <HideInInspector>
+
+      Protected x As Integer
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.GraphNode.y
   commentId: F:ISILab.LBS.Components.GraphNode.y
   id: y
@@ -164,14 +235,35 @@ items:
   nameWithType: GraphNode.y
   fullName: ISILab.LBS.Components.GraphNode.y
   type: Field
+  source:
+    id: y
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 41
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: protected int y
+    content: >-
+      [SerializeField]
+
+      [HideInInspector]
+
+      protected int y
     return:
       type: System.Int32
-    content.vb: Protected y As Integer
+    content.vb: >-
+      <SerializeField>
+
+      <HideInInspector>
+
+      Protected y As Integer
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.GraphNode.graph
   commentId: F:ISILab.LBS.Components.GraphNode.graph
   id: graph
@@ -183,14 +275,35 @@ items:
   nameWithType: GraphNode.graph
   fullName: ISILab.LBS.Components.GraphNode.graph
   type: Field
+  source:
+    id: graph
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 44
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: protected QuestGraph graph
+    content: >-
+      [SerializeField]
+
+      [SerializeReference]
+
+      protected QuestGraph graph
     return:
       type: ISILab.LBS.Modules.QuestGraph
-    content.vb: Protected graph As QuestGraph
+    content.vb: >-
+      <SerializeField>
+
+      <SerializeReference>
+
+      Protected graph As QuestGraph
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: UnityEngine.SerializeReference
+    ctor: UnityEngine.SerializeReference.#ctor
+    arguments: []
 - uid: ISILab.LBS.Components.GraphNode.nodePosition
   commentId: F:ISILab.LBS.Components.GraphNode.nodePosition
   id: nodePosition
@@ -202,14 +315,182 @@ items:
   nameWithType: GraphNode.nodePosition
   fullName: ISILab.LBS.Components.GraphNode.nodePosition
   type: Field
+  source:
+    id: nodePosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 47
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: protected Rect nodePosition
+    content: >-
+      [SerializeField]
+
+      protected Rect nodePosition
     return:
       type: UnityEngine.Rect
-    content.vb: Protected nodePosition As Rect
+    content.vb: >-
+      <SerializeField>
+
+      Protected nodePosition As Rect
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+- uid: ISILab.LBS.Components.GraphNode.Graph
+  commentId: P:ISILab.LBS.Components.GraphNode.Graph
+  id: Graph
+  parent: ISILab.LBS.Components.GraphNode
+  langs:
+  - csharp
+  - vb
+  name: Graph
+  nameWithType: GraphNode.Graph
+  fullName: ISILab.LBS.Components.GraphNode.Graph
+  type: Property
+  source:
+    id: Graph
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 52
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public QuestGraph Graph { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Modules.QuestGraph
+    content.vb: Public Property Graph As QuestGraph
+  overload: ISILab.LBS.Components.GraphNode.Graph*
+- uid: ISILab.LBS.Components.GraphNode.ID
+  commentId: P:ISILab.LBS.Components.GraphNode.ID
+  id: ID
+  parent: ISILab.LBS.Components.GraphNode
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: GraphNode.ID
+  fullName: ISILab.LBS.Components.GraphNode.ID
+  type: Property
+  source:
+    id: ID
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 58
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: ISILab.LBS.Components.GraphNode.ID*
+- uid: ISILab.LBS.Components.GraphNode.Position
+  commentId: P:ISILab.LBS.Components.GraphNode.Position
+  id: Position
+  parent: ISILab.LBS.Components.GraphNode
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: GraphNode.Position
+  fullName: ISILab.LBS.Components.GraphNode.Position
+  type: Property
+  source:
+    id: Position
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 67
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  summary: The cell position in the grid
+  example: []
+  syntax:
+    content: public Vector2Int Position { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Property Position As Vector2Int
+  overload: ISILab.LBS.Components.GraphNode.Position*
+- uid: ISILab.LBS.Components.GraphNode.ValidGrammar
+  commentId: P:ISILab.LBS.Components.GraphNode.ValidGrammar
+  id: ValidGrammar
+  parent: ISILab.LBS.Components.GraphNode
+  langs:
+  - csharp
+  - vb
+  name: ValidGrammar
+  nameWithType: GraphNode.ValidGrammar
+  fullName: ISILab.LBS.Components.GraphNode.ValidGrammar
+  type: Property
+  source:
+    id: ValidGrammar
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 77
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public bool ValidGrammar { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ValidGrammar As Boolean
+  overload: ISILab.LBS.Components.GraphNode.ValidGrammar*
+- uid: ISILab.LBS.Components.GraphNode.ValidConnections
+  commentId: P:ISILab.LBS.Components.GraphNode.ValidConnections
+  id: ValidConnections
+  parent: ISILab.LBS.Components.GraphNode
+  langs:
+  - csharp
+  - vb
+  name: ValidConnections
+  nameWithType: GraphNode.ValidConnections
+  fullName: ISILab.LBS.Components.GraphNode.ValidConnections
+  type: Property
+  source:
+    id: ValidConnections
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 83
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public bool ValidConnections { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ValidConnections As Boolean
+  overload: ISILab.LBS.Components.GraphNode.ValidConnections*
+- uid: ISILab.LBS.Components.GraphNode.NodePosition
+  commentId: P:ISILab.LBS.Components.GraphNode.NodePosition
+  id: NodePosition
+  parent: ISILab.LBS.Components.GraphNode
+  langs:
+  - csharp
+  - vb
+  name: NodePosition
+  nameWithType: GraphNode.NodePosition
+  fullName: ISILab.LBS.Components.GraphNode.NodePosition
+  type: Property
+  source:
+    id: NodePosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 92
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  summary: The position of the node visual element.
+  example: []
+  syntax:
+    content: public Rect NodePosition { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public Property NodePosition As Rect
+  overload: ISILab.LBS.Components.GraphNode.NodePosition*
 - uid: ISILab.LBS.Components.GraphNode.OnSelect
   commentId: F:ISILab.LBS.Components.GraphNode.OnSelect
   id: OnSelect
@@ -221,6 +502,10 @@ items:
   nameWithType: GraphNode.OnSelect
   fullName: ISILab.LBS.Components.GraphNode.OnSelect
   type: Field
+  source:
+    id: OnSelect
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 108
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -240,6 +525,10 @@ items:
   nameWithType: GraphNode.OnDeselect
   fullName: ISILab.LBS.Components.GraphNode.OnDeselect
   type: Field
+  source:
+    id: OnDeselect
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 109
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -259,6 +548,10 @@ items:
   nameWithType: GraphNode.GraphNode()
   fullName: ISILab.LBS.Components.GraphNode.GraphNode()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 112
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -280,6 +573,10 @@ items:
   nameWithType: GraphNode.GraphNode(string, Vector2, QuestGraph)
   fullName: ISILab.LBS.Components.GraphNode.GraphNode(string, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraph)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 114
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -308,14 +605,21 @@ items:
   nameWithType: GraphNode.Select(bool)
   fullName: ISILab.LBS.Components.GraphNode.Select(bool)
   type: Method
+  source:
+    id: Select
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 130
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
+  summary: Selects the node as the active node in the graph
+  example: []
   syntax:
     content: public void Select(bool forceReselect = false)
     parameters:
     - id: forceReselect
       type: System.Boolean
+      description: will call all the delegates when a new node is selected, even if its already selected
     content.vb: Public Sub [Select](forceReselect As Boolean = False)
   overload: ISILab.LBS.Components.GraphNode.Select*
   nameWithType.vb: GraphNode.Select(Boolean)
@@ -332,6 +636,10 @@ items:
   nameWithType: GraphNode.Clone()
   fullName: ISILab.LBS.Components.GraphNode.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 142
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -355,6 +663,10 @@ items:
   nameWithType: GraphNode.Equals(object)
   fullName: ISILab.LBS.Components.GraphNode.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 159
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -383,6 +695,10 @@ items:
   nameWithType: GraphNode.GetHashCode()
   fullName: ISILab.LBS.Components.GraphNode.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 165
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -405,6 +721,10 @@ items:
   nameWithType: GraphNode.CreateCloneInstance()
   fullName: ISILab.LBS.Components.GraphNode.CreateCloneInstance()
   type: Method
+  source:
+    id: CreateCloneInstance
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 170
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -425,6 +745,10 @@ items:
   nameWithType: GraphNode.IsValid()
   fullName: ISILab.LBS.Components.GraphNode.IsValid()
   type: Method
+  source:
+    id: IsValid
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 172
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -445,6 +769,10 @@ items:
   nameWithType: GraphNode.Equal(GraphNode)
   fullName: ISILab.LBS.Components.GraphNode.Equal(ISILab.LBS.Components.GraphNode)
   type: Method
+  source:
+    id: Equal
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 174
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -468,6 +796,10 @@ items:
   nameWithType: GraphNode.IsSelected()
   fullName: ISILab.LBS.Components.GraphNode.IsSelected()
   type: Method
+  source:
+    id: IsSelected
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
+    startLine: 179
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -477,136 +809,9 @@ items:
       type: System.Boolean
     content.vb: Public Function IsSelected() As Boolean
   overload: ISILab.LBS.Components.GraphNode.IsSelected*
-- uid: ISILab.LBS.Components.GraphNode.Graph
-  commentId: P:ISILab.LBS.Components.GraphNode.Graph
-  id: Graph
-  parent: ISILab.LBS.Components.GraphNode
-  langs:
-  - csharp
-  - vb
-  name: Graph
-  nameWithType: GraphNode.Graph
-  fullName: ISILab.LBS.Components.GraphNode.Graph
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public QuestGraph Graph { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Modules.QuestGraph
-    content.vb: Public Property Graph As QuestGraph
-  overload: ISILab.LBS.Components.GraphNode.Graph*
-- uid: ISILab.LBS.Components.GraphNode.ID
-  commentId: P:ISILab.LBS.Components.GraphNode.ID
-  id: ID
-  parent: ISILab.LBS.Components.GraphNode
-  langs:
-  - csharp
-  - vb
-  name: ID
-  nameWithType: GraphNode.ID
-  fullName: ISILab.LBS.Components.GraphNode.ID
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public string ID { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property ID As String
-  overload: ISILab.LBS.Components.GraphNode.ID*
-- uid: ISILab.LBS.Components.GraphNode.Position
-  commentId: P:ISILab.LBS.Components.GraphNode.Position
-  id: Position
-  parent: ISILab.LBS.Components.GraphNode
-  langs:
-  - csharp
-  - vb
-  name: Position
-  nameWithType: GraphNode.Position
-  fullName: ISILab.LBS.Components.GraphNode.Position
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public Vector2Int Position { get; set; }
-    parameters: []
-    return:
-      type: UnityEngine.Vector2Int
-    content.vb: Public Property Position As Vector2Int
-  overload: ISILab.LBS.Components.GraphNode.Position*
-- uid: ISILab.LBS.Components.GraphNode.ValidGrammar
-  commentId: P:ISILab.LBS.Components.GraphNode.ValidGrammar
-  id: ValidGrammar
-  parent: ISILab.LBS.Components.GraphNode
-  langs:
-  - csharp
-  - vb
-  name: ValidGrammar
-  nameWithType: GraphNode.ValidGrammar
-  fullName: ISILab.LBS.Components.GraphNode.ValidGrammar
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public bool ValidGrammar { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property ValidGrammar As Boolean
-  overload: ISILab.LBS.Components.GraphNode.ValidGrammar*
-- uid: ISILab.LBS.Components.GraphNode.ValidConnections
-  commentId: P:ISILab.LBS.Components.GraphNode.ValidConnections
-  id: ValidConnections
-  parent: ISILab.LBS.Components.GraphNode
-  langs:
-  - csharp
-  - vb
-  name: ValidConnections
-  nameWithType: GraphNode.ValidConnections
-  fullName: ISILab.LBS.Components.GraphNode.ValidConnections
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public bool ValidConnections { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property ValidConnections As Boolean
-  overload: ISILab.LBS.Components.GraphNode.ValidConnections*
-- uid: ISILab.LBS.Components.GraphNode.NodePosition
-  commentId: P:ISILab.LBS.Components.GraphNode.NodePosition
-  id: NodePosition
-  parent: ISILab.LBS.Components.GraphNode
-  langs:
-  - csharp
-  - vb
-  name: NodePosition
-  nameWithType: GraphNode.NodePosition
-  fullName: ISILab.LBS.Components.GraphNode.NodePosition
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public Rect NodePosition { get; set; }
-    parameters: []
-    return:
-      type: UnityEngine.Rect
-    content.vb: Public Property NodePosition As Rect
-  overload: ISILab.LBS.Components.GraphNode.NodePosition*
 references:
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Components
   nameWithType: ISILab.LBS.Components
@@ -614,32 +819,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Components.html
 - uid: System.Object
   commentId: T:System.Object
@@ -660,6 +859,51 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -708,75 +952,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -822,6 +997,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -865,14 +1064,12 @@ references:
 - uid: ISILab.LBS.Modules.QuestGraph
   commentId: T:ISILab.LBS.Modules.QuestGraph
   parent: ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.LBS.Modules.QuestGraph.html
   name: QuestGraph
   nameWithType: QuestGraph
   fullName: ISILab.LBS.Modules.QuestGraph
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Modules
   nameWithType: ISILab.LBS.Modules
@@ -880,38 +1077,83 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Modules
     name: Modules
-    isExternal: true
     href: ISILab.LBS.Modules.html
 - uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
   isExternal: true
   name: Rect
   nameWithType: Rect
   fullName: UnityEngine.Rect
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.LBS.Components.GraphNode.Graph*
+  commentId: Overload:ISILab.LBS.Components.GraphNode.Graph
+  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Graph
+  name: Graph
+  nameWithType: GraphNode.Graph
+  fullName: ISILab.LBS.Components.GraphNode.Graph
+- uid: ISILab.LBS.Components.GraphNode.ID*
+  commentId: Overload:ISILab.LBS.Components.GraphNode.ID
+  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ID
+  name: ID
+  nameWithType: GraphNode.ID
+  fullName: ISILab.LBS.Components.GraphNode.ID
+- uid: ISILab.LBS.Components.GraphNode.Position*
+  commentId: Overload:ISILab.LBS.Components.GraphNode.Position
+  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Position
+  name: Position
+  nameWithType: GraphNode.Position
+  fullName: ISILab.LBS.Components.GraphNode.Position
+- uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: ISILab.LBS.Components.GraphNode.ValidGrammar*
+  commentId: Overload:ISILab.LBS.Components.GraphNode.ValidGrammar
+  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ValidGrammar
+  name: ValidGrammar
+  nameWithType: GraphNode.ValidGrammar
+  fullName: ISILab.LBS.Components.GraphNode.ValidGrammar
+- uid: ISILab.LBS.Components.GraphNode.ValidConnections*
+  commentId: Overload:ISILab.LBS.Components.GraphNode.ValidConnections
+  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ValidConnections
+  name: ValidConnections
+  nameWithType: GraphNode.ValidConnections
+  fullName: ISILab.LBS.Components.GraphNode.ValidConnections
+- uid: ISILab.LBS.Components.GraphNode.NodePosition*
+  commentId: Overload:ISILab.LBS.Components.GraphNode.NodePosition
+  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_NodePosition
+  name: NodePosition
+  nameWithType: GraphNode.NodePosition
+  fullName: ISILab.LBS.Components.GraphNode.NodePosition
 - uid: System.Action
   commentId: T:System.Action
   parent: System
@@ -922,7 +1164,6 @@ references:
   fullName: System.Action
 - uid: ISILab.LBS.Components.GraphNode.#ctor*
   commentId: Overload:ISILab.LBS.Components.GraphNode.#ctor
-  isExternal: true
   href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode__ctor
   name: GraphNode
   nameWithType: GraphNode.GraphNode
@@ -931,20 +1172,20 @@ references:
   fullName.vb: ISILab.LBS.Components.GraphNode.New
   name.vb: New
 - uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
   fullName: UnityEngine.Vector2
 - uid: ISILab.LBS.Components.GraphNode.Select*
   commentId: Overload:ISILab.LBS.Components.GraphNode.Select
-  isExternal: true
   href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Select_System_Boolean_
   name: Select
   nameWithType: GraphNode.Select
   fullName: ISILab.LBS.Components.GraphNode.Select
 - uid: ISILab.LBS.Components.GraphNode.Clone*
   commentId: Overload:ISILab.LBS.Components.GraphNode.Clone
-  isExternal: true
   href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Clone
   name: Clone
   nameWithType: GraphNode.Clone
@@ -1006,7 +1247,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Components.GraphNode.Equals*
   commentId: Overload:ISILab.LBS.Components.GraphNode.Equals
-  isExternal: true
   href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Equals_System_Object_
   name: Equals
   nameWithType: GraphNode.Equals
@@ -1037,14 +1277,12 @@ references:
   - name: )
 - uid: ISILab.LBS.Components.GraphNode.GetHashCode*
   commentId: Overload:ISILab.LBS.Components.GraphNode.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_GetHashCode
   name: GetHashCode
   nameWithType: GraphNode.GetHashCode
   fullName: ISILab.LBS.Components.GraphNode.GetHashCode
 - uid: ISILab.LBS.Components.GraphNode.CreateCloneInstance*
   commentId: Overload:ISILab.LBS.Components.GraphNode.CreateCloneInstance
-  isExternal: true
   href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_CreateCloneInstance
   name: CreateCloneInstance
   nameWithType: GraphNode.CreateCloneInstance
@@ -1052,77 +1290,26 @@ references:
 - uid: ISILab.LBS.Components.GraphNode
   commentId: T:ISILab.LBS.Components.GraphNode
   parent: ISILab.LBS.Components
-  isExternal: true
   href: ISILab.LBS.Components.GraphNode.html
   name: GraphNode
   nameWithType: GraphNode
   fullName: ISILab.LBS.Components.GraphNode
 - uid: ISILab.LBS.Components.GraphNode.IsValid*
   commentId: Overload:ISILab.LBS.Components.GraphNode.IsValid
-  isExternal: true
   href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsValid
   name: IsValid
   nameWithType: GraphNode.IsValid
   fullName: ISILab.LBS.Components.GraphNode.IsValid
 - uid: ISILab.LBS.Components.GraphNode.Equal*
   commentId: Overload:ISILab.LBS.Components.GraphNode.Equal
-  isExternal: true
   href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Equal_ISILab_LBS_Components_GraphNode_
   name: Equal
   nameWithType: GraphNode.Equal
   fullName: ISILab.LBS.Components.GraphNode.Equal
 - uid: ISILab.LBS.Components.GraphNode.IsSelected*
   commentId: Overload:ISILab.LBS.Components.GraphNode.IsSelected
-  isExternal: true
   href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsSelected
   name: IsSelected
   nameWithType: GraphNode.IsSelected
   fullName: ISILab.LBS.Components.GraphNode.IsSelected
-- uid: ISILab.LBS.Components.GraphNode.Graph*
-  commentId: Overload:ISILab.LBS.Components.GraphNode.Graph
-  isExternal: true
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Graph
-  name: Graph
-  nameWithType: GraphNode.Graph
-  fullName: ISILab.LBS.Components.GraphNode.Graph
-- uid: ISILab.LBS.Components.GraphNode.ID*
-  commentId: Overload:ISILab.LBS.Components.GraphNode.ID
-  isExternal: true
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ID
-  name: ID
-  nameWithType: GraphNode.ID
-  fullName: ISILab.LBS.Components.GraphNode.ID
-- uid: ISILab.LBS.Components.GraphNode.Position*
-  commentId: Overload:ISILab.LBS.Components.GraphNode.Position
-  isExternal: true
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Position
-  name: Position
-  nameWithType: GraphNode.Position
-  fullName: ISILab.LBS.Components.GraphNode.Position
-- uid: UnityEngine.Vector2Int
-  isExternal: true
-  name: Vector2Int
-  nameWithType: Vector2Int
-  fullName: UnityEngine.Vector2Int
-- uid: ISILab.LBS.Components.GraphNode.ValidGrammar*
-  commentId: Overload:ISILab.LBS.Components.GraphNode.ValidGrammar
-  isExternal: true
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ValidGrammar
-  name: ValidGrammar
-  nameWithType: GraphNode.ValidGrammar
-  fullName: ISILab.LBS.Components.GraphNode.ValidGrammar
-- uid: ISILab.LBS.Components.GraphNode.ValidConnections*
-  commentId: Overload:ISILab.LBS.Components.GraphNode.ValidConnections
-  isExternal: true
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ValidConnections
-  name: ValidConnections
-  nameWithType: GraphNode.ValidConnections
-  fullName: ISILab.LBS.Components.GraphNode.ValidConnections
-- uid: ISILab.LBS.Components.GraphNode.NodePosition*
-  commentId: Overload:ISILab.LBS.Components.GraphNode.NodePosition
-  isExternal: true
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_NodePosition
-  name: NodePosition
-  nameWithType: GraphNode.NodePosition
-  fullName: ISILab.LBS.Components.GraphNode.NodePosition
 shouldSkipMarkup: true

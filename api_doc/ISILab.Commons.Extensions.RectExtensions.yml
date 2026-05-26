@@ -19,6 +19,10 @@ items:
   nameWithType: RectExtensions
   fullName: ISILab.Commons.Extensions.RectExtensions
   type: Class
+  source:
+    id: RectExtensions
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\RectExtensions.cs
+    startLine: 4
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
@@ -28,13 +32,13 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.Commons.Extensions.RectExtensions.GetCombinedArea(UnityEngine.Rect@,UnityEngine.Rect,UnityEngine.Rect)
   commentId: M:ISILab.Commons.Extensions.RectExtensions.GetCombinedArea(UnityEngine.Rect@,UnityEngine.Rect,UnityEngine.Rect)
   id: GetCombinedArea(UnityEngine.Rect@,UnityEngine.Rect,UnityEngine.Rect)
@@ -47,9 +51,18 @@ items:
   nameWithType: RectExtensions.GetCombinedArea(ref Rect, Rect, Rect)
   fullName: ISILab.Commons.Extensions.RectExtensions.GetCombinedArea(ref UnityEngine.Rect, UnityEngine.Rect, UnityEngine.Rect)
   type: Method
+  source:
+    id: GetCombinedArea
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\RectExtensions.cs
+    startLine: 10
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: >-
+    Gets the minimum and maximum x and y axis points of the two rectangles (forming the area), 
+
+    and applies said area to itself.
+  example: []
   syntax:
     content: public static void GetCombinedArea(this ref Rect rect, Rect a, Rect b)
     parameters:
@@ -76,9 +89,18 @@ items:
   nameWithType: RectExtensions.GetCombinedArea(ref Rect, Rect)
   fullName: ISILab.Commons.Extensions.RectExtensions.GetCombinedArea(ref UnityEngine.Rect, UnityEngine.Rect)
   type: Method
+  source:
+    id: GetCombinedArea
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\RectExtensions.cs
+    startLine: 22
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: >-
+    Gets the minimum and maximum x and y axis points of it's own rectangle and another (forming the area), 
+
+    and applies said area to itself.
+  example: []
   syntax:
     content: public static void GetCombinedArea(this ref Rect rect, Rect b)
     parameters:
@@ -103,16 +125,24 @@ items:
   nameWithType: RectExtensions.HasArea(Rect)
   fullName: ISILab.Commons.Extensions.RectExtensions.HasArea(UnityEngine.Rect)
   type: Method
+  source:
+    id: HasArea
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\RectExtensions.cs
+    startLine: 35
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Indicates whether the evaluated rectangle has a non-zero equivalent area or not.
+  example: []
   syntax:
     content: public static bool HasArea(this Rect rect)
     parameters:
     - id: rect
       type: UnityEngine.Rect
+      description: ''
     return:
       type: System.Boolean
+      description: ''
     content.vb: Public Shared Function HasArea(rect As Rect) As Boolean
   overload: ISILab.Commons.Extensions.RectExtensions.HasArea*
 - uid: ISILab.Commons.Extensions.RectExtensions.ToIndex(UnityEngine.Rect,UnityEngine.Vector2)
@@ -127,9 +157,15 @@ items:
   nameWithType: RectExtensions.ToIndex(Rect, Vector2)
   fullName: ISILab.Commons.Extensions.RectExtensions.ToIndex(UnityEngine.Rect, UnityEngine.Vector2)
   type: Method
+  source:
+    id: ToIndex
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\RectExtensions.cs
+    startLine: 41
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Converts a 2D position to an index in a 1D array.
+  example: []
   syntax:
     content: public static int ToIndex(this Rect rect, Vector2 pos)
     parameters:
@@ -137,6 +173,7 @@ items:
       type: UnityEngine.Rect
     - id: pos
       type: UnityEngine.Vector2
+      description: The 2D position to convert.
     return:
       type: System.Int32
     content.vb: Public Shared Function ToIndex(rect As Rect, pos As Vector2) As Integer
@@ -153,6 +190,10 @@ items:
   nameWithType: RectExtensions.GlobalToIndex(Rect, Vector2)
   fullName: ISILab.Commons.Extensions.RectExtensions.GlobalToIndex(UnityEngine.Rect, UnityEngine.Vector2)
   type: Method
+  source:
+    id: GlobalToIndex
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\RectExtensions.cs
+    startLine: 48
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
@@ -179,9 +220,15 @@ items:
   nameWithType: RectExtensions.ToMatrixPosition(Rect, int)
   fullName: ISILab.Commons.Extensions.RectExtensions.ToMatrixPosition(UnityEngine.Rect, int)
   type: Method
+  source:
+    id: ToMatrixPosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\RectExtensions.cs
+    startLine: 54
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Converts an index in a 1D array to a 2D position.
+  example: []
   syntax:
     content: public static Vector2Int ToMatrixPosition(this Rect rect, int index)
     parameters:
@@ -189,6 +236,7 @@ items:
       type: UnityEngine.Rect
     - id: index
       type: System.Int32
+      description: The index in the 1D array to convert.
     return:
       type: UnityEngine.Vector2Int
     content.vb: Public Shared Function ToMatrixPosition(rect As Rect, index As Integer) As Vector2Int
@@ -208,6 +256,10 @@ items:
   nameWithType: RectExtensions.ToGlobalPosition(Rect, int)
   fullName: ISILab.Commons.Extensions.RectExtensions.ToGlobalPosition(UnityEngine.Rect, int)
   type: Method
+  source:
+    id: ToGlobalPosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\RectExtensions.cs
+    startLine: 59
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
@@ -228,7 +280,6 @@ items:
 references:
 - uid: ISILab.Commons.Extensions
   commentId: N:ISILab.Commons.Extensions
-  isExternal: true
   href: ISILab.html
   name: ISILab.Commons.Extensions
   nameWithType: ISILab.Commons.Extensions
@@ -236,32 +287,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.Commons
     name: Commons
-    isExternal: true
     href: ISILab.Commons.html
   - name: .
   - uid: ISILab.Commons.Extensions
     name: Extensions
-    isExternal: true
     href: ISILab.Commons.Extensions.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.Commons
     name: Commons
-    isExternal: true
     href: ISILab.Commons.html
   - name: .
   - uid: ISILab.Commons.Extensions
     name: Extensions
-    isExternal: true
     href: ISILab.Commons.Extensions.html
 - uid: System.Object
   commentId: T:System.Object
@@ -274,78 +319,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -424,6 +397,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -469,28 +514,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -502,19 +547,25 @@ references:
   fullName: System
 - uid: ISILab.Commons.Extensions.RectExtensions.GetCombinedArea*
   commentId: Overload:ISILab.Commons.Extensions.RectExtensions.GetCombinedArea
-  isExternal: true
   href: ISILab.Commons.Extensions.RectExtensions.html#ISILab_Commons_Extensions_RectExtensions_GetCombinedArea_UnityEngine_Rect__UnityEngine_Rect_UnityEngine_Rect_
   name: GetCombinedArea
   nameWithType: RectExtensions.GetCombinedArea
   fullName: ISILab.Commons.Extensions.RectExtensions.GetCombinedArea
 - uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
   isExternal: true
   name: Rect
   nameWithType: Rect
   fullName: UnityEngine.Rect
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.Commons.Extensions.RectExtensions.HasArea*
   commentId: Overload:ISILab.Commons.Extensions.RectExtensions.HasArea
-  isExternal: true
   href: ISILab.Commons.Extensions.RectExtensions.html#ISILab_Commons_Extensions_RectExtensions_HasArea_UnityEngine_Rect_
   name: HasArea
   nameWithType: RectExtensions.HasArea
@@ -532,12 +583,13 @@ references:
   name.vb: Boolean
 - uid: ISILab.Commons.Extensions.RectExtensions.ToIndex*
   commentId: Overload:ISILab.Commons.Extensions.RectExtensions.ToIndex
-  isExternal: true
   href: ISILab.Commons.Extensions.RectExtensions.html#ISILab_Commons_Extensions_RectExtensions_ToIndex_UnityEngine_Rect_UnityEngine_Vector2_
   name: ToIndex
   nameWithType: RectExtensions.ToIndex
   fullName: ISILab.Commons.Extensions.RectExtensions.ToIndex
 - uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
@@ -555,26 +607,25 @@ references:
   name.vb: Integer
 - uid: ISILab.Commons.Extensions.RectExtensions.GlobalToIndex*
   commentId: Overload:ISILab.Commons.Extensions.RectExtensions.GlobalToIndex
-  isExternal: true
   href: ISILab.Commons.Extensions.RectExtensions.html#ISILab_Commons_Extensions_RectExtensions_GlobalToIndex_UnityEngine_Rect_UnityEngine_Vector2_
   name: GlobalToIndex
   nameWithType: RectExtensions.GlobalToIndex
   fullName: ISILab.Commons.Extensions.RectExtensions.GlobalToIndex
 - uid: ISILab.Commons.Extensions.RectExtensions.ToMatrixPosition*
   commentId: Overload:ISILab.Commons.Extensions.RectExtensions.ToMatrixPosition
-  isExternal: true
   href: ISILab.Commons.Extensions.RectExtensions.html#ISILab_Commons_Extensions_RectExtensions_ToMatrixPosition_UnityEngine_Rect_System_Int32_
   name: ToMatrixPosition
   nameWithType: RectExtensions.ToMatrixPosition
   fullName: ISILab.Commons.Extensions.RectExtensions.ToMatrixPosition
 - uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
   isExternal: true
   name: Vector2Int
   nameWithType: Vector2Int
   fullName: UnityEngine.Vector2Int
 - uid: ISILab.Commons.Extensions.RectExtensions.ToGlobalPosition*
   commentId: Overload:ISILab.Commons.Extensions.RectExtensions.ToGlobalPosition
-  isExternal: true
   href: ISILab.Commons.Extensions.RectExtensions.html#ISILab_Commons_Extensions_RectExtensions_ToGlobalPosition_UnityEngine_Rect_System_Int32_
   name: ToGlobalPosition
   nameWithType: RectExtensions.ToGlobalPosition

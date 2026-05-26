@@ -101,7 +101,8 @@ Class StairsModule
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class StairsModule : LBSModule, ICloneable, ISelectable</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class StairsModule : LBSModule, ICloneable, ISelectable</code></pre>
   </div>
 
 
@@ -132,6 +133,12 @@ Class StairsModule
       <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id">LBSModule.id</a>
     </div>
     <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer">LBSModule.OwnerLayer</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID">LBSModule.ID</a>
+    </div>
+    <div>
       <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged">LBSModule.OnChanged</a>
     </div>
     <div>
@@ -150,10 +157,13 @@ Class StairsModule
       <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_">LBSModule.Rewrite(LBSModule)</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer">LBSModule.OwnerLayer</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
-      <a class="xref" href="ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID">LBSModule.ID</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
@@ -162,19 +172,10 @@ Class StairsModule
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -321,7 +322,7 @@ Class StairsModule
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Cleans all the information saved in.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -347,7 +348,7 @@ Class StairsModule
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Creates a copy of the representation.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -488,7 +489,7 @@ Class StairsModule
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Determines whether the representation is empty.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

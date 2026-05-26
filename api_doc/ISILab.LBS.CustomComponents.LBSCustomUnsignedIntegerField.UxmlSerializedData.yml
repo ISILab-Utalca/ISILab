@@ -5,7 +5,6 @@ items:
   id: LBSCustomUnsignedIntegerField.UxmlSerializedData
   parent: ISILab.LBS.CustomComponents
   children:
-  - ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.#ctor
   - ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.CreateInstance
   - ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize(System.Object)
   - ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Register
@@ -16,14 +15,43 @@ items:
   nameWithType: LBSCustomUnsignedIntegerField.UxmlSerializedData
   fullName: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData
   type: Class
+  source:
+    id: UxmlSerializedData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\obj\Release\Unity.UIToolkit.SourceGenerator\Unity.UIToolkit.SourceGenerator.UxmlSerializedDataGenerator\ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.gen.cs
+    startLine: 7
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.CustomComponents
   syntax:
-    content: 'public class LBSCustomUnsignedIntegerField.UxmlSerializedData : UnsignedIntegerField.UxmlSerializedData'
-    content.vb: Public Class LBSCustomUnsignedIntegerField.UxmlSerializedData Inherits UnsignedIntegerField.UxmlSerializedData
+    content: >-
+      [Serializable]
+
+      public class LBSCustomUnsignedIntegerField.UxmlSerializedData : UnsignedIntegerField.UxmlSerializedData
+    content.vb: >-
+      <Serializable>
+
+      Public Class LBSCustomUnsignedIntegerField.UxmlSerializedData Inherits UnsignedIntegerField.UxmlSerializedData
   inheritance:
   - System.Object
+  - UnityEngine.UIElements.UxmlSerializedData
+  - UnityEngine.UIElements.VisualElement.UxmlSerializedData
+  - UnityEngine.UIElements.BindableElement.UxmlSerializedData
+  - UnityEngine.UIElements.BaseField{System.UInt32}.UxmlSerializedData
+  - UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData
+  - UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData
+  inheritedMembers:
+  - UnityEngine.UIElements.UxmlSerializedData.ShouldWriteAttributeValue(UnityEngine.UIElements.UxmlSerializedData.UxmlAttributeFlags)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Register
   commentId: M:ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Register
   id: Register
@@ -35,20 +63,31 @@ items:
   nameWithType: LBSCustomUnsignedIntegerField.UxmlSerializedData.Register()
   fullName: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Register()
   type: Method
+  source:
+    id: Register
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\obj\Release\Unity.UIToolkit.SourceGenerator\Unity.UIToolkit.SourceGenerator.UxmlSerializedDataGenerator\ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.gen.cs
+    startLine: 11
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.CustomComponents
   syntax:
     content: >-
+      [RegisterUxmlCache]
+
       [Conditional("UNITY_EDITOR")]
 
       public static void Register()
     content.vb: >-
+      <RegisterUxmlCache>
+
       <Conditional("UNITY_EDITOR")>
 
       Public Shared Sub Register()
   overload: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Register*
   attributes:
+  - type: UnityEngine.UIElements.RegisterUxmlCacheAttribute
+    ctor: UnityEngine.UIElements.RegisterUxmlCacheAttribute.#ctor
+    arguments: []
   - type: System.Diagnostics.ConditionalAttribute
     ctor: System.Diagnostics.ConditionalAttribute.#ctor(System.String)
     arguments:
@@ -65,15 +104,27 @@ items:
   nameWithType: LBSCustomUnsignedIntegerField.UxmlSerializedData.CreateInstance()
   fullName: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.CreateInstance()
   type: Method
+  source:
+    id: CreateInstance
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\obj\Release\Unity.UIToolkit.SourceGenerator\Unity.UIToolkit.SourceGenerator.UxmlSerializedDataGenerator\ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.gen.cs
+    startLine: 36
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.CustomComponents
+  summary: >-
+    <p>
+
+    Returns an instance of the declaring element.
+
+    </p>
   example: []
   syntax:
     content: public override object CreateInstance()
     return:
       type: System.Object
+      description: <p>The new instance of the declaring element.</p>
     content.vb: Public Overrides Function CreateInstance() As Object
+  overridden: UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData.CreateInstance
   overload: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.CreateInstance*
 - uid: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize(System.Object)
   commentId: M:ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize(System.Object)
@@ -86,45 +137,35 @@ items:
   nameWithType: LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize(object)
   fullName: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize(object)
   type: Method
+  source:
+    id: Deserialize
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\obj\Release\Unity.UIToolkit.SourceGenerator\Unity.UIToolkit.SourceGenerator.UxmlSerializedDataGenerator\ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.gen.cs
+    startLine: 37
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.CustomComponents
+  summary: >-
+    <p>
+
+    Applies serialized field values to a compatible visual element.
+
+    </p>
   example: []
   syntax:
     content: public override void Deserialize(object obj)
     parameters:
     - id: obj
       type: System.Object
+      description: The element to have the serialized data applied to.
     content.vb: Public Overrides Sub Deserialize(obj As Object)
+  overridden: UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData.Deserialize(System.Object)
   overload: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize*
   nameWithType.vb: LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize(Object)
   fullName.vb: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize(Object)
   name.vb: Deserialize(Object)
-- uid: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.#ctor
-  commentId: M:ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.#ctor
-  id: '#ctor'
-  parent: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData
-  langs:
-  - csharp
-  - vb
-  name: UxmlSerializedData()
-  nameWithType: LBSCustomUnsignedIntegerField.UxmlSerializedData.UxmlSerializedData()
-  fullName: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.UxmlSerializedData()
-  type: Constructor
-  assemblies:
-  - LBS.Editor
-  namespace: ISILab.LBS.CustomComponents
-  syntax:
-    content: public UxmlSerializedData()
-    content.vb: Public Sub New()
-  overload: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.#ctor*
-  nameWithType.vb: LBSCustomUnsignedIntegerField.UxmlSerializedData.New()
-  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.New()
-  name.vb: New()
 references:
 - uid: ISILab.LBS.CustomComponents
   commentId: N:ISILab.LBS.CustomComponents
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.CustomComponents
   nameWithType: ISILab.LBS.CustomComponents
@@ -132,32 +173,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.CustomComponents
     name: CustomComponents
-    isExternal: true
     href: ISILab.LBS.CustomComponents.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.CustomComponents
     name: CustomComponents
-    isExternal: true
     href: ISILab.LBS.CustomComponents.html
 - uid: System.Object
   commentId: T:System.Object
@@ -170,6 +205,408 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: UnityEngine.UIElements.UxmlSerializedData
+  commentId: T:UnityEngine.UIElements.UxmlSerializedData
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: UxmlSerializedData
+  nameWithType: UxmlSerializedData
+  fullName: UnityEngine.UIElements.UxmlSerializedData
+- uid: UnityEngine.UIElements.VisualElement.UxmlSerializedData
+  commentId: T:UnityEngine.UIElements.VisualElement.UxmlSerializedData
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: VisualElement.UxmlSerializedData
+  nameWithType: VisualElement.UxmlSerializedData
+  fullName: UnityEngine.UIElements.VisualElement.UxmlSerializedData
+  spec.csharp:
+  - uid: UnityEngine.UIElements.VisualElement
+    name: VisualElement
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements.VisualElement.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine.UIElements.VisualElement
+    name: VisualElement
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements.VisualElement.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+- uid: UnityEngine.UIElements.BindableElement.UxmlSerializedData
+  commentId: T:UnityEngine.UIElements.BindableElement.UxmlSerializedData
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: BindableElement.UxmlSerializedData
+  nameWithType: BindableElement.UxmlSerializedData
+  fullName: UnityEngine.UIElements.BindableElement.UxmlSerializedData
+  spec.csharp:
+  - uid: UnityEngine.UIElements.BindableElement
+    name: BindableElement
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements.BindableElement.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine.UIElements.BindableElement
+    name: BindableElement
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements.BindableElement.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+- uid: UnityEngine.UIElements.BaseField{System.UInt32}.UxmlSerializedData
+  commentId: T:UnityEngine.UIElements.BaseField{System.UInt32}.UxmlSerializedData
+  parent: UnityEngine.UIElements
+  definition: UnityEngine.UIElements.BaseField`1.UxmlSerializedData
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: BaseField<uint>.UxmlSerializedData
+  nameWithType: BaseField<uint>.UxmlSerializedData
+  fullName: UnityEngine.UIElements.BaseField<uint>.UxmlSerializedData
+  nameWithType.vb: BaseField(Of UInteger).UxmlSerializedData
+  fullName.vb: UnityEngine.UIElements.BaseField(Of UInteger).UxmlSerializedData
+  name.vb: BaseField(Of UInteger).UxmlSerializedData
+  spec.csharp:
+  - uid: UnityEngine.UIElements.BaseField`1
+    name: BaseField
+    isExternal: true
+  - name: <
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '>'
+  - name: .
+  - uid: UnityEngine.UIElements.BaseField{System.UInt32}.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine.UIElements.BaseField`1
+    name: BaseField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+  - name: .
+  - uid: UnityEngine.UIElements.BaseField{System.UInt32}.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+- uid: UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData
+  commentId: T:UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData
+  parent: UnityEngine.UIElements
+  definition: UnityEngine.UIElements.TextInputBaseField`1.UxmlSerializedData
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: TextInputBaseField<uint>.UxmlSerializedData
+  nameWithType: TextInputBaseField<uint>.UxmlSerializedData
+  fullName: UnityEngine.UIElements.TextInputBaseField<uint>.UxmlSerializedData
+  nameWithType.vb: TextInputBaseField(Of UInteger).UxmlSerializedData
+  fullName.vb: UnityEngine.UIElements.TextInputBaseField(Of UInteger).UxmlSerializedData
+  name.vb: TextInputBaseField(Of UInteger).UxmlSerializedData
+  spec.csharp:
+  - uid: UnityEngine.UIElements.TextInputBaseField`1
+    name: TextInputBaseField
+    isExternal: true
+  - name: <
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '>'
+  - name: .
+  - uid: UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine.UIElements.TextInputBaseField`1
+    name: TextInputBaseField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+  - name: .
+  - uid: UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+- uid: UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData
+  commentId: T:UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: UnsignedIntegerField.UxmlSerializedData
+  nameWithType: UnsignedIntegerField.UxmlSerializedData
+  fullName: UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData
+  spec.csharp:
+  - uid: UnityEngine.UIElements.UnsignedIntegerField
+    name: UnsignedIntegerField
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine.UIElements.UnsignedIntegerField
+    name: UnsignedIntegerField
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+- uid: UnityEngine.UIElements.UxmlSerializedData.ShouldWriteAttributeValue(UnityEngine.UIElements.UxmlSerializedData.UxmlAttributeFlags)
+  commentId: M:UnityEngine.UIElements.UxmlSerializedData.ShouldWriteAttributeValue(UnityEngine.UIElements.UxmlSerializedData.UxmlAttributeFlags)
+  parent: UnityEngine.UIElements.UxmlSerializedData
+  isExternal: true
+  name: ShouldWriteAttributeValue(UxmlAttributeFlags)
+  nameWithType: UxmlSerializedData.ShouldWriteAttributeValue(UxmlSerializedData.UxmlAttributeFlags)
+  fullName: UnityEngine.UIElements.UxmlSerializedData.ShouldWriteAttributeValue(UnityEngine.UIElements.UxmlSerializedData.UxmlAttributeFlags)
+  spec.csharp:
+  - uid: UnityEngine.UIElements.UxmlSerializedData.ShouldWriteAttributeValue(UnityEngine.UIElements.UxmlSerializedData.UxmlAttributeFlags)
+    name: ShouldWriteAttributeValue
+    isExternal: true
+  - name: (
+  - uid: UnityEngine.UIElements.UxmlSerializedData.UxmlAttributeFlags
+    name: UxmlAttributeFlags
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.UIElements.UxmlSerializedData.ShouldWriteAttributeValue(UnityEngine.UIElements.UxmlSerializedData.UxmlAttributeFlags)
+    name: ShouldWriteAttributeValue
+    isExternal: true
+  - name: (
+  - uid: UnityEngine.UIElements.UxmlSerializedData.UxmlAttributeFlags
+    name: UxmlAttributeFlags
+    isExternal: true
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -177,35 +614,190 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+- uid: UnityEngine.UIElements.BaseField`1.UxmlSerializedData
+  commentId: T:UnityEngine.UIElements.BaseField`1.UxmlSerializedData
+  isExternal: true
+  name: BaseField<TValueType>.UxmlSerializedData
+  nameWithType: BaseField<TValueType>.UxmlSerializedData
+  fullName: UnityEngine.UIElements.BaseField<TValueType>.UxmlSerializedData
+  nameWithType.vb: BaseField(Of TValueType).UxmlSerializedData
+  fullName.vb: UnityEngine.UIElements.BaseField(Of TValueType).UxmlSerializedData
+  name.vb: BaseField(Of TValueType).UxmlSerializedData
+  spec.csharp:
+  - uid: UnityEngine.UIElements.BaseField`1
+    name: BaseField
+    isExternal: true
+  - name: <
+  - name: TValueType
+  - name: '>'
+  - name: .
+  - uid: UnityEngine.UIElements.BaseField`1.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine.UIElements.BaseField`1
+    name: BaseField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValueType
+  - name: )
+  - name: .
+  - uid: UnityEngine.UIElements.BaseField`1.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+- uid: UnityEngine.UIElements.TextInputBaseField`1.UxmlSerializedData
+  commentId: T:UnityEngine.UIElements.TextInputBaseField`1.UxmlSerializedData
+  isExternal: true
+  name: TextInputBaseField<TValueType>.UxmlSerializedData
+  nameWithType: TextInputBaseField<TValueType>.UxmlSerializedData
+  fullName: UnityEngine.UIElements.TextInputBaseField<TValueType>.UxmlSerializedData
+  nameWithType.vb: TextInputBaseField(Of TValueType).UxmlSerializedData
+  fullName.vb: UnityEngine.UIElements.TextInputBaseField(Of TValueType).UxmlSerializedData
+  name.vb: TextInputBaseField(Of TValueType).UxmlSerializedData
+  spec.csharp:
+  - uid: UnityEngine.UIElements.TextInputBaseField`1
+    name: TextInputBaseField
+    isExternal: true
+  - name: <
+  - name: TValueType
+  - name: '>'
+  - name: .
+  - uid: UnityEngine.UIElements.TextInputBaseField`1.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine.UIElements.TextInputBaseField`1
+    name: TextInputBaseField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValueType
+  - name: )
+  - name: .
+  - uid: UnityEngine.UIElements.TextInputBaseField`1.UxmlSerializedData
+    name: UxmlSerializedData
+    isExternal: true
 - uid: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Register*
   commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Register
-  isExternal: true
   href: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSCustomUnsignedIntegerField_UxmlSerializedData_Register
   name: Register
   nameWithType: LBSCustomUnsignedIntegerField.UxmlSerializedData.Register
   fullName: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Register
+- uid: UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData.CreateInstance
+  commentId: M:UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData.CreateInstance
+  parent: UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData
+  isExternal: true
+  name: CreateInstance()
+  nameWithType: UnsignedIntegerField.UxmlSerializedData.CreateInstance()
+  fullName: UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData.CreateInstance()
+  spec.csharp:
+  - uid: UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData.CreateInstance
+    name: CreateInstance
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.UIElements.UnsignedIntegerField.UxmlSerializedData.CreateInstance
+    name: CreateInstance
+    isExternal: true
+  - name: (
+  - name: )
 - uid: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.CreateInstance*
   commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.CreateInstance
-  isExternal: true
   href: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSCustomUnsignedIntegerField_UxmlSerializedData_CreateInstance
   name: CreateInstance
   nameWithType: LBSCustomUnsignedIntegerField.UxmlSerializedData.CreateInstance
   fullName: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.CreateInstance
+- uid: UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData.Deserialize(System.Object)
+  commentId: M:UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData.Deserialize(System.Object)
+  parent: UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData
+  definition: UnityEngine.UIElements.TextInputBaseField`1.UxmlSerializedData.Deserialize(System.Object)
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: Deserialize(object)
+  nameWithType: TextInputBaseField<uint>.UxmlSerializedData.Deserialize(object)
+  fullName: UnityEngine.UIElements.TextInputBaseField<uint>.UxmlSerializedData.Deserialize(object)
+  nameWithType.vb: TextInputBaseField(Of UInteger).UxmlSerializedData.Deserialize(Object)
+  fullName.vb: UnityEngine.UIElements.TextInputBaseField(Of UInteger).UxmlSerializedData.Deserialize(Object)
+  name.vb: Deserialize(Object)
+  spec.csharp:
+  - uid: UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData.Deserialize(System.Object)
+    name: Deserialize
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.UIElements.TextInputBaseField{System.UInt32}.UxmlSerializedData.Deserialize(System.Object)
+    name: Deserialize
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize*
   commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize
-  isExternal: true
   href: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSCustomUnsignedIntegerField_UxmlSerializedData_Deserialize_System_Object_
   name: Deserialize
   nameWithType: LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize
   fullName: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.Deserialize
-- uid: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.#ctor*
-  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.#ctor
+- uid: UnityEngine.UIElements.TextInputBaseField`1.UxmlSerializedData.Deserialize(System.Object)
+  commentId: M:UnityEngine.UIElements.TextInputBaseField`1.UxmlSerializedData.Deserialize(System.Object)
   isExternal: true
-  href: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSCustomUnsignedIntegerField_UxmlSerializedData__ctor
-  name: UxmlSerializedData
-  nameWithType: LBSCustomUnsignedIntegerField.UxmlSerializedData.UxmlSerializedData
-  fullName: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.UxmlSerializedData
-  nameWithType.vb: LBSCustomUnsignedIntegerField.UxmlSerializedData.New
-  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField.UxmlSerializedData.New
-  name.vb: New
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: Deserialize(object)
+  nameWithType: TextInputBaseField<TValueType>.UxmlSerializedData.Deserialize(object)
+  fullName: UnityEngine.UIElements.TextInputBaseField<TValueType>.UxmlSerializedData.Deserialize(object)
+  nameWithType.vb: TextInputBaseField(Of TValueType).UxmlSerializedData.Deserialize(Object)
+  fullName.vb: UnityEngine.UIElements.TextInputBaseField(Of TValueType).UxmlSerializedData.Deserialize(Object)
+  name.vb: Deserialize(Object)
+  spec.csharp:
+  - uid: UnityEngine.UIElements.TextInputBaseField`1.UxmlSerializedData.Deserialize(System.Object)
+    name: Deserialize
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.UIElements.TextInputBaseField`1.UxmlSerializedData.Deserialize(System.Object)
+    name: Deserialize
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 shouldSkipMarkup: true

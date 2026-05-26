@@ -21,22 +21,36 @@ items:
   nameWithType: Asset
   fullName: ISILab.LBS.Plugin.Components.Bundles.Asset
   type: Class
+  source:
+    id: Asset
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
   syntax:
-    content: 'public class Asset : ICloneable'
-    content.vb: Public Class Asset Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public class Asset : ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public Class Asset Implements ICloneable
   inheritance:
   - System.Object
   implements:
   - System.ICloneable
   inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Bundles.Asset.obj
   commentId: F:ISILab.LBS.Plugin.Components.Bundles.Asset.obj
   id: obj
@@ -48,6 +62,10 @@ items:
   nameWithType: Asset.obj
   fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.obj
   type: Field
+  source:
+    id: obj
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 41
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
@@ -67,14 +85,32 @@ items:
   nameWithType: Asset.probability
   fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.probability
   type: Field
+  source:
+    id: probability
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 43
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
   syntax:
-    content: public float probability
+    content: >-
+      [Range(0, 1)]
+
+      public float probability
     return:
       type: System.Single
-    content.vb: Public probability As Single
+    content.vb: >-
+      <Range(0, 1)>
+
+      Public probability As Single
+  attributes:
+  - type: UnityEngine.RangeAttribute
+    ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
+    arguments:
+    - type: System.Single
+      value: 0
+    - type: System.Single
+      value: 1
 - uid: ISILab.LBS.Plugin.Components.Bundles.Asset.id
   commentId: F:ISILab.LBS.Plugin.Components.Bundles.Asset.id
   id: id
@@ -86,14 +122,53 @@ items:
   nameWithType: Asset.id
   fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.id
   type: Field
+  source:
+    id: id
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 45
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
   syntax:
-    content: public string id
+    content: >-
+      [HideInInspector]
+
+      public string id
     return:
       type: System.String
-    content.vb: Public id As String
+    content.vb: >-
+      <HideInInspector>
+
+      Public id As String
+  attributes:
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
+- uid: ISILab.LBS.Plugin.Components.Bundles.Asset.ID
+  commentId: P:ISILab.LBS.Plugin.Components.Bundles.Asset.ID
+  id: ID
+  parent: ISILab.LBS.Plugin.Components.Bundles.Asset
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: Asset.ID
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.ID
+  type: Property
+  source:
+    id: ID
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 47
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles
+  syntax:
+    content: public string ID { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ID As String
+  overload: ISILab.LBS.Plugin.Components.Bundles.Asset.ID*
 - uid: ISILab.LBS.Plugin.Components.Bundles.Asset.#ctor(UnityEngine.GameObject,System.Single)
   commentId: M:ISILab.LBS.Plugin.Components.Bundles.Asset.#ctor(UnityEngine.GameObject,System.Single)
   id: '#ctor(UnityEngine.GameObject,System.Single)'
@@ -105,6 +180,10 @@ items:
   nameWithType: Asset.Asset(GameObject, float)
   fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.Asset(UnityEngine.GameObject, float)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 48
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
@@ -131,6 +210,10 @@ items:
   nameWithType: Asset.SetID()
   fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.SetID()
   type: Method
+  source:
+    id: SetID
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 53
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
@@ -151,6 +234,10 @@ items:
   nameWithType: Asset.Clone()
   fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
@@ -174,6 +261,10 @@ items:
   nameWithType: Asset.Equals(object)
   fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 63
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
@@ -202,6 +293,10 @@ items:
   nameWithType: Asset.GetHashCode()
   fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Bundles\Bundle.cs
+    startLine: 73
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Bundles
@@ -213,31 +308,9 @@ items:
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.Object.GetHashCode
   overload: ISILab.LBS.Plugin.Components.Bundles.Asset.GetHashCode*
-- uid: ISILab.LBS.Plugin.Components.Bundles.Asset.ID
-  commentId: P:ISILab.LBS.Plugin.Components.Bundles.Asset.ID
-  id: ID
-  parent: ISILab.LBS.Plugin.Components.Bundles.Asset
-  langs:
-  - csharp
-  - vb
-  name: ID
-  nameWithType: Asset.ID
-  fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.ID
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Bundles
-  syntax:
-    content: public string ID { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public ReadOnly Property ID As String
-  overload: ISILab.LBS.Plugin.Components.Bundles.Asset.ID*
 references:
 - uid: ISILab.LBS.Plugin.Components.Bundles
   commentId: N:ISILab.LBS.Plugin.Components.Bundles
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Bundles
   nameWithType: ISILab.LBS.Plugin.Components.Bundles
@@ -245,52 +318,42 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
 - uid: System.Object
   commentId: T:System.Object
@@ -311,6 +374,51 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -359,75 +467,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -473,6 +512,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -481,10 +544,18 @@ references:
   nameWithType: System
   fullName: System
 - uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
   isExternal: true
   name: GameObject
   nameWithType: GameObject
   fullName: UnityEngine.GameObject
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -507,9 +578,14 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: ISILab.LBS.Plugin.Components.Bundles.Asset.ID*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Asset.ID
+  href: ISILab.LBS.Plugin.Components.Bundles.Asset.html#ISILab_LBS_Plugin_Components_Bundles_Asset_ID
+  name: ID
+  nameWithType: Asset.ID
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.ID
 - uid: ISILab.LBS.Plugin.Components.Bundles.Asset.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Asset.#ctor
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Bundles.Asset.html#ISILab_LBS_Plugin_Components_Bundles_Asset__ctor_UnityEngine_GameObject_System_Single_
   name: Asset
   nameWithType: Asset.Asset
@@ -519,14 +595,12 @@ references:
   name.vb: New
 - uid: ISILab.LBS.Plugin.Components.Bundles.Asset.SetID*
   commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Asset.SetID
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Bundles.Asset.html#ISILab_LBS_Plugin_Components_Bundles_Asset_SetID
   name: SetID
   nameWithType: Asset.SetID
   fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.SetID
 - uid: ISILab.LBS.Plugin.Components.Bundles.Asset.Clone*
   commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Asset.Clone
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Bundles.Asset.html#ISILab_LBS_Plugin_Components_Bundles_Asset_Clone
   name: Clone
   nameWithType: Asset.Clone
@@ -588,7 +662,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Bundles.Asset.Equals*
   commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Asset.Equals
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Bundles.Asset.html#ISILab_LBS_Plugin_Components_Bundles_Asset_Equals_System_Object_
   name: Equals
   nameWithType: Asset.Equals
@@ -630,7 +703,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Bundles.Asset.GetHashCode*
   commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Asset.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Bundles.Asset.html#ISILab_LBS_Plugin_Components_Bundles_Asset_GetHashCode
   name: GetHashCode
   nameWithType: Asset.GetHashCode
@@ -646,11 +718,4 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: ISILab.LBS.Plugin.Components.Bundles.Asset.ID*
-  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Asset.ID
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Bundles.Asset.html#ISILab_LBS_Plugin_Components_Bundles_Asset_ID
-  name: ID
-  nameWithType: Asset.ID
-  fullName: ISILab.LBS.Plugin.Components.Bundles.Asset.ID
 shouldSkipMarkup: true

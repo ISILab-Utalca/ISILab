@@ -22,24 +22,38 @@ items:
   nameWithType: SavedMap
   fullName: ISILab.LBS.SavedMap
   type: Class
+  source:
+    id: SavedMap
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 7
   assemblies:
   - LBS
   namespace: ISILab.LBS
   syntax:
-    content: 'public class SavedMap : ICloneable'
-    content.vb: Public Class SavedMap Implements ICloneable
+    content: >-
+      [Serializable]
+
+      public class SavedMap : ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public Class SavedMap Implements ICloneable
   inheritance:
   - System.Object
   implements:
   - System.ICloneable
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.SavedMap.map
   commentId: F:ISILab.LBS.SavedMap.map
   id: map
@@ -51,14 +65,35 @@ items:
   nameWithType: SavedMap.map
   fullName: ISILab.LBS.SavedMap.map
   type: Field
+  source:
+    id: map
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 12
   assemblies:
   - LBS
   namespace: ISILab.LBS
   syntax:
-    content: protected BundleTilemapChromosome map
+    content: >-
+      [SerializeField]
+
+      [JsonRequired]
+
+      protected BundleTilemapChromosome map
     return:
       type: ISILab.AI.Categorization.BundleTilemapChromosome
-    content.vb: Protected map As BundleTilemapChromosome
+    content.vb: >-
+      <SerializeField>
+
+      <JsonRequired>
+
+      Protected map As BundleTilemapChromosome
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonRequiredAttribute
+    ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.SavedMap.mapName
   commentId: F:ISILab.LBS.SavedMap.mapName
   id: mapName
@@ -70,14 +105,35 @@ items:
   nameWithType: SavedMap.mapName
   fullName: ISILab.LBS.SavedMap.mapName
   type: Field
+  source:
+    id: mapName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 14
   assemblies:
   - LBS
   namespace: ISILab.LBS
   syntax:
-    content: protected string mapName
+    content: >-
+      [SerializeField]
+
+      [JsonRequired]
+
+      protected string mapName
     return:
       type: System.String
-    content.vb: Protected mapName As String
+    content.vb: >-
+      <SerializeField>
+
+      <JsonRequired>
+
+      Protected mapName As String
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonRequiredAttribute
+    ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.SavedMap.savedScore
   commentId: F:ISILab.LBS.SavedMap.savedScore
   id: savedScore
@@ -89,14 +145,35 @@ items:
   nameWithType: SavedMap.savedScore
   fullName: ISILab.LBS.SavedMap.savedScore
   type: Field
+  source:
+    id: savedScore
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 16
   assemblies:
   - LBS
   namespace: ISILab.LBS
   syntax:
-    content: protected float savedScore
+    content: >-
+      [SerializeField]
+
+      [JsonRequired]
+
+      protected float savedScore
     return:
       type: System.Single
-    content.vb: Protected savedScore As Single
+    content.vb: >-
+      <SerializeField>
+
+      <JsonRequired>
+
+      Protected savedScore As Single
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonRequiredAttribute
+    ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.SavedMap.image
   commentId: F:ISILab.LBS.SavedMap.image
   id: image
@@ -108,14 +185,158 @@ items:
   nameWithType: SavedMap.image
   fullName: ISILab.LBS.SavedMap.image
   type: Field
+  source:
+    id: image
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 18
   assemblies:
   - LBS
   namespace: ISILab.LBS
   syntax:
-    content: protected Texture2D image
+    content: >-
+      [SerializeField]
+
+      protected Texture2D image
     return:
       type: UnityEngine.Texture2D
-    content.vb: Protected image As Texture2D
+    content.vb: >-
+      <SerializeField>
+
+      Protected image As Texture2D
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+- uid: ISILab.LBS.SavedMap.Map
+  commentId: P:ISILab.LBS.SavedMap.Map
+  id: Map
+  parent: ISILab.LBS.SavedMap
+  langs:
+  - csharp
+  - vb
+  name: Map
+  nameWithType: SavedMap.Map
+  fullName: ISILab.LBS.SavedMap.Map
+  type: Property
+  source:
+    id: Map
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 23
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public BundleTilemapChromosome Map { get; set; }
+    parameters: []
+    return:
+      type: ISILab.AI.Categorization.BundleTilemapChromosome
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property Map As BundleTilemapChromosome
+  overload: ISILab.LBS.SavedMap.Map*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.SavedMap.Score
+  commentId: P:ISILab.LBS.SavedMap.Score
+  id: Score
+  parent: ISILab.LBS.SavedMap
+  langs:
+  - csharp
+  - vb
+  name: Score
+  nameWithType: SavedMap.Score
+  fullName: ISILab.LBS.SavedMap.Score
+  type: Property
+  source:
+    id: Score
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 29
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public float Score { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property Score As Single
+  overload: ISILab.LBS.SavedMap.Score*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.SavedMap.Name
+  commentId: P:ISILab.LBS.SavedMap.Name
+  id: Name
+  parent: ISILab.LBS.SavedMap
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: SavedMap.Name
+  fullName: ISILab.LBS.SavedMap.Name
+  type: Property
+  source:
+    id: Name
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 35
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property Name As String
+  overload: ISILab.LBS.SavedMap.Name*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.SavedMap.Image
+  commentId: P:ISILab.LBS.SavedMap.Image
+  id: Image
+  parent: ISILab.LBS.SavedMap
+  langs:
+  - csharp
+  - vb
+  name: Image
+  nameWithType: SavedMap.Image
+  fullName: ISILab.LBS.SavedMap.Image
+  type: Property
+  source:
+    id: Image
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 42
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public Texture2D Image { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Property Image As Texture2D
+  overload: ISILab.LBS.SavedMap.Image*
 - uid: ISILab.LBS.SavedMap.#ctor(ISILab.AI.Categorization.BundleTilemapChromosome,System.String,System.Single,UnityEngine.Texture2D)
   commentId: M:ISILab.LBS.SavedMap.#ctor(ISILab.AI.Categorization.BundleTilemapChromosome,System.String,System.Single,UnityEngine.Texture2D)
   id: '#ctor(ISILab.AI.Categorization.BundleTilemapChromosome,System.String,System.Single,UnityEngine.Texture2D)'
@@ -127,6 +348,10 @@ items:
   nameWithType: SavedMap.SavedMap(BundleTilemapChromosome, string, float, Texture2D)
   fullName: ISILab.LBS.SavedMap.SavedMap(ISILab.AI.Categorization.BundleTilemapChromosome, string, float, UnityEngine.Texture2D)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 51
   assemblies:
   - LBS
   namespace: ISILab.LBS
@@ -157,6 +382,10 @@ items:
   nameWithType: SavedMap.Clone()
   fullName: ISILab.LBS.SavedMap.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\Components\SavedMap.cs
+    startLine: 59
   assemblies:
   - LBS
   namespace: ISILab.LBS
@@ -169,94 +398,9 @@ items:
   overload: ISILab.LBS.SavedMap.Clone*
   implements:
   - System.ICloneable.Clone
-- uid: ISILab.LBS.SavedMap.Map
-  commentId: P:ISILab.LBS.SavedMap.Map
-  id: Map
-  parent: ISILab.LBS.SavedMap
-  langs:
-  - csharp
-  - vb
-  name: Map
-  nameWithType: SavedMap.Map
-  fullName: ISILab.LBS.SavedMap.Map
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS
-  syntax:
-    content: public BundleTilemapChromosome Map { get; set; }
-    parameters: []
-    return:
-      type: ISILab.AI.Categorization.BundleTilemapChromosome
-    content.vb: Public Property Map As BundleTilemapChromosome
-  overload: ISILab.LBS.SavedMap.Map*
-- uid: ISILab.LBS.SavedMap.Score
-  commentId: P:ISILab.LBS.SavedMap.Score
-  id: Score
-  parent: ISILab.LBS.SavedMap
-  langs:
-  - csharp
-  - vb
-  name: Score
-  nameWithType: SavedMap.Score
-  fullName: ISILab.LBS.SavedMap.Score
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS
-  syntax:
-    content: public float Score { get; set; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public Property Score As Single
-  overload: ISILab.LBS.SavedMap.Score*
-- uid: ISILab.LBS.SavedMap.Name
-  commentId: P:ISILab.LBS.SavedMap.Name
-  id: Name
-  parent: ISILab.LBS.SavedMap
-  langs:
-  - csharp
-  - vb
-  name: Name
-  nameWithType: SavedMap.Name
-  fullName: ISILab.LBS.SavedMap.Name
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS
-  syntax:
-    content: public string Name { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property Name As String
-  overload: ISILab.LBS.SavedMap.Name*
-- uid: ISILab.LBS.SavedMap.Image
-  commentId: P:ISILab.LBS.SavedMap.Image
-  id: Image
-  parent: ISILab.LBS.SavedMap
-  langs:
-  - csharp
-  - vb
-  name: Image
-  nameWithType: SavedMap.Image
-  fullName: ISILab.LBS.SavedMap.Image
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS
-  syntax:
-    content: public Texture2D Image { get; set; }
-    parameters: []
-    return:
-      type: UnityEngine.Texture2D
-    content.vb: Public Property Image As Texture2D
-  overload: ISILab.LBS.SavedMap.Image*
 references:
 - uid: ISILab.LBS
   commentId: N:ISILab.LBS
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS
   nameWithType: ISILab.LBS
@@ -264,22 +408,18 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
 - uid: System.Object
   commentId: T:System.Object
@@ -300,78 +440,6 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -450,6 +518,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -495,28 +635,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -529,14 +669,12 @@ references:
 - uid: ISILab.AI.Categorization.BundleTilemapChromosome
   commentId: T:ISILab.AI.Categorization.BundleTilemapChromosome
   parent: ISILab.AI.Categorization
-  isExternal: true
   href: ISILab.AI.Categorization.BundleTilemapChromosome.html
   name: BundleTilemapChromosome
   nameWithType: BundleTilemapChromosome
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome
 - uid: ISILab.AI.Categorization
   commentId: N:ISILab.AI.Categorization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Categorization
   nameWithType: ISILab.AI.Categorization
@@ -544,32 +682,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
 - uid: System.String
   commentId: T:System.String
@@ -594,13 +726,44 @@ references:
   fullName.vb: Single
   name.vb: Single
 - uid: UnityEngine.Texture2D
+  commentId: T:UnityEngine.Texture2D
+  parent: UnityEngine
   isExternal: true
   name: Texture2D
   nameWithType: Texture2D
   fullName: UnityEngine.Texture2D
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.LBS.SavedMap.Map*
+  commentId: Overload:ISILab.LBS.SavedMap.Map
+  href: ISILab.LBS.SavedMap.html#ISILab_LBS_SavedMap_Map
+  name: Map
+  nameWithType: SavedMap.Map
+  fullName: ISILab.LBS.SavedMap.Map
+- uid: ISILab.LBS.SavedMap.Score*
+  commentId: Overload:ISILab.LBS.SavedMap.Score
+  href: ISILab.LBS.SavedMap.html#ISILab_LBS_SavedMap_Score
+  name: Score
+  nameWithType: SavedMap.Score
+  fullName: ISILab.LBS.SavedMap.Score
+- uid: ISILab.LBS.SavedMap.Name*
+  commentId: Overload:ISILab.LBS.SavedMap.Name
+  href: ISILab.LBS.SavedMap.html#ISILab_LBS_SavedMap_Name
+  name: Name
+  nameWithType: SavedMap.Name
+  fullName: ISILab.LBS.SavedMap.Name
+- uid: ISILab.LBS.SavedMap.Image*
+  commentId: Overload:ISILab.LBS.SavedMap.Image
+  href: ISILab.LBS.SavedMap.html#ISILab_LBS_SavedMap_Image
+  name: Image
+  nameWithType: SavedMap.Image
+  fullName: ISILab.LBS.SavedMap.Image
 - uid: ISILab.LBS.SavedMap.#ctor*
   commentId: Overload:ISILab.LBS.SavedMap.#ctor
-  isExternal: true
   href: ISILab.LBS.SavedMap.html#ISILab_LBS_SavedMap__ctor_ISILab_AI_Categorization_BundleTilemapChromosome_System_String_System_Single_UnityEngine_Texture2D_
   name: SavedMap
   nameWithType: SavedMap.SavedMap
@@ -610,7 +773,6 @@ references:
   name.vb: New
 - uid: ISILab.LBS.SavedMap.Clone*
   commentId: Overload:ISILab.LBS.SavedMap.Clone
-  isExternal: true
   href: ISILab.LBS.SavedMap.html#ISILab_LBS_SavedMap_Clone
   name: Clone
   nameWithType: SavedMap.Clone
@@ -637,32 +799,4 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
   - name: (
   - name: )
-- uid: ISILab.LBS.SavedMap.Map*
-  commentId: Overload:ISILab.LBS.SavedMap.Map
-  isExternal: true
-  href: ISILab.LBS.SavedMap.html#ISILab_LBS_SavedMap_Map
-  name: Map
-  nameWithType: SavedMap.Map
-  fullName: ISILab.LBS.SavedMap.Map
-- uid: ISILab.LBS.SavedMap.Score*
-  commentId: Overload:ISILab.LBS.SavedMap.Score
-  isExternal: true
-  href: ISILab.LBS.SavedMap.html#ISILab_LBS_SavedMap_Score
-  name: Score
-  nameWithType: SavedMap.Score
-  fullName: ISILab.LBS.SavedMap.Score
-- uid: ISILab.LBS.SavedMap.Name*
-  commentId: Overload:ISILab.LBS.SavedMap.Name
-  isExternal: true
-  href: ISILab.LBS.SavedMap.html#ISILab_LBS_SavedMap_Name
-  name: Name
-  nameWithType: SavedMap.Name
-  fullName: ISILab.LBS.SavedMap.Name
-- uid: ISILab.LBS.SavedMap.Image*
-  commentId: Overload:ISILab.LBS.SavedMap.Image
-  isExternal: true
-  href: ISILab.LBS.SavedMap.html#ISILab_LBS_SavedMap_Image
-  name: Image
-  nameWithType: SavedMap.Image
-  fullName: ISILab.LBS.SavedMap.Image
 shouldSkipMarkup: true

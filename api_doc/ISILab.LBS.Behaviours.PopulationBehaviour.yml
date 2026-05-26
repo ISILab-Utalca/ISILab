@@ -53,15 +53,23 @@ items:
   nameWithType: PopulationBehaviour
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour
   type: Class
+  source:
+    id: PopulationBehaviour
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 18
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
     content: >-
+      [Serializable]
+
       [RequieredModule(new Type[] { typeof(TileMapModule), typeof(BundleTileMap) })]
 
       public class PopulationBehaviour : LBSBehaviour, ICloneable, IBlueprintable
     content.vb: >-
+      <Serializable>
+
       <RequieredModule(New Type() { GetType(TileMapModule), GetType(BundleTileMap) })>
 
       Public Class PopulationBehaviour Inherits LBSBehaviour Implements ICloneable, IBlueprintable
@@ -73,13 +81,6 @@ items:
   - ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
   inheritedMembers:
   - ISILab.LBS.Behaviours.LBSBehaviour.visible
-  - ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
-  - ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
-  - ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
-  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
-  - ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
-  - ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
-  - ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{{T}},System.Collections.Generic.List{{T}})
   - ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
   - ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
   - ISILab.LBS.Behaviours.LBSBehaviour.Icon
@@ -88,11 +89,22 @@ items:
   - ISILab.LBS.Behaviours.LBSBehaviour.Keys
   - ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
   - ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  - ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
+  - ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
+  - ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
+  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
+  - ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
+  - ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
+  - ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{{T}},System.Collections.Generic.List{{T}})
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.selectedTypeFilter
   commentId: F:ISILab.LBS.Behaviours.PopulationBehaviour.selectedTypeFilter
   id: selectedTypeFilter
@@ -104,14 +116,35 @@ items:
   nameWithType: PopulationBehaviour.selectedTypeFilter
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.selectedTypeFilter
   type: Field
+  source:
+    id: selectedTypeFilter
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 40
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public string selectedTypeFilter
+    content: >-
+      [SerializeField]
+
+      [HideInInspector]
+
+      public string selectedTypeFilter
     return:
       type: System.String
-    content.vb: Public selectedTypeFilter As String
+    content.vb: >-
+      <SerializeField>
+
+      <HideInInspector>
+
+      Public selectedTypeFilter As String
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.bundleElement
   commentId: F:ISILab.LBS.Behaviours.PopulationBehaviour.bundleElement
   id: bundleElement
@@ -123,6 +156,10 @@ items:
   nameWithType: PopulationBehaviour.bundleElement
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.bundleElement
   type: Field
+  source:
+    id: bundleElement
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 49
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -142,14 +179,250 @@ items:
   nameWithType: PopulationBehaviour.allFilter
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.allFilter
   type: Field
+  source:
+    id: allFilter
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 60
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public const string allFilter = "All"
+    content: >-
+      [HideInInspector]
+
+      public const string allFilter = "All"
     return:
       type: System.String
-    content.vb: Public Const allFilter As String = "All"
+    content.vb: >-
+      <HideInInspector>
+
+      Public Const allFilter As String = "All"
+  attributes:
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup
+  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup
+  id: TileBundleGroup
+  parent: ISILab.LBS.Behaviours.PopulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: TileBundleGroup
+  nameWithType: PopulationBehaviour.TileBundleGroup
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup
+  type: Property
+  source:
+    id: TileBundleGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 65
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public List<TileBundleGroup> TileBundleGroup { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property TileBundleGroup As List(Of TileBundleGroup)
+  overload: ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
+  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
+  id: BundleTilemap
+  parent: ISILab.LBS.Behaviours.PopulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: BundleTilemap
+  nameWithType: PopulationBehaviour.BundleTilemap
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
+  type: Property
+  source:
+    id: BundleTilemap
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 74
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public BundleTileMap BundleTilemap { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Modules.BundleTileMap
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property BundleTilemap As BundleTileMap
+  overload: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileMap
+  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.TileMap
+  id: TileMap
+  parent: ISILab.LBS.Behaviours.PopulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: TileMap
+  nameWithType: PopulationBehaviour.TileMap
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileMap
+  type: Property
+  source:
+    id: TileMap
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 80
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public TileMapModule TileMap { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Modules.TileMapModule
+    content.vb: Public ReadOnly Property TileMap As TileMapModule
+  overload: ISILab.LBS.Behaviours.PopulationBehaviour.TileMap*
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle
+  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.Bundle
+  id: Bundle
+  parent: ISILab.LBS.Behaviours.PopulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Bundle
+  nameWithType: PopulationBehaviour.Bundle
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle
+  type: Property
+  source:
+    id: Bundle
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 85
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  summary: Get the bundle that contains the population elements to paint
+  example: []
+  syntax:
+    content: public Bundle Bundle { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    content.vb: Public Property Bundle As Bundle
+  overload: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle*
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
+  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
+  id: SelectedFilter
+  parent: ISILab.LBS.Behaviours.PopulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: SelectedFilter
+  nameWithType: PopulationBehaviour.SelectedFilter
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
+  type: Property
+  source:
+    id: SelectedFilter
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 103
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public string SelectedFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SelectedFilter As String
+  overload: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter*
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode
+  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode
+  id: TileRotationMode
+  parent: ISILab.LBS.Behaviours.PopulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: TileRotationMode
+  nameWithType: PopulationBehaviour.TileRotationMode
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode
+  type: Property
+  source:
+    id: TileRotationMode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 109
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public TileMakeRot TileRotationMode { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Behaviours.TileMakeRot
+    content.vb: Public Property TileRotationMode As TileMakeRot
+  overload: ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode*
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights
+  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights
+  id: DirectionWeights
+  parent: ISILab.LBS.Behaviours.PopulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: DirectionWeights
+  nameWithType: PopulationBehaviour.DirectionWeights
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights
+  type: Property
+  source:
+    id: DirectionWeights
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 119
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public List<WeightedDirection> DirectionWeights { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Behaviours.WeightedDirection}
+    content.vb: Public Property DirectionWeights As List(Of WeightedDirection)
+  overload: ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights*
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection
+  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection
+  id: ActiveRotationDirection
+  parent: ISILab.LBS.Behaviours.PopulationBehaviour
+  langs:
+  - csharp
+  - vb
+  name: ActiveRotationDirection
+  nameWithType: PopulationBehaviour.ActiveRotationDirection
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection
+  type: Property
+  source:
+    id: ActiveRotationDirection
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 124
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public string ActiveRotationDirection { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ActiveRotationDirection As String
+  overload: ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection*
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
   commentId: M:ISILab.LBS.Behaviours.PopulationBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
   id: '#ctor(System.String,System.String,UnityEngine.Color)'
@@ -161,6 +434,10 @@ items:
   nameWithType: PopulationBehaviour.PopulationBehaviour(string, string, Color)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.PopulationBehaviour(string, string, UnityEngine.Color)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 139
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -189,6 +466,10 @@ items:
   nameWithType: PopulationBehaviour.GetTileRotation(Vector2Int)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetTileRotation(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: GetTileRotation
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 150
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -212,6 +493,10 @@ items:
   nameWithType: PopulationBehaviour.GetTile(Vector2Int)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetTile(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: GetTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 151
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -235,6 +520,10 @@ items:
   nameWithType: PopulationBehaviour.GetTileGroup(Vector2Int)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetTileGroup(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: GetTileGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 152
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -258,6 +547,10 @@ items:
   nameWithType: PopulationBehaviour.GetBundleData(LBSTile)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
   type: Method
+  source:
+    id: GetBundleData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 153
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -281,6 +574,10 @@ items:
   nameWithType: PopulationBehaviour.GetBundleData(Vector2)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData(UnityEngine.Vector2)
   type: Method
+  source:
+    id: GetBundleData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 154
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -304,6 +601,10 @@ items:
   nameWithType: PopulationBehaviour.OnGUI()
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.OnGUI()
   type: Method
+  source:
+    id: OnGUI
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 160
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -324,6 +625,10 @@ items:
   nameWithType: PopulationBehaviour.AddTileGroup(Vector2Int, BundleData, Vector2, List<BundleTileMapAddons>)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.AddTileGroup(UnityEngine.Vector2Int, LBS.Components.TileMap.BundleData, UnityEngine.Vector2, System.Collections.Generic.List<ISILab.LBS.Components.BundleTileMapAddons>)
   type: Method
+  source:
+    id: AddTileGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 162
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -356,6 +661,10 @@ items:
   nameWithType: PopulationBehaviour.MoveGroup(TileBundleGroup, Vector2Int)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.MoveGroup(ISILab.LBS.Modules.TileBundleGroup, UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: MoveGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 180
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -381,6 +690,10 @@ items:
   nameWithType: PopulationBehaviour.RemoveTileGroup(Vector2Int)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.RemoveTileGroup(UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: RemoveTileGroup
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 190
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -404,6 +717,10 @@ items:
   nameWithType: PopulationBehaviour.ReplaceTileMap(BundleTileMap)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap(ISILab.LBS.Modules.BundleTileMap)
   type: Method
+  source:
+    id: ReplaceTileMap
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 208
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -425,6 +742,10 @@ items:
   nameWithType: PopulationBehaviour.RotateTile(Vector2Int, Vector2)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.RotateTile(UnityEngine.Vector2Int, UnityEngine.Vector2)
   type: Method
+  source:
+    id: RotateTile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 226
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -450,6 +771,10 @@ items:
   nameWithType: PopulationBehaviour.Clear()
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.Clear()
   type: Method
+  source:
+    id: Clear
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 239
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -468,6 +793,10 @@ items:
   nameWithType: PopulationBehaviour.OnAttachLayer(LBSLayer)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: OnAttachLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 247
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -491,6 +820,10 @@ items:
   nameWithType: PopulationBehaviour.OnDetachLayer(LBSLayer)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
   type: Method
+  source:
+    id: OnDetachLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 257
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -514,6 +847,10 @@ items:
   nameWithType: PopulationBehaviour.CheckKeys()
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.CheckKeys()
   type: Method
+  source:
+    id: CheckKeys
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 263
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -534,6 +871,10 @@ items:
   nameWithType: PopulationBehaviour.UpdateKeys()
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.UpdateKeys()
   type: Method
+  source:
+    id: UpdateKeys
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 265
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -552,9 +893,17 @@ items:
   nameWithType: PopulationBehaviour.RetrieveExpiredTiles()
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveExpiredTiles()
   type: Method
+  source:
+    id: RetrieveExpiredTiles
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 273
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
+  summary: >-
+    Get all tiles that are marked for erasing since the last time they were retrieved.
+
+    The memory of new tiles will be cleared after calling this method.
   example: []
   syntax:
     content: public override object[] RetrieveExpiredTiles()
@@ -574,6 +923,10 @@ items:
   nameWithType: PopulationBehaviour.Clone()
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.Clone()
   type: Method
+  source:
+    id: Clone
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 276
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -596,6 +949,10 @@ items:
   nameWithType: PopulationBehaviour.Equals(object)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 283
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -624,6 +981,10 @@ items:
   nameWithType: PopulationBehaviour.GetHashCode()
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 298
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -646,9 +1007,18 @@ items:
   nameWithType: PopulationBehaviour.RetrieveNewRotations()
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveNewRotations()
   type: Method
+  source:
+    id: RetrieveNewRotations
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 305
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
+  summary: >-
+    Get all tileBundleGroups that were rotated since the last time they were retrieved.
+
+    The memory of new tiles will be cleared after calling this method.
+  example: []
   syntax:
     content: public TileBundleGroup[] RetrieveNewRotations()
     return:
@@ -666,6 +1036,10 @@ items:
   nameWithType: PopulationBehaviour.SetDirectionWeight(string, float)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.SetDirectionWeight(string, float)
   type: Method
+  source:
+    id: SetDirectionWeight
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 350
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -692,6 +1066,10 @@ items:
   nameWithType: PopulationBehaviour.GetDirectionWeight(string)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetDirectionWeight(string)
   type: Method
+  source:
+    id: GetDirectionWeight
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 357
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -718,6 +1096,10 @@ items:
   nameWithType: PopulationBehaviour.GetActiveRotation()
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetActiveRotation()
   type: Method
+  source:
+    id: GetActiveRotation
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 367
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -738,9 +1120,17 @@ items:
   nameWithType: PopulationBehaviour.CaptureAreaData(Vector2Int, Vector2Int)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.CaptureAreaData(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: CaptureAreaData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 405
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
+  summary: >-
+    Should return an object (module, behavior, assistant, etc) with a clone 
+
+    of the selected area
   example: []
   syntax:
     content: public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)
@@ -751,6 +1141,7 @@ items:
       type: UnityEngine.Vector2Int
     return:
       type: System.Boolean
+      description: true if there is any content within the area. Meaning to store the layer
     content.vb: Public Function CaptureAreaData(StartPosition As Vector2Int, EndPosition As Vector2Int) As Boolean
   overload: ISILab.LBS.Behaviours.PopulationBehaviour.CaptureAreaData*
   implements:
@@ -766,9 +1157,14 @@ items:
   nameWithType: PopulationBehaviour.SetPosition(Vector2Int, Vector2Int)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.SetPosition(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
   type: Method
+  source:
+    id: SetPosition
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 434
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
+  summary: Add an offset to the content of a given object type
   example: []
   syntax:
     content: public void SetPosition(Vector2Int parentAnchor, Vector2Int delta)
@@ -777,6 +1173,7 @@ items:
       type: UnityEngine.Vector2Int
     - id: delta
       type: UnityEngine.Vector2Int
+      description: value to apply to move an obejct
     content.vb: Public Sub SetPosition(parentAnchor As Vector2Int, delta As Vector2Int)
   overload: ISILab.LBS.Behaviours.PopulationBehaviour.SetPosition*
   implements:
@@ -792,14 +1189,20 @@ items:
   nameWithType: PopulationBehaviour.GetAnchor()
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetAnchor()
   type: Method
+  source:
+    id: GetAnchor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 447
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
+  summary: Gets the anchor/origin of this layer's objects
   example: []
   syntax:
     content: public Vector2Int GetAnchor()
     return:
       type: UnityEngine.Vector2Int
+      description: the top left object coordinate
     content.vb: Public Function GetAnchor() As Vector2Int
   overload: ISILab.LBS.Behaviours.PopulationBehaviour.GetAnchor*
   implements:
@@ -815,6 +1218,10 @@ items:
   nameWithType: PopulationBehaviour.ChangeLevelRender(int, int)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ChangeLevelRender(int, int)
   type: Method
+  source:
+    id: ChangeLevelRender
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 462
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -843,19 +1250,27 @@ items:
   nameWithType: PopulationBehaviour.MergeLayerData(object, bool)
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.MergeLayerData(object, bool)
   type: Method
+  source:
+    id: MergeLayerData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Behaviours\PopulationBehaviour.cs
+    startLine: 485
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
+  summary: Merges two layers into one
   example: []
   syntax:
     content: public bool MergeLayerData(object incoming, bool overwrite)
     parameters:
     - id: incoming
       type: System.Object
+      description: the layer that is merged
     - id: overwrite
       type: System.Boolean
+      description: true -&gt; incoming overrides original
     return:
       type: System.Boolean
+      description: ''
     content.vb: Public Function MergeLayerData(incoming As Object, overwrite As Boolean) As Boolean
   overload: ISILab.LBS.Behaviours.PopulationBehaviour.MergeLayerData*
   implements:
@@ -863,178 +1278,9 @@ items:
   nameWithType.vb: PopulationBehaviour.MergeLayerData(Object, Boolean)
   fullName.vb: ISILab.LBS.Behaviours.PopulationBehaviour.MergeLayerData(Object, Boolean)
   name.vb: MergeLayerData(Object, Boolean)
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup
-  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup
-  id: TileBundleGroup
-  parent: ISILab.LBS.Behaviours.PopulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: TileBundleGroup
-  nameWithType: PopulationBehaviour.TileBundleGroup
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public List<TileBundleGroup> TileBundleGroup { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
-    content.vb: Public ReadOnly Property TileBundleGroup As List(Of TileBundleGroup)
-  overload: ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup*
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
-  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
-  id: BundleTilemap
-  parent: ISILab.LBS.Behaviours.PopulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: BundleTilemap
-  nameWithType: PopulationBehaviour.BundleTilemap
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public BundleTileMap BundleTilemap { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Modules.BundleTileMap
-    content.vb: Public Property BundleTilemap As BundleTileMap
-  overload: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap*
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileMap
-  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.TileMap
-  id: TileMap
-  parent: ISILab.LBS.Behaviours.PopulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: TileMap
-  nameWithType: PopulationBehaviour.TileMap
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileMap
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public TileMapModule TileMap { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Modules.TileMapModule
-    content.vb: Public ReadOnly Property TileMap As TileMapModule
-  overload: ISILab.LBS.Behaviours.PopulationBehaviour.TileMap*
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle
-  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.Bundle
-  id: Bundle
-  parent: ISILab.LBS.Behaviours.PopulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: Bundle
-  nameWithType: PopulationBehaviour.Bundle
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public Bundle Bundle { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
-    content.vb: Public Property Bundle As Bundle
-  overload: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle*
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
-  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
-  id: SelectedFilter
-  parent: ISILab.LBS.Behaviours.PopulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: SelectedFilter
-  nameWithType: PopulationBehaviour.SelectedFilter
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public string SelectedFilter { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property SelectedFilter As String
-  overload: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter*
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode
-  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode
-  id: TileRotationMode
-  parent: ISILab.LBS.Behaviours.PopulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: TileRotationMode
-  nameWithType: PopulationBehaviour.TileRotationMode
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public TileMakeRot TileRotationMode { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Behaviours.TileMakeRot
-    content.vb: Public Property TileRotationMode As TileMakeRot
-  overload: ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode*
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights
-  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights
-  id: DirectionWeights
-  parent: ISILab.LBS.Behaviours.PopulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: DirectionWeights
-  nameWithType: PopulationBehaviour.DirectionWeights
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public List<WeightedDirection> DirectionWeights { get; set; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Behaviours.WeightedDirection}
-    content.vb: Public Property DirectionWeights As List(Of WeightedDirection)
-  overload: ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights*
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection
-  commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection
-  id: ActiveRotationDirection
-  parent: ISILab.LBS.Behaviours.PopulationBehaviour
-  langs:
-  - csharp
-  - vb
-  name: ActiveRotationDirection
-  nameWithType: PopulationBehaviour.ActiveRotationDirection
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection
-  type: Property
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Behaviours
-  syntax:
-    content: public string ActiveRotationDirection { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property ActiveRotationDirection As String
-  overload: ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection*
 references:
 - uid: ISILab.LBS.Behaviours
   commentId: N:ISILab.LBS.Behaviours
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Behaviours
   nameWithType: ISILab.LBS.Behaviours
@@ -1042,32 +1288,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Behaviours.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Behaviours
     name: Behaviours
-    isExternal: true
     href: ISILab.LBS.Behaviours.html
 - uid: System.Object
   commentId: T:System.Object
@@ -1083,7 +1323,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour
   commentId: T:ISILab.LBS.Behaviours.LBSBehaviour
   parent: ISILab.LBS.Behaviours
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html
   name: LBSBehaviour
   nameWithType: LBSBehaviour
@@ -1099,7 +1338,6 @@ references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
   commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
   parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html
   name: IBlueprintable
   nameWithType: IBlueprintable
@@ -1107,15 +1345,69 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.visible
   commentId: F:ISILab.LBS.Behaviours.LBSBehaviour.visible
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_visible
   name: visible
   nameWithType: LBSBehaviour.visible
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.visible
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint
+  name: ColorTint
+  nameWithType: LBSBehaviour.ColorTint
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSBehaviour.OwnerLayer
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Icon
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Icon
+  name: Icon
+  nameWithType: LBSBehaviour.Icon
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Icon
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_IconGuid
+  name: IconGuid
+  nameWithType: LBSBehaviour.IconGuid
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Name
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Name
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Name
+  name: Name
+  nameWithType: LBSBehaviour.Name
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Name
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.Keys
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Keys
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Keys
+  name: Keys
+  nameWithType: LBSBehaviour.Keys
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Keys
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
+  name: LevelChangedCallback
+  nameWithType: LBSBehaviour.LevelChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  commentId: E:ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnBehaviourUpdated
+  name: OnBehaviourUpdated
+  nameWithType: LBSBehaviour.OnBehaviourUpdated
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
   name: GetRequiredModules()
   nameWithType: LBSBehaviour.GetRequiredModules()
@@ -1123,14 +1415,12 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
     name: GetRequiredModules
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
     name: GetRequiredModules
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules
   - name: (
   - name: )
@@ -1148,7 +1438,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
     name: RequestTilePaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_
   - name: (
   - uid: System.Object
@@ -1159,7 +1448,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
     name: RequestTilePaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_
   - name: (
   - uid: System.Object
@@ -1181,7 +1469,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
     name: RequestTileRemove
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_
   - name: (
   - uid: System.Object
@@ -1192,7 +1479,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
     name: RequestTileRemove
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_
   - name: (
   - uid: System.Object
@@ -1203,7 +1489,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
   name: RetrieveNewTiles()
   nameWithType: LBSBehaviour.RetrieveNewTiles()
@@ -1211,14 +1496,12 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
     name: RetrieveNewTiles
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
     name: RetrieveNewTiles
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles
   - name: (
   - name: )
@@ -1236,7 +1519,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
     name: UpdateKeys
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__
   - name: (
   - uid: System.Collections.Generic.List`1
@@ -1253,7 +1535,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
     name: UpdateKeys
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__
   - name: (
   - uid: System.Collections.Generic.List`1
@@ -1283,7 +1564,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
     name: OnOnBehaviourUpdated
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_
   - name: (
   - uid: System.Object
@@ -1294,7 +1574,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
     name: OnOnBehaviourUpdated
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_
   - name: (
   - uid: System.Object
@@ -1316,7 +1595,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
     name: RequestFullRepaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
   - name: <
   - name: T
@@ -1342,7 +1620,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
     name: RequestFullRepaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
   - name: (
   - name: Of
@@ -1371,70 +1648,51 @@ references:
   - name: T
   - name: )
   - name: )
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
   isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint
-  name: ColorTint
-  nameWithType: LBSBehaviour.ColorTint
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OwnerLayer
-  name: OwnerLayer
-  nameWithType: LBSBehaviour.OwnerLayer
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OwnerLayer
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Icon
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Icon
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Icon
-  name: Icon
-  nameWithType: LBSBehaviour.Icon
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Icon
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_IconGuid
-  name: IconGuid
-  nameWithType: LBSBehaviour.IconGuid
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Name
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Name
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Name
-  name: Name
-  nameWithType: LBSBehaviour.Name
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Name
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Keys
-  name: Keys
-  nameWithType: LBSBehaviour.Keys
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.Keys
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
-  name: LevelChangedCallback
-  nameWithType: LBSBehaviour.LevelChangedCallback
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
-  commentId: E:ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnBehaviourUpdated
-  name: OnBehaviourUpdated
-  nameWithType: LBSBehaviour.OnBehaviourUpdated
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -1483,75 +1741,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -1597,6 +1786,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -1606,7 +1819,6 @@ references:
   fullName: System
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
   commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
   nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
@@ -1614,72 +1826,58 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
     name: Blueprint
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI
     name: UI
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.html
   - name: .
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
     name: Blueprint
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.html
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
@@ -1694,7 +1892,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
     name: RequestFullRepaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
   - name: <
   - name: T
@@ -1720,7 +1917,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
     name: RequestFullRepaint
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__
   - name: (
   - name: Of
@@ -1763,14 +1959,12 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
   commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle
   parent: ISILab.LBS.Plugin.Components.Bundles
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
   name: Bundle
   nameWithType: Bundle
   fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle
 - uid: ISILab.LBS.Plugin.Components.Bundles
   commentId: N:ISILab.LBS.Plugin.Components.Bundles
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Bundles
   nameWithType: ISILab.LBS.Plugin.Components.Bundles
@@ -1778,338 +1972,69 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Bundles
     name: Bundles
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Bundles.html
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.#ctor*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.#ctor
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour__ctor_System_String_System_String_UnityEngine_Color_
-  name: PopulationBehaviour
-  nameWithType: PopulationBehaviour.PopulationBehaviour
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.PopulationBehaviour
-  nameWithType.vb: PopulationBehaviour.New
-  fullName.vb: ISILab.LBS.Behaviours.PopulationBehaviour.New
-  name.vb: New
-- uid: UnityEngine.Color
-  isExternal: true
-  name: Color
-  nameWithType: Color
-  fullName: UnityEngine.Color
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetTileRotation*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetTileRotation
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetTileRotation_UnityEngine_Vector2Int_
-  name: GetTileRotation
-  nameWithType: PopulationBehaviour.GetTileRotation
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetTileRotation
-- uid: UnityEngine.Vector2Int
-  isExternal: true
-  name: Vector2Int
-  nameWithType: Vector2Int
-  fullName: UnityEngine.Vector2Int
-- uid: UnityEngine.Vector2
-  isExternal: true
-  name: Vector2
-  nameWithType: Vector2
-  fullName: UnityEngine.Vector2
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetTile*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetTile
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetTile_UnityEngine_Vector2Int_
-  name: GetTile
-  nameWithType: PopulationBehaviour.GetTile
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetTile
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
-  commentId: T:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
-  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  isExternal: true
-  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
-  name: LBSTile
-  nameWithType: LBSTile
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
-- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  commentId: N:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  nameWithType: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Plugin
-    name: Plugin
-    isExternal: true
-    href: ISILab.LBS.Plugin.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components
-    name: Components
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Data
-    name: Data
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
-    name: Tessellation
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-    name: TileMap
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Plugin
-    name: Plugin
-    isExternal: true
-    href: ISILab.LBS.Plugin.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components
-    name: Components
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Data
-    name: Data
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
-    name: Tessellation
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
-    name: TileMap
-    isExternal: true
-    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetTileGroup*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetTileGroup
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetTileGroup_UnityEngine_Vector2Int_
-  name: GetTileGroup
-  nameWithType: PopulationBehaviour.GetTileGroup
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetTileGroup
-- uid: ISILab.LBS.Modules.TileBundleGroup
-  commentId: T:ISILab.LBS.Modules.TileBundleGroup
-  parent: ISILab.LBS.Modules
-  isExternal: true
-  href: ISILab.LBS.Modules.TileBundleGroup.html
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_TileBundleGroup
   name: TileBundleGroup
-  nameWithType: TileBundleGroup
-  fullName: ISILab.LBS.Modules.TileBundleGroup
-- uid: ISILab.LBS.Modules
-  commentId: N:ISILab.LBS.Modules
-  isExternal: true
-  href: ISILab.html
-  name: ISILab.LBS.Modules
-  nameWithType: ISILab.LBS.Modules
-  fullName: ISILab.LBS.Modules
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Modules
-    name: Modules
-    isExternal: true
-    href: ISILab.LBS.Modules.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    isExternal: true
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    isExternal: true
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Modules
-    name: Modules
-    isExternal: true
-    href: ISILab.LBS.Modules.html
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetBundleData_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
-  name: GetBundleData
-  nameWithType: PopulationBehaviour.GetBundleData
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData
-- uid: LBS.Components.TileMap.BundleData
-  commentId: T:LBS.Components.TileMap.BundleData
-  parent: LBS.Components.TileMap
-  isExternal: true
-  href: LBS.Components.TileMap.BundleData.html
-  name: BundleData
-  nameWithType: BundleData
-  fullName: LBS.Components.TileMap.BundleData
-- uid: LBS.Components.TileMap
-  commentId: N:LBS.Components.TileMap
-  isExternal: true
-  href: LBS.html
-  name: LBS.Components.TileMap
-  nameWithType: LBS.Components.TileMap
-  fullName: LBS.Components.TileMap
-  spec.csharp:
-  - uid: LBS
-    name: LBS
-    isExternal: true
-    href: LBS.html
-  - name: .
-  - uid: LBS.Components
-    name: Components
-    isExternal: true
-    href: LBS.Components.html
-  - name: .
-  - uid: LBS.Components.TileMap
-    name: TileMap
-    isExternal: true
-    href: LBS.Components.TileMap.html
-  spec.vb:
-  - uid: LBS
-    name: LBS
-    isExternal: true
-    href: LBS.html
-  - name: .
-  - uid: LBS.Components
-    name: Components
-    isExternal: true
-    href: LBS.Components.html
-  - name: .
-  - uid: LBS.Components.TileMap
-    name: TileMap
-    isExternal: true
-    href: LBS.Components.TileMap.html
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
-  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
-  parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
-  name: OnGUI()
-  nameWithType: LBSBehaviour.OnGUI()
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI()
-  spec.csharp:
-  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
-    name: OnGUI
-    isExternal: true
-    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
-    name: OnGUI
-    isExternal: true
-    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
-  - name: (
-  - name: )
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.OnGUI*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.OnGUI
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_OnGUI
-  name: OnGUI
-  nameWithType: PopulationBehaviour.OnGUI
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.OnGUI
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.AddTileGroup*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.AddTileGroup
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_AddTileGroup_UnityEngine_Vector2Int_LBS_Components_TileMap_BundleData_UnityEngine_Vector2_System_Collections_Generic_List_ISILab_LBS_Components_BundleTileMapAddons__
-  name: AddTileGroup
-  nameWithType: PopulationBehaviour.AddTileGroup
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.AddTileGroup
-- uid: System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons}
-  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons}
+  nameWithType: PopulationBehaviour.TileBundleGroup
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup
+- uid: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<BundleTileMapAddons>
-  nameWithType: List<BundleTileMapAddons>
-  fullName: System.Collections.Generic.List<ISILab.LBS.Components.BundleTileMapAddons>
-  nameWithType.vb: List(Of BundleTileMapAddons)
-  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.BundleTileMapAddons)
-  name.vb: List(Of BundleTileMapAddons)
+  name: List<TileBundleGroup>
+  nameWithType: List<TileBundleGroup>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>
+  nameWithType.vb: List(Of TileBundleGroup)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.TileBundleGroup)
+  name.vb: List(Of TileBundleGroup)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: ISILab.LBS.Components.BundleTileMapAddons
-    name: BundleTileMapAddons
-    isExternal: true
-    href: ISILab.LBS.Components.BundleTileMapAddons.html
+  - uid: ISILab.LBS.Modules.TileBundleGroup
+    name: TileBundleGroup
+    href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -2119,10 +2044,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: ISILab.LBS.Components.BundleTileMapAddons
-    name: BundleTileMapAddons
-    isExternal: true
-    href: ISILab.LBS.Components.BundleTileMapAddons.html
+  - uid: ISILab.LBS.Modules.TileBundleGroup
+    name: TileBundleGroup
+    href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
@@ -2189,38 +2113,389 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_BundleTilemap
+  name: BundleTilemap
+  nameWithType: PopulationBehaviour.BundleTilemap
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
+- uid: ISILab.LBS.Modules.BundleTileMap
+  commentId: T:ISILab.LBS.Modules.BundleTileMap
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.BundleTileMap.html
+  name: BundleTileMap
+  nameWithType: BundleTileMap
+  fullName: ISILab.LBS.Modules.BundleTileMap
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    href: ISILab.LBS.Modules.html
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileMap*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.TileMap
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_TileMap
+  name: TileMap
+  nameWithType: PopulationBehaviour.TileMap
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileMap
+- uid: ISILab.LBS.Modules.TileMapModule
+  commentId: T:ISILab.LBS.Modules.TileMapModule
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.TileMapModule.html
+  name: TileMapModule
+  nameWithType: TileMapModule
+  fullName: ISILab.LBS.Modules.TileMapModule
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.Bundle
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_Bundle
+  name: Bundle
+  nameWithType: PopulationBehaviour.Bundle
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_SelectedFilter
+  name: SelectedFilter
+  nameWithType: PopulationBehaviour.SelectedFilter
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_TileRotationMode
+  name: TileRotationMode
+  nameWithType: PopulationBehaviour.TileRotationMode
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode
+- uid: ISILab.LBS.Behaviours.TileMakeRot
+  commentId: T:ISILab.LBS.Behaviours.TileMakeRot
+  parent: ISILab.LBS.Behaviours
+  href: ISILab.LBS.Behaviours.TileMakeRot.html
+  name: TileMakeRot
+  nameWithType: TileMakeRot
+  fullName: ISILab.LBS.Behaviours.TileMakeRot
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_DirectionWeights
+  name: DirectionWeights
+  nameWithType: PopulationBehaviour.DirectionWeights
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights
+- uid: System.Collections.Generic.List{ISILab.LBS.Behaviours.WeightedDirection}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Behaviours.WeightedDirection}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<WeightedDirection>
+  nameWithType: List<WeightedDirection>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Behaviours.WeightedDirection>
+  nameWithType.vb: List(Of WeightedDirection)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Behaviours.WeightedDirection)
+  name.vb: List(Of WeightedDirection)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Behaviours.WeightedDirection
+    name: WeightedDirection
+    href: ISILab.LBS.Behaviours.WeightedDirection.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Behaviours.WeightedDirection
+    name: WeightedDirection
+    href: ISILab.LBS.Behaviours.WeightedDirection.html
+  - name: )
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_ActiveRotationDirection
+  name: ActiveRotationDirection
+  nameWithType: PopulationBehaviour.ActiveRotationDirection
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.#ctor*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.#ctor
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour__ctor_System_String_System_String_UnityEngine_Color_
+  name: PopulationBehaviour
+  nameWithType: PopulationBehaviour.PopulationBehaviour
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.PopulationBehaviour
+  nameWithType.vb: PopulationBehaviour.New
+  fullName.vb: ISILab.LBS.Behaviours.PopulationBehaviour.New
+  name.vb: New
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetTileRotation*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetTileRotation
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetTileRotation_UnityEngine_Vector2Int_
+  name: GetTileRotation
+  nameWithType: PopulationBehaviour.GetTileRotation
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetTileRotation
+- uid: UnityEngine.Vector2Int
+  commentId: T:UnityEngine.Vector2Int
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetTile*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetTile
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetTile_UnityEngine_Vector2Int_
+  name: GetTile
+  nameWithType: PopulationBehaviour.GetTile
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetTile
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+  commentId: T:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  name: LBSTile
+  nameWithType: LBSTile
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  commentId: N:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  nameWithType: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    href: ISILab.LBS.Plugin.Components.Data.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
+    name: Tessellation
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+    name: TileMap
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    href: ISILab.LBS.Plugin.Components.Data.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
+    name: Tessellation
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+    name: TileMap
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetTileGroup*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetTileGroup
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetTileGroup_UnityEngine_Vector2Int_
+  name: GetTileGroup
+  nameWithType: PopulationBehaviour.GetTileGroup
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetTileGroup
+- uid: ISILab.LBS.Modules.TileBundleGroup
+  commentId: T:ISILab.LBS.Modules.TileBundleGroup
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.TileBundleGroup.html
+  name: TileBundleGroup
+  nameWithType: TileBundleGroup
+  fullName: ISILab.LBS.Modules.TileBundleGroup
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetBundleData_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
+  name: GetBundleData
+  nameWithType: PopulationBehaviour.GetBundleData
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData
+- uid: LBS.Components.TileMap.BundleData
+  commentId: T:LBS.Components.TileMap.BundleData
+  parent: LBS.Components.TileMap
+  href: LBS.Components.TileMap.BundleData.html
+  name: BundleData
+  nameWithType: BundleData
+  fullName: LBS.Components.TileMap.BundleData
+- uid: LBS.Components.TileMap
+  commentId: N:LBS.Components.TileMap
+  href: LBS.html
+  name: LBS.Components.TileMap
+  nameWithType: LBS.Components.TileMap
+  fullName: LBS.Components.TileMap
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+  - name: .
+  - uid: LBS.Components.TileMap
+    name: TileMap
+    href: LBS.Components.TileMap.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+  - name: .
+  - uid: LBS.Components.TileMap
+    name: TileMap
+    href: LBS.Components.TileMap.html
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
+  name: OnGUI()
+  nameWithType: LBSBehaviour.OnGUI()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI()
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+    name: OnGUI
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnGUI
+    name: OnGUI
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnGUI
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.OnGUI*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.OnGUI
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_OnGUI
+  name: OnGUI
+  nameWithType: PopulationBehaviour.OnGUI
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.OnGUI
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.AddTileGroup*
+  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.AddTileGroup
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_AddTileGroup_UnityEngine_Vector2Int_LBS_Components_TileMap_BundleData_UnityEngine_Vector2_System_Collections_Generic_List_ISILab_LBS_Components_BundleTileMapAddons__
+  name: AddTileGroup
+  nameWithType: PopulationBehaviour.AddTileGroup
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.AddTileGroup
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<BundleTileMapAddons>
+  nameWithType: List<BundleTileMapAddons>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.BundleTileMapAddons>
+  nameWithType.vb: List(Of BundleTileMapAddons)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.BundleTileMapAddons)
+  name.vb: List(Of BundleTileMapAddons)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.BundleTileMapAddons
+    name: BundleTileMapAddons
+    href: ISILab.LBS.Components.BundleTileMapAddons.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.BundleTileMapAddons
+    name: BundleTileMapAddons
+    href: ISILab.LBS.Components.BundleTileMapAddons.html
+  - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.MoveGroup*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.MoveGroup
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_MoveGroup_ISILab_LBS_Modules_TileBundleGroup_UnityEngine_Vector2Int_
   name: MoveGroup
   nameWithType: PopulationBehaviour.MoveGroup
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.MoveGroup
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.RemoveTileGroup*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.RemoveTileGroup
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_RemoveTileGroup_UnityEngine_Vector2Int_
   name: RemoveTileGroup
   nameWithType: PopulationBehaviour.RemoveTileGroup
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.RemoveTileGroup
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_ReplaceTileMap_ISILab_LBS_Modules_BundleTileMap_
   name: ReplaceTileMap
   nameWithType: PopulationBehaviour.ReplaceTileMap
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap
-- uid: ISILab.LBS.Modules.BundleTileMap
-  commentId: T:ISILab.LBS.Modules.BundleTileMap
-  parent: ISILab.LBS.Modules
-  isExternal: true
-  href: ISILab.LBS.Modules.BundleTileMap.html
-  name: BundleTileMap
-  nameWithType: BundleTileMap
-  fullName: ISILab.LBS.Modules.BundleTileMap
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.RotateTile*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.RotateTile
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_RotateTile_UnityEngine_Vector2Int_UnityEngine_Vector2_
   name: RotateTile
   nameWithType: PopulationBehaviour.RotateTile
@@ -2238,7 +2513,6 @@ references:
   name.vb: Boolean
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.Clear*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.Clear
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_Clear
   name: Clear
   nameWithType: PopulationBehaviour.Clear
@@ -2246,7 +2520,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
   name: OnAttachLayer(LBSLayer)
   nameWithType: LBSBehaviour.OnAttachLayer(LBSLayer)
@@ -2254,28 +2527,23 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
     name: OnAttachLayer
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
     name: OnAttachLayer
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.OnAttachLayer*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.OnAttachLayer
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_OnAttachLayer_LBS_Components_LBSLayer_
   name: OnAttachLayer
   nameWithType: PopulationBehaviour.OnAttachLayer
@@ -2283,14 +2551,12 @@ references:
 - uid: LBS.Components.LBSLayer
   commentId: T:LBS.Components.LBSLayer
   parent: LBS.Components
-  isExternal: true
   href: LBS.Components.LBSLayer.html
   name: LBSLayer
   nameWithType: LBSLayer
   fullName: LBS.Components.LBSLayer
 - uid: LBS.Components
   commentId: N:LBS.Components
-  isExternal: true
   href: LBS.html
   name: LBS.Components
   nameWithType: LBS.Components
@@ -2298,27 +2564,22 @@ references:
   spec.csharp:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
   spec.vb:
   - uid: LBS
     name: LBS
-    isExternal: true
     href: LBS.html
   - name: .
   - uid: LBS.Components
     name: Components
-    isExternal: true
     href: LBS.Components.html
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
   name: OnDetachLayer(LBSLayer)
   nameWithType: LBSBehaviour.OnDetachLayer(LBSLayer)
@@ -2326,28 +2587,23 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
     name: OnDetachLayer
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
     name: OnDetachLayer
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
-    isExternal: true
     href: LBS.Components.LBSLayer.html
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.OnDetachLayer*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.OnDetachLayer
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_OnDetachLayer_LBS_Components_LBSLayer_
   name: OnDetachLayer
   nameWithType: PopulationBehaviour.OnDetachLayer
@@ -2355,7 +2611,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
   name: CheckKeys()
   nameWithType: LBSBehaviour.CheckKeys()
@@ -2363,27 +2618,23 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
     name: CheckKeys
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
     name: CheckKeys
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.CheckKeys*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.CheckKeys
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_CheckKeys
   name: CheckKeys
   nameWithType: PopulationBehaviour.CheckKeys
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.CheckKeys
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.UpdateKeys*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.UpdateKeys
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_UpdateKeys
   name: UpdateKeys
   nameWithType: PopulationBehaviour.UpdateKeys
@@ -2391,7 +2642,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
   name: RetrieveExpiredTiles()
   nameWithType: LBSBehaviour.RetrieveExpiredTiles()
@@ -2399,20 +2649,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveExpiredTiles*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveExpiredTiles
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_RetrieveExpiredTiles
   name: RetrieveExpiredTiles
   nameWithType: PopulationBehaviour.RetrieveExpiredTiles
@@ -2443,7 +2690,6 @@ references:
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.Clone
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  isExternal: true
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
   name: Clone()
   nameWithType: LBSBehaviour.Clone()
@@ -2451,20 +2697,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.Clone
     name: Clone
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.Clone*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.Clone
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_Clone
   name: Clone
   nameWithType: PopulationBehaviour.Clone
@@ -2504,7 +2747,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.Equals*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.Equals
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_Equals_System_Object_
   name: Equals
   nameWithType: PopulationBehaviour.Equals
@@ -2535,7 +2777,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetHashCode*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetHashCode
   name: GetHashCode
   nameWithType: PopulationBehaviour.GetHashCode
@@ -2553,7 +2794,6 @@ references:
   name.vb: Integer
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveNewRotations*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveNewRotations
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_RetrieveNewRotations
   name: RetrieveNewRotations
   nameWithType: PopulationBehaviour.RetrieveNewRotations
@@ -2570,20 +2810,17 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Modules.TileBundleGroup
     name: TileBundleGroup
-    isExternal: true
     href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: '['
   - name: ']'
   spec.vb:
   - uid: ISILab.LBS.Modules.TileBundleGroup
     name: TileBundleGroup
-    isExternal: true
     href: ISILab.LBS.Modules.TileBundleGroup.html
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.SetDirectionWeight*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.SetDirectionWeight
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_SetDirectionWeight_System_String_System_Single_
   name: SetDirectionWeight
   nameWithType: PopulationBehaviour.SetDirectionWeight
@@ -2601,21 +2838,18 @@ references:
   name.vb: Single
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetDirectionWeight*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetDirectionWeight
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetDirectionWeight_System_String_
   name: GetDirectionWeight
   nameWithType: PopulationBehaviour.GetDirectionWeight
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetDirectionWeight
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetActiveRotation*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetActiveRotation
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetActiveRotation
   name: GetActiveRotation
   nameWithType: PopulationBehaviour.GetActiveRotation
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.GetActiveRotation
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.CaptureAreaData*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.CaptureAreaData
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_CaptureAreaData_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
   name: CaptureAreaData
   nameWithType: PopulationBehaviour.CaptureAreaData
@@ -2631,7 +2865,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
     name: CaptureAreaData
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_CaptureAreaData_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
   - name: (
   - uid: UnityEngine.Vector2Int
@@ -2646,7 +2879,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
     name: CaptureAreaData
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_CaptureAreaData_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
   - name: (
   - uid: UnityEngine.Vector2Int
@@ -2660,7 +2892,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.SetPosition*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.SetPosition
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_SetPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
   name: SetPosition
   nameWithType: PopulationBehaviour.SetPosition
@@ -2676,7 +2907,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
     name: SetPosition
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_SetPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
   - name: (
   - uid: UnityEngine.Vector2Int
@@ -2691,7 +2921,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
     name: SetPosition
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_SetPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
   - name: (
   - uid: UnityEngine.Vector2Int
@@ -2705,7 +2934,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.GetAnchor*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.GetAnchor
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_GetAnchor
   name: GetAnchor
   nameWithType: PopulationBehaviour.GetAnchor
@@ -2713,7 +2941,6 @@ references:
 - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
   commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
   parent: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable
-  isExternal: true
   href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_GetAnchor
   name: GetAnchor()
   nameWithType: IBlueprintable.GetAnchor()
@@ -2721,14 +2948,12 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
     name: GetAnchor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_GetAnchor
   - name: (
   - name: )
   spec.vb:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.GetAnchor
     name: GetAnchor
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_GetAnchor
   - name: (
   - name: )
@@ -2746,7 +2971,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
     name: ChangeLevelRender
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ChangeLevelRender_System_Int32_System_Int32_
   - name: (
   - uid: System.Int32
@@ -2763,7 +2987,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
     name: ChangeLevelRender
-    isExternal: true
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ChangeLevelRender_System_Int32_System_Int32_
   - name: (
   - uid: System.Int32
@@ -2779,14 +3002,12 @@ references:
   - name: )
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.ChangeLevelRender*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.ChangeLevelRender
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_ChangeLevelRender_System_Int32_System_Int32_
   name: ChangeLevelRender
   nameWithType: PopulationBehaviour.ChangeLevelRender
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ChangeLevelRender
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.MergeLayerData*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.MergeLayerData
-  isExternal: true
   href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_MergeLayerData_System_Object_System_Boolean_
   name: MergeLayerData
   nameWithType: PopulationBehaviour.MergeLayerData
@@ -2805,7 +3026,6 @@ references:
   spec.csharp:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData(System.Object,System.Boolean)
     name: MergeLayerData
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_MergeLayerData_System_Object_System_Boolean_
   - name: (
   - uid: System.Object
@@ -2822,7 +3042,6 @@ references:
   spec.vb:
   - uid: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.MergeLayerData(System.Object,System.Boolean)
     name: MergeLayerData
-    isExternal: true
     href: ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html#ISILab_LBS_Plugin_UI_Editor_Windows_Blueprint_IBlueprintable_MergeLayerData_System_Object_System_Boolean_
   - name: (
   - uid: System.Object
@@ -2836,146 +3055,4 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_TileBundleGroup
-  name: TileBundleGroup
-  nameWithType: PopulationBehaviour.TileBundleGroup
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup
-- uid: System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
-  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.TileBundleGroup}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<TileBundleGroup>
-  nameWithType: List<TileBundleGroup>
-  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>
-  nameWithType.vb: List(Of TileBundleGroup)
-  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.TileBundleGroup)
-  name.vb: List(Of TileBundleGroup)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: ISILab.LBS.Modules.TileBundleGroup
-    name: TileBundleGroup
-    isExternal: true
-    href: ISILab.LBS.Modules.TileBundleGroup.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Modules.TileBundleGroup
-    name: TileBundleGroup
-    isExternal: true
-    href: ISILab.LBS.Modules.TileBundleGroup.html
-  - name: )
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_BundleTilemap
-  name: BundleTilemap
-  nameWithType: PopulationBehaviour.BundleTilemap
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileMap*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.TileMap
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_TileMap
-  name: TileMap
-  nameWithType: PopulationBehaviour.TileMap
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileMap
-- uid: ISILab.LBS.Modules.TileMapModule
-  commentId: T:ISILab.LBS.Modules.TileMapModule
-  parent: ISILab.LBS.Modules
-  isExternal: true
-  href: ISILab.LBS.Modules.TileMapModule.html
-  name: TileMapModule
-  nameWithType: TileMapModule
-  fullName: ISILab.LBS.Modules.TileMapModule
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.Bundle
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_Bundle
-  name: Bundle
-  nameWithType: PopulationBehaviour.Bundle
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_SelectedFilter
-  name: SelectedFilter
-  nameWithType: PopulationBehaviour.SelectedFilter
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_TileRotationMode
-  name: TileRotationMode
-  nameWithType: PopulationBehaviour.TileRotationMode
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode
-- uid: ISILab.LBS.Behaviours.TileMakeRot
-  commentId: T:ISILab.LBS.Behaviours.TileMakeRot
-  parent: ISILab.LBS.Behaviours
-  isExternal: true
-  href: ISILab.LBS.Behaviours.TileMakeRot.html
-  name: TileMakeRot
-  nameWithType: TileMakeRot
-  fullName: ISILab.LBS.Behaviours.TileMakeRot
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_DirectionWeights
-  name: DirectionWeights
-  nameWithType: PopulationBehaviour.DirectionWeights
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights
-- uid: System.Collections.Generic.List{ISILab.LBS.Behaviours.WeightedDirection}
-  commentId: T:System.Collections.Generic.List{ISILab.LBS.Behaviours.WeightedDirection}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<WeightedDirection>
-  nameWithType: List<WeightedDirection>
-  fullName: System.Collections.Generic.List<ISILab.LBS.Behaviours.WeightedDirection>
-  nameWithType.vb: List(Of WeightedDirection)
-  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Behaviours.WeightedDirection)
-  name.vb: List(Of WeightedDirection)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: ISILab.LBS.Behaviours.WeightedDirection
-    name: WeightedDirection
-    isExternal: true
-    href: ISILab.LBS.Behaviours.WeightedDirection.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Behaviours.WeightedDirection
-    name: WeightedDirection
-    isExternal: true
-    href: ISILab.LBS.Behaviours.WeightedDirection.html
-  - name: )
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection*
-  commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection
-  isExternal: true
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_ActiveRotationDirection
-  name: ActiveRotationDirection
-  nameWithType: PopulationBehaviour.ActiveRotationDirection
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection
 shouldSkipMarkup: true

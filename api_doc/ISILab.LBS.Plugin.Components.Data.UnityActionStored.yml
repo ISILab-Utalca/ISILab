@@ -22,19 +22,38 @@ items:
   nameWithType: UnityActionStored
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored
   type: Struct
+  source:
+    id: UnityActionStored
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 23
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
+  summary: >-
+    Meant to store necessary data to create Unity Actions.
+
+    Has function to generate a UnityAction
+  example: []
   syntax:
-    content: 'public struct UnityActionStored : IEquatable<UnityActionStored>'
-    content.vb: Public Structure UnityActionStored Implements IEquatable(Of UnityActionStored)
+    content: >-
+      [Serializable]
+
+      public struct UnityActionStored : IEquatable<UnityActionStored>
+    content.vb: >-
+      <Serializable>
+
+      Public Structure UnityActionStored Implements IEquatable(Of UnityActionStored)
   implements:
   - System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}
   inheritedMembers:
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.objectName
   commentId: F:ISILab.LBS.Plugin.Components.Data.UnityActionStored.objectName
   id: objectName
@@ -46,14 +65,28 @@ items:
   nameWithType: UnityActionStored.objectName
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.objectName
   type: Field
+  source:
+    id: objectName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 27
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
   syntax:
-    content: public string objectName
+    content: >-
+      [SerializeField]
+
+      public string objectName
     return:
       type: System.String
-    content.vb: Public objectName As String
+    content.vb: >-
+      <SerializeField>
+
+      Public objectName As String
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.componentName
   commentId: F:ISILab.LBS.Plugin.Components.Data.UnityActionStored.componentName
   id: componentName
@@ -65,14 +98,28 @@ items:
   nameWithType: UnityActionStored.componentName
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.componentName
   type: Field
+  source:
+    id: componentName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 29
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
   syntax:
-    content: public string componentName
+    content: >-
+      [SerializeField]
+
+      public string componentName
     return:
       type: System.String
-    content.vb: Public componentName As String
+    content.vb: >-
+      <SerializeField>
+
+      Public componentName As String
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.methodName
   commentId: F:ISILab.LBS.Plugin.Components.Data.UnityActionStored.methodName
   id: methodName
@@ -84,14 +131,28 @@ items:
   nameWithType: UnityActionStored.methodName
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.methodName
   type: Field
+  source:
+    id: methodName
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 31
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
   syntax:
-    content: public string methodName
+    content: >-
+      [SerializeField]
+
+      public string methodName
     return:
       type: System.String
-    content.vb: Public methodName As String
+    content.vb: >-
+      <SerializeField>
+
+      Public methodName As String
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.eventType
   commentId: F:ISILab.LBS.Plugin.Components.Data.UnityActionStored.eventType
   id: eventType
@@ -103,14 +164,28 @@ items:
   nameWithType: UnityActionStored.eventType
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.eventType
   type: Field
+  source:
+    id: eventType
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 33
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
   syntax:
-    content: public LBSEventType eventType
+    content: >-
+      [SerializeField]
+
+      public LBSEventType eventType
     return:
       type: ISILab.LBS.Plugin.Components.Data.LBSEventType
-    content.vb: Public eventType As LBSEventType
+    content.vb: >-
+      <SerializeField>
+
+      Public eventType As LBSEventType
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.TriggerOnce
   commentId: F:ISILab.LBS.Plugin.Components.Data.UnityActionStored.TriggerOnce
   id: TriggerOnce
@@ -122,14 +197,28 @@ items:
   nameWithType: UnityActionStored.TriggerOnce
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.TriggerOnce
   type: Field
+  source:
+    id: TriggerOnce
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 35
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
   syntax:
-    content: public bool TriggerOnce
+    content: >-
+      [SerializeField]
+
+      public bool TriggerOnce
     return:
       type: System.Boolean
-    content.vb: Public TriggerOnce As Boolean
+    content.vb: >-
+      <SerializeField>
+
+      Public TriggerOnce As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction(UnityEngine.GameObject)
   commentId: M:ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction(UnityEngine.GameObject)
   id: MakeAction(UnityEngine.GameObject)
@@ -141,6 +230,10 @@ items:
   nameWithType: UnityActionStored.MakeAction(GameObject)
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction(UnityEngine.GameObject)
   type: Method
+  source:
+    id: MakeAction
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 37
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
@@ -164,6 +257,10 @@ items:
   nameWithType: UnityActionStored.UnityActionStored((GameObject, Component, MethodInfo, LBSEventType, bool))
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.UnityActionStored((UnityEngine.GameObject, UnityEngine.Component, System.Reflection.MethodInfo, ISILab.LBS.Plugin.Components.Data.LBSEventType, bool))
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 64
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
@@ -188,6 +285,10 @@ items:
   nameWithType: UnityActionStored.Equals(UnityActionStored)
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(ISILab.LBS.Plugin.Components.Data.UnityActionStored)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 75
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
@@ -214,6 +315,10 @@ items:
   nameWithType: UnityActionStored.Equals(object)
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals(object)
   type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 80
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
@@ -242,6 +347,10 @@ items:
   nameWithType: UnityActionStored.GetHashCode()
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode()
   type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\UnityActionStored.cs
+    startLine: 85
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Data
@@ -256,7 +365,6 @@ items:
 references:
 - uid: ISILab.LBS.Plugin.Components.Data
   commentId: N:ISILab.LBS.Plugin.Components.Data
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Plugin.Components.Data
   nameWithType: ISILab.LBS.Plugin.Components.Data
@@ -264,52 +372,42 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Plugin
     name: Plugin
-    isExternal: true
     href: ISILab.LBS.Plugin.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components
     name: Components
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.html
   - name: .
   - uid: ISILab.LBS.Plugin.Components.Data
     name: Data
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.html
 - uid: System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}
   commentId: T:System.IEquatable{ISILab.LBS.Plugin.Components.Data.UnityActionStored}
@@ -330,7 +428,6 @@ references:
   - name: <
   - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
     name: UnityActionStored
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html
   - name: '>'
   spec.vb:
@@ -343,7 +440,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
     name: UnityActionStored
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html
   - name: )
 - uid: System.ValueType.ToString
@@ -366,30 +462,6 @@ references:
     name: ToString
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
@@ -436,6 +508,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -550,7 +646,6 @@ references:
 - uid: ISILab.LBS.Plugin.Components.Data.LBSEventType
   commentId: T:ISILab.LBS.Plugin.Components.Data.LBSEventType
   parent: ISILab.LBS.Plugin.Components.Data
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.LBSEventType.html
   name: LBSEventType
   nameWithType: LBSEventType
@@ -568,25 +663,54 @@ references:
   name.vb: Boolean
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html#ISILab_LBS_Plugin_Components_Data_UnityActionStored_MakeAction_UnityEngine_GameObject_
   name: MakeAction
   nameWithType: UnityActionStored.MakeAction
   fullName: ISILab.LBS.Plugin.Components.Data.UnityActionStored.MakeAction
 - uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
   isExternal: true
   name: GameObject
   nameWithType: GameObject
   fullName: UnityEngine.GameObject
 - uid: UnityEngine.Events.UnityAction
-  commentId: '!:UnityEngine.Events.UnityAction'
+  commentId: T:UnityEngine.Events.UnityAction
+  parent: UnityEngine.Events
   isExternal: true
   name: UnityAction
   nameWithType: UnityAction
   fullName: UnityEngine.Events.UnityAction
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.Events
+  commentId: N:UnityEngine.Events
+  isExternal: true
+  name: UnityEngine.Events
+  nameWithType: UnityEngine.Events
+  fullName: UnityEngine.Events
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.Events
+    name: Events
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.Events
+    name: Events
+    isExternal: true
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.UnityActionStored.#ctor
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html#ISILab_LBS_Plugin_Components_Data_UnityActionStored__ctor_System_ValueTuple_UnityEngine_GameObject_UnityEngine_Component_System_Reflection_MethodInfo_ISILab_LBS_Plugin_Components_Data_LBSEventType_System_Boolean__
   name: UnityActionStored
   nameWithType: UnityActionStored.UnityActionStored
@@ -625,7 +749,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Components.Data.LBSEventType
     name: LBSEventType
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.LBSEventType.html
   - name: ','
   - name: " "
@@ -654,7 +777,6 @@ references:
   - name: " "
   - uid: ISILab.LBS.Plugin.Components.Data.LBSEventType
     name: LBSEventType
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.LBSEventType.html
   - name: ','
   - name: " "
@@ -702,7 +824,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.UnityActionStored.Equals
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html#ISILab_LBS_Plugin_Components_Data_UnityActionStored_Equals_ISILab_LBS_Plugin_Components_Data_UnityActionStored_
   name: Equals
   nameWithType: UnityActionStored.Equals
@@ -725,7 +846,6 @@ references:
   - name: (
   - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
     name: UnityActionStored
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html
   - name: )
   spec.vb:
@@ -736,13 +856,11 @@ references:
   - name: (
   - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
     name: UnityActionStored
-    isExternal: true
     href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored
   commentId: T:ISILab.LBS.Plugin.Components.Data.UnityActionStored
   parent: ISILab.LBS.Plugin.Components.Data
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html
   name: UnityActionStored
   nameWithType: UnityActionStored
@@ -829,7 +947,6 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode*
   commentId: Overload:ISILab.LBS.Plugin.Components.Data.UnityActionStored.GetHashCode
-  isExternal: true
   href: ISILab.LBS.Plugin.Components.Data.UnityActionStored.html#ISILab_LBS_Plugin_Components_Data_UnityActionStored_GetHashCode
   name: GetHashCode
   nameWithType: UnityActionStored.GetHashCode

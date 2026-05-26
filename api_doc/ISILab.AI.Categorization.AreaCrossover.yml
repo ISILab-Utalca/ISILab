@@ -14,6 +14,10 @@ items:
   nameWithType: AreaCrossover
   fullName: ISILab.AI.Categorization.AreaCrossover
   type: Class
+  source:
+    id: AreaCrossover
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Crossovers\AreaCrossover.cs
+    startLine: 10
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -27,18 +31,18 @@ items:
   - GeneticSharp.Domain.Crossovers.ICrossover
   - GeneticSharp.Domain.Chromosomes.IChromosomeOperator
   inheritedMembers:
-  - GeneticSharp.Domain.Crossovers.CrossoverBase.Cross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
   - GeneticSharp.Domain.Crossovers.CrossoverBase.IsOrdered
   - GeneticSharp.Domain.Crossovers.CrossoverBase.ParentsNumber
   - GeneticSharp.Domain.Crossovers.CrossoverBase.ChildrenNumber
   - GeneticSharp.Domain.Crossovers.CrossoverBase.MinLength
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
+  - GeneticSharp.Domain.Crossovers.CrossoverBase.Cross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: ISILab.AI.Categorization.AreaCrossover.#ctor
   commentId: M:ISILab.AI.Categorization.AreaCrossover.#ctor
   id: '#ctor'
@@ -50,6 +54,10 @@ items:
   nameWithType: AreaCrossover.AreaCrossover()
   fullName: ISILab.AI.Categorization.AreaCrossover.AreaCrossover()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Crossovers\AreaCrossover.cs
+    startLine: 15
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
@@ -71,17 +79,24 @@ items:
   nameWithType: AreaCrossover.PerformCross(IList<ChromosomeBase>)
   fullName: ISILab.AI.Categorization.AreaCrossover.PerformCross(System.Collections.Generic.IList<GeneticSharp.Domain.Chromosomes.ChromosomeBase>)
   type: Method
+  source:
+    id: PerformCross
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Crossovers\AreaCrossover.cs
+    startLine: 21
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
+  summary: Performs the cross with specified parents generating the children.
   example: []
   syntax:
     content: protected override IList<ChromosomeBase> PerformCross(IList<ChromosomeBase> parents)
     parameters:
     - id: parents
       type: System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase}
+      description: The parents chromosomes.
     return:
       type: System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase}
+      description: The offspring (children) of the parents.
     content.vb: Protected Overrides Function PerformCross(parents As IList(Of ChromosomeBase)) As IList(Of ChromosomeBase)
   overridden: GeneticSharp.Domain.Crossovers.CrossoverBase.PerformCross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
   overload: ISILab.AI.Categorization.AreaCrossover.PerformCross*
@@ -91,7 +106,6 @@ items:
 references:
 - uid: ISILab.AI.Categorization
   commentId: N:ISILab.AI.Categorization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Categorization
   nameWithType: ISILab.AI.Categorization
@@ -99,32 +113,26 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Categorization
     name: Categorization
-    isExternal: true
     href: ISILab.AI.Categorization.html
 - uid: System.Object
   commentId: T:System.Object
@@ -140,7 +148,6 @@ references:
 - uid: GeneticSharp.Domain.Crossovers.CrossoverBase
   commentId: T:GeneticSharp.Domain.Crossovers.CrossoverBase
   parent: GeneticSharp.Domain.Crossovers
-  isExternal: true
   href: GeneticSharp.Domain.Crossovers.CrossoverBase.html
   name: CrossoverBase
   nameWithType: CrossoverBase
@@ -148,7 +155,6 @@ references:
 - uid: GeneticSharp.Domain.Crossovers.ICrossover
   commentId: T:GeneticSharp.Domain.Crossovers.ICrossover
   parent: GeneticSharp.Domain.Crossovers
-  isExternal: true
   href: GeneticSharp.Domain.Crossovers.ICrossover.html
   name: ICrossover
   nameWithType: ICrossover
@@ -156,11 +162,38 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
   commentId: T:GeneticSharp.Domain.Chromosomes.IChromosomeOperator
   parent: GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.html
   name: IChromosomeOperator
   nameWithType: IChromosomeOperator
   fullName: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+- uid: GeneticSharp.Domain.Crossovers.CrossoverBase.IsOrdered
+  commentId: P:GeneticSharp.Domain.Crossovers.CrossoverBase.IsOrdered
+  parent: GeneticSharp.Domain.Crossovers.CrossoverBase
+  href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_IsOrdered
+  name: IsOrdered
+  nameWithType: CrossoverBase.IsOrdered
+  fullName: GeneticSharp.Domain.Crossovers.CrossoverBase.IsOrdered
+- uid: GeneticSharp.Domain.Crossovers.CrossoverBase.ParentsNumber
+  commentId: P:GeneticSharp.Domain.Crossovers.CrossoverBase.ParentsNumber
+  parent: GeneticSharp.Domain.Crossovers.CrossoverBase
+  href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_ParentsNumber
+  name: ParentsNumber
+  nameWithType: CrossoverBase.ParentsNumber
+  fullName: GeneticSharp.Domain.Crossovers.CrossoverBase.ParentsNumber
+- uid: GeneticSharp.Domain.Crossovers.CrossoverBase.ChildrenNumber
+  commentId: P:GeneticSharp.Domain.Crossovers.CrossoverBase.ChildrenNumber
+  parent: GeneticSharp.Domain.Crossovers.CrossoverBase
+  href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_ChildrenNumber
+  name: ChildrenNumber
+  nameWithType: CrossoverBase.ChildrenNumber
+  fullName: GeneticSharp.Domain.Crossovers.CrossoverBase.ChildrenNumber
+- uid: GeneticSharp.Domain.Crossovers.CrossoverBase.MinLength
+  commentId: P:GeneticSharp.Domain.Crossovers.CrossoverBase.MinLength
+  parent: GeneticSharp.Domain.Crossovers.CrossoverBase
+  href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_MinLength
+  name: MinLength
+  nameWithType: CrossoverBase.MinLength
+  fullName: GeneticSharp.Domain.Crossovers.CrossoverBase.MinLength
 - uid: GeneticSharp.Domain.Crossovers.CrossoverBase.Cross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
   commentId: M:GeneticSharp.Domain.Crossovers.CrossoverBase.Cross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
   parent: GeneticSharp.Domain.Crossovers.CrossoverBase
@@ -175,7 +208,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Crossovers.CrossoverBase.Cross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
     name: Cross
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_Cross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
   - name: (
   - uid: System.Collections.Generic.IList`1
@@ -185,14 +217,12 @@ references:
   - name: <
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: '>'
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Crossovers.CrossoverBase.Cross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
     name: Cross
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_Cross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
   - name: (
   - uid: System.Collections.Generic.IList`1
@@ -204,113 +234,8 @@ references:
   - name: " "
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: )
-  - name: )
-- uid: GeneticSharp.Domain.Crossovers.CrossoverBase.IsOrdered
-  commentId: P:GeneticSharp.Domain.Crossovers.CrossoverBase.IsOrdered
-  parent: GeneticSharp.Domain.Crossovers.CrossoverBase
-  isExternal: true
-  href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_IsOrdered
-  name: IsOrdered
-  nameWithType: CrossoverBase.IsOrdered
-  fullName: GeneticSharp.Domain.Crossovers.CrossoverBase.IsOrdered
-- uid: GeneticSharp.Domain.Crossovers.CrossoverBase.ParentsNumber
-  commentId: P:GeneticSharp.Domain.Crossovers.CrossoverBase.ParentsNumber
-  parent: GeneticSharp.Domain.Crossovers.CrossoverBase
-  isExternal: true
-  href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_ParentsNumber
-  name: ParentsNumber
-  nameWithType: CrossoverBase.ParentsNumber
-  fullName: GeneticSharp.Domain.Crossovers.CrossoverBase.ParentsNumber
-- uid: GeneticSharp.Domain.Crossovers.CrossoverBase.ChildrenNumber
-  commentId: P:GeneticSharp.Domain.Crossovers.CrossoverBase.ChildrenNumber
-  parent: GeneticSharp.Domain.Crossovers.CrossoverBase
-  isExternal: true
-  href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_ChildrenNumber
-  name: ChildrenNumber
-  nameWithType: CrossoverBase.ChildrenNumber
-  fullName: GeneticSharp.Domain.Crossovers.CrossoverBase.ChildrenNumber
-- uid: GeneticSharp.Domain.Crossovers.CrossoverBase.MinLength
-  commentId: P:GeneticSharp.Domain.Crossovers.CrossoverBase.MinLength
-  parent: GeneticSharp.Domain.Crossovers.CrossoverBase
-  isExternal: true
-  href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_MinLength
-  name: MinLength
-  nameWithType: CrossoverBase.MinLength
-  fullName: GeneticSharp.Domain.Crossovers.CrossoverBase.MinLength
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -390,6 +315,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -435,28 +432,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -468,7 +465,6 @@ references:
   fullName: System
 - uid: GeneticSharp.Domain.Crossovers
   commentId: N:GeneticSharp.Domain.Crossovers
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Crossovers
   nameWithType: GeneticSharp.Domain.Crossovers
@@ -476,36 +472,29 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Crossovers
     name: Crossovers
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Crossovers
     name: Crossovers
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.html
 - uid: GeneticSharp.Domain.Chromosomes
   commentId: N:GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Chromosomes
   nameWithType: GeneticSharp.Domain.Chromosomes
@@ -513,36 +502,29 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Chromosomes
     name: Chromosomes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Chromosomes
     name: Chromosomes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.html
 - uid: ISILab.AI.Categorization.AreaCrossover.#ctor*
   commentId: Overload:ISILab.AI.Categorization.AreaCrossover.#ctor
-  isExternal: true
   href: ISILab.AI.Categorization.AreaCrossover.html#ISILab_AI_Categorization_AreaCrossover__ctor
   name: AreaCrossover
   nameWithType: AreaCrossover.AreaCrossover
@@ -564,7 +546,6 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Crossovers.CrossoverBase.PerformCross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
     name: PerformCross
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_PerformCross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
   - name: (
   - uid: System.Collections.Generic.IList`1
@@ -574,14 +555,12 @@ references:
   - name: <
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: '>'
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Crossovers.CrossoverBase.PerformCross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
     name: PerformCross
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.CrossoverBase.html#GeneticSharp_Domain_Crossovers_CrossoverBase_PerformCross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
   - name: (
   - uid: System.Collections.Generic.IList`1
@@ -593,13 +572,11 @@ references:
   - name: " "
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: )
   - name: )
 - uid: ISILab.AI.Categorization.AreaCrossover.PerformCross*
   commentId: Overload:ISILab.AI.Categorization.AreaCrossover.PerformCross
-  isExternal: true
   href: ISILab.AI.Categorization.AreaCrossover.html#ISILab_AI_Categorization_AreaCrossover_PerformCross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
   name: PerformCross
   nameWithType: AreaCrossover.PerformCross
@@ -623,7 +600,6 @@ references:
   - name: <
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: '>'
   spec.vb:
@@ -636,7 +612,6 @@ references:
   - name: " "
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
     name: ChromosomeBase
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
   - name: )
 - uid: System.Collections.Generic.IList`1

@@ -19,12 +19,24 @@ items:
   nameWithType: CrossoverException
   fullName: GeneticSharp.Domain.Crossovers.CrossoverException
   type: Class
+  source:
+    id: CrossoverException
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverException.cs
+    startLine: 10
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Exception throw when an error occurs during the execution of cross.
+  example: []
   syntax:
-    content: 'public sealed class CrossoverException : Exception, ISerializable'
-    content.vb: Public NotInheritable Class CrossoverException Inherits Exception Implements ISerializable
+    content: >-
+      [Serializable]
+
+      public sealed class CrossoverException : Exception, ISerializable
+    content.vb: >-
+      <Serializable>
+
+      Public NotInheritable Class CrossoverException Inherits Exception Implements ISerializable
   inheritance:
   - System.Object
   - System.Exception
@@ -32,20 +44,24 @@ items:
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Exception.GetBaseException
-  - System.Exception.ToString
   - System.Exception.GetType
-  - System.Exception.TargetSite
-  - System.Exception.Message
+  - System.Exception.ToString
   - System.Exception.Data
-  - System.Exception.InnerException
   - System.Exception.HelpLink
-  - System.Exception.Source
   - System.Exception.HResult
+  - System.Exception.InnerException
+  - System.Exception.Message
+  - System.Exception.Source
   - System.Exception.StackTrace
+  - System.Exception.TargetSite
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: GeneticSharp.Domain.Crossovers.CrossoverException.#ctor(GeneticSharp.Domain.Crossovers.ICrossover,System.String)
   commentId: M:GeneticSharp.Domain.Crossovers.CrossoverException.#ctor(GeneticSharp.Domain.Crossovers.ICrossover,System.String)
   id: '#ctor(GeneticSharp.Domain.Crossovers.ICrossover,System.String)'
@@ -57,16 +73,24 @@ items:
   nameWithType: CrossoverException.CrossoverException(ICrossover, string)
   fullName: GeneticSharp.Domain.Crossovers.CrossoverException.CrossoverException(GeneticSharp.Domain.Crossovers.ICrossover, string)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverException.cs
+    startLine: 19
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Initializes a new instance of the <xref href="GeneticSharp.Domain.Crossovers.CrossoverException" data-throw-if-not-resolved="false"></xref> class.
+  example: []
   syntax:
     content: public CrossoverException(ICrossover crossover, string message)
     parameters:
     - id: crossover
       type: GeneticSharp.Domain.Crossovers.ICrossover
+      description: The crossover where occurred the error.
     - id: message
       type: System.String
+      description: The error message.
     content.vb: Public Sub New(crossover As ICrossover, message As String)
   overload: GeneticSharp.Domain.Crossovers.CrossoverException.#ctor*
   nameWithType.vb: CrossoverException.New(ICrossover, String)
@@ -83,18 +107,27 @@ items:
   nameWithType: CrossoverException.CrossoverException(ICrossover, string, Exception)
   fullName: GeneticSharp.Domain.Crossovers.CrossoverException.CrossoverException(GeneticSharp.Domain.Crossovers.ICrossover, string, System.Exception)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverException.cs
+    startLine: 31
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Initializes a new instance of the <xref href="GeneticSharp.Domain.Crossovers.CrossoverException" data-throw-if-not-resolved="false"></xref> class.
+  example: []
   syntax:
     content: public CrossoverException(ICrossover crossover, string message, Exception innerException)
     parameters:
     - id: crossover
       type: GeneticSharp.Domain.Crossovers.ICrossover
+      description: The crossover where occurred the error.
     - id: message
       type: System.String
+      description: The error message.
     - id: innerException
       type: System.Exception
+      description: The inner exception.
     content.vb: Public Sub New(crossover As ICrossover, message As String, innerException As Exception)
   overload: GeneticSharp.Domain.Crossovers.CrossoverException.#ctor*
   nameWithType.vb: CrossoverException.New(ICrossover, String, Exception)
@@ -111,9 +144,15 @@ items:
   nameWithType: CrossoverException.CrossoverException()
   fullName: GeneticSharp.Domain.Crossovers.CrossoverException.CrossoverException()
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverException.cs
+    startLine: 40
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Initializes a new instance of the <xref href="GeneticSharp.Domain.Crossovers.CrossoverException" data-throw-if-not-resolved="false"></xref> class.
+  example: []
   syntax:
     content: public CrossoverException()
     content.vb: Public Sub New()
@@ -132,14 +171,21 @@ items:
   nameWithType: CrossoverException.CrossoverException(string)
   fullName: GeneticSharp.Domain.Crossovers.CrossoverException.CrossoverException(string)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverException.cs
+    startLine: 48
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Initializes a new instance of the <xref href="GeneticSharp.Domain.Crossovers.CrossoverException" data-throw-if-not-resolved="false"></xref> class.
+  example: []
   syntax:
     content: public CrossoverException(string message)
     parameters:
     - id: message
       type: System.String
+      description: The message that describes the error.
     content.vb: Public Sub New(message As String)
   overload: GeneticSharp.Domain.Crossovers.CrossoverException.#ctor*
   nameWithType.vb: CrossoverException.New(String)
@@ -156,46 +202,29 @@ items:
   nameWithType: CrossoverException.CrossoverException(string, Exception)
   fullName: GeneticSharp.Domain.Crossovers.CrossoverException.CrossoverException(string, System.Exception)
   type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverException.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Initializes a new instance of the <xref href="GeneticSharp.Domain.Crossovers.CrossoverException" data-throw-if-not-resolved="false"></xref> class.
+  example: []
   syntax:
     content: public CrossoverException(string message, Exception innerException)
     parameters:
     - id: message
       type: System.String
+      description: The error message that explains the reason for the exception.
     - id: innerException
       type: System.Exception
+      description: The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.
     content.vb: Public Sub New(message As String, innerException As Exception)
   overload: GeneticSharp.Domain.Crossovers.CrossoverException.#ctor*
   nameWithType.vb: CrossoverException.New(String, Exception)
   fullName.vb: GeneticSharp.Domain.Crossovers.CrossoverException.New(String, System.Exception)
   name.vb: New(String, Exception)
-- uid: GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  commentId: M:GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  parent: GeneticSharp.Domain.Crossovers.CrossoverException
-  langs:
-  - csharp
-  - vb
-  name: GetObjectData(SerializationInfo, StreamingContext)
-  nameWithType: CrossoverException.GetObjectData(SerializationInfo, StreamingContext)
-  fullName: GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
-  type: Method
-  assemblies:
-  - LBS
-  namespace: GeneticSharp.Domain.Crossovers
-  example: []
-  syntax:
-    content: public override void GetObjectData(SerializationInfo info, StreamingContext context)
-    parameters:
-    - id: info
-      type: System.Runtime.Serialization.SerializationInfo
-    - id: context
-      type: System.Runtime.Serialization.StreamingContext
-    content.vb: Public Overrides Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
-  overridden: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  overload: GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData*
 - uid: GeneticSharp.Domain.Crossovers.CrossoverException.Crossover
   commentId: P:GeneticSharp.Domain.Crossovers.CrossoverException.Crossover
   id: Crossover
@@ -207,20 +236,74 @@ items:
   nameWithType: CrossoverException.Crossover
   fullName: GeneticSharp.Domain.Crossovers.CrossoverException.Crossover
   type: Property
+  source:
+    id: Crossover
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverException.cs
+    startLine: 79
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Gets the crossover.
+  example: []
   syntax:
     content: public ICrossover Crossover { get; }
     parameters: []
     return:
       type: GeneticSharp.Domain.Crossovers.ICrossover
-    content.vb: Public ReadOnly Property Crossover As ICrossover
+      description: The crossover.
+    content.vb: Public Property Crossover As ICrossover
   overload: GeneticSharp.Domain.Crossovers.CrossoverException.Crossover*
+- uid: GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: GeneticSharp.Domain.Crossovers.CrossoverException
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: CrossoverException.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    id: GetObjectData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Crossovers\CrossoverException.cs
+    startLine: 92
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Crossovers
+  summary: Sets the <xref href="System.Runtime.Serialization.SerializationInfo" data-throw-if-not-resolved="false"></xref> with information about the exception.
+  example: []
+  syntax:
+    content: >-
+      [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+
+      public override void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: The <xref href="System.Runtime.Serialization.SerializationInfo" data-throw-if-not-resolved="false"></xref> that holds the serialized object data about the exception being thrown.
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: The <xref href="System.Runtime.Serialization.StreamingContext" data-throw-if-not-resolved="false"></xref> that contains contextual information about the source or destination.
+    content.vb: >-
+      <SecurityPermission(SecurityAction.LinkDemand, Flags:=SecurityPermissionFlag.SerializationFormatter)>
+
+      Public Overrides Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overridden: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  overload: GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData*
+  attributes:
+  - type: System.Security.Permissions.SecurityPermissionAttribute
+    ctor: System.Security.Permissions.SecurityPermissionAttribute.#ctor(System.Security.Permissions.SecurityAction)
+    arguments:
+    - type: System.Security.Permissions.SecurityAction
+      value: 6
+    namedArguments:
+    - name: Flags
+      type: System.Security.Permissions.SecurityPermissionFlag
+      value: 128
 references:
 - uid: GeneticSharp.Domain.Crossovers
   commentId: N:GeneticSharp.Domain.Crossovers
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Crossovers
   nameWithType: GeneticSharp.Domain.Crossovers
@@ -228,32 +311,26 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Crossovers
     name: Crossovers
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Crossovers
     name: Crossovers
-    isExternal: true
     href: GeneticSharp.Domain.Crossovers.html
 - uid: System.Object
   commentId: T:System.Object
@@ -304,28 +381,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
   - name: (
   - name: )
-- uid: System.Exception.ToString
-  commentId: M:System.Exception.ToString
-  parent: System.Exception
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
-  name: ToString()
-  nameWithType: Exception.ToString()
-  fullName: System.Exception.ToString()
-  spec.csharp:
-  - uid: System.Exception.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Exception.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
-  - name: (
-  - name: )
 - uid: System.Exception.GetType
   commentId: M:System.Exception.GetType
   parent: System.Exception
@@ -348,22 +403,28 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
   - name: (
   - name: )
-- uid: System.Exception.TargetSite
-  commentId: P:System.Exception.TargetSite
+- uid: System.Exception.ToString
+  commentId: M:System.Exception.ToString
   parent: System.Exception
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.exception.targetsite
-  name: TargetSite
-  nameWithType: Exception.TargetSite
-  fullName: System.Exception.TargetSite
-- uid: System.Exception.Message
-  commentId: P:System.Exception.Message
-  parent: System.Exception
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.exception.message
-  name: Message
-  nameWithType: Exception.Message
-  fullName: System.Exception.Message
+  href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  name: ToString()
+  nameWithType: Exception.ToString()
+  fullName: System.Exception.ToString()
+  spec.csharp:
+  - uid: System.Exception.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  - name: (
+  - name: )
 - uid: System.Exception.Data
   commentId: P:System.Exception.Data
   parent: System.Exception
@@ -372,14 +433,6 @@ references:
   name: Data
   nameWithType: Exception.Data
   fullName: System.Exception.Data
-- uid: System.Exception.InnerException
-  commentId: P:System.Exception.InnerException
-  parent: System.Exception
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.exception.innerexception
-  name: InnerException
-  nameWithType: Exception.InnerException
-  fullName: System.Exception.InnerException
 - uid: System.Exception.HelpLink
   commentId: P:System.Exception.HelpLink
   parent: System.Exception
@@ -388,14 +441,6 @@ references:
   name: HelpLink
   nameWithType: Exception.HelpLink
   fullName: System.Exception.HelpLink
-- uid: System.Exception.Source
-  commentId: P:System.Exception.Source
-  parent: System.Exception
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.exception.source
-  name: Source
-  nameWithType: Exception.Source
-  fullName: System.Exception.Source
 - uid: System.Exception.HResult
   commentId: P:System.Exception.HResult
   parent: System.Exception
@@ -404,6 +449,30 @@ references:
   name: HResult
   nameWithType: Exception.HResult
   fullName: System.Exception.HResult
+- uid: System.Exception.InnerException
+  commentId: P:System.Exception.InnerException
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.innerexception
+  name: InnerException
+  nameWithType: Exception.InnerException
+  fullName: System.Exception.InnerException
+- uid: System.Exception.Message
+  commentId: P:System.Exception.Message
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.message
+  name: Message
+  nameWithType: Exception.Message
+  fullName: System.Exception.Message
+- uid: System.Exception.Source
+  commentId: P:System.Exception.Source
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.source
+  name: Source
+  nameWithType: Exception.Source
+  fullName: System.Exception.Source
 - uid: System.Exception.StackTrace
   commentId: P:System.Exception.StackTrace
   parent: System.Exception
@@ -412,6 +481,14 @@ references:
   name: StackTrace
   nameWithType: Exception.StackTrace
   fullName: System.Exception.StackTrace
+- uid: System.Exception.TargetSite
+  commentId: P:System.Exception.TargetSite
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.targetsite
+  name: TargetSite
+  nameWithType: Exception.TargetSite
+  fullName: System.Exception.TargetSite
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -490,6 +567,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -535,30 +636,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -603,9 +680,14 @@ references:
     name: Serialization
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+- uid: GeneticSharp.Domain.Crossovers.CrossoverException
+  commentId: T:GeneticSharp.Domain.Crossovers.CrossoverException
+  href: GeneticSharp.Domain.Crossovers.CrossoverException.html
+  name: CrossoverException
+  nameWithType: CrossoverException
+  fullName: GeneticSharp.Domain.Crossovers.CrossoverException
 - uid: GeneticSharp.Domain.Crossovers.CrossoverException.#ctor*
   commentId: Overload:GeneticSharp.Domain.Crossovers.CrossoverException.#ctor
-  isExternal: true
   href: GeneticSharp.Domain.Crossovers.CrossoverException.html#GeneticSharp_Domain_Crossovers_CrossoverException__ctor_GeneticSharp_Domain_Crossovers_ICrossover_System_String_
   name: CrossoverException
   nameWithType: CrossoverException.CrossoverException
@@ -616,7 +698,6 @@ references:
 - uid: GeneticSharp.Domain.Crossovers.ICrossover
   commentId: T:GeneticSharp.Domain.Crossovers.ICrossover
   parent: GeneticSharp.Domain.Crossovers
-  isExternal: true
   href: GeneticSharp.Domain.Crossovers.ICrossover.html
   name: ICrossover
   nameWithType: ICrossover
@@ -632,53 +713,12 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  commentId: M:System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  parent: System.Exception
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
-  name: GetObjectData(SerializationInfo, StreamingContext)
-  nameWithType: Exception.GetObjectData(SerializationInfo, StreamingContext)
-  fullName: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
-  spec.csharp:
-  - uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-    name: GetObjectData
-    isExternal: true
-  - name: (
-  - uid: System.Runtime.Serialization.SerializationInfo
-    name: SerializationInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
-  - name: ','
-  - name: " "
-  - uid: System.Runtime.Serialization.StreamingContext
-    name: StreamingContext
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
-  - name: )
-  spec.vb:
-  - uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-    name: GetObjectData
-    isExternal: true
-  - name: (
-  - uid: System.Runtime.Serialization.SerializationInfo
-    name: SerializationInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
-  - name: ','
-  - name: " "
-  - uid: System.Runtime.Serialization.StreamingContext
-    name: StreamingContext
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
-  - name: )
-- uid: GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData*
-  commentId: Overload:GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData
-  isExternal: true
-  href: GeneticSharp.Domain.Crossovers.CrossoverException.html#GeneticSharp_Domain_Crossovers_CrossoverException_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
-  name: GetObjectData
-  nameWithType: CrossoverException.GetObjectData
-  fullName: GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData
+- uid: GeneticSharp.Domain.Crossovers.CrossoverException.Crossover*
+  commentId: Overload:GeneticSharp.Domain.Crossovers.CrossoverException.Crossover
+  href: GeneticSharp.Domain.Crossovers.CrossoverException.html#GeneticSharp_Domain_Crossovers_CrossoverException_Crossover
+  name: Crossover
+  nameWithType: CrossoverException.Crossover
+  fullName: GeneticSharp.Domain.Crossovers.CrossoverException.Crossover
 - uid: System.Runtime.Serialization.SerializationInfo
   commentId: T:System.Runtime.Serialization.SerializationInfo
   parent: System.Runtime.Serialization
@@ -695,11 +735,52 @@ references:
   name: StreamingContext
   nameWithType: StreamingContext
   fullName: System.Runtime.Serialization.StreamingContext
-- uid: GeneticSharp.Domain.Crossovers.CrossoverException.Crossover*
-  commentId: Overload:GeneticSharp.Domain.Crossovers.CrossoverException.Crossover
+- uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Exception
   isExternal: true
-  href: GeneticSharp.Domain.Crossovers.CrossoverException.html#GeneticSharp_Domain_Crossovers_CrossoverException_Crossover
-  name: Crossover
-  nameWithType: CrossoverException.Crossover
-  fullName: GeneticSharp.Domain.Crossovers.CrossoverException.Crossover
+  href: https://learn.microsoft.com/dotnet/api/system.exception.getobjectdata
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: Exception.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getobjectdata
+  - name: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
+  - name: ','
+  - name: " "
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getobjectdata
+  - name: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
+  - name: ','
+  - name: " "
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  - name: )
+- uid: GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData*
+  commentId: Overload:GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData
+  href: GeneticSharp.Domain.Crossovers.CrossoverException.html#GeneticSharp_Domain_Crossovers_CrossoverException_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
+  name: GetObjectData
+  nameWithType: CrossoverException.GetObjectData
+  fullName: GeneticSharp.Domain.Crossovers.CrossoverException.GetObjectData
 shouldSkipMarkup: true

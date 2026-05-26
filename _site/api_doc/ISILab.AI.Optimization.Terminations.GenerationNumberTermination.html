@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class GenerationNumberTermination | lbs-api_docs ">
       
-      
+      <meta name="description" content="Generation number termination.  The genetic algorithm will be terminate when reach the expected generation number.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,10 @@ Class GenerationNumberTermination
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Generation number termination.
+<remarks>
+The genetic algorithm will be terminate when reach the expected generation number.
+</remarks></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -134,22 +137,22 @@ Class GenerationNumberTermination
       <a class="xref" href="ISILab.AI.Optimization.Terminations.TerminationBase.html#ISILab_AI_Optimization_Terminations_TerminationBase_ToString">TerminationBase.ToString()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
   </dd></dl>
 
@@ -169,7 +172,7 @@ Class GenerationNumberTermination
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes a new instance of the GeneticSharp.Domain.Terminations.GenerationNumberTermination class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -184,6 +187,8 @@ Class GenerationNumberTermination
 
 
 
+  <h4 class="section" id="ISILab_AI_Optimization_Terminations_GenerationNumberTermination__ctor_remarks">Remarks</h4>
+  <div class="markdown level1 remarks">The default expected generation number is 100.</div>
 
 
 
@@ -195,7 +200,7 @@ Class GenerationNumberTermination
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Initializes a new instance of the GeneticSharp.Domain.Terminations.GenerationNumberTermination class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -205,7 +210,7 @@ Class GenerationNumberTermination
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>expectedGenerationNumber</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The generation number to consider the termination has been reached.</dd>
   </dl>
 
 
@@ -230,7 +235,7 @@ Class GenerationNumberTermination
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Gets or sets the expected generation number to consider that termination has been reached.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -244,7 +249,7 @@ Class GenerationNumberTermination
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The generation number.</dd>
   </dl>
 
 
@@ -265,7 +270,7 @@ Class GenerationNumberTermination
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Determines whether the specified geneticAlgorithm reached the termination condition.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -275,13 +280,13 @@ Class GenerationNumberTermination
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>optimizer</code> <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html">BaseOptimizer</a></dt>
-    <dd></dd>
+    <dd>The genetic algorithm.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd>True if termination has been reached, otherwise false.</dd>
   </dl>
 
 

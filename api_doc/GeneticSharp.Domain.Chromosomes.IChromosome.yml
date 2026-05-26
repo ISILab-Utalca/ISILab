@@ -29,9 +29,30 @@ items:
   nameWithType: IChromosome
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome
   type: Interface
+  source:
+    id: IChromosome
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 15
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: >-
+    Defines an interface for a chromosome.
+
+    <remarks>
+
+    In genetic algorithms, a chromosome (also sometimes called a genome) is a set of parameters 
+
+    which define a proposed solution to the problem that the genetic algorithm is trying to solve. 
+
+    The chromosome is often represented as a simple string, although a wide variety of other data 
+
+    structures are also used.
+
+    <a href="http://en.wikipedia.org/wiki/Chromosome_(genetic_algorithm)">http://en.wikipedia.org/wiki/Chromosome_(genetic_algorithm)</a> 
+
+    </remarks>
+  example: []
   syntax:
     content: 'public interface IChromosome : IComparable<IChromosome>, IOptimizable, ICloneable'
     content.vb: Public Interface IChromosome Inherits IComparable(Of IChromosome), IOptimizable, ICloneable
@@ -39,14 +60,42 @@ items:
   - ISILab.AI.Categorization.BundleTilemapChromosome
   inheritedMembers:
   - System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
-  - ISILab.AI.Optimization.IOptimizable.CreateNew
-  - ISILab.AI.Optimization.IOptimizable.ToString
   - ISILab.AI.Optimization.IOptimizable.Fitness
   - ISILab.AI.Optimization.IOptimizable.xFitness
   - ISILab.AI.Optimization.IOptimizable.yFitness
+  - ISILab.AI.Optimization.IOptimizable.CreateNew
+  - ISILab.AI.Optimization.IOptimizable.ToString
   - System.ICloneable.Clone
   extensionMethods:
   - GeneticSharp.Domain.Chromosomes.IChromosome.GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes
+- uid: GeneticSharp.Domain.Chromosomes.IChromosome.Length
+  commentId: P:GeneticSharp.Domain.Chromosomes.IChromosome.Length
+  id: Length
+  parent: GeneticSharp.Domain.Chromosomes.IChromosome
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: IChromosome.Length
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosome.Length
+  type: Property
+  source:
+    id: Length
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 22
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Chromosomes
+  summary: Gets the length.
+  example: []
+  syntax:
+    content: int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: The length.
+    content.vb: ReadOnly Property Length As Integer
+  overload: GeneticSharp.Domain.Chromosomes.IChromosome.Length*
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene
   commentId: M:GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene
   id: GenerateGene
@@ -58,13 +107,20 @@ items:
   nameWithType: IChromosome.GenerateGene()
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene()
   type: Method
+  source:
+    id: GenerateGene
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 31
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: Generates the gene for the specified index.
+  example: []
   syntax:
     content: object GenerateGene()
     return:
       type: System.Object
+      description: The gene.
     content.vb: Function GenerateGene() As Object
   overload: GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene*
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.ReplaceGene``1(System.Int32,``0)
@@ -78,16 +134,24 @@ items:
   nameWithType: IChromosome.ReplaceGene<T>(int, T)
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.ReplaceGene<T>(int, T)
   type: Method
+  source:
+    id: ReplaceGene
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: Replaces the gene in the specified index.
+  example: []
   syntax:
     content: void ReplaceGene<T>(int index, T gene)
     parameters:
     - id: index
       type: System.Int32
+      description: The gene index to replace.
     - id: gene
       type: '{T}'
+      description: The new gene.
     typeParameters:
     - id: T
     content.vb: Sub ReplaceGene(Of T)(index As Integer, gene As T)
@@ -106,16 +170,25 @@ items:
   nameWithType: IChromosome.ReplaceGenes<T>(int, T[])
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.ReplaceGenes<T>(int, T[])
   type: Method
+  source:
+    id: ReplaceGenes
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 48
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: Replaces the genes starting in the specified index.
+  remarks: The genes to be replaced can't be greater than the available space between the start index and the end of the chromosome.
+  example: []
   syntax:
     content: void ReplaceGenes<T>(int startIndex, T[] genes)
     parameters:
     - id: startIndex
       type: System.Int32
+      description: Start index.
     - id: genes
       type: '{T}[]'
+      description: The genes.
     typeParameters:
     - id: T
     content.vb: Sub ReplaceGenes(Of T)(startIndex As Integer, genes As T())
@@ -134,14 +207,21 @@ items:
   nameWithType: IChromosome.Resize(int)
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.Resize(int)
   type: Method
+  source:
+    id: Resize
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 54
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: Resizes the chromosome to the new length.
+  example: []
   syntax:
     content: void Resize(int newLength)
     parameters:
     - id: newLength
       type: System.Int32
+      description: The new length.
     content.vb: Sub Resize(newLength As Integer)
   overload: GeneticSharp.Domain.Chromosomes.IChromosome.Resize*
   nameWithType.vb: IChromosome.Resize(Integer)
@@ -158,18 +238,26 @@ items:
   nameWithType: IChromosome.GetGene<T>(int)
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GetGene<T>(int)
   type: Method
+  source:
+    id: GetGene
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 61
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: Gets the gene in the specified index.
+  example: []
   syntax:
     content: T GetGene<T>(int index)
     parameters:
     - id: index
       type: System.Int32
+      description: The gene index.
     typeParameters:
     - id: T
     return:
       type: '{T}'
+      description: The gene.
     content.vb: Function GetGene(Of T)(index As Integer) As T
   overload: GeneticSharp.Domain.Chromosomes.IChromosome.GetGene*
   nameWithType.vb: IChromosome.GetGene(Of T)(Integer)
@@ -186,6 +274,10 @@ items:
   nameWithType: IChromosome.GetGene(int)
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GetGene(int)
   type: Method
+  source:
+    id: GetGene
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 62
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -212,15 +304,22 @@ items:
   nameWithType: IChromosome.GetGenes<T>()
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GetGenes<T>()
   type: Method
+  source:
+    id: GetGenes
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 68
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: Gets the genes.
+  example: []
   syntax:
     content: T[] GetGenes<T>()
     typeParameters:
     - id: T
     return:
       type: '{T}[]'
+      description: The genes.
     content.vb: Function GetGenes(Of T)() As T()
   overload: GeneticSharp.Domain.Chromosomes.IChromosome.GetGenes*
   nameWithType.vb: IChromosome.GetGenes(Of T)()
@@ -237,6 +336,10 @@ items:
   nameWithType: IChromosome.GetGenes()
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GetGenes()
   type: Method
+  source:
+    id: GetGenes
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 69
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -257,13 +360,20 @@ items:
   nameWithType: IChromosome.CreateNewChromosome()
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.CreateNewChromosome()
   type: Method
+  source:
+    id: CreateNewChromosome
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 75
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: Creates a new chromosome using the same structure of this.
+  example: []
   syntax:
     content: IChromosome CreateNewChromosome()
     return:
       type: GeneticSharp.Domain.Chromosomes.IChromosome
+      description: The new chromosome.
     content.vb: Function CreateNewChromosome() As IChromosome
   overload: GeneticSharp.Domain.Chromosomes.IChromosome.CreateNewChromosome*
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.CloneChromosome
@@ -277,13 +387,20 @@ items:
   nameWithType: IChromosome.CloneChromosome()
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.CloneChromosome()
   type: Method
+  source:
+    id: CloneChromosome
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 81
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
+  summary: Creates a clone.
+  example: []
   syntax:
     content: IChromosome CloneChromosome()
     return:
       type: GeneticSharp.Domain.Chromosomes.IChromosome
+      description: The chromosome clone.
     content.vb: Function CloneChromosome() As IChromosome
   overload: GeneticSharp.Domain.Chromosomes.IChromosome.CloneChromosome*
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.IsValid
@@ -297,6 +414,10 @@ items:
   nameWithType: IChromosome.IsValid()
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.IsValid()
   type: Method
+  source:
+    id: IsValid
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 83
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -317,6 +438,10 @@ items:
   nameWithType: IChromosome.GetDataSquence<T>()
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GetDataSquence<T>()
   type: Method
+  source:
+    id: GetDataSquence
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 84
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -342,6 +467,10 @@ items:
   nameWithType: IChromosome.GetData<T>()
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GetData<T>()
   type: Method
+  source:
+    id: GetData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 86
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -367,6 +496,10 @@ items:
   nameWithType: IChromosome.SetDataSequence<T>(T[])
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.SetDataSequence<T>(T[])
   type: Method
+  source:
+    id: SetDataSequence
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 87
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -393,6 +526,10 @@ items:
   nameWithType: IChromosome.SetData<T>(T)
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.SetData<T>(T)
   type: Method
+  source:
+    id: SetData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 88
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -419,6 +556,10 @@ items:
   nameWithType: IChromosome.SetDeafult(int)
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult(int)
   type: Method
+  source:
+    id: SetDeafult
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\IChromosome.cs
+    startLine: 89
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -432,31 +573,9 @@ items:
   nameWithType.vb: IChromosome.SetDeafult(Integer)
   fullName.vb: GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult(Integer)
   name.vb: SetDeafult(Integer)
-- uid: GeneticSharp.Domain.Chromosomes.IChromosome.Length
-  commentId: P:GeneticSharp.Domain.Chromosomes.IChromosome.Length
-  id: Length
-  parent: GeneticSharp.Domain.Chromosomes.IChromosome
-  langs:
-  - csharp
-  - vb
-  name: Length
-  nameWithType: IChromosome.Length
-  fullName: GeneticSharp.Domain.Chromosomes.IChromosome.Length
-  type: Property
-  assemblies:
-  - LBS
-  namespace: GeneticSharp.Domain.Chromosomes
-  syntax:
-    content: int Length { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: ReadOnly Property Length As Integer
-  overload: GeneticSharp.Domain.Chromosomes.IChromosome.Length*
 references:
 - uid: GeneticSharp.Domain.Chromosomes
   commentId: N:GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.html
   name: GeneticSharp.Domain.Chromosomes
   nameWithType: GeneticSharp.Domain.Chromosomes
@@ -464,32 +583,26 @@ references:
   spec.csharp:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Chromosomes
     name: Chromosomes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.html
   spec.vb:
   - uid: GeneticSharp
     name: GeneticSharp
-    isExternal: true
     href: GeneticSharp.html
   - name: .
   - uid: GeneticSharp.Domain
     name: Domain
-    isExternal: true
     href: GeneticSharp.Domain.html
   - name: .
   - uid: GeneticSharp.Domain.Chromosomes
     name: Chromosomes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.html
 - uid: System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
   commentId: M:System.IComparable{GeneticSharp.Domain.Chromosomes.IChromosome}.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
@@ -509,7 +622,6 @@ references:
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.IChromosome
     name: IChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.IChromosome.html
   - name: )
   spec.vb:
@@ -520,57 +632,11 @@ references:
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.IChromosome
     name: IChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.IChromosome.html
-  - name: )
-- uid: ISILab.AI.Optimization.IOptimizable.CreateNew
-  commentId: M:ISILab.AI.Optimization.IOptimizable.CreateNew
-  parent: ISILab.AI.Optimization.IOptimizable
-  isExternal: true
-  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew
-  name: CreateNew()
-  nameWithType: IOptimizable.CreateNew()
-  fullName: ISILab.AI.Optimization.IOptimizable.CreateNew()
-  spec.csharp:
-  - uid: ISILab.AI.Optimization.IOptimizable.CreateNew
-    name: CreateNew
-    isExternal: true
-    href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: ISILab.AI.Optimization.IOptimizable.CreateNew
-    name: CreateNew
-    isExternal: true
-    href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew
-  - name: (
-  - name: )
-- uid: ISILab.AI.Optimization.IOptimizable.ToString
-  commentId: M:ISILab.AI.Optimization.IOptimizable.ToString
-  parent: ISILab.AI.Optimization.IOptimizable
-  isExternal: true
-  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString
-  name: ToString()
-  nameWithType: IOptimizable.ToString()
-  fullName: ISILab.AI.Optimization.IOptimizable.ToString()
-  spec.csharp:
-  - uid: ISILab.AI.Optimization.IOptimizable.ToString
-    name: ToString
-    isExternal: true
-    href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: ISILab.AI.Optimization.IOptimizable.ToString
-    name: ToString
-    isExternal: true
-    href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString
-  - name: (
   - name: )
 - uid: ISILab.AI.Optimization.IOptimizable.Fitness
   commentId: P:ISILab.AI.Optimization.IOptimizable.Fitness
   parent: ISILab.AI.Optimization.IOptimizable
-  isExternal: true
   href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_Fitness
   name: Fitness
   nameWithType: IOptimizable.Fitness
@@ -578,7 +644,6 @@ references:
 - uid: ISILab.AI.Optimization.IOptimizable.xFitness
   commentId: P:ISILab.AI.Optimization.IOptimizable.xFitness
   parent: ISILab.AI.Optimization.IOptimizable
-  isExternal: true
   href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_xFitness
   name: xFitness
   nameWithType: IOptimizable.xFitness
@@ -586,11 +651,48 @@ references:
 - uid: ISILab.AI.Optimization.IOptimizable.yFitness
   commentId: P:ISILab.AI.Optimization.IOptimizable.yFitness
   parent: ISILab.AI.Optimization.IOptimizable
-  isExternal: true
   href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_yFitness
   name: yFitness
   nameWithType: IOptimizable.yFitness
   fullName: ISILab.AI.Optimization.IOptimizable.yFitness
+- uid: ISILab.AI.Optimization.IOptimizable.CreateNew
+  commentId: M:ISILab.AI.Optimization.IOptimizable.CreateNew
+  parent: ISILab.AI.Optimization.IOptimizable
+  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew
+  name: CreateNew()
+  nameWithType: IOptimizable.CreateNew()
+  fullName: ISILab.AI.Optimization.IOptimizable.CreateNew()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.IOptimizable.CreateNew
+    name: CreateNew
+    href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.IOptimizable.CreateNew
+    name: CreateNew
+    href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_CreateNew
+  - name: (
+  - name: )
+- uid: ISILab.AI.Optimization.IOptimizable.ToString
+  commentId: M:ISILab.AI.Optimization.IOptimizable.ToString
+  parent: ISILab.AI.Optimization.IOptimizable
+  href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString
+  name: ToString()
+  nameWithType: IOptimizable.ToString()
+  fullName: ISILab.AI.Optimization.IOptimizable.ToString()
+  spec.csharp:
+  - uid: ISILab.AI.Optimization.IOptimizable.ToString
+    name: ToString
+    href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Optimization.IOptimizable.ToString
+    name: ToString
+    href: ISILab.AI.Optimization.IOptimizable.html#ISILab_AI_Optimization_IOptimizable_ToString
+  - name: (
+  - name: )
 - uid: System.ICloneable.Clone
   commentId: M:System.ICloneable.Clone
   parent: System.ICloneable
@@ -624,23 +726,19 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
     name: ValidateGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.IChromosome
     name: IChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.IChromosome.html
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
     name: ValidateGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.IChromosome
     name: IChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.IChromosome.html
   - name: )
 - uid: System.IComparable`1.CompareTo(`0)
@@ -687,7 +785,6 @@ references:
   - name: <
   - uid: GeneticSharp.Domain.Chromosomes.IChromosome
     name: IChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.IChromosome.html
   - name: '>'
   spec.vb:
@@ -700,13 +797,11 @@ references:
   - name: " "
   - uid: GeneticSharp.Domain.Chromosomes.IChromosome
     name: IChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.IChromosome.html
   - name: )
 - uid: ISILab.AI.Optimization.IOptimizable
   commentId: T:ISILab.AI.Optimization.IOptimizable
   parent: ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.AI.Optimization.IOptimizable.html
   name: IOptimizable
   nameWithType: IOptimizable
@@ -721,7 +816,6 @@ references:
   fullName: System.ICloneable
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
   name: ValidateGenes(IChromosome)
   nameWithType: ChromosomeExtensions.ValidateGenes(IChromosome)
@@ -729,29 +823,24 @@ references:
   spec.csharp:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
     name: ValidateGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.IChromosome
     name: IChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.IChromosome.html
   - name: )
   spec.vb:
   - uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes(GeneticSharp.Domain.Chromosomes.IChromosome)
     name: ValidateGenes
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html#GeneticSharp_Domain_Chromosomes_ChromosomeExtensions_ValidateGenes_GeneticSharp_Domain_Chromosomes_IChromosome_
   - name: (
   - uid: GeneticSharp.Domain.Chromosomes.IChromosome
     name: IChromosome
-    isExternal: true
     href: GeneticSharp.Domain.Chromosomes.IChromosome.html
   - name: )
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions
   commentId: T:GeneticSharp.Domain.Chromosomes.ChromosomeExtensions
   parent: GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.html
   name: ChromosomeExtensions
   nameWithType: ChromosomeExtensions
@@ -793,7 +882,6 @@ references:
   fullName: System
 - uid: ISILab.AI.Optimization
   commentId: N:ISILab.AI.Optimization
-  isExternal: true
   href: ISILab.html
   name: ISILab.AI.Optimization
   nameWithType: ISILab.AI.Optimization
@@ -801,36 +889,46 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.AI
     name: AI
-    isExternal: true
     href: ISILab.AI.html
   - name: .
   - uid: ISILab.AI.Optimization
     name: Optimization
-    isExternal: true
     href: ISILab.AI.Optimization.html
+- uid: GeneticSharp.Domain.Chromosomes.IChromosome.Length*
+  commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.Length
+  href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_Length
+  name: Length
+  nameWithType: IChromosome.Length
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosome.Length
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.GenerateGene
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GenerateGene
   name: GenerateGene
   nameWithType: IChromosome.GenerateGene
@@ -848,22 +946,10 @@ references:
   name.vb: Object
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.ReplaceGene*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.ReplaceGene
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_ReplaceGene__1_System_Int32___0_
   name: ReplaceGene
   nameWithType: IChromosome.ReplaceGene
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.ReplaceGene
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: '{T}'
   commentId: '!:T'
   definition: T
@@ -876,7 +962,6 @@ references:
   fullName: T
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.ReplaceGenes*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.ReplaceGenes
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_ReplaceGenes__1_System_Int32___0___
   name: ReplaceGenes
   nameWithType: IChromosome.ReplaceGenes
@@ -899,21 +984,18 @@ references:
   - name: )
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.Resize*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.Resize
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_Resize_System_Int32_
   name: Resize
   nameWithType: IChromosome.Resize
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.Resize
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.GetGene*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.GetGene
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GetGene__1_System_Int32_
   name: GetGene
   nameWithType: IChromosome.GetGene
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GetGene
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.GetGenes*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.GetGenes
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GetGenes__1
   name: GetGenes
   nameWithType: IChromosome.GetGenes
@@ -943,7 +1025,6 @@ references:
   - name: )
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.CreateNewChromosome*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.CreateNewChromosome
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_CreateNewChromosome
   name: CreateNewChromosome
   nameWithType: IChromosome.CreateNewChromosome
@@ -951,21 +1032,18 @@ references:
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome
   commentId: T:GeneticSharp.Domain.Chromosomes.IChromosome
   parent: GeneticSharp.Domain.Chromosomes
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html
   name: IChromosome
   nameWithType: IChromosome
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.CloneChromosome*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.CloneChromosome
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_CloneChromosome
   name: CloneChromosome
   nameWithType: IChromosome.CloneChromosome
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.CloneChromosome
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.IsValid*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.IsValid
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_IsValid
   name: IsValid
   nameWithType: IChromosome.IsValid
@@ -983,44 +1061,32 @@ references:
   name.vb: Boolean
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.GetDataSquence*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.GetDataSquence
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GetDataSquence__1
   name: GetDataSquence
   nameWithType: IChromosome.GetDataSquence
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GetDataSquence
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.GetData*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.GetData
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_GetData__1
   name: GetData
   nameWithType: IChromosome.GetData
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.GetData
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.SetDataSequence*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.SetDataSequence
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_SetDataSequence__1___0___
   name: SetDataSequence
   nameWithType: IChromosome.SetDataSequence
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.SetDataSequence
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.SetData*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.SetData
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_SetData__1___0_
   name: SetData
   nameWithType: IChromosome.SetData
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.SetData
 - uid: GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult
-  isExternal: true
   href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_SetDeafult_System_Int32_
   name: SetDeafult
   nameWithType: IChromosome.SetDeafult
   fullName: GeneticSharp.Domain.Chromosomes.IChromosome.SetDeafult
-- uid: GeneticSharp.Domain.Chromosomes.IChromosome.Length*
-  commentId: Overload:GeneticSharp.Domain.Chromosomes.IChromosome.Length
-  isExternal: true
-  href: GeneticSharp.Domain.Chromosomes.IChromosome.html#GeneticSharp_Domain_Chromosomes_IChromosome_Length
-  name: Length
-  nameWithType: IChromosome.Length
-  fullName: GeneticSharp.Domain.Chromosomes.IChromosome.Length
 shouldSkipMarkup: true

@@ -14,6 +14,10 @@ items:
   nameWithType: LBSMainWindow.POINT
   fullName: ISILab.LBS.Editor.Windows.LBSMainWindow.POINT
   type: Struct
+  source:
+    id: POINT
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\MainWindows\LBSMainWindow.cs
+    startLine: 57
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Editor.Windows
@@ -25,8 +29,8 @@ items:
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: ISILab.LBS.Editor.Windows.LBSMainWindow.POINT.X
   commentId: F:ISILab.LBS.Editor.Windows.LBSMainWindow.POINT.X
   id: X
@@ -38,6 +42,10 @@ items:
   nameWithType: LBSMainWindow.POINT.X
   fullName: ISILab.LBS.Editor.Windows.LBSMainWindow.POINT.X
   type: Field
+  source:
+    id: X
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\MainWindows\LBSMainWindow.cs
+    startLine: 60
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Editor.Windows
@@ -57,6 +65,10 @@ items:
   nameWithType: LBSMainWindow.POINT.Y
   fullName: ISILab.LBS.Editor.Windows.LBSMainWindow.POINT.Y
   type: Field
+  source:
+    id: Y
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\MainWindows\LBSMainWindow.cs
+    startLine: 61
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Editor.Windows
@@ -68,7 +80,6 @@ items:
 references:
 - uid: ISILab.LBS.Editor.Windows
   commentId: N:ISILab.LBS.Editor.Windows
-  isExternal: true
   href: ISILab.html
   name: ISILab.LBS.Editor.Windows
   nameWithType: ISILab.LBS.Editor.Windows
@@ -76,42 +87,34 @@ references:
   spec.csharp:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Editor.html
   - name: .
   - uid: ISILab.LBS.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Editor.Windows.html
   spec.vb:
   - uid: ISILab
     name: ISILab
-    isExternal: true
     href: ISILab.html
   - name: .
   - uid: ISILab.LBS
     name: LBS
-    isExternal: true
     href: ISILab.LBS.html
   - name: .
   - uid: ISILab.LBS.Editor
     name: Editor
-    isExternal: true
     href: ISILab.LBS.Editor.html
   - name: .
   - uid: ISILab.LBS.Editor.Windows
     name: Windows
-    isExternal: true
     href: ISILab.LBS.Editor.Windows.html
 - uid: System.ValueType.Equals(System.Object)
   commentId: M:System.ValueType.Equals(System.Object)
@@ -235,6 +238,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -279,30 +306,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.ValueType
   commentId: T:System.ValueType
