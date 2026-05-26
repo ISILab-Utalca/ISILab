@@ -20,7 +20,7 @@ namespace ISILab.LBS.Tests
         const string level21Rooms = "917eb1d1b0892ba4092b71f862fd69d2";//"b93245dd9ffc3d84d9b6bb9e58d1d05e";
 
 
-        #region Full MAP-Elites Execution
+        #region MAP Elites - Dungeon Crawler evaluators
 
         // These functions are responsible for measuring time and fitness (fitness for each map) present in the entire MapElites execution process.
 
@@ -51,8 +51,12 @@ namespace ISILab.LBS.Tests
             .IterationsPerMeasurement(1)
             .SetUp(() =>
             {
-                Selection.activeObject = null;
-                SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+                //Selection.activeObject = null;
+                DCExploration exploration = new();
+                DCResourceSafety resourceSafety = new();
+                DCSafeArea safeArea = new();
+                exploration.searchType = PathfindingAlgorithm.JPS_Plus;
+                SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, exploration, resourceSafety, safeArea);
             })
             .CleanUp(CleanUpMAPElitesTest)
             .GC()
@@ -84,7 +88,14 @@ namespace ISILab.LBS.Tests
                 .WarmupCount(0)
                 .MeasurementCount(10)
                 .IterationsPerMeasurement(1)
-                .SetUp(() => SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, new DCResourceSafety(), new DCSafeArea(), new DCExploration()))
+                .SetUp(() =>
+                {
+                    DCExploration exploration = new();
+                    DCResourceSafety resourceSafety = new();
+                    DCSafeArea safeArea = new();
+                    exploration.searchType = PathfindingAlgorithm.JPS_Plus;
+                    SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, resourceSafety, safeArea, exploration);
+                })
                 .CleanUp(CleanUpMAPElitesTest)
                 .Run();
         }
@@ -114,7 +125,14 @@ namespace ISILab.LBS.Tests
                 .WarmupCount(0)
                 .MeasurementCount(10)
                 .IterationsPerMeasurement(1)
-                .SetUp(() => SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, new DCSafeArea(), new DCExploration(), new DCResourceSafety()))
+                .SetUp(() =>
+                {
+                    DCExploration exploration = new();
+                    DCResourceSafety resourceSafety = new();
+                    DCSafeArea safeArea = new();
+                    exploration.searchType = PathfindingAlgorithm.JPS_Plus;
+                    SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, safeArea, exploration, resourceSafety);
+                })
                 .CleanUp(CleanUpMAPElitesTest)
                 .Run();
         }
@@ -144,14 +162,178 @@ namespace ISILab.LBS.Tests
                 .WarmupCount(0)
                 .MeasurementCount(10)
                 .IterationsPerMeasurement(1)
-                .SetUp(() => SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea()))
+                .SetUp(() =>
+                {
+                    DCExploration exploration = new();
+                    DCResourceSafety resourceSafety = new();
+                    DCSafeArea safeArea = new();
+                    exploration.searchType = PathfindingAlgorithm.JPS_Plus;
+                    SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, exploration, resourceSafety, safeArea);
+                })
                 .CleanUp(CleanUpMAPElitesTest)
                 .Run();
         }
         #endregion
 
-        
 
-        
+        #region MAP Elites - Custom evaluators
+
+        // These functions are responsible for measuring time and fitness (fitness for each map) present in the entire MapElites execution process.
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void MeasureMAPElites_9_Rooms_Colonies()
+        {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                assistant.Execute(true);
+                var matrix = assistant.Samples;
+
+                if (matrix != null)
+                {
+                    foreach (var individual in matrix)
+                    {
+                        if (individual != null)
+                        {
+                            Measure.Custom(fitnessGroup, individual.Fitness);
+                        }
+                    }
+                }
+            })
+            .WarmupCount(0)
+            .MeasurementCount(10)
+            .IterationsPerMeasurement(1)
+            .SetUp(() =>
+            {
+                //Selection.activeObject = null;
+                Colonies colonies = new();
+                SingleRatio singleRatio = new();
+                PairRatio pairRatio = new();
+                colonies.searchType = PathfindingAlgorithm.JPS_Plus;
+                colonies.searchHeuristic = PathfindingHeuristic.Octile;
+                SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, colonies, singleRatio, pairRatio);
+            })
+            .CleanUp(CleanUpMAPElitesTest)
+            .GC()
+            .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void MeasureMAPElites_9_Rooms_SingleRatio()
+        {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                assistant.Execute(true);
+                var matrix = assistant.Samples;
+
+                if (matrix != null)
+                {
+                    foreach (var individual in matrix)
+                    {
+                        if (individual != null)
+                        {
+                            Measure.Custom(fitnessGroup, individual.Fitness);
+                        }
+                    }
+                }
+            })
+                .WarmupCount(0)
+                .MeasurementCount(10)
+                .IterationsPerMeasurement(1)
+                .SetUp(() =>
+                {
+                    Colonies colonies = new();
+                    SingleRatio singleRatio = new();
+                    PairRatio pairRatio = new();
+                    colonies.searchType = PathfindingAlgorithm.JPS_Plus;
+                    colonies.searchHeuristic = PathfindingHeuristic.Octile;
+                    SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, singleRatio, pairRatio, colonies);
+                })
+                .CleanUp(CleanUpMAPElitesTest)
+                .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void MeasureMAPElites_9_Rooms_PairRatio()
+        {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                assistant.Execute(true);
+                var matrix = assistant.Samples;
+
+                if (matrix != null)
+                {
+                    foreach (var individual in matrix)
+                    {
+                        if (individual != null)
+                        {
+                            Measure.Custom(fitnessGroup, individual.Fitness);
+                        }
+                    }
+                }
+            })
+                .WarmupCount(0)
+                .MeasurementCount(10)
+                .IterationsPerMeasurement(1)
+                .SetUp(() =>
+                {
+                    Colonies colonies = new();
+                    SingleRatio singleRatio = new();
+                    PairRatio pairRatio = new();
+                    colonies.searchType = PathfindingAlgorithm.JPS_Plus;
+                    colonies.searchHeuristic = PathfindingHeuristic.Octile;
+                    SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, pairRatio, colonies, singleRatio);
+                })
+                .CleanUp(CleanUpMAPElitesTest)
+                .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void MeasureMAPElites_21_Rooms_Colonies()
+        {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                assistant.Execute(true);
+                var matrix = assistant.Samples;
+
+                if (matrix != null)
+                {
+                    foreach (var individual in matrix)
+                    {
+                        if (individual != null)
+                        {
+                            Measure.Custom(fitnessGroup, individual.Fitness);
+                        }
+                    }
+                }
+            })
+                .WarmupCount(0)
+                .MeasurementCount(10)
+                .IterationsPerMeasurement(1)
+                .SetUp(() =>
+                {
+                    Colonies colonies = new();
+                    SingleRatio singleRatio = new();
+                    PairRatio pairRatio = new();
+                    colonies.searchType = PathfindingAlgorithm.JPS_Plus;
+                    colonies.searchHeuristic = PathfindingHeuristic.Octile;
+                    SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, colonies, singleRatio, pairRatio);
+                })
+                .CleanUp(CleanUpMAPElitesTest)
+                .Run();
+        }
+        #endregion
+
     }
 }

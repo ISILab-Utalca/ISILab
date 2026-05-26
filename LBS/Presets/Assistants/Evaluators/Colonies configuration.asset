@@ -15,10 +15,11 @@ MonoBehaviour:
   target:
     rid: 5219713250193834772
   fields:
-  - rid: 6766546940692267783
-  - rid: 6766546940692267784
-  - rid: 6766546940692267785
-  - rid: 6766546940692267786
+  - rid: 5517870021456698042
+  - rid: 5517870021456698043
+  - rid: 5517870021456698044
+  - rid: 5517870021456698045
+  - rid: 5517870021456698046
   references:
     version: 2
     RefIds:
@@ -26,32 +27,31 @@ MonoBehaviour:
       type: {class: Colonies, ns: ISILab.AI.Categorization, asm: LBS}
       data:
         itemCharacteristic:
-          rid: 6766546937136284280
+          rid: 5517870021456698047
         maxDist: 6
         minColonySize: 2
         searchType: 1
         searchHeuristic: 2
-    - rid: 6766546937136284280
-      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
-      data:
-        owner: {fileID: 0}
-        tagEntries:
-        - tagName: Enemies
-          value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
-          tagGUID: 1c34483075e8bb54d8aa70274f2eddfe
-    - rid: 6766546940692267783
+    - rid: 5517870021456698042
       type: {class: EvaluatorConfiguration/EnumConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         fieldName: Pathfinding Algorithm
         value: 1
         enumTypeName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,
           LBS, Version=2.6.0.0, Culture=neutral, PublicKeyToken=null
-    - rid: 6766546940692267784
+    - rid: 5517870021456698043
+      type: {class: EvaluatorConfiguration/EnumConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
+      data:
+        fieldName: Heuristic
+        value: 1
+        enumTypeName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic,
+          LBS, Version=2.6.0.0, Culture=neutral, PublicKeyToken=null
+    - rid: 5517870021456698044
       type: {class: EvaluatorConfiguration/MainTagField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         fieldName: Item
         tagName: Enemies
-    - rid: 6766546940692267785
+    - rid: 5517870021456698045
       type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         fieldName: Max Distance
@@ -59,7 +59,7 @@ MonoBehaviour:
         useSlider: 1
         minValue: 2
         maxValue: 15
-    - rid: 6766546940692267786
+    - rid: 5517870021456698046
       type: {class: EvaluatorConfiguration/IntegerConfigurationField, ns: ISILab.LBS.AI.Categorization, asm: LBS}
       data:
         fieldName: Min Colony Size
@@ -67,3 +67,11 @@ MonoBehaviour:
         useSlider: 1
         minValue: 2
         maxValue: 10
+    - rid: 5517870021456698047
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Enemies
+          value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
+          tagGUID: 1c34483075e8bb54d8aa70274f2eddfe
