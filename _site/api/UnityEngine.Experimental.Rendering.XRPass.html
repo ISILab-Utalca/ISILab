@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class XRPass | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class XRPass | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Experimental.Rendering.XRPass">
+
+
+
+  <h1 id="UnityEngine_Experimental_Rendering_XRPass" data-uid="UnityEngine.Experimental.Rendering.XRPass" class="text-break">
+Class XRPass  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Experimental.html">Experimental</a>.<a class="xref" href="UnityEngine.Experimental.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class XRPass</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">XRPass</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass__ctor_" data-uid="UnityEngine.Experimental.Rendering.XRPass.#ctor*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass__ctor" data-uid="UnityEngine.Experimental.Rendering.XRPass.#ctor">
+  XRPass()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XRPass()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_copyDepth_" data-uid="UnityEngine.Experimental.Rendering.XRPass.copyDepth*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_copyDepth" data-uid="UnityEngine.Experimental.Rendering.XRPass.copyDepth">
+  copyDepth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool copyDepth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_cullingParams_" data-uid="UnityEngine.Experimental.Rendering.XRPass.cullingParams*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_cullingParams" data-uid="UnityEngine.Experimental.Rendering.XRPass.cullingParams">
+  cullingParams
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScriptableCullingParameters cullingParams { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ScriptableCullingParameters</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_cullingPassId_" data-uid="UnityEngine.Experimental.Rendering.XRPass.cullingPassId*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_cullingPassId" data-uid="UnityEngine.Experimental.Rendering.XRPass.cullingPassId">
+  cullingPassId
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int cullingPassId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_enabled_" data-uid="UnityEngine.Experimental.Rendering.XRPass.enabled*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_enabled" data-uid="UnityEngine.Experimental.Rendering.XRPass.enabled">
+  enabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool enabled { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_foveatedRenderingInfo_" data-uid="UnityEngine.Experimental.Rendering.XRPass.foveatedRenderingInfo*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_foveatedRenderingInfo" data-uid="UnityEngine.Experimental.Rendering.XRPass.foveatedRenderingInfo">
+  foveatedRenderingInfo
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public nint foveatedRenderingInfo { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_hasMotionVectorPass_" data-uid="UnityEngine.Experimental.Rendering.XRPass.hasMotionVectorPass*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_hasMotionVectorPass" data-uid="UnityEngine.Experimental.Rendering.XRPass.hasMotionVectorPass">
+  hasMotionVectorPass
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool hasMotionVectorPass { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_hasValidOcclusionMesh_" data-uid="UnityEngine.Experimental.Rendering.XRPass.hasValidOcclusionMesh*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_hasValidOcclusionMesh" data-uid="UnityEngine.Experimental.Rendering.XRPass.hasValidOcclusionMesh">
+  hasValidOcclusionMesh
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool hasValidOcclusionMesh { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_hdrDisplayOutputColorGamut_" data-uid="UnityEngine.Experimental.Rendering.XRPass.hdrDisplayOutputColorGamut*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_hdrDisplayOutputColorGamut" data-uid="UnityEngine.Experimental.Rendering.XRPass.hdrDisplayOutputColorGamut">
+  hdrDisplayOutputColorGamut
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorGamut hdrDisplayOutputColorGamut { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ColorGamut</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_hdrDisplayOutputInformation_" data-uid="UnityEngine.Experimental.Rendering.XRPass.hdrDisplayOutputInformation*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_hdrDisplayOutputInformation" data-uid="UnityEngine.Experimental.Rendering.XRPass.hdrDisplayOutputInformation">
+  hdrDisplayOutputInformation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HDROutputUtils.HDRDisplayInformation hdrDisplayOutputInformation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.HDROutputUtils.html">HDROutputUtils</a>.<a class="xref" href="UnityEngine.Rendering.HDROutputUtils.HDRDisplayInformation.html">HDRDisplayInformation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_isFirstCameraPass_" data-uid="UnityEngine.Experimental.Rendering.XRPass.isFirstCameraPass*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_isFirstCameraPass" data-uid="UnityEngine.Experimental.Rendering.XRPass.isFirstCameraPass">
+  isFirstCameraPass
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isFirstCameraPass { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_isHDRDisplayOutputActive_" data-uid="UnityEngine.Experimental.Rendering.XRPass.isHDRDisplayOutputActive*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_isHDRDisplayOutputActive" data-uid="UnityEngine.Experimental.Rendering.XRPass.isHDRDisplayOutputActive">
+  isHDRDisplayOutputActive
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isHDRDisplayOutputActive { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_isLastCameraPass_" data-uid="UnityEngine.Experimental.Rendering.XRPass.isLastCameraPass*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_isLastCameraPass" data-uid="UnityEngine.Experimental.Rendering.XRPass.isLastCameraPass">
+  isLastCameraPass
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isLastCameraPass { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_motionVectorRenderTarget_" data-uid="UnityEngine.Experimental.Rendering.XRPass.motionVectorRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_motionVectorRenderTarget" data-uid="UnityEngine.Experimental.Rendering.XRPass.motionVectorRenderTarget">
+  motionVectorRenderTarget
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderTargetIdentifier motionVectorRenderTarget { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_motionVectorRenderTargetDesc_" data-uid="UnityEngine.Experimental.Rendering.XRPass.motionVectorRenderTargetDesc*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_motionVectorRenderTargetDesc" data-uid="UnityEngine.Experimental.Rendering.XRPass.motionVectorRenderTargetDesc">
+  motionVectorRenderTargetDesc
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderTextureDescriptor motionVectorRenderTargetDesc { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RenderTextureDescriptor</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_multipassId_" data-uid="UnityEngine.Experimental.Rendering.XRPass.multipassId*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_multipassId" data-uid="UnityEngine.Experimental.Rendering.XRPass.multipassId">
+  multipassId
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int multipassId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_occlusionMeshScale_" data-uid="UnityEngine.Experimental.Rendering.XRPass.occlusionMeshScale*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_occlusionMeshScale" data-uid="UnityEngine.Experimental.Rendering.XRPass.occlusionMeshScale">
+  occlusionMeshScale
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float occlusionMeshScale { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_renderTarget_" data-uid="UnityEngine.Experimental.Rendering.XRPass.renderTarget*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_renderTarget" data-uid="UnityEngine.Experimental.Rendering.XRPass.renderTarget">
+  renderTarget
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderTargetIdentifier renderTarget { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_renderTargetDesc_" data-uid="UnityEngine.Experimental.Rendering.XRPass.renderTargetDesc*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_renderTargetDesc" data-uid="UnityEngine.Experimental.Rendering.XRPass.renderTargetDesc">
+  renderTargetDesc
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderTextureDescriptor renderTargetDesc { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RenderTextureDescriptor</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_singlePassEnabled_" data-uid="UnityEngine.Experimental.Rendering.XRPass.singlePassEnabled*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_singlePassEnabled" data-uid="UnityEngine.Experimental.Rendering.XRPass.singlePassEnabled">
+  singlePassEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool singlePassEnabled { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_spaceWarpRightHandedNDC_" data-uid="UnityEngine.Experimental.Rendering.XRPass.spaceWarpRightHandedNDC*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_spaceWarpRightHandedNDC" data-uid="UnityEngine.Experimental.Rendering.XRPass.spaceWarpRightHandedNDC">
+  spaceWarpRightHandedNDC
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool spaceWarpRightHandedNDC { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_supportsFoveatedRendering_" data-uid="UnityEngine.Experimental.Rendering.XRPass.supportsFoveatedRendering*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_supportsFoveatedRendering" data-uid="UnityEngine.Experimental.Rendering.XRPass.supportsFoveatedRendering">
+  supportsFoveatedRendering
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool supportsFoveatedRendering { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_viewCount_" data-uid="UnityEngine.Experimental.Rendering.XRPass.viewCount*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_viewCount" data-uid="UnityEngine.Experimental.Rendering.XRPass.viewCount">
+  viewCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int viewCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_ApplyXRViewCenterOffset_" data-uid="UnityEngine.Experimental.Rendering.XRPass.ApplyXRViewCenterOffset*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_ApplyXRViewCenterOffset_UnityEngine_Vector2_" data-uid="UnityEngine.Experimental.Rendering.XRPass.ApplyXRViewCenterOffset(UnityEngine.Vector2)">
+  ApplyXRViewCenterOffset(Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector4 ApplyXRViewCenterOffset(Vector2 center)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>center</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_CreateDefault_" data-uid="UnityEngine.Experimental.Rendering.XRPass.CreateDefault*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_CreateDefault_UnityEngine_Experimental_Rendering_XRPassCreateInfo_" data-uid="UnityEngine.Experimental.Rendering.XRPass.CreateDefault(UnityEngine.Experimental.Rendering.XRPassCreateInfo)">
+  CreateDefault(XRPassCreateInfo)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XRPass CreateDefault(XRPassCreateInfo createInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>createInfo</code> <a class="xref" href="UnityEngine.Experimental.Rendering.XRPassCreateInfo.html">XRPassCreateInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Experimental.Rendering.XRPass.html">XRPass</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_GetOcclusionMesh_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetOcclusionMesh*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_GetOcclusionMesh_System_Int32_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetOcclusionMesh(System.Int32)">
+  GetOcclusionMesh(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Mesh GetOcclusionMesh(int viewIndex = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Mesh</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_GetPrevViewMatrix_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetPrevViewMatrix*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_GetPrevViewMatrix_System_Int32_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetPrevViewMatrix(System.Int32)">
+  GetPrevViewMatrix(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix4x4 GetPrevViewMatrix(int viewIndex = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_GetPrevViewValid_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetPrevViewValid*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_GetPrevViewValid_System_Int32_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetPrevViewValid(System.Int32)">
+  GetPrevViewValid(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetPrevViewValid(int viewIndex = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_GetProjMatrix_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetProjMatrix*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_GetProjMatrix_System_Int32_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetProjMatrix(System.Int32)">
+  GetProjMatrix(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix4x4 GetProjMatrix(int viewIndex = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_GetTextureArraySlice_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetTextureArraySlice*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_GetTextureArraySlice_System_Int32_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetTextureArraySlice(System.Int32)">
+  GetTextureArraySlice(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetTextureArraySlice(int viewIndex = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_GetViewMatrix_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetViewMatrix*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_GetViewMatrix_System_Int32_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetViewMatrix(System.Int32)">
+  GetViewMatrix(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix4x4 GetViewMatrix(int viewIndex = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_GetViewport_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetViewport*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_GetViewport_System_Int32_" data-uid="UnityEngine.Experimental.Rendering.XRPass.GetViewport(System.Int32)">
+  GetViewport(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rect GetViewport(int viewIndex = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_InitBase_" data-uid="UnityEngine.Experimental.Rendering.XRPass.InitBase*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_InitBase_UnityEngine_Experimental_Rendering_XRPassCreateInfo_" data-uid="UnityEngine.Experimental.Rendering.XRPass.InitBase(UnityEngine.Experimental.Rendering.XRPassCreateInfo)">
+  InitBase(XRPassCreateInfo)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InitBase(XRPassCreateInfo createInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>createInfo</code> <a class="xref" href="UnityEngine.Experimental.Rendering.XRPassCreateInfo.html">XRPassCreateInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_Release_" data-uid="UnityEngine.Experimental.Rendering.XRPass.Release*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_Release" data-uid="UnityEngine.Experimental.Rendering.XRPass.Release">
+  Release()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Release()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_RenderDebugXRViewsFrustum_" data-uid="UnityEngine.Experimental.Rendering.XRPass.RenderDebugXRViewsFrustum*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_RenderDebugXRViewsFrustum" data-uid="UnityEngine.Experimental.Rendering.XRPass.RenderDebugXRViewsFrustum">
+  RenderDebugXRViewsFrustum()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenderDebugXRViewsFrustum()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_RenderOcclusionMesh_" data-uid="UnityEngine.Experimental.Rendering.XRPass.RenderOcclusionMesh*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_RenderOcclusionMesh_UnityEngine_Rendering_CommandBuffer_System_Boolean_" data-uid="UnityEngine.Experimental.Rendering.XRPass.RenderOcclusionMesh(UnityEngine.Rendering.CommandBuffer,System.Boolean)">
+  RenderOcclusionMesh(CommandBuffer, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenderOcclusionMesh(CommandBuffer cmd, bool renderIntoTexture = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>renderIntoTexture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_RenderOcclusionMesh_" data-uid="UnityEngine.Experimental.Rendering.XRPass.RenderOcclusionMesh*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_RenderOcclusionMesh_UnityEngine_Rendering_RasterCommandBuffer_System_Boolean_" data-uid="UnityEngine.Experimental.Rendering.XRPass.RenderOcclusionMesh(UnityEngine.Rendering.RasterCommandBuffer,System.Boolean)">
+  RenderOcclusionMesh(RasterCommandBuffer, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenderOcclusionMesh(RasterCommandBuffer cmd, bool renderIntoTexture = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.RasterCommandBuffer.html">RasterCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>renderIntoTexture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_StartSinglePass_" data-uid="UnityEngine.Experimental.Rendering.XRPass.StartSinglePass*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_StartSinglePass_UnityEngine_Rendering_CommandBuffer_" data-uid="UnityEngine.Experimental.Rendering.XRPass.StartSinglePass(UnityEngine.Rendering.CommandBuffer)">
+  StartSinglePass(CommandBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StartSinglePass(CommandBuffer cmd)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_StartSinglePass_" data-uid="UnityEngine.Experimental.Rendering.XRPass.StartSinglePass*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_StartSinglePass_UnityEngine_Rendering_IRasterCommandBuffer_" data-uid="UnityEngine.Experimental.Rendering.XRPass.StartSinglePass(UnityEngine.Rendering.IRasterCommandBuffer)">
+  StartSinglePass(IRasterCommandBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StartSinglePass(IRasterCommandBuffer cmd)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html">IRasterCommandBuffer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_StopSinglePass_" data-uid="UnityEngine.Experimental.Rendering.XRPass.StopSinglePass*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_StopSinglePass_UnityEngine_Rendering_BaseCommandBuffer_" data-uid="UnityEngine.Experimental.Rendering.XRPass.StopSinglePass(UnityEngine.Rendering.BaseCommandBuffer)">
+  StopSinglePass(BaseCommandBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StopSinglePass(BaseCommandBuffer cmd)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html">BaseCommandBuffer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Experimental_Rendering_XRPass_StopSinglePass_" data-uid="UnityEngine.Experimental.Rendering.XRPass.StopSinglePass*"></a>
+
+  <h3 id="UnityEngine_Experimental_Rendering_XRPass_StopSinglePass_UnityEngine_Rendering_CommandBuffer_" data-uid="UnityEngine.Experimental.Rendering.XRPass.StopSinglePass(UnityEngine.Rendering.CommandBuffer)">
+  StopSinglePass(CommandBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StopSinglePass(CommandBuffer cmd)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

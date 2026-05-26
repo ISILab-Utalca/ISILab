@@ -1,0 +1,1216 @@
+### YamlMime:ManagedReference
+items:
+- uid: OGVis.PlayerLog
+  commentId: T:OGVis.PlayerLog
+  id: PlayerLog
+  parent: OGVis
+  children:
+  - OGVis.PlayerLog.#ctor(System.String)
+  - OGVis.PlayerLog.AddHealth(System.Single,System.Single)
+  - OGVis.PlayerLog.AddInteractionEvent(System.Single,UnityEngine.Vector3,System.String)
+  - OGVis.PlayerLog.AddOrientation(System.Single,UnityEngine.Quaternion)
+  - OGVis.PlayerLog.AddPosition(System.Single,UnityEngine.Vector3)
+  - OGVis.PlayerLog.SliceDisplayPath(OGVis.TimeRange)
+  - OGVis.PlayerLog.UpdateDisplayPath(System.Single)
+  - OGVis.PlayerLog.displayEndIndex
+  - OGVis.PlayerLog.displayStartIndex
+  - OGVis.PlayerLog.experience
+  - OGVis.PlayerLog.healths
+  - OGVis.PlayerLog.heuristics
+  - OGVis.PlayerLog.interactionEvents
+  - OGVis.PlayerLog.orientations
+  - OGVis.PlayerLog.pathColor
+  - OGVis.PlayerLog.pathPoints
+  - OGVis.PlayerLog.playerID
+  - OGVis.PlayerLog.positions
+  - OGVis.PlayerLog.sampleRate
+  - OGVis.PlayerLog.showDetail
+  - OGVis.PlayerLog.visInclude
+  langs:
+  - csharp
+  - vb
+  name: PlayerLog
+  nameWithType: PlayerLog
+  fullName: OGVis.PlayerLog
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public class PlayerLog
+    content.vb: Public Class PlayerLog
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: OGVis.PlayerLog.playerID
+  commentId: F:OGVis.PlayerLog.playerID
+  id: playerID
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: playerID
+  nameWithType: PlayerLog.playerID
+  fullName: OGVis.PlayerLog.playerID
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public string playerID
+    return:
+      type: System.String
+    content.vb: Public playerID As String
+- uid: OGVis.PlayerLog.positions
+  commentId: F:OGVis.PlayerLog.positions
+  id: positions
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: positions
+  nameWithType: PlayerLog.positions
+  fullName: OGVis.PlayerLog.positions
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public List<PlayerLog.VectorT> positions
+    return:
+      type: System.Collections.Generic.List{OGVis.PlayerLog.VectorT}
+    content.vb: Public positions As List(Of PlayerLog.VectorT)
+- uid: OGVis.PlayerLog.orientations
+  commentId: F:OGVis.PlayerLog.orientations
+  id: orientations
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: orientations
+  nameWithType: PlayerLog.orientations
+  fullName: OGVis.PlayerLog.orientations
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public List<PlayerLog.QuaternionT> orientations
+    return:
+      type: System.Collections.Generic.List{OGVis.PlayerLog.QuaternionT}
+    content.vb: Public orientations As List(Of PlayerLog.QuaternionT)
+- uid: OGVis.PlayerLog.healths
+  commentId: F:OGVis.PlayerLog.healths
+  id: healths
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: healths
+  nameWithType: PlayerLog.healths
+  fullName: OGVis.PlayerLog.healths
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public List<PlayerLog.HealthT> healths
+    return:
+      type: System.Collections.Generic.List{OGVis.PlayerLog.HealthT}
+    content.vb: Public healths As List(Of PlayerLog.HealthT)
+- uid: OGVis.PlayerLog.interactionEvents
+  commentId: F:OGVis.PlayerLog.interactionEvents
+  id: interactionEvents
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: interactionEvents
+  nameWithType: PlayerLog.interactionEvents
+  fullName: OGVis.PlayerLog.interactionEvents
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public List<PlayerLog.InteractionEvent> interactionEvents
+    return:
+      type: System.Collections.Generic.List{OGVis.PlayerLog.InteractionEvent}
+    content.vb: Public interactionEvents As List(Of PlayerLog.InteractionEvent)
+- uid: OGVis.PlayerLog.pathPoints
+  commentId: F:OGVis.PlayerLog.pathPoints
+  id: pathPoints
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: pathPoints
+  nameWithType: PlayerLog.pathPoints
+  fullName: OGVis.PlayerLog.pathPoints
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public List<Vector3> pathPoints
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector3}
+    content.vb: Public pathPoints As List(Of Vector3)
+- uid: OGVis.PlayerLog.displayStartIndex
+  commentId: F:OGVis.PlayerLog.displayStartIndex
+  id: displayStartIndex
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: displayStartIndex
+  nameWithType: PlayerLog.displayStartIndex
+  fullName: OGVis.PlayerLog.displayStartIndex
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public int displayStartIndex
+    return:
+      type: System.Int32
+    content.vb: Public displayStartIndex As Integer
+- uid: OGVis.PlayerLog.displayEndIndex
+  commentId: F:OGVis.PlayerLog.displayEndIndex
+  id: displayEndIndex
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: displayEndIndex
+  nameWithType: PlayerLog.displayEndIndex
+  fullName: OGVis.PlayerLog.displayEndIndex
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public int displayEndIndex
+    return:
+      type: System.Int32
+    content.vb: Public displayEndIndex As Integer
+- uid: OGVis.PlayerLog.heuristics
+  commentId: F:OGVis.PlayerLog.heuristics
+  id: heuristics
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: heuristics
+  nameWithType: PlayerLog.heuristics
+  fullName: OGVis.PlayerLog.heuristics
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public Dictionary<Heuristic, float> heuristics
+    return:
+      type: System.Collections.Generic.Dictionary{PathOS.Heuristic,System.Single}
+    content.vb: Public heuristics As Dictionary(Of Heuristic, Single)
+- uid: OGVis.PlayerLog.experience
+  commentId: F:OGVis.PlayerLog.experience
+  id: experience
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: experience
+  nameWithType: PlayerLog.experience
+  fullName: OGVis.PlayerLog.experience
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public float experience
+    return:
+      type: System.Single
+    content.vb: Public experience As Single
+- uid: OGVis.PlayerLog.sampleRate
+  commentId: F:OGVis.PlayerLog.sampleRate
+  id: sampleRate
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: sampleRate
+  nameWithType: PlayerLog.sampleRate
+  fullName: OGVis.PlayerLog.sampleRate
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public float sampleRate
+    return:
+      type: System.Single
+    content.vb: Public sampleRate As Single
+- uid: OGVis.PlayerLog.visInclude
+  commentId: F:OGVis.PlayerLog.visInclude
+  id: visInclude
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: visInclude
+  nameWithType: PlayerLog.visInclude
+  fullName: OGVis.PlayerLog.visInclude
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public bool visInclude
+    return:
+      type: System.Boolean
+    content.vb: Public visInclude As Boolean
+- uid: OGVis.PlayerLog.showDetail
+  commentId: F:OGVis.PlayerLog.showDetail
+  id: showDetail
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: showDetail
+  nameWithType: PlayerLog.showDetail
+  fullName: OGVis.PlayerLog.showDetail
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public bool showDetail
+    return:
+      type: System.Boolean
+    content.vb: Public showDetail As Boolean
+- uid: OGVis.PlayerLog.pathColor
+  commentId: F:OGVis.PlayerLog.pathColor
+  id: pathColor
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: pathColor
+  nameWithType: PlayerLog.pathColor
+  fullName: OGVis.PlayerLog.pathColor
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public Color pathColor
+    return:
+      type: UnityEngine.Color
+    content.vb: Public pathColor As Color
+- uid: OGVis.PlayerLog.#ctor(System.String)
+  commentId: M:OGVis.PlayerLog.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: PlayerLog(string)
+  nameWithType: PlayerLog.PlayerLog(string)
+  fullName: OGVis.PlayerLog.PlayerLog(string)
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public PlayerLog(string playerID)
+    parameters:
+    - id: playerID
+      type: System.String
+    content.vb: Public Sub New(playerID As String)
+  overload: OGVis.PlayerLog.#ctor*
+  nameWithType.vb: PlayerLog.New(String)
+  fullName.vb: OGVis.PlayerLog.New(String)
+  name.vb: New(String)
+- uid: OGVis.PlayerLog.AddPosition(System.Single,UnityEngine.Vector3)
+  commentId: M:OGVis.PlayerLog.AddPosition(System.Single,UnityEngine.Vector3)
+  id: AddPosition(System.Single,UnityEngine.Vector3)
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: AddPosition(float, Vector3)
+  nameWithType: PlayerLog.AddPosition(float, Vector3)
+  fullName: OGVis.PlayerLog.AddPosition(float, UnityEngine.Vector3)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public void AddPosition(float timestamp, Vector3 pos)
+    parameters:
+    - id: timestamp
+      type: System.Single
+    - id: pos
+      type: UnityEngine.Vector3
+    content.vb: Public Sub AddPosition(timestamp As Single, pos As Vector3)
+  overload: OGVis.PlayerLog.AddPosition*
+  nameWithType.vb: PlayerLog.AddPosition(Single, Vector3)
+  fullName.vb: OGVis.PlayerLog.AddPosition(Single, UnityEngine.Vector3)
+  name.vb: AddPosition(Single, Vector3)
+- uid: OGVis.PlayerLog.AddOrientation(System.Single,UnityEngine.Quaternion)
+  commentId: M:OGVis.PlayerLog.AddOrientation(System.Single,UnityEngine.Quaternion)
+  id: AddOrientation(System.Single,UnityEngine.Quaternion)
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: AddOrientation(float, Quaternion)
+  nameWithType: PlayerLog.AddOrientation(float, Quaternion)
+  fullName: OGVis.PlayerLog.AddOrientation(float, UnityEngine.Quaternion)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public void AddOrientation(float timestamp, Quaternion rot)
+    parameters:
+    - id: timestamp
+      type: System.Single
+    - id: rot
+      type: UnityEngine.Quaternion
+    content.vb: Public Sub AddOrientation(timestamp As Single, rot As Quaternion)
+  overload: OGVis.PlayerLog.AddOrientation*
+  nameWithType.vb: PlayerLog.AddOrientation(Single, Quaternion)
+  fullName.vb: OGVis.PlayerLog.AddOrientation(Single, UnityEngine.Quaternion)
+  name.vb: AddOrientation(Single, Quaternion)
+- uid: OGVis.PlayerLog.AddHealth(System.Single,System.Single)
+  commentId: M:OGVis.PlayerLog.AddHealth(System.Single,System.Single)
+  id: AddHealth(System.Single,System.Single)
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: AddHealth(float, float)
+  nameWithType: PlayerLog.AddHealth(float, float)
+  fullName: OGVis.PlayerLog.AddHealth(float, float)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public void AddHealth(float timestamp, float health)
+    parameters:
+    - id: timestamp
+      type: System.Single
+    - id: health
+      type: System.Single
+    content.vb: Public Sub AddHealth(timestamp As Single, health As Single)
+  overload: OGVis.PlayerLog.AddHealth*
+  nameWithType.vb: PlayerLog.AddHealth(Single, Single)
+  fullName.vb: OGVis.PlayerLog.AddHealth(Single, Single)
+  name.vb: AddHealth(Single, Single)
+- uid: OGVis.PlayerLog.AddInteractionEvent(System.Single,UnityEngine.Vector3,System.String)
+  commentId: M:OGVis.PlayerLog.AddInteractionEvent(System.Single,UnityEngine.Vector3,System.String)
+  id: AddInteractionEvent(System.Single,UnityEngine.Vector3,System.String)
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: AddInteractionEvent(float, Vector3, string)
+  nameWithType: PlayerLog.AddInteractionEvent(float, Vector3, string)
+  fullName: OGVis.PlayerLog.AddInteractionEvent(float, UnityEngine.Vector3, string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public void AddInteractionEvent(float timestamp, Vector3 pos, string objectName)
+    parameters:
+    - id: timestamp
+      type: System.Single
+    - id: pos
+      type: UnityEngine.Vector3
+    - id: objectName
+      type: System.String
+    content.vb: Public Sub AddInteractionEvent(timestamp As Single, pos As Vector3, objectName As String)
+  overload: OGVis.PlayerLog.AddInteractionEvent*
+  nameWithType.vb: PlayerLog.AddInteractionEvent(Single, Vector3, String)
+  fullName.vb: OGVis.PlayerLog.AddInteractionEvent(Single, UnityEngine.Vector3, String)
+  name.vb: AddInteractionEvent(Single, Vector3, String)
+- uid: OGVis.PlayerLog.UpdateDisplayPath(System.Single)
+  commentId: M:OGVis.PlayerLog.UpdateDisplayPath(System.Single)
+  id: UpdateDisplayPath(System.Single)
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: UpdateDisplayPath(float)
+  nameWithType: PlayerLog.UpdateDisplayPath(float)
+  fullName: OGVis.PlayerLog.UpdateDisplayPath(float)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public void UpdateDisplayPath(float displayHeight)
+    parameters:
+    - id: displayHeight
+      type: System.Single
+    content.vb: Public Sub UpdateDisplayPath(displayHeight As Single)
+  overload: OGVis.PlayerLog.UpdateDisplayPath*
+  nameWithType.vb: PlayerLog.UpdateDisplayPath(Single)
+  fullName.vb: OGVis.PlayerLog.UpdateDisplayPath(Single)
+  name.vb: UpdateDisplayPath(Single)
+- uid: OGVis.PlayerLog.SliceDisplayPath(OGVis.TimeRange)
+  commentId: M:OGVis.PlayerLog.SliceDisplayPath(OGVis.TimeRange)
+  id: SliceDisplayPath(OGVis.TimeRange)
+  parent: OGVis.PlayerLog
+  langs:
+  - csharp
+  - vb
+  name: SliceDisplayPath(TimeRange)
+  nameWithType: PlayerLog.SliceDisplayPath(TimeRange)
+  fullName: OGVis.PlayerLog.SliceDisplayPath(OGVis.TimeRange)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public void SliceDisplayPath(TimeRange range)
+    parameters:
+    - id: range
+      type: OGVis.TimeRange
+    content.vb: Public Sub SliceDisplayPath(range As TimeRange)
+  overload: OGVis.PlayerLog.SliceDisplayPath*
+references:
+- uid: OGVis
+  commentId: N:OGVis
+  isExternal: true
+  href: OGVis.html
+  name: OGVis
+  nameWithType: OGVis
+  fullName: OGVis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List{OGVis.PlayerLog.VectorT}
+  commentId: T:System.Collections.Generic.List{OGVis.PlayerLog.VectorT}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<PlayerLog.VectorT>
+  nameWithType: List<PlayerLog.VectorT>
+  fullName: System.Collections.Generic.List<OGVis.PlayerLog.VectorT>
+  nameWithType.vb: List(Of PlayerLog.VectorT)
+  fullName.vb: System.Collections.Generic.List(Of OGVis.PlayerLog.VectorT)
+  name.vb: List(Of PlayerLog.VectorT)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: .
+  - uid: OGVis.PlayerLog.VectorT
+    name: VectorT
+    isExternal: true
+    href: OGVis.PlayerLog.VectorT.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: .
+  - uid: OGVis.PlayerLog.VectorT
+    name: VectorT
+    isExternal: true
+    href: OGVis.PlayerLog.VectorT.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{OGVis.PlayerLog.QuaternionT}
+  commentId: T:System.Collections.Generic.List{OGVis.PlayerLog.QuaternionT}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<PlayerLog.QuaternionT>
+  nameWithType: List<PlayerLog.QuaternionT>
+  fullName: System.Collections.Generic.List<OGVis.PlayerLog.QuaternionT>
+  nameWithType.vb: List(Of PlayerLog.QuaternionT)
+  fullName.vb: System.Collections.Generic.List(Of OGVis.PlayerLog.QuaternionT)
+  name.vb: List(Of PlayerLog.QuaternionT)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: .
+  - uid: OGVis.PlayerLog.QuaternionT
+    name: QuaternionT
+    isExternal: true
+    href: OGVis.PlayerLog.QuaternionT.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: .
+  - uid: OGVis.PlayerLog.QuaternionT
+    name: QuaternionT
+    isExternal: true
+    href: OGVis.PlayerLog.QuaternionT.html
+  - name: )
+- uid: System.Collections.Generic.List{OGVis.PlayerLog.HealthT}
+  commentId: T:System.Collections.Generic.List{OGVis.PlayerLog.HealthT}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<PlayerLog.HealthT>
+  nameWithType: List<PlayerLog.HealthT>
+  fullName: System.Collections.Generic.List<OGVis.PlayerLog.HealthT>
+  nameWithType.vb: List(Of PlayerLog.HealthT)
+  fullName.vb: System.Collections.Generic.List(Of OGVis.PlayerLog.HealthT)
+  name.vb: List(Of PlayerLog.HealthT)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: .
+  - uid: OGVis.PlayerLog.HealthT
+    name: HealthT
+    isExternal: true
+    href: OGVis.PlayerLog.HealthT.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: .
+  - uid: OGVis.PlayerLog.HealthT
+    name: HealthT
+    isExternal: true
+    href: OGVis.PlayerLog.HealthT.html
+  - name: )
+- uid: System.Collections.Generic.List{OGVis.PlayerLog.InteractionEvent}
+  commentId: T:System.Collections.Generic.List{OGVis.PlayerLog.InteractionEvent}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<PlayerLog.InteractionEvent>
+  nameWithType: List<PlayerLog.InteractionEvent>
+  fullName: System.Collections.Generic.List<OGVis.PlayerLog.InteractionEvent>
+  nameWithType.vb: List(Of PlayerLog.InteractionEvent)
+  fullName.vb: System.Collections.Generic.List(Of OGVis.PlayerLog.InteractionEvent)
+  name.vb: List(Of PlayerLog.InteractionEvent)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: .
+  - uid: OGVis.PlayerLog.InteractionEvent
+    name: InteractionEvent
+    isExternal: true
+    href: OGVis.PlayerLog.InteractionEvent.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OGVis.PlayerLog
+    name: PlayerLog
+    isExternal: true
+    href: OGVis.PlayerLog.html
+  - name: .
+  - uid: OGVis.PlayerLog.InteractionEvent
+    name: InteractionEvent
+    isExternal: true
+    href: OGVis.PlayerLog.InteractionEvent.html
+  - name: )
+- uid: System.Collections.Generic.List{UnityEngine.Vector3}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Vector3}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vector3>
+  nameWithType: List<Vector3>
+  fullName: System.Collections.Generic.List<UnityEngine.Vector3>
+  nameWithType.vb: List(Of Vector3)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Vector3)
+  name.vb: List(Of Vector3)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.Dictionary{PathOS.Heuristic,System.Single}
+  commentId: T:System.Collections.Generic.Dictionary{PathOS.Heuristic,System.Single}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<Heuristic, float>
+  nameWithType: Dictionary<Heuristic, float>
+  fullName: System.Collections.Generic.Dictionary<PathOS.Heuristic, float>
+  nameWithType.vb: Dictionary(Of Heuristic, Single)
+  fullName.vb: System.Collections.Generic.Dictionary(Of PathOS.Heuristic, Single)
+  name.vb: Dictionary(Of Heuristic, Single)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: PathOS.Heuristic
+    name: Heuristic
+    isExternal: true
+    href: PathOS.Heuristic.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.Heuristic
+    name: Heuristic
+    isExternal: true
+    href: PathOS.Heuristic.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: OGVis.PlayerLog.#ctor*
+  commentId: Overload:OGVis.PlayerLog.#ctor
+  isExternal: true
+  href: OGVis.PlayerLog.html#OGVis_PlayerLog__ctor_System_String_
+  name: PlayerLog
+  nameWithType: PlayerLog.PlayerLog
+  fullName: OGVis.PlayerLog.PlayerLog
+  nameWithType.vb: PlayerLog.New
+  fullName.vb: OGVis.PlayerLog.New
+  name.vb: New
+- uid: OGVis.PlayerLog.AddPosition*
+  commentId: Overload:OGVis.PlayerLog.AddPosition
+  isExternal: true
+  href: OGVis.PlayerLog.html#OGVis_PlayerLog_AddPosition_System_Single_UnityEngine_Vector3_
+  name: AddPosition
+  nameWithType: PlayerLog.AddPosition
+  fullName: OGVis.PlayerLog.AddPosition
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: OGVis.PlayerLog.AddOrientation*
+  commentId: Overload:OGVis.PlayerLog.AddOrientation
+  isExternal: true
+  href: OGVis.PlayerLog.html#OGVis_PlayerLog_AddOrientation_System_Single_UnityEngine_Quaternion_
+  name: AddOrientation
+  nameWithType: PlayerLog.AddOrientation
+  fullName: OGVis.PlayerLog.AddOrientation
+- uid: UnityEngine.Quaternion
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: UnityEngine.Quaternion
+- uid: OGVis.PlayerLog.AddHealth*
+  commentId: Overload:OGVis.PlayerLog.AddHealth
+  isExternal: true
+  href: OGVis.PlayerLog.html#OGVis_PlayerLog_AddHealth_System_Single_System_Single_
+  name: AddHealth
+  nameWithType: PlayerLog.AddHealth
+  fullName: OGVis.PlayerLog.AddHealth
+- uid: OGVis.PlayerLog.AddInteractionEvent*
+  commentId: Overload:OGVis.PlayerLog.AddInteractionEvent
+  isExternal: true
+  href: OGVis.PlayerLog.html#OGVis_PlayerLog_AddInteractionEvent_System_Single_UnityEngine_Vector3_System_String_
+  name: AddInteractionEvent
+  nameWithType: PlayerLog.AddInteractionEvent
+  fullName: OGVis.PlayerLog.AddInteractionEvent
+- uid: OGVis.PlayerLog.UpdateDisplayPath*
+  commentId: Overload:OGVis.PlayerLog.UpdateDisplayPath
+  isExternal: true
+  href: OGVis.PlayerLog.html#OGVis_PlayerLog_UpdateDisplayPath_System_Single_
+  name: UpdateDisplayPath
+  nameWithType: PlayerLog.UpdateDisplayPath
+  fullName: OGVis.PlayerLog.UpdateDisplayPath
+- uid: OGVis.PlayerLog.SliceDisplayPath*
+  commentId: Overload:OGVis.PlayerLog.SliceDisplayPath
+  isExternal: true
+  href: OGVis.PlayerLog.html#OGVis_PlayerLog_SliceDisplayPath_OGVis_TimeRange_
+  name: SliceDisplayPath
+  nameWithType: PlayerLog.SliceDisplayPath
+  fullName: OGVis.PlayerLog.SliceDisplayPath
+- uid: OGVis.TimeRange
+  commentId: T:OGVis.TimeRange
+  parent: OGVis
+  isExternal: true
+  href: OGVis.TimeRange.html
+  name: TimeRange
+  nameWithType: TimeRange
+  fullName: OGVis.TimeRange
+shouldSkipMarkup: true

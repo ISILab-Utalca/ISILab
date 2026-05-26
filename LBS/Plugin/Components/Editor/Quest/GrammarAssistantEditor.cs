@@ -135,7 +135,7 @@ namespace ISILab.LBS.Editor
                 return;
             }
 
-            Debug.Log($"last [{lastSelectedGraphNode}] | new [{selectedGraphNode}]");
+            //Debug.Log($"last [{lastSelectedGraphNode}] | new [{selectedGraphNode}]");
             lastSelectedGraphNode = selectedGraphNode;
             grammarField.value = Graph.Grammar;
             paramActionLabel.text = "none";

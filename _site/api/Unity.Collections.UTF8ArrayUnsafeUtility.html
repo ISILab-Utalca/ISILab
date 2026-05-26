@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UTF8ArrayUnsafeUtility | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UTF8ArrayUnsafeUtility | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Unity.Collections.UTF8ArrayUnsafeUtility">
+
+
+
+  <h1 id="Unity_Collections_UTF8ArrayUnsafeUtility" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility" class="text-break">
+Class UTF8ArrayUnsafeUtility  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Unity.html">Unity</a>.<a class="xref" href="Unity.Collections.html">Collections</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Collections.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility]
+public static class UTF8ArrayUnsafeUtility</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">UTF8ArrayUnsafeUtility</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_Append_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Append*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_Append_System_Byte__System_UInt16__System_UInt16_System_Byte__System_UInt16_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Append(System.Byte*,System.UInt16@,System.UInt16,System.Byte*,System.UInt16)">
+  Append(byte*, ref ushort, ushort, byte*, ushort)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CopyError Append(byte* dest, ref ushort destLength, ushort destUTF8MaxLengthInBytes, byte* src, ushort srcLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>destLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>destUTF8MaxLengthInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>srcLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.CopyError.html">CopyError</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_Append_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Append*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_Append_System_Byte__System_UInt16__System_UInt16_System_Char__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Append(System.Byte*,System.UInt16@,System.UInt16,System.Char*,System.Int32)">
+  Append(byte*, ref ushort, ushort, char*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CopyError Append(byte* dest, ref ushort destLength, ushort destUTF8MaxLengthInBytes, char* src, int srcLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>destLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>destUTF8MaxLengthInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>*</dt>
+    <dd></dd>
+    <dt><code>srcLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.CopyError.html">CopyError</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_Append_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Append*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_Append_System_Char__System_UInt16__System_UInt16_System_Byte__System_UInt16_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Append(System.Char*,System.UInt16@,System.UInt16,System.Byte*,System.UInt16)">
+  Append(char*, ref ushort, ushort, byte*, ushort)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CopyError Append(char* dest, ref ushort destLength, ushort destUCS2MaxLengthInChars, byte* src, ushort srcLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>*</dt>
+    <dd></dd>
+    <dt><code>destLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>destUCS2MaxLengthInChars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>srcLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.CopyError.html">CopyError</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_AppendUTF8Bytes_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.AppendUTF8Bytes*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_AppendUTF8Bytes_System_Byte__System_Int32__System_Int32_System_Byte__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.AppendUTF8Bytes(System.Byte*,System.Int32@,System.Int32,System.Byte*,System.Int32)">
+  AppendUTF8Bytes(byte*, ref int, int, byte*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FormatError AppendUTF8Bytes(byte* dest, ref int destLength, int destCapacity, byte* src, int srcLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>destLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>destCapacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>srcLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.FormatError.html">FormatError</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_System_Byte__System_Int32__System_Int32_System_Byte__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy(System.Byte*,System.Int32@,System.Int32,System.Byte*,System.Int32)">
+  Copy(byte*, out int, int, byte*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CopyError Copy(byte* dest, out int destLength, int destUTF8MaxLengthInBytes, byte* src, int srcLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>destLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>destUTF8MaxLengthInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>srcLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.CopyError.html">CopyError</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_System_Byte__System_Int32__System_Int32_System_Char__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy(System.Byte*,System.Int32@,System.Int32,System.Char*,System.Int32)">
+  Copy(byte*, out int, int, char*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CopyError Copy(byte* dest, out int destLength, int destUTF8MaxLengthInBytes, char* src, int srcLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>destLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>destUTF8MaxLengthInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>*</dt>
+    <dd></dd>
+    <dt><code>srcLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.CopyError.html">CopyError</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_System_Byte__System_UInt16__System_UInt16_System_Byte__System_UInt16_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy(System.Byte*,System.UInt16@,System.UInt16,System.Byte*,System.UInt16)">
+  Copy(byte*, out ushort, ushort, byte*, ushort)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CopyError Copy(byte* dest, out ushort destLength, ushort destUTF8MaxLengthInBytes, byte* src, ushort srcLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>destLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>destUTF8MaxLengthInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>srcLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.CopyError.html">CopyError</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_System_Byte__System_UInt16__System_UInt16_System_Char__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy(System.Byte*,System.UInt16@,System.UInt16,System.Char*,System.Int32)">
+  Copy(byte*, out ushort, ushort, char*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CopyError Copy(byte* dest, out ushort destLength, ushort destUTF8MaxLengthInBytes, char* src, int srcLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>destLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>destUTF8MaxLengthInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>*</dt>
+    <dd></dd>
+    <dt><code>srcLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.CopyError.html">CopyError</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_System_Char__System_Int32__System_Int32_System_Byte__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy(System.Char*,System.Int32@,System.Int32,System.Byte*,System.Int32)">
+  Copy(char*, out int, int, byte*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CopyError Copy(char* dest, out int destLength, int destUCS2MaxLengthInChars, byte* src, int srcLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>*</dt>
+    <dd></dd>
+    <dt><code>destLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>destUCS2MaxLengthInChars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>srcLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.CopyError.html">CopyError</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_Copy_System_Char__System_UInt16__System_UInt16_System_Byte__System_UInt16_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.Copy(System.Char*,System.UInt16@,System.UInt16,System.Byte*,System.UInt16)">
+  Copy(char*, out ushort, ushort, byte*, ushort)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CopyError Copy(char* dest, out ushort destLength, ushort destUCS2MaxLengthInChars, byte* src, ushort srcLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>*</dt>
+    <dd></dd>
+    <dt><code>destLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>destUCS2MaxLengthInChars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>src</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>srcLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.CopyError.html">CopyError</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_EqualsUTF8Bytes_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.EqualsUTF8Bytes*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_EqualsUTF8Bytes_System_Byte__System_Int32_System_Byte__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.EqualsUTF8Bytes(System.Byte*,System.Int32,System.Byte*,System.Int32)">
+  EqualsUTF8Bytes(byte*, int, byte*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool EqualsUTF8Bytes(byte* aBytes, int aLength, byte* bBytes, int bLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>aBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>aLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>bLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_StrCmp_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.StrCmp*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_StrCmp_System_Byte__System_Int32_System_Byte__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.StrCmp(System.Byte*,System.Int32,System.Byte*,System.Int32)">
+  StrCmp(byte*, int, byte*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int StrCmp(byte* utf8BufferA, int utf8LengthInBytesA, byte* utf8BufferB, int utf8LengthInBytesB)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utf8BufferA</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>utf8LengthInBytesA</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>utf8BufferB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>utf8LengthInBytesB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_StrCmp_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.StrCmp*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_StrCmp_System_Byte__System_Int32_System_Char__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.StrCmp(System.Byte*,System.Int32,System.Char*,System.Int32)">
+  StrCmp(byte*, int, char*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int StrCmp(byte* utf8Buffer, int utf8LengthInBytes, char* utf16Buffer, int utf16LengthInChars)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utf8Buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>utf8LengthInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>utf16Buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>*</dt>
+    <dd></dd>
+    <dt><code>utf16LengthInChars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_StrCmp_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.StrCmp*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_StrCmp_System_Char__System_Int32_System_Byte__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.StrCmp(System.Char*,System.Int32,System.Byte*,System.Int32)">
+  StrCmp(char*, int, byte*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int StrCmp(char* utf16Buffer, int utf16LengthInChars, byte* utf8Buffer, int utf8LengthInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utf16Buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>*</dt>
+    <dd></dd>
+    <dt><code>utf16LengthInChars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>utf8Buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>utf8LengthInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_UTF8ArrayUnsafeUtility_StrCmp_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.StrCmp*"></a>
+
+  <h3 id="Unity_Collections_UTF8ArrayUnsafeUtility_StrCmp_System_Char__System_Int32_System_Char__System_Int32_" data-uid="Unity.Collections.UTF8ArrayUnsafeUtility.StrCmp(System.Char*,System.Int32,System.Char*,System.Int32)">
+  StrCmp(char*, int, char*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int StrCmp(char* utf16BufferA, int utf16LengthInCharsA, char* utf16BufferB, int utf16LengthInCharsB)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utf16BufferA</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>*</dt>
+    <dd></dd>
+    <dt><code>utf16LengthInCharsA</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>utf16BufferB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>*</dt>
+    <dd></dd>
+    <dt><code>utf16LengthInCharsB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

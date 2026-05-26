@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LensFlareCommonSRP | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LensFlareCommonSRP | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.LensFlareCommonSRP">
+
+
+
+  <h1 id="UnityEngine_Rendering_LensFlareCommonSRP" data-uid="UnityEngine.Rendering.LensFlareCommonSRP" class="text-break">
+Class LensFlareCommonSRP  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class LensFlareCommonSRP</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">LensFlareCommonSRP</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_maxLensFlareWithOcclusion" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.maxLensFlareWithOcclusion">
+  maxLensFlareWithOcclusion
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int maxLensFlareWithOcclusion</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_maxLensFlareWithOcclusionTemporalSample" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.maxLensFlareWithOcclusionTemporalSample">
+  maxLensFlareWithOcclusionTemporalSample
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int maxLensFlareWithOcclusionTemporalSample</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_mergeNeeded" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.mergeNeeded">
+  mergeNeeded
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int mergeNeeded</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_occlusionRT" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.occlusionRT">
+  occlusionRT
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RTHandle occlusionRT</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_Instance_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.Instance*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_Instance" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.Instance">
+  Instance
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static LensFlareCommonSRP Instance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.LensFlareCommonSRP.html">LensFlareCommonSRP</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_AddData_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.AddData*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_AddData_UnityEngine_Rendering_LensFlareComponentSRP_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.AddData(UnityEngine.Rendering.LensFlareComponentSRP)">
+  AddData(LensFlareComponentSRP)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddData(LensFlareComponentSRP newData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newData</code> <a class="xref" href="UnityEngine.Rendering.LensFlareComponentSRP.html">LensFlareComponentSRP</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ComputeOcclusion_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ComputeOcclusion*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ComputeOcclusion_UnityEngine_Material_UnityEngine_Camera_UnityEngine_Experimental_Rendering_XRPass_System_Int32_System_Single_System_Single_System_Boolean_System_Single_System_Single_System_Boolean_UnityEngine_Vector3_UnityEngine_Matrix4x4_UnityEngine_Rendering_CommandBuffer_System_Boolean_System_Boolean_UnityEngine_Texture_UnityEngine_Texture_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ComputeOcclusion(UnityEngine.Material,UnityEngine.Camera,UnityEngine.Experimental.Rendering.XRPass,System.Int32,System.Single,System.Single,System.Boolean,System.Single,System.Single,System.Boolean,UnityEngine.Vector3,UnityEngine.Matrix4x4,UnityEngine.Rendering.CommandBuffer,System.Boolean,System.Boolean,UnityEngine.Texture,UnityEngine.Texture)">
+  ComputeOcclusion(Material, Camera, XRPass, int, float, float, bool, float, float, bool, Vector3, Matrix4x4, CommandBuffer, bool, bool, Texture, Texture)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ComputeOcclusion(Material lensFlareShader, Camera cam, XRPass xr, int xrIndex, float actualWidth, float actualHeight, bool usePanini, float paniniDistance, float paniniCropToFit, bool isCameraRelative, Vector3 cameraPositionWS, Matrix4x4 viewProjMatrix, CommandBuffer cmd, bool taaEnabled, bool hasCloudLayer, Texture cloudOpacityTexture, Texture sunOcclusionTexture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>xr</code> <a class="xref" href="UnityEngine.Experimental.Rendering.XRPass.html">XRPass</a></dt>
+    <dd></dd>
+    <dt><code>xrIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>usePanini</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paniniDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>paniniCropToFit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>isCameraRelative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cameraPositionWS</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>viewProjMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>taaEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasCloudLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cloudOpacityTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sunOcclusionTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ComputeOcclusion_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ComputeOcclusion*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ComputeOcclusion_UnityEngine_Material_UnityEngine_Camera_UnityEngine_Experimental_Rendering_XRPass_System_Int32_System_Single_System_Single_System_Boolean_System_Single_System_Single_System_Boolean_UnityEngine_Vector3_UnityEngine_Matrix4x4_UnityEngine_Rendering_CommandBuffer_System_Boolean_System_Boolean_UnityEngine_Texture_UnityEngine_Texture_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ComputeOcclusion(UnityEngine.Material,UnityEngine.Camera,UnityEngine.Experimental.Rendering.XRPass,System.Int32,System.Single,System.Single,System.Boolean,System.Single,System.Single,System.Boolean,UnityEngine.Vector3,UnityEngine.Matrix4x4,UnityEngine.Rendering.CommandBuffer,System.Boolean,System.Boolean,UnityEngine.Texture,UnityEngine.Texture,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+  ComputeOcclusion(Material, Camera, XRPass, int, float, float, bool, float, float, bool, Vector3, Matrix4x4, CommandBuffer, bool, bool, Texture, Texture, int, int, int, int, int, int, int, int, int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use ComputeOcclusion without _FlareOcclusionTex.._FlareData4 parameters.&quot;)]
+public static void ComputeOcclusion(Material lensFlareShader, Camera cam, XRPass xr, int xrIndex, float actualWidth, float actualHeight, bool usePanini, float paniniDistance, float paniniCropToFit, bool isCameraRelative, Vector3 cameraPositionWS, Matrix4x4 viewProjMatrix, CommandBuffer cmd, bool taaEnabled, bool hasCloudLayer, Texture cloudOpacityTexture, Texture sunOcclusionTexture, int _FlareOcclusionTex, int _FlareCloudOpacity, int _FlareOcclusionIndex, int _FlareTex, int _FlareColorValue, int _FlareSunOcclusionTex, int _FlareData0, int _FlareData1, int _FlareData2, int _FlareData3, int _FlareData4)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>xr</code> <a class="xref" href="UnityEngine.Experimental.Rendering.XRPass.html">XRPass</a></dt>
+    <dd></dd>
+    <dt><code>xrIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>usePanini</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paniniDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>paniniCropToFit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>isCameraRelative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cameraPositionWS</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>viewProjMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>taaEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasCloudLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cloudOpacityTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sunOcclusionTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>_FlareOcclusionTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareCloudOpacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareOcclusionIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareColorValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareSunOcclusionTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData4</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ComputeOcclusion_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ComputeOcclusion*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ComputeOcclusion_UnityEngine_Material_UnityEngine_Camera_UnityEngine_Experimental_Rendering_XRPass_System_Int32_System_Single_System_Single_System_Boolean_System_Single_System_Single_System_Boolean_UnityEngine_Vector3_UnityEngine_Matrix4x4_UnityEngine_Rendering_UnsafeCommandBuffer_System_Boolean_System_Boolean_UnityEngine_Texture_UnityEngine_Texture_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ComputeOcclusion(UnityEngine.Material,UnityEngine.Camera,UnityEngine.Experimental.Rendering.XRPass,System.Int32,System.Single,System.Single,System.Boolean,System.Single,System.Single,System.Boolean,UnityEngine.Vector3,UnityEngine.Matrix4x4,UnityEngine.Rendering.UnsafeCommandBuffer,System.Boolean,System.Boolean,UnityEngine.Texture,UnityEngine.Texture)">
+  ComputeOcclusion(Material, Camera, XRPass, int, float, float, bool, float, float, bool, Vector3, Matrix4x4, UnsafeCommandBuffer, bool, bool, Texture, Texture)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ComputeOcclusion(Material lensFlareShader, Camera cam, XRPass xr, int xrIndex, float actualWidth, float actualHeight, bool usePanini, float paniniDistance, float paniniCropToFit, bool isCameraRelative, Vector3 cameraPositionWS, Matrix4x4 viewProjMatrix, UnsafeCommandBuffer cmd, bool taaEnabled, bool hasCloudLayer, Texture cloudOpacityTexture, Texture sunOcclusionTexture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>xr</code> <a class="xref" href="UnityEngine.Experimental.Rendering.XRPass.html">XRPass</a></dt>
+    <dd></dd>
+    <dt><code>xrIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>usePanini</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paniniDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>paniniCropToFit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>isCameraRelative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cameraPositionWS</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>viewProjMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.UnsafeCommandBuffer.html">UnsafeCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>taaEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasCloudLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cloudOpacityTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sunOcclusionTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ComputeOcclusion_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ComputeOcclusion*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ComputeOcclusion_UnityEngine_Material_UnityEngine_Camera_UnityEngine_Experimental_Rendering_XRPass_System_Int32_System_Single_System_Single_System_Boolean_System_Single_System_Single_System_Boolean_UnityEngine_Vector3_UnityEngine_Matrix4x4_UnityEngine_Rendering_UnsafeCommandBuffer_System_Boolean_System_Boolean_UnityEngine_Texture_UnityEngine_Texture_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ComputeOcclusion(UnityEngine.Material,UnityEngine.Camera,UnityEngine.Experimental.Rendering.XRPass,System.Int32,System.Single,System.Single,System.Boolean,System.Single,System.Single,System.Boolean,UnityEngine.Vector3,UnityEngine.Matrix4x4,UnityEngine.Rendering.UnsafeCommandBuffer,System.Boolean,System.Boolean,UnityEngine.Texture,UnityEngine.Texture,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+  ComputeOcclusion(Material, Camera, XRPass, int, float, float, bool, float, float, bool, Vector3, Matrix4x4, UnsafeCommandBuffer, bool, bool, Texture, Texture, int, int, int, int, int, int, int, int, int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use ComputeOcclusion without _FlareOcclusionTex.._FlareData4 parameters.&quot;)]
+public static void ComputeOcclusion(Material lensFlareShader, Camera cam, XRPass xr, int xrIndex, float actualWidth, float actualHeight, bool usePanini, float paniniDistance, float paniniCropToFit, bool isCameraRelative, Vector3 cameraPositionWS, Matrix4x4 viewProjMatrix, UnsafeCommandBuffer cmd, bool taaEnabled, bool hasCloudLayer, Texture cloudOpacityTexture, Texture sunOcclusionTexture, int _FlareOcclusionTex, int _FlareCloudOpacity, int _FlareOcclusionIndex, int _FlareTex, int _FlareColorValue, int _FlareSunOcclusionTex, int _FlareData0, int _FlareData1, int _FlareData2, int _FlareData3, int _FlareData4)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>xr</code> <a class="xref" href="UnityEngine.Experimental.Rendering.XRPass.html">XRPass</a></dt>
+    <dd></dd>
+    <dt><code>xrIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>usePanini</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paniniDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>paniniCropToFit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>isCameraRelative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cameraPositionWS</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>viewProjMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.UnsafeCommandBuffer.html">UnsafeCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>taaEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasCloudLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cloudOpacityTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sunOcclusionTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>_FlareOcclusionTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareCloudOpacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareOcclusionIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareColorValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareSunOcclusionTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData4</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_Dispose_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.Dispose*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_Dispose" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareDataDrivenCommon_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareDataDrivenCommon*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareDataDrivenCommon_UnityEngine_Material_UnityEngine_Camera_UnityEngine_Rect_UnityEngine_Experimental_Rendering_XRPass_System_Int32_System_Single_System_Single_System_Boolean_System_Single_System_Single_System_Boolean_UnityEngine_Vector3_UnityEngine_Matrix4x4_UnityEngine_Rendering_CommandBuffer_System_Boolean_System_Boolean_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Rendering_RenderTargetIdentifier_System_Func_UnityEngine_Light_UnityEngine_Camera_UnityEngine_Vector3_System_Single__System_Boolean_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareDataDrivenCommon(UnityEngine.Material,UnityEngine.Camera,UnityEngine.Rect,UnityEngine.Experimental.Rendering.XRPass,System.Int32,System.Single,System.Single,System.Boolean,System.Single,System.Single,System.Boolean,UnityEngine.Vector3,UnityEngine.Matrix4x4,UnityEngine.Rendering.CommandBuffer,System.Boolean,System.Boolean,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Rendering.RenderTargetIdentifier,System.Func{UnityEngine.Light,UnityEngine.Camera,UnityEngine.Vector3,System.Single},System.Boolean)">
+  DoLensFlareDataDrivenCommon(Material, Camera, Rect, XRPass, int, float, float, bool, float, float, bool, Vector3, Matrix4x4, CommandBuffer, bool, bool, Texture, Texture, RenderTargetIdentifier, Func&lt;Light, Camera, Vector3, float&gt;, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoLensFlareDataDrivenCommon(Material lensFlareShader, Camera cam, Rect viewport, XRPass xr, int xrIndex, float actualWidth, float actualHeight, bool usePanini, float paniniDistance, float paniniCropToFit, bool isCameraRelative, Vector3 cameraPositionWS, Matrix4x4 viewProjMatrix, CommandBuffer cmd, bool taaEnabled, bool hasCloudLayer, Texture cloudOpacityTexture, Texture sunOcclusionTexture, RenderTargetIdentifier colorBuffer, Func&lt;Light, Camera, Vector3, float&gt; GetLensFlareLightAttenuation, bool debugView)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>xr</code> <a class="xref" href="UnityEngine.Experimental.Rendering.XRPass.html">XRPass</a></dt>
+    <dd></dd>
+    <dt><code>xrIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>usePanini</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paniniDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>paniniCropToFit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>isCameraRelative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cameraPositionWS</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>viewProjMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>taaEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasCloudLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cloudOpacityTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sunOcclusionTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>GetLensFlareLightAttenuation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<span class="xref">Light</span>, <span class="xref">Camera</span>, <span class="xref">Vector3</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>debugView</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareDataDrivenCommon_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareDataDrivenCommon*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareDataDrivenCommon_UnityEngine_Material_UnityEngine_Camera_UnityEngine_Rect_UnityEngine_Experimental_Rendering_XRPass_System_Int32_System_Single_System_Single_System_Boolean_System_Single_System_Single_System_Boolean_UnityEngine_Vector3_UnityEngine_Matrix4x4_UnityEngine_Rendering_CommandBuffer_System_Boolean_System_Boolean_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Rendering_RenderTargetIdentifier_System_Func_UnityEngine_Light_UnityEngine_Camera_UnityEngine_Vector3_System_Single__System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareDataDrivenCommon(UnityEngine.Material,UnityEngine.Camera,UnityEngine.Rect,UnityEngine.Experimental.Rendering.XRPass,System.Int32,System.Single,System.Single,System.Boolean,System.Single,System.Single,System.Boolean,UnityEngine.Vector3,UnityEngine.Matrix4x4,UnityEngine.Rendering.CommandBuffer,System.Boolean,System.Boolean,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Rendering.RenderTargetIdentifier,System.Func{UnityEngine.Light,UnityEngine.Camera,UnityEngine.Vector3,System.Single},System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+  DoLensFlareDataDrivenCommon(Material, Camera, Rect, XRPass, int, float, float, bool, float, float, bool, Vector3, Matrix4x4, CommandBuffer, bool, bool, Texture, Texture, RenderTargetIdentifier, Func&lt;Light, Camera, Vector3, float&gt;, int, int, int, int, int, int, int, int, int, int, int, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use DoLensFlareDataDrivenCommon without _FlareOcclusionRemapTex.._FlareData4 parameters.&quot;)]
+public static void DoLensFlareDataDrivenCommon(Material lensFlareShader, Camera cam, Rect viewport, XRPass xr, int xrIndex, float actualWidth, float actualHeight, bool usePanini, float paniniDistance, float paniniCropToFit, bool isCameraRelative, Vector3 cameraPositionWS, Matrix4x4 viewProjMatrix, CommandBuffer cmd, bool taaEnabled, bool hasCloudLayer, Texture cloudOpacityTexture, Texture sunOcclusionTexture, RenderTargetIdentifier colorBuffer, Func&lt;Light, Camera, Vector3, float&gt; GetLensFlareLightAttenuation, int _FlareOcclusionRemapTex, int _FlareOcclusionTex, int _FlareOcclusionIndex, int _FlareCloudOpacity, int _FlareSunOcclusionTex, int _FlareTex, int _FlareColorValue, int _FlareData0, int _FlareData1, int _FlareData2, int _FlareData3, int _FlareData4, bool debugView)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>xr</code> <a class="xref" href="UnityEngine.Experimental.Rendering.XRPass.html">XRPass</a></dt>
+    <dd></dd>
+    <dt><code>xrIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>usePanini</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paniniDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>paniniCropToFit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>isCameraRelative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cameraPositionWS</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>viewProjMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>taaEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasCloudLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cloudOpacityTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sunOcclusionTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>GetLensFlareLightAttenuation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<span class="xref">Light</span>, <span class="xref">Camera</span>, <span class="xref">Vector3</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>_FlareOcclusionRemapTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareOcclusionTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareOcclusionIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareCloudOpacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareSunOcclusionTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareColorValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData4</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>debugView</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareDataDrivenCommon_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareDataDrivenCommon*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareDataDrivenCommon_UnityEngine_Material_UnityEngine_Camera_UnityEngine_Rect_UnityEngine_Experimental_Rendering_XRPass_System_Int32_System_Single_System_Single_System_Boolean_System_Single_System_Single_System_Boolean_UnityEngine_Vector3_UnityEngine_Matrix4x4_UnityEngine_Rendering_UnsafeCommandBuffer_System_Boolean_System_Boolean_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Rendering_RenderTargetIdentifier_System_Func_UnityEngine_Light_UnityEngine_Camera_UnityEngine_Vector3_System_Single__System_Boolean_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareDataDrivenCommon(UnityEngine.Material,UnityEngine.Camera,UnityEngine.Rect,UnityEngine.Experimental.Rendering.XRPass,System.Int32,System.Single,System.Single,System.Boolean,System.Single,System.Single,System.Boolean,UnityEngine.Vector3,UnityEngine.Matrix4x4,UnityEngine.Rendering.UnsafeCommandBuffer,System.Boolean,System.Boolean,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Rendering.RenderTargetIdentifier,System.Func{UnityEngine.Light,UnityEngine.Camera,UnityEngine.Vector3,System.Single},System.Boolean)">
+  DoLensFlareDataDrivenCommon(Material, Camera, Rect, XRPass, int, float, float, bool, float, float, bool, Vector3, Matrix4x4, UnsafeCommandBuffer, bool, bool, Texture, Texture, RenderTargetIdentifier, Func&lt;Light, Camera, Vector3, float&gt;, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoLensFlareDataDrivenCommon(Material lensFlareShader, Camera cam, Rect viewport, XRPass xr, int xrIndex, float actualWidth, float actualHeight, bool usePanini, float paniniDistance, float paniniCropToFit, bool isCameraRelative, Vector3 cameraPositionWS, Matrix4x4 viewProjMatrix, UnsafeCommandBuffer cmd, bool taaEnabled, bool hasCloudLayer, Texture cloudOpacityTexture, Texture sunOcclusionTexture, RenderTargetIdentifier colorBuffer, Func&lt;Light, Camera, Vector3, float&gt; GetLensFlareLightAttenuation, bool debugView)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>xr</code> <a class="xref" href="UnityEngine.Experimental.Rendering.XRPass.html">XRPass</a></dt>
+    <dd></dd>
+    <dt><code>xrIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>usePanini</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paniniDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>paniniCropToFit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>isCameraRelative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cameraPositionWS</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>viewProjMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.UnsafeCommandBuffer.html">UnsafeCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>taaEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasCloudLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cloudOpacityTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sunOcclusionTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>GetLensFlareLightAttenuation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<span class="xref">Light</span>, <span class="xref">Camera</span>, <span class="xref">Vector3</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>debugView</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareDataDrivenCommon_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareDataDrivenCommon*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareDataDrivenCommon_UnityEngine_Material_UnityEngine_Camera_UnityEngine_Rect_UnityEngine_Experimental_Rendering_XRPass_System_Int32_System_Single_System_Single_System_Boolean_System_Single_System_Single_System_Boolean_UnityEngine_Vector3_UnityEngine_Matrix4x4_UnityEngine_Rendering_UnsafeCommandBuffer_System_Boolean_System_Boolean_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Rendering_RenderTargetIdentifier_System_Func_UnityEngine_Light_UnityEngine_Camera_UnityEngine_Vector3_System_Single__System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareDataDrivenCommon(UnityEngine.Material,UnityEngine.Camera,UnityEngine.Rect,UnityEngine.Experimental.Rendering.XRPass,System.Int32,System.Single,System.Single,System.Boolean,System.Single,System.Single,System.Boolean,UnityEngine.Vector3,UnityEngine.Matrix4x4,UnityEngine.Rendering.UnsafeCommandBuffer,System.Boolean,System.Boolean,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Rendering.RenderTargetIdentifier,System.Func{UnityEngine.Light,UnityEngine.Camera,UnityEngine.Vector3,System.Single},System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+  DoLensFlareDataDrivenCommon(Material, Camera, Rect, XRPass, int, float, float, bool, float, float, bool, Vector3, Matrix4x4, UnsafeCommandBuffer, bool, bool, Texture, Texture, RenderTargetIdentifier, Func&lt;Light, Camera, Vector3, float&gt;, int, int, int, int, int, int, int, int, int, int, int, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use DoLensFlareDataDrivenCommon without _FlareOcclusionRemapTex.._FlareData4 parameters.&quot;)]
+public static void DoLensFlareDataDrivenCommon(Material lensFlareShader, Camera cam, Rect viewport, XRPass xr, int xrIndex, float actualWidth, float actualHeight, bool usePanini, float paniniDistance, float paniniCropToFit, bool isCameraRelative, Vector3 cameraPositionWS, Matrix4x4 viewProjMatrix, UnsafeCommandBuffer cmd, bool taaEnabled, bool hasCloudLayer, Texture cloudOpacityTexture, Texture sunOcclusionTexture, RenderTargetIdentifier colorBuffer, Func&lt;Light, Camera, Vector3, float&gt; GetLensFlareLightAttenuation, int _FlareOcclusionRemapTex, int _FlareOcclusionTex, int _FlareOcclusionIndex, int _FlareCloudOpacity, int _FlareSunOcclusionTex, int _FlareTex, int _FlareColorValue, int _FlareData0, int _FlareData1, int _FlareData2, int _FlareData3, int _FlareData4, bool debugView)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>xr</code> <a class="xref" href="UnityEngine.Experimental.Rendering.XRPass.html">XRPass</a></dt>
+    <dd></dd>
+    <dt><code>xrIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>usePanini</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paniniDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>paniniCropToFit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>isCameraRelative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cameraPositionWS</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>viewProjMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.UnsafeCommandBuffer.html">UnsafeCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>taaEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasCloudLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cloudOpacityTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sunOcclusionTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>GetLensFlareLightAttenuation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<span class="xref">Light</span>, <span class="xref">Camera</span>, <span class="xref">Vector3</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>_FlareOcclusionRemapTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareOcclusionTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareOcclusionIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareCloudOpacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareSunOcclusionTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareColorValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_FlareData4</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>debugView</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareScreenSpaceCommon_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareScreenSpaceCommon*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareScreenSpaceCommon_UnityEngine_Material_UnityEngine_Camera_System_Single_System_Single_UnityEngine_Color_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_System_Boolean_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareScreenSpaceCommon(UnityEngine.Material,UnityEngine.Camera,System.Single,System.Single,UnityEngine.Color,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,System.Boolean)">
+  DoLensFlareScreenSpaceCommon(Material, Camera, float, float, Color, Texture, Texture, Texture, Texture, Texture, Vector4, Vector4, Vector4, Vector4, Vector4, CommandBuffer, RTHandle, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoLensFlareScreenSpaceCommon(Material lensFlareShader, Camera cam, float actualWidth, float actualHeight, Color tintColor, Texture originalBloomTexture, Texture bloomMipTexture, Texture spectralLut, Texture streakTextureTmp, Texture streakTextureTmp2, Vector4 parameters1, Vector4 parameters2, Vector4 parameters3, Vector4 parameters4, Vector4 parameters5, CommandBuffer cmd, RTHandle result, bool debugView)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>tintColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>originalBloomTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>bloomMipTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>spectralLut</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>streakTextureTmp</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>streakTextureTmp2</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>parameters1</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters2</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters3</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters4</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters5</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>debugView</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareScreenSpaceCommon_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareScreenSpaceCommon*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareScreenSpaceCommon_UnityEngine_Material_UnityEngine_Camera_System_Single_System_Single_UnityEngine_Color_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareScreenSpaceCommon(UnityEngine.Material,UnityEngine.Camera,System.Single,System.Single,UnityEngine.Color,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+  DoLensFlareScreenSpaceCommon(Material, Camera, float, float, Color, Texture, Texture, Texture, Texture, Texture, Vector4, Vector4, Vector4, Vector4, Vector4, CommandBuffer, RTHandle, int, int, int, int, int, int, int, int, int, int, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use DoLensFlareScreenSpaceCommon without _Shader IDs parameters.&quot;)]
+public static void DoLensFlareScreenSpaceCommon(Material lensFlareShader, Camera cam, float actualWidth, float actualHeight, Color tintColor, Texture originalBloomTexture, Texture bloomMipTexture, Texture spectralLut, Texture streakTextureTmp, Texture streakTextureTmp2, Vector4 parameters1, Vector4 parameters2, Vector4 parameters3, Vector4 parameters4, Vector4 parameters5, CommandBuffer cmd, RTHandle result, int _LensFlareScreenSpaceBloomMipTexture, int _LensFlareScreenSpaceResultTexture, int _LensFlareScreenSpaceSpectralLut, int _LensFlareScreenSpaceStreakTex, int _LensFlareScreenSpaceMipLevel, int _LensFlareScreenSpaceTintColor, int _LensFlareScreenSpaceParams1, int _LensFlareScreenSpaceParams2, int _LensFlareScreenSpaceParams3, int _LensFlareScreenSpaceParams4, int _LensFlareScreenSpaceParams5, bool debugView)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>tintColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>originalBloomTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>bloomMipTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>spectralLut</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>streakTextureTmp</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>streakTextureTmp2</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>parameters1</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters2</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters3</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters4</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters5</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceBloomMipTexture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceResultTexture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceSpectralLut</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceStreakTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceMipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceTintColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceParams1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceParams2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceParams3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceParams4</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>_LensFlareScreenSpaceParams5</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>debugView</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareScreenSpaceCommon_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareScreenSpaceCommon*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_DoLensFlareScreenSpaceCommon_UnityEngine_Material_UnityEngine_Camera_System_Single_System_Single_UnityEngine_Color_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Texture_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Vector4_UnityEngine_Rendering_UnsafeCommandBuffer_UnityEngine_Rendering_RTHandle_System_Boolean_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.DoLensFlareScreenSpaceCommon(UnityEngine.Material,UnityEngine.Camera,System.Single,System.Single,UnityEngine.Color,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Texture,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Vector4,UnityEngine.Rendering.UnsafeCommandBuffer,UnityEngine.Rendering.RTHandle,System.Boolean)">
+  DoLensFlareScreenSpaceCommon(Material, Camera, float, float, Color, Texture, Texture, Texture, Texture, Texture, Vector4, Vector4, Vector4, Vector4, Vector4, UnsafeCommandBuffer, RTHandle, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DoLensFlareScreenSpaceCommon(Material lensFlareShader, Camera cam, float actualWidth, float actualHeight, Color tintColor, Texture originalBloomTexture, Texture bloomMipTexture, Texture spectralLut, Texture streakTextureTmp, Texture streakTextureTmp2, Vector4 parameters1, Vector4 parameters2, Vector4 parameters3, Vector4 parameters4, Vector4 parameters5, UnsafeCommandBuffer cmd, RTHandle result, bool debugView)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+    <dt><code>actualWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>actualHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>tintColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>originalBloomTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>bloomMipTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>spectralLut</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>streakTextureTmp</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>streakTextureTmp2</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>parameters1</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters2</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters3</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters4</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>parameters5</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.UnsafeCommandBuffer.html">UnsafeCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>debugView</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_GetFlareData0_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.GetFlareData0*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_GetFlareData0_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_System_Single_System_Single_System_Single_UnityEngine_Vector2_System_Boolean_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.GetFlareData0(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,System.Single,System.Single,UnityEngine.Vector2,System.Boolean)">
+  GetFlareData0(Vector2, Vector2, Vector2, Vector2, float, float, float, Vector2, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector4 GetFlareData0(Vector2 screenPos, Vector2 translationScale, Vector2 rayOff0, Vector2 vLocalScreenRatio, float angleDeg, float position, float angularOffset, Vector2 positionOffset, bool autoRotate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>screenPos</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>translationScale</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>rayOff0</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>vLocalScreenRatio</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>angleDeg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>angularOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>positionOffset</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>autoRotate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_Initialize_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.Initialize*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_Initialize" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.Initialize">
+  Initialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Initialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_IsCloudLayerOpacityNeeded_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.IsCloudLayerOpacityNeeded*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_IsCloudLayerOpacityNeeded_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.IsCloudLayerOpacityNeeded(UnityEngine.Camera)">
+  IsCloudLayerOpacityNeeded(Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsCloudLayerOpacityNeeded(Camera cam)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_IsEmpty_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.IsEmpty*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_IsEmpty" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.IsEmpty">
+  IsEmpty()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEmpty()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_IsOcclusionRTCompatible_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.IsOcclusionRTCompatible*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_IsOcclusionRTCompatible" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.IsOcclusionRTCompatible">
+  IsOcclusionRTCompatible()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsOcclusionRTCompatible()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ProcessLensFlareSRPElementsSingle_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ProcessLensFlareSRPElementsSingle*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ProcessLensFlareSRPElementsSingle_UnityEngine_Rendering_LensFlareDataElementSRP_UnityEngine_Rendering_CommandBuffer_UnityEngine_Color_UnityEngine_Light_System_Single_System_Single_UnityEngine_Material_UnityEngine_Vector2_System_Boolean_UnityEngine_Vector2_UnityEngine_Vector4_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ProcessLensFlareSRPElementsSingle(UnityEngine.Rendering.LensFlareDataElementSRP,UnityEngine.Rendering.CommandBuffer,UnityEngine.Color,UnityEngine.Light,System.Single,System.Single,UnityEngine.Material,UnityEngine.Vector2,System.Boolean,UnityEngine.Vector2,UnityEngine.Vector4,System.Boolean,System.Int32)">
+  ProcessLensFlareSRPElementsSingle(LensFlareDataElementSRP, CommandBuffer, Color, Light, float, float, Material, Vector2, bool, Vector2, Vector4, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ProcessLensFlareSRPElementsSingle(LensFlareDataElementSRP element, CommandBuffer cmd, Color globalColorModulation, Light light, float compIntensity, float scale, Material lensFlareShader, Vector2 screenPos, bool compAllowOffScreen, Vector2 vScreenRatio, Vector4 flareData1, bool preview, int depth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="UnityEngine.Rendering.LensFlareDataElementSRP.html">LensFlareDataElementSRP</a></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>globalColorModulation</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>light</code> <span class="xref">Light</span></dt>
+    <dd></dd>
+    <dt><code>compIntensity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>lensFlareShader</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>screenPos</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>compAllowOffScreen</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>vScreenRatio</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>flareData1</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>preview</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_RemoveData_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.RemoveData*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_RemoveData_UnityEngine_Rendering_LensFlareComponentSRP_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.RemoveData(UnityEngine.Rendering.LensFlareComponentSRP)">
+  RemoveData(LensFlareComponentSRP)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveData(LensFlareComponentSRP data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="UnityEngine.Rendering.LensFlareComponentSRP.html">LensFlareComponentSRP</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationAreaDiscLight_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationAreaDiscLight*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationAreaDiscLight_UnityEngine_Vector3_UnityEngine_Vector3_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationAreaDiscLight(UnityEngine.Vector3,UnityEngine.Vector3)">
+  ShapeAttenuationAreaDiscLight(Vector3, Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ShapeAttenuationAreaDiscLight(Vector3 forward, Vector3 wo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forward</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>wo</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationAreaRectangleLight_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationAreaRectangleLight*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationAreaRectangleLight_UnityEngine_Vector3_UnityEngine_Vector3_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationAreaRectangleLight(UnityEngine.Vector3,UnityEngine.Vector3)">
+  ShapeAttenuationAreaRectangleLight(Vector3, Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ShapeAttenuationAreaRectangleLight(Vector3 forward, Vector3 wo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forward</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>wo</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationAreaTubeLight_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationAreaTubeLight*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationAreaTubeLight_UnityEngine_Vector3_UnityEngine_Vector3_System_Single_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationAreaTubeLight(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,UnityEngine.Camera)">
+  ShapeAttenuationAreaTubeLight(Vector3, Vector3, float, Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ShapeAttenuationAreaTubeLight(Vector3 lightPositionWS, Vector3 lightSide, float lightWidth, Camera cam)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lightPositionWS</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>lightSide</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>lightWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>cam</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationDirLight_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationDirLight*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationDirLight_UnityEngine_Vector3_UnityEngine_Vector3_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationDirLight(UnityEngine.Vector3,UnityEngine.Vector3)">
+  ShapeAttenuationDirLight(Vector3, Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ShapeAttenuationDirLight(Vector3 forward, Vector3 wo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forward</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>wo</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationPointLight_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationPointLight*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationPointLight" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationPointLight">
+  ShapeAttenuationPointLight()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ShapeAttenuationPointLight()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationSpotBoxLight_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationSpotBoxLight*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationSpotBoxLight_UnityEngine_Vector3_UnityEngine_Vector3_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationSpotBoxLight(UnityEngine.Vector3,UnityEngine.Vector3)">
+  ShapeAttenuationSpotBoxLight(Vector3, Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ShapeAttenuationSpotBoxLight(Vector3 forward, Vector3 wo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forward</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>wo</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationSpotConeLight_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationSpotConeLight*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationSpotConeLight_UnityEngine_Vector3_UnityEngine_Vector3_System_Single_System_Single_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationSpotConeLight(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,System.Single)">
+  ShapeAttenuationSpotConeLight(Vector3, Vector3, float, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ShapeAttenuationSpotConeLight(Vector3 forward, Vector3 wo, float spotAngle, float innerSpotPercent01)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forward</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>wo</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>spotAngle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>innerSpotPercent01</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationSpotPyramidLight_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationSpotPyramidLight*"></a>
+
+  <h3 id="UnityEngine_Rendering_LensFlareCommonSRP_ShapeAttenuationSpotPyramidLight_UnityEngine_Vector3_UnityEngine_Vector3_" data-uid="UnityEngine.Rendering.LensFlareCommonSRP.ShapeAttenuationSpotPyramidLight(UnityEngine.Vector3,UnityEngine.Vector3)">
+  ShapeAttenuationSpotPyramidLight(Vector3, Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ShapeAttenuationSpotPyramidLight(Vector3 forward, Vector3 wo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forward</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>wo</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

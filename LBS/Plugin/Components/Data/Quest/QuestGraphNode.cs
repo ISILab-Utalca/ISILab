@@ -2,8 +2,6 @@
 using Newtonsoft.Json;
 using System;
 using UnityEngine;
-using static UnityEngine.Analytics.IAnalytic;
-using static UnityEngine.UI.GridLayoutGroup;
 
 namespace ISILab.LBS.Components
 {
@@ -104,6 +102,7 @@ namespace ISILab.LBS.Components
 
         }
 
+
         #endregion
 
         public Action OnSelect;
@@ -162,57 +161,62 @@ namespace ISILab.LBS.Components
             if(obj is not GraphNode ode) return false;
             return ID == ode.ID && Graph == ode.Graph && Graph.OwnerLayer == ode.Graph.OwnerLayer;
         }
-        
-        public override int GetHashCode()
-        {
-            return ID.GetHashCode() + Graph.GetHashCode();
-        }
+
+        public override int GetHashCode() => ID.GetHashCode() + Graph.GetHashCode();
 
         protected abstract GraphNode CreateCloneInstance();
 
         public abstract bool IsValid();
 
-        public bool Equal(GraphNode other)
-        {
-            return nodePosition == other.nodePosition;
-        }
+        public bool Equal(GraphNode other) => nodePosition == other.nodePosition;
 
         public bool IsSelected() => Graph.SelectedGraphNode == this;
+
+        public override string ToString() => ID;
         #endregion
+    }
+
+    public class BranchNode : GraphNode
+    {
+        public BranchNode(string id, Vector2 position, QuestGraph graph) : base(id, position, graph) { }
+        protected override GraphNode CreateCloneInstance() => new BranchNode(ID, Position, graph);
+        public override bool IsValid() => ValidConnections;
+        public override string ToString() => $"Branch ({ID})";
+
+        public Rect Area 
+        {
+            get
+            {
+                var pos = graph.OwnerLayer.ToFixedPosition(NodePosition.position);
+                return new Rect(pos, NodePosition.size);
+            } 
+        }
     }
 
     // Represents an OR logic node in a quest graph
     [Serializable]
-    public class OrNode : GraphNode
+    public class OrNode : BranchNode
     {
         public OrNode(string id, Vector2 position, QuestGraph graph) : base(id, position, graph) { }
 
-        protected override GraphNode CreateCloneInstance()
-        {
-            return new OrNode(ID, Position, graph);
-        }
+        protected override GraphNode CreateCloneInstance() => new OrNode(ID, Position, graph);
 
-        public override bool IsValid()
-        {
-            return ValidConnections;
-        }
+        public override bool IsValid() => ValidConnections;
+
+        public override string ToString() => $"Or ({ID})";
     }
 
     // Represents an AND logic node in a quest graph
     [Serializable]
-    public class AndNode : GraphNode
+    public class AndNode : BranchNode
     {
         public AndNode(string id, Vector2 position, QuestGraph graph) : base(id, position, graph) { }
 
-        protected override GraphNode CreateCloneInstance()
-        {
-            return new AndNode(ID, Position, graph);
-        }
+        protected override GraphNode CreateCloneInstance() => new AndNode(ID, Position, graph);
 
-        public override bool IsValid()
-        {
-            return ValidConnections;
-        }
+        public override bool IsValid() => ValidConnections;
+
+        public override string ToString() => $"And ({ID})";
     }
 
     // Represents a quest node with specific action and state

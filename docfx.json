@@ -1,0 +1,51 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../../",
+          "files": [
+            "LBS.csproj",
+            "LBS.Editor.csproj",
+            "LBS.Editor.Runtime.csproj",
+            "DevTools.csproj",
+            "Commons.csproj"
+          ]
+        }
+      ],
+      "dest": "api_doc",
+      "shouldSkipMarkup": true
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml,xml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "lbs-api-docs",
+      "_appTitle": "lbs-api_docs",
+      "_enableSearch": true,
+      "pdf": false
+    }
+  }
+}

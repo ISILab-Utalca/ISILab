@@ -1,0 +1,327 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.PathOSProfileWindow
+  commentId: T:PathOS.PathOSProfileWindow
+  id: PathOSProfileWindow
+  parent: PathOS
+  children:
+  - PathOS.PathOSProfileWindow.#ctor
+  - PathOS.PathOSProfileWindow.OnWindowOpen
+  - PathOS.PathOSProfileWindow.ReadPrefsData
+  - PathOS.PathOSProfileWindow.editorPrefsID
+  - PathOS.PathOSProfileWindow.newlineSep
+  - PathOS.PathOSProfileWindow.profiles
+  langs:
+  - csharp
+  - vb
+  name: PathOSProfileWindow
+  nameWithType: PathOSProfileWindow
+  fullName: PathOS.PathOSProfileWindow
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class PathOSProfileWindow : EditorWindow'
+    content.vb: Public Class PathOSProfileWindow Inherits EditorWindow
+  inheritance:
+  - System.Object
+- uid: PathOS.PathOSProfileWindow.editorPrefsID
+  commentId: F:PathOS.PathOSProfileWindow.editorPrefsID
+  id: editorPrefsID
+  parent: PathOS.PathOSProfileWindow
+  langs:
+  - csharp
+  - vb
+  name: editorPrefsID
+  nameWithType: PathOSProfileWindow.editorPrefsID
+  fullName: PathOS.PathOSProfileWindow.editorPrefsID
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public const string editorPrefsID = "PathOSAgentProfiles"
+    return:
+      type: System.String
+    content.vb: Public Const editorPrefsID As String = "PathOSAgentProfiles"
+- uid: PathOS.PathOSProfileWindow.newlineSep
+  commentId: F:PathOS.PathOSProfileWindow.newlineSep
+  id: newlineSep
+  parent: PathOS.PathOSProfileWindow
+  langs:
+  - csharp
+  - vb
+  name: newlineSep
+  nameWithType: PathOSProfileWindow.newlineSep
+  fullName: PathOS.PathOSProfileWindow.newlineSep
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static char[] newlineSep
+    return:
+      type: System.Char[]
+    content.vb: Public Shared newlineSep As Char()
+- uid: PathOS.PathOSProfileWindow.profiles
+  commentId: F:PathOS.PathOSProfileWindow.profiles
+  id: profiles
+  parent: PathOS.PathOSProfileWindow
+  langs:
+  - csharp
+  - vb
+  name: profiles
+  nameWithType: PathOSProfileWindow.profiles
+  fullName: PathOS.PathOSProfileWindow.profiles
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static List<AgentProfile> profiles
+    return:
+      type: System.Collections.Generic.List{PathOS.AgentProfile}
+    content.vb: Public Shared profiles As List(Of AgentProfile)
+- uid: PathOS.PathOSProfileWindow.ReadPrefsData
+  commentId: M:PathOS.PathOSProfileWindow.ReadPrefsData
+  id: ReadPrefsData
+  parent: PathOS.PathOSProfileWindow
+  langs:
+  - csharp
+  - vb
+  name: ReadPrefsData()
+  nameWithType: PathOSProfileWindow.ReadPrefsData()
+  fullName: PathOS.PathOSProfileWindow.ReadPrefsData()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static void ReadPrefsData()
+    content.vb: Public Shared Sub ReadPrefsData()
+  overload: PathOS.PathOSProfileWindow.ReadPrefsData*
+- uid: PathOS.PathOSProfileWindow.OnWindowOpen
+  commentId: M:PathOS.PathOSProfileWindow.OnWindowOpen
+  id: OnWindowOpen
+  parent: PathOS.PathOSProfileWindow
+  langs:
+  - csharp
+  - vb
+  name: OnWindowOpen()
+  nameWithType: PathOSProfileWindow.OnWindowOpen()
+  fullName: PathOS.PathOSProfileWindow.OnWindowOpen()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void OnWindowOpen()
+    content.vb: Public Sub OnWindowOpen()
+  overload: PathOS.PathOSProfileWindow.OnWindowOpen*
+- uid: PathOS.PathOSProfileWindow.#ctor
+  commentId: M:PathOS.PathOSProfileWindow.#ctor
+  id: '#ctor'
+  parent: PathOS.PathOSProfileWindow
+  langs:
+  - csharp
+  - vb
+  name: PathOSProfileWindow()
+  nameWithType: PathOSProfileWindow.PathOSProfileWindow()
+  fullName: PathOS.PathOSProfileWindow.PathOSProfileWindow()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSProfileWindow()
+    content.vb: Public Sub New()
+  overload: PathOS.PathOSProfileWindow.#ctor*
+  nameWithType.vb: PathOSProfileWindow.New()
+  fullName.vb: PathOS.PathOSProfileWindow.New()
+  name.vb: New()
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Char[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char[]
+  nameWithType: char[]
+  fullName: char[]
+  nameWithType.vb: Char()
+  fullName.vb: Char()
+  name.vb: Char()
+  spec.csharp:
+  - uid: System.Char
+    name: char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Char
+    name: Char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.List{PathOS.AgentProfile}
+  commentId: T:System.Collections.Generic.List{PathOS.AgentProfile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<AgentProfile>
+  nameWithType: List<AgentProfile>
+  fullName: System.Collections.Generic.List<PathOS.AgentProfile>
+  nameWithType.vb: List(Of AgentProfile)
+  fullName.vb: System.Collections.Generic.List(Of PathOS.AgentProfile)
+  name.vb: List(Of AgentProfile)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PathOS.AgentProfile
+    name: AgentProfile
+    isExternal: true
+    href: PathOS.AgentProfile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.AgentProfile
+    name: AgentProfile
+    isExternal: true
+    href: PathOS.AgentProfile.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PathOS.PathOSProfileWindow.ReadPrefsData*
+  commentId: Overload:PathOS.PathOSProfileWindow.ReadPrefsData
+  isExternal: true
+  href: PathOS.PathOSProfileWindow.html#PathOS_PathOSProfileWindow_ReadPrefsData
+  name: ReadPrefsData
+  nameWithType: PathOSProfileWindow.ReadPrefsData
+  fullName: PathOS.PathOSProfileWindow.ReadPrefsData
+- uid: PathOS.PathOSProfileWindow.OnWindowOpen*
+  commentId: Overload:PathOS.PathOSProfileWindow.OnWindowOpen
+  isExternal: true
+  href: PathOS.PathOSProfileWindow.html#PathOS_PathOSProfileWindow_OnWindowOpen
+  name: OnWindowOpen
+  nameWithType: PathOSProfileWindow.OnWindowOpen
+  fullName: PathOS.PathOSProfileWindow.OnWindowOpen
+- uid: PathOS.PathOSProfileWindow.#ctor*
+  commentId: Overload:PathOS.PathOSProfileWindow.#ctor
+  isExternal: true
+  href: PathOS.PathOSProfileWindow.html#PathOS_PathOSProfileWindow__ctor
+  name: PathOSProfileWindow
+  nameWithType: PathOSProfileWindow.PathOSProfileWindow
+  fullName: PathOS.PathOSProfileWindow.PathOSProfileWindow
+  nameWithType.vb: PathOSProfileWindow.New
+  fullName.vb: PathOS.PathOSProfileWindow.New
+  name.vb: New
+shouldSkipMarkup: true

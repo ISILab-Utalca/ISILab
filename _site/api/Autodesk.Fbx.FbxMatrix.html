@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FbxMatrix | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FbxMatrix | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Autodesk.Fbx.FbxMatrix">
+
+
+
+  <h1 id="Autodesk_Fbx_FbxMatrix" data-uid="Autodesk.Fbx.FbxMatrix" class="text-break">
+Class FbxMatrix  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Autodesk.html">Autodesk</a>.<a class="xref" href="Autodesk.Fbx.html">Fbx</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Autodesk.Fbx.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FbxMatrix : FbxDouble4x4, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxDouble4x4.html">FbxDouble4x4</a></div>
+      <div><span class="xref">FbxMatrix</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Autodesk.Fbx.FbxDouble4x4.html#Autodesk_Fbx_FbxDouble4x4_swigCMemOwn">FbxDouble4x4.swigCMemOwn</a>
+    </div>
+    <div>
+      <a class="xref" href="Autodesk.Fbx.FbxDouble4x4.html#Autodesk_Fbx_FbxDouble4x4_Equals_Autodesk_Fbx_FbxDouble4x4_">FbxDouble4x4.Equals(FbxDouble4x4)</a>
+    </div>
+    <div>
+      <a class="xref" href="Autodesk.Fbx.FbxDouble4x4.html#Autodesk_Fbx_FbxDouble4x4_ToString">FbxDouble4x4.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Autodesk.Fbx.FbxDouble4x4.html#Autodesk_Fbx_FbxDouble4x4_Item_System_Int32_">FbxDouble4x4.this[int]</a>
+    </div>
+    <div>
+      <a class="xref" href="Autodesk.Fbx.FbxDouble4x4.html#Autodesk_Fbx_FbxDouble4x4_X">FbxDouble4x4.X</a>
+    </div>
+    <div>
+      <a class="xref" href="Autodesk.Fbx.FbxDouble4x4.html#Autodesk_Fbx_FbxDouble4x4_Y">FbxDouble4x4.Y</a>
+    </div>
+    <div>
+      <a class="xref" href="Autodesk.Fbx.FbxDouble4x4.html#Autodesk_Fbx_FbxDouble4x4_Z">FbxDouble4x4.Z</a>
+    </div>
+    <div>
+      <a class="xref" href="Autodesk.Fbx.FbxDouble4x4.html#Autodesk_Fbx_FbxDouble4x4_W">FbxDouble4x4.W</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Autodesk_Fbx_FbxMatrix__ctor_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix__ctor" data-uid="Autodesk.Fbx.FbxMatrix.#ctor">
+  FbxMatrix()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxMatrix()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix__ctor_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix__ctor_Autodesk_Fbx_FbxAMatrix_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor(Autodesk.Fbx.FbxAMatrix)">
+  FbxMatrix(FbxAMatrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxMatrix(FbxAMatrix pM)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pM</code> <a class="xref" href="Autodesk.Fbx.FbxAMatrix.html">FbxAMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix__ctor_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix__ctor_Autodesk_Fbx_FbxMatrix_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor(Autodesk.Fbx.FbxMatrix)">
+  FbxMatrix(FbxMatrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxMatrix(FbxMatrix pM)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pM</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix__ctor_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix__ctor_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxQuaternion_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor(Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxQuaternion,Autodesk.Fbx.FbxVector4)">
+  FbxMatrix(FbxVector4, FbxQuaternion, FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxMatrix(FbxVector4 pT, FbxQuaternion pQ, FbxVector4 pS)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pT</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pQ</code> <a class="xref" href="Autodesk.Fbx.FbxQuaternion.html">FbxQuaternion</a></dt>
+    <dd></dd>
+    <dt><code>pS</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix__ctor_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix__ctor_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor(Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4)">
+  FbxMatrix(FbxVector4, FbxVector4, FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxMatrix(FbxVector4 pT, FbxVector4 pR, FbxVector4 pS)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pT</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pR</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pS</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix__ctor_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix__ctor_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="Autodesk.Fbx.FbxMatrix.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  FbxMatrix(double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxMatrix(double p00, double p10, double p20, double p30, double p01, double p11, double p21, double p31, double p02, double p12, double p22, double p32, double p03, double p13, double p23, double p33)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>p00</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p10</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p20</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p30</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p01</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p11</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p21</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p31</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p02</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p12</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p22</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p32</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p03</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p13</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p23</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>p33</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_Dispose_" data-uid="Autodesk.Fbx.FbxMatrix.Dispose*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_Dispose" data-uid="Autodesk.Fbx.FbxMatrix.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_Equals_" data-uid="Autodesk.Fbx.FbxMatrix.Equals*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_Equals_Autodesk_Fbx_FbxMatrix_" data-uid="Autodesk.Fbx.FbxMatrix.Equals(Autodesk.Fbx.FbxMatrix)">
+  Equals(FbxMatrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(FbxMatrix other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_Equals_" data-uid="Autodesk.Fbx.FbxMatrix.Equals*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_Equals_System_Object_" data-uid="Autodesk.Fbx.FbxMatrix.Equals(System.Object)">
+  Equals(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_Finalize_" data-uid="Autodesk.Fbx.FbxMatrix.Finalize*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_Finalize" data-uid="Autodesk.Fbx.FbxMatrix.Finalize">
+  ~FbxMatrix()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ~FbxMatrix()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_Get_" data-uid="Autodesk.Fbx.FbxMatrix.Get*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_Get_System_Int32_System_Int32_" data-uid="Autodesk.Fbx.FbxMatrix.Get(System.Int32,System.Int32)">
+  Get(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Get(int pY, int pX)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>pX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_GetColumn_" data-uid="Autodesk.Fbx.FbxMatrix.GetColumn*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_GetColumn_System_Int32_" data-uid="Autodesk.Fbx.FbxMatrix.GetColumn(System.Int32)">
+  GetColumn(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxVector4 GetColumn(int pX)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_GetElements_" data-uid="Autodesk.Fbx.FbxMatrix.GetElements*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_GetElements_Autodesk_Fbx_FbxVector4__Autodesk_Fbx_FbxQuaternion_Autodesk_Fbx_FbxVector4__Autodesk_Fbx_FbxVector4__System_Double__" data-uid="Autodesk.Fbx.FbxMatrix.GetElements(Autodesk.Fbx.FbxVector4@,Autodesk.Fbx.FbxQuaternion,Autodesk.Fbx.FbxVector4@,Autodesk.Fbx.FbxVector4@,System.Double@)">
+  GetElements(out FbxVector4, FbxQuaternion, out FbxVector4, out FbxVector4, out double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetElements(out FbxVector4 pTranslation, FbxQuaternion pRotation, out FbxVector4 pShearing, out FbxVector4 pScaling, out double pSign)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pTranslation</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pRotation</code> <a class="xref" href="Autodesk.Fbx.FbxQuaternion.html">FbxQuaternion</a></dt>
+    <dd></dd>
+    <dt><code>pShearing</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pScaling</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pSign</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_GetElements_" data-uid="Autodesk.Fbx.FbxMatrix.GetElements*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_GetElements_Autodesk_Fbx_FbxVector4__Autodesk_Fbx_FbxVector4__Autodesk_Fbx_FbxVector4__Autodesk_Fbx_FbxVector4__System_Double__" data-uid="Autodesk.Fbx.FbxMatrix.GetElements(Autodesk.Fbx.FbxVector4@,Autodesk.Fbx.FbxVector4@,Autodesk.Fbx.FbxVector4@,Autodesk.Fbx.FbxVector4@,System.Double@)">
+  GetElements(out FbxVector4, out FbxVector4, out FbxVector4, out FbxVector4, out double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetElements(out FbxVector4 pTranslation, out FbxVector4 pRotation, out FbxVector4 pShearing, out FbxVector4 pScaling, out double pSign)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pTranslation</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pRotation</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pShearing</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pScaling</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pSign</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_GetHashCode_" data-uid="Autodesk.Fbx.FbxMatrix.GetHashCode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_GetHashCode" data-uid="Autodesk.Fbx.FbxMatrix.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_GetRow_" data-uid="Autodesk.Fbx.FbxMatrix.GetRow*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_GetRow_System_Int32_" data-uid="Autodesk.Fbx.FbxMatrix.GetRow(System.Int32)">
+  GetRow(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxVector4 GetRow(int pY)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_Inverse_" data-uid="Autodesk.Fbx.FbxMatrix.Inverse*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_Inverse" data-uid="Autodesk.Fbx.FbxMatrix.Inverse">
+  Inverse()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxMatrix Inverse()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_MultNormalize_" data-uid="Autodesk.Fbx.FbxMatrix.MultNormalize*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_MultNormalize_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.MultNormalize(Autodesk.Fbx.FbxVector4)">
+  MultNormalize(FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxVector4 MultNormalize(FbxVector4 pVector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pVector</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_Set_" data-uid="Autodesk.Fbx.FbxMatrix.Set*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_Set_System_Int32_System_Int32_System_Double_" data-uid="Autodesk.Fbx.FbxMatrix.Set(System.Int32,System.Int32,System.Double)">
+  Set(int, int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(int pY, int pX, double pValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>pX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>pValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_SetColumn_" data-uid="Autodesk.Fbx.FbxMatrix.SetColumn*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_SetColumn_System_Int32_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.SetColumn(System.Int32,Autodesk.Fbx.FbxVector4)">
+  SetColumn(int, FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetColumn(int pX, FbxVector4 pColumn)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>pColumn</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_SetIdentity_" data-uid="Autodesk.Fbx.FbxMatrix.SetIdentity*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_SetIdentity" data-uid="Autodesk.Fbx.FbxMatrix.SetIdentity">
+  SetIdentity()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetIdentity()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_SetLookAtLH_" data-uid="Autodesk.Fbx.FbxMatrix.SetLookAtLH*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_SetLookAtLH_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.SetLookAtLH(Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4)">
+  SetLookAtLH(FbxVector4, FbxVector4, FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLookAtLH(FbxVector4 pEyePosition, FbxVector4 pLookAt, FbxVector4 pUpDirection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pEyePosition</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pLookAt</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pUpDirection</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_SetLookAtRH_" data-uid="Autodesk.Fbx.FbxMatrix.SetLookAtRH*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_SetLookAtRH_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.SetLookAtRH(Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4)">
+  SetLookAtRH(FbxVector4, FbxVector4, FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLookAtRH(FbxVector4 pEyePosition, FbxVector4 pLookAt, FbxVector4 pUpDirection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pEyePosition</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pLookAt</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pUpDirection</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_SetLookToLH_" data-uid="Autodesk.Fbx.FbxMatrix.SetLookToLH*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_SetLookToLH_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.SetLookToLH(Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4)">
+  SetLookToLH(FbxVector4, FbxVector4, FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLookToLH(FbxVector4 pEyePosition, FbxVector4 pEyeDirection, FbxVector4 pUpDirection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pEyePosition</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pEyeDirection</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pUpDirection</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_SetLookToRH_" data-uid="Autodesk.Fbx.FbxMatrix.SetLookToRH*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_SetLookToRH_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.SetLookToRH(Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4)">
+  SetLookToRH(FbxVector4, FbxVector4, FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLookToRH(FbxVector4 pEyePosition, FbxVector4 pEyeDirection, FbxVector4 pUpDirection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pEyePosition</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pEyeDirection</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pUpDirection</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_SetRow_" data-uid="Autodesk.Fbx.FbxMatrix.SetRow*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_SetRow_System_Int32_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.SetRow(System.Int32,Autodesk.Fbx.FbxVector4)">
+  SetRow(int, FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRow(int pY, FbxVector4 pRow)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>pRow</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_SetTQS_" data-uid="Autodesk.Fbx.FbxMatrix.SetTQS*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_SetTQS_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxQuaternion_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.SetTQS(Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxQuaternion,Autodesk.Fbx.FbxVector4)">
+  SetTQS(FbxVector4, FbxQuaternion, FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTQS(FbxVector4 pT, FbxQuaternion pQ, FbxVector4 pS)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pT</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pQ</code> <a class="xref" href="Autodesk.Fbx.FbxQuaternion.html">FbxQuaternion</a></dt>
+    <dd></dd>
+    <dt><code>pS</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_SetTRS_" data-uid="Autodesk.Fbx.FbxMatrix.SetTRS*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_SetTRS_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_Autodesk_Fbx_FbxVector4_" data-uid="Autodesk.Fbx.FbxMatrix.SetTRS(Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4,Autodesk.Fbx.FbxVector4)">
+  SetTRS(FbxVector4, FbxVector4, FbxVector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTRS(FbxVector4 pT, FbxVector4 pR, FbxVector4 pS)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pT</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pR</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+    <dt><code>pS</code> <a class="xref" href="Autodesk.Fbx.FbxVector4.html">FbxVector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_Transpose_" data-uid="Autodesk.Fbx.FbxMatrix.Transpose*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_Transpose" data-uid="Autodesk.Fbx.FbxMatrix.Transpose">
+  Transpose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxMatrix Transpose()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_op_Addition_" data-uid="Autodesk.Fbx.FbxMatrix.op_Addition*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_op_Addition_Autodesk_Fbx_FbxMatrix_Autodesk_Fbx_FbxMatrix_" data-uid="Autodesk.Fbx.FbxMatrix.op_Addition(Autodesk.Fbx.FbxMatrix,Autodesk.Fbx.FbxMatrix)">
+  operator +(FbxMatrix, FbxMatrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxMatrix operator +(FbxMatrix a, FbxMatrix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_op_Equality_" data-uid="Autodesk.Fbx.FbxMatrix.op_Equality*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_op_Equality_Autodesk_Fbx_FbxMatrix_Autodesk_Fbx_FbxMatrix_" data-uid="Autodesk.Fbx.FbxMatrix.op_Equality(Autodesk.Fbx.FbxMatrix,Autodesk.Fbx.FbxMatrix)">
+  operator ==(FbxMatrix, FbxMatrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(FbxMatrix a, FbxMatrix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_op_Inequality_" data-uid="Autodesk.Fbx.FbxMatrix.op_Inequality*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_op_Inequality_Autodesk_Fbx_FbxMatrix_Autodesk_Fbx_FbxMatrix_" data-uid="Autodesk.Fbx.FbxMatrix.op_Inequality(Autodesk.Fbx.FbxMatrix,Autodesk.Fbx.FbxMatrix)">
+  operator !=(FbxMatrix, FbxMatrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(FbxMatrix a, FbxMatrix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_op_Multiply_" data-uid="Autodesk.Fbx.FbxMatrix.op_Multiply*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_op_Multiply_Autodesk_Fbx_FbxMatrix_Autodesk_Fbx_FbxMatrix_" data-uid="Autodesk.Fbx.FbxMatrix.op_Multiply(Autodesk.Fbx.FbxMatrix,Autodesk.Fbx.FbxMatrix)">
+  operator *(FbxMatrix, FbxMatrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxMatrix operator *(FbxMatrix a, FbxMatrix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_op_Subtraction_" data-uid="Autodesk.Fbx.FbxMatrix.op_Subtraction*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_op_Subtraction_Autodesk_Fbx_FbxMatrix_Autodesk_Fbx_FbxMatrix_" data-uid="Autodesk.Fbx.FbxMatrix.op_Subtraction(Autodesk.Fbx.FbxMatrix,Autodesk.Fbx.FbxMatrix)">
+  operator -(FbxMatrix, FbxMatrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxMatrix operator -(FbxMatrix a, FbxMatrix b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxMatrix_op_UnaryNegation_" data-uid="Autodesk.Fbx.FbxMatrix.op_UnaryNegation*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxMatrix_op_UnaryNegation_Autodesk_Fbx_FbxMatrix_" data-uid="Autodesk.Fbx.FbxMatrix.op_UnaryNegation(Autodesk.Fbx.FbxMatrix)">
+  operator -(FbxMatrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxMatrix operator -(FbxMatrix a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxMatrix.html">FbxMatrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct FixedList4096Bytes&lt;T&gt; | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct FixedList4096Bytes&lt;T&gt; | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Unity.Collections.FixedList4096Bytes`1">
+
+
+
+  <h1 id="Unity_Collections_FixedList4096Bytes_1" data-uid="Unity.Collections.FixedList4096Bytes`1" class="text-break">
+Struct FixedList4096Bytes&lt;T&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Unity.html">Unity</a>.<a class="xref" href="Unity.Collections.html">Collections</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Collections.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public struct FixedList4096Bytes&lt;T&gt; : INativeList&lt;T&gt;, IIndexable&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable, IEquatable&lt;FixedList32Bytes&lt;T&gt;&gt;, IComparable&lt;FixedList32Bytes&lt;T&gt;&gt;, IEquatable&lt;FixedList64Bytes&lt;T&gt;&gt;, IComparable&lt;FixedList64Bytes&lt;T&gt;&gt;, IEquatable&lt;FixedList128Bytes&lt;T&gt;&gt;, IComparable&lt;FixedList128Bytes&lt;T&gt;&gt;, IEquatable&lt;FixedList512Bytes&lt;T&gt;&gt;, IComparable&lt;FixedList512Bytes&lt;T&gt;&gt;, IEquatable&lt;FixedList4096Bytes&lt;T&gt;&gt;, IComparable&lt;FixedList4096Bytes&lt;T&gt;&gt; where T : unmanaged</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Unity.Collections.INativeList-1.html">INativeList</a>&lt;T&gt;</div>
+      <div><a class="xref" href="Unity.Collections.IIndexable-1.html">IIndexable</a>&lt;T&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Unity.Collections.FixedList32Bytes-1.html">FixedList32Bytes</a>&lt;T&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="Unity.Collections.FixedList32Bytes-1.html">FixedList32Bytes</a>&lt;T&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Unity.Collections.FixedList64Bytes-1.html">FixedList64Bytes</a>&lt;T&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="Unity.Collections.FixedList64Bytes-1.html">FixedList64Bytes</a>&lt;T&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Unity.Collections.FixedList128Bytes-1.html">FixedList128Bytes</a>&lt;T&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="Unity.Collections.FixedList128Bytes-1.html">FixedList128Bytes</a>&lt;T&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Unity.Collections.FixedList512Bytes-1.html">FixedList512Bytes</a>&lt;T&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="Unity.Collections.FixedList512Bytes-1.html">FixedList512Bytes</a>&lt;T&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Unity.Collections.FixedList4096BytesExtensions.html#Unity_Collections_FixedList4096BytesExtensions_Contains__2_Unity_Collections_FixedList4096Bytes___0_____1_">FixedList4096BytesExtensions.Contains&lt;T, U&gt;(ref FixedList4096Bytes&lt;T&gt;, U)</a>
+  </div>
+  <div>
+      <a class="xref" href="Unity.Collections.FixedList4096BytesExtensions.html#Unity_Collections_FixedList4096BytesExtensions_IndexOf__2_Unity_Collections_FixedList4096Bytes___0_____1_">FixedList4096BytesExtensions.IndexOf&lt;T, U&gt;(ref FixedList4096Bytes&lt;T&gt;, U)</a>
+  </div>
+  <div>
+      <a class="xref" href="Unity.Collections.FixedList4096BytesExtensions.html#Unity_Collections_FixedList4096BytesExtensions_RemoveSwapBack__2_Unity_Collections_FixedList4096Bytes___0_____1_">FixedList4096BytesExtensions.RemoveSwapBack&lt;T, U&gt;(ref FixedList4096Bytes&lt;T&gt;, U)</a>
+  </div>
+  <div>
+      <a class="xref" href="Unity.Collections.FixedList4096BytesExtensions.html#Unity_Collections_FixedList4096BytesExtensions_Remove__2_Unity_Collections_FixedList4096Bytes___0_____1_">FixedList4096BytesExtensions.Remove&lt;T, U&gt;(ref FixedList4096Bytes&lt;T&gt;, U)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1__ctor_" data-uid="Unity.Collections.FixedList4096Bytes`1.#ctor*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1__ctor_Unity_Collections_FixedList128Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.#ctor(Unity.Collections.FixedList128Bytes{`0}@)">
+  FixedList4096Bytes(in FixedList128Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FixedList4096Bytes(in FixedList128Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList128Bytes-1.html">FixedList128Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1__ctor_" data-uid="Unity.Collections.FixedList4096Bytes`1.#ctor*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1__ctor_Unity_Collections_FixedList32Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.#ctor(Unity.Collections.FixedList32Bytes{`0}@)">
+  FixedList4096Bytes(in FixedList32Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FixedList4096Bytes(in FixedList32Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList32Bytes-1.html">FixedList32Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1__ctor_" data-uid="Unity.Collections.FixedList4096Bytes`1.#ctor*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1__ctor_Unity_Collections_FixedList512Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.#ctor(Unity.Collections.FixedList512Bytes{`0}@)">
+  FixedList4096Bytes(in FixedList512Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FixedList4096Bytes(in FixedList512Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList512Bytes-1.html">FixedList512Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1__ctor_" data-uid="Unity.Collections.FixedList4096Bytes`1.#ctor*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1__ctor_Unity_Collections_FixedList64Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.#ctor(Unity.Collections.FixedList64Bytes{`0}@)">
+  FixedList4096Bytes(in FixedList64Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FixedList4096Bytes(in FixedList64Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList64Bytes-1.html">FixedList64Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Capacity_" data-uid="Unity.Collections.FixedList4096Bytes`1.Capacity*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Capacity" data-uid="Unity.Collections.FixedList4096Bytes`1.Capacity">
+  Capacity
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Capacity { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_IsEmpty_" data-uid="Unity.Collections.FixedList4096Bytes`1.IsEmpty*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_IsEmpty" data-uid="Unity.Collections.FixedList4096Bytes`1.IsEmpty">
+  IsEmpty
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsEmpty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Item_" data-uid="Unity.Collections.FixedList4096Bytes`1.Item*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Item_System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.Item(System.Int32)">
+  this[int]
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[int index] { readonly get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Length_" data-uid="Unity.Collections.FixedList4096Bytes`1.Length*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Length" data-uid="Unity.Collections.FixedList4096Bytes`1.Length">
+  Length
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Length { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Add_" data-uid="Unity.Collections.FixedList4096Bytes`1.Add*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Add__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.Add(`0@)">
+  Add(in T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(in T item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_AddNoResize_" data-uid="Unity.Collections.FixedList4096Bytes`1.AddNoResize*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_AddNoResize__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.AddNoResize(`0@)">
+  AddNoResize(in T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddNoResize(in T item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_AddRange_" data-uid="Unity.Collections.FixedList4096Bytes`1.AddRange*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_AddRange_System_Void__System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.AddRange(System.Void*,System.Int32)">
+  AddRange(void*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddRange(void* ptr, int length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_AddRangeNoResize_" data-uid="Unity.Collections.FixedList4096Bytes`1.AddRangeNoResize*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_AddRangeNoResize_System_Void__System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.AddRangeNoResize(System.Void*,System.Int32)">
+  AddRangeNoResize(void*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddRangeNoResize(void* ptr, int length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_AddReplicate_" data-uid="Unity.Collections.FixedList4096Bytes`1.AddReplicate*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_AddReplicate__0__System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.AddReplicate(`0@,System.Int32)">
+  AddReplicate(in T, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddReplicate(in T value, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Clear_" data-uid="Unity.Collections.FixedList4096Bytes`1.Clear*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Clear" data-uid="Unity.Collections.FixedList4096Bytes`1.Clear">
+  Clear()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_CompareTo_" data-uid="Unity.Collections.FixedList4096Bytes`1.CompareTo*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_CompareTo_Unity_Collections_FixedList128Bytes__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.CompareTo(Unity.Collections.FixedList128Bytes{`0})">
+  CompareTo(FixedList128Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(FixedList128Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList128Bytes-1.html">FixedList128Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_CompareTo_" data-uid="Unity.Collections.FixedList4096Bytes`1.CompareTo*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_CompareTo_Unity_Collections_FixedList32Bytes__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.CompareTo(Unity.Collections.FixedList32Bytes{`0})">
+  CompareTo(FixedList32Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(FixedList32Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList32Bytes-1.html">FixedList32Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_CompareTo_" data-uid="Unity.Collections.FixedList4096Bytes`1.CompareTo*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_CompareTo_Unity_Collections_FixedList4096Bytes__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.CompareTo(Unity.Collections.FixedList4096Bytes{`0})">
+  CompareTo(FixedList4096Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(FixedList4096Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_CompareTo_" data-uid="Unity.Collections.FixedList4096Bytes`1.CompareTo*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_CompareTo_Unity_Collections_FixedList512Bytes__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.CompareTo(Unity.Collections.FixedList512Bytes{`0})">
+  CompareTo(FixedList512Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(FixedList512Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList512Bytes-1.html">FixedList512Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_CompareTo_" data-uid="Unity.Collections.FixedList4096Bytes`1.CompareTo*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_CompareTo_Unity_Collections_FixedList64Bytes__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.CompareTo(Unity.Collections.FixedList64Bytes{`0})">
+  CompareTo(FixedList64Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(FixedList64Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList64Bytes-1.html">FixedList64Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_ElementAt_" data-uid="Unity.Collections.FixedList4096Bytes`1.ElementAt*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_ElementAt_System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.ElementAt(System.Int32)">
+  ElementAt(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ref T ElementAt(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Equals_" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Equals_System_Object_" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals(System.Object)">
+  Equals(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ExcludeFromBurstCompatTesting(&quot;Takes managed object&quot;)]
+public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Equals_" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Equals_Unity_Collections_FixedList128Bytes__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals(Unity.Collections.FixedList128Bytes{`0})">
+  Equals(FixedList128Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(FixedList128Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList128Bytes-1.html">FixedList128Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Equals_" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Equals_Unity_Collections_FixedList32Bytes__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals(Unity.Collections.FixedList32Bytes{`0})">
+  Equals(FixedList32Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(FixedList32Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList32Bytes-1.html">FixedList32Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Equals_" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Equals_Unity_Collections_FixedList4096Bytes__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals(Unity.Collections.FixedList4096Bytes{`0})">
+  Equals(FixedList4096Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(FixedList4096Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Equals_" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Equals_Unity_Collections_FixedList512Bytes__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals(Unity.Collections.FixedList512Bytes{`0})">
+  Equals(FixedList512Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(FixedList512Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList512Bytes-1.html">FixedList512Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Equals_" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Equals_Unity_Collections_FixedList64Bytes__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.Equals(Unity.Collections.FixedList64Bytes{`0})">
+  Equals(FixedList64Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(FixedList64Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList64Bytes-1.html">FixedList64Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_GetEnumerator_" data-uid="Unity.Collections.FixedList4096Bytes`1.GetEnumerator*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_GetEnumerator" data-uid="Unity.Collections.FixedList4096Bytes`1.GetEnumerator">
+  GetEnumerator()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FixedList4096Bytes&lt;T&gt;.Enumerator GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;.<a class="xref" href="Unity.Collections.FixedList4096Bytes-1.Enumerator.html">Enumerator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_GetHashCode_" data-uid="Unity.Collections.FixedList4096Bytes`1.GetHashCode*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_GetHashCode" data-uid="Unity.Collections.FixedList4096Bytes`1.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_Insert_" data-uid="Unity.Collections.FixedList4096Bytes`1.Insert*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_Insert_System_Int32__0__" data-uid="Unity.Collections.FixedList4096Bytes`1.Insert(System.Int32,`0@)">
+  Insert(int, in T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(int index, in T item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>item</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_InsertRange_" data-uid="Unity.Collections.FixedList4096Bytes`1.InsertRange*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_InsertRange_System_Int32_System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.InsertRange(System.Int32,System.Int32)">
+  InsertRange(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertRange(int index, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_InsertRangeWithBeginEnd_" data-uid="Unity.Collections.FixedList4096Bytes`1.InsertRangeWithBeginEnd*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_InsertRangeWithBeginEnd_System_Int32_System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.InsertRangeWithBeginEnd(System.Int32,System.Int32)">
+  InsertRangeWithBeginEnd(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertRangeWithBeginEnd(int begin, int end)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>begin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>end</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_RemoveAt_" data-uid="Unity.Collections.FixedList4096Bytes`1.RemoveAt*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_RemoveAt_System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.RemoveAt(System.Int32)">
+  RemoveAt(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_RemoveAtSwapBack_" data-uid="Unity.Collections.FixedList4096Bytes`1.RemoveAtSwapBack*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_RemoveAtSwapBack_System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.RemoveAtSwapBack(System.Int32)">
+  RemoveAtSwapBack(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAtSwapBack(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_RemoveRange_" data-uid="Unity.Collections.FixedList4096Bytes`1.RemoveRange*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_RemoveRange_System_Int32_System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.RemoveRange(System.Int32,System.Int32)">
+  RemoveRange(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveRange(int index, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_RemoveRangeSwapBack_" data-uid="Unity.Collections.FixedList4096Bytes`1.RemoveRangeSwapBack*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_RemoveRangeSwapBack_System_Int32_System_Int32_" data-uid="Unity.Collections.FixedList4096Bytes`1.RemoveRangeSwapBack(System.Int32,System.Int32)">
+  RemoveRangeSwapBack(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveRangeSwapBack(int index, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_ToArray_" data-uid="Unity.Collections.FixedList4096Bytes`1.ToArray*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_ToArray" data-uid="Unity.Collections.FixedList4096Bytes`1.ToArray">
+  ToArray()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ExcludeFromBurstCompatTesting(&quot;Returns managed array&quot;)]
+public T[] ToArray()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_ToNativeArray_" data-uid="Unity.Collections.FixedList4096Bytes`1.ToNativeArray*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_ToNativeArray_Unity_Collections_AllocatorManager_AllocatorHandle_" data-uid="Unity.Collections.FixedList4096Bytes`1.ToNativeArray(Unity.Collections.AllocatorManager.AllocatorHandle)">
+  ToNativeArray(AllocatorHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NativeArray&lt;T&gt; ToNativeArray(AllocatorManager.AllocatorHandle allocator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>allocator</code> <a class="xref" href="Unity.Collections.AllocatorManager.html">AllocatorManager</a>.<a class="xref" href="Unity.Collections.AllocatorManager.AllocatorHandle.html">AllocatorHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Equality_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Equality*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Equality_Unity_Collections_FixedList4096Bytes__0___Unity_Collections_FixedList128Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Equality(Unity.Collections.FixedList4096Bytes{`0}@,Unity.Collections.FixedList128Bytes{`0}@)">
+  operator ==(in FixedList4096Bytes&lt;T&gt;, in FixedList128Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(in FixedList4096Bytes&lt;T&gt; a, in FixedList128Bytes&lt;T&gt; b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Collections.FixedList128Bytes-1.html">FixedList128Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Equality_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Equality*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Equality_Unity_Collections_FixedList4096Bytes__0___Unity_Collections_FixedList32Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Equality(Unity.Collections.FixedList4096Bytes{`0}@,Unity.Collections.FixedList32Bytes{`0}@)">
+  operator ==(in FixedList4096Bytes&lt;T&gt;, in FixedList32Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(in FixedList4096Bytes&lt;T&gt; a, in FixedList32Bytes&lt;T&gt; b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Collections.FixedList32Bytes-1.html">FixedList32Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Equality_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Equality*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Equality_Unity_Collections_FixedList4096Bytes__0___Unity_Collections_FixedList4096Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Equality(Unity.Collections.FixedList4096Bytes{`0}@,Unity.Collections.FixedList4096Bytes{`0}@)">
+  operator ==(in FixedList4096Bytes&lt;T&gt;, in FixedList4096Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(in FixedList4096Bytes&lt;T&gt; a, in FixedList4096Bytes&lt;T&gt; b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Equality_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Equality*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Equality_Unity_Collections_FixedList4096Bytes__0___Unity_Collections_FixedList512Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Equality(Unity.Collections.FixedList4096Bytes{`0}@,Unity.Collections.FixedList512Bytes{`0}@)">
+  operator ==(in FixedList4096Bytes&lt;T&gt;, in FixedList512Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(in FixedList4096Bytes&lt;T&gt; a, in FixedList512Bytes&lt;T&gt; b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Collections.FixedList512Bytes-1.html">FixedList512Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Equality_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Equality*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Equality_Unity_Collections_FixedList4096Bytes__0___Unity_Collections_FixedList64Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Equality(Unity.Collections.FixedList4096Bytes{`0}@,Unity.Collections.FixedList64Bytes{`0}@)">
+  operator ==(in FixedList4096Bytes&lt;T&gt;, in FixedList64Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(in FixedList4096Bytes&lt;T&gt; a, in FixedList64Bytes&lt;T&gt; b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Collections.FixedList64Bytes-1.html">FixedList64Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Implicit_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Implicit*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Implicit_Unity_Collections_FixedList128Bytes__0____Unity_Collections_FixedList4096Bytes__0_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Implicit(Unity.Collections.FixedList128Bytes{`0}@)~Unity.Collections.FixedList4096Bytes{`0}">
+  implicit operator FixedList4096Bytes&lt;T&gt;(in FixedList128Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator FixedList4096Bytes&lt;T&gt;(in FixedList128Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList128Bytes-1.html">FixedList128Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Implicit_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Implicit*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Implicit_Unity_Collections_FixedList32Bytes__0____Unity_Collections_FixedList4096Bytes__0_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Implicit(Unity.Collections.FixedList32Bytes{`0}@)~Unity.Collections.FixedList4096Bytes{`0}">
+  implicit operator FixedList4096Bytes&lt;T&gt;(in FixedList32Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator FixedList4096Bytes&lt;T&gt;(in FixedList32Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList32Bytes-1.html">FixedList32Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Implicit_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Implicit*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Implicit_Unity_Collections_FixedList512Bytes__0____Unity_Collections_FixedList4096Bytes__0_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Implicit(Unity.Collections.FixedList512Bytes{`0}@)~Unity.Collections.FixedList4096Bytes{`0}">
+  implicit operator FixedList4096Bytes&lt;T&gt;(in FixedList512Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator FixedList4096Bytes&lt;T&gt;(in FixedList512Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList512Bytes-1.html">FixedList512Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Implicit_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Implicit*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Implicit_Unity_Collections_FixedList64Bytes__0____Unity_Collections_FixedList4096Bytes__0_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Implicit(Unity.Collections.FixedList64Bytes{`0}@)~Unity.Collections.FixedList4096Bytes{`0}">
+  implicit operator FixedList4096Bytes&lt;T&gt;(in FixedList64Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator FixedList4096Bytes&lt;T&gt;(in FixedList64Bytes&lt;T&gt; other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.FixedList64Bytes-1.html">FixedList64Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Inequality_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Inequality*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Inequality_Unity_Collections_FixedList4096Bytes__0___Unity_Collections_FixedList128Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Inequality(Unity.Collections.FixedList4096Bytes{`0}@,Unity.Collections.FixedList128Bytes{`0}@)">
+  operator !=(in FixedList4096Bytes&lt;T&gt;, in FixedList128Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(in FixedList4096Bytes&lt;T&gt; a, in FixedList128Bytes&lt;T&gt; b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Collections.FixedList128Bytes-1.html">FixedList128Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Inequality_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Inequality*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Inequality_Unity_Collections_FixedList4096Bytes__0___Unity_Collections_FixedList32Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Inequality(Unity.Collections.FixedList4096Bytes{`0}@,Unity.Collections.FixedList32Bytes{`0}@)">
+  operator !=(in FixedList4096Bytes&lt;T&gt;, in FixedList32Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(in FixedList4096Bytes&lt;T&gt; a, in FixedList32Bytes&lt;T&gt; b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Collections.FixedList32Bytes-1.html">FixedList32Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Inequality_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Inequality*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Inequality_Unity_Collections_FixedList4096Bytes__0___Unity_Collections_FixedList4096Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Inequality(Unity.Collections.FixedList4096Bytes{`0}@,Unity.Collections.FixedList4096Bytes{`0}@)">
+  operator !=(in FixedList4096Bytes&lt;T&gt;, in FixedList4096Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(in FixedList4096Bytes&lt;T&gt; a, in FixedList4096Bytes&lt;T&gt; b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Inequality_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Inequality*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Inequality_Unity_Collections_FixedList4096Bytes__0___Unity_Collections_FixedList512Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Inequality(Unity.Collections.FixedList4096Bytes{`0}@,Unity.Collections.FixedList512Bytes{`0}@)">
+  operator !=(in FixedList4096Bytes&lt;T&gt;, in FixedList512Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(in FixedList4096Bytes&lt;T&gt; a, in FixedList512Bytes&lt;T&gt; b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Collections.FixedList512Bytes-1.html">FixedList512Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_FixedList4096Bytes_1_op_Inequality_" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Inequality*"></a>
+
+  <h3 id="Unity_Collections_FixedList4096Bytes_1_op_Inequality_Unity_Collections_FixedList4096Bytes__0___Unity_Collections_FixedList64Bytes__0___" data-uid="Unity.Collections.FixedList4096Bytes`1.op_Inequality(Unity.Collections.FixedList4096Bytes{`0}@,Unity.Collections.FixedList64Bytes{`0}@)">
+  operator !=(in FixedList4096Bytes&lt;T&gt;, in FixedList64Bytes&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(in FixedList4096Bytes&lt;T&gt; a, in FixedList64Bytes&lt;T&gt; b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Collections.FixedList4096Bytes-1.html">FixedList4096Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Collections.FixedList64Bytes-1.html">FixedList64Bytes</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

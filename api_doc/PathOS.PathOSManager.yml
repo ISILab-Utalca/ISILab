@@ -1,0 +1,1035 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.PathOSManager
+  commentId: T:PathOS.PathOSManager
+  id: PathOSManager
+  parent: PathOS
+  children:
+  - PathOS.PathOSManager.#ctor
+  - PathOS.PathOSManager.AddLevelEntity(UnityEngine.GameObject,PathOS.EntityType)
+  - PathOS.PathOSManager.ClearEntities
+  - PathOS.PathOSManager.ExportWeights(System.String)
+  - PathOS.PathOSManager.GenerateNavMeshFromLBSModules(PathOS.PathOSAgent)
+  - PathOS.PathOSManager.GetEntity(UnityEngine.GameObject)
+  - PathOS.PathOSManager.ImportWeights(System.String)
+  - PathOS.PathOSManager.ResizeWeightMatrix
+  - PathOS.PathOSManager.ToggleDynamicObstacles(PathOS.PathOSAgent,PathOS.LevelEntity)
+  - PathOS.PathOSManager.curMouseover
+  - PathOS.PathOSManager.endOnCompletionGoal
+  - PathOS.PathOSManager.endSimulationOnDeath
+  - PathOS.PathOSManager.entityGizmoLookup
+  - PathOS.PathOSManager.entityLabelLookup
+  - PathOS.PathOSManager.floorCount
+  - PathOS.PathOSManager.heuristicWeights
+  - PathOS.PathOSManager.ignoredEntities
+  - PathOS.PathOSManager.levelEntities
+  - PathOS.PathOSManager.limitSimulationTime
+  - PathOS.PathOSManager.maxSimulationTime
+  - PathOS.PathOSManager.showLevelMarkup
+  - PathOS.PathOSManager.simulationEnded
+  - PathOS.PathOSManager.simulationEndedEditorPrefsID
+  langs:
+  - csharp
+  - vb
+  name: PathOSManager
+  nameWithType: PathOSManager
+  fullName: PathOS.PathOSManager
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class PathOSManager : NPSingleton<PathOSManager>'
+    content.vb: Public Class PathOSManager Inherits NPSingleton(Of PathOSManager)
+  inheritance:
+  - System.Object
+  - NinePenguins.NPSingleton{PathOS.PathOSManager}
+  inheritedMembers:
+  - NinePenguins.NPSingleton{PathOS.PathOSManager}.instance
+- uid: PathOS.PathOSManager.floorCount
+  commentId: F:PathOS.PathOSManager.floorCount
+  id: floorCount
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: floorCount
+  nameWithType: PathOSManager.floorCount
+  fullName: PathOS.PathOSManager.floorCount
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public int floorCount
+    return:
+      type: System.Int32
+    content.vb: Public floorCount As Integer
+- uid: PathOS.PathOSManager.simulationEndedEditorPrefsID
+  commentId: F:PathOS.PathOSManager.simulationEndedEditorPrefsID
+  id: simulationEndedEditorPrefsID
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: simulationEndedEditorPrefsID
+  nameWithType: PathOSManager.simulationEndedEditorPrefsID
+  fullName: PathOS.PathOSManager.simulationEndedEditorPrefsID
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public const string simulationEndedEditorPrefsID = "PathOSSimulationEndFlag"
+    return:
+      type: System.String
+    content.vb: Public Const simulationEndedEditorPrefsID As String = "PathOSSimulationEndFlag"
+- uid: PathOS.PathOSManager.limitSimulationTime
+  commentId: F:PathOS.PathOSManager.limitSimulationTime
+  id: limitSimulationTime
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: limitSimulationTime
+  nameWithType: PathOSManager.limitSimulationTime
+  fullName: PathOS.PathOSManager.limitSimulationTime
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool limitSimulationTime
+    return:
+      type: System.Boolean
+    content.vb: Public limitSimulationTime As Boolean
+- uid: PathOS.PathOSManager.maxSimulationTime
+  commentId: F:PathOS.PathOSManager.maxSimulationTime
+  id: maxSimulationTime
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: maxSimulationTime
+  nameWithType: PathOSManager.maxSimulationTime
+  fullName: PathOS.PathOSManager.maxSimulationTime
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float maxSimulationTime
+    return:
+      type: System.Single
+    content.vb: Public maxSimulationTime As Single
+- uid: PathOS.PathOSManager.endOnCompletionGoal
+  commentId: F:PathOS.PathOSManager.endOnCompletionGoal
+  id: endOnCompletionGoal
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: endOnCompletionGoal
+  nameWithType: PathOSManager.endOnCompletionGoal
+  fullName: PathOS.PathOSManager.endOnCompletionGoal
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool endOnCompletionGoal
+    return:
+      type: System.Boolean
+    content.vb: Public endOnCompletionGoal As Boolean
+- uid: PathOS.PathOSManager.showLevelMarkup
+  commentId: F:PathOS.PathOSManager.showLevelMarkup
+  id: showLevelMarkup
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: showLevelMarkup
+  nameWithType: PathOSManager.showLevelMarkup
+  fullName: PathOS.PathOSManager.showLevelMarkup
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool showLevelMarkup
+    return:
+      type: System.Boolean
+    content.vb: Public showLevelMarkup As Boolean
+- uid: PathOS.PathOSManager.ignoredEntities
+  commentId: F:PathOS.PathOSManager.ignoredEntities
+  id: ignoredEntities
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: ignoredEntities
+  nameWithType: PathOSManager.ignoredEntities
+  fullName: PathOS.PathOSManager.ignoredEntities
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<GameObject> ignoredEntities
+    return:
+      type: System.Collections.Generic.List{UnityEngine.GameObject}
+    content.vb: Public ignoredEntities As List(Of GameObject)
+- uid: PathOS.PathOSManager.levelEntities
+  commentId: F:PathOS.PathOSManager.levelEntities
+  id: levelEntities
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: levelEntities
+  nameWithType: PathOSManager.levelEntities
+  fullName: PathOS.PathOSManager.levelEntities
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<LevelEntity> levelEntities
+    return:
+      type: System.Collections.Generic.List{PathOS.LevelEntity}
+    content.vb: Public levelEntities As List(Of LevelEntity)
+- uid: PathOS.PathOSManager.heuristicWeights
+  commentId: F:PathOS.PathOSManager.heuristicWeights
+  id: heuristicWeights
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: heuristicWeights
+  nameWithType: PathOSManager.heuristicWeights
+  fullName: PathOS.PathOSManager.heuristicWeights
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<HeuristicWeightSet> heuristicWeights
+    return:
+      type: System.Collections.Generic.List{PathOS.HeuristicWeightSet}
+    content.vb: Public heuristicWeights As List(Of HeuristicWeightSet)
+- uid: PathOS.PathOSManager.entityGizmoLookup
+  commentId: F:PathOS.PathOSManager.entityGizmoLookup
+  id: entityGizmoLookup
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: entityGizmoLookup
+  nameWithType: PathOSManager.entityGizmoLookup
+  fullName: PathOS.PathOSManager.entityGizmoLookup
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Dictionary<EntityType, string> entityGizmoLookup
+    return:
+      type: System.Collections.Generic.Dictionary{PathOS.EntityType,System.String}
+    content.vb: Public entityGizmoLookup As Dictionary(Of EntityType, String)
+- uid: PathOS.PathOSManager.entityLabelLookup
+  commentId: F:PathOS.PathOSManager.entityLabelLookup
+  id: entityLabelLookup
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: entityLabelLookup
+  nameWithType: PathOSManager.entityLabelLookup
+  fullName: PathOS.PathOSManager.entityLabelLookup
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Dictionary<EntityType, string> entityLabelLookup
+    return:
+      type: System.Collections.Generic.Dictionary{PathOS.EntityType,System.String}
+    content.vb: Public entityLabelLookup As Dictionary(Of EntityType, String)
+- uid: PathOS.PathOSManager.endSimulationOnDeath
+  commentId: F:PathOS.PathOSManager.endSimulationOnDeath
+  id: endSimulationOnDeath
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: endSimulationOnDeath
+  nameWithType: PathOSManager.endSimulationOnDeath
+  fullName: PathOS.PathOSManager.endSimulationOnDeath
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool endSimulationOnDeath
+    return:
+      type: System.Boolean
+    content.vb: Public endSimulationOnDeath As Boolean
+- uid: PathOS.PathOSManager.AddLevelEntity(UnityEngine.GameObject,PathOS.EntityType)
+  commentId: M:PathOS.PathOSManager.AddLevelEntity(UnityEngine.GameObject,PathOS.EntityType)
+  id: AddLevelEntity(UnityEngine.GameObject,PathOS.EntityType)
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: AddLevelEntity(GameObject, EntityType)
+  nameWithType: PathOSManager.AddLevelEntity(GameObject, EntityType)
+  fullName: PathOS.PathOSManager.AddLevelEntity(UnityEngine.GameObject, PathOS.EntityType)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public LevelEntity AddLevelEntity(GameObject currGameObject, EntityType entityType)
+    parameters:
+    - id: currGameObject
+      type: UnityEngine.GameObject
+    - id: entityType
+      type: PathOS.EntityType
+    return:
+      type: PathOS.LevelEntity
+    content.vb: Public Function AddLevelEntity(currGameObject As GameObject, entityType As EntityType) As LevelEntity
+  overload: PathOS.PathOSManager.AddLevelEntity*
+- uid: PathOS.PathOSManager.GenerateNavMeshFromLBSModules(PathOS.PathOSAgent)
+  commentId: M:PathOS.PathOSManager.GenerateNavMeshFromLBSModules(PathOS.PathOSAgent)
+  id: GenerateNavMeshFromLBSModules(PathOS.PathOSAgent)
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: GenerateNavMeshFromLBSModules(PathOSAgent)
+  nameWithType: PathOSManager.GenerateNavMeshFromLBSModules(PathOSAgent)
+  fullName: PathOS.PathOSManager.GenerateNavMeshFromLBSModules(PathOS.PathOSAgent)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void GenerateNavMeshFromLBSModules(PathOSAgent affectedAgent)
+    parameters:
+    - id: affectedAgent
+      type: PathOS.PathOSAgent
+    content.vb: Public Sub GenerateNavMeshFromLBSModules(affectedAgent As PathOSAgent)
+  overload: PathOS.PathOSManager.GenerateNavMeshFromLBSModules*
+- uid: PathOS.PathOSManager.ToggleDynamicObstacles(PathOS.PathOSAgent,PathOS.LevelEntity)
+  commentId: M:PathOS.PathOSManager.ToggleDynamicObstacles(PathOS.PathOSAgent,PathOS.LevelEntity)
+  id: ToggleDynamicObstacles(PathOS.PathOSAgent,PathOS.LevelEntity)
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: ToggleDynamicObstacles(PathOSAgent, LevelEntity)
+  nameWithType: PathOSManager.ToggleDynamicObstacles(PathOSAgent, LevelEntity)
+  fullName: PathOS.PathOSManager.ToggleDynamicObstacles(PathOS.PathOSAgent, PathOS.LevelEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void ToggleDynamicObstacles(PathOSAgent agent, LevelEntity entity)
+    parameters:
+    - id: agent
+      type: PathOS.PathOSAgent
+    - id: entity
+      type: PathOS.LevelEntity
+    content.vb: Public Sub ToggleDynamicObstacles(agent As PathOSAgent, entity As LevelEntity)
+  overload: PathOS.PathOSManager.ToggleDynamicObstacles*
+- uid: PathOS.PathOSManager.ClearEntities
+  commentId: M:PathOS.PathOSManager.ClearEntities
+  id: ClearEntities
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: ClearEntities()
+  nameWithType: PathOSManager.ClearEntities()
+  fullName: PathOS.PathOSManager.ClearEntities()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void ClearEntities()
+    content.vb: Public Sub ClearEntities()
+  overload: PathOS.PathOSManager.ClearEntities*
+- uid: PathOS.PathOSManager.ResizeWeightMatrix
+  commentId: M:PathOS.PathOSManager.ResizeWeightMatrix
+  id: ResizeWeightMatrix
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: ResizeWeightMatrix()
+  nameWithType: PathOSManager.ResizeWeightMatrix()
+  fullName: PathOS.PathOSManager.ResizeWeightMatrix()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void ResizeWeightMatrix()
+    content.vb: Public Sub ResizeWeightMatrix()
+  overload: PathOS.PathOSManager.ResizeWeightMatrix*
+- uid: PathOS.PathOSManager.ImportWeights(System.String)
+  commentId: M:PathOS.PathOSManager.ImportWeights(System.String)
+  id: ImportWeights(System.String)
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: ImportWeights(string)
+  nameWithType: PathOSManager.ImportWeights(string)
+  fullName: PathOS.PathOSManager.ImportWeights(string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool ImportWeights(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function ImportWeights(filename As String) As Boolean
+  overload: PathOS.PathOSManager.ImportWeights*
+  nameWithType.vb: PathOSManager.ImportWeights(String)
+  fullName.vb: PathOS.PathOSManager.ImportWeights(String)
+  name.vb: ImportWeights(String)
+- uid: PathOS.PathOSManager.ExportWeights(System.String)
+  commentId: M:PathOS.PathOSManager.ExportWeights(System.String)
+  id: ExportWeights(System.String)
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: ExportWeights(string)
+  nameWithType: PathOSManager.ExportWeights(string)
+  fullName: PathOS.PathOSManager.ExportWeights(string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void ExportWeights(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+    content.vb: Public Sub ExportWeights(filename As String)
+  overload: PathOS.PathOSManager.ExportWeights*
+  nameWithType.vb: PathOSManager.ExportWeights(String)
+  fullName.vb: PathOS.PathOSManager.ExportWeights(String)
+  name.vb: ExportWeights(String)
+- uid: PathOS.PathOSManager.GetEntity(UnityEngine.GameObject)
+  commentId: M:PathOS.PathOSManager.GetEntity(UnityEngine.GameObject)
+  id: GetEntity(UnityEngine.GameObject)
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: GetEntity(GameObject)
+  nameWithType: PathOSManager.GetEntity(GameObject)
+  fullName: PathOS.PathOSManager.GetEntity(UnityEngine.GameObject)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public LevelEntity GetEntity(GameObject obj)
+    parameters:
+    - id: obj
+      type: UnityEngine.GameObject
+    return:
+      type: PathOS.LevelEntity
+    content.vb: Public Function GetEntity(obj As GameObject) As LevelEntity
+  overload: PathOS.PathOSManager.GetEntity*
+- uid: PathOS.PathOSManager.#ctor
+  commentId: M:PathOS.PathOSManager.#ctor
+  id: '#ctor'
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: PathOSManager()
+  nameWithType: PathOSManager.PathOSManager()
+  fullName: PathOS.PathOSManager.PathOSManager()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSManager()
+    content.vb: Public Sub New()
+  overload: PathOS.PathOSManager.#ctor*
+  nameWithType.vb: PathOSManager.New()
+  fullName.vb: PathOS.PathOSManager.New()
+  name.vb: New()
+- uid: PathOS.PathOSManager.simulationEnded
+  commentId: P:PathOS.PathOSManager.simulationEnded
+  id: simulationEnded
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: simulationEnded
+  nameWithType: PathOSManager.simulationEnded
+  fullName: PathOS.PathOSManager.simulationEnded
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool simulationEnded { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property simulationEnded As Boolean
+  overload: PathOS.PathOSManager.simulationEnded*
+- uid: PathOS.PathOSManager.curMouseover
+  commentId: P:PathOS.PathOSManager.curMouseover
+  id: curMouseover
+  parent: PathOS.PathOSManager
+  langs:
+  - csharp
+  - vb
+  name: curMouseover
+  nameWithType: PathOSManager.curMouseover
+  fullName: PathOS.PathOSManager.curMouseover
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public GameObject curMouseover { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public Property curMouseover As GameObject
+  overload: PathOS.PathOSManager.curMouseover*
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: NinePenguins.NPSingleton{PathOS.PathOSManager}
+  commentId: T:NinePenguins.NPSingleton{PathOS.PathOSManager}
+  parent: NinePenguins
+  definition: NinePenguins.NPSingleton`1
+  href: NinePenguins.NPSingleton-1.html
+  name: NPSingleton<PathOSManager>
+  nameWithType: NPSingleton<PathOSManager>
+  fullName: NinePenguins.NPSingleton<PathOS.PathOSManager>
+  nameWithType.vb: NPSingleton(Of PathOSManager)
+  fullName.vb: NinePenguins.NPSingleton(Of PathOS.PathOSManager)
+  name.vb: NPSingleton(Of PathOSManager)
+  spec.csharp:
+  - uid: NinePenguins.NPSingleton`1
+    name: NPSingleton
+    isExternal: true
+    href: NinePenguins.NPSingleton-1.html
+  - name: <
+  - uid: PathOS.PathOSManager
+    name: PathOSManager
+    isExternal: true
+    href: PathOS.PathOSManager.html
+  - name: '>'
+  spec.vb:
+  - uid: NinePenguins.NPSingleton`1
+    name: NPSingleton
+    isExternal: true
+    href: NinePenguins.NPSingleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.PathOSManager
+    name: PathOSManager
+    isExternal: true
+    href: PathOS.PathOSManager.html
+  - name: )
+- uid: NinePenguins.NPSingleton{PathOS.PathOSManager}.instance
+  commentId: P:NinePenguins.NPSingleton{PathOS.PathOSManager}.instance
+  parent: NinePenguins.NPSingleton{PathOS.PathOSManager}
+  definition: NinePenguins.NPSingleton`1.instance
+  href: NinePenguins.NPSingleton-1.html#NinePenguins_NPSingleton_1_instance
+  name: instance
+  nameWithType: NPSingleton<PathOSManager>.instance
+  fullName: NinePenguins.NPSingleton<PathOS.PathOSManager>.instance
+  nameWithType.vb: NPSingleton(Of PathOSManager).instance
+  fullName.vb: NinePenguins.NPSingleton(Of PathOS.PathOSManager).instance
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NinePenguins.NPSingleton`1
+  commentId: T:NinePenguins.NPSingleton`1
+  isExternal: true
+  href: NinePenguins.NPSingleton-1.html
+  name: NPSingleton<T>
+  nameWithType: NPSingleton<T>
+  fullName: NinePenguins.NPSingleton<T>
+  nameWithType.vb: NPSingleton(Of T)
+  fullName.vb: NinePenguins.NPSingleton(Of T)
+  name.vb: NPSingleton(Of T)
+  spec.csharp:
+  - uid: NinePenguins.NPSingleton`1
+    name: NPSingleton
+    isExternal: true
+    href: NinePenguins.NPSingleton-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: NinePenguins.NPSingleton`1
+    name: NPSingleton
+    isExternal: true
+    href: NinePenguins.NPSingleton-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NinePenguins
+  commentId: N:NinePenguins
+  isExternal: true
+  href: NinePenguins.html
+  name: NinePenguins
+  nameWithType: NinePenguins
+  fullName: NinePenguins
+- uid: NinePenguins.NPSingleton`1.instance
+  commentId: P:NinePenguins.NPSingleton`1.instance
+  isExternal: true
+  href: NinePenguins.NPSingleton-1.html#NinePenguins_NPSingleton_1_instance
+  name: instance
+  nameWithType: NPSingleton<T>.instance
+  fullName: NinePenguins.NPSingleton<T>.instance
+  nameWithType.vb: NPSingleton(Of T).instance
+  fullName.vb: NinePenguins.NPSingleton(Of T).instance
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Collections.Generic.List{UnityEngine.GameObject}
+  commentId: T:System.Collections.Generic.List{UnityEngine.GameObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GameObject>
+  nameWithType: List<GameObject>
+  fullName: System.Collections.Generic.List<UnityEngine.GameObject>
+  nameWithType.vb: List(Of GameObject)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.GameObject)
+  name.vb: List(Of GameObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{PathOS.LevelEntity}
+  commentId: T:System.Collections.Generic.List{PathOS.LevelEntity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LevelEntity>
+  nameWithType: List<LevelEntity>
+  fullName: System.Collections.Generic.List<PathOS.LevelEntity>
+  nameWithType.vb: List(Of LevelEntity)
+  fullName.vb: System.Collections.Generic.List(Of PathOS.LevelEntity)
+  name.vb: List(Of LevelEntity)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PathOS.LevelEntity
+    name: LevelEntity
+    isExternal: true
+    href: PathOS.LevelEntity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.LevelEntity
+    name: LevelEntity
+    isExternal: true
+    href: PathOS.LevelEntity.html
+  - name: )
+- uid: System.Collections.Generic.List{PathOS.HeuristicWeightSet}
+  commentId: T:System.Collections.Generic.List{PathOS.HeuristicWeightSet}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<HeuristicWeightSet>
+  nameWithType: List<HeuristicWeightSet>
+  fullName: System.Collections.Generic.List<PathOS.HeuristicWeightSet>
+  nameWithType.vb: List(Of HeuristicWeightSet)
+  fullName.vb: System.Collections.Generic.List(Of PathOS.HeuristicWeightSet)
+  name.vb: List(Of HeuristicWeightSet)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PathOS.HeuristicWeightSet
+    name: HeuristicWeightSet
+    isExternal: true
+    href: PathOS.HeuristicWeightSet.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.HeuristicWeightSet
+    name: HeuristicWeightSet
+    isExternal: true
+    href: PathOS.HeuristicWeightSet.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary{PathOS.EntityType,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{PathOS.EntityType,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<EntityType, string>
+  nameWithType: Dictionary<EntityType, string>
+  fullName: System.Collections.Generic.Dictionary<PathOS.EntityType, string>
+  nameWithType.vb: Dictionary(Of EntityType, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of PathOS.EntityType, String)
+  name.vb: Dictionary(Of EntityType, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: PathOS.EntityType
+    name: EntityType
+    isExternal: true
+    href: PathOS.EntityType.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.EntityType
+    name: EntityType
+    isExternal: true
+    href: PathOS.EntityType.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: PathOS.PathOSManager.AddLevelEntity*
+  commentId: Overload:PathOS.PathOSManager.AddLevelEntity
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager_AddLevelEntity_UnityEngine_GameObject_PathOS_EntityType_
+  name: AddLevelEntity
+  nameWithType: PathOSManager.AddLevelEntity
+  fullName: PathOS.PathOSManager.AddLevelEntity
+- uid: UnityEngine.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: PathOS.EntityType
+  commentId: T:PathOS.EntityType
+  parent: PathOS
+  isExternal: true
+  href: PathOS.EntityType.html
+  name: EntityType
+  nameWithType: EntityType
+  fullName: PathOS.EntityType
+- uid: PathOS.LevelEntity
+  commentId: T:PathOS.LevelEntity
+  parent: PathOS
+  isExternal: true
+  href: PathOS.LevelEntity.html
+  name: LevelEntity
+  nameWithType: LevelEntity
+  fullName: PathOS.LevelEntity
+- uid: PathOS.PathOSManager.GenerateNavMeshFromLBSModules*
+  commentId: Overload:PathOS.PathOSManager.GenerateNavMeshFromLBSModules
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager_GenerateNavMeshFromLBSModules_PathOS_PathOSAgent_
+  name: GenerateNavMeshFromLBSModules
+  nameWithType: PathOSManager.GenerateNavMeshFromLBSModules
+  fullName: PathOS.PathOSManager.GenerateNavMeshFromLBSModules
+- uid: PathOS.PathOSAgent
+  commentId: T:PathOS.PathOSAgent
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSAgent.html
+  name: PathOSAgent
+  nameWithType: PathOSAgent
+  fullName: PathOS.PathOSAgent
+- uid: PathOS.PathOSManager.ToggleDynamicObstacles*
+  commentId: Overload:PathOS.PathOSManager.ToggleDynamicObstacles
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager_ToggleDynamicObstacles_PathOS_PathOSAgent_PathOS_LevelEntity_
+  name: ToggleDynamicObstacles
+  nameWithType: PathOSManager.ToggleDynamicObstacles
+  fullName: PathOS.PathOSManager.ToggleDynamicObstacles
+- uid: PathOS.PathOSManager.ClearEntities*
+  commentId: Overload:PathOS.PathOSManager.ClearEntities
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager_ClearEntities
+  name: ClearEntities
+  nameWithType: PathOSManager.ClearEntities
+  fullName: PathOS.PathOSManager.ClearEntities
+- uid: PathOS.PathOSManager.ResizeWeightMatrix*
+  commentId: Overload:PathOS.PathOSManager.ResizeWeightMatrix
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager_ResizeWeightMatrix
+  name: ResizeWeightMatrix
+  nameWithType: PathOSManager.ResizeWeightMatrix
+  fullName: PathOS.PathOSManager.ResizeWeightMatrix
+- uid: PathOS.PathOSManager.ImportWeights*
+  commentId: Overload:PathOS.PathOSManager.ImportWeights
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager_ImportWeights_System_String_
+  name: ImportWeights
+  nameWithType: PathOSManager.ImportWeights
+  fullName: PathOS.PathOSManager.ImportWeights
+- uid: PathOS.PathOSManager.ExportWeights*
+  commentId: Overload:PathOS.PathOSManager.ExportWeights
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager_ExportWeights_System_String_
+  name: ExportWeights
+  nameWithType: PathOSManager.ExportWeights
+  fullName: PathOS.PathOSManager.ExportWeights
+- uid: PathOS.PathOSManager.GetEntity*
+  commentId: Overload:PathOS.PathOSManager.GetEntity
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager_GetEntity_UnityEngine_GameObject_
+  name: GetEntity
+  nameWithType: PathOSManager.GetEntity
+  fullName: PathOS.PathOSManager.GetEntity
+- uid: PathOS.PathOSManager.#ctor*
+  commentId: Overload:PathOS.PathOSManager.#ctor
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager__ctor
+  name: PathOSManager
+  nameWithType: PathOSManager.PathOSManager
+  fullName: PathOS.PathOSManager.PathOSManager
+  nameWithType.vb: PathOSManager.New
+  fullName.vb: PathOS.PathOSManager.New
+  name.vb: New
+- uid: PathOS.PathOSManager.simulationEnded*
+  commentId: Overload:PathOS.PathOSManager.simulationEnded
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager_simulationEnded
+  name: simulationEnded
+  nameWithType: PathOSManager.simulationEnded
+  fullName: PathOS.PathOSManager.simulationEnded
+- uid: PathOS.PathOSManager.curMouseover*
+  commentId: Overload:PathOS.PathOSManager.curMouseover
+  isExternal: true
+  href: PathOS.PathOSManager.html#PathOS_PathOSManager_curMouseover
+  name: curMouseover
+  nameWithType: PathOSManager.curMouseover
+  fullName: PathOS.PathOSManager.curMouseover
+shouldSkipMarkup: true

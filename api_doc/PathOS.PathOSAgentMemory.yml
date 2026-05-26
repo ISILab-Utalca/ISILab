@@ -1,0 +1,1023 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.PathOSAgentMemory
+  commentId: T:PathOS.PathOSAgentMemory
+  id: PathOSAgentMemory
+  parent: PathOS
+  children:
+  - PathOS.PathOSAgentMemory.#ctor
+  - PathOS.PathOSAgentMemory.AchievementGoalsLeft
+  - PathOS.PathOSAgentMemory.AddPath(PathOS.ExploreMemory)
+  - PathOS.PathOSAgentMemory.CommitLTM(PathOS.PerceivedEntity)
+  - PathOS.PathOSAgentMemory.CommitUnforgettable(PathOS.PerceivedEntity)
+  - PathOS.PathOSAgentMemory.DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity
+  - PathOS.PathOSAgentMemory.FinalGoalCompleted
+  - PathOS.PathOSAgentMemory.GetClosestStair(UnityEngine.Vector3,System.Int32)
+  - PathOS.PathOSAgentMemory.GetMemory(PathOS.PerceivedEntity)
+  - PathOS.PathOSAgentMemory.GetOtherStair(PathOS.EntityMemory)
+  - PathOS.PathOSAgentMemory.GetStairMemoriesForFloor(System.Int32,System.Int32)
+  - PathOS.PathOSAgentMemory.MakeUnreachable(PathOS.PerceivedEntity)
+  - PathOS.PathOSAgentMemory.MandatoryGoalsLeft
+  - PathOS.PathOSAgentMemory.Memorize(PathOS.PerceivedEntity)
+  - PathOS.PathOSAgentMemory.MovementHazardPenalty(UnityEngine.Vector3)
+  - PathOS.PathOSAgentMemory.ScoreHazards(UnityEngine.Vector3)
+  - PathOS.PathOSAgentMemory.SetAllMemoriesAndPathsAsReachable
+  - PathOS.PathOSAgentMemory.TryCommitLTM(PathOS.PerceivedEntity)
+  - PathOS.PathOSAgentMemory.UnvisitedRemaining
+  - PathOS.PathOSAgentMemory.Visited(PathOS.PerceivedEntity)
+  - PathOS.PathOSAgentMemory.entities
+  - PathOS.PathOSAgentMemory.goalsLeft
+  - PathOS.PathOSAgentMemory.gridSampleSize
+  - PathOS.PathOSAgentMemory.memoryMap
+  - PathOS.PathOSAgentMemory.paths
+  langs:
+  - csharp
+  - vb
+  name: PathOSAgentMemory
+  nameWithType: PathOSAgentMemory
+  fullName: PathOS.PathOSAgentMemory
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class PathOSAgentMemory : MonoBehaviour'
+    content.vb: Public Class PathOSAgentMemory Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PathOS.PathOSAgentMemory.gridSampleSize
+  commentId: F:PathOS.PathOSAgentMemory.gridSampleSize
+  id: gridSampleSize
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: gridSampleSize
+  nameWithType: PathOSAgentMemory.gridSampleSize
+  fullName: PathOS.PathOSAgentMemory.gridSampleSize
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Vector3 gridSampleSize
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public gridSampleSize As Vector3
+- uid: PathOS.PathOSAgentMemory.goalsLeft
+  commentId: F:PathOS.PathOSAgentMemory.goalsLeft
+  id: goalsLeft
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: goalsLeft
+  nameWithType: PathOSAgentMemory.goalsLeft
+  fullName: PathOS.PathOSAgentMemory.goalsLeft
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: protected bool goalsLeft
+    return:
+      type: System.Boolean
+    content.vb: Protected goalsLeft As Boolean
+- uid: PathOS.PathOSAgentMemory.Memorize(PathOS.PerceivedEntity)
+  commentId: M:PathOS.PathOSAgentMemory.Memorize(PathOS.PerceivedEntity)
+  id: Memorize(PathOS.PerceivedEntity)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: Memorize(PerceivedEntity)
+  nameWithType: PathOSAgentMemory.Memorize(PerceivedEntity)
+  fullName: PathOS.PathOSAgentMemory.Memorize(PathOS.PerceivedEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void Memorize(PerceivedEntity entity)
+    parameters:
+    - id: entity
+      type: PathOS.PerceivedEntity
+    content.vb: Public Sub Memorize(entity As PerceivedEntity)
+  overload: PathOS.PathOSAgentMemory.Memorize*
+- uid: PathOS.PathOSAgentMemory.GetMemory(PathOS.PerceivedEntity)
+  commentId: M:PathOS.PathOSAgentMemory.GetMemory(PathOS.PerceivedEntity)
+  id: GetMemory(PathOS.PerceivedEntity)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: GetMemory(PerceivedEntity)
+  nameWithType: PathOSAgentMemory.GetMemory(PerceivedEntity)
+  fullName: PathOS.PathOSAgentMemory.GetMemory(PathOS.PerceivedEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public EntityMemory GetMemory(PerceivedEntity entity)
+    parameters:
+    - id: entity
+      type: PathOS.PerceivedEntity
+    return:
+      type: PathOS.EntityMemory
+    content.vb: Public Function GetMemory(entity As PerceivedEntity) As EntityMemory
+  overload: PathOS.PathOSAgentMemory.GetMemory*
+- uid: PathOS.PathOSAgentMemory.CommitLTM(PathOS.PerceivedEntity)
+  commentId: M:PathOS.PathOSAgentMemory.CommitLTM(PathOS.PerceivedEntity)
+  id: CommitLTM(PathOS.PerceivedEntity)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: CommitLTM(PerceivedEntity)
+  nameWithType: PathOSAgentMemory.CommitLTM(PerceivedEntity)
+  fullName: PathOS.PathOSAgentMemory.CommitLTM(PathOS.PerceivedEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void CommitLTM(PerceivedEntity entity)
+    parameters:
+    - id: entity
+      type: PathOS.PerceivedEntity
+    content.vb: Public Sub CommitLTM(entity As PerceivedEntity)
+  overload: PathOS.PathOSAgentMemory.CommitLTM*
+- uid: PathOS.PathOSAgentMemory.TryCommitLTM(PathOS.PerceivedEntity)
+  commentId: M:PathOS.PathOSAgentMemory.TryCommitLTM(PathOS.PerceivedEntity)
+  id: TryCommitLTM(PathOS.PerceivedEntity)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: TryCommitLTM(PerceivedEntity)
+  nameWithType: PathOSAgentMemory.TryCommitLTM(PerceivedEntity)
+  fullName: PathOS.PathOSAgentMemory.TryCommitLTM(PathOS.PerceivedEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void TryCommitLTM(PerceivedEntity entity)
+    parameters:
+    - id: entity
+      type: PathOS.PerceivedEntity
+    content.vb: Public Sub TryCommitLTM(entity As PerceivedEntity)
+  overload: PathOS.PathOSAgentMemory.TryCommitLTM*
+- uid: PathOS.PathOSAgentMemory.CommitUnforgettable(PathOS.PerceivedEntity)
+  commentId: M:PathOS.PathOSAgentMemory.CommitUnforgettable(PathOS.PerceivedEntity)
+  id: CommitUnforgettable(PathOS.PerceivedEntity)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: CommitUnforgettable(PerceivedEntity)
+  nameWithType: PathOSAgentMemory.CommitUnforgettable(PerceivedEntity)
+  fullName: PathOS.PathOSAgentMemory.CommitUnforgettable(PathOS.PerceivedEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void CommitUnforgettable(PerceivedEntity entity)
+    parameters:
+    - id: entity
+      type: PathOS.PerceivedEntity
+    content.vb: Public Sub CommitUnforgettable(entity As PerceivedEntity)
+  overload: PathOS.PathOSAgentMemory.CommitUnforgettable*
+- uid: PathOS.PathOSAgentMemory.MakeUnreachable(PathOS.PerceivedEntity)
+  commentId: M:PathOS.PathOSAgentMemory.MakeUnreachable(PathOS.PerceivedEntity)
+  id: MakeUnreachable(PathOS.PerceivedEntity)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: MakeUnreachable(PerceivedEntity)
+  nameWithType: PathOSAgentMemory.MakeUnreachable(PerceivedEntity)
+  fullName: PathOS.PathOSAgentMemory.MakeUnreachable(PathOS.PerceivedEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void MakeUnreachable(PerceivedEntity entity)
+    parameters:
+    - id: entity
+      type: PathOS.PerceivedEntity
+    content.vb: Public Sub MakeUnreachable(entity As PerceivedEntity)
+  overload: PathOS.PathOSAgentMemory.MakeUnreachable*
+- uid: PathOS.PathOSAgentMemory.Visited(PathOS.PerceivedEntity)
+  commentId: M:PathOS.PathOSAgentMemory.Visited(PathOS.PerceivedEntity)
+  id: Visited(PathOS.PerceivedEntity)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: Visited(PerceivedEntity)
+  nameWithType: PathOSAgentMemory.Visited(PerceivedEntity)
+  fullName: PathOS.PathOSAgentMemory.Visited(PathOS.PerceivedEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool Visited(PerceivedEntity entity)
+    parameters:
+    - id: entity
+      type: PathOS.PerceivedEntity
+    return:
+      type: System.Boolean
+    content.vb: Public Function Visited(entity As PerceivedEntity) As Boolean
+  overload: PathOS.PathOSAgentMemory.Visited*
+- uid: PathOS.PathOSAgentMemory.AddPath(PathOS.ExploreMemory)
+  commentId: M:PathOS.PathOSAgentMemory.AddPath(PathOS.ExploreMemory)
+  id: AddPath(PathOS.ExploreMemory)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: AddPath(ExploreMemory)
+  nameWithType: PathOSAgentMemory.AddPath(ExploreMemory)
+  fullName: PathOS.PathOSAgentMemory.AddPath(PathOS.ExploreMemory)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void AddPath(ExploreMemory path)
+    parameters:
+    - id: path
+      type: PathOS.ExploreMemory
+    content.vb: Public Sub AddPath(path As ExploreMemory)
+  overload: PathOS.PathOSAgentMemory.AddPath*
+- uid: PathOS.PathOSAgentMemory.UnvisitedRemaining
+  commentId: M:PathOS.PathOSAgentMemory.UnvisitedRemaining
+  id: UnvisitedRemaining
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: UnvisitedRemaining()
+  nameWithType: PathOSAgentMemory.UnvisitedRemaining()
+  fullName: PathOS.PathOSAgentMemory.UnvisitedRemaining()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public int UnvisitedRemaining()
+    return:
+      type: System.Int32
+    content.vb: Public Function UnvisitedRemaining() As Integer
+  overload: PathOS.PathOSAgentMemory.UnvisitedRemaining*
+- uid: PathOS.PathOSAgentMemory.AchievementGoalsLeft
+  commentId: M:PathOS.PathOSAgentMemory.AchievementGoalsLeft
+  id: AchievementGoalsLeft
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: AchievementGoalsLeft()
+  nameWithType: PathOSAgentMemory.AchievementGoalsLeft()
+  fullName: PathOS.PathOSAgentMemory.AchievementGoalsLeft()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public int AchievementGoalsLeft()
+    return:
+      type: System.Int32
+    content.vb: Public Function AchievementGoalsLeft() As Integer
+  overload: PathOS.PathOSAgentMemory.AchievementGoalsLeft*
+- uid: PathOS.PathOSAgentMemory.MandatoryGoalsLeft
+  commentId: M:PathOS.PathOSAgentMemory.MandatoryGoalsLeft
+  id: MandatoryGoalsLeft
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: MandatoryGoalsLeft()
+  nameWithType: PathOSAgentMemory.MandatoryGoalsLeft()
+  fullName: PathOS.PathOSAgentMemory.MandatoryGoalsLeft()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool MandatoryGoalsLeft()
+    return:
+      type: System.Boolean
+    content.vb: Public Function MandatoryGoalsLeft() As Boolean
+  overload: PathOS.PathOSAgentMemory.MandatoryGoalsLeft*
+- uid: PathOS.PathOSAgentMemory.FinalGoalCompleted
+  commentId: M:PathOS.PathOSAgentMemory.FinalGoalCompleted
+  id: FinalGoalCompleted
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: FinalGoalCompleted()
+  nameWithType: PathOSAgentMemory.FinalGoalCompleted()
+  fullName: PathOS.PathOSAgentMemory.FinalGoalCompleted()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool FinalGoalCompleted()
+    return:
+      type: System.Boolean
+    content.vb: Public Function FinalGoalCompleted() As Boolean
+  overload: PathOS.PathOSAgentMemory.FinalGoalCompleted*
+- uid: PathOS.PathOSAgentMemory.ScoreHazards(UnityEngine.Vector3)
+  commentId: M:PathOS.PathOSAgentMemory.ScoreHazards(UnityEngine.Vector3)
+  id: ScoreHazards(UnityEngine.Vector3)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: ScoreHazards(Vector3)
+  nameWithType: PathOSAgentMemory.ScoreHazards(Vector3)
+  fullName: PathOS.PathOSAgentMemory.ScoreHazards(UnityEngine.Vector3)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float ScoreHazards(Vector3 pos)
+    parameters:
+    - id: pos
+      type: UnityEngine.Vector3
+    return:
+      type: System.Single
+    content.vb: Public Function ScoreHazards(pos As Vector3) As Single
+  overload: PathOS.PathOSAgentMemory.ScoreHazards*
+- uid: PathOS.PathOSAgentMemory.MovementHazardPenalty(UnityEngine.Vector3)
+  commentId: M:PathOS.PathOSAgentMemory.MovementHazardPenalty(UnityEngine.Vector3)
+  id: MovementHazardPenalty(UnityEngine.Vector3)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: MovementHazardPenalty(Vector3)
+  nameWithType: PathOSAgentMemory.MovementHazardPenalty(Vector3)
+  fullName: PathOS.PathOSAgentMemory.MovementHazardPenalty(UnityEngine.Vector3)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float MovementHazardPenalty(Vector3 pos)
+    parameters:
+    - id: pos
+      type: UnityEngine.Vector3
+    return:
+      type: System.Single
+    content.vb: Public Function MovementHazardPenalty(pos As Vector3) As Single
+  overload: PathOS.PathOSAgentMemory.MovementHazardPenalty*
+- uid: PathOS.PathOSAgentMemory.SetAllMemoriesAndPathsAsReachable
+  commentId: M:PathOS.PathOSAgentMemory.SetAllMemoriesAndPathsAsReachable
+  id: SetAllMemoriesAndPathsAsReachable
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: SetAllMemoriesAndPathsAsReachable()
+  nameWithType: PathOSAgentMemory.SetAllMemoriesAndPathsAsReachable()
+  fullName: PathOS.PathOSAgentMemory.SetAllMemoriesAndPathsAsReachable()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public int SetAllMemoriesAndPathsAsReachable()
+    return:
+      type: System.Int32
+    content.vb: Public Function SetAllMemoriesAndPathsAsReachable() As Integer
+  overload: PathOS.PathOSAgentMemory.SetAllMemoriesAndPathsAsReachable*
+- uid: PathOS.PathOSAgentMemory.DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity
+  commentId: M:PathOS.PathOSAgentMemory.DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity
+  id: DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity()
+  nameWithType: PathOSAgentMemory.DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity()
+  fullName: PathOS.PathOSAgentMemory.DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity()
+    content.vb: Public Sub DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity()
+  overload: PathOS.PathOSAgentMemory.DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity*
+- uid: PathOS.PathOSAgentMemory.GetClosestStair(UnityEngine.Vector3,System.Int32)
+  commentId: M:PathOS.PathOSAgentMemory.GetClosestStair(UnityEngine.Vector3,System.Int32)
+  id: GetClosestStair(UnityEngine.Vector3,System.Int32)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: GetClosestStair(Vector3, int)
+  nameWithType: PathOSAgentMemory.GetClosestStair(Vector3, int)
+  fullName: PathOS.PathOSAgentMemory.GetClosestStair(UnityEngine.Vector3, int)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public EntityMemory GetClosestStair(Vector3 position, int direction)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+    - id: direction
+      type: System.Int32
+    return:
+      type: PathOS.EntityMemory
+    content.vb: Public Function GetClosestStair(position As Vector3, direction As Integer) As EntityMemory
+  overload: PathOS.PathOSAgentMemory.GetClosestStair*
+  nameWithType.vb: PathOSAgentMemory.GetClosestStair(Vector3, Integer)
+  fullName.vb: PathOS.PathOSAgentMemory.GetClosestStair(UnityEngine.Vector3, Integer)
+  name.vb: GetClosestStair(Vector3, Integer)
+- uid: PathOS.PathOSAgentMemory.GetStairMemoriesForFloor(System.Int32,System.Int32)
+  commentId: M:PathOS.PathOSAgentMemory.GetStairMemoriesForFloor(System.Int32,System.Int32)
+  id: GetStairMemoriesForFloor(System.Int32,System.Int32)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: GetStairMemoriesForFloor(int, int)
+  nameWithType: PathOSAgentMemory.GetStairMemoriesForFloor(int, int)
+  fullName: PathOS.PathOSAgentMemory.GetStairMemoriesForFloor(int, int)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public EntityMemory[] GetStairMemoriesForFloor(int floor, int direction)
+    parameters:
+    - id: floor
+      type: System.Int32
+    - id: direction
+      type: System.Int32
+    return:
+      type: PathOS.EntityMemory[]
+    content.vb: Public Function GetStairMemoriesForFloor(floor As Integer, direction As Integer) As EntityMemory()
+  overload: PathOS.PathOSAgentMemory.GetStairMemoriesForFloor*
+  nameWithType.vb: PathOSAgentMemory.GetStairMemoriesForFloor(Integer, Integer)
+  fullName.vb: PathOS.PathOSAgentMemory.GetStairMemoriesForFloor(Integer, Integer)
+  name.vb: GetStairMemoriesForFloor(Integer, Integer)
+- uid: PathOS.PathOSAgentMemory.GetOtherStair(PathOS.EntityMemory)
+  commentId: M:PathOS.PathOSAgentMemory.GetOtherStair(PathOS.EntityMemory)
+  id: GetOtherStair(PathOS.EntityMemory)
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: GetOtherStair(EntityMemory)
+  nameWithType: PathOSAgentMemory.GetOtherStair(EntityMemory)
+  fullName: PathOS.PathOSAgentMemory.GetOtherStair(PathOS.EntityMemory)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public EntityMemory GetOtherStair(EntityMemory stairMemory)
+    parameters:
+    - id: stairMemory
+      type: PathOS.EntityMemory
+    return:
+      type: PathOS.EntityMemory
+    content.vb: Public Function GetOtherStair(stairMemory As EntityMemory) As EntityMemory
+  overload: PathOS.PathOSAgentMemory.GetOtherStair*
+- uid: PathOS.PathOSAgentMemory.#ctor
+  commentId: M:PathOS.PathOSAgentMemory.#ctor
+  id: '#ctor'
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: PathOSAgentMemory()
+  nameWithType: PathOSAgentMemory.PathOSAgentMemory()
+  fullName: PathOS.PathOSAgentMemory.PathOSAgentMemory()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSAgentMemory()
+    content.vb: Public Sub New()
+  overload: PathOS.PathOSAgentMemory.#ctor*
+  nameWithType.vb: PathOSAgentMemory.New()
+  fullName.vb: PathOS.PathOSAgentMemory.New()
+  name.vb: New()
+- uid: PathOS.PathOSAgentMemory.entities
+  commentId: P:PathOS.PathOSAgentMemory.entities
+  id: entities
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: entities
+  nameWithType: PathOSAgentMemory.entities
+  fullName: PathOS.PathOSAgentMemory.entities
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<EntityMemory> entities { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{PathOS.EntityMemory}
+    content.vb: Public Property entities As List(Of EntityMemory)
+  overload: PathOS.PathOSAgentMemory.entities*
+- uid: PathOS.PathOSAgentMemory.paths
+  commentId: P:PathOS.PathOSAgentMemory.paths
+  id: paths
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: paths
+  nameWithType: PathOSAgentMemory.paths
+  fullName: PathOS.PathOSAgentMemory.paths
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<ExploreMemory> paths { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{PathOS.ExploreMemory}
+    content.vb: Public Property paths As List(Of ExploreMemory)
+  overload: PathOS.PathOSAgentMemory.paths*
+- uid: PathOS.PathOSAgentMemory.memoryMap
+  commentId: P:PathOS.PathOSAgentMemory.memoryMap
+  id: memoryMap
+  parent: PathOS.PathOSAgentMemory
+  langs:
+  - csharp
+  - vb
+  name: memoryMap
+  nameWithType: PathOSAgentMemory.memoryMap
+  fullName: PathOS.PathOSAgentMemory.memoryMap
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSNavUtility.NavmeshMemoryMapper memoryMap { get; set; }
+    parameters: []
+    return:
+      type: PathOS.PathOSNavUtility.NavmeshMemoryMapper
+    content.vb: Public Property memoryMap As PathOSNavUtility.NavmeshMemoryMapper
+  overload: PathOS.PathOSAgentMemory.memoryMap*
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PathOS.PathOSAgentMemory.Memorize*
+  commentId: Overload:PathOS.PathOSAgentMemory.Memorize
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_Memorize_PathOS_PerceivedEntity_
+  name: Memorize
+  nameWithType: PathOSAgentMemory.Memorize
+  fullName: PathOS.PathOSAgentMemory.Memorize
+- uid: PathOS.PerceivedEntity
+  commentId: T:PathOS.PerceivedEntity
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PerceivedEntity.html
+  name: PerceivedEntity
+  nameWithType: PerceivedEntity
+  fullName: PathOS.PerceivedEntity
+- uid: PathOS.PathOSAgentMemory.GetMemory*
+  commentId: Overload:PathOS.PathOSAgentMemory.GetMemory
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_GetMemory_PathOS_PerceivedEntity_
+  name: GetMemory
+  nameWithType: PathOSAgentMemory.GetMemory
+  fullName: PathOS.PathOSAgentMemory.GetMemory
+- uid: PathOS.EntityMemory
+  commentId: T:PathOS.EntityMemory
+  parent: PathOS
+  isExternal: true
+  href: PathOS.EntityMemory.html
+  name: EntityMemory
+  nameWithType: EntityMemory
+  fullName: PathOS.EntityMemory
+- uid: PathOS.PathOSAgentMemory.CommitLTM*
+  commentId: Overload:PathOS.PathOSAgentMemory.CommitLTM
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_CommitLTM_PathOS_PerceivedEntity_
+  name: CommitLTM
+  nameWithType: PathOSAgentMemory.CommitLTM
+  fullName: PathOS.PathOSAgentMemory.CommitLTM
+- uid: PathOS.PathOSAgentMemory.TryCommitLTM*
+  commentId: Overload:PathOS.PathOSAgentMemory.TryCommitLTM
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_TryCommitLTM_PathOS_PerceivedEntity_
+  name: TryCommitLTM
+  nameWithType: PathOSAgentMemory.TryCommitLTM
+  fullName: PathOS.PathOSAgentMemory.TryCommitLTM
+- uid: PathOS.PathOSAgentMemory.CommitUnforgettable*
+  commentId: Overload:PathOS.PathOSAgentMemory.CommitUnforgettable
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_CommitUnforgettable_PathOS_PerceivedEntity_
+  name: CommitUnforgettable
+  nameWithType: PathOSAgentMemory.CommitUnforgettable
+  fullName: PathOS.PathOSAgentMemory.CommitUnforgettable
+- uid: PathOS.PathOSAgentMemory.MakeUnreachable*
+  commentId: Overload:PathOS.PathOSAgentMemory.MakeUnreachable
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_MakeUnreachable_PathOS_PerceivedEntity_
+  name: MakeUnreachable
+  nameWithType: PathOSAgentMemory.MakeUnreachable
+  fullName: PathOS.PathOSAgentMemory.MakeUnreachable
+- uid: PathOS.PathOSAgentMemory.Visited*
+  commentId: Overload:PathOS.PathOSAgentMemory.Visited
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_Visited_PathOS_PerceivedEntity_
+  name: Visited
+  nameWithType: PathOSAgentMemory.Visited
+  fullName: PathOS.PathOSAgentMemory.Visited
+- uid: PathOS.PathOSAgentMemory.AddPath*
+  commentId: Overload:PathOS.PathOSAgentMemory.AddPath
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_AddPath_PathOS_ExploreMemory_
+  name: AddPath
+  nameWithType: PathOSAgentMemory.AddPath
+  fullName: PathOS.PathOSAgentMemory.AddPath
+- uid: PathOS.ExploreMemory
+  commentId: T:PathOS.ExploreMemory
+  parent: PathOS
+  isExternal: true
+  href: PathOS.ExploreMemory.html
+  name: ExploreMemory
+  nameWithType: ExploreMemory
+  fullName: PathOS.ExploreMemory
+- uid: PathOS.PathOSAgentMemory.UnvisitedRemaining*
+  commentId: Overload:PathOS.PathOSAgentMemory.UnvisitedRemaining
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_UnvisitedRemaining
+  name: UnvisitedRemaining
+  nameWithType: PathOSAgentMemory.UnvisitedRemaining
+  fullName: PathOS.PathOSAgentMemory.UnvisitedRemaining
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: PathOS.PathOSAgentMemory.AchievementGoalsLeft*
+  commentId: Overload:PathOS.PathOSAgentMemory.AchievementGoalsLeft
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_AchievementGoalsLeft
+  name: AchievementGoalsLeft
+  nameWithType: PathOSAgentMemory.AchievementGoalsLeft
+  fullName: PathOS.PathOSAgentMemory.AchievementGoalsLeft
+- uid: PathOS.PathOSAgentMemory.MandatoryGoalsLeft*
+  commentId: Overload:PathOS.PathOSAgentMemory.MandatoryGoalsLeft
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_MandatoryGoalsLeft
+  name: MandatoryGoalsLeft
+  nameWithType: PathOSAgentMemory.MandatoryGoalsLeft
+  fullName: PathOS.PathOSAgentMemory.MandatoryGoalsLeft
+- uid: PathOS.PathOSAgentMemory.FinalGoalCompleted*
+  commentId: Overload:PathOS.PathOSAgentMemory.FinalGoalCompleted
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_FinalGoalCompleted
+  name: FinalGoalCompleted
+  nameWithType: PathOSAgentMemory.FinalGoalCompleted
+  fullName: PathOS.PathOSAgentMemory.FinalGoalCompleted
+- uid: PathOS.PathOSAgentMemory.ScoreHazards*
+  commentId: Overload:PathOS.PathOSAgentMemory.ScoreHazards
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_ScoreHazards_UnityEngine_Vector3_
+  name: ScoreHazards
+  nameWithType: PathOSAgentMemory.ScoreHazards
+  fullName: PathOS.PathOSAgentMemory.ScoreHazards
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PathOS.PathOSAgentMemory.MovementHazardPenalty*
+  commentId: Overload:PathOS.PathOSAgentMemory.MovementHazardPenalty
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_MovementHazardPenalty_UnityEngine_Vector3_
+  name: MovementHazardPenalty
+  nameWithType: PathOSAgentMemory.MovementHazardPenalty
+  fullName: PathOS.PathOSAgentMemory.MovementHazardPenalty
+- uid: PathOS.PathOSAgentMemory.SetAllMemoriesAndPathsAsReachable*
+  commentId: Overload:PathOS.PathOSAgentMemory.SetAllMemoriesAndPathsAsReachable
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_SetAllMemoriesAndPathsAsReachable
+  name: SetAllMemoriesAndPathsAsReachable
+  nameWithType: PathOSAgentMemory.SetAllMemoriesAndPathsAsReachable
+  fullName: PathOS.PathOSAgentMemory.SetAllMemoriesAndPathsAsReachable
+- uid: PathOS.PathOSAgentMemory.DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity*
+  commentId: Overload:PathOS.PathOSAgentMemory.DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity
+  name: DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity
+  nameWithType: PathOSAgentMemory.DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity
+  fullName: PathOS.PathOSAgentMemory.DEBUGRefreshReachablesObstaclesAndNavMeshWhenVisitingNewEntity
+- uid: PathOS.PathOSAgentMemory.GetClosestStair*
+  commentId: Overload:PathOS.PathOSAgentMemory.GetClosestStair
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_GetClosestStair_UnityEngine_Vector3_System_Int32_
+  name: GetClosestStair
+  nameWithType: PathOSAgentMemory.GetClosestStair
+  fullName: PathOS.PathOSAgentMemory.GetClosestStair
+- uid: PathOS.PathOSAgentMemory.GetStairMemoriesForFloor*
+  commentId: Overload:PathOS.PathOSAgentMemory.GetStairMemoriesForFloor
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_GetStairMemoriesForFloor_System_Int32_System_Int32_
+  name: GetStairMemoriesForFloor
+  nameWithType: PathOSAgentMemory.GetStairMemoriesForFloor
+  fullName: PathOS.PathOSAgentMemory.GetStairMemoriesForFloor
+- uid: PathOS.EntityMemory[]
+  isExternal: true
+  href: PathOS.EntityMemory.html
+  name: EntityMemory[]
+  nameWithType: EntityMemory[]
+  fullName: PathOS.EntityMemory[]
+  nameWithType.vb: EntityMemory()
+  fullName.vb: PathOS.EntityMemory()
+  name.vb: EntityMemory()
+  spec.csharp:
+  - uid: PathOS.EntityMemory
+    name: EntityMemory
+    isExternal: true
+    href: PathOS.EntityMemory.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: PathOS.EntityMemory
+    name: EntityMemory
+    isExternal: true
+    href: PathOS.EntityMemory.html
+  - name: (
+  - name: )
+- uid: PathOS.PathOSAgentMemory.GetOtherStair*
+  commentId: Overload:PathOS.PathOSAgentMemory.GetOtherStair
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_GetOtherStair_PathOS_EntityMemory_
+  name: GetOtherStair
+  nameWithType: PathOSAgentMemory.GetOtherStair
+  fullName: PathOS.PathOSAgentMemory.GetOtherStair
+- uid: PathOS.PathOSAgentMemory.#ctor*
+  commentId: Overload:PathOS.PathOSAgentMemory.#ctor
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory__ctor
+  name: PathOSAgentMemory
+  nameWithType: PathOSAgentMemory.PathOSAgentMemory
+  fullName: PathOS.PathOSAgentMemory.PathOSAgentMemory
+  nameWithType.vb: PathOSAgentMemory.New
+  fullName.vb: PathOS.PathOSAgentMemory.New
+  name.vb: New
+- uid: PathOS.PathOSAgentMemory.entities*
+  commentId: Overload:PathOS.PathOSAgentMemory.entities
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_entities
+  name: entities
+  nameWithType: PathOSAgentMemory.entities
+  fullName: PathOS.PathOSAgentMemory.entities
+- uid: System.Collections.Generic.List{PathOS.EntityMemory}
+  commentId: T:System.Collections.Generic.List{PathOS.EntityMemory}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<EntityMemory>
+  nameWithType: List<EntityMemory>
+  fullName: System.Collections.Generic.List<PathOS.EntityMemory>
+  nameWithType.vb: List(Of EntityMemory)
+  fullName.vb: System.Collections.Generic.List(Of PathOS.EntityMemory)
+  name.vb: List(Of EntityMemory)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PathOS.EntityMemory
+    name: EntityMemory
+    isExternal: true
+    href: PathOS.EntityMemory.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.EntityMemory
+    name: EntityMemory
+    isExternal: true
+    href: PathOS.EntityMemory.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PathOS.PathOSAgentMemory.paths*
+  commentId: Overload:PathOS.PathOSAgentMemory.paths
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_paths
+  name: paths
+  nameWithType: PathOSAgentMemory.paths
+  fullName: PathOS.PathOSAgentMemory.paths
+- uid: System.Collections.Generic.List{PathOS.ExploreMemory}
+  commentId: T:System.Collections.Generic.List{PathOS.ExploreMemory}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ExploreMemory>
+  nameWithType: List<ExploreMemory>
+  fullName: System.Collections.Generic.List<PathOS.ExploreMemory>
+  nameWithType.vb: List(Of ExploreMemory)
+  fullName.vb: System.Collections.Generic.List(Of PathOS.ExploreMemory)
+  name.vb: List(Of ExploreMemory)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PathOS.ExploreMemory
+    name: ExploreMemory
+    isExternal: true
+    href: PathOS.ExploreMemory.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.ExploreMemory
+    name: ExploreMemory
+    isExternal: true
+    href: PathOS.ExploreMemory.html
+  - name: )
+- uid: PathOS.PathOSAgentMemory.memoryMap*
+  commentId: Overload:PathOS.PathOSAgentMemory.memoryMap
+  isExternal: true
+  href: PathOS.PathOSAgentMemory.html#PathOS_PathOSAgentMemory_memoryMap
+  name: memoryMap
+  nameWithType: PathOSAgentMemory.memoryMap
+  fullName: PathOS.PathOSAgentMemory.memoryMap
+- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper
+  commentId: T:PathOS.PathOSNavUtility.NavmeshMemoryMapper
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSNavUtility.html
+  name: PathOSNavUtility.NavmeshMemoryMapper
+  nameWithType: PathOSNavUtility.NavmeshMemoryMapper
+  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper
+  spec.csharp:
+  - uid: PathOS.PathOSNavUtility
+    name: PathOSNavUtility
+    isExternal: true
+    href: PathOS.PathOSNavUtility.html
+  - name: .
+  - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper
+    name: NavmeshMemoryMapper
+    isExternal: true
+    href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html
+  spec.vb:
+  - uid: PathOS.PathOSNavUtility
+    name: PathOSNavUtility
+    isExternal: true
+    href: PathOS.PathOSNavUtility.html
+  - name: .
+  - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper
+    name: NavmeshMemoryMapper
+    isExternal: true
+    href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html
+shouldSkipMarkup: true

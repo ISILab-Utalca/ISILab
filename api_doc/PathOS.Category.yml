@@ -1,0 +1,94 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.Category
+  commentId: T:PathOS.Category
+  id: Category
+  parent: PathOS
+  children:
+  - PathOS.Category.NEG
+  - PathOS.Category.NONE
+  - PathOS.Category.POS
+  langs:
+  - csharp
+  - vb
+  name: Category
+  nameWithType: Category
+  fullName: PathOS.Category
+  type: Enum
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public enum Category
+    content.vb: Public Enum Category
+- uid: PathOS.Category.NONE
+  commentId: F:PathOS.Category.NONE
+  id: NONE
+  parent: PathOS.Category
+  langs:
+  - csharp
+  - vb
+  name: NONE
+  nameWithType: Category.NONE
+  fullName: PathOS.Category.NONE
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: NONE = 0
+    return:
+      type: PathOS.Category
+- uid: PathOS.Category.POS
+  commentId: F:PathOS.Category.POS
+  id: POS
+  parent: PathOS.Category
+  langs:
+  - csharp
+  - vb
+  name: POS
+  nameWithType: Category.POS
+  fullName: PathOS.Category.POS
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: POS = 1
+    return:
+      type: PathOS.Category
+- uid: PathOS.Category.NEG
+  commentId: F:PathOS.Category.NEG
+  id: NEG
+  parent: PathOS.Category
+  langs:
+  - csharp
+  - vb
+  name: NEG
+  nameWithType: Category.NEG
+  fullName: PathOS.Category.NEG
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: NEG = 2
+    return:
+      type: PathOS.Category
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: PathOS.Category
+  commentId: T:PathOS.Category
+  parent: PathOS
+  isExternal: true
+  href: PathOS.Category.html
+  name: Category
+  nameWithType: Category
+  fullName: PathOS.Category
+shouldSkipMarkup: true

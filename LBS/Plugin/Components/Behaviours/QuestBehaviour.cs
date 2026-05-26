@@ -61,10 +61,8 @@ namespace ISILab.LBS.Behaviours
 
             Graph.OnAddEdge += (edge) =>
             {
-                foreach (var from in edge.From)
-                {
-                    RequestTilePaint((edge, from));
-                }
+
+                RequestTilePaint(edge);
             };
 
             Graph.OnRemoveNode += (node) =>
@@ -74,10 +72,7 @@ namespace ISILab.LBS.Behaviours
 
             Graph.OnRemoveEdge += (edge) =>
             {
-                foreach(var from in edge.From)
-                {
-                    RequestTileRemove((edge, from));
-                }
+                RequestTileRemove(edge);
             };
         }
 
@@ -108,10 +103,7 @@ namespace ISILab.LBS.Behaviours
             // Add Edges AS TUPLES (as they are registered in PaintNewTiles/LoadAllTiles in Drawer)
             foreach (var edge in Graph.GraphEdges)
             {
-                foreach (var from in edge.From)
-                {
-                    allKeys.Add((edge, from));
-                }
+                allKeys.Add(edge);
             }
 
             UpdateKeys(allKeys);
@@ -148,8 +140,8 @@ namespace ISILab.LBS.Behaviours
 
             foreach (QuestEdge edge in Graph.GraphEdges)
             {
-                bool fromInside = nodesToRemove.Exists(n => edge.From.Contains(n));
-                bool toInside = nodesToRemove.Exists(n => n.ID == edge.To.ID);
+                bool fromInside = nodesToRemove.Exists(n => edge.From == n);
+                bool toInside = nodesToRemove.Exists(n => edge.To == n);
 
                 if (fromInside && toInside)
                 {
@@ -239,37 +231,16 @@ namespace ISILab.LBS.Behaviours
             {
                 var incomingEdge = merger.Graph.GraphEdges[i];
 
-                //QuestEdge existingEdge = null;
 
                 for (int j = 0; j < Graph.GraphEdges.Count; j++)
                 {
                     var edge = Graph.GraphEdges[j];
-
-                    bool fromMatch = true;
-
-                    for (int k = 0; k < edge.From.Count; k++)
-                    {
-                        var node = edge.From[k];
-
-                        if (incomingEdge.From.Exists(n => n.ID == node.ID))
-                        {
-                            continue;
-                        }
-
-                        fromMatch = false;
-                    }
-
-                    bool exists = edge.To == incomingEdge.To && fromMatch;
+                    bool exists = edge.To.ID == incomingEdge.To.ID && edge.From.ID == incomingEdge.From.ID;
 
                     if (!exists)
                     {
                         var newEdge = incomingEdge.Clone() as QuestEdge;
-
-                        for (int f = 0; f < newEdge.From.Count; f++)
-                        {
-                            var incomingFrom = newEdge.From[f];
-                            Graph.AddEdge(incomingFrom, newEdge.To);
-                        }
+                        Graph.AddEdge(newEdge.From, newEdge.To);
                     }
                     else if (overwrite)
                     {

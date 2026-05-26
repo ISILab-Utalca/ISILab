@@ -148,11 +148,12 @@ namespace ISILab.LBS.Drawers.Editor
             {
                 var field = key as GrammarField;
                 var data = field?.data;
-                if (data != bh.SelectedNodeData) 
+                if (data ==null || !data.Equals(bh.SelectedNodeData))
                     continue;
 
-                    var elements = view.GetElementsFromLayer(bh.OwnerLayer, key);
-                if (elements == null) continue;
+                var elements = view.GetElementsFromLayer(bh.OwnerLayer, key);
+                if (elements == null) 
+                    continue;
 
                 foreach (var el in elements)
                 {

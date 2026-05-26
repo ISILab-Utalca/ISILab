@@ -1,0 +1,323 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.PathOSEvaluationWindow
+  commentId: T:PathOS.PathOSEvaluationWindow
+  id: PathOSEvaluationWindow
+  parent: PathOS
+  children:
+  - PathOS.PathOSEvaluationWindow.#ctor
+  - PathOS.PathOSEvaluationWindow.AddComment(PathOS.UserComment)
+  - PathOS.PathOSEvaluationWindow.ClosePopup
+  - PathOS.PathOSEvaluationWindow.OnWindowOpen(UnityEngine.Rect)
+  - PathOS.PathOSEvaluationWindow.SetCurrentlyOpen(System.Boolean)
+  - PathOS.PathOSEvaluationWindow.SetManagerReference(PathOS.PathOSManager)
+  - PathOS.PathOSEvaluationWindow.SetScreenshotReference(PathOS.ScreenshotManager)
+  - PathOS.PathOSEvaluationWindow.instance
+  langs:
+  - csharp
+  - vb
+  name: PathOSEvaluationWindow
+  nameWithType: PathOSEvaluationWindow
+  fullName: PathOS.PathOSEvaluationWindow
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class PathOSEvaluationWindow : EditorWindow'
+    content.vb: Public Class PathOSEvaluationWindow Inherits EditorWindow
+  inheritance:
+  - System.Object
+- uid: PathOS.PathOSEvaluationWindow.instance
+  commentId: F:PathOS.PathOSEvaluationWindow.instance
+  id: instance
+  parent: PathOS.PathOSEvaluationWindow
+  langs:
+  - csharp
+  - vb
+  name: instance
+  nameWithType: PathOSEvaluationWindow.instance
+  fullName: PathOS.PathOSEvaluationWindow.instance
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static PathOSEvaluationWindow instance
+    return:
+      type: PathOS.PathOSEvaluationWindow
+    content.vb: Public Shared instance As PathOSEvaluationWindow
+- uid: PathOS.PathOSEvaluationWindow.OnWindowOpen(UnityEngine.Rect)
+  commentId: M:PathOS.PathOSEvaluationWindow.OnWindowOpen(UnityEngine.Rect)
+  id: OnWindowOpen(UnityEngine.Rect)
+  parent: PathOS.PathOSEvaluationWindow
+  langs:
+  - csharp
+  - vb
+  name: OnWindowOpen(Rect)
+  nameWithType: PathOSEvaluationWindow.OnWindowOpen(Rect)
+  fullName: PathOS.PathOSEvaluationWindow.OnWindowOpen(UnityEngine.Rect)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void OnWindowOpen(Rect layout)
+    parameters:
+    - id: layout
+      type: UnityEngine.Rect
+    content.vb: Public Sub OnWindowOpen(layout As Rect)
+  overload: PathOS.PathOSEvaluationWindow.OnWindowOpen*
+- uid: PathOS.PathOSEvaluationWindow.SetManagerReference(PathOS.PathOSManager)
+  commentId: M:PathOS.PathOSEvaluationWindow.SetManagerReference(PathOS.PathOSManager)
+  id: SetManagerReference(PathOS.PathOSManager)
+  parent: PathOS.PathOSEvaluationWindow
+  langs:
+  - csharp
+  - vb
+  name: SetManagerReference(PathOSManager)
+  nameWithType: PathOSEvaluationWindow.SetManagerReference(PathOSManager)
+  fullName: PathOS.PathOSEvaluationWindow.SetManagerReference(PathOS.PathOSManager)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void SetManagerReference(PathOSManager reference)
+    parameters:
+    - id: reference
+      type: PathOS.PathOSManager
+    content.vb: Public Sub SetManagerReference(reference As PathOSManager)
+  overload: PathOS.PathOSEvaluationWindow.SetManagerReference*
+- uid: PathOS.PathOSEvaluationWindow.SetScreenshotReference(PathOS.ScreenshotManager)
+  commentId: M:PathOS.PathOSEvaluationWindow.SetScreenshotReference(PathOS.ScreenshotManager)
+  id: SetScreenshotReference(PathOS.ScreenshotManager)
+  parent: PathOS.PathOSEvaluationWindow
+  langs:
+  - csharp
+  - vb
+  name: SetScreenshotReference(ScreenshotManager)
+  nameWithType: PathOSEvaluationWindow.SetScreenshotReference(ScreenshotManager)
+  fullName: PathOS.PathOSEvaluationWindow.SetScreenshotReference(PathOS.ScreenshotManager)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void SetScreenshotReference(ScreenshotManager reference)
+    parameters:
+    - id: reference
+      type: PathOS.ScreenshotManager
+    content.vb: Public Sub SetScreenshotReference(reference As ScreenshotManager)
+  overload: PathOS.PathOSEvaluationWindow.SetScreenshotReference*
+- uid: PathOS.PathOSEvaluationWindow.AddComment(PathOS.UserComment)
+  commentId: M:PathOS.PathOSEvaluationWindow.AddComment(PathOS.UserComment)
+  id: AddComment(PathOS.UserComment)
+  parent: PathOS.PathOSEvaluationWindow
+  langs:
+  - csharp
+  - vb
+  name: AddComment(UserComment)
+  nameWithType: PathOSEvaluationWindow.AddComment(UserComment)
+  fullName: PathOS.PathOSEvaluationWindow.AddComment(PathOS.UserComment)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void AddComment(UserComment comment)
+    parameters:
+    - id: comment
+      type: PathOS.UserComment
+    content.vb: Public Sub AddComment(comment As UserComment)
+  overload: PathOS.PathOSEvaluationWindow.AddComment*
+- uid: PathOS.PathOSEvaluationWindow.ClosePopup
+  commentId: M:PathOS.PathOSEvaluationWindow.ClosePopup
+  id: ClosePopup
+  parent: PathOS.PathOSEvaluationWindow
+  langs:
+  - csharp
+  - vb
+  name: ClosePopup()
+  nameWithType: PathOSEvaluationWindow.ClosePopup()
+  fullName: PathOS.PathOSEvaluationWindow.ClosePopup()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void ClosePopup()
+    content.vb: Public Sub ClosePopup()
+  overload: PathOS.PathOSEvaluationWindow.ClosePopup*
+- uid: PathOS.PathOSEvaluationWindow.SetCurrentlyOpen(System.Boolean)
+  commentId: M:PathOS.PathOSEvaluationWindow.SetCurrentlyOpen(System.Boolean)
+  id: SetCurrentlyOpen(System.Boolean)
+  parent: PathOS.PathOSEvaluationWindow
+  langs:
+  - csharp
+  - vb
+  name: SetCurrentlyOpen(bool)
+  nameWithType: PathOSEvaluationWindow.SetCurrentlyOpen(bool)
+  fullName: PathOS.PathOSEvaluationWindow.SetCurrentlyOpen(bool)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void SetCurrentlyOpen(bool temp)
+    parameters:
+    - id: temp
+      type: System.Boolean
+    content.vb: Public Sub SetCurrentlyOpen(temp As Boolean)
+  overload: PathOS.PathOSEvaluationWindow.SetCurrentlyOpen*
+  nameWithType.vb: PathOSEvaluationWindow.SetCurrentlyOpen(Boolean)
+  fullName.vb: PathOS.PathOSEvaluationWindow.SetCurrentlyOpen(Boolean)
+  name.vb: SetCurrentlyOpen(Boolean)
+- uid: PathOS.PathOSEvaluationWindow.#ctor
+  commentId: M:PathOS.PathOSEvaluationWindow.#ctor
+  id: '#ctor'
+  parent: PathOS.PathOSEvaluationWindow
+  langs:
+  - csharp
+  - vb
+  name: PathOSEvaluationWindow()
+  nameWithType: PathOSEvaluationWindow.PathOSEvaluationWindow()
+  fullName: PathOS.PathOSEvaluationWindow.PathOSEvaluationWindow()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSEvaluationWindow()
+    content.vb: Public Sub New()
+  overload: PathOS.PathOSEvaluationWindow.#ctor*
+  nameWithType.vb: PathOSEvaluationWindow.New()
+  fullName.vb: PathOS.PathOSEvaluationWindow.New()
+  name.vb: New()
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PathOS.PathOSEvaluationWindow
+  commentId: T:PathOS.PathOSEvaluationWindow
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSEvaluationWindow.html
+  name: PathOSEvaluationWindow
+  nameWithType: PathOSEvaluationWindow
+  fullName: PathOS.PathOSEvaluationWindow
+- uid: PathOS.PathOSEvaluationWindow.OnWindowOpen*
+  commentId: Overload:PathOS.PathOSEvaluationWindow.OnWindowOpen
+  isExternal: true
+  href: PathOS.PathOSEvaluationWindow.html#PathOS_PathOSEvaluationWindow_OnWindowOpen_UnityEngine_Rect_
+  name: OnWindowOpen
+  nameWithType: PathOSEvaluationWindow.OnWindowOpen
+  fullName: PathOS.PathOSEvaluationWindow.OnWindowOpen
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: PathOS.PathOSEvaluationWindow.SetManagerReference*
+  commentId: Overload:PathOS.PathOSEvaluationWindow.SetManagerReference
+  isExternal: true
+  href: PathOS.PathOSEvaluationWindow.html#PathOS_PathOSEvaluationWindow_SetManagerReference_PathOS_PathOSManager_
+  name: SetManagerReference
+  nameWithType: PathOSEvaluationWindow.SetManagerReference
+  fullName: PathOS.PathOSEvaluationWindow.SetManagerReference
+- uid: PathOS.PathOSManager
+  commentId: T:PathOS.PathOSManager
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSManager.html
+  name: PathOSManager
+  nameWithType: PathOSManager
+  fullName: PathOS.PathOSManager
+- uid: PathOS.PathOSEvaluationWindow.SetScreenshotReference*
+  commentId: Overload:PathOS.PathOSEvaluationWindow.SetScreenshotReference
+  isExternal: true
+  href: PathOS.PathOSEvaluationWindow.html#PathOS_PathOSEvaluationWindow_SetScreenshotReference_PathOS_ScreenshotManager_
+  name: SetScreenshotReference
+  nameWithType: PathOSEvaluationWindow.SetScreenshotReference
+  fullName: PathOS.PathOSEvaluationWindow.SetScreenshotReference
+- uid: PathOS.ScreenshotManager
+  commentId: T:PathOS.ScreenshotManager
+  parent: PathOS
+  isExternal: true
+  href: PathOS.ScreenshotManager.html
+  name: ScreenshotManager
+  nameWithType: ScreenshotManager
+  fullName: PathOS.ScreenshotManager
+- uid: PathOS.PathOSEvaluationWindow.AddComment*
+  commentId: Overload:PathOS.PathOSEvaluationWindow.AddComment
+  isExternal: true
+  href: PathOS.PathOSEvaluationWindow.html#PathOS_PathOSEvaluationWindow_AddComment_PathOS_UserComment_
+  name: AddComment
+  nameWithType: PathOSEvaluationWindow.AddComment
+  fullName: PathOS.PathOSEvaluationWindow.AddComment
+- uid: PathOS.UserComment
+  commentId: T:PathOS.UserComment
+  parent: PathOS
+  isExternal: true
+  href: PathOS.UserComment.html
+  name: UserComment
+  nameWithType: UserComment
+  fullName: PathOS.UserComment
+- uid: PathOS.PathOSEvaluationWindow.ClosePopup*
+  commentId: Overload:PathOS.PathOSEvaluationWindow.ClosePopup
+  isExternal: true
+  href: PathOS.PathOSEvaluationWindow.html#PathOS_PathOSEvaluationWindow_ClosePopup
+  name: ClosePopup
+  nameWithType: PathOSEvaluationWindow.ClosePopup
+  fullName: PathOS.PathOSEvaluationWindow.ClosePopup
+- uid: PathOS.PathOSEvaluationWindow.SetCurrentlyOpen*
+  commentId: Overload:PathOS.PathOSEvaluationWindow.SetCurrentlyOpen
+  isExternal: true
+  href: PathOS.PathOSEvaluationWindow.html#PathOS_PathOSEvaluationWindow_SetCurrentlyOpen_System_Boolean_
+  name: SetCurrentlyOpen
+  nameWithType: PathOSEvaluationWindow.SetCurrentlyOpen
+  fullName: PathOS.PathOSEvaluationWindow.SetCurrentlyOpen
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PathOS.PathOSEvaluationWindow.#ctor*
+  commentId: Overload:PathOS.PathOSEvaluationWindow.#ctor
+  isExternal: true
+  href: PathOS.PathOSEvaluationWindow.html#PathOS_PathOSEvaluationWindow__ctor
+  name: PathOSEvaluationWindow
+  nameWithType: PathOSEvaluationWindow.PathOSEvaluationWindow
+  fullName: PathOS.PathOSEvaluationWindow.PathOSEvaluationWindow
+  nameWithType.vb: PathOSEvaluationWindow.New
+  fullName.vb: PathOS.PathOSEvaluationWindow.New
+  name.vb: New
+shouldSkipMarkup: true

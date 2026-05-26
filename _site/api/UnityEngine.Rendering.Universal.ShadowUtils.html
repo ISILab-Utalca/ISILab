@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ShadowUtils | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ShadowUtils | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.Universal.ShadowUtils">
+
+
+
+  <h1 id="UnityEngine_Rendering_Universal_ShadowUtils" data-uid="UnityEngine.Rendering.Universal.ShadowUtils" class="text-break">
+Class ShadowUtils  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.Universal.html">Universal</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Universal.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ShadowUtils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ShadowUtils</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_AllocShadowRT_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.AllocShadowRT*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_AllocShadowRT_System_Int32_System_Int32_System_Int32_System_Int32_System_Single_System_String_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.AllocShadowRT(System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.String)">
+  AllocShadowRT(int, int, int, int, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RTHandle AllocShadowRT(int width, int height, int bits, int anisoLevel, float mipMapBias, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_ApplySliceTransform_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ApplySliceTransform*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_ApplySliceTransform_UnityEngine_Rendering_Universal_ShadowSliceData__System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ApplySliceTransform(UnityEngine.Rendering.Universal.ShadowSliceData@,System.Int32,System.Int32)">
+  ApplySliceTransform(ref ShadowSliceData, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ApplySliceTransform(ref ShadowSliceData shadowSliceData, int atlasWidth, int atlasHeight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shadowSliceData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowSliceData.html">ShadowSliceData</a></dt>
+    <dd></dd>
+    <dt><code>atlasWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>atlasHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractDirectionalLightMatrix_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractDirectionalLightMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractDirectionalLightMatrix_UnityEngine_Rendering_CullingResults__UnityEngine_Rendering_Universal_ShadowData__System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Single_UnityEngine_Vector4__UnityEngine_Rendering_Universal_ShadowSliceData__" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractDirectionalLightMatrix(UnityEngine.Rendering.CullingResults@,UnityEngine.Rendering.Universal.ShadowData@,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,UnityEngine.Vector4@,UnityEngine.Rendering.Universal.ShadowSliceData@)">
+  ExtractDirectionalLightMatrix(ref CullingResults, ref ShadowData, int, int, int, int, int, float, out Vector4, out ShadowSliceData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ExtractDirectionalLightMatrix(ref CullingResults cullResults, ref ShadowData shadowData, int shadowLightIndex, int cascadeIndex, int shadowmapWidth, int shadowmapHeight, int shadowResolution, float shadowNearPlane, out Vector4 cascadeSplitDistance, out ShadowSliceData shadowSliceData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cullResults</code> <span class="xref">CullingResults</span></dt>
+    <dd></dd>
+    <dt><code>shadowData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowData.html">ShadowData</a></dt>
+    <dd></dd>
+    <dt><code>shadowLightIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cascadeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowmapWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowmapHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowResolution</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowNearPlane</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>cascadeSplitDistance</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>shadowSliceData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowSliceData.html">ShadowSliceData</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractDirectionalLightMatrix_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractDirectionalLightMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractDirectionalLightMatrix_UnityEngine_Rendering_CullingResults__UnityEngine_Rendering_Universal_ShadowData__System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Single_UnityEngine_Vector4__UnityEngine_Rendering_Universal_ShadowSliceData__UnityEngine_Matrix4x4__UnityEngine_Matrix4x4__" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractDirectionalLightMatrix(UnityEngine.Rendering.CullingResults@,UnityEngine.Rendering.Universal.ShadowData@,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,UnityEngine.Vector4@,UnityEngine.Rendering.Universal.ShadowSliceData@,UnityEngine.Matrix4x4@,UnityEngine.Matrix4x4@)">
+  ExtractDirectionalLightMatrix(ref CullingResults, ref ShadowData, int, int, int, int, int, float, out Vector4, out ShadowSliceData, out Matrix4x4, out Matrix4x4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ExtractDirectionalLightMatrix(ref CullingResults cullResults, ref ShadowData shadowData, int shadowLightIndex, int cascadeIndex, int shadowmapWidth, int shadowmapHeight, int shadowResolution, float shadowNearPlane, out Vector4 cascadeSplitDistance, out ShadowSliceData shadowSliceData, out Matrix4x4 viewMatrix, out Matrix4x4 projMatrix)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cullResults</code> <span class="xref">CullingResults</span></dt>
+    <dd></dd>
+    <dt><code>shadowData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowData.html">ShadowData</a></dt>
+    <dd></dd>
+    <dt><code>shadowLightIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cascadeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowmapWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowmapHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowResolution</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowNearPlane</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>cascadeSplitDistance</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>shadowSliceData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowSliceData.html">ShadowSliceData</a></dt>
+    <dd></dd>
+    <dt><code>viewMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>projMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractDirectionalLightMatrix_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractDirectionalLightMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractDirectionalLightMatrix_UnityEngine_Rendering_CullingResults__UnityEngine_Rendering_Universal_UniversalShadowData_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Single_UnityEngine_Vector4__UnityEngine_Rendering_Universal_ShadowSliceData__" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractDirectionalLightMatrix(UnityEngine.Rendering.CullingResults@,UnityEngine.Rendering.Universal.UniversalShadowData,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,UnityEngine.Vector4@,UnityEngine.Rendering.Universal.ShadowSliceData@)">
+  ExtractDirectionalLightMatrix(ref CullingResults, UniversalShadowData, int, int, int, int, int, float, out Vector4, out ShadowSliceData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ExtractDirectionalLightMatrix(ref CullingResults cullResults, UniversalShadowData shadowData, int shadowLightIndex, int cascadeIndex, int shadowmapWidth, int shadowmapHeight, int shadowResolution, float shadowNearPlane, out Vector4 cascadeSplitDistance, out ShadowSliceData shadowSliceData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cullResults</code> <span class="xref">CullingResults</span></dt>
+    <dd></dd>
+    <dt><code>shadowData</code> <a class="xref" href="UnityEngine.Rendering.Universal.UniversalShadowData.html">UniversalShadowData</a></dt>
+    <dd></dd>
+    <dt><code>shadowLightIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cascadeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowmapWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowmapHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowResolution</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowNearPlane</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>cascadeSplitDistance</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>shadowSliceData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowSliceData.html">ShadowSliceData</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractPointLightMatrix_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractPointLightMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractPointLightMatrix_UnityEngine_Rendering_CullingResults__UnityEngine_Rendering_Universal_ShadowData__System_Int32_UnityEngine_CubemapFace_System_Single_UnityEngine_Matrix4x4__UnityEngine_Matrix4x4__UnityEngine_Matrix4x4__UnityEngine_Rendering_ShadowSplitData__" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractPointLightMatrix(UnityEngine.Rendering.CullingResults@,UnityEngine.Rendering.Universal.ShadowData@,System.Int32,UnityEngine.CubemapFace,System.Single,UnityEngine.Matrix4x4@,UnityEngine.Matrix4x4@,UnityEngine.Matrix4x4@,UnityEngine.Rendering.ShadowSplitData@)">
+  ExtractPointLightMatrix(ref CullingResults, ref ShadowData, int, CubemapFace, float, out Matrix4x4, out Matrix4x4, out Matrix4x4, out ShadowSplitData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ExtractPointLightMatrix(ref CullingResults cullResults, ref ShadowData shadowData, int shadowLightIndex, CubemapFace cubemapFace, float fovBias, out Matrix4x4 shadowMatrix, out Matrix4x4 viewMatrix, out Matrix4x4 projMatrix, out ShadowSplitData splitData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cullResults</code> <span class="xref">CullingResults</span></dt>
+    <dd></dd>
+    <dt><code>shadowData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowData.html">ShadowData</a></dt>
+    <dd></dd>
+    <dt><code>shadowLightIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>fovBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>shadowMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>viewMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>projMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>splitData</code> <span class="xref">ShadowSplitData</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractPointLightMatrix_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractPointLightMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractPointLightMatrix_UnityEngine_Rendering_CullingResults__UnityEngine_Rendering_Universal_UniversalShadowData_System_Int32_UnityEngine_CubemapFace_System_Single_UnityEngine_Matrix4x4__UnityEngine_Matrix4x4__UnityEngine_Matrix4x4__UnityEngine_Rendering_ShadowSplitData__" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractPointLightMatrix(UnityEngine.Rendering.CullingResults@,UnityEngine.Rendering.Universal.UniversalShadowData,System.Int32,UnityEngine.CubemapFace,System.Single,UnityEngine.Matrix4x4@,UnityEngine.Matrix4x4@,UnityEngine.Matrix4x4@,UnityEngine.Rendering.ShadowSplitData@)">
+  ExtractPointLightMatrix(ref CullingResults, UniversalShadowData, int, CubemapFace, float, out Matrix4x4, out Matrix4x4, out Matrix4x4, out ShadowSplitData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ExtractPointLightMatrix(ref CullingResults cullResults, UniversalShadowData shadowData, int shadowLightIndex, CubemapFace cubemapFace, float fovBias, out Matrix4x4 shadowMatrix, out Matrix4x4 viewMatrix, out Matrix4x4 projMatrix, out ShadowSplitData splitData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cullResults</code> <span class="xref">CullingResults</span></dt>
+    <dd></dd>
+    <dt><code>shadowData</code> <a class="xref" href="UnityEngine.Rendering.Universal.UniversalShadowData.html">UniversalShadowData</a></dt>
+    <dd></dd>
+    <dt><code>shadowLightIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>fovBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>shadowMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>viewMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>projMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>splitData</code> <span class="xref">ShadowSplitData</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractSpotLightMatrix_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractSpotLightMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractSpotLightMatrix_UnityEngine_Rendering_CullingResults__UnityEngine_Rendering_Universal_ShadowData__System_Int32_UnityEngine_Matrix4x4__UnityEngine_Matrix4x4__UnityEngine_Matrix4x4__UnityEngine_Rendering_ShadowSplitData__" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractSpotLightMatrix(UnityEngine.Rendering.CullingResults@,UnityEngine.Rendering.Universal.ShadowData@,System.Int32,UnityEngine.Matrix4x4@,UnityEngine.Matrix4x4@,UnityEngine.Matrix4x4@,UnityEngine.Rendering.ShadowSplitData@)">
+  ExtractSpotLightMatrix(ref CullingResults, ref ShadowData, int, out Matrix4x4, out Matrix4x4, out Matrix4x4, out ShadowSplitData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ExtractSpotLightMatrix(ref CullingResults cullResults, ref ShadowData shadowData, int shadowLightIndex, out Matrix4x4 shadowMatrix, out Matrix4x4 viewMatrix, out Matrix4x4 projMatrix, out ShadowSplitData splitData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cullResults</code> <span class="xref">CullingResults</span></dt>
+    <dd></dd>
+    <dt><code>shadowData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowData.html">ShadowData</a></dt>
+    <dd></dd>
+    <dt><code>shadowLightIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>viewMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>projMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>splitData</code> <span class="xref">ShadowSplitData</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractSpotLightMatrix_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractSpotLightMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_ExtractSpotLightMatrix_UnityEngine_Rendering_CullingResults__UnityEngine_Rendering_Universal_UniversalShadowData_System_Int32_UnityEngine_Matrix4x4__UnityEngine_Matrix4x4__UnityEngine_Matrix4x4__UnityEngine_Rendering_ShadowSplitData__" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ExtractSpotLightMatrix(UnityEngine.Rendering.CullingResults@,UnityEngine.Rendering.Universal.UniversalShadowData,System.Int32,UnityEngine.Matrix4x4@,UnityEngine.Matrix4x4@,UnityEngine.Matrix4x4@,UnityEngine.Rendering.ShadowSplitData@)">
+  ExtractSpotLightMatrix(ref CullingResults, UniversalShadowData, int, out Matrix4x4, out Matrix4x4, out Matrix4x4, out ShadowSplitData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ExtractSpotLightMatrix(ref CullingResults cullResults, UniversalShadowData shadowData, int shadowLightIndex, out Matrix4x4 shadowMatrix, out Matrix4x4 viewMatrix, out Matrix4x4 projMatrix, out ShadowSplitData splitData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cullResults</code> <span class="xref">CullingResults</span></dt>
+    <dd></dd>
+    <dt><code>shadowData</code> <a class="xref" href="UnityEngine.Rendering.Universal.UniversalShadowData.html">UniversalShadowData</a></dt>
+    <dd></dd>
+    <dt><code>shadowLightIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>viewMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>projMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>splitData</code> <span class="xref">ShadowSplitData</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_GetMaxTileResolutionInAtlas_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.GetMaxTileResolutionInAtlas*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_GetMaxTileResolutionInAtlas_System_Int32_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.GetMaxTileResolutionInAtlas(System.Int32,System.Int32,System.Int32)">
+  GetMaxTileResolutionInAtlas(int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetMaxTileResolutionInAtlas(int atlasWidth, int atlasHeight, int tileCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>atlasHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>tileCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_GetShadowBias_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.GetShadowBias*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_GetShadowBias_UnityEngine_Rendering_VisibleLight__System_Int32_UnityEngine_Rendering_Universal_ShadowData__UnityEngine_Matrix4x4_System_Single_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.GetShadowBias(UnityEngine.Rendering.VisibleLight@,System.Int32,UnityEngine.Rendering.Universal.ShadowData@,UnityEngine.Matrix4x4,System.Single)">
+  GetShadowBias(ref VisibleLight, int, ref ShadowData, Matrix4x4, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector4 GetShadowBias(ref VisibleLight shadowLight, int shadowLightIndex, ref ShadowData shadowData, Matrix4x4 lightProjectionMatrix, float shadowResolution)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shadowLight</code> <span class="xref">VisibleLight</span></dt>
+    <dd></dd>
+    <dt><code>shadowLightIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowData.html">ShadowData</a></dt>
+    <dd></dd>
+    <dt><code>lightProjectionMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>shadowResolution</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_GetShadowBias_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.GetShadowBias*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_GetShadowBias_UnityEngine_Rendering_VisibleLight__System_Int32_UnityEngine_Rendering_Universal_UniversalShadowData_UnityEngine_Matrix4x4_System_Single_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.GetShadowBias(UnityEngine.Rendering.VisibleLight@,System.Int32,UnityEngine.Rendering.Universal.UniversalShadowData,UnityEngine.Matrix4x4,System.Single)">
+  GetShadowBias(ref VisibleLight, int, UniversalShadowData, Matrix4x4, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector4 GetShadowBias(ref VisibleLight shadowLight, int shadowLightIndex, UniversalShadowData shadowData, Matrix4x4 lightProjectionMatrix, float shadowResolution)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shadowLight</code> <span class="xref">VisibleLight</span></dt>
+    <dd></dd>
+    <dt><code>shadowLightIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shadowData</code> <a class="xref" href="UnityEngine.Rendering.Universal.UniversalShadowData.html">UniversalShadowData</a></dt>
+    <dd></dd>
+    <dt><code>lightProjectionMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>shadowResolution</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_GetTemporaryShadowTexture_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.GetTemporaryShadowTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_GetTemporaryShadowTexture_System_Int32_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.GetTemporaryShadowTexture(System.Int32,System.Int32,System.Int32)">
+  GetTemporaryShadowTexture(int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use AllocShadowRT or ShadowRTReAllocateIfNeeded&quot;, true)]
+public static RenderTexture GetTemporaryShadowTexture(int width, int height, int bits)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RenderTexture</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_RenderShadowSlice_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.RenderShadowSlice*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_RenderShadowSlice_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_ScriptableRenderContext__UnityEngine_Rendering_Universal_ShadowSliceData__UnityEngine_Rendering_ShadowDrawingSettings__" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.RenderShadowSlice(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.ScriptableRenderContext@,UnityEngine.Rendering.Universal.ShadowSliceData@,UnityEngine.Rendering.ShadowDrawingSettings@)">
+  RenderShadowSlice(CommandBuffer, ref ScriptableRenderContext, ref ShadowSliceData, ref ShadowDrawingSettings)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RenderShadowSlice(CommandBuffer cmd, ref ScriptableRenderContext context, ref ShadowSliceData shadowSliceData, ref ShadowDrawingSettings settings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>context</code> <span class="xref">ScriptableRenderContext</span></dt>
+    <dd></dd>
+    <dt><code>shadowSliceData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowSliceData.html">ShadowSliceData</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <span class="xref">ShadowDrawingSettings</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_RenderShadowSlice_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.RenderShadowSlice*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_RenderShadowSlice_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_ScriptableRenderContext__UnityEngine_Rendering_Universal_ShadowSliceData__UnityEngine_Rendering_ShadowDrawingSettings__UnityEngine_Matrix4x4_UnityEngine_Matrix4x4_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.RenderShadowSlice(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.ScriptableRenderContext@,UnityEngine.Rendering.Universal.ShadowSliceData@,UnityEngine.Rendering.ShadowDrawingSettings@,UnityEngine.Matrix4x4,UnityEngine.Matrix4x4)">
+  RenderShadowSlice(CommandBuffer, ref ScriptableRenderContext, ref ShadowSliceData, ref ShadowDrawingSettings, Matrix4x4, Matrix4x4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RenderShadowSlice(CommandBuffer cmd, ref ScriptableRenderContext context, ref ShadowSliceData shadowSliceData, ref ShadowDrawingSettings settings, Matrix4x4 proj, Matrix4x4 view)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>context</code> <span class="xref">ScriptableRenderContext</span></dt>
+    <dd></dd>
+    <dt><code>shadowSliceData</code> <a class="xref" href="UnityEngine.Rendering.Universal.ShadowSliceData.html">ShadowSliceData</a></dt>
+    <dd></dd>
+    <dt><code>settings</code> <span class="xref">ShadowDrawingSettings</span></dt>
+    <dd></dd>
+    <dt><code>proj</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>view</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_SetupShadowCasterConstantBuffer_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.SetupShadowCasterConstantBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_SetupShadowCasterConstantBuffer_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_VisibleLight__UnityEngine_Vector4_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.SetupShadowCasterConstantBuffer(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.VisibleLight@,UnityEngine.Vector4)">
+  SetupShadowCasterConstantBuffer(CommandBuffer, ref VisibleLight, Vector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetupShadowCasterConstantBuffer(CommandBuffer cmd, ref VisibleLight shadowLight, Vector4 shadowBias)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>shadowLight</code> <span class="xref">VisibleLight</span></dt>
+    <dd></dd>
+    <dt><code>shadowBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_ShadowRTNeedsReAlloc_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ShadowRTNeedsReAlloc*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_ShadowRTNeedsReAlloc_UnityEngine_Rendering_RTHandle_System_Int32_System_Int32_System_Int32_System_Int32_System_Single_System_String_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ShadowRTNeedsReAlloc(UnityEngine.Rendering.RTHandle,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.String)">
+  ShadowRTNeedsReAlloc(RTHandle, int, int, int, int, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ShadowRTNeedsReAlloc(RTHandle handle, int width, int height, int bits, int anisoLevel, float mipMapBias, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowUtils_ShadowRTReAllocateIfNeeded_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ShadowRTReAllocateIfNeeded*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowUtils_ShadowRTReAllocateIfNeeded_UnityEngine_Rendering_RTHandle__System_Int32_System_Int32_System_Int32_System_Int32_System_Single_System_String_" data-uid="UnityEngine.Rendering.Universal.ShadowUtils.ShadowRTReAllocateIfNeeded(UnityEngine.Rendering.RTHandle@,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.String)">
+  ShadowRTReAllocateIfNeeded(ref RTHandle, int, int, int, int, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ShadowRTReAllocateIfNeeded(ref RTHandle handle, int width, int height, int bits, int anisoLevel = 1, float mipMapBias = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

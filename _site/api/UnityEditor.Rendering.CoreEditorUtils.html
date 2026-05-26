@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CoreEditorUtils | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CoreEditorUtils | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEditor.Rendering.CoreEditorUtils">
+
+
+
+  <h1 id="UnityEditor_Rendering_CoreEditorUtils" data-uid="UnityEditor.Rendering.CoreEditorUtils" class="text-break">
+Class CoreEditorUtils  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEditor.html">UnityEditor</a>.<a class="xref" href="UnityEditor.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class CoreEditorUtils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CoreEditorUtils</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_buildTargets_" data-uid="UnityEditor.Rendering.CoreEditorUtils.buildTargets*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_buildTargets" data-uid="UnityEditor.Rendering.CoreEditorUtils.buildTargets">
+  buildTargets
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GraphicsDeviceType[] buildTargets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GraphicsDeviceType</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_AddAdditionalData_" data-uid="UnityEditor.Rendering.CoreEditorUtils.AddAdditionalData*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_AddAdditionalData__2_UnityEngine_GameObject_System_Action___1__" data-uid="UnityEditor.Rendering.CoreEditorUtils.AddAdditionalData``2(UnityEngine.GameObject,System.Action{``1})">
+  AddAdditionalData&lt;T, AdditionalT&gt;(GameObject, Action&lt;AdditionalT&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddAdditionalData&lt;T, AdditionalT&gt;(GameObject go, Action&lt;AdditionalT&gt; initDefault = null) where T : Component where AdditionalT : Component</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>go</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>initDefault</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;AdditionalT&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>AdditionalT</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_CheckOutFile_" data-uid="UnityEditor.Rendering.CoreEditorUtils.CheckOutFile*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_CheckOutFile_System_Boolean_UnityEngine_Object_" data-uid="UnityEditor.Rendering.CoreEditorUtils.CheckOutFile(System.Boolean,UnityEngine.Object)">
+  CheckOutFile(bool, Object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CheckOutFile(bool VCSEnabled, Object mat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>VCSEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>mat</code> <span class="xref">Object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_ColorFieldLinear_" data-uid="UnityEditor.Rendering.CoreEditorUtils.ColorFieldLinear*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_ColorFieldLinear_UnityEditor_SerializedProperty_UnityEngine_GUIContent_" data-uid="UnityEditor.Rendering.CoreEditorUtils.ColorFieldLinear(UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+  ColorFieldLinear(SerializedProperty, GUIContent)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ColorFieldLinear(SerializedProperty property, GUIContent label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_CreateColoredTexture2D_" data-uid="UnityEditor.Rendering.CoreEditorUtils.CreateColoredTexture2D*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_CreateColoredTexture2D_UnityEngine_Color_System_String_" data-uid="UnityEditor.Rendering.CoreEditorUtils.CreateColoredTexture2D(UnityEngine.Color,System.String)">
+  CreateColoredTexture2D(Color, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture2D CreateColoredTexture2D(Color color, string textureName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>textureName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture2D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_CreateGameObject_" data-uid="UnityEditor.Rendering.CoreEditorUtils.CreateGameObject*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_CreateGameObject_System_String_UnityEngine_Object_" data-uid="UnityEditor.Rendering.CoreEditorUtils.CreateGameObject(System.String,UnityEngine.Object)">
+  CreateGameObject(string, Object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GameObject CreateGameObject(string name, Object context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>context</code> <span class="xref">Object</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_CreateGameObject_" data-uid="UnityEditor.Rendering.CoreEditorUtils.CreateGameObject*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_CreateGameObject_UnityEngine_GameObject_System_String_System_Type___" data-uid="UnityEditor.Rendering.CoreEditorUtils.CreateGameObject(UnityEngine.GameObject,System.String,System.Type[])">
+  CreateGameObject(GameObject, string, params Type[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GameObject CreateGameObject(GameObject parent, string name, params Type[] types)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parent</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>types</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawEnumPopup_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawEnumPopup*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawEnumPopup_UnityEditor_SerializedProperty_System_Type_UnityEngine_GUIContent_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawEnumPopup(UnityEditor.SerializedProperty,System.Type,UnityEngine.GUIContent)">
+  DrawEnumPopup(SerializedProperty, Type, GUIContent)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawEnumPopup(SerializedProperty property, Type type, GUIContent label = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawEnumPopup_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawEnumPopup*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawEnumPopup__1_UnityEngine_Rect_UnityEngine_GUIContent_UnityEditor_SerializedProperty_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawEnumPopup``1(UnityEngine.Rect,UnityEngine.GUIContent,UnityEditor.SerializedProperty)">
+  DrawEnumPopup&lt;TEnum&gt;(Rect, GUIContent, SerializedProperty)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawEnumPopup&lt;TEnum&gt;(Rect rect, GUIContent label, SerializedProperty serializedProperty) where TEnum : Enum</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>serializedProperty</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TEnum</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawFixMeBox_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFixMeBox*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawFixMeBox_System_String_System_Action_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFixMeBox(System.String,System.Action)">
+  DrawFixMeBox(string, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFixMeBox(string message, Action action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawFixMeBox_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFixMeBox*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawFixMeBox_System_String_UnityEditor_MessageType_System_Action_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFixMeBox(System.String,UnityEditor.MessageType,System.Action)">
+  DrawFixMeBox(string, MessageType, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFixMeBox(string message, MessageType messageType, Action action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>messageType</code> <span class="xref">MessageType</span></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawFixMeBox_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFixMeBox*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawFixMeBox_System_String_UnityEditor_MessageType_System_String_System_Action_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFixMeBox(System.String,UnityEditor.MessageType,System.String,System.Action)">
+  DrawFixMeBox(string, MessageType, string, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFixMeBox(string message, MessageType messageType, string buttonLabel, Action action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>messageType</code> <span class="xref">MessageType</span></dt>
+    <dd></dd>
+    <dt><code>buttonLabel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawFixMeBox_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFixMeBox*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawFixMeBox_UnityEngine_GUIContent_System_Action_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFixMeBox(UnityEngine.GUIContent,System.Action)">
+  DrawFixMeBox(GUIContent, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFixMeBox(GUIContent message, Action action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawFixMeBox_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFixMeBox*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawFixMeBox_UnityEngine_GUIContent_System_String_System_Action_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFixMeBox(UnityEngine.GUIContent,System.String,System.Action)">
+  DrawFixMeBox(GUIContent, string, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFixMeBox(GUIContent message, string buttonLabel, Action action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>buttonLabel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawFoldoutEndSplitter_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFoldoutEndSplitter*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawFoldoutEndSplitter_System_Boolean_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawFoldoutEndSplitter(System.Boolean)">
+  DrawFoldoutEndSplitter(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFoldoutEndSplitter(bool isBoxed = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawHeader_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeader*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawHeader_System_String_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeader(System.String)">
+  DrawHeader(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawHeader(string title)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawHeader_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeader*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawHeader_UnityEngine_GUIContent_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeader(UnityEngine.GUIContent)">
+  DrawHeader(GUIContent)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawHeader(GUIContent title)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderFoldout_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderFoldout*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderFoldout_System_String_System_Boolean_System_Boolean_System_Func_System_Boolean__System_Action_System_Boolean_System_String_System_Action_UnityEngine_Vector2__System_Action_UnityEditor_GenericMenu__" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderFoldout(System.String,System.Boolean,System.Boolean,System.Func{System.Boolean},System.Action,System.Boolean,System.String,System.Action{UnityEngine.Vector2},System.Action{UnityEditor.GenericMenu})">
+  DrawHeaderFoldout(string, bool, bool, Func&lt;bool&gt;, Action, bool, string, Action&lt;Vector2&gt;, Action&lt;GenericMenu&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DrawHeaderFoldout(string title, bool state, bool isBoxed = false, Func&lt;bool&gt; hasMoreOptions = null, Action toggleMoreOption = null, bool isTitleHeader = false, string documentationURL = &quot;&quot;, Action&lt;Vector2&gt; contextAction = null, Action&lt;GenericMenu&gt; customMenuContextAction = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>toggleMoreOption</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+    <dt><code>isTitleHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>documentationURL</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>contextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>customMenuContextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">GenericMenu</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderFoldout_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderFoldout*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderFoldout_UnityEngine_GUIContent_System_Boolean_System_Boolean_System_Func_System_Boolean__System_Action_System_Boolean_System_String_System_Action_UnityEngine_Vector2__System_Action_UnityEditor_GenericMenu__" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderFoldout(UnityEngine.GUIContent,System.Boolean,System.Boolean,System.Func{System.Boolean},System.Action,System.Boolean,System.String,System.Action{UnityEngine.Vector2},System.Action{UnityEditor.GenericMenu})">
+  DrawHeaderFoldout(GUIContent, bool, bool, Func&lt;bool&gt;, Action, bool, string, Action&lt;Vector2&gt;, Action&lt;GenericMenu&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DrawHeaderFoldout(GUIContent title, bool state, bool isBoxed = false, Func&lt;bool&gt; hasMoreOptions = null, Action toggleMoreOptions = null, bool isTitleHeader = false, string documentationURL = &quot;&quot;, Action&lt;Vector2&gt; contextAction = null, Action&lt;GenericMenu&gt; customMenuContextAction = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>toggleMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+    <dt><code>isTitleHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>documentationURL</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>contextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>customMenuContextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">GenericMenu</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderFoldout_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderFoldout*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderFoldout_UnityEngine_Rect_UnityEngine_GUIContent_System_Boolean_System_Boolean_System_Func_System_Boolean__System_Action_System_Boolean_System_String_System_Action_UnityEngine_Vector2__System_Action_UnityEditor_GenericMenu__" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderFoldout(UnityEngine.Rect,UnityEngine.GUIContent,System.Boolean,System.Boolean,System.Func{System.Boolean},System.Action,System.Boolean,System.String,System.Action{UnityEngine.Vector2},System.Action{UnityEditor.GenericMenu})">
+  DrawHeaderFoldout(Rect, GUIContent, bool, bool, Func&lt;bool&gt;, Action, bool, string, Action&lt;Vector2&gt;, Action&lt;GenericMenu&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DrawHeaderFoldout(Rect backgroundRect, GUIContent title, bool state, bool isBoxed = false, Func&lt;bool&gt; hasMoreOptions = null, Action toggleMoreOptions = null, bool isTitleHeader = false, string documentationURL = &quot;&quot;, Action&lt;Vector2&gt; contextAction = null, Action&lt;GenericMenu&gt; customMenuContextAction = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>backgroundRect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>title</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>toggleMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+    <dt><code>isTitleHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>documentationURL</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>contextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>customMenuContextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">GenericMenu</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderToggle_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderToggle*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderToggle_System_String_UnityEditor_SerializedProperty_UnityEditor_SerializedProperty_System_Action_UnityEngine_Vector2__System_Func_System_Boolean__System_Action_System_String_System_Action_UnityEditor_GenericMenu__System_Boolean_System_Boolean_System_Boolean_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderToggle(System.String,UnityEditor.SerializedProperty,UnityEditor.SerializedProperty,System.Action{UnityEngine.Vector2},System.Func{System.Boolean},System.Action,System.String,System.Action{UnityEditor.GenericMenu},System.Boolean,System.Boolean,System.Boolean)">
+  DrawHeaderToggle(string, SerializedProperty, SerializedProperty, Action&lt;Vector2&gt;, Func&lt;bool&gt;, Action, string, Action&lt;GenericMenu&gt;, bool, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DrawHeaderToggle(string title, SerializedProperty group, SerializedProperty activeField, Action&lt;Vector2&gt; contextAction = null, Func&lt;bool&gt; hasMoreOptions = null, Action toggleMoreOptions = null, string documentationURL = null, Action&lt;GenericMenu&gt; customMenuContextAction = null, bool isBoxed = false, bool isTitleHeader = false, bool shouldUpdate = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>group</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>activeField</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>contextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>hasMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>toggleMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+    <dt><code>documentationURL</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>customMenuContextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">GenericMenu</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isTitleHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>shouldUpdate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderToggle_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderToggle*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderToggle_UnityEngine_GUIContent_UnityEditor_SerializedProperty_UnityEditor_SerializedProperty_System_Action_UnityEngine_Vector2__System_Func_System_Boolean__System_Action_System_String_System_Action_UnityEditor_GenericMenu__System_Boolean_System_Boolean_System_Boolean_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderToggle(UnityEngine.GUIContent,UnityEditor.SerializedProperty,UnityEditor.SerializedProperty,System.Action{UnityEngine.Vector2},System.Func{System.Boolean},System.Action,System.String,System.Action{UnityEditor.GenericMenu},System.Boolean,System.Boolean,System.Boolean)">
+  DrawHeaderToggle(GUIContent, SerializedProperty, SerializedProperty, Action&lt;Vector2&gt;, Func&lt;bool&gt;, Action, string, Action&lt;GenericMenu&gt;, bool, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DrawHeaderToggle(GUIContent title, SerializedProperty group, SerializedProperty activeField, Action&lt;Vector2&gt; contextAction = null, Func&lt;bool&gt; hasMoreOptions = null, Action toggleMoreOptions = null, string documentationURL = null, Action&lt;GenericMenu&gt; customMenuContextAction = null, bool isBoxed = false, bool isTitleHeader = false, bool shouldUpdate = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>group</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>activeField</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>contextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>hasMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>toggleMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+    <dt><code>documentationURL</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>customMenuContextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">GenericMenu</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isTitleHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>shouldUpdate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderToggleFoldout_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderToggleFoldout*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawHeaderToggleFoldout_UnityEngine_GUIContent_System_Boolean_UnityEditor_SerializedProperty_System_Action_UnityEngine_Vector2__System_Func_System_Boolean__System_Action_System_String_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawHeaderToggleFoldout(UnityEngine.GUIContent,System.Boolean,UnityEditor.SerializedProperty,System.Action{UnityEngine.Vector2},System.Func{System.Boolean},System.Action,System.String)">
+  DrawHeaderToggleFoldout(GUIContent, bool, SerializedProperty, Action&lt;Vector2&gt;, Func&lt;bool&gt;, Action, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DrawHeaderToggleFoldout(GUIContent title, bool foldoutExpanded, SerializedProperty toggleProperty, Action&lt;Vector2&gt; contextAction, Func&lt;bool&gt; hasMoreOptions, Action toggleMoreOptions, string documentationURL)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>foldoutExpanded</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>toggleProperty</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>contextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>hasMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>toggleMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+    <dt><code>documentationURL</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawMultipleFields_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawMultipleFields*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawMultipleFields_System_String_UnityEditor_SerializedProperty___UnityEngine_GUIContent___" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawMultipleFields(System.String,UnityEditor.SerializedProperty[],UnityEngine.GUIContent[])">
+  DrawMultipleFields(string, SerializedProperty[], GUIContent[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawMultipleFields(string label, SerializedProperty[] ppts, GUIContent[] labels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>ppts</code> <span class="xref">SerializedProperty</span>[]</dt>
+    <dd></dd>
+    <dt><code>labels</code> <span class="xref">GUIContent</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawMultipleFields_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawMultipleFields*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawMultipleFields_UnityEngine_GUIContent_UnityEditor_SerializedProperty___UnityEngine_GUIContent___" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawMultipleFields(UnityEngine.GUIContent,UnityEditor.SerializedProperty[],UnityEngine.GUIContent[])">
+  DrawMultipleFields(GUIContent, SerializedProperty[], GUIContent[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawMultipleFields(GUIContent label, SerializedProperty[] ppts, GUIContent[] labels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>ppts</code> <span class="xref">SerializedProperty</span>[]</dt>
+    <dd></dd>
+    <dt><code>labels</code> <span class="xref">GUIContent</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawMultipleFields_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawMultipleFields*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawMultipleFields__1_UnityEngine_GUIContent_UnityEngine_GUIContent_____0___" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawMultipleFields``1(UnityEngine.GUIContent,UnityEngine.GUIContent[],``0[])">
+  DrawMultipleFields&lt;T&gt;(GUIContent, GUIContent[], T[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawMultipleFields&lt;T&gt;(GUIContent label, GUIContent[] labels, T[] values) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>labels</code> <span class="xref">GUIContent</span>[]</dt>
+    <dd></dd>
+    <dt><code>values</code> T[]</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawPopup_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawPopup*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawPopup_UnityEngine_GUIContent_UnityEditor_SerializedProperty_System_String___" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawPopup(UnityEngine.GUIContent,UnityEditor.SerializedProperty,System.String[])">
+  DrawPopup(GUIContent, SerializedProperty, string[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawPopup(GUIContent label, SerializedProperty property, string[] options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>property</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawSectionHeader_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSectionHeader*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawSectionHeader_UnityEngine_GUIContent_System_String_System_Action_UnityEngine_Vector2__System_Func_System_Boolean__System_Action_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSectionHeader(UnityEngine.GUIContent,System.String,System.Action{UnityEngine.Vector2},System.Func{System.Boolean},System.Action)">
+  DrawSectionHeader(GUIContent, string, Action&lt;Vector2&gt;, Func&lt;bool&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawSectionHeader(GUIContent title, string documentationURL = null, Action&lt;Vector2&gt; contextAction = null, Func&lt;bool&gt; hasMoreOptions = null, Action toggleMoreOptions = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>documentationURL</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>contextAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>hasMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>toggleMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawSplitter_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSplitter*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawSplitter_System_Boolean_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSplitter(System.Boolean)">
+  DrawSplitter(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawSplitter(bool isBoxed = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawSplitter_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSplitter*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawSplitter_UnityEngine_Rect_System_Boolean_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSplitter(UnityEngine.Rect,System.Boolean)">
+  DrawSplitter(Rect, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawSplitter(Rect rect, bool isBoxed = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawSubHeaderFoldout_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSubHeaderFoldout*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawSubHeaderFoldout_System_String_System_Boolean_System_Boolean_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSubHeaderFoldout(System.String,System.Boolean,System.Boolean)">
+  DrawSubHeaderFoldout(string, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DrawSubHeaderFoldout(string title, bool state, bool isBoxed = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawSubHeaderFoldout_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSubHeaderFoldout*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawSubHeaderFoldout_System_String_System_Boolean_System_Boolean_System_Func_System_Boolean__System_Action_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSubHeaderFoldout(System.String,System.Boolean,System.Boolean,System.Func{System.Boolean},System.Action)">
+  DrawSubHeaderFoldout(string, bool, bool, Func&lt;bool&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;&#39;More Options&#39; versions of DrawSubHeaderFoldout are obsolete. Please use DrawSubHeaderFoldout without &#39;More Options&#39;&quot;)]
+public static bool DrawSubHeaderFoldout(string title, bool state, bool isBoxed = false, Func&lt;bool&gt; hasMoreOptions = null, Action toggleMoreOptions = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>toggleMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawSubHeaderFoldout_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSubHeaderFoldout*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawSubHeaderFoldout_UnityEngine_GUIContent_System_Boolean_System_Boolean_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSubHeaderFoldout(UnityEngine.GUIContent,System.Boolean,System.Boolean)">
+  DrawSubHeaderFoldout(GUIContent, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DrawSubHeaderFoldout(GUIContent title, bool state, bool isBoxed = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawSubHeaderFoldout_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSubHeaderFoldout*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawSubHeaderFoldout_UnityEngine_GUIContent_System_Boolean_System_Boolean_System_Func_System_Boolean__System_Action_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawSubHeaderFoldout(UnityEngine.GUIContent,System.Boolean,System.Boolean,System.Func{System.Boolean},System.Action)">
+  DrawSubHeaderFoldout(GUIContent, bool, bool, Func&lt;bool&gt;, Action)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;&#39;More Options&#39; versions of DrawSubHeaderFoldout are obsolete. Please use DrawSubHeaderFoldout without &#39;More Options&#39;&quot;)]
+public static bool DrawSubHeaderFoldout(GUIContent title, bool state, bool isBoxed = false, Func&lt;bool&gt; hasMoreOptions = null, Action toggleMoreOptions = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isBoxed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>hasMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>toggleMoreOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_DrawVector6_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawVector6*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_DrawVector6_UnityEngine_GUIContent_UnityEditor_SerializedProperty_UnityEditor_SerializedProperty_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_Color___UnityEditor_SerializedProperty_System_Boolean_" data-uid="UnityEditor.Rendering.CoreEditorUtils.DrawVector6(UnityEngine.GUIContent,UnityEditor.SerializedProperty,UnityEditor.SerializedProperty,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Color[],UnityEditor.SerializedProperty,System.Boolean)">
+  DrawVector6(GUIContent, SerializedProperty, SerializedProperty, Vector3, Vector3, Color[], SerializedProperty, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawVector6(GUIContent label, SerializedProperty positive, SerializedProperty negative, Vector3 min, Vector3 max, Color[] colors = null, SerializedProperty multiplicator = null, bool allowIntersection = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <span class="xref">GUIContent</span></dt>
+    <dd></dd>
+    <dt><code>positive</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>negative</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>min</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>max</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>colors</code> <span class="xref">Color</span>[]</dt>
+    <dd></dd>
+    <dt><code>multiplicator</code> <span class="xref">SerializedProperty</span></dt>
+    <dd></dd>
+    <dt><code>allowIntersection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_FindProperty_" data-uid="UnityEditor.Rendering.CoreEditorUtils.FindProperty*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_FindProperty__2_System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="UnityEditor.Rendering.CoreEditorUtils.FindProperty``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+  FindProperty&lt;T, TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string FindProperty&lt;T, TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, TValue&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>TValue</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_GetAdditionalData_" data-uid="UnityEditor.Rendering.CoreEditorUtils.GetAdditionalData*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_GetAdditionalData__1_UnityEngine_Object___System_Action___0__" data-uid="UnityEditor.Rendering.CoreEditorUtils.GetAdditionalData``1(UnityEngine.Object[],System.Action{``0})">
+  GetAdditionalData&lt;T&gt;(Object[], Action&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T[] GetAdditionalData&lt;T&gt;(Object[] targets, Action&lt;T&gt; initDefault = null) where T : Component</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>targets</code> <span class="xref">Object</span>[]</dt>
+    <dd></dd>
+    <dt><code>initDefault</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_GetCurrentProjectVersion_" data-uid="UnityEditor.Rendering.CoreEditorUtils.GetCurrentProjectVersion*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_GetCurrentProjectVersion" data-uid="UnityEditor.Rendering.CoreEditorUtils.GetCurrentProjectVersion">
+  GetCurrentProjectVersion()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetCurrentProjectVersion()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_Highlight_" data-uid="UnityEditor.Rendering.CoreEditorUtils.Highlight*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_Highlight_System_String_System_String_UnityEditor_HighlightSearchMode_" data-uid="UnityEditor.Rendering.CoreEditorUtils.Highlight(System.String,System.String,UnityEditor.HighlightSearchMode)">
+  Highlight(string, string, HighlightSearchMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Highlight(string windowTitle, string text, HighlightSearchMode mode = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>windowTitle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mode</code> <span class="xref">HighlightSearchMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_LoadIcon_" data-uid="UnityEditor.Rendering.CoreEditorUtils.LoadIcon*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_LoadIcon_System_String_System_String_System_String_" data-uid="UnityEditor.Rendering.CoreEditorUtils.LoadIcon(System.String,System.String,System.String)">
+  LoadIcon(string, string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture2D LoadIcon(string path, string name, string extention = &quot;.png&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>extention</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture2D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Rendering_CoreEditorUtils_RemoveMaterialKeywords_" data-uid="UnityEditor.Rendering.CoreEditorUtils.RemoveMaterialKeywords*"></a>
+
+  <h3 id="UnityEditor_Rendering_CoreEditorUtils_RemoveMaterialKeywords_UnityEngine_Material_" data-uid="UnityEditor.Rendering.CoreEditorUtils.RemoveMaterialKeywords(UnityEngine.Material)">
+  RemoveMaterialKeywords(Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveMaterialKeywords(Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

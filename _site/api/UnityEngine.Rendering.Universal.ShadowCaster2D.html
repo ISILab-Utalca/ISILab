@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ShadowCaster2D | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ShadowCaster2D | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D">
+
+
+
+  <h1 id="UnityEngine_Rendering_Universal_ShadowCaster2D" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D" class="text-break">
+Class ShadowCaster2D  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.Universal.html">Universal</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Universal.2D.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CoreRPHelpURL(&quot;2DShadows&quot;, &quot;com.unity.render-pipelines.universal&quot;)]
+public class ShadowCaster2D : ShadowCasterGroup2D, ISerializationCallbackReceiver</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.ShadowCasterGroup2D.html">ShadowCasterGroup2D</a></div>
+      <div><span class="xref">ShadowCaster2D</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ISerializationCallbackReceiver</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ShadowCasterGroup2D.html#UnityEngine_Rendering_Universal_ShadowCasterGroup2D_GetShadowCasters">ShadowCasterGroup2D.GetShadowCasters()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ShadowCasterGroup2D.html#UnityEngine_Rendering_Universal_ShadowCasterGroup2D_GetShadowGroup">ShadowCasterGroup2D.GetShadowGroup()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ShadowCasterGroup2D.html#UnityEngine_Rendering_Universal_ShadowCasterGroup2D_RegisterShadowCaster2D_UnityEngine_Rendering_Universal_ShadowCaster2D_">ShadowCasterGroup2D.RegisterShadowCaster2D(ShadowCaster2D)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ShadowCasterGroup2D.html#UnityEngine_Rendering_Universal_ShadowCasterGroup2D_UnregisterShadowCaster2D_UnityEngine_Rendering_Universal_ShadowCaster2D_">ShadowCasterGroup2D.UnregisterShadowCaster2D(ShadowCaster2D)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D__ctor_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D__ctor" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.#ctor">
+  ShadowCaster2D()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShadowCaster2D()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_alphaCutoff_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.alphaCutoff*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_alphaCutoff" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.alphaCutoff">
+  alphaCutoff
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float alphaCutoff { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_boundingSphere_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.boundingSphere*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_boundingSphere" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.boundingSphere">
+  boundingSphere
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BoundingSphere boundingSphere { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BoundingSphere</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_castingOption_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.castingOption*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_castingOption" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.castingOption">
+  castingOption
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShadowCaster2D.ShadowCastingOptions castingOption { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.ShadowCaster2D.html">ShadowCaster2D</a>.<a class="xref" href="UnityEngine.Rendering.Universal.ShadowCaster2D.ShadowCastingOptions.html">ShadowCastingOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_castsShadows_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.castsShadows*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_castsShadows" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.castsShadows">
+  castsShadows
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool castsShadows { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_mesh_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.mesh*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_mesh" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.mesh">
+  mesh
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Mesh mesh { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Mesh</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_selfShadows_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.selfShadows*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_selfShadows" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.selfShadows">
+  selfShadows
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool selfShadows { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_shapePath_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.shapePath*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_shapePath" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.shapePath">
+  shapePath
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3[] shapePath { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_trimEdge_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.trimEdge*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_trimEdge" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.trimEdge">
+  trimEdge
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float trimEdge { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_useRendererSilhouette_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.useRendererSilhouette*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_useRendererSilhouette" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.useRendererSilhouette">
+  useRendererSilhouette
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;useRendererSilhoutte is deprecated. Use selfShadows instead&quot;)]
+public bool useRendererSilhouette { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_OnAfterDeserialize_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.OnAfterDeserialize*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_OnAfterDeserialize" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.OnAfterDeserialize">
+  OnAfterDeserialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnAfterDeserialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_OnBeforeSerialize_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.OnBeforeSerialize*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_OnBeforeSerialize" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.OnBeforeSerialize">
+  OnBeforeSerialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnBeforeSerialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_OnDisable_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.OnDisable*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_OnDisable" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.OnDisable">
+  OnDisable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void OnDisable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_OnEnable_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.OnEnable*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_OnEnable" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.OnEnable">
+  OnEnable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void OnEnable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_ShadowCaster2D_Update_" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.Update*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_ShadowCaster2D_Update" data-uid="UnityEngine.Rendering.Universal.ShadowCaster2D.Update">
+  Update()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
