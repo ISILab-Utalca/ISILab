@@ -76,7 +76,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
             })
                 .WarmupCount(1)
-                .MeasurementCount(100)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .SetUp(() => SetupWFCTest(Edge_5x5_Map))
                 .GC()
@@ -92,7 +92,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
             })
                 .WarmupCount(1)
-                .MeasurementCount(50)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .SetUp(() => SetupWFCTest(Edge_10x10_Map))
                 .CleanUp(CleanUpWFCTest)
@@ -123,7 +123,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
             })
                 .WarmupCount(0)
-                .MeasurementCount(10)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .SetUp(() => SetupWFCTest(Edge_40x40_Map))
                 .CleanUp(CleanUpWFCTest)
@@ -140,7 +140,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
             })
                 .WarmupCount(1)
-                .MeasurementCount(100)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .GC()
                 .Run();
@@ -157,7 +157,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
             })
                 .WarmupCount(1)
-                .MeasurementCount(50)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .Run();
 
@@ -190,7 +190,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
             })
                 .WarmupCount(0)
-                .MeasurementCount(10)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .Run();
 
@@ -219,7 +219,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
             })
                 .WarmupCount(1)
-                .MeasurementCount(100)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .SetUp(() => SetupWFCTest(Vertex_5x5_Map))
                 .GC()
@@ -235,7 +235,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
             })
                 .WarmupCount(1)
-                .MeasurementCount(50)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .SetUp(() => SetupWFCTest(Vertex_10x10_Map))
                 .CleanUp(CleanUpWFCTest)
@@ -266,7 +266,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
             })
                 .WarmupCount(0)
-                .MeasurementCount(10)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .SetUp(() => SetupWFCTest(Vertex_40x40_Map))
                 .CleanUp(CleanUpWFCTest)
@@ -283,7 +283,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
             })
                 .WarmupCount(1)
-                .MeasurementCount(100)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .GC()
                 .Run();
@@ -300,7 +300,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
             })
                 .WarmupCount(1)
-                .MeasurementCount(50)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .Run();
 
@@ -333,7 +333,7 @@ namespace ISILab.LBS.Tests
                 Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
             })
                 .WarmupCount(0)
-                .MeasurementCount(10)
+                .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
                 .Run();
 
