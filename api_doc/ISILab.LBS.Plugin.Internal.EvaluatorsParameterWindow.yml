@@ -1,0 +1,937 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  commentId: T:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  id: EvaluatorsParameterWindow
+  parent: ISILab.LBS.Plugin.Internal
+  children:
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.#ctor
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamCode(ISILab.LBS.Plugin.Internal.ParameterData)
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamToVisualList(ISILab.LBS.Plugin.Internal.ParameterData)
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckIfParamInitialValueIsValid
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckUniqueEvName(System.String)
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CreateGUI
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.DeleteParamCode(ISILab.LBS.Plugin.Internal.ParameterData)
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.EvRef
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.FindDatabase
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.GenerateNewParameter(UnityEngine.UIElements.ClickEvent)
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitParamGenerator
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitUI
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.LoadParamVisualList
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueDropdrownValues(System.String)
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUI(System.String)
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUIOnOff(System.Boolean,System.Boolean)
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ParameterList
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.RefreshData
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ResetParamGenerator
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnNewParameter
+  - ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnParamDataWUniqueName(ISILab.LBS.Plugin.Internal.ParameterData)
+  langs:
+  - csharp
+  - vb
+  name: EvaluatorsParameterWindow
+  nameWithType: EvaluatorsParameterWindow
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: 'public class EvaluatorsParameterWindow : ThemeableWindow'
+    content.vb: Public Class EvaluatorsParameterWindow Inherits ThemeableWindow
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow
+  inheritedMembers:
+  - ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow.ChangeTheme(ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme)
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CreateGUI
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CreateGUI
+  id: CreateGUI
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: CreateGUI()
+  nameWithType: EvaluatorsParameterWindow.CreateGUI()
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CreateGUI()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void CreateGUI()
+    content.vb: Public Sub CreateGUI()
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CreateGUI*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitUI
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitUI
+  id: InitUI
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: InitUI()
+  nameWithType: EvaluatorsParameterWindow.InitUI()
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitUI()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void InitUI()
+    content.vb: Public Sub InitUI()
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitUI*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.FindDatabase
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.FindDatabase
+  id: FindDatabase
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: FindDatabase()
+  nameWithType: EvaluatorsParameterWindow.FindDatabase()
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.FindDatabase()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void FindDatabase()
+    content.vb: Public Sub FindDatabase()
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.FindDatabase*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.GenerateNewParameter(UnityEngine.UIElements.ClickEvent)
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.GenerateNewParameter(UnityEngine.UIElements.ClickEvent)
+  id: GenerateNewParameter(UnityEngine.UIElements.ClickEvent)
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: GenerateNewParameter(ClickEvent)
+  nameWithType: EvaluatorsParameterWindow.GenerateNewParameter(ClickEvent)
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.GenerateNewParameter(UnityEngine.UIElements.ClickEvent)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void GenerateNewParameter(ClickEvent evt)
+    parameters:
+    - id: evt
+      type: UnityEngine.UIElements.ClickEvent
+    content.vb: Public Sub GenerateNewParameter(evt As ClickEvent)
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.GenerateNewParameter*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnNewParameter
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnNewParameter
+  id: ReturnNewParameter
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: ReturnNewParameter()
+  nameWithType: EvaluatorsParameterWindow.ReturnNewParameter()
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnNewParameter()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public ParameterData ReturnNewParameter()
+    return:
+      type: ISILab.LBS.Plugin.Internal.ParameterData
+    content.vb: Public Function ReturnNewParameter() As ParameterData
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnNewParameter*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnParamDataWUniqueName(ISILab.LBS.Plugin.Internal.ParameterData)
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnParamDataWUniqueName(ISILab.LBS.Plugin.Internal.ParameterData)
+  id: ReturnParamDataWUniqueName(ISILab.LBS.Plugin.Internal.ParameterData)
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: ReturnParamDataWUniqueName(ParameterData)
+  nameWithType: EvaluatorsParameterWindow.ReturnParamDataWUniqueName(ParameterData)
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnParamDataWUniqueName(ISILab.LBS.Plugin.Internal.ParameterData)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public ParameterData ReturnParamDataWUniqueName(ParameterData paramData)
+    parameters:
+    - id: paramData
+      type: ISILab.LBS.Plugin.Internal.ParameterData
+    return:
+      type: ISILab.LBS.Plugin.Internal.ParameterData
+    content.vb: Public Function ReturnParamDataWUniqueName(paramData As ParameterData) As ParameterData
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnParamDataWUniqueName*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckUniqueEvName(System.String)
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckUniqueEvName(System.String)
+  id: CheckUniqueEvName(System.String)
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: CheckUniqueEvName(string)
+  nameWithType: EvaluatorsParameterWindow.CheckUniqueEvName(string)
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckUniqueEvName(string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public bool CheckUniqueEvName(string baseName)
+    parameters:
+    - id: baseName
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function CheckUniqueEvName(baseName As String) As Boolean
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckUniqueEvName*
+  nameWithType.vb: EvaluatorsParameterWindow.CheckUniqueEvName(String)
+  fullName.vb: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckUniqueEvName(String)
+  name.vb: CheckUniqueEvName(String)
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckIfParamInitialValueIsValid
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckIfParamInitialValueIsValid
+  id: CheckIfParamInitialValueIsValid
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: CheckIfParamInitialValueIsValid()
+  nameWithType: EvaluatorsParameterWindow.CheckIfParamInitialValueIsValid()
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckIfParamInitialValueIsValid()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public bool CheckIfParamInitialValueIsValid()
+    return:
+      type: System.Boolean
+    content.vb: Public Function CheckIfParamInitialValueIsValid() As Boolean
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckIfParamInitialValueIsValid*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitParamGenerator
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitParamGenerator
+  id: InitParamGenerator
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: InitParamGenerator()
+  nameWithType: EvaluatorsParameterWindow.InitParamGenerator()
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitParamGenerator()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void InitParamGenerator()
+    content.vb: Public Sub InitParamGenerator()
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitParamGenerator*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ResetParamGenerator
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ResetParamGenerator
+  id: ResetParamGenerator
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: ResetParamGenerator()
+  nameWithType: EvaluatorsParameterWindow.ResetParamGenerator()
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ResetParamGenerator()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void ResetParamGenerator()
+    content.vb: Public Sub ResetParamGenerator()
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ResetParamGenerator*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.RefreshData
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.RefreshData
+  id: RefreshData
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: RefreshData()
+  nameWithType: EvaluatorsParameterWindow.RefreshData()
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.RefreshData()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void RefreshData()
+    content.vb: Public Sub RefreshData()
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.RefreshData*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.LoadParamVisualList
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.LoadParamVisualList
+  id: LoadParamVisualList
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: LoadParamVisualList()
+  nameWithType: EvaluatorsParameterWindow.LoadParamVisualList()
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.LoadParamVisualList()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void LoadParamVisualList()
+    content.vb: Public Sub LoadParamVisualList()
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.LoadParamVisualList*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamToVisualList(ISILab.LBS.Plugin.Internal.ParameterData)
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamToVisualList(ISILab.LBS.Plugin.Internal.ParameterData)
+  id: AddParamToVisualList(ISILab.LBS.Plugin.Internal.ParameterData)
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: AddParamToVisualList(ParameterData)
+  nameWithType: EvaluatorsParameterWindow.AddParamToVisualList(ParameterData)
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamToVisualList(ISILab.LBS.Plugin.Internal.ParameterData)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void AddParamToVisualList(ParameterData param)
+    parameters:
+    - id: param
+      type: ISILab.LBS.Plugin.Internal.ParameterData
+    content.vb: Public Sub AddParamToVisualList(param As ParameterData)
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamToVisualList*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamCode(ISILab.LBS.Plugin.Internal.ParameterData)
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamCode(ISILab.LBS.Plugin.Internal.ParameterData)
+  id: AddParamCode(ISILab.LBS.Plugin.Internal.ParameterData)
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: AddParamCode(ParameterData)
+  nameWithType: EvaluatorsParameterWindow.AddParamCode(ParameterData)
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamCode(ISILab.LBS.Plugin.Internal.ParameterData)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void AddParamCode(ParameterData paramData)
+    parameters:
+    - id: paramData
+      type: ISILab.LBS.Plugin.Internal.ParameterData
+    content.vb: Public Sub AddParamCode(paramData As ParameterData)
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamCode*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.DeleteParamCode(ISILab.LBS.Plugin.Internal.ParameterData)
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.DeleteParamCode(ISILab.LBS.Plugin.Internal.ParameterData)
+  id: DeleteParamCode(ISILab.LBS.Plugin.Internal.ParameterData)
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: DeleteParamCode(ParameterData)
+  nameWithType: EvaluatorsParameterWindow.DeleteParamCode(ParameterData)
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.DeleteParamCode(ISILab.LBS.Plugin.Internal.ParameterData)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void DeleteParamCode(ParameterData paramData)
+    parameters:
+    - id: paramData
+      type: ISILab.LBS.Plugin.Internal.ParameterData
+    content.vb: Public Sub DeleteParamCode(paramData As ParameterData)
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.DeleteParamCode*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUI(System.String)
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUI(System.String)
+  id: ManageIValueUI(System.String)
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: ManageIValueUI(string)
+  nameWithType: EvaluatorsParameterWindow.ManageIValueUI(string)
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUI(string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void ManageIValueUI(string newValue)
+    parameters:
+    - id: newValue
+      type: System.String
+    content.vb: Public Sub ManageIValueUI(newValue As String)
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUI*
+  nameWithType.vb: EvaluatorsParameterWindow.ManageIValueUI(String)
+  fullName.vb: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUI(String)
+  name.vb: ManageIValueUI(String)
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUIOnOff(System.Boolean,System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUIOnOff(System.Boolean,System.Boolean)
+  id: ManageIValueUIOnOff(System.Boolean,System.Boolean)
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: ManageIValueUIOnOff(bool, bool)
+  nameWithType: EvaluatorsParameterWindow.ManageIValueUIOnOff(bool, bool)
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUIOnOff(bool, bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void ManageIValueUIOnOff(bool textBool, bool dropDownValue)
+    parameters:
+    - id: textBool
+      type: System.Boolean
+    - id: dropDownValue
+      type: System.Boolean
+    content.vb: Public Sub ManageIValueUIOnOff(textBool As Boolean, dropDownValue As Boolean)
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUIOnOff*
+  nameWithType.vb: EvaluatorsParameterWindow.ManageIValueUIOnOff(Boolean, Boolean)
+  fullName.vb: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUIOnOff(Boolean, Boolean)
+  name.vb: ManageIValueUIOnOff(Boolean, Boolean)
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueDropdrownValues(System.String)
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueDropdrownValues(System.String)
+  id: ManageIValueDropdrownValues(System.String)
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: ManageIValueDropdrownValues(string)
+  nameWithType: EvaluatorsParameterWindow.ManageIValueDropdrownValues(string)
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueDropdrownValues(string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public void ManageIValueDropdrownValues(string s)
+    parameters:
+    - id: s
+      type: System.String
+    content.vb: Public Sub ManageIValueDropdrownValues(s As String)
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueDropdrownValues*
+  nameWithType.vb: EvaluatorsParameterWindow.ManageIValueDropdrownValues(String)
+  fullName.vb: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueDropdrownValues(String)
+  name.vb: ManageIValueDropdrownValues(String)
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.#ctor
+  commentId: M:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: EvaluatorsParameterWindow()
+  nameWithType: EvaluatorsParameterWindow.EvaluatorsParameterWindow()
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.EvaluatorsParameterWindow()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public EvaluatorsParameterWindow()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.#ctor*
+  nameWithType.vb: EvaluatorsParameterWindow.New()
+  fullName.vb: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ParameterList
+  commentId: P:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ParameterList
+  id: ParameterList
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: ParameterList
+  nameWithType: EvaluatorsParameterWindow.ParameterList
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ParameterList
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public List<ParameterData> ParameterList { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Internal.ParameterData}
+    content.vb: Public Property ParameterList As List(Of ParameterData)
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ParameterList*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.EvRef
+  commentId: P:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.EvRef
+  id: EvRef
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow
+  langs:
+  - csharp
+  - vb
+  name: EvRef
+  nameWithType: EvaluatorsParameterWindow.EvRef
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.EvRef
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public string EvRef { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EvRef As String
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.EvRef*
+references:
+- uid: ISILab.LBS.Plugin.Internal
+  commentId: N:ISILab.LBS.Plugin.Internal
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Internal
+  nameWithType: ISILab.LBS.Plugin.Internal
+  fullName: ISILab.LBS.Plugin.Internal
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Internal
+    name: Internal
+    isExternal: true
+    href: ISILab.LBS.Plugin.Internal.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Internal
+    name: Internal
+    isExternal: true
+    href: ISILab.LBS.Plugin.Internal.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow
+  commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow.html
+  name: ThemeableWindow
+  nameWithType: ThemeableWindow
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow.ChangeTheme(ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow.ChangeTheme(ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_ThemeableWindow_ChangeTheme_ISILab_LBS_Plugin_Core_Settings_LBSSettings_Interface_InterfaceTheme_
+  name: ChangeTheme(InterfaceTheme)
+  nameWithType: ThemeableWindow.ChangeTheme(LBSSettings.Interface.InterfaceTheme)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow.ChangeTheme(ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow.ChangeTheme(ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme)
+    name: ChangeTheme
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_ThemeableWindow_ChangeTheme_ISILab_LBS_Plugin_Core_Settings_LBSSettings_Interface_InterfaceTheme_
+  - name: (
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme
+    name: InterfaceTheme
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow.ChangeTheme(ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme)
+    name: ChangeTheme
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.ThemeableWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_ThemeableWindow_ChangeTheme_ISILab_LBS_Plugin_Core_Settings_LBSSettings_Interface_InterfaceTheme_
+  - name: (
+  - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.Interface.InterfaceTheme
+    name: InterfaceTheme
+    isExternal: true
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows
+  commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.UI.Editor.Windows
+  nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CreateGUI*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CreateGUI
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_CreateGUI
+  name: CreateGUI
+  nameWithType: EvaluatorsParameterWindow.CreateGUI
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CreateGUI
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitUI*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitUI
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_InitUI
+  name: InitUI
+  nameWithType: EvaluatorsParameterWindow.InitUI
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitUI
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.FindDatabase*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.FindDatabase
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_FindDatabase
+  name: FindDatabase
+  nameWithType: EvaluatorsParameterWindow.FindDatabase
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.FindDatabase
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.GenerateNewParameter*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.GenerateNewParameter
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_GenerateNewParameter_UnityEngine_UIElements_ClickEvent_
+  name: GenerateNewParameter
+  nameWithType: EvaluatorsParameterWindow.GenerateNewParameter
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.GenerateNewParameter
+- uid: UnityEngine.UIElements.ClickEvent
+  isExternal: true
+  name: ClickEvent
+  nameWithType: ClickEvent
+  fullName: UnityEngine.UIElements.ClickEvent
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnNewParameter*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnNewParameter
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_ReturnNewParameter
+  name: ReturnNewParameter
+  nameWithType: EvaluatorsParameterWindow.ReturnNewParameter
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnNewParameter
+- uid: ISILab.LBS.Plugin.Internal.ParameterData
+  commentId: T:ISILab.LBS.Plugin.Internal.ParameterData
+  parent: ISILab.LBS.Plugin.Internal
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.ParameterData.html
+  name: ParameterData
+  nameWithType: ParameterData
+  fullName: ISILab.LBS.Plugin.Internal.ParameterData
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnParamDataWUniqueName*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnParamDataWUniqueName
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_ReturnParamDataWUniqueName_ISILab_LBS_Plugin_Internal_ParameterData_
+  name: ReturnParamDataWUniqueName
+  nameWithType: EvaluatorsParameterWindow.ReturnParamDataWUniqueName
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ReturnParamDataWUniqueName
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckUniqueEvName*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckUniqueEvName
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_CheckUniqueEvName_System_String_
+  name: CheckUniqueEvName
+  nameWithType: EvaluatorsParameterWindow.CheckUniqueEvName
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckUniqueEvName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckIfParamInitialValueIsValid*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckIfParamInitialValueIsValid
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_CheckIfParamInitialValueIsValid
+  name: CheckIfParamInitialValueIsValid
+  nameWithType: EvaluatorsParameterWindow.CheckIfParamInitialValueIsValid
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.CheckIfParamInitialValueIsValid
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitParamGenerator*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitParamGenerator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_InitParamGenerator
+  name: InitParamGenerator
+  nameWithType: EvaluatorsParameterWindow.InitParamGenerator
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.InitParamGenerator
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ResetParamGenerator*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ResetParamGenerator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_ResetParamGenerator
+  name: ResetParamGenerator
+  nameWithType: EvaluatorsParameterWindow.ResetParamGenerator
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ResetParamGenerator
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.RefreshData*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.RefreshData
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_RefreshData
+  name: RefreshData
+  nameWithType: EvaluatorsParameterWindow.RefreshData
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.RefreshData
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.LoadParamVisualList*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.LoadParamVisualList
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_LoadParamVisualList
+  name: LoadParamVisualList
+  nameWithType: EvaluatorsParameterWindow.LoadParamVisualList
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.LoadParamVisualList
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamToVisualList*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamToVisualList
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_AddParamToVisualList_ISILab_LBS_Plugin_Internal_ParameterData_
+  name: AddParamToVisualList
+  nameWithType: EvaluatorsParameterWindow.AddParamToVisualList
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamToVisualList
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamCode*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamCode
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_AddParamCode_ISILab_LBS_Plugin_Internal_ParameterData_
+  name: AddParamCode
+  nameWithType: EvaluatorsParameterWindow.AddParamCode
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.AddParamCode
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.DeleteParamCode*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.DeleteParamCode
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_DeleteParamCode_ISILab_LBS_Plugin_Internal_ParameterData_
+  name: DeleteParamCode
+  nameWithType: EvaluatorsParameterWindow.DeleteParamCode
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.DeleteParamCode
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUI*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUI
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_ManageIValueUI_System_String_
+  name: ManageIValueUI
+  nameWithType: EvaluatorsParameterWindow.ManageIValueUI
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUI
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUIOnOff*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUIOnOff
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_ManageIValueUIOnOff_System_Boolean_System_Boolean_
+  name: ManageIValueUIOnOff
+  nameWithType: EvaluatorsParameterWindow.ManageIValueUIOnOff
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueUIOnOff
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueDropdrownValues*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueDropdrownValues
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_ManageIValueDropdrownValues_System_String_
+  name: ManageIValueDropdrownValues
+  nameWithType: EvaluatorsParameterWindow.ManageIValueDropdrownValues
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ManageIValueDropdrownValues
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow__ctor
+  name: EvaluatorsParameterWindow
+  nameWithType: EvaluatorsParameterWindow.EvaluatorsParameterWindow
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.EvaluatorsParameterWindow
+  nameWithType.vb: EvaluatorsParameterWindow.New
+  fullName.vb: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ParameterList*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ParameterList
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_ParameterList
+  name: ParameterList
+  nameWithType: EvaluatorsParameterWindow.ParameterList
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.ParameterList
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Internal.ParameterData}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Internal.ParameterData}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ParameterData>
+  nameWithType: List<ParameterData>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Internal.ParameterData>
+  nameWithType.vb: List(Of ParameterData)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Internal.ParameterData)
+  name.vb: List(Of ParameterData)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Internal.ParameterData
+    name: ParameterData
+    isExternal: true
+    href: ISILab.LBS.Plugin.Internal.ParameterData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Internal.ParameterData
+    name: ParameterData
+    isExternal: true
+    href: ISILab.LBS.Plugin.Internal.ParameterData.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.EvRef*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.EvRef
+  isExternal: true
+  href: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.html#ISILab_LBS_Plugin_Internal_EvaluatorsParameterWindow_EvRef
+  name: EvRef
+  nameWithType: EvaluatorsParameterWindow.EvRef
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorsParameterWindow.EvRef
+shouldSkipMarkup: true

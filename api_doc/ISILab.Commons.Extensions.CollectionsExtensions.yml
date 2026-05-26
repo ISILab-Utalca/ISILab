@@ -1,0 +1,1162 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.Commons.Extensions.CollectionsExtensions
+  commentId: T:ISILab.Commons.Extensions.CollectionsExtensions
+  id: CollectionsExtensions
+  parent: ISILab.Commons.Extensions
+  children:
+  - ISILab.Commons.Extensions.CollectionsExtensions.Clone``1(System.Collections.Generic.List{``0})
+  - ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex``1(System.Collections.Generic.List{``0},System.Int32)
+  - ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex``1(``0[],System.Int32)
+  - ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly``1(System.Collections.Generic.List{``0},``0[])
+  - ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString``1(System.Collections.Generic.List{``0})
+  - ISILab.Commons.Extensions.CollectionsExtensions.GetRandom``1(``0[])
+  - ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete``1(System.Collections.Generic.List{``0},System.Func{``0,System.Single})
+  - ISILab.Commons.Extensions.CollectionsExtensions.Random``1(System.Collections.Generic.List{``0})
+  - ISILab.Commons.Extensions.CollectionsExtensions.RemoveDuplicates``1(System.Collections.Generic.List{``0})
+  - ISILab.Commons.Extensions.CollectionsExtensions.RemoveEmpties``1(System.Collections.Generic.List{``0})
+  - ISILab.Commons.Extensions.CollectionsExtensions.Rotate``1(System.Collections.Generic.List{``0})
+  - ISILab.Commons.Extensions.CollectionsExtensions.Rotate``1(System.Collections.Generic.List{``0},System.Int32)
+  - ISILab.Commons.Extensions.CollectionsExtensions.Shuffle``1(System.Collections.Generic.IList{``0})
+  - ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0})
+  langs:
+  - csharp
+  - vb
+  name: CollectionsExtensions
+  nameWithType: CollectionsExtensions
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions
+  type: Class
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static class CollectionsExtensions
+    content.vb: Public Module CollectionsExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.Clone``1(System.Collections.Generic.List{``0})
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.Clone``1(System.Collections.Generic.List{``0})
+  id: Clone``1(System.Collections.Generic.List{``0})
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: Clone<T>(List<T>)
+  nameWithType: CollectionsExtensions.Clone<T>(List<T>)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.Clone<T>(System.Collections.Generic.List<T>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: 'public static List<T> Clone<T>(this List<T> list) where T : class'
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: System.Collections.Generic.List{{T}}
+    content.vb: Public Shared Function Clone(Of T As Class)(list As List(Of T)) As List(Of T)
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.Clone*
+  nameWithType.vb: CollectionsExtensions.Clone(Of T)(List(Of T))
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.Clone(Of T)(System.Collections.Generic.List(Of T))
+  name.vb: Clone(Of T)(List(Of T))
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly``1(System.Collections.Generic.List{``0},``0[])
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly``1(System.Collections.Generic.List{``0},``0[])
+  id: ContainsOnly``1(System.Collections.Generic.List{``0},``0[])
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: ContainsOnly<T>(List<T>, params T[])
+  nameWithType: CollectionsExtensions.ContainsOnly<T>(List<T>, params T[])
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly<T>(System.Collections.Generic.List<T>, params T[])
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static bool ContainsOnly<T>(this List<T> list, params T[] values)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    - id: values
+      type: '{T}[]'
+    typeParameters:
+    - id: T
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function ContainsOnly(Of T)(list As List(Of T), ParamArray values As T()) As Boolean
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly*
+  nameWithType.vb: CollectionsExtensions.ContainsOnly(Of T)(List(Of T), ParamArray T())
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly(Of T)(System.Collections.Generic.List(Of T), ParamArray T())
+  name.vb: ContainsOnly(Of T)(List(Of T), ParamArray T())
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete``1(System.Collections.Generic.List{``0},System.Func{``0,System.Single})
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete``1(System.Collections.Generic.List{``0},System.Func{``0,System.Single})
+  id: RandomRullete``1(System.Collections.Generic.List{``0},System.Func{``0,System.Single})
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: RandomRullete<T>(List<T>, Func<T, float>)
+  nameWithType: CollectionsExtensions.RandomRullete<T>(List<T>, Func<T, float>)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete<T>(System.Collections.Generic.List<T>, System.Func<T, float>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static T RandomRullete<T>(this List<T> list, Func<T, float> predicate)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    - id: predicate
+      type: System.Func{{T},System.Single}
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function RandomRullete(Of T)(list As List(Of T), predicate As Func(Of T, Single)) As T
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete*
+  nameWithType.vb: CollectionsExtensions.RandomRullete(Of T)(List(Of T), Func(Of T, Single))
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete(Of T)(System.Collections.Generic.List(Of T), System.Func(Of T, Single))
+  name.vb: RandomRullete(Of T)(List(Of T), Func(Of T, Single))
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex``1(System.Collections.Generic.List{``0},System.Int32)
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex``1(System.Collections.Generic.List{``0},System.Int32)
+  id: ContainsIndex``1(System.Collections.Generic.List{``0},System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: ContainsIndex<T>(List<T>, int)
+  nameWithType: CollectionsExtensions.ContainsIndex<T>(List<T>, int)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex<T>(System.Collections.Generic.List<T>, int)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static bool ContainsIndex<T>(this List<T> list, int index)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    - id: index
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function ContainsIndex(Of T)(list As List(Of T), index As Integer) As Boolean
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex*
+  nameWithType.vb: CollectionsExtensions.ContainsIndex(Of T)(List(Of T), Integer)
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex(Of T)(System.Collections.Generic.List(Of T), Integer)
+  name.vb: ContainsIndex(Of T)(List(Of T), Integer)
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.Random``1(System.Collections.Generic.List{``0})
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.Random``1(System.Collections.Generic.List{``0})
+  id: Random``1(System.Collections.Generic.List{``0})
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: Random<T>(List<T>)
+  nameWithType: CollectionsExtensions.Random<T>(List<T>)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.Random<T>(System.Collections.Generic.List<T>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static T Random<T>(this List<T> list)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function Random(Of T)(list As List(Of T)) As T
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.Random*
+  nameWithType.vb: CollectionsExtensions.Random(Of T)(List(Of T))
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.Random(Of T)(System.Collections.Generic.List(Of T))
+  name.vb: Random(Of T)(List(Of T))
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.Rotate``1(System.Collections.Generic.List{``0},System.Int32)
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.Rotate``1(System.Collections.Generic.List{``0},System.Int32)
+  id: Rotate``1(System.Collections.Generic.List{``0},System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: Rotate<T>(List<T>, int)
+  nameWithType: CollectionsExtensions.Rotate<T>(List<T>, int)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.Rotate<T>(System.Collections.Generic.List<T>, int)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static List<T> Rotate<T>(this List<T> list, int count)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    - id: count
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: System.Collections.Generic.List{{T}}
+    content.vb: Public Shared Function Rotate(Of T)(list As List(Of T), count As Integer) As List(Of T)
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.Rotate*
+  nameWithType.vb: CollectionsExtensions.Rotate(Of T)(List(Of T), Integer)
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.Rotate(Of T)(System.Collections.Generic.List(Of T), Integer)
+  name.vb: Rotate(Of T)(List(Of T), Integer)
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.Rotate``1(System.Collections.Generic.List{``0})
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.Rotate``1(System.Collections.Generic.List{``0})
+  id: Rotate``1(System.Collections.Generic.List{``0})
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: Rotate<T>(List<T>)
+  nameWithType: CollectionsExtensions.Rotate<T>(List<T>)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.Rotate<T>(System.Collections.Generic.List<T>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static List<T> Rotate<T>(this List<T> list)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: System.Collections.Generic.List{{T}}
+    content.vb: Public Shared Function Rotate(Of T)(list As List(Of T)) As List(Of T)
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.Rotate*
+  nameWithType.vb: CollectionsExtensions.Rotate(Of T)(List(Of T))
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.Rotate(Of T)(System.Collections.Generic.List(Of T))
+  name.vb: Rotate(Of T)(List(Of T))
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.RemoveEmpties``1(System.Collections.Generic.List{``0})
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.RemoveEmpties``1(System.Collections.Generic.List{``0})
+  id: RemoveEmpties``1(System.Collections.Generic.List{``0})
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveEmpties<T>(List<T>)
+  nameWithType: CollectionsExtensions.RemoveEmpties<T>(List<T>)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.RemoveEmpties<T>(System.Collections.Generic.List<T>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static List<T> RemoveEmpties<T>(this List<T> list)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: System.Collections.Generic.List{{T}}
+    content.vb: Public Shared Function RemoveEmpties(Of T)(list As List(Of T)) As List(Of T)
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.RemoveEmpties*
+  nameWithType.vb: CollectionsExtensions.RemoveEmpties(Of T)(List(Of T))
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.RemoveEmpties(Of T)(System.Collections.Generic.List(Of T))
+  name.vb: RemoveEmpties(Of T)(List(Of T))
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.RemoveDuplicates``1(System.Collections.Generic.List{``0})
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.RemoveDuplicates``1(System.Collections.Generic.List{``0})
+  id: RemoveDuplicates``1(System.Collections.Generic.List{``0})
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveDuplicates<T>(List<T>)
+  nameWithType: CollectionsExtensions.RemoveDuplicates<T>(List<T>)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.RemoveDuplicates<T>(System.Collections.Generic.List<T>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static List<T> RemoveDuplicates<T>(this List<T> list)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: System.Collections.Generic.List{{T}}
+    content.vb: Public Shared Function RemoveDuplicates(Of T)(list As List(Of T)) As List(Of T)
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.RemoveDuplicates*
+  nameWithType.vb: CollectionsExtensions.RemoveDuplicates(Of T)(List(Of T))
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.RemoveDuplicates(Of T)(System.Collections.Generic.List(Of T))
+  name.vb: RemoveDuplicates(Of T)(List(Of T))
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.Shuffle``1(System.Collections.Generic.IList{``0})
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.Shuffle``1(System.Collections.Generic.IList{``0})
+  id: Shuffle``1(System.Collections.Generic.IList{``0})
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: Shuffle<T>(IList<T>)
+  nameWithType: CollectionsExtensions.Shuffle<T>(IList<T>)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.Shuffle<T>(System.Collections.Generic.IList<T>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static void Shuffle<T>(this IList<T> list)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.IList{{T}}
+    typeParameters:
+    - id: T
+    content.vb: Public Shared Sub Shuffle(Of T)(list As IList(Of T))
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.Shuffle*
+  nameWithType.vb: CollectionsExtensions.Shuffle(Of T)(IList(Of T))
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.Shuffle(Of T)(System.Collections.Generic.IList(Of T))
+  name.vb: Shuffle(Of T)(IList(Of T))
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString``1(System.Collections.Generic.List{``0})
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString``1(System.Collections.Generic.List{``0})
+  id: ElementsToString``1(System.Collections.Generic.List{``0})
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: ElementsToString<T>(List<T>)
+  nameWithType: CollectionsExtensions.ElementsToString<T>(List<T>)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString<T>(System.Collections.Generic.List<T>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static string ElementsToString<T>(this List<T> list)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: System.String
+    content.vb: Public Shared Function ElementsToString(Of T)(list As List(Of T)) As String
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString*
+  nameWithType.vb: CollectionsExtensions.ElementsToString(Of T)(List(Of T))
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString(Of T)(System.Collections.Generic.List(Of T))
+  name.vb: ElementsToString(Of T)(List(Of T))
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0})
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0})
+  id: SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0})
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: SortedElementsToString<T>(List<T>, Comparison<T>)
+  nameWithType: CollectionsExtensions.SortedElementsToString<T>(List<T>, Comparison<T>)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString<T>(System.Collections.Generic.List<T>, System.Comparison<T>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static string SortedElementsToString<T>(this List<T> list, Comparison<T> sorter)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{{T}}
+    - id: sorter
+      type: System.Comparison{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: System.String
+    content.vb: Public Shared Function SortedElementsToString(Of T)(list As List(Of T), sorter As Comparison(Of T)) As String
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString*
+  nameWithType.vb: CollectionsExtensions.SortedElementsToString(Of T)(List(Of T), Comparison(Of T))
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString(Of T)(System.Collections.Generic.List(Of T), System.Comparison(Of T))
+  name.vb: SortedElementsToString(Of T)(List(Of T), Comparison(Of T))
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex``1(``0[],System.Int32)
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex``1(``0[],System.Int32)
+  id: ContainsIndex``1(``0[],System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: ContainsIndex<T>(T[], int)
+  nameWithType: CollectionsExtensions.ContainsIndex<T>(T[], int)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex<T>(T[], int)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static bool ContainsIndex<T>(this T[] array, int index)
+    parameters:
+    - id: array
+      type: '{T}[]'
+    - id: index
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function ContainsIndex(Of T)(array As T(), index As Integer) As Boolean
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex*
+  nameWithType.vb: CollectionsExtensions.ContainsIndex(Of T)(T(), Integer)
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex(Of T)(T(), Integer)
+  name.vb: ContainsIndex(Of T)(T(), Integer)
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.GetRandom``1(``0[])
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.GetRandom``1(``0[])
+  id: GetRandom``1(``0[])
+  isExtensionMethod: true
+  parent: ISILab.Commons.Extensions.CollectionsExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetRandom<T>(T[])
+  nameWithType: CollectionsExtensions.GetRandom<T>(T[])
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.GetRandom<T>(T[])
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Commons.Extensions
+  syntax:
+    content: public static T GetRandom<T>(this T[] array)
+    parameters:
+    - id: array
+      type: '{T}[]'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function GetRandom(Of T)(array As T()) As T
+  overload: ISILab.Commons.Extensions.CollectionsExtensions.GetRandom*
+  nameWithType.vb: CollectionsExtensions.GetRandom(Of T)(T())
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.GetRandom(Of T)(T())
+  name.vb: GetRandom(Of T)(T())
+references:
+- uid: ISILab.Commons.Extensions
+  commentId: N:ISILab.Commons.Extensions
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Commons.Extensions
+  nameWithType: ISILab.Commons.Extensions
+  fullName: ISILab.Commons.Extensions
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  - name: .
+  - uid: ISILab.Commons.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Commons.Extensions.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Commons
+    name: Commons
+    isExternal: true
+    href: ISILab.Commons.html
+  - name: .
+  - uid: ISILab.Commons.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Commons.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.Clone*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.Clone
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_Clone__1_System_Collections_Generic_List___0__
+  name: Clone
+  nameWithType: CollectionsExtensions.Clone
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.Clone
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_ContainsOnly__1_System_Collections_Generic_List___0____0___
+  name: ContainsOnly
+  nameWithType: CollectionsExtensions.ContainsOnly
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly
+- uid: '{T}[]'
+  isExternal: true
+  name: T[]
+  nameWithType: T[]
+  fullName: T[]
+  nameWithType.vb: T()
+  fullName.vb: T()
+  name.vb: T()
+  spec.csharp:
+  - name: T
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: T
+  - name: (
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_RandomRullete__1_System_Collections_Generic_List___0__System_Func___0_System_Single__
+  name: RandomRullete
+  nameWithType: CollectionsExtensions.RandomRullete
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete
+- uid: System.Func{{T},System.Single}
+  commentId: T:System.Func{``0,System.Single}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, float>
+  nameWithType: Func<T, float>
+  fullName: System.Func<T, float>
+  nameWithType.vb: Func(Of T, Single)
+  fullName.vb: System.Func(Of T, Single)
+  name.vb: Func(Of T, Single)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_ContainsIndex__1_System_Collections_Generic_List___0__System_Int32_
+  name: ContainsIndex
+  nameWithType: CollectionsExtensions.ContainsIndex
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.Random*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.Random
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_Random__1_System_Collections_Generic_List___0__
+  name: Random
+  nameWithType: CollectionsExtensions.Random
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.Random
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.Rotate*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.Rotate
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_Rotate__1_System_Collections_Generic_List___0__System_Int32_
+  name: Rotate
+  nameWithType: CollectionsExtensions.Rotate
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.Rotate
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.RemoveEmpties*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.RemoveEmpties
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_RemoveEmpties__1_System_Collections_Generic_List___0__
+  name: RemoveEmpties
+  nameWithType: CollectionsExtensions.RemoveEmpties
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.RemoveEmpties
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.RemoveDuplicates*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.RemoveDuplicates
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_RemoveDuplicates__1_System_Collections_Generic_List___0__
+  name: RemoveDuplicates
+  nameWithType: CollectionsExtensions.RemoveDuplicates
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.RemoveDuplicates
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.Shuffle*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.Shuffle
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_Shuffle__1_System_Collections_Generic_IList___0__
+  name: Shuffle
+  nameWithType: CollectionsExtensions.Shuffle
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.Shuffle
+- uid: System.Collections.Generic.IList{{T}}
+  commentId: T:System.Collections.Generic.IList{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_ElementsToString__1_System_Collections_Generic_List___0__
+  name: ElementsToString
+  nameWithType: CollectionsExtensions.ElementsToString
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_SortedElementsToString__1_System_Collections_Generic_List___0__System_Comparison___0__
+  name: SortedElementsToString
+  nameWithType: CollectionsExtensions.SortedElementsToString
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString
+- uid: System.Comparison{{T}}
+  commentId: T:System.Comparison{``0}
+  parent: System
+  definition: System.Comparison`1
+  href: https://learn.microsoft.com/dotnet/api/system.comparison-1
+  name: Comparison<T>
+  nameWithType: Comparison<T>
+  fullName: System.Comparison<T>
+  nameWithType.vb: Comparison(Of T)
+  fullName.vb: System.Comparison(Of T)
+  name.vb: Comparison(Of T)
+  spec.csharp:
+  - uid: System.Comparison`1
+    name: Comparison
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.comparison-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Comparison`1
+    name: Comparison
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.comparison-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Comparison`1
+  commentId: T:System.Comparison`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.comparison-1
+  name: Comparison<T>
+  nameWithType: Comparison<T>
+  fullName: System.Comparison<T>
+  nameWithType.vb: Comparison(Of T)
+  fullName.vb: System.Comparison(Of T)
+  name.vb: Comparison(Of T)
+  spec.csharp:
+  - uid: System.Comparison`1
+    name: Comparison
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.comparison-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Comparison`1
+    name: Comparison
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.comparison-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.GetRandom*
+  commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.GetRandom
+  isExternal: true
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_GetRandom__1___0___
+  name: GetRandom
+  nameWithType: CollectionsExtensions.GetRandom
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.GetRandom
+shouldSkipMarkup: true

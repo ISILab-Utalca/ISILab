@@ -1,0 +1,361 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.PickerBase
+  commentId: T:ISILab.LBS.VisualElements.PickerBase
+  id: PickerBase
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.PickerBase.#ctor
+  - ISILab.LBS.VisualElements.PickerBase.BindPickButton
+  - ISILab.LBS.VisualElements.PickerBase.GetActionData
+  - ISILab.LBS.VisualElements.PickerBase.IsSelected
+  - ISILab.LBS.VisualElements.PickerBase.PickButton
+  - ISILab.LBS.VisualElements.PickerBase.PickerLogic
+  - ISILab.LBS.VisualElements.PickerBase.SetInfo(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: PickerBase
+  nameWithType: PickerBase
+  fullName: ISILab.LBS.VisualElements.PickerBase
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public abstract class PickerBase : VisualElement'
+    content.vb: Public MustInherit Class PickerBase Inherits VisualElement
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.VisualElements.PickerBundleType
+  - ISILab.LBS.VisualElements.PickerConnect
+  - ISILab.LBS.VisualElements.PickerVector2Int
+- uid: ISILab.LBS.VisualElements.PickerBase.IsSelected
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.IsSelected
+  id: IsSelected
+  parent: ISILab.LBS.VisualElements.PickerBase
+  langs:
+  - csharp
+  - vb
+  name: IsSelected()
+  nameWithType: PickerBase.IsSelected()
+  fullName: ISILab.LBS.VisualElements.PickerBase.IsSelected()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected bool IsSelected()
+    return:
+      type: System.Boolean
+    content.vb: Protected Function IsSelected() As Boolean
+  overload: ISILab.LBS.VisualElements.PickerBase.IsSelected*
+- uid: ISILab.LBS.VisualElements.PickerBase.BindPickButton
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.BindPickButton
+  id: BindPickButton
+  parent: ISILab.LBS.VisualElements.PickerBase
+  langs:
+  - csharp
+  - vb
+  name: BindPickButton()
+  nameWithType: PickerBase.BindPickButton()
+  fullName: ISILab.LBS.VisualElements.PickerBase.BindPickButton()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected void BindPickButton()
+    content.vb: Protected Sub BindPickButton()
+  overload: ISILab.LBS.VisualElements.PickerBase.BindPickButton*
+- uid: ISILab.LBS.VisualElements.PickerBase.PickerLogic
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.PickerLogic
+  id: PickerLogic
+  parent: ISILab.LBS.VisualElements.PickerBase
+  langs:
+  - csharp
+  - vb
+  name: PickerLogic()
+  nameWithType: PickerBase.PickerLogic()
+  fullName: ISILab.LBS.VisualElements.PickerBase.PickerLogic()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected abstract void PickerLogic()
+    content.vb: Protected MustOverride Sub PickerLogic()
+  overload: ISILab.LBS.VisualElements.PickerBase.PickerLogic*
+- uid: ISILab.LBS.VisualElements.PickerBase.SetInfo(System.String,System.String)
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.SetInfo(System.String,System.String)
+  id: SetInfo(System.String,System.String)
+  parent: ISILab.LBS.VisualElements.PickerBase
+  langs:
+  - csharp
+  - vb
+  name: SetInfo(string, string)
+  nameWithType: PickerBase.SetInfo(string, string)
+  fullName: ISILab.LBS.VisualElements.PickerBase.SetInfo(string, string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public abstract void SetInfo(string name, string tooltip)
+    parameters:
+    - id: name
+      type: System.String
+    - id: tooltip
+      type: System.String
+    content.vb: Public MustOverride Sub SetInfo(name As String, tooltip As String)
+  overload: ISILab.LBS.VisualElements.PickerBase.SetInfo*
+  nameWithType.vb: PickerBase.SetInfo(String, String)
+  fullName.vb: ISILab.LBS.VisualElements.PickerBase.SetInfo(String, String)
+  name.vb: SetInfo(String, String)
+- uid: ISILab.LBS.VisualElements.PickerBase.GetActionData
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.GetActionData
+  id: GetActionData
+  parent: ISILab.LBS.VisualElements.PickerBase
+  langs:
+  - csharp
+  - vb
+  name: GetActionData()
+  nameWithType: PickerBase.GetActionData()
+  fullName: ISILab.LBS.VisualElements.PickerBase.GetActionData()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected QuestNodeData GetActionData()
+    return:
+      type: ISILab.LBS.Components.QuestNodeData
+    content.vb: Protected Function GetActionData() As QuestNodeData
+  overload: ISILab.LBS.VisualElements.PickerBase.GetActionData*
+- uid: ISILab.LBS.VisualElements.PickerBase.#ctor
+  commentId: M:ISILab.LBS.VisualElements.PickerBase.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.PickerBase
+  langs:
+  - csharp
+  - vb
+  name: PickerBase()
+  nameWithType: PickerBase.PickerBase()
+  fullName: ISILab.LBS.VisualElements.PickerBase.PickerBase()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected PickerBase()
+    content.vb: Protected Sub New()
+  overload: ISILab.LBS.VisualElements.PickerBase.#ctor*
+  nameWithType.vb: PickerBase.New()
+  fullName.vb: ISILab.LBS.VisualElements.PickerBase.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.PickerBase.PickButton
+  commentId: P:ISILab.LBS.VisualElements.PickerBase.PickButton
+  id: PickButton
+  parent: ISILab.LBS.VisualElements.PickerBase
+  langs:
+  - csharp
+  - vb
+  name: PickButton
+  nameWithType: PickerBase.PickButton
+  fullName: ISILab.LBS.VisualElements.PickerBase.PickButton
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public ToolButton PickButton { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.VisualElements.ToolButton
+    content.vb: Public Property PickButton As ToolButton
+  overload: ISILab.LBS.VisualElements.PickerBase.PickButton*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.VisualElements.PickerBase.IsSelected*
+  commentId: Overload:ISILab.LBS.VisualElements.PickerBase.IsSelected
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_IsSelected
+  name: IsSelected
+  nameWithType: PickerBase.IsSelected
+  fullName: ISILab.LBS.VisualElements.PickerBase.IsSelected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.VisualElements.PickerBase.BindPickButton*
+  commentId: Overload:ISILab.LBS.VisualElements.PickerBase.BindPickButton
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_BindPickButton
+  name: BindPickButton
+  nameWithType: PickerBase.BindPickButton
+  fullName: ISILab.LBS.VisualElements.PickerBase.BindPickButton
+- uid: ISILab.LBS.VisualElements.PickerBase.PickerLogic*
+  commentId: Overload:ISILab.LBS.VisualElements.PickerBase.PickerLogic
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_PickerLogic
+  name: PickerLogic
+  nameWithType: PickerBase.PickerLogic
+  fullName: ISILab.LBS.VisualElements.PickerBase.PickerLogic
+- uid: ISILab.LBS.VisualElements.PickerBase.SetInfo*
+  commentId: Overload:ISILab.LBS.VisualElements.PickerBase.SetInfo
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_SetInfo_System_String_System_String_
+  name: SetInfo
+  nameWithType: PickerBase.SetInfo
+  fullName: ISILab.LBS.VisualElements.PickerBase.SetInfo
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.VisualElements.PickerBase.GetActionData*
+  commentId: Overload:ISILab.LBS.VisualElements.PickerBase.GetActionData
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_GetActionData
+  name: GetActionData
+  nameWithType: PickerBase.GetActionData
+  fullName: ISILab.LBS.VisualElements.PickerBase.GetActionData
+- uid: ISILab.LBS.Components.QuestNodeData
+  commentId: T:ISILab.LBS.Components.QuestNodeData
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.QuestNodeData.html
+  name: QuestNodeData
+  nameWithType: QuestNodeData
+  fullName: ISILab.LBS.Components.QuestNodeData
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.VisualElements.PickerBase.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.PickerBase.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase__ctor
+  name: PickerBase
+  nameWithType: PickerBase.PickerBase
+  fullName: ISILab.LBS.VisualElements.PickerBase.PickerBase
+  nameWithType.vb: PickerBase.New
+  fullName.vb: ISILab.LBS.VisualElements.PickerBase.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.PickerBase.PickButton*
+  commentId: Overload:ISILab.LBS.VisualElements.PickerBase.PickButton
+  isExternal: true
+  href: ISILab.LBS.VisualElements.PickerBase.html#ISILab_LBS_VisualElements_PickerBase_PickButton
+  name: PickButton
+  nameWithType: PickerBase.PickButton
+  fullName: ISILab.LBS.VisualElements.PickerBase.PickButton
+- uid: ISILab.LBS.VisualElements.ToolButton
+  commentId: T:ISILab.LBS.VisualElements.ToolButton
+  parent: ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ToolButton.html
+  name: ToolButton
+  nameWithType: ToolButton
+  fullName: ISILab.LBS.VisualElements.ToolButton
+shouldSkipMarkup: true

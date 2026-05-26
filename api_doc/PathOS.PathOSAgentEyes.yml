@@ -1,0 +1,832 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.PathOSAgentEyes
+  commentId: T:PathOS.PathOSAgentEyes
+  id: PathOSAgentEyes
+  parent: PathOS
+  children:
+  - PathOS.PathOSAgentEyes.#ctor
+  - PathOS.PathOSAgentEyes.AddInvisibleEntity(PathOS.LevelEntity)
+  - PathOS.PathOSAgentEyes.AddInvisibleWall(UnityEngine.GameObject)
+  - PathOS.PathOSAgentEyes.ExploreVisibilityCheck(UnityEngine.Vector3,UnityEngine.Vector3)
+  - PathOS.PathOSAgentEyes.ExploreVisibilityCheckFreeMode(UnityEngine.Vector3,UnityEngine.Vector3,System.Boolean@)
+  - PathOS.PathOSAgentEyes.ProcessPerception
+  - PathOS.PathOSAgentEyes.RemoveInvisibleEntity(PathOS.LevelEntity)
+  - PathOS.PathOSAgentEyes.RemoveInvisibleWall(UnityEngine.GameObject)
+  - PathOS.PathOSAgentEyes.XFOV
+  - PathOS.PathOSAgentEyes.cam
+  - PathOS.PathOSAgentEyes.camType
+  - PathOS.PathOSAgentEyes.invisibleEntities
+  - PathOS.PathOSAgentEyes.invisibleWalls
+  - PathOS.PathOSAgentEyes.navmeshCastDistance
+  - PathOS.PathOSAgentEyes.navmeshCastHeight
+  - PathOS.PathOSAgentEyes.perceptionInfo
+  - PathOS.PathOSAgentEyes.visSizeThreshold
+  - PathOS.PathOSAgentEyes.visible
+  langs:
+  - csharp
+  - vb
+  name: PathOSAgentEyes
+  nameWithType: PathOSAgentEyes
+  fullName: PathOS.PathOSAgentEyes
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class PathOSAgentEyes : MonoBehaviour'
+    content.vb: Public Class PathOSAgentEyes Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PathOS.PathOSAgentEyes.camType
+  commentId: F:PathOS.PathOSAgentEyes.camType
+  id: camType
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: camType
+  nameWithType: PathOSAgentEyes.camType
+  fullName: PathOS.PathOSAgentEyes.camType
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSAgentEyes.CamType camType
+    return:
+      type: PathOS.PathOSAgentEyes.CamType
+    content.vb: Public camType As PathOSAgentEyes.CamType
+- uid: PathOS.PathOSAgentEyes.cam
+  commentId: F:PathOS.PathOSAgentEyes.cam
+  id: cam
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: cam
+  nameWithType: PathOSAgentEyes.cam
+  fullName: PathOS.PathOSAgentEyes.cam
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: >-
+      [PathOSDisplayName("Player Camera")]
+
+      public Camera cam
+    return:
+      type: UnityEngine.Camera
+    content.vb: >-
+      <PathOSDisplayName("Player Camera")>
+
+      Public cam As Camera
+  attributes:
+  - type: PathOS.PathOSDisplayNameAttribute
+    ctor: PathOS.PathOSDisplayNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Player Camera
+- uid: PathOS.PathOSAgentEyes.visSizeThreshold
+  commentId: F:PathOS.PathOSAgentEyes.visSizeThreshold
+  id: visSizeThreshold
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: visSizeThreshold
+  nameWithType: PathOSAgentEyes.visSizeThreshold
+  fullName: PathOS.PathOSAgentEyes.visSizeThreshold
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: >-
+      [PathOSDisplayName("Visibility Size Threshold")]
+
+      public float visSizeThreshold
+    return:
+      type: System.Single
+    content.vb: >-
+      <PathOSDisplayName("Visibility Size Threshold")>
+
+      Public visSizeThreshold As Single
+  attributes:
+  - type: PathOS.PathOSDisplayNameAttribute
+    ctor: PathOS.PathOSDisplayNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Visibility Size Threshold
+- uid: PathOS.PathOSAgentEyes.navmeshCastDistance
+  commentId: F:PathOS.PathOSAgentEyes.navmeshCastDistance
+  id: navmeshCastDistance
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: navmeshCastDistance
+  nameWithType: PathOSAgentEyes.navmeshCastDistance
+  fullName: PathOS.PathOSAgentEyes.navmeshCastDistance
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: >-
+      [PathOSDisplayName("Raycast Distance")]
+
+      public float navmeshCastDistance
+    return:
+      type: System.Single
+    content.vb: >-
+      <PathOSDisplayName("Raycast Distance")>
+
+      Public navmeshCastDistance As Single
+  attributes:
+  - type: PathOS.PathOSDisplayNameAttribute
+    ctor: PathOS.PathOSDisplayNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Raycast Distance
+- uid: PathOS.PathOSAgentEyes.navmeshCastHeight
+  commentId: F:PathOS.PathOSAgentEyes.navmeshCastHeight
+  id: navmeshCastHeight
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: navmeshCastHeight
+  nameWithType: PathOSAgentEyes.navmeshCastHeight
+  fullName: PathOS.PathOSAgentEyes.navmeshCastHeight
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: >-
+      [PathOSDisplayName("Raycast Height")]
+
+      public float navmeshCastHeight
+    return:
+      type: System.Single
+    content.vb: >-
+      <PathOSDisplayName("Raycast Height")>
+
+      Public navmeshCastHeight As Single
+  attributes:
+  - type: PathOS.PathOSDisplayNameAttribute
+    ctor: PathOS.PathOSDisplayNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Raycast Height
+- uid: PathOS.PathOSAgentEyes.XFOV
+  commentId: M:PathOS.PathOSAgentEyes.XFOV
+  id: XFOV
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: XFOV()
+  nameWithType: PathOSAgentEyes.XFOV()
+  fullName: PathOS.PathOSAgentEyes.XFOV()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float XFOV()
+    return:
+      type: System.Single
+    content.vb: Public Function XFOV() As Single
+  overload: PathOS.PathOSAgentEyes.XFOV*
+- uid: PathOS.PathOSAgentEyes.ProcessPerception
+  commentId: M:PathOS.PathOSAgentEyes.ProcessPerception
+  id: ProcessPerception
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: ProcessPerception()
+  nameWithType: PathOSAgentEyes.ProcessPerception()
+  fullName: PathOS.PathOSAgentEyes.ProcessPerception()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void ProcessPerception()
+    content.vb: Public Sub ProcessPerception()
+  overload: PathOS.PathOSAgentEyes.ProcessPerception*
+- uid: PathOS.PathOSAgentEyes.ExploreVisibilityCheck(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:PathOS.PathOSAgentEyes.ExploreVisibilityCheck(UnityEngine.Vector3,UnityEngine.Vector3)
+  id: ExploreVisibilityCheck(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: ExploreVisibilityCheck(Vector3, Vector3)
+  nameWithType: PathOSAgentEyes.ExploreVisibilityCheck(Vector3, Vector3)
+  fullName: PathOS.PathOSAgentEyes.ExploreVisibilityCheck(UnityEngine.Vector3, UnityEngine.Vector3)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public NavMeshHit ExploreVisibilityCheck(Vector3 origin, Vector3 dir)
+    parameters:
+    - id: origin
+      type: UnityEngine.Vector3
+    - id: dir
+      type: UnityEngine.Vector3
+    return:
+      type: UnityEngine.AI.NavMeshHit
+    content.vb: Public Function ExploreVisibilityCheck(origin As Vector3, dir As Vector3) As NavMeshHit
+  overload: PathOS.PathOSAgentEyes.ExploreVisibilityCheck*
+- uid: PathOS.PathOSAgentEyes.ExploreVisibilityCheckFreeMode(UnityEngine.Vector3,UnityEngine.Vector3,System.Boolean@)
+  commentId: M:PathOS.PathOSAgentEyes.ExploreVisibilityCheckFreeMode(UnityEngine.Vector3,UnityEngine.Vector3,System.Boolean@)
+  id: ExploreVisibilityCheckFreeMode(UnityEngine.Vector3,UnityEngine.Vector3,System.Boolean@)
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: ExploreVisibilityCheckFreeMode(Vector3, Vector3, out bool)
+  nameWithType: PathOSAgentEyes.ExploreVisibilityCheckFreeMode(Vector3, Vector3, out bool)
+  fullName: PathOS.PathOSAgentEyes.ExploreVisibilityCheckFreeMode(UnityEngine.Vector3, UnityEngine.Vector3, out bool)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public NavMeshHit ExploreVisibilityCheckFreeMode(Vector3 origin, Vector3 dir, out bool result)
+    parameters:
+    - id: origin
+      type: UnityEngine.Vector3
+    - id: dir
+      type: UnityEngine.Vector3
+    - id: result
+      type: System.Boolean
+    return:
+      type: UnityEngine.AI.NavMeshHit
+    content.vb: Public Function ExploreVisibilityCheckFreeMode(origin As Vector3, dir As Vector3, result As Boolean) As NavMeshHit
+  overload: PathOS.PathOSAgentEyes.ExploreVisibilityCheckFreeMode*
+  nameWithType.vb: PathOSAgentEyes.ExploreVisibilityCheckFreeMode(Vector3, Vector3, Boolean)
+  fullName.vb: PathOS.PathOSAgentEyes.ExploreVisibilityCheckFreeMode(UnityEngine.Vector3, UnityEngine.Vector3, Boolean)
+  name.vb: ExploreVisibilityCheckFreeMode(Vector3, Vector3, Boolean)
+- uid: PathOS.PathOSAgentEyes.AddInvisibleEntity(PathOS.LevelEntity)
+  commentId: M:PathOS.PathOSAgentEyes.AddInvisibleEntity(PathOS.LevelEntity)
+  id: AddInvisibleEntity(PathOS.LevelEntity)
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: AddInvisibleEntity(LevelEntity)
+  nameWithType: PathOSAgentEyes.AddInvisibleEntity(LevelEntity)
+  fullName: PathOS.PathOSAgentEyes.AddInvisibleEntity(PathOS.LevelEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void AddInvisibleEntity(LevelEntity newInvisibleEntity)
+    parameters:
+    - id: newInvisibleEntity
+      type: PathOS.LevelEntity
+    content.vb: Public Sub AddInvisibleEntity(newInvisibleEntity As LevelEntity)
+  overload: PathOS.PathOSAgentEyes.AddInvisibleEntity*
+- uid: PathOS.PathOSAgentEyes.RemoveInvisibleEntity(PathOS.LevelEntity)
+  commentId: M:PathOS.PathOSAgentEyes.RemoveInvisibleEntity(PathOS.LevelEntity)
+  id: RemoveInvisibleEntity(PathOS.LevelEntity)
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: RemoveInvisibleEntity(LevelEntity)
+  nameWithType: PathOSAgentEyes.RemoveInvisibleEntity(LevelEntity)
+  fullName: PathOS.PathOSAgentEyes.RemoveInvisibleEntity(PathOS.LevelEntity)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void RemoveInvisibleEntity(LevelEntity invisibleEntityToRemove)
+    parameters:
+    - id: invisibleEntityToRemove
+      type: PathOS.LevelEntity
+    content.vb: Public Sub RemoveInvisibleEntity(invisibleEntityToRemove As LevelEntity)
+  overload: PathOS.PathOSAgentEyes.RemoveInvisibleEntity*
+- uid: PathOS.PathOSAgentEyes.AddInvisibleWall(UnityEngine.GameObject)
+  commentId: M:PathOS.PathOSAgentEyes.AddInvisibleWall(UnityEngine.GameObject)
+  id: AddInvisibleWall(UnityEngine.GameObject)
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: AddInvisibleWall(GameObject)
+  nameWithType: PathOSAgentEyes.AddInvisibleWall(GameObject)
+  fullName: PathOS.PathOSAgentEyes.AddInvisibleWall(UnityEngine.GameObject)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void AddInvisibleWall(GameObject wall)
+    parameters:
+    - id: wall
+      type: UnityEngine.GameObject
+    content.vb: Public Sub AddInvisibleWall(wall As GameObject)
+  overload: PathOS.PathOSAgentEyes.AddInvisibleWall*
+- uid: PathOS.PathOSAgentEyes.RemoveInvisibleWall(UnityEngine.GameObject)
+  commentId: M:PathOS.PathOSAgentEyes.RemoveInvisibleWall(UnityEngine.GameObject)
+  id: RemoveInvisibleWall(UnityEngine.GameObject)
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: RemoveInvisibleWall(GameObject)
+  nameWithType: PathOSAgentEyes.RemoveInvisibleWall(GameObject)
+  fullName: PathOS.PathOSAgentEyes.RemoveInvisibleWall(UnityEngine.GameObject)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void RemoveInvisibleWall(GameObject wall)
+    parameters:
+    - id: wall
+      type: UnityEngine.GameObject
+    content.vb: Public Sub RemoveInvisibleWall(wall As GameObject)
+  overload: PathOS.PathOSAgentEyes.RemoveInvisibleWall*
+- uid: PathOS.PathOSAgentEyes.#ctor
+  commentId: M:PathOS.PathOSAgentEyes.#ctor
+  id: '#ctor'
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: PathOSAgentEyes()
+  nameWithType: PathOSAgentEyes.PathOSAgentEyes()
+  fullName: PathOS.PathOSAgentEyes.PathOSAgentEyes()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSAgentEyes()
+    content.vb: Public Sub New()
+  overload: PathOS.PathOSAgentEyes.#ctor*
+  nameWithType.vb: PathOSAgentEyes.New()
+  fullName.vb: PathOS.PathOSAgentEyes.New()
+  name.vb: New()
+- uid: PathOS.PathOSAgentEyes.visible
+  commentId: P:PathOS.PathOSAgentEyes.visible
+  id: visible
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: visible
+  nameWithType: PathOSAgentEyes.visible
+  fullName: PathOS.PathOSAgentEyes.visible
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<PerceivedEntity> visible { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{PathOS.PerceivedEntity}
+    content.vb: Public Property visible As List(Of PerceivedEntity)
+  overload: PathOS.PathOSAgentEyes.visible*
+- uid: PathOS.PathOSAgentEyes.perceptionInfo
+  commentId: P:PathOS.PathOSAgentEyes.perceptionInfo
+  id: perceptionInfo
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: perceptionInfo
+  nameWithType: PathOSAgentEyes.perceptionInfo
+  fullName: PathOS.PathOSAgentEyes.perceptionInfo
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<PerceivedEntity> perceptionInfo { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{PathOS.PerceivedEntity}
+    content.vb: Public Property perceptionInfo As List(Of PerceivedEntity)
+  overload: PathOS.PathOSAgentEyes.perceptionInfo*
+- uid: PathOS.PathOSAgentEyes.invisibleEntities
+  commentId: P:PathOS.PathOSAgentEyes.invisibleEntities
+  id: invisibleEntities
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: invisibleEntities
+  nameWithType: PathOSAgentEyes.invisibleEntities
+  fullName: PathOS.PathOSAgentEyes.invisibleEntities
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<LevelEntity> invisibleEntities { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{PathOS.LevelEntity}
+    content.vb: Public ReadOnly Property invisibleEntities As List(Of LevelEntity)
+  overload: PathOS.PathOSAgentEyes.invisibleEntities*
+- uid: PathOS.PathOSAgentEyes.invisibleWalls
+  commentId: P:PathOS.PathOSAgentEyes.invisibleWalls
+  id: invisibleWalls
+  parent: PathOS.PathOSAgentEyes
+  langs:
+  - csharp
+  - vb
+  name: invisibleWalls
+  nameWithType: PathOSAgentEyes.invisibleWalls
+  fullName: PathOS.PathOSAgentEyes.invisibleWalls
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public List<GameObject> invisibleWalls { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{UnityEngine.GameObject}
+    content.vb: Public ReadOnly Property invisibleWalls As List(Of GameObject)
+  overload: PathOS.PathOSAgentEyes.invisibleWalls*
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PathOS.PathOSAgentEyes.CamType
+  commentId: T:PathOS.PathOSAgentEyes.CamType
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html
+  name: PathOSAgentEyes.CamType
+  nameWithType: PathOSAgentEyes.CamType
+  fullName: PathOS.PathOSAgentEyes.CamType
+  spec.csharp:
+  - uid: PathOS.PathOSAgentEyes
+    name: PathOSAgentEyes
+    isExternal: true
+    href: PathOS.PathOSAgentEyes.html
+  - name: .
+  - uid: PathOS.PathOSAgentEyes.CamType
+    name: CamType
+    isExternal: true
+    href: PathOS.PathOSAgentEyes.CamType.html
+  spec.vb:
+  - uid: PathOS.PathOSAgentEyes
+    name: PathOSAgentEyes
+    isExternal: true
+    href: PathOS.PathOSAgentEyes.html
+  - name: .
+  - uid: PathOS.PathOSAgentEyes.CamType
+    name: CamType
+    isExternal: true
+    href: PathOS.PathOSAgentEyes.CamType.html
+- uid: UnityEngine.Camera
+  isExternal: true
+  name: Camera
+  nameWithType: Camera
+  fullName: UnityEngine.Camera
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PathOS.PathOSAgentEyes.XFOV*
+  commentId: Overload:PathOS.PathOSAgentEyes.XFOV
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_XFOV
+  name: XFOV
+  nameWithType: PathOSAgentEyes.XFOV
+  fullName: PathOS.PathOSAgentEyes.XFOV
+- uid: PathOS.PathOSAgentEyes.ProcessPerception*
+  commentId: Overload:PathOS.PathOSAgentEyes.ProcessPerception
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_ProcessPerception
+  name: ProcessPerception
+  nameWithType: PathOSAgentEyes.ProcessPerception
+  fullName: PathOS.PathOSAgentEyes.ProcessPerception
+- uid: PathOS.PathOSAgentEyes.ExploreVisibilityCheck*
+  commentId: Overload:PathOS.PathOSAgentEyes.ExploreVisibilityCheck
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_ExploreVisibilityCheck_UnityEngine_Vector3_UnityEngine_Vector3_
+  name: ExploreVisibilityCheck
+  nameWithType: PathOSAgentEyes.ExploreVisibilityCheck
+  fullName: PathOS.PathOSAgentEyes.ExploreVisibilityCheck
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine.AI.NavMeshHit
+  isExternal: true
+  name: NavMeshHit
+  nameWithType: NavMeshHit
+  fullName: UnityEngine.AI.NavMeshHit
+- uid: PathOS.PathOSAgentEyes.ExploreVisibilityCheckFreeMode*
+  commentId: Overload:PathOS.PathOSAgentEyes.ExploreVisibilityCheckFreeMode
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_ExploreVisibilityCheckFreeMode_UnityEngine_Vector3_UnityEngine_Vector3_System_Boolean__
+  name: ExploreVisibilityCheckFreeMode
+  nameWithType: PathOSAgentEyes.ExploreVisibilityCheckFreeMode
+  fullName: PathOS.PathOSAgentEyes.ExploreVisibilityCheckFreeMode
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PathOS.PathOSAgentEyes.AddInvisibleEntity*
+  commentId: Overload:PathOS.PathOSAgentEyes.AddInvisibleEntity
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_AddInvisibleEntity_PathOS_LevelEntity_
+  name: AddInvisibleEntity
+  nameWithType: PathOSAgentEyes.AddInvisibleEntity
+  fullName: PathOS.PathOSAgentEyes.AddInvisibleEntity
+- uid: PathOS.LevelEntity
+  commentId: T:PathOS.LevelEntity
+  parent: PathOS
+  isExternal: true
+  href: PathOS.LevelEntity.html
+  name: LevelEntity
+  nameWithType: LevelEntity
+  fullName: PathOS.LevelEntity
+- uid: PathOS.PathOSAgentEyes.RemoveInvisibleEntity*
+  commentId: Overload:PathOS.PathOSAgentEyes.RemoveInvisibleEntity
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_RemoveInvisibleEntity_PathOS_LevelEntity_
+  name: RemoveInvisibleEntity
+  nameWithType: PathOSAgentEyes.RemoveInvisibleEntity
+  fullName: PathOS.PathOSAgentEyes.RemoveInvisibleEntity
+- uid: PathOS.PathOSAgentEyes.AddInvisibleWall*
+  commentId: Overload:PathOS.PathOSAgentEyes.AddInvisibleWall
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_AddInvisibleWall_UnityEngine_GameObject_
+  name: AddInvisibleWall
+  nameWithType: PathOSAgentEyes.AddInvisibleWall
+  fullName: PathOS.PathOSAgentEyes.AddInvisibleWall
+- uid: UnityEngine.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: PathOS.PathOSAgentEyes.RemoveInvisibleWall*
+  commentId: Overload:PathOS.PathOSAgentEyes.RemoveInvisibleWall
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_RemoveInvisibleWall_UnityEngine_GameObject_
+  name: RemoveInvisibleWall
+  nameWithType: PathOSAgentEyes.RemoveInvisibleWall
+  fullName: PathOS.PathOSAgentEyes.RemoveInvisibleWall
+- uid: PathOS.PathOSAgentEyes.#ctor*
+  commentId: Overload:PathOS.PathOSAgentEyes.#ctor
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes__ctor
+  name: PathOSAgentEyes
+  nameWithType: PathOSAgentEyes.PathOSAgentEyes
+  fullName: PathOS.PathOSAgentEyes.PathOSAgentEyes
+  nameWithType.vb: PathOSAgentEyes.New
+  fullName.vb: PathOS.PathOSAgentEyes.New
+  name.vb: New
+- uid: PathOS.PathOSAgentEyes.visible*
+  commentId: Overload:PathOS.PathOSAgentEyes.visible
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_visible
+  name: visible
+  nameWithType: PathOSAgentEyes.visible
+  fullName: PathOS.PathOSAgentEyes.visible
+- uid: System.Collections.Generic.List{PathOS.PerceivedEntity}
+  commentId: T:System.Collections.Generic.List{PathOS.PerceivedEntity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<PerceivedEntity>
+  nameWithType: List<PerceivedEntity>
+  fullName: System.Collections.Generic.List<PathOS.PerceivedEntity>
+  nameWithType.vb: List(Of PerceivedEntity)
+  fullName.vb: System.Collections.Generic.List(Of PathOS.PerceivedEntity)
+  name.vb: List(Of PerceivedEntity)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PathOS.PerceivedEntity
+    name: PerceivedEntity
+    isExternal: true
+    href: PathOS.PerceivedEntity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.PerceivedEntity
+    name: PerceivedEntity
+    isExternal: true
+    href: PathOS.PerceivedEntity.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: PathOS.PathOSAgentEyes.perceptionInfo*
+  commentId: Overload:PathOS.PathOSAgentEyes.perceptionInfo
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_perceptionInfo
+  name: perceptionInfo
+  nameWithType: PathOSAgentEyes.perceptionInfo
+  fullName: PathOS.PathOSAgentEyes.perceptionInfo
+- uid: PathOS.PathOSAgentEyes.invisibleEntities*
+  commentId: Overload:PathOS.PathOSAgentEyes.invisibleEntities
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_invisibleEntities
+  name: invisibleEntities
+  nameWithType: PathOSAgentEyes.invisibleEntities
+  fullName: PathOS.PathOSAgentEyes.invisibleEntities
+- uid: System.Collections.Generic.List{PathOS.LevelEntity}
+  commentId: T:System.Collections.Generic.List{PathOS.LevelEntity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LevelEntity>
+  nameWithType: List<LevelEntity>
+  fullName: System.Collections.Generic.List<PathOS.LevelEntity>
+  nameWithType.vb: List(Of LevelEntity)
+  fullName.vb: System.Collections.Generic.List(Of PathOS.LevelEntity)
+  name.vb: List(Of LevelEntity)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: PathOS.LevelEntity
+    name: LevelEntity
+    isExternal: true
+    href: PathOS.LevelEntity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PathOS.LevelEntity
+    name: LevelEntity
+    isExternal: true
+    href: PathOS.LevelEntity.html
+  - name: )
+- uid: PathOS.PathOSAgentEyes.invisibleWalls*
+  commentId: Overload:PathOS.PathOSAgentEyes.invisibleWalls
+  isExternal: true
+  href: PathOS.PathOSAgentEyes.html#PathOS_PathOSAgentEyes_invisibleWalls
+  name: invisibleWalls
+  nameWithType: PathOSAgentEyes.invisibleWalls
+  fullName: PathOS.PathOSAgentEyes.invisibleWalls
+- uid: System.Collections.Generic.List{UnityEngine.GameObject}
+  commentId: T:System.Collections.Generic.List{UnityEngine.GameObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GameObject>
+  nameWithType: List<GameObject>
+  fullName: System.Collections.Generic.List<UnityEngine.GameObject>
+  nameWithType.vb: List(Of GameObject)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.GameObject)
+  name.vb: List(Of GameObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: )
+shouldSkipMarkup: true

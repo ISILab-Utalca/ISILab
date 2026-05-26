@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: NinePenguins.NPSingleton`1
+  commentId: T:NinePenguins.NPSingleton`1
+  id: NPSingleton`1
+  parent: NinePenguins
+  children:
+  - NinePenguins.NPSingleton`1.#ctor
+  - NinePenguins.NPSingleton`1.instance
+  langs:
+  - csharp
+  - vb
+  name: NPSingleton<T>
+  nameWithType: NPSingleton<T>
+  fullName: NinePenguins.NPSingleton<T>
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: NinePenguins
+  syntax:
+    content: 'public class NPSingleton<T> : MonoBehaviour where T : MonoBehaviour'
+    typeParameters:
+    - id: T
+    content.vb: Public Class NPSingleton(Of T As MonoBehaviour) Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PathOS.PathOSManager
+  nameWithType.vb: NPSingleton(Of T)
+  fullName.vb: NinePenguins.NPSingleton(Of T)
+  name.vb: NPSingleton(Of T)
+- uid: NinePenguins.NPSingleton`1.#ctor
+  commentId: M:NinePenguins.NPSingleton`1.#ctor
+  id: '#ctor'
+  parent: NinePenguins.NPSingleton`1
+  langs:
+  - csharp
+  - vb
+  name: NPSingleton()
+  nameWithType: NPSingleton<T>.NPSingleton()
+  fullName: NinePenguins.NPSingleton<T>.NPSingleton()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: NinePenguins
+  syntax:
+    content: public NPSingleton()
+    content.vb: Public Sub New()
+  overload: NinePenguins.NPSingleton`1.#ctor*
+  nameWithType.vb: NPSingleton(Of T).New()
+  fullName.vb: NinePenguins.NPSingleton(Of T).New()
+  name.vb: New()
+- uid: NinePenguins.NPSingleton`1.instance
+  commentId: P:NinePenguins.NPSingleton`1.instance
+  id: instance
+  parent: NinePenguins.NPSingleton`1
+  langs:
+  - csharp
+  - vb
+  name: instance
+  nameWithType: NPSingleton<T>.instance
+  fullName: NinePenguins.NPSingleton<T>.instance
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: NinePenguins
+  syntax:
+    content: public static T instance { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public Shared ReadOnly Property instance As T
+  overload: NinePenguins.NPSingleton`1.instance*
+  nameWithType.vb: NPSingleton(Of T).instance
+  fullName.vb: NinePenguins.NPSingleton(Of T).instance
+references:
+- uid: NinePenguins
+  commentId: N:NinePenguins
+  isExternal: true
+  href: NinePenguins.html
+  name: NinePenguins
+  nameWithType: NinePenguins
+  fullName: NinePenguins
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NinePenguins.NPSingleton`1.#ctor*
+  commentId: Overload:NinePenguins.NPSingleton`1.#ctor
+  isExternal: true
+  href: NinePenguins.NPSingleton-1.html#NinePenguins_NPSingleton_1__ctor
+  name: NPSingleton
+  nameWithType: NPSingleton<T>.NPSingleton
+  fullName: NinePenguins.NPSingleton<T>.NPSingleton
+  nameWithType.vb: NPSingleton(Of T).New
+  fullName.vb: NinePenguins.NPSingleton(Of T).New
+  name.vb: New
+- uid: NinePenguins.NPSingleton`1.instance*
+  commentId: Overload:NinePenguins.NPSingleton`1.instance
+  isExternal: true
+  href: NinePenguins.NPSingleton-1.html#NinePenguins_NPSingleton_1_instance
+  name: instance
+  nameWithType: NPSingleton<T>.instance
+  fullName: NinePenguins.NPSingleton<T>.instance
+  nameWithType.vb: NPSingleton(Of T).instance
+  fullName.vb: NinePenguins.NPSingleton(Of T).instance
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+shouldSkipMarkup: true

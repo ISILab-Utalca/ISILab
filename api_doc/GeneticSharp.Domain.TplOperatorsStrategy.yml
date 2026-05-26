@@ -1,0 +1,933 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeneticSharp.Domain.TplOperatorsStrategy
+  commentId: T:GeneticSharp.Domain.TplOperatorsStrategy
+  id: TplOperatorsStrategy
+  parent: GeneticSharp.Domain
+  children:
+  - GeneticSharp.Domain.TplOperatorsStrategy.#ctor
+  - GeneticSharp.Domain.TplOperatorsStrategy.Cross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  - GeneticSharp.Domain.TplOperatorsStrategy.Mutate(GeneticSharp.Domain.Mutations.IMutation,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  langs:
+  - csharp
+  - vb
+  name: TplOperatorsStrategy
+  nameWithType: TplOperatorsStrategy
+  fullName: GeneticSharp.Domain.TplOperatorsStrategy
+  type: Class
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain
+  syntax:
+    content: 'public class TplOperatorsStrategy : OperatorsStrategyBase, IOperatorsStrategy'
+    content.vb: Public Class TplOperatorsStrategy Inherits OperatorsStrategyBase Implements IOperatorsStrategy
+  inheritance:
+  - System.Object
+  - GeneticSharp.Domain.OperatorsStrategyBase
+  implements:
+  - GeneticSharp.Domain.IOperatorsStrategy
+  inheritedMembers:
+  - GeneticSharp.Domain.OperatorsStrategyBase.SelectParentsAndCross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase},System.Int32)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: GeneticSharp.Domain.TplOperatorsStrategy.Cross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  commentId: M:GeneticSharp.Domain.TplOperatorsStrategy.Cross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  id: Cross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  parent: GeneticSharp.Domain.TplOperatorsStrategy
+  langs:
+  - csharp
+  - vb
+  name: Cross(IPopulation, ICrossover, float, IList<ChromosomeBase>)
+  nameWithType: TplOperatorsStrategy.Cross(IPopulation, ICrossover, float, IList<ChromosomeBase>)
+  fullName: GeneticSharp.Domain.TplOperatorsStrategy.Cross(ISILab.AI.Optimization.Populations.IPopulation, GeneticSharp.Domain.Crossovers.ICrossover, float, System.Collections.Generic.IList<GeneticSharp.Domain.Chromosomes.ChromosomeBase>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain
+  example: []
+  syntax:
+    content: public override IList<ChromosomeBase> Cross(IPopulation population, ICrossover crossover, float crossoverProbability, IList<ChromosomeBase> parents)
+    parameters:
+    - id: population
+      type: ISILab.AI.Optimization.Populations.IPopulation
+    - id: crossover
+      type: GeneticSharp.Domain.Crossovers.ICrossover
+    - id: crossoverProbability
+      type: System.Single
+    - id: parents
+      type: System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase}
+    return:
+      type: System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase}
+    content.vb: Public Overrides Function Cross(population As IPopulation, crossover As ICrossover, crossoverProbability As Single, parents As IList(Of ChromosomeBase)) As IList(Of ChromosomeBase)
+  overridden: GeneticSharp.Domain.OperatorsStrategyBase.Cross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  overload: GeneticSharp.Domain.TplOperatorsStrategy.Cross*
+  nameWithType.vb: TplOperatorsStrategy.Cross(IPopulation, ICrossover, Single, IList(Of ChromosomeBase))
+  fullName.vb: GeneticSharp.Domain.TplOperatorsStrategy.Cross(ISILab.AI.Optimization.Populations.IPopulation, GeneticSharp.Domain.Crossovers.ICrossover, Single, System.Collections.Generic.IList(Of GeneticSharp.Domain.Chromosomes.ChromosomeBase))
+  name.vb: Cross(IPopulation, ICrossover, Single, IList(Of ChromosomeBase))
+- uid: GeneticSharp.Domain.TplOperatorsStrategy.Mutate(GeneticSharp.Domain.Mutations.IMutation,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  commentId: M:GeneticSharp.Domain.TplOperatorsStrategy.Mutate(GeneticSharp.Domain.Mutations.IMutation,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  id: Mutate(GeneticSharp.Domain.Mutations.IMutation,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  parent: GeneticSharp.Domain.TplOperatorsStrategy
+  langs:
+  - csharp
+  - vb
+  name: Mutate(IMutation, float, IList<ChromosomeBase>)
+  nameWithType: TplOperatorsStrategy.Mutate(IMutation, float, IList<ChromosomeBase>)
+  fullName: GeneticSharp.Domain.TplOperatorsStrategy.Mutate(GeneticSharp.Domain.Mutations.IMutation, float, System.Collections.Generic.IList<GeneticSharp.Domain.Chromosomes.ChromosomeBase>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain
+  example: []
+  syntax:
+    content: public override void Mutate(IMutation mutation, float mutationProbability, IList<ChromosomeBase> chromosomes)
+    parameters:
+    - id: mutation
+      type: GeneticSharp.Domain.Mutations.IMutation
+    - id: mutationProbability
+      type: System.Single
+    - id: chromosomes
+      type: System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase}
+    content.vb: Public Overrides Sub Mutate(mutation As IMutation, mutationProbability As Single, chromosomes As IList(Of ChromosomeBase))
+  overridden: GeneticSharp.Domain.OperatorsStrategyBase.Mutate(GeneticSharp.Domain.Mutations.IMutation,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  overload: GeneticSharp.Domain.TplOperatorsStrategy.Mutate*
+  nameWithType.vb: TplOperatorsStrategy.Mutate(IMutation, Single, IList(Of ChromosomeBase))
+  fullName.vb: GeneticSharp.Domain.TplOperatorsStrategy.Mutate(GeneticSharp.Domain.Mutations.IMutation, Single, System.Collections.Generic.IList(Of GeneticSharp.Domain.Chromosomes.ChromosomeBase))
+  name.vb: Mutate(IMutation, Single, IList(Of ChromosomeBase))
+- uid: GeneticSharp.Domain.TplOperatorsStrategy.#ctor
+  commentId: M:GeneticSharp.Domain.TplOperatorsStrategy.#ctor
+  id: '#ctor'
+  parent: GeneticSharp.Domain.TplOperatorsStrategy
+  langs:
+  - csharp
+  - vb
+  name: TplOperatorsStrategy()
+  nameWithType: TplOperatorsStrategy.TplOperatorsStrategy()
+  fullName: GeneticSharp.Domain.TplOperatorsStrategy.TplOperatorsStrategy()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain
+  syntax:
+    content: public TplOperatorsStrategy()
+    content.vb: Public Sub New()
+  overload: GeneticSharp.Domain.TplOperatorsStrategy.#ctor*
+  nameWithType.vb: TplOperatorsStrategy.New()
+  fullName.vb: GeneticSharp.Domain.TplOperatorsStrategy.New()
+  name.vb: New()
+references:
+- uid: GeneticSharp.Domain
+  commentId: N:GeneticSharp.Domain
+  isExternal: true
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain
+  nameWithType: GeneticSharp.Domain
+  fullName: GeneticSharp.Domain
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: GeneticSharp.Domain.OperatorsStrategyBase
+  commentId: T:GeneticSharp.Domain.OperatorsStrategyBase
+  parent: GeneticSharp.Domain
+  isExternal: true
+  href: GeneticSharp.Domain.OperatorsStrategyBase.html
+  name: OperatorsStrategyBase
+  nameWithType: OperatorsStrategyBase
+  fullName: GeneticSharp.Domain.OperatorsStrategyBase
+- uid: GeneticSharp.Domain.IOperatorsStrategy
+  commentId: T:GeneticSharp.Domain.IOperatorsStrategy
+  parent: GeneticSharp.Domain
+  isExternal: true
+  href: GeneticSharp.Domain.IOperatorsStrategy.html
+  name: IOperatorsStrategy
+  nameWithType: IOperatorsStrategy
+  fullName: GeneticSharp.Domain.IOperatorsStrategy
+- uid: GeneticSharp.Domain.OperatorsStrategyBase.SelectParentsAndCross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase},System.Int32)
+  commentId: M:GeneticSharp.Domain.OperatorsStrategyBase.SelectParentsAndCross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase},System.Int32)
+  parent: GeneticSharp.Domain.OperatorsStrategyBase
+  isExternal: true
+  href: GeneticSharp.Domain.OperatorsStrategyBase.html#GeneticSharp_Domain_OperatorsStrategyBase_SelectParentsAndCross_ISILab_AI_Optimization_Populations_IPopulation_GeneticSharp_Domain_Crossovers_ICrossover_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__System_Int32_
+  name: SelectParentsAndCross(IPopulation, ICrossover, float, IList<ChromosomeBase>, int)
+  nameWithType: OperatorsStrategyBase.SelectParentsAndCross(IPopulation, ICrossover, float, IList<ChromosomeBase>, int)
+  fullName: GeneticSharp.Domain.OperatorsStrategyBase.SelectParentsAndCross(ISILab.AI.Optimization.Populations.IPopulation, GeneticSharp.Domain.Crossovers.ICrossover, float, System.Collections.Generic.IList<GeneticSharp.Domain.Chromosomes.ChromosomeBase>, int)
+  nameWithType.vb: OperatorsStrategyBase.SelectParentsAndCross(IPopulation, ICrossover, Single, IList(Of ChromosomeBase), Integer)
+  fullName.vb: GeneticSharp.Domain.OperatorsStrategyBase.SelectParentsAndCross(ISILab.AI.Optimization.Populations.IPopulation, GeneticSharp.Domain.Crossovers.ICrossover, Single, System.Collections.Generic.IList(Of GeneticSharp.Domain.Chromosomes.ChromosomeBase), Integer)
+  name.vb: SelectParentsAndCross(IPopulation, ICrossover, Single, IList(Of ChromosomeBase), Integer)
+  spec.csharp:
+  - uid: GeneticSharp.Domain.OperatorsStrategyBase.SelectParentsAndCross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase},System.Int32)
+    name: SelectParentsAndCross
+    isExternal: true
+    href: GeneticSharp.Domain.OperatorsStrategyBase.html#GeneticSharp_Domain_OperatorsStrategyBase_SelectParentsAndCross_ISILab_AI_Optimization_Populations_IPopulation_GeneticSharp_Domain_Crossovers_ICrossover_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__System_Int32_
+  - name: (
+  - uid: ISILab.AI.Optimization.Populations.IPopulation
+    name: IPopulation
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.IPopulation.html
+  - name: ','
+  - name: " "
+  - uid: GeneticSharp.Domain.Crossovers.ICrossover
+    name: ICrossover
+    isExternal: true
+    href: GeneticSharp.Domain.Crossovers.ICrossover.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.OperatorsStrategyBase.SelectParentsAndCross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase},System.Int32)
+    name: SelectParentsAndCross
+    isExternal: true
+    href: GeneticSharp.Domain.OperatorsStrategyBase.html#GeneticSharp_Domain_OperatorsStrategyBase_SelectParentsAndCross_ISILab_AI_Optimization_Populations_IPopulation_GeneticSharp_Domain_Crossovers_ICrossover_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__System_Int32_
+  - name: (
+  - uid: ISILab.AI.Optimization.Populations.IPopulation
+    name: IPopulation
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.IPopulation.html
+  - name: ','
+  - name: " "
+  - uid: GeneticSharp.Domain.Crossovers.ICrossover
+    name: ICrossover
+    isExternal: true
+    href: GeneticSharp.Domain.Crossovers.ICrossover.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GeneticSharp.Domain.OperatorsStrategyBase.Cross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  commentId: M:GeneticSharp.Domain.OperatorsStrategyBase.Cross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  parent: GeneticSharp.Domain.OperatorsStrategyBase
+  isExternal: true
+  href: GeneticSharp.Domain.OperatorsStrategyBase.html#GeneticSharp_Domain_OperatorsStrategyBase_Cross_ISILab_AI_Optimization_Populations_IPopulation_GeneticSharp_Domain_Crossovers_ICrossover_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
+  name: Cross(IPopulation, ICrossover, float, IList<ChromosomeBase>)
+  nameWithType: OperatorsStrategyBase.Cross(IPopulation, ICrossover, float, IList<ChromosomeBase>)
+  fullName: GeneticSharp.Domain.OperatorsStrategyBase.Cross(ISILab.AI.Optimization.Populations.IPopulation, GeneticSharp.Domain.Crossovers.ICrossover, float, System.Collections.Generic.IList<GeneticSharp.Domain.Chromosomes.ChromosomeBase>)
+  nameWithType.vb: OperatorsStrategyBase.Cross(IPopulation, ICrossover, Single, IList(Of ChromosomeBase))
+  fullName.vb: GeneticSharp.Domain.OperatorsStrategyBase.Cross(ISILab.AI.Optimization.Populations.IPopulation, GeneticSharp.Domain.Crossovers.ICrossover, Single, System.Collections.Generic.IList(Of GeneticSharp.Domain.Chromosomes.ChromosomeBase))
+  name.vb: Cross(IPopulation, ICrossover, Single, IList(Of ChromosomeBase))
+  spec.csharp:
+  - uid: GeneticSharp.Domain.OperatorsStrategyBase.Cross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+    name: Cross
+    isExternal: true
+    href: GeneticSharp.Domain.OperatorsStrategyBase.html#GeneticSharp_Domain_OperatorsStrategyBase_Cross_ISILab_AI_Optimization_Populations_IPopulation_GeneticSharp_Domain_Crossovers_ICrossover_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
+  - name: (
+  - uid: ISILab.AI.Optimization.Populations.IPopulation
+    name: IPopulation
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.IPopulation.html
+  - name: ','
+  - name: " "
+  - uid: GeneticSharp.Domain.Crossovers.ICrossover
+    name: ICrossover
+    isExternal: true
+    href: GeneticSharp.Domain.Crossovers.ICrossover.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.OperatorsStrategyBase.Cross(ISILab.AI.Optimization.Populations.IPopulation,GeneticSharp.Domain.Crossovers.ICrossover,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+    name: Cross
+    isExternal: true
+    href: GeneticSharp.Domain.OperatorsStrategyBase.html#GeneticSharp_Domain_OperatorsStrategyBase_Cross_ISILab_AI_Optimization_Populations_IPopulation_GeneticSharp_Domain_Crossovers_ICrossover_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
+  - name: (
+  - uid: ISILab.AI.Optimization.Populations.IPopulation
+    name: IPopulation
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.IPopulation.html
+  - name: ','
+  - name: " "
+  - uid: GeneticSharp.Domain.Crossovers.ICrossover
+    name: ICrossover
+    isExternal: true
+    href: GeneticSharp.Domain.Crossovers.ICrossover.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: )
+  - name: )
+- uid: GeneticSharp.Domain.TplOperatorsStrategy.Cross*
+  commentId: Overload:GeneticSharp.Domain.TplOperatorsStrategy.Cross
+  isExternal: true
+  href: GeneticSharp.Domain.TplOperatorsStrategy.html#GeneticSharp_Domain_TplOperatorsStrategy_Cross_ISILab_AI_Optimization_Populations_IPopulation_GeneticSharp_Domain_Crossovers_ICrossover_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
+  name: Cross
+  nameWithType: TplOperatorsStrategy.Cross
+  fullName: GeneticSharp.Domain.TplOperatorsStrategy.Cross
+- uid: ISILab.AI.Optimization.Populations.IPopulation
+  commentId: T:ISILab.AI.Optimization.Populations.IPopulation
+  parent: ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html
+  name: IPopulation
+  nameWithType: IPopulation
+  fullName: ISILab.AI.Optimization.Populations.IPopulation
+- uid: GeneticSharp.Domain.Crossovers.ICrossover
+  commentId: T:GeneticSharp.Domain.Crossovers.ICrossover
+  parent: GeneticSharp.Domain.Crossovers
+  isExternal: true
+  href: GeneticSharp.Domain.Crossovers.ICrossover.html
+  name: ICrossover
+  nameWithType: ICrossover
+  fullName: GeneticSharp.Domain.Crossovers.ICrossover
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase}
+  commentId: T:System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<ChromosomeBase>
+  nameWithType: IList<ChromosomeBase>
+  fullName: System.Collections.Generic.IList<GeneticSharp.Domain.Chromosomes.ChromosomeBase>
+  nameWithType.vb: IList(Of ChromosomeBase)
+  fullName.vb: System.Collections.Generic.IList(Of GeneticSharp.Domain.Chromosomes.ChromosomeBase)
+  name.vb: IList(Of ChromosomeBase)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: )
+- uid: ISILab.AI.Optimization.Populations
+  commentId: N:ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization.Populations
+  nameWithType: ISILab.AI.Optimization.Populations
+  fullName: ISILab.AI.Optimization.Populations
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+- uid: GeneticSharp.Domain.Crossovers
+  commentId: N:GeneticSharp.Domain.Crossovers
+  isExternal: true
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Crossovers
+  nameWithType: GeneticSharp.Domain.Crossovers
+  fullName: GeneticSharp.Domain.Crossovers
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Crossovers
+    name: Crossovers
+    isExternal: true
+    href: GeneticSharp.Domain.Crossovers.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Crossovers
+    name: Crossovers
+    isExternal: true
+    href: GeneticSharp.Domain.Crossovers.html
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: GeneticSharp.Domain.OperatorsStrategyBase.Mutate(GeneticSharp.Domain.Mutations.IMutation,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  commentId: M:GeneticSharp.Domain.OperatorsStrategyBase.Mutate(GeneticSharp.Domain.Mutations.IMutation,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+  parent: GeneticSharp.Domain.OperatorsStrategyBase
+  isExternal: true
+  href: GeneticSharp.Domain.OperatorsStrategyBase.html#GeneticSharp_Domain_OperatorsStrategyBase_Mutate_GeneticSharp_Domain_Mutations_IMutation_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
+  name: Mutate(IMutation, float, IList<ChromosomeBase>)
+  nameWithType: OperatorsStrategyBase.Mutate(IMutation, float, IList<ChromosomeBase>)
+  fullName: GeneticSharp.Domain.OperatorsStrategyBase.Mutate(GeneticSharp.Domain.Mutations.IMutation, float, System.Collections.Generic.IList<GeneticSharp.Domain.Chromosomes.ChromosomeBase>)
+  nameWithType.vb: OperatorsStrategyBase.Mutate(IMutation, Single, IList(Of ChromosomeBase))
+  fullName.vb: GeneticSharp.Domain.OperatorsStrategyBase.Mutate(GeneticSharp.Domain.Mutations.IMutation, Single, System.Collections.Generic.IList(Of GeneticSharp.Domain.Chromosomes.ChromosomeBase))
+  name.vb: Mutate(IMutation, Single, IList(Of ChromosomeBase))
+  spec.csharp:
+  - uid: GeneticSharp.Domain.OperatorsStrategyBase.Mutate(GeneticSharp.Domain.Mutations.IMutation,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+    name: Mutate
+    isExternal: true
+    href: GeneticSharp.Domain.OperatorsStrategyBase.html#GeneticSharp_Domain_OperatorsStrategyBase_Mutate_GeneticSharp_Domain_Mutations_IMutation_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
+  - name: (
+  - uid: GeneticSharp.Domain.Mutations.IMutation
+    name: IMutation
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.IMutation.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: GeneticSharp.Domain.OperatorsStrategyBase.Mutate(GeneticSharp.Domain.Mutations.IMutation,System.Single,System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
+    name: Mutate
+    isExternal: true
+    href: GeneticSharp.Domain.OperatorsStrategyBase.html#GeneticSharp_Domain_OperatorsStrategyBase_Mutate_GeneticSharp_Domain_Mutations_IMutation_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
+  - name: (
+  - uid: GeneticSharp.Domain.Mutations.IMutation
+    name: IMutation
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.IMutation.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    name: ChromosomeBase
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  - name: )
+  - name: )
+- uid: GeneticSharp.Domain.TplOperatorsStrategy.Mutate*
+  commentId: Overload:GeneticSharp.Domain.TplOperatorsStrategy.Mutate
+  isExternal: true
+  href: GeneticSharp.Domain.TplOperatorsStrategy.html#GeneticSharp_Domain_TplOperatorsStrategy_Mutate_GeneticSharp_Domain_Mutations_IMutation_System_Single_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__
+  name: Mutate
+  nameWithType: TplOperatorsStrategy.Mutate
+  fullName: GeneticSharp.Domain.TplOperatorsStrategy.Mutate
+- uid: GeneticSharp.Domain.Mutations.IMutation
+  commentId: T:GeneticSharp.Domain.Mutations.IMutation
+  parent: GeneticSharp.Domain.Mutations
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.IMutation.html
+  name: IMutation
+  nameWithType: IMutation
+  fullName: GeneticSharp.Domain.Mutations.IMutation
+- uid: GeneticSharp.Domain.Mutations
+  commentId: N:GeneticSharp.Domain.Mutations
+  isExternal: true
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Mutations
+  nameWithType: GeneticSharp.Domain.Mutations
+  fullName: GeneticSharp.Domain.Mutations
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Mutations
+    name: Mutations
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Mutations
+    name: Mutations
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.html
+- uid: GeneticSharp.Domain.TplOperatorsStrategy.#ctor*
+  commentId: Overload:GeneticSharp.Domain.TplOperatorsStrategy.#ctor
+  isExternal: true
+  href: GeneticSharp.Domain.TplOperatorsStrategy.html#GeneticSharp_Domain_TplOperatorsStrategy__ctor
+  name: TplOperatorsStrategy
+  nameWithType: TplOperatorsStrategy.TplOperatorsStrategy
+  fullName: GeneticSharp.Domain.TplOperatorsStrategy.TplOperatorsStrategy
+  nameWithType.vb: TplOperatorsStrategy.New
+  fullName.vb: GeneticSharp.Domain.TplOperatorsStrategy.New
+  name.vb: New
+shouldSkipMarkup: true

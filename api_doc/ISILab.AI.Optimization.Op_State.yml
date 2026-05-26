@@ -1,0 +1,200 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Optimization.Op_State
+  commentId: T:ISILab.AI.Optimization.Op_State
+  id: Op_State
+  parent: ISILab.AI.Optimization
+  children:
+  - ISILab.AI.Optimization.Op_State.NotStarted
+  - ISILab.AI.Optimization.Op_State.Paused
+  - ISILab.AI.Optimization.Op_State.Resumed
+  - ISILab.AI.Optimization.Op_State.Running
+  - ISILab.AI.Optimization.Op_State.Started
+  - ISILab.AI.Optimization.Op_State.Stopped
+  - ISILab.AI.Optimization.Op_State.TerminationReached
+  langs:
+  - csharp
+  - vb
+  name: Op_State
+  nameWithType: Op_State
+  fullName: ISILab.AI.Optimization.Op_State
+  type: Enum
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: public enum Op_State
+    content.vb: Public Enum Op_State
+- uid: ISILab.AI.Optimization.Op_State.NotStarted
+  commentId: F:ISILab.AI.Optimization.Op_State.NotStarted
+  id: NotStarted
+  parent: ISILab.AI.Optimization.Op_State
+  langs:
+  - csharp
+  - vb
+  name: NotStarted
+  nameWithType: Op_State.NotStarted
+  fullName: ISILab.AI.Optimization.Op_State.NotStarted
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: NotStarted = 0
+    return:
+      type: ISILab.AI.Optimization.Op_State
+- uid: ISILab.AI.Optimization.Op_State.Started
+  commentId: F:ISILab.AI.Optimization.Op_State.Started
+  id: Started
+  parent: ISILab.AI.Optimization.Op_State
+  langs:
+  - csharp
+  - vb
+  name: Started
+  nameWithType: Op_State.Started
+  fullName: ISILab.AI.Optimization.Op_State.Started
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: Started = 1
+    return:
+      type: ISILab.AI.Optimization.Op_State
+- uid: ISILab.AI.Optimization.Op_State.Stopped
+  commentId: F:ISILab.AI.Optimization.Op_State.Stopped
+  id: Stopped
+  parent: ISILab.AI.Optimization.Op_State
+  langs:
+  - csharp
+  - vb
+  name: Stopped
+  nameWithType: Op_State.Stopped
+  fullName: ISILab.AI.Optimization.Op_State.Stopped
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: Stopped = 2
+    return:
+      type: ISILab.AI.Optimization.Op_State
+- uid: ISILab.AI.Optimization.Op_State.Resumed
+  commentId: F:ISILab.AI.Optimization.Op_State.Resumed
+  id: Resumed
+  parent: ISILab.AI.Optimization.Op_State
+  langs:
+  - csharp
+  - vb
+  name: Resumed
+  nameWithType: Op_State.Resumed
+  fullName: ISILab.AI.Optimization.Op_State.Resumed
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: Resumed = 3
+    return:
+      type: ISILab.AI.Optimization.Op_State
+- uid: ISILab.AI.Optimization.Op_State.Running
+  commentId: F:ISILab.AI.Optimization.Op_State.Running
+  id: Running
+  parent: ISILab.AI.Optimization.Op_State
+  langs:
+  - csharp
+  - vb
+  name: Running
+  nameWithType: Op_State.Running
+  fullName: ISILab.AI.Optimization.Op_State.Running
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: Running = 4
+    return:
+      type: ISILab.AI.Optimization.Op_State
+- uid: ISILab.AI.Optimization.Op_State.TerminationReached
+  commentId: F:ISILab.AI.Optimization.Op_State.TerminationReached
+  id: TerminationReached
+  parent: ISILab.AI.Optimization.Op_State
+  langs:
+  - csharp
+  - vb
+  name: TerminationReached
+  nameWithType: Op_State.TerminationReached
+  fullName: ISILab.AI.Optimization.Op_State.TerminationReached
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: TerminationReached = 5
+    return:
+      type: ISILab.AI.Optimization.Op_State
+- uid: ISILab.AI.Optimization.Op_State.Paused
+  commentId: F:ISILab.AI.Optimization.Op_State.Paused
+  id: Paused
+  parent: ISILab.AI.Optimization.Op_State
+  langs:
+  - csharp
+  - vb
+  name: Paused
+  nameWithType: Op_State.Paused
+  fullName: ISILab.AI.Optimization.Op_State.Paused
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Optimization
+  syntax:
+    content: Paused = 6
+    return:
+      type: ISILab.AI.Optimization.Op_State
+references:
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+- uid: ISILab.AI.Optimization.Op_State
+  commentId: T:ISILab.AI.Optimization.Op_State
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.Op_State.html
+  name: Op_State
+  nameWithType: Op_State
+  fullName: ISILab.AI.Optimization.Op_State
+shouldSkipMarkup: true

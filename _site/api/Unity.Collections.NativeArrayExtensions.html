@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NativeArrayExtensions | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NativeArrayExtensions | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Unity.Collections.NativeArrayExtensions">
+
+
+
+  <h1 id="Unity_Collections_NativeArrayExtensions" data-uid="Unity.Collections.NativeArrayExtensions" class="text-break">
+Class NativeArrayExtensions  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Unity.html">Unity</a>.<a class="xref" href="Unity.Collections.html">Collections</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Collections.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility]
+public static class NativeArrayExtensions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">NativeArrayExtensions</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_ArraysEqual_" data-uid="Unity.Collections.NativeArrayExtensions.ArraysEqual*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_ArraysEqual__1_Unity_Collections_NativeArray___0__Unity_Collections_NativeArray___0__" data-uid="Unity.Collections.NativeArrayExtensions.ArraysEqual``1(Unity.Collections.NativeArray{``0},Unity.Collections.NativeArray{``0})">
+  ArraysEqual&lt;T&gt;(NativeArray&lt;T&gt;, NativeArray&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public static bool ArraysEqual&lt;T&gt;(this NativeArray&lt;T&gt; container, NativeArray&lt;T&gt; other) where T : unmanaged, IEquatable&lt;T&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>other</code> <span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_Contains_" data-uid="Unity.Collections.NativeArrayExtensions.Contains*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_Contains__2_System_Void__System_Int32___1_" data-uid="Unity.Collections.NativeArrayExtensions.Contains``2(System.Void*,System.Int32,``1)">
+  Contains&lt;T, U&gt;(void*, int, U)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int), typeof(int) })]
+public static bool Contains&lt;T, U&gt;(void* ptr, int length, U value) where T : unmanaged, IEquatable&lt;U&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">U</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>U</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_Contains_" data-uid="Unity.Collections.NativeArrayExtensions.Contains*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_Contains__2_Unity_Collections_NativeArray___0____1_" data-uid="Unity.Collections.NativeArrayExtensions.Contains``2(Unity.Collections.NativeArray{``0},``1)">
+  Contains&lt;T, U&gt;(NativeArray&lt;T&gt;, U)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int), typeof(int) })]
+public static bool Contains&lt;T, U&gt;(this NativeArray&lt;T&gt; array, U value) where T : unmanaged, IEquatable&lt;U&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">U</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>U</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_Contains_" data-uid="Unity.Collections.NativeArrayExtensions.Contains*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_Contains__2_Unity_Collections_NativeArray___0__ReadOnly___1_" data-uid="Unity.Collections.NativeArrayExtensions.Contains``2(Unity.Collections.NativeArray{``0}.ReadOnly,``1)">
+  Contains&lt;T, U&gt;(ReadOnly, U)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int), typeof(int) })]
+public static bool Contains&lt;T, U&gt;(this NativeArray&lt;T&gt;.ReadOnly array, U value) where T : unmanaged, IEquatable&lt;U&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <span class="xref">ReadOnly</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">U</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>U</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_CopyFrom_" data-uid="Unity.Collections.NativeArrayExtensions.CopyFrom*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_CopyFrom__1_Unity_Collections_NativeArray___0___Unity_Collections_LowLevel_Unsafe_UnsafeHashSet___0___" data-uid="Unity.Collections.NativeArrayExtensions.CopyFrom``1(Unity.Collections.NativeArray{``0}@,Unity.Collections.LowLevel.Unsafe.UnsafeHashSet{``0}@)">
+  CopyFrom&lt;T&gt;(ref NativeArray&lt;T&gt;, in UnsafeHashSet&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public static void CopyFrom&lt;T&gt;(this ref NativeArray&lt;T&gt; container, in UnsafeHashSet&lt;T&gt; other) where T : unmanaged, IEquatable&lt;T&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.LowLevel.Unsafe.UnsafeHashSet-1.html">UnsafeHashSet</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_CopyFrom_" data-uid="Unity.Collections.NativeArrayExtensions.CopyFrom*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_CopyFrom__1_Unity_Collections_NativeArray___0___Unity_Collections_NativeHashSet___0___" data-uid="Unity.Collections.NativeArrayExtensions.CopyFrom``1(Unity.Collections.NativeArray{``0}@,Unity.Collections.NativeHashSet{``0}@)">
+  CopyFrom&lt;T&gt;(ref NativeArray&lt;T&gt;, in NativeHashSet&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public static void CopyFrom&lt;T&gt;(this ref NativeArray&lt;T&gt; container, in NativeHashSet&lt;T&gt; other) where T : unmanaged, IEquatable&lt;T&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.NativeHashSet-1.html">NativeHashSet</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_CopyFrom_" data-uid="Unity.Collections.NativeArrayExtensions.CopyFrom*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_CopyFrom__1_Unity_Collections_NativeArray___0___Unity_Collections_NativeList___0__" data-uid="Unity.Collections.NativeArrayExtensions.CopyFrom``1(Unity.Collections.NativeArray{``0}@,Unity.Collections.NativeList{``0})">
+  CopyFrom&lt;T&gt;(ref NativeArray&lt;T&gt;, NativeList&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public static void CopyFrom&lt;T&gt;(this ref NativeArray&lt;T&gt; container, NativeList&lt;T&gt; other) where T : unmanaged, IEquatable&lt;T&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>other</code> <a class="xref" href="Unity.Collections.NativeList-1.html">NativeList</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_IndexOf_" data-uid="Unity.Collections.NativeArrayExtensions.IndexOf*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_IndexOf__2_System_Void__System_Int32___1_" data-uid="Unity.Collections.NativeArrayExtensions.IndexOf``2(System.Void*,System.Int32,``1)">
+  IndexOf&lt;T, U&gt;(void*, int, U)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int), typeof(int) })]
+public static int IndexOf&lt;T, U&gt;(void* ptr, int length, U value) where T : unmanaged, IEquatable&lt;U&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">U</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>U</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_IndexOf_" data-uid="Unity.Collections.NativeArrayExtensions.IndexOf*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_IndexOf__2_Unity_Collections_NativeArray___0____1_" data-uid="Unity.Collections.NativeArrayExtensions.IndexOf``2(Unity.Collections.NativeArray{``0},``1)">
+  IndexOf&lt;T, U&gt;(NativeArray&lt;T&gt;, U)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int), typeof(int) })]
+public static int IndexOf&lt;T, U&gt;(this NativeArray&lt;T&gt; array, U value) where T : unmanaged, IEquatable&lt;U&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">U</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>U</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_IndexOf_" data-uid="Unity.Collections.NativeArrayExtensions.IndexOf*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_IndexOf__2_Unity_Collections_NativeArray___0__ReadOnly___1_" data-uid="Unity.Collections.NativeArrayExtensions.IndexOf``2(Unity.Collections.NativeArray{``0}.ReadOnly,``1)">
+  IndexOf&lt;T, U&gt;(ReadOnly, U)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int), typeof(int) })]
+public static int IndexOf&lt;T, U&gt;(this NativeArray&lt;T&gt;.ReadOnly array, U value) where T : unmanaged, IEquatable&lt;U&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <span class="xref">ReadOnly</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">U</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>U</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_NativeArrayExtensions_Reinterpret_" data-uid="Unity.Collections.NativeArrayExtensions.Reinterpret*"></a>
+
+  <h3 id="Unity_Collections_NativeArrayExtensions_Reinterpret__2_Unity_Collections_NativeArray___0__" data-uid="Unity.Collections.NativeArrayExtensions.Reinterpret``2(Unity.Collections.NativeArray{``0})">
+  Reinterpret&lt;T, U&gt;(NativeArray&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int), typeof(int) })]
+public static NativeArray&lt;U&gt; Reinterpret&lt;T, U&gt;(this NativeArray&lt;T&gt; array) where T : unmanaged where U : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">NativeArray</span>&lt;U&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>U</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

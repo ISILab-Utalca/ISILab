@@ -1,0 +1,487 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.Extensions.ActionExtensions
+  commentId: T:ISILab.Extensions.ActionExtensions
+  id: ActionExtensions
+  parent: ISILab.Extensions
+  children:
+  - ISILab.Extensions.ActionExtensions.AddUnique(System.Action@,System.Action)
+  - ISILab.Extensions.ActionExtensions.AddUnique``1(System.Action{``0}@,System.Action{``0})
+  - ISILab.Extensions.ActionExtensions.RemoveUnique(System.Action@,System.Action)
+  - ISILab.Extensions.ActionExtensions.RemoveUnique``1(System.Action{``0}@,System.Action{``0})
+  langs:
+  - csharp
+  - vb
+  name: ActionExtensions
+  nameWithType: ActionExtensions
+  fullName: ISILab.Extensions.ActionExtensions
+  type: Class
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static class ActionExtensions
+    content.vb: Public Module ActionExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.Extensions.ActionExtensions.AddUnique``1(System.Action{``0}@,System.Action{``0})
+  commentId: M:ISILab.Extensions.ActionExtensions.AddUnique``1(System.Action{``0}@,System.Action{``0})
+  id: AddUnique``1(System.Action{``0}@,System.Action{``0})
+  parent: ISILab.Extensions.ActionExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddUnique<T>(ref Action<T>, Action<T>)
+  nameWithType: ActionExtensions.AddUnique<T>(ref Action<T>, Action<T>)
+  fullName: ISILab.Extensions.ActionExtensions.AddUnique<T>(ref System.Action<T>, System.Action<T>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void AddUnique<T>(ref Action<T> source, Action<T> handler)
+    parameters:
+    - id: source
+      type: System.Action{{T}}
+    - id: handler
+      type: System.Action{{T}}
+    typeParameters:
+    - id: T
+    content.vb: Public Shared Sub AddUnique(Of T)(source As Action(Of T), handler As Action(Of T))
+  overload: ISILab.Extensions.ActionExtensions.AddUnique*
+  nameWithType.vb: ActionExtensions.AddUnique(Of T)(Action(Of T), Action(Of T))
+  fullName.vb: ISILab.Extensions.ActionExtensions.AddUnique(Of T)(System.Action(Of T), System.Action(Of T))
+  name.vb: AddUnique(Of T)(Action(Of T), Action(Of T))
+- uid: ISILab.Extensions.ActionExtensions.AddUnique(System.Action@,System.Action)
+  commentId: M:ISILab.Extensions.ActionExtensions.AddUnique(System.Action@,System.Action)
+  id: AddUnique(System.Action@,System.Action)
+  parent: ISILab.Extensions.ActionExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddUnique(ref Action, Action)
+  nameWithType: ActionExtensions.AddUnique(ref Action, Action)
+  fullName: ISILab.Extensions.ActionExtensions.AddUnique(ref System.Action, System.Action)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void AddUnique(ref Action source, Action handler)
+    parameters:
+    - id: source
+      type: System.Action
+    - id: handler
+      type: System.Action
+    content.vb: Public Shared Sub AddUnique(source As Action, handler As Action)
+  overload: ISILab.Extensions.ActionExtensions.AddUnique*
+  nameWithType.vb: ActionExtensions.AddUnique(Action, Action)
+  fullName.vb: ISILab.Extensions.ActionExtensions.AddUnique(System.Action, System.Action)
+  name.vb: AddUnique(Action, Action)
+- uid: ISILab.Extensions.ActionExtensions.RemoveUnique``1(System.Action{``0}@,System.Action{``0})
+  commentId: M:ISILab.Extensions.ActionExtensions.RemoveUnique``1(System.Action{``0}@,System.Action{``0})
+  id: RemoveUnique``1(System.Action{``0}@,System.Action{``0})
+  parent: ISILab.Extensions.ActionExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveUnique<T>(ref Action<T>, Action<T>)
+  nameWithType: ActionExtensions.RemoveUnique<T>(ref Action<T>, Action<T>)
+  fullName: ISILab.Extensions.ActionExtensions.RemoveUnique<T>(ref System.Action<T>, System.Action<T>)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void RemoveUnique<T>(ref Action<T> source, Action<T> handler)
+    parameters:
+    - id: source
+      type: System.Action{{T}}
+    - id: handler
+      type: System.Action{{T}}
+    typeParameters:
+    - id: T
+    content.vb: Public Shared Sub RemoveUnique(Of T)(source As Action(Of T), handler As Action(Of T))
+  overload: ISILab.Extensions.ActionExtensions.RemoveUnique*
+  nameWithType.vb: ActionExtensions.RemoveUnique(Of T)(Action(Of T), Action(Of T))
+  fullName.vb: ISILab.Extensions.ActionExtensions.RemoveUnique(Of T)(System.Action(Of T), System.Action(Of T))
+  name.vb: RemoveUnique(Of T)(Action(Of T), Action(Of T))
+- uid: ISILab.Extensions.ActionExtensions.RemoveUnique(System.Action@,System.Action)
+  commentId: M:ISILab.Extensions.ActionExtensions.RemoveUnique(System.Action@,System.Action)
+  id: RemoveUnique(System.Action@,System.Action)
+  parent: ISILab.Extensions.ActionExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveUnique(ref Action, Action)
+  nameWithType: ActionExtensions.RemoveUnique(ref Action, Action)
+  fullName: ISILab.Extensions.ActionExtensions.RemoveUnique(ref System.Action, System.Action)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void RemoveUnique(ref Action source, Action handler)
+    parameters:
+    - id: source
+      type: System.Action
+    - id: handler
+      type: System.Action
+    content.vb: Public Shared Sub RemoveUnique(source As Action, handler As Action)
+  overload: ISILab.Extensions.ActionExtensions.RemoveUnique*
+  nameWithType.vb: ActionExtensions.RemoveUnique(Action, Action)
+  fullName.vb: ISILab.Extensions.ActionExtensions.RemoveUnique(System.Action, System.Action)
+  name.vb: RemoveUnique(Action, Action)
+references:
+- uid: ISILab.Extensions
+  commentId: N:ISILab.Extensions
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Extensions
+  nameWithType: ISILab.Extensions
+  fullName: ISILab.Extensions
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Extensions.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.Extensions.ActionExtensions.AddUnique*
+  commentId: Overload:ISILab.Extensions.ActionExtensions.AddUnique
+  isExternal: true
+  href: ISILab.Extensions.ActionExtensions.html#ISILab_Extensions_ActionExtensions_AddUnique__1_System_Action___0___System_Action___0__
+  name: AddUnique
+  nameWithType: ActionExtensions.AddUnique
+  fullName: ISILab.Extensions.ActionExtensions.AddUnique
+- uid: System.Action{{T}}
+  commentId: T:System.Action{``0}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.Extensions.ActionExtensions.RemoveUnique*
+  commentId: Overload:ISILab.Extensions.ActionExtensions.RemoveUnique
+  isExternal: true
+  href: ISILab.Extensions.ActionExtensions.html#ISILab_Extensions_ActionExtensions_RemoveUnique__1_System_Action___0___System_Action___0__
+  name: RemoveUnique
+  nameWithType: ActionExtensions.RemoveUnique
+  fullName: ISILab.Extensions.ActionExtensions.RemoveUnique
+shouldSkipMarkup: true

@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UniversalAdditionalCameraData | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UniversalAdditionalCameraData | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData">
+
+
+
+  <h1 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" class="text-break">
+Class UniversalAdditionalCameraData  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.Universal.html">Universal</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Universal.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class UniversalAdditionalCameraData : MonoBehaviour, ISerializationCallbackReceiver, IAdditionalData</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">UniversalAdditionalCameraData</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ISerializationCallbackReceiver</span></div>
+      <div><a class="xref" href="UnityEngine.Rendering.IAdditionalData.html">IAdditionalData</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData__ctor_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData__ctor" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.#ctor">
+  UniversalAdditionalCameraData()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniversalAdditionalCameraData()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_allowHDROutput_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.allowHDROutput*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_allowHDROutput" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.allowHDROutput">
+  allowHDROutput
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool allowHDROutput { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_allowXRRendering_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.allowXRRendering*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_allowXRRendering" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.allowXRRendering">
+  allowXRRendering
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool allowXRRendering { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_antialiasing_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.antialiasing*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_antialiasing" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.antialiasing">
+  antialiasing
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AntialiasingMode antialiasing { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.AntialiasingMode.html">AntialiasingMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_antialiasingQuality_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.antialiasingQuality*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_antialiasingQuality" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.antialiasingQuality">
+  antialiasingQuality
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AntialiasingQuality antialiasingQuality { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.AntialiasingQuality.html">AntialiasingQuality</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_cameraStack_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.cameraStack*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_cameraStack" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.cameraStack">
+  cameraStack
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Camera&gt; cameraStack { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Camera</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_clearDepth_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.clearDepth*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_clearDepth" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.clearDepth">
+  clearDepth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool clearDepth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_dithering_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.dithering*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_dithering" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.dithering">
+  dithering
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool dithering { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_history_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.history*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_history" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.history">
+  history
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICameraHistoryReadAccess history { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.ICameraHistoryReadAccess.html">ICameraHistoryReadAccess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_renderPostProcessing_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.renderPostProcessing*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_renderPostProcessing" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.renderPostProcessing">
+  renderPostProcessing
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool renderPostProcessing { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_renderShadows_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.renderShadows*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_renderShadows" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.renderShadows">
+  renderShadows
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool renderShadows { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_renderType_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.renderType*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_renderType" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.renderType">
+  renderType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CameraRenderType renderType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.CameraRenderType.html">CameraRenderType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_requiresColorOption_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.requiresColorOption*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_requiresColorOption" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.requiresColorOption">
+  requiresColorOption
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CameraOverrideOption requiresColorOption { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.CameraOverrideOption.html">CameraOverrideOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_requiresColorTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.requiresColorTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_requiresColorTexture" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.requiresColorTexture">
+  requiresColorTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool requiresColorTexture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_requiresDepthOption_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.requiresDepthOption*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_requiresDepthOption" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.requiresDepthOption">
+  requiresDepthOption
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CameraOverrideOption requiresDepthOption { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.CameraOverrideOption.html">CameraOverrideOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_requiresDepthTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.requiresDepthTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_requiresDepthTexture" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.requiresDepthTexture">
+  requiresDepthTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool requiresDepthTexture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_requiresVolumeFrameworkUpdate_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.requiresVolumeFrameworkUpdate*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_requiresVolumeFrameworkUpdate" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.requiresVolumeFrameworkUpdate">
+  requiresVolumeFrameworkUpdate
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool requiresVolumeFrameworkUpdate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_resetHistory_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.resetHistory*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_resetHistory" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.resetHistory">
+  resetHistory
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool resetHistory { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_screenCoordScaleBias_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.screenCoordScaleBias*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_screenCoordScaleBias" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.screenCoordScaleBias">
+  screenCoordScaleBias
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector4 screenCoordScaleBias { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_screenSizeOverride_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.screenSizeOverride*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_screenSizeOverride" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.screenSizeOverride">
+  screenSizeOverride
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector4 screenSizeOverride { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_scriptableRenderer_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.scriptableRenderer*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_scriptableRenderer" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.scriptableRenderer">
+  scriptableRenderer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScriptableRenderer scriptableRenderer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderer.html">ScriptableRenderer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_stopNaN_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.stopNaN*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_stopNaN" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.stopNaN">
+  stopNaN
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool stopNaN { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_taaSettings_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.taaSettings*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_taaSettings" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.taaSettings">
+  taaSettings
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ref TemporalAA.Settings taaSettings { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.TemporalAA.html">TemporalAA</a>.<a class="xref" href="UnityEngine.Rendering.Universal.TemporalAA.Settings.html">Settings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_useScreenCoordOverride_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.useScreenCoordOverride*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_useScreenCoordOverride" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.useScreenCoordOverride">
+  useScreenCoordOverride
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool useScreenCoordOverride { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_version_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.version*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_version" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.version">
+  version
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float version { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_volumeLayerMask_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.volumeLayerMask*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_volumeLayerMask" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.volumeLayerMask">
+  volumeLayerMask
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LayerMask volumeLayerMask { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">LayerMask</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_volumeStack_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.volumeStack*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_volumeStack" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.volumeStack">
+  volumeStack
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VolumeStack volumeStack { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.VolumeStack.html">VolumeStack</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_volumeTrigger_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.volumeTrigger*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_volumeTrigger" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.volumeTrigger">
+  volumeTrigger
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transform volumeTrigger { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Transform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_OnAfterDeserialize_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.OnAfterDeserialize*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_OnAfterDeserialize" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.OnAfterDeserialize">
+  OnAfterDeserialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnAfterDeserialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_OnBeforeSerialize_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.OnBeforeSerialize*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_OnBeforeSerialize" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.OnBeforeSerialize">
+  OnBeforeSerialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnBeforeSerialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_OnDestroy_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.OnDestroy*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_OnDestroy" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.OnDestroy">
+  OnDestroy()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnDestroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_OnDrawGizmos_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.OnDrawGizmos*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_OnDrawGizmos" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.OnDrawGizmos">
+  OnDrawGizmos()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnDrawGizmos()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_OnValidate_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.OnValidate*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_OnValidate" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.OnValidate">
+  OnValidate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnValidate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_SetRenderer_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.SetRenderer*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalAdditionalCameraData_SetRenderer_System_Int32_" data-uid="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData.SetRenderer(System.Int32)">
+  SetRenderer(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRenderer(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

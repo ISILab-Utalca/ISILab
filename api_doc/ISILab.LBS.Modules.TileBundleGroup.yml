@@ -1,0 +1,1384 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Modules.TileBundleGroup
+  commentId: T:ISILab.LBS.Modules.TileBundleGroup
+  id: TileBundleGroup
+  parent: ISILab.LBS.Modules
+  children:
+  - ISILab.LBS.Modules.TileBundleGroup.#ctor(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile},LBS.Components.TileMap.BundleData,UnityEngine.Vector2,System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons})
+  - ISILab.LBS.Modules.TileBundleGroup.#ctor(UnityEngine.Vector2,UnityEngine.Vector2,LBS.Components.TileMap.BundleData,UnityEngine.Vector2)
+  - ISILab.LBS.Modules.TileBundleGroup.Addons
+  - ISILab.LBS.Modules.TileBundleGroup.AreaRect
+  - ISILab.LBS.Modules.TileBundleGroup.BundleData
+  - ISILab.LBS.Modules.TileBundleGroup.Clone
+  - ISILab.LBS.Modules.TileBundleGroup.Contains(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  - ISILab.LBS.Modules.TileBundleGroup.Equals(System.Object)
+  - ISILab.LBS.Modules.TileBundleGroup.FindFromTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  - ISILab.LBS.Modules.TileBundleGroup.GetAddon``1
+  - ISILab.LBS.Modules.TileBundleGroup.GetBounds
+  - ISILab.LBS.Modules.TileBundleGroup.GetBundleSize
+  - ISILab.LBS.Modules.TileBundleGroup.GetCenter
+  - ISILab.LBS.Modules.TileBundleGroup.GetGuid
+  - ISILab.LBS.Modules.TileBundleGroup.GetHashCode
+  - ISILab.LBS.Modules.TileBundleGroup.GetTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  - ISILab.LBS.Modules.TileBundleGroup.GetTile(UnityEngine.Vector2Int)
+  - ISILab.LBS.Modules.TileBundleGroup.LocationKey
+  - ISILab.LBS.Modules.TileBundleGroup.OnRemoved
+  - ISILab.LBS.Modules.TileBundleGroup.Removed
+  - ISILab.LBS.Modules.TileBundleGroup.Rotatable
+  - ISILab.LBS.Modules.TileBundleGroup.Rotation
+  - ISILab.LBS.Modules.TileBundleGroup.TileGroup
+  - ISILab.LBS.Modules.TileBundleGroup.Translate(UnityEngine.Vector2Int)
+  langs:
+  - csharp
+  - vb
+  name: TileBundleGroup
+  nameWithType: TileBundleGroup
+  fullName: ISILab.LBS.Modules.TileBundleGroup
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: 'public class TileBundleGroup : ICloneable'
+    content.vb: Public Class TileBundleGroup Implements ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Modules.TileBundleGroup.#ctor(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile},LBS.Components.TileMap.BundleData,UnityEngine.Vector2,System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons})
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.#ctor(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile},LBS.Components.TileMap.BundleData,UnityEngine.Vector2,System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons})
+  id: '#ctor(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile},LBS.Components.TileMap.BundleData,UnityEngine.Vector2,System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons})'
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: TileBundleGroup(List<LBSTile>, BundleData, Vector2, List<BundleTileMapAddons>)
+  nameWithType: TileBundleGroup.TileBundleGroup(List<LBSTile>, BundleData, Vector2, List<BundleTileMapAddons>)
+  fullName: ISILab.LBS.Modules.TileBundleGroup.TileBundleGroup(System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>, LBS.Components.TileMap.BundleData, UnityEngine.Vector2, System.Collections.Generic.List<ISILab.LBS.Components.BundleTileMapAddons>)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation, List<BundleTileMapAddons> _addons)
+    parameters:
+    - id: tiles
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+    - id: bData
+      type: LBS.Components.TileMap.BundleData
+    - id: rotation
+      type: UnityEngine.Vector2
+    - id: _addons
+      type: System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons}
+    content.vb: Public Sub New(tiles As List(Of LBSTile), bData As BundleData, rotation As Vector2, _addons As List(Of BundleTileMapAddons))
+  overload: ISILab.LBS.Modules.TileBundleGroup.#ctor*
+  nameWithType.vb: TileBundleGroup.New(List(Of LBSTile), BundleData, Vector2, List(Of BundleTileMapAddons))
+  fullName.vb: ISILab.LBS.Modules.TileBundleGroup.New(System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile), LBS.Components.TileMap.BundleData, UnityEngine.Vector2, System.Collections.Generic.List(Of ISILab.LBS.Components.BundleTileMapAddons))
+  name.vb: New(List(Of LBSTile), BundleData, Vector2, List(Of BundleTileMapAddons))
+- uid: ISILab.LBS.Modules.TileBundleGroup.#ctor(UnityEngine.Vector2,UnityEngine.Vector2,LBS.Components.TileMap.BundleData,UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.#ctor(UnityEngine.Vector2,UnityEngine.Vector2,LBS.Components.TileMap.BundleData,UnityEngine.Vector2)
+  id: '#ctor(UnityEngine.Vector2,UnityEngine.Vector2,LBS.Components.TileMap.BundleData,UnityEngine.Vector2)'
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: TileBundleGroup(Vector2, Vector2, BundleData, Vector2)
+  nameWithType: TileBundleGroup.TileBundleGroup(Vector2, Vector2, BundleData, Vector2)
+  fullName: ISILab.LBS.Modules.TileBundleGroup.TileBundleGroup(UnityEngine.Vector2, UnityEngine.Vector2, LBS.Components.TileMap.BundleData, UnityEngine.Vector2)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public TileBundleGroup(Vector2 position, Vector2 size, BundleData bData, Vector2 rotation)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2
+    - id: size
+      type: UnityEngine.Vector2
+    - id: bData
+      type: LBS.Components.TileMap.BundleData
+    - id: rotation
+      type: UnityEngine.Vector2
+    content.vb: Public Sub New(position As Vector2, size As Vector2, bData As BundleData, rotation As Vector2)
+  overload: ISILab.LBS.Modules.TileBundleGroup.#ctor*
+  nameWithType.vb: TileBundleGroup.New(Vector2, Vector2, BundleData, Vector2)
+  fullName.vb: ISILab.LBS.Modules.TileBundleGroup.New(UnityEngine.Vector2, UnityEngine.Vector2, LBS.Components.TileMap.BundleData, UnityEngine.Vector2)
+  name.vb: New(Vector2, Vector2, BundleData, Vector2)
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetBundleSize
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.GetBundleSize
+  id: GetBundleSize
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: GetBundleSize()
+  nameWithType: TileBundleGroup.GetBundleSize()
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetBundleSize()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public Vector2Int GetBundleSize()
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Function GetBundleSize() As Vector2Int
+  overload: ISILab.LBS.Modules.TileBundleGroup.GetBundleSize*
+- uid: ISILab.LBS.Modules.TileBundleGroup.Contains(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.Contains(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  id: Contains(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: Contains(LBSTile)
+  nameWithType: TileBundleGroup.Contains(LBSTile)
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Contains(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public bool Contains(LBSTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(tile As LBSTile) As Boolean
+  overload: ISILab.LBS.Modules.TileBundleGroup.Contains*
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetTile(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.GetTile(UnityEngine.Vector2Int)
+  id: GetTile(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: GetTile(Vector2Int)
+  nameWithType: TileBundleGroup.GetTile(Vector2Int)
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetTile(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public LBSTile GetTile(Vector2Int pos)
+    parameters:
+    - id: pos
+      type: UnityEngine.Vector2Int
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    content.vb: Public Function GetTile(pos As Vector2Int) As LBSTile
+  overload: ISILab.LBS.Modules.TileBundleGroup.GetTile*
+- uid: ISILab.LBS.Modules.TileBundleGroup.FindFromTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.FindFromTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  id: FindFromTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: FindFromTile(LBSTile)
+  nameWithType: TileBundleGroup.FindFromTile(LBSTile)
+  fullName: ISILab.LBS.Modules.TileBundleGroup.FindFromTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public TileBundleGroup FindFromTile(LBSTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    return:
+      type: ISILab.LBS.Modules.TileBundleGroup
+    content.vb: Public Function FindFromTile(tile As LBSTile) As TileBundleGroup
+  overload: ISILab.LBS.Modules.TileBundleGroup.FindFromTile*
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.GetTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  id: GetTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: GetTile(LBSTile)
+  nameWithType: TileBundleGroup.GetTile(LBSTile)
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public LBSTile GetTile(LBSTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    content.vb: Public Function GetTile(tile As LBSTile) As LBSTile
+  overload: ISILab.LBS.Modules.TileBundleGroup.GetTile*
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetBounds
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.GetBounds
+  id: GetBounds
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: GetBounds()
+  nameWithType: TileBundleGroup.GetBounds()
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetBounds()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public Rect GetBounds()
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public Function GetBounds() As Rect
+  overload: ISILab.LBS.Modules.TileBundleGroup.GetBounds*
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetCenter
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.GetCenter
+  id: GetCenter
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: GetCenter()
+  nameWithType: TileBundleGroup.GetCenter()
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetCenter()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public Vector2 GetCenter()
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Function GetCenter() As Vector2
+  overload: ISILab.LBS.Modules.TileBundleGroup.GetCenter*
+- uid: ISILab.LBS.Modules.TileBundleGroup.Translate(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.Translate(UnityEngine.Vector2Int)
+  id: Translate(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: Translate(Vector2Int)
+  nameWithType: TileBundleGroup.Translate(Vector2Int)
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Translate(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void Translate(Vector2Int offset)
+    parameters:
+    - id: offset
+      type: UnityEngine.Vector2Int
+    content.vb: Public Sub Translate(offset As Vector2Int)
+  overload: ISILab.LBS.Modules.TileBundleGroup.Translate*
+- uid: ISILab.LBS.Modules.TileBundleGroup.Clone
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.Clone
+  id: Clone
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: TileBundleGroup.Clone()
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Function Clone() As Object
+  overload: ISILab.LBS.Modules.TileBundleGroup.Clone*
+  implements:
+  - System.ICloneable.Clone
+- uid: ISILab.LBS.Modules.TileBundleGroup.Equals(System.Object)
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: TileBundleGroup.Equals(object)
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ISILab.LBS.Modules.TileBundleGroup.Equals*
+  nameWithType.vb: TileBundleGroup.Equals(Object)
+  fullName.vb: ISILab.LBS.Modules.TileBundleGroup.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetAddon``1
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.GetAddon``1
+  id: GetAddon``1
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: GetAddon<T>()
+  nameWithType: TileBundleGroup.GetAddon<T>()
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetAddon<T>()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: 'public T GetAddon<T>() where T : BundleTileMapAddons'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function GetAddon(Of T As BundleTileMapAddons)() As T
+  overload: ISILab.LBS.Modules.TileBundleGroup.GetAddon*
+  nameWithType.vb: TileBundleGroup.GetAddon(Of T)()
+  fullName.vb: ISILab.LBS.Modules.TileBundleGroup.GetAddon(Of T)()
+  name.vb: GetAddon(Of T)()
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetHashCode
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: TileBundleGroup.GetHashCode()
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ISILab.LBS.Modules.TileBundleGroup.GetHashCode*
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetGuid
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.GetGuid
+  id: GetGuid
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: GetGuid()
+  nameWithType: TileBundleGroup.GetGuid()
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetGuid()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public string GetGuid()
+    return:
+      type: System.String
+    content.vb: Public Function GetGuid() As String
+  overload: ISILab.LBS.Modules.TileBundleGroup.GetGuid*
+- uid: ISILab.LBS.Modules.TileBundleGroup.Removed
+  commentId: M:ISILab.LBS.Modules.TileBundleGroup.Removed
+  id: Removed
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: Removed()
+  nameWithType: TileBundleGroup.Removed()
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Removed()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void Removed()
+    content.vb: Public Sub Removed()
+  overload: ISILab.LBS.Modules.TileBundleGroup.Removed*
+- uid: ISILab.LBS.Modules.TileBundleGroup.Addons
+  commentId: P:ISILab.LBS.Modules.TileBundleGroup.Addons
+  id: Addons
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: Addons
+  nameWithType: TileBundleGroup.Addons
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Addons
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<BundleTileMapAddons> Addons { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons}
+    content.vb: Public Property Addons As List(Of BundleTileMapAddons)
+  overload: ISILab.LBS.Modules.TileBundleGroup.Addons*
+- uid: ISILab.LBS.Modules.TileBundleGroup.TileGroup
+  commentId: P:ISILab.LBS.Modules.TileBundleGroup.TileGroup
+  id: TileGroup
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: TileGroup
+  nameWithType: TileBundleGroup.TileGroup
+  fullName: ISILab.LBS.Modules.TileBundleGroup.TileGroup
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<LBSTile> TileGroup { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+    content.vb: Public Property TileGroup As List(Of LBSTile)
+  overload: ISILab.LBS.Modules.TileBundleGroup.TileGroup*
+- uid: ISILab.LBS.Modules.TileBundleGroup.AreaRect
+  commentId: P:ISILab.LBS.Modules.TileBundleGroup.AreaRect
+  id: AreaRect
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: AreaRect
+  nameWithType: TileBundleGroup.AreaRect
+  fullName: ISILab.LBS.Modules.TileBundleGroup.AreaRect
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public Rect AreaRect { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public ReadOnly Property AreaRect As Rect
+  overload: ISILab.LBS.Modules.TileBundleGroup.AreaRect*
+- uid: ISILab.LBS.Modules.TileBundleGroup.BundleData
+  commentId: P:ISILab.LBS.Modules.TileBundleGroup.BundleData
+  id: BundleData
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: BundleData
+  nameWithType: TileBundleGroup.BundleData
+  fullName: ISILab.LBS.Modules.TileBundleGroup.BundleData
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public BundleData BundleData { get; set; }
+    parameters: []
+    return:
+      type: LBS.Components.TileMap.BundleData
+    content.vb: Public Property BundleData As BundleData
+  overload: ISILab.LBS.Modules.TileBundleGroup.BundleData*
+- uid: ISILab.LBS.Modules.TileBundleGroup.Rotation
+  commentId: P:ISILab.LBS.Modules.TileBundleGroup.Rotation
+  id: Rotation
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: Rotation
+  nameWithType: TileBundleGroup.Rotation
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Rotation
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public Vector2 Rotation { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Property Rotation As Vector2
+  overload: ISILab.LBS.Modules.TileBundleGroup.Rotation*
+- uid: ISILab.LBS.Modules.TileBundleGroup.Rotatable
+  commentId: P:ISILab.LBS.Modules.TileBundleGroup.Rotatable
+  id: Rotatable
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: Rotatable
+  nameWithType: TileBundleGroup.Rotatable
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Rotatable
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public bool Rotatable { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Rotatable As Boolean
+  overload: ISILab.LBS.Modules.TileBundleGroup.Rotatable*
+- uid: ISILab.LBS.Modules.TileBundleGroup.LocationKey
+  commentId: P:ISILab.LBS.Modules.TileBundleGroup.LocationKey
+  id: LocationKey
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: LocationKey
+  nameWithType: TileBundleGroup.LocationKey
+  fullName: ISILab.LBS.Modules.TileBundleGroup.LocationKey
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public string LocationKey { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LocationKey As String
+  overload: ISILab.LBS.Modules.TileBundleGroup.LocationKey*
+- uid: ISILab.LBS.Modules.TileBundleGroup.OnRemoved
+  commentId: E:ISILab.LBS.Modules.TileBundleGroup.OnRemoved
+  id: OnRemoved
+  parent: ISILab.LBS.Modules.TileBundleGroup
+  langs:
+  - csharp
+  - vb
+  name: OnRemoved
+  nameWithType: TileBundleGroup.OnRemoved
+  fullName: ISILab.LBS.Modules.TileBundleGroup.OnRemoved
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public event Action OnRemoved
+    return:
+      type: System.Action
+    content.vb: Public Event OnRemoved As Action
+references:
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Modules.TileBundleGroup.#ctor*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.#ctor
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup__ctor_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__LBS_Components_TileMap_BundleData_UnityEngine_Vector2_System_Collections_Generic_List_ISILab_LBS_Components_BundleTileMapAddons__
+  name: TileBundleGroup
+  nameWithType: TileBundleGroup.TileBundleGroup
+  fullName: ISILab.LBS.Modules.TileBundleGroup.TileBundleGroup
+  nameWithType.vb: TileBundleGroup.New
+  fullName.vb: ISILab.LBS.Modules.TileBundleGroup.New
+  name.vb: New
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSTile>
+  nameWithType: List<LBSTile>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>
+  nameWithType.vb: List(Of LBSTile)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  name.vb: List(Of LBSTile)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: )
+- uid: LBS.Components.TileMap.BundleData
+  commentId: T:LBS.Components.TileMap.BundleData
+  parent: LBS.Components.TileMap
+  isExternal: true
+  href: LBS.Components.TileMap.BundleData.html
+  name: BundleData
+  nameWithType: BundleData
+  fullName: LBS.Components.TileMap.BundleData
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<BundleTileMapAddons>
+  nameWithType: List<BundleTileMapAddons>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.BundleTileMapAddons>
+  nameWithType.vb: List(Of BundleTileMapAddons)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.BundleTileMapAddons)
+  name.vb: List(Of BundleTileMapAddons)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.BundleTileMapAddons
+    name: BundleTileMapAddons
+    isExternal: true
+    href: ISILab.LBS.Components.BundleTileMapAddons.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.BundleTileMapAddons
+    name: BundleTileMapAddons
+    isExternal: true
+    href: ISILab.LBS.Components.BundleTileMapAddons.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: LBS.Components.TileMap
+  commentId: N:LBS.Components.TileMap
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components.TileMap
+  nameWithType: LBS.Components.TileMap
+  fullName: LBS.Components.TileMap
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  - name: .
+  - uid: LBS.Components.TileMap
+    name: TileMap
+    isExternal: true
+    href: LBS.Components.TileMap.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  - name: .
+  - uid: LBS.Components.TileMap
+    name: TileMap
+    isExternal: true
+    href: LBS.Components.TileMap.html
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetBundleSize*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.GetBundleSize
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_GetBundleSize
+  name: GetBundleSize
+  nameWithType: TileBundleGroup.GetBundleSize
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetBundleSize
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: ISILab.LBS.Modules.TileBundleGroup.Contains*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.Contains
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_Contains_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
+  name: Contains
+  nameWithType: TileBundleGroup.Contains
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Contains
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+  commentId: T:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  name: LBSTile
+  nameWithType: LBSTile
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  commentId: N:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  nameWithType: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
+    name: Tessellation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+    name: TileMap
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
+    name: Tessellation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+    name: TileMap
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetTile*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.GetTile
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_GetTile_UnityEngine_Vector2Int_
+  name: GetTile
+  nameWithType: TileBundleGroup.GetTile
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetTile
+- uid: ISILab.LBS.Modules.TileBundleGroup.FindFromTile*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.FindFromTile
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_FindFromTile_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
+  name: FindFromTile
+  nameWithType: TileBundleGroup.FindFromTile
+  fullName: ISILab.LBS.Modules.TileBundleGroup.FindFromTile
+- uid: ISILab.LBS.Modules.TileBundleGroup
+  commentId: T:ISILab.LBS.Modules.TileBundleGroup
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html
+  name: TileBundleGroup
+  nameWithType: TileBundleGroup
+  fullName: ISILab.LBS.Modules.TileBundleGroup
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetBounds*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.GetBounds
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_GetBounds
+  name: GetBounds
+  nameWithType: TileBundleGroup.GetBounds
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetBounds
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetCenter*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.GetCenter
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_GetCenter
+  name: GetCenter
+  nameWithType: TileBundleGroup.GetCenter
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetCenter
+- uid: ISILab.LBS.Modules.TileBundleGroup.Translate*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.Translate
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_Translate_UnityEngine_Vector2Int_
+  name: Translate
+  nameWithType: TileBundleGroup.Translate
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Translate
+- uid: ISILab.LBS.Modules.TileBundleGroup.Clone*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.Clone
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_Clone
+  name: Clone
+  nameWithType: TileBundleGroup.Clone
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Modules.TileBundleGroup.Equals*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.Equals
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_Equals_System_Object_
+  name: Equals
+  nameWithType: TileBundleGroup.Equals
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Equals
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetAddon*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.GetAddon
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_GetAddon__1
+  name: GetAddon
+  nameWithType: TileBundleGroup.GetAddon
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetAddon
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetHashCode*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_GetHashCode
+  name: GetHashCode
+  nameWithType: TileBundleGroup.GetHashCode
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Modules.TileBundleGroup.GetGuid*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.GetGuid
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_GetGuid
+  name: GetGuid
+  nameWithType: TileBundleGroup.GetGuid
+  fullName: ISILab.LBS.Modules.TileBundleGroup.GetGuid
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Modules.TileBundleGroup.Removed*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.Removed
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_Removed
+  name: Removed
+  nameWithType: TileBundleGroup.Removed
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Removed
+- uid: ISILab.LBS.Modules.TileBundleGroup.Addons*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.Addons
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_Addons
+  name: Addons
+  nameWithType: TileBundleGroup.Addons
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Addons
+- uid: ISILab.LBS.Modules.TileBundleGroup.TileGroup*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.TileGroup
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_TileGroup
+  name: TileGroup
+  nameWithType: TileBundleGroup.TileGroup
+  fullName: ISILab.LBS.Modules.TileBundleGroup.TileGroup
+- uid: ISILab.LBS.Modules.TileBundleGroup.AreaRect*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.AreaRect
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_AreaRect
+  name: AreaRect
+  nameWithType: TileBundleGroup.AreaRect
+  fullName: ISILab.LBS.Modules.TileBundleGroup.AreaRect
+- uid: ISILab.LBS.Modules.TileBundleGroup.BundleData*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.BundleData
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_BundleData
+  name: BundleData
+  nameWithType: TileBundleGroup.BundleData
+  fullName: ISILab.LBS.Modules.TileBundleGroup.BundleData
+- uid: ISILab.LBS.Modules.TileBundleGroup.Rotation*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.Rotation
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_Rotation
+  name: Rotation
+  nameWithType: TileBundleGroup.Rotation
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Rotation
+- uid: ISILab.LBS.Modules.TileBundleGroup.Rotatable*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.Rotatable
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_Rotatable
+  name: Rotatable
+  nameWithType: TileBundleGroup.Rotatable
+  fullName: ISILab.LBS.Modules.TileBundleGroup.Rotatable
+- uid: ISILab.LBS.Modules.TileBundleGroup.LocationKey*
+  commentId: Overload:ISILab.LBS.Modules.TileBundleGroup.LocationKey
+  isExternal: true
+  href: ISILab.LBS.Modules.TileBundleGroup.html#ISILab_LBS_Modules_TileBundleGroup_LocationKey
+  name: LocationKey
+  nameWithType: TileBundleGroup.LocationKey
+  fullName: ISILab.LBS.Modules.TileBundleGroup.LocationKey
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+shouldSkipMarkup: true

@@ -1,0 +1,454 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSLog
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSLog
+  id: LBSLog
+  parent: ISILab.LBS.Plugin.Core.Settings
+  children:
+  - ISILab.LBS.Plugin.Core.Settings.LBSLog.#ctor(System.Int32)
+  - ISILab.LBS.Plugin.Core.Settings.LBSLog.#ctor(System.String,UnityEngine.LogType,System.Int32)
+  - ISILab.LBS.Plugin.Core.Settings.LBSLog.duration
+  - ISILab.LBS.Plugin.Core.Settings.LBSLog.message
+  - ISILab.LBS.Plugin.Core.Settings.LBSLog.type
+  langs:
+  - csharp
+  - vb
+  name: LBSLog
+  nameWithType: LBSLog
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSLog
+  type: Struct
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public struct LBSLog
+    content.vb: Public Structure LBSLog
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSLog.message
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSLog.message
+  id: message
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSLog
+  langs:
+  - csharp
+  - vb
+  name: message
+  nameWithType: LBSLog.message
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSLog.message
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public string message
+    return:
+      type: System.String
+    content.vb: Public message As String
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSLog.type
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSLog.type
+  id: type
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSLog
+  langs:
+  - csharp
+  - vb
+  name: type
+  nameWithType: LBSLog.type
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSLog.type
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public LogType type
+    return:
+      type: UnityEngine.LogType
+    content.vb: Public type As LogType
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSLog.duration
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSLog.duration
+  id: duration
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSLog
+  langs:
+  - csharp
+  - vb
+  name: duration
+  nameWithType: LBSLog.duration
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSLog.duration
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public int duration
+    return:
+      type: System.Int32
+    content.vb: Public duration As Integer
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSLog.#ctor(System.Int32)
+  commentId: M:ISILab.LBS.Plugin.Core.Settings.LBSLog.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSLog
+  langs:
+  - csharp
+  - vb
+  name: LBSLog(int)
+  nameWithType: LBSLog.LBSLog(int)
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSLog.LBSLog(int)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public LBSLog(int anyValue)
+    parameters:
+    - id: anyValue
+      type: System.Int32
+    content.vb: Public Sub New(anyValue As Integer)
+  overload: ISILab.LBS.Plugin.Core.Settings.LBSLog.#ctor*
+  nameWithType.vb: LBSLog.New(Integer)
+  fullName.vb: ISILab.LBS.Plugin.Core.Settings.LBSLog.New(Integer)
+  name.vb: New(Integer)
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSLog.#ctor(System.String,UnityEngine.LogType,System.Int32)
+  commentId: M:ISILab.LBS.Plugin.Core.Settings.LBSLog.#ctor(System.String,UnityEngine.LogType,System.Int32)
+  id: '#ctor(System.String,UnityEngine.LogType,System.Int32)'
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSLog
+  langs:
+  - csharp
+  - vb
+  name: LBSLog(string, LogType, int)
+  nameWithType: LBSLog.LBSLog(string, LogType, int)
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSLog.LBSLog(string, UnityEngine.LogType, int)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public LBSLog(string message = "ISILab:", LogType type = 3, int duration = 3)
+    parameters:
+    - id: message
+      type: System.String
+    - id: type
+      type: UnityEngine.LogType
+    - id: duration
+      type: System.Int32
+    content.vb: Public Sub New(message As String = "ISILab:", type As LogType = 3, duration As Integer = 3)
+  overload: ISILab.LBS.Plugin.Core.Settings.LBSLog.#ctor*
+  nameWithType.vb: LBSLog.New(String, LogType, Integer)
+  fullName.vb: ISILab.LBS.Plugin.Core.Settings.LBSLog.New(String, UnityEngine.LogType, Integer)
+  name.vb: New(String, LogType, Integer)
+references:
+- uid: ISILab.LBS.Plugin.Core.Settings
+  commentId: N:ISILab.LBS.Plugin.Core.Settings
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.Settings
+  nameWithType: ISILab.LBS.Plugin.Core.Settings
+  fullName: ISILab.LBS.Plugin.Core.Settings
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.Settings.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityEngine.LogType
+  isExternal: true
+  name: LogType
+  nameWithType: LogType
+  fullName: UnityEngine.LogType
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSLog.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Core.Settings.LBSLog.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.Settings.LBSLog.html#ISILab_LBS_Plugin_Core_Settings_LBSLog__ctor_System_Int32_
+  name: LBSLog
+  nameWithType: LBSLog.LBSLog
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSLog.LBSLog
+  nameWithType.vb: LBSLog.New
+  fullName.vb: ISILab.LBS.Plugin.Core.Settings.LBSLog.New
+  name.vb: New
+shouldSkipMarkup: true

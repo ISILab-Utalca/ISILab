@@ -1,0 +1,600 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
+  commentId: T:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
+  id: Custom3dQuestGizmo
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  children:
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.#ctor
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.OnDrawGizmosSelected
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Tracker
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Trigger
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.prevTriggers
+  langs:
+  - csharp
+  - vb
+  name: Custom3dQuestGizmo
+  nameWithType: Custom3dQuestGizmo
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  syntax:
+    content: 'public class Custom3dQuestGizmo : Custom3dGizmo'
+    content.vb: Public Class Custom3dQuestGizmo Inherits Custom3dGizmo
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  inheritedMembers:
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoColor
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoMesh
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.meshGizmoScale
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.worldPosition
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition
+  - ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.prevTriggers
+  commentId: F:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.prevTriggers
+  id: prevTriggers
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
+  langs:
+  - csharp
+  - vb
+  name: prevTriggers
+  nameWithType: Custom3dQuestGizmo.prevTriggers
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.prevTriggers
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  syntax:
+    content: public List<QuestTrigger> prevTriggers
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
+    content.vb: Public prevTriggers As List(Of QuestTrigger)
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.OnDrawGizmosSelected
+  commentId: M:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.OnDrawGizmosSelected
+  id: OnDrawGizmosSelected
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
+  langs:
+  - csharp
+  - vb
+  name: OnDrawGizmosSelected()
+  nameWithType: Custom3dQuestGizmo.OnDrawGizmosSelected()
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.OnDrawGizmosSelected()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  example: []
+  syntax:
+    content: protected override void OnDrawGizmosSelected()
+    content.vb: Protected Overrides Sub OnDrawGizmosSelected()
+  overridden: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected
+  overload: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.OnDrawGizmosSelected*
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.#ctor
+  commentId: M:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
+  langs:
+  - csharp
+  - vb
+  name: Custom3dQuestGizmo()
+  nameWithType: Custom3dQuestGizmo.Custom3dQuestGizmo()
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Custom3dQuestGizmo()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  syntax:
+    content: public Custom3dQuestGizmo()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.#ctor*
+  nameWithType.vb: Custom3dQuestGizmo.New()
+  fullName.vb: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Tracker
+  commentId: P:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Tracker
+  id: Tracker
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
+  langs:
+  - csharp
+  - vb
+  name: Tracker
+  nameWithType: Custom3dQuestGizmo.Tracker
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Tracker
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  syntax:
+    content: public QuestTracker Tracker { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+    content.vb: Public Property Tracker As QuestTracker
+  overload: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Tracker*
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Trigger
+  commentId: P:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Trigger
+  id: Trigger
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
+  langs:
+  - csharp
+  - vb
+  name: Trigger
+  nameWithType: Custom3dQuestGizmo.Trigger
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Trigger
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  syntax:
+    content: public QuestTrigger Trigger { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    content.vb: Public Property Trigger As QuestTrigger
+  overload: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Trigger*
+references:
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  commentId: N:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  nameWithType: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo
+    name: CustomGizmo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+    name: QuestGizmo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo
+    name: CustomGizmo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
+    name: QuestGizmo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  commentId: T:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html
+  name: Custom3dGizmo
+  nameWithType: Custom3dGizmo
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoColor
+  commentId: F:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoColor
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_gizmoColor
+  name: gizmoColor
+  nameWithType: Custom3dGizmo.gizmoColor
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoColor
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoMesh
+  commentId: F:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoMesh
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_gizmoMesh
+  name: gizmoMesh
+  nameWithType: Custom3dGizmo.gizmoMesh
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.gizmoMesh
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.meshGizmoScale
+  commentId: F:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.meshGizmoScale
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_meshGizmoScale
+  name: meshGizmoScale
+  nameWithType: Custom3dGizmo.meshGizmoScale
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.meshGizmoScale
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.worldPosition
+  commentId: F:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.worldPosition
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_worldPosition
+  name: worldPosition
+  nameWithType: Custom3dGizmo.worldPosition
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.worldPosition
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh
+  commentId: M:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_DrawCustomMesh
+  name: DrawCustomMesh()
+  nameWithType: Custom3dGizmo.DrawCustomMesh()
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh
+    name: DrawCustomMesh
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_DrawCustomMesh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.DrawCustomMesh
+    name: DrawCustomMesh
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_DrawCustomMesh
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition
+  commentId: M:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_UpdatePosition
+  name: UpdatePosition()
+  nameWithType: Custom3dGizmo.UpdatePosition()
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition
+    name: UpdatePosition
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_UpdatePosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.UpdatePosition
+    name: UpdatePosition
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_UpdatePosition
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement
+  commentId: P:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_RootVisualElement
+  name: RootVisualElement
+  nameWithType: Custom3dGizmo.RootVisualElement
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.RootVisualElement
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  commentId: N:ISILab.LBS.Plugin.MapTools.CustomGizmo
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  nameWithType: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo
+    name: CustomGizmo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo
+    name: CustomGizmo
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.html
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<QuestTrigger>
+  nameWithType: List<QuestTrigger>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger>
+  nameWithType.vb: List(Of QuestTrigger)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  name.vb: List(Of QuestTrigger)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    name: QuestTrigger
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    name: QuestTrigger
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected
+  commentId: M:ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected
+  parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_OnDrawGizmosSelected
+  name: OnDrawGizmosSelected()
+  nameWithType: Custom3dGizmo.OnDrawGizmosSelected()
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected
+    name: OnDrawGizmosSelected
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_OnDrawGizmosSelected
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.OnDrawGizmosSelected
+    name: OnDrawGizmosSelected
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.CustomGizmo.Custom3dGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_Custom3dGizmo_OnDrawGizmosSelected
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.OnDrawGizmosSelected*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.OnDrawGizmosSelected
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_QuestGizmo_Custom3dQuestGizmo_OnDrawGizmosSelected
+  name: OnDrawGizmosSelected
+  nameWithType: Custom3dQuestGizmo.OnDrawGizmosSelected
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.OnDrawGizmosSelected
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_QuestGizmo_Custom3dQuestGizmo__ctor
+  name: Custom3dQuestGizmo
+  nameWithType: Custom3dQuestGizmo.Custom3dQuestGizmo
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Custom3dQuestGizmo
+  nameWithType.vb: Custom3dQuestGizmo.New
+  fullName.vb: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Tracker*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Tracker
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_QuestGizmo_Custom3dQuestGizmo_Tracker
+  name: Tracker
+  nameWithType: Custom3dQuestGizmo.Tracker
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Tracker
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html
+  name: QuestTracker
+  nameWithType: QuestTracker
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+- uid: ISILab.LBS.Plugin.MapTools.Generators
+  commentId: N:ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.Generators
+  nameWithType: ISILab.LBS.Plugin.MapTools.Generators
+  fullName: ISILab.LBS.Plugin.MapTools.Generators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+- uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Trigger*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Trigger
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.html#ISILab_LBS_Plugin_MapTools_CustomGizmo_QuestGizmo_Custom3dQuestGizmo_Trigger
+  name: Trigger
+  nameWithType: Custom3dQuestGizmo.Trigger
+  fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.Trigger
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
+  name: QuestTrigger
+  nameWithType: QuestTrigger
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+shouldSkipMarkup: true

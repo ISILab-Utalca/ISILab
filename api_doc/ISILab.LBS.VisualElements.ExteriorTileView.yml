@@ -1,0 +1,564 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.ExteriorTileView
+  commentId: T:ISILab.LBS.VisualElements.ExteriorTileView
+  id: ExteriorTileView
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.ExteriorTileView.#ctor(System.Collections.Generic.List{System.String},System.String)
+  - ISILab.LBS.VisualElements.ExteriorTileView.BrightenColor(UnityEngine.Color)
+  - ISILab.LBS.VisualElements.ExteriorTileView.SetBackgroundColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  - ISILab.LBS.VisualElements.ExteriorTileView.SetBorderColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  - ISILab.LBS.VisualElements.ExteriorTileView.SetConnections(System.String[])
+  - ISILab.LBS.VisualElements.ExteriorTileView.SetImageTint(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  - ISILab.LBS.VisualElements.ExteriorTileView.SetTileCenter(ISILab.LBS.Components.LBSTag)
+  - ISILab.LBS.VisualElements.ExteriorTileView.colorBrightenner
+  - ISILab.LBS.VisualElements.ExteriorTileView.fillColor
+  - ISILab.LBS.VisualElements.ExteriorTileView.scaleFactor
+  langs:
+  - csharp
+  - vb
+  name: ExteriorTileView
+  nameWithType: ExteriorTileView
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public abstract class ExteriorTileView : GraphElement'
+    content.vb: Public MustInherit Class ExteriorTileView Inherits GraphElement
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.VisualElements.EdgeExteriorTileView
+  - ISILab.LBS.VisualElements.VertexExteriorTileView
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.scaleFactor
+  commentId: F:ISILab.LBS.VisualElements.ExteriorTileView.scaleFactor
+  id: scaleFactor
+  parent: ISILab.LBS.VisualElements.ExteriorTileView
+  langs:
+  - csharp
+  - vb
+  name: scaleFactor
+  nameWithType: ExteriorTileView.scaleFactor
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.scaleFactor
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected static float scaleFactor
+    return:
+      type: System.Single
+    content.vb: Protected Shared scaleFactor As Single
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.fillColor
+  commentId: F:ISILab.LBS.VisualElements.ExteriorTileView.fillColor
+  id: fillColor
+  parent: ISILab.LBS.VisualElements.ExteriorTileView
+  langs:
+  - csharp
+  - vb
+  name: fillColor
+  nameWithType: ExteriorTileView.fillColor
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.fillColor
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected static Color fillColor
+    return:
+      type: UnityEngine.Color
+    content.vb: Protected Shared fillColor As Color
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.colorBrightenner
+  commentId: F:ISILab.LBS.VisualElements.ExteriorTileView.colorBrightenner
+  id: colorBrightenner
+  parent: ISILab.LBS.VisualElements.ExteriorTileView
+  langs:
+  - csharp
+  - vb
+  name: colorBrightenner
+  nameWithType: ExteriorTileView.colorBrightenner
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.colorBrightenner
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected static float colorBrightenner
+    return:
+      type: System.Single
+    content.vb: Protected Shared colorBrightenner As Single
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.#ctor(System.Collections.Generic.List{System.String},System.String)
+  commentId: M:ISILab.LBS.VisualElements.ExteriorTileView.#ctor(System.Collections.Generic.List{System.String},System.String)
+  id: '#ctor(System.Collections.Generic.List{System.String},System.String)'
+  parent: ISILab.LBS.VisualElements.ExteriorTileView
+  langs:
+  - csharp
+  - vb
+  name: ExteriorTileView(List<string>, string)
+  nameWithType: ExteriorTileView.ExteriorTileView(List<string>, string)
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.ExteriorTileView(System.Collections.Generic.List<string>, string)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public ExteriorTileView(List<string> connections, string viewElementName)
+    parameters:
+    - id: connections
+      type: System.Collections.Generic.List{System.String}
+    - id: viewElementName
+      type: System.String
+    content.vb: Public Sub New(connections As List(Of String), viewElementName As String)
+  overload: ISILab.LBS.VisualElements.ExteriorTileView.#ctor*
+  nameWithType.vb: ExteriorTileView.New(List(Of String), String)
+  fullName.vb: ISILab.LBS.VisualElements.ExteriorTileView.New(System.Collections.Generic.List(Of String), String)
+  name.vb: New(List(Of String), String)
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.SetBackgroundColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  commentId: M:ISILab.LBS.VisualElements.ExteriorTileView.SetBackgroundColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  id: SetBackgroundColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  parent: ISILab.LBS.VisualElements.ExteriorTileView
+  langs:
+  - csharp
+  - vb
+  name: SetBackgroundColor(VisualElement, Color)
+  nameWithType: ExteriorTileView.SetBackgroundColor(VisualElement, Color)
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.SetBackgroundColor(UnityEngine.UIElements.VisualElement, UnityEngine.Color)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected static void SetBackgroundColor(VisualElement ve, Color color)
+    parameters:
+    - id: ve
+      type: UnityEngine.UIElements.VisualElement
+    - id: color
+      type: UnityEngine.Color
+    content.vb: Protected Shared Sub SetBackgroundColor(ve As VisualElement, color As Color)
+  overload: ISILab.LBS.VisualElements.ExteriorTileView.SetBackgroundColor*
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.SetImageTint(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  commentId: M:ISILab.LBS.VisualElements.ExteriorTileView.SetImageTint(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  id: SetImageTint(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  parent: ISILab.LBS.VisualElements.ExteriorTileView
+  langs:
+  - csharp
+  - vb
+  name: SetImageTint(VisualElement, Color)
+  nameWithType: ExteriorTileView.SetImageTint(VisualElement, Color)
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.SetImageTint(UnityEngine.UIElements.VisualElement, UnityEngine.Color)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected static void SetImageTint(VisualElement ve, Color color)
+    parameters:
+    - id: ve
+      type: UnityEngine.UIElements.VisualElement
+    - id: color
+      type: UnityEngine.Color
+    content.vb: Protected Shared Sub SetImageTint(ve As VisualElement, color As Color)
+  overload: ISILab.LBS.VisualElements.ExteriorTileView.SetImageTint*
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.SetBorderColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  commentId: M:ISILab.LBS.VisualElements.ExteriorTileView.SetBorderColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  id: SetBorderColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  parent: ISILab.LBS.VisualElements.ExteriorTileView
+  langs:
+  - csharp
+  - vb
+  name: SetBorderColor(VisualElement, Color)
+  nameWithType: ExteriorTileView.SetBorderColor(VisualElement, Color)
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.SetBorderColor(UnityEngine.UIElements.VisualElement, UnityEngine.Color)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected static void SetBorderColor(VisualElement ve, Color color)
+    parameters:
+    - id: ve
+      type: UnityEngine.UIElements.VisualElement
+    - id: color
+      type: UnityEngine.Color
+    content.vb: Protected Shared Sub SetBorderColor(ve As VisualElement, color As Color)
+  overload: ISILab.LBS.VisualElements.ExteriorTileView.SetBorderColor*
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.SetConnections(System.String[])
+  commentId: M:ISILab.LBS.VisualElements.ExteriorTileView.SetConnections(System.String[])
+  id: SetConnections(System.String[])
+  parent: ISILab.LBS.VisualElements.ExteriorTileView
+  langs:
+  - csharp
+  - vb
+  name: SetConnections(string[])
+  nameWithType: ExteriorTileView.SetConnections(string[])
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.SetConnections(string[])
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public abstract void SetConnections(string[] tags)
+    parameters:
+    - id: tags
+      type: System.String[]
+    content.vb: Public MustOverride Sub SetConnections(tags As String())
+  overload: ISILab.LBS.VisualElements.ExteriorTileView.SetConnections*
+  nameWithType.vb: ExteriorTileView.SetConnections(String())
+  fullName.vb: ISILab.LBS.VisualElements.ExteriorTileView.SetConnections(String())
+  name.vb: SetConnections(String())
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.SetTileCenter(ISILab.LBS.Components.LBSTag)
+  commentId: M:ISILab.LBS.VisualElements.ExteriorTileView.SetTileCenter(ISILab.LBS.Components.LBSTag)
+  id: SetTileCenter(ISILab.LBS.Components.LBSTag)
+  parent: ISILab.LBS.VisualElements.ExteriorTileView
+  langs:
+  - csharp
+  - vb
+  name: SetTileCenter(LBSTag)
+  nameWithType: ExteriorTileView.SetTileCenter(LBSTag)
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.SetTileCenter(ISILab.LBS.Components.LBSTag)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public virtual void SetTileCenter(LBSTag identifier)
+    parameters:
+    - id: identifier
+      type: ISILab.LBS.Components.LBSTag
+    content.vb: Public Overridable Sub SetTileCenter(identifier As LBSTag)
+  overload: ISILab.LBS.VisualElements.ExteriorTileView.SetTileCenter*
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.BrightenColor(UnityEngine.Color)
+  commentId: M:ISILab.LBS.VisualElements.ExteriorTileView.BrightenColor(UnityEngine.Color)
+  id: BrightenColor(UnityEngine.Color)
+  parent: ISILab.LBS.VisualElements.ExteriorTileView
+  langs:
+  - csharp
+  - vb
+  name: BrightenColor(Color)
+  nameWithType: ExteriorTileView.BrightenColor(Color)
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.BrightenColor(UnityEngine.Color)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected static Color BrightenColor(Color color)
+    parameters:
+    - id: color
+      type: UnityEngine.Color
+    return:
+      type: UnityEngine.Color
+    content.vb: Protected Shared Function BrightenColor(color As Color) As Color
+  overload: ISILab.LBS.VisualElements.ExteriorTileView.BrightenColor*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.ExteriorTileView.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ExteriorTileView.html#ISILab_LBS_VisualElements_ExteriorTileView__ctor_System_Collections_Generic_List_System_String__System_String_
+  name: ExteriorTileView
+  nameWithType: ExteriorTileView.ExteriorTileView
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.ExteriorTileView
+  nameWithType.vb: ExteriorTileView.New
+  fullName.vb: ISILab.LBS.VisualElements.ExteriorTileView.New
+  name.vb: New
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.SetBackgroundColor*
+  commentId: Overload:ISILab.LBS.VisualElements.ExteriorTileView.SetBackgroundColor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ExteriorTileView.html#ISILab_LBS_VisualElements_ExteriorTileView_SetBackgroundColor_UnityEngine_UIElements_VisualElement_UnityEngine_Color_
+  name: SetBackgroundColor
+  nameWithType: ExteriorTileView.SetBackgroundColor
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.SetBackgroundColor
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.SetImageTint*
+  commentId: Overload:ISILab.LBS.VisualElements.ExteriorTileView.SetImageTint
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ExteriorTileView.html#ISILab_LBS_VisualElements_ExteriorTileView_SetImageTint_UnityEngine_UIElements_VisualElement_UnityEngine_Color_
+  name: SetImageTint
+  nameWithType: ExteriorTileView.SetImageTint
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.SetImageTint
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.SetBorderColor*
+  commentId: Overload:ISILab.LBS.VisualElements.ExteriorTileView.SetBorderColor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ExteriorTileView.html#ISILab_LBS_VisualElements_ExteriorTileView_SetBorderColor_UnityEngine_UIElements_VisualElement_UnityEngine_Color_
+  name: SetBorderColor
+  nameWithType: ExteriorTileView.SetBorderColor
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.SetBorderColor
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.SetConnections*
+  commentId: Overload:ISILab.LBS.VisualElements.ExteriorTileView.SetConnections
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ExteriorTileView.html#ISILab_LBS_VisualElements_ExteriorTileView_SetConnections_System_String___
+  name: SetConnections
+  nameWithType: ExteriorTileView.SetConnections
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.SetConnections
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.SetTileCenter*
+  commentId: Overload:ISILab.LBS.VisualElements.ExteriorTileView.SetTileCenter
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ExteriorTileView.html#ISILab_LBS_VisualElements_ExteriorTileView_SetTileCenter_ISILab_LBS_Components_LBSTag_
+  name: SetTileCenter
+  nameWithType: ExteriorTileView.SetTileCenter
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.SetTileCenter
+- uid: ISILab.LBS.Components.LBSTag
+  commentId: T:ISILab.LBS.Components.LBSTag
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html
+  name: LBSTag
+  nameWithType: LBSTag
+  fullName: ISILab.LBS.Components.LBSTag
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.VisualElements.ExteriorTileView.BrightenColor*
+  commentId: Overload:ISILab.LBS.VisualElements.ExteriorTileView.BrightenColor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.ExteriorTileView.html#ISILab_LBS_VisualElements_ExteriorTileView_BrightenColor_UnityEngine_Color_
+  name: BrightenColor
+  nameWithType: ExteriorTileView.BrightenColor
+  fullName: ISILab.LBS.VisualElements.ExteriorTileView.BrightenColor
+shouldSkipMarkup: true

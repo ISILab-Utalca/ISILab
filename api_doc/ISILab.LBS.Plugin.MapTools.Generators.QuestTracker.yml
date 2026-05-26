@@ -1,0 +1,459 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  id: QuestTracker
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  children:
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.#ctor
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraph)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.OnQuestAdvance
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.currentQuest
+  langs:
+  - csharp
+  - vb
+  name: QuestTracker
+  nameWithType: QuestTracker
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: 'public class QuestTracker : MonoBehaviour'
+    content.vb: Public Class QuestTracker Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.currentQuest
+  commentId: F:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.currentQuest
+  id: currentQuest
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: currentQuest
+  nameWithType: QuestTracker.currentQuest
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.currentQuest
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public QuestTrigger currentQuest
+    return:
+      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    content.vb: Public currentQuest As QuestTrigger
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraph)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraph)
+  id: Init(ISILab.LBS.Modules.QuestGraph)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: Init(QuestGraph)
+  nameWithType: QuestTracker.Init(QuestGraph)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraph)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public void Init(QuestGraph graph)
+    parameters:
+    - id: graph
+      type: ISILab.LBS.Modules.QuestGraph
+    content.vb: Public Sub Init(graph As QuestGraph)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.#ctor
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: QuestTracker()
+  nameWithType: QuestTracker.QuestTracker()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestTracker()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public QuestTracker()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.#ctor*
+  nameWithType.vb: QuestTracker.New()
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
+  id: QuestGraph
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: QuestGraph
+  nameWithType: QuestTracker.QuestGraph
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public QuestGraph QuestGraph { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Modules.QuestGraph
+    content.vb: Public ReadOnly Property QuestGraph As QuestGraph
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
+  id: Objectives
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: Objectives
+  nameWithType: QuestTracker.Objectives
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public IReadOnlyList<QuestObjective> Objectives { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{ISILab.LBS.Plugin.MapTools.Generators.QuestObjective}
+    content.vb: Public ReadOnly Property Objectives As IReadOnlyList(Of QuestObjective)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
+  id: QuestComplete
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: QuestComplete
+  nameWithType: QuestTracker.QuestComplete
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public bool QuestComplete { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property QuestComplete As Boolean
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.OnQuestAdvance
+  commentId: E:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.OnQuestAdvance
+  id: OnQuestAdvance
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: OnQuestAdvance
+  nameWithType: QuestTracker.OnQuestAdvance
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.OnQuestAdvance
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public event Action OnQuestAdvance
+    return:
+      type: System.Action
+    content.vb: Public Event OnQuestAdvance As Action
+references:
+- uid: ISILab.LBS.Plugin.MapTools.Generators
+  commentId: N:ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.Generators
+  nameWithType: ISILab.LBS.Plugin.MapTools.Generators
+  fullName: ISILab.LBS.Plugin.MapTools.Generators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
+  name: QuestTrigger
+  nameWithType: QuestTrigger
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Init_ISILab_LBS_Modules_QuestGraph_
+  name: Init
+  nameWithType: QuestTracker.Init
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init
+- uid: ISILab.LBS.Modules.QuestGraph
+  commentId: T:ISILab.LBS.Modules.QuestGraph
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.QuestGraph.html
+  name: QuestGraph
+  nameWithType: QuestGraph
+  fullName: ISILab.LBS.Modules.QuestGraph
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker__ctor
+  name: QuestTracker
+  nameWithType: QuestTracker.QuestTracker
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestTracker
+  nameWithType.vb: QuestTracker.New
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_QuestGraph
+  name: QuestGraph
+  nameWithType: QuestTracker.QuestGraph
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Objectives
+  name: Objectives
+  nameWithType: QuestTracker.Objectives
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
+- uid: System.Collections.Generic.IReadOnlyList{ISILab.LBS.Plugin.MapTools.Generators.QuestObjective}
+  commentId: T:System.Collections.Generic.IReadOnlyList{ISILab.LBS.Plugin.MapTools.Generators.QuestObjective}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<QuestObjective>
+  nameWithType: IReadOnlyList<QuestObjective>
+  fullName: System.Collections.Generic.IReadOnlyList<ISILab.LBS.Plugin.MapTools.Generators.QuestObjective>
+  nameWithType.vb: IReadOnlyList(Of QuestObjective)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of ISILab.LBS.Plugin.MapTools.Generators.QuestObjective)
+  name.vb: IReadOnlyList(Of QuestObjective)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestObjective
+    name: QuestObjective
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestObjective.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestObjective
+    name: QuestObjective
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestObjective.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_QuestComplete
+  name: QuestComplete
+  nameWithType: QuestTracker.QuestComplete
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+shouldSkipMarkup: true

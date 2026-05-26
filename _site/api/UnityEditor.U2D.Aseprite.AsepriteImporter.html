@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AsepriteImporter | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AsepriteImporter | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter">
+
+
+
+  <h1 id="UnityEditor_U2D_Aseprite_AsepriteImporter" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter" class="text-break">
+Class AsepriteImporter  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEditor.html">UnityEditor</a>.<a class="xref" href="UnityEditor.U2D.html">U2D</a>.<a class="xref" href="UnityEditor.U2D.Aseprite.html">Aseprite</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.2D.Aseprite.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AsepriteImporter : ScriptedImporter, ISpriteEditorDataProvider</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AsepriteImporter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="UnityEditor.U2D.Sprites.ISpriteEditorDataProvider.html">ISpriteEditorDataProvider</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter__ctor_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.#ctor*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter__ctor" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.#ctor">
+  AsepriteImporter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsepriteImporter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_OnPostAsepriteImport_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.OnPostAsepriteImport*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_OnPostAsepriteImport" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.OnPostAsepriteImport">
+  OnPostAsepriteImport
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsepriteImporter.AsepriteImportEventHandler OnPostAsepriteImport { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.U2D.Aseprite.AsepriteImporter.html">AsepriteImporter</a>.<a class="xref" href="UnityEditor.U2D.Aseprite.AsepriteImporter.AsepriteImportEventHandler.html">AsepriteImportEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_addShadowCasters_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.addShadowCasters*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_addShadowCasters" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.addShadowCasters">
+  addShadowCasters
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool addShadowCasters { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_addSortingGroup_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.addSortingGroup*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_addSortingGroup" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.addSortingGroup">
+  addSortingGroup
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool addSortingGroup { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_aniso_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.aniso*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_aniso" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.aniso">
+  aniso
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int aniso { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_asepriteFile_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.asepriteFile*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_asepriteFile" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.asepriteFile">
+  asepriteFile
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsepriteFile asepriteFile { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.U2D.Aseprite.AsepriteFile.html">AsepriteFile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_canvasSize_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.canvasSize*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_canvasSize" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.canvasSize">
+  canvasSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 canvasSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_customPivotPosition_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.customPivotPosition*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_customPivotPosition" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.customPivotPosition">
+  customPivotPosition
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 customPivotPosition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_filterMode_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.filterMode*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_filterMode" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.filterMode">
+  filterMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FilterMode filterMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">FilterMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_generateAnimationClips_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.generateAnimationClips*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_generateAnimationClips" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.generateAnimationClips">
+  generateAnimationClips
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool generateAnimationClips { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_generateModelPrefab_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.generateModelPrefab*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_generateModelPrefab" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.generateModelPrefab">
+  generateModelPrefab
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool generateModelPrefab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_generatePhysicsShape_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.generatePhysicsShape*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_generatePhysicsShape" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.generatePhysicsShape">
+  generatePhysicsShape
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool generatePhysicsShape { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_importMode_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.importMode*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_importMode" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.importMode">
+  importMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileImportModes importMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.U2D.Aseprite.FileImportModes.html">FileImportModes</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_includeHiddenLayers_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.includeHiddenLayers*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_includeHiddenLayers" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.includeHiddenLayers">
+  includeHiddenLayers
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool includeHiddenLayers { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_layerImportMode_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.layerImportMode*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_layerImportMode" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.layerImportMode">
+  layerImportMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LayerImportModes layerImportMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.U2D.Aseprite.LayerImportModes.html">LayerImportModes</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipMapBias_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipMapBias*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipMapBias" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipMapBias">
+  mipMapBias
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float mipMapBias { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipMapsPreserveCoverage_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipMapsPreserveCoverage*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipMapsPreserveCoverage" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipMapsPreserveCoverage">
+  mipMapsPreserveCoverage
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool mipMapsPreserveCoverage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipmapEnabled_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipmapEnabled*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipmapEnabled" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipmapEnabled">
+  mipmapEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool mipmapEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipmapFadeDistanceEnd_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipmapFadeDistanceEnd*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipmapFadeDistanceEnd" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipmapFadeDistanceEnd">
+  mipmapFadeDistanceEnd
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int mipmapFadeDistanceEnd { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipmapFadeDistanceStart_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipmapFadeDistanceStart*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipmapFadeDistanceStart" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipmapFadeDistanceStart">
+  mipmapFadeDistanceStart
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int mipmapFadeDistanceStart { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipmapFilter_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipmapFilter*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_mipmapFilter" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mipmapFilter">
+  mipmapFilter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureImporterMipFilter mipmapFilter { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TextureImporterMipFilter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_mosaicPadding_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mosaicPadding*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_mosaicPadding" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.mosaicPadding">
+  mosaicPadding
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint mosaicPadding { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_pivotAlignment_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.pivotAlignment*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_pivotAlignment" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.pivotAlignment">
+  pivotAlignment
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpriteAlignment pivotAlignment { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SpriteAlignment</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_pivotSpace_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.pivotSpace*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_pivotSpace" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.pivotSpace">
+  pivotSpace
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PivotSpaces pivotSpace { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.U2D.Aseprite.PivotSpaces.html">PivotSpaces</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_sRGBTexture_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.sRGBTexture*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_sRGBTexture" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.sRGBTexture">
+  sRGBTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool sRGBTexture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_spriteExtrude_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.spriteExtrude*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_spriteExtrude" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.spriteExtrude">
+  spriteExtrude
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint spriteExtrude { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_spriteImportMode_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.spriteImportMode*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_spriteImportMode" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.spriteImportMode">
+  spriteImportMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpriteImportMode spriteImportMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SpriteImportMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_spriteMeshType_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.spriteMeshType*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_spriteMeshType" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.spriteMeshType">
+  spriteMeshType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpriteMeshType spriteMeshType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">SpriteMeshType</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_spritePadding_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.spritePadding*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_spritePadding" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.spritePadding">
+  spritePadding
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint spritePadding { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_spritePixelsPerUnit_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.spritePixelsPerUnit*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_spritePixelsPerUnit" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.spritePixelsPerUnit">
+  spritePixelsPerUnit
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float spritePixelsPerUnit { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_streamingMipmaps_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.streamingMipmaps*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_streamingMipmaps" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.streamingMipmaps">
+  streamingMipmaps
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool streamingMipmaps { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_streamingMipmapsPriority_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.streamingMipmapsPriority*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_streamingMipmapsPriority" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.streamingMipmapsPriority">
+  streamingMipmapsPriority
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int streamingMipmapsPriority { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_textureType_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.textureType*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_textureType" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.textureType">
+  textureType
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureImporterType textureType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TextureImporterType</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_wrapMode_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.wrapMode*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_wrapMode" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.wrapMode">
+  wrapMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureWrapMode wrapMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_wrapModeU_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.wrapModeU*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_wrapModeU" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.wrapModeU">
+  wrapModeU
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureWrapMode wrapModeU { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_wrapModeV_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.wrapModeV*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_wrapModeV" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.wrapModeV">
+  wrapModeV
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureWrapMode wrapModeV { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_wrapModeW_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.wrapModeW*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_wrapModeW" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.wrapModeW">
+  wrapModeW
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureWrapMode wrapModeW { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_GetImporterPlatformSettings_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.GetImporterPlatformSettings*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_GetImporterPlatformSettings_UnityEditor_BuildTarget_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.GetImporterPlatformSettings(UnityEditor.BuildTarget)">
+  GetImporterPlatformSettings(BuildTarget)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureImporterPlatformSettings GetImporterPlatformSettings(BuildTarget buildTarget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buildTarget</code> <span class="xref">BuildTarget</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TextureImporterPlatformSettings</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_OnImportAsset_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.OnImportAsset*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_OnImportAsset_UnityEditor_AssetImporters_AssetImportContext_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.OnImportAsset(UnityEditor.AssetImporters.AssetImportContext)">
+  OnImportAsset(AssetImportContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnImportAsset(AssetImportContext ctx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ctx</code> <span class="xref">AssetImportContext</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_SetImporterPlatformSettings_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.SetImporterPlatformSettings*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_SetImporterPlatformSettings_UnityEditor_TextureImporterPlatformSettings_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.SetImporterPlatformSettings(UnityEditor.TextureImporterPlatformSettings)">
+  SetImporterPlatformSettings(TextureImporterPlatformSettings)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetImporterPlatformSettings(TextureImporterPlatformSettings setting)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>setting</code> <span class="xref">TextureImporterPlatformSettings</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_U2D_Aseprite_AsepriteImporter_SupportsRemappedAssetType_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.SupportsRemappedAssetType*"></a>
+
+  <h3 id="UnityEditor_U2D_Aseprite_AsepriteImporter_SupportsRemappedAssetType_System_Type_" data-uid="UnityEditor.U2D.Aseprite.AsepriteImporter.SupportsRemappedAssetType(System.Type)">
+  SupportsRemappedAssetType(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool SupportsRemappedAssetType(Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

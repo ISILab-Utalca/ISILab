@@ -1,0 +1,612 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.Feedback
+  commentId: T:ISILab.LBS.VisualElements.Feedback
+  id: Feedback
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.Feedback.#ctor
+  - ISILab.LBS.VisualElements.Feedback.#ctor(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  - ISILab.LBS.VisualElements.Feedback.CalcFixTeselation(UnityEngine.Vector2Int)
+  - ISILab.LBS.VisualElements.Feedback.CurrentState
+  - ISILab.LBS.VisualElements.Feedback.EndOffset
+  - ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  - ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  - ISILab.LBS.VisualElements.Feedback.StartOffset
+  - ISILab.LBS.VisualElements.Feedback.TeselationSize
+  - ISILab.LBS.VisualElements.Feedback.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  - ISILab.LBS.VisualElements.Feedback.ValidForInput(System.Boolean)
+  - ISILab.LBS.VisualElements.Feedback.currentColor
+  - ISILab.LBS.VisualElements.Feedback.delete
+  - ISILab.LBS.VisualElements.Feedback.endPosition
+  - ISILab.LBS.VisualElements.Feedback.fixAspect
+  - ISILab.LBS.VisualElements.Feedback.fixToTeselation
+  - ISILab.LBS.VisualElements.Feedback.preview
+  - ISILab.LBS.VisualElements.Feedback.startPosition
+  langs:
+  - csharp
+  - vb
+  name: Feedback
+  nameWithType: Feedback
+  fullName: ISILab.LBS.VisualElements.Feedback
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public abstract class Feedback : GraphElement'
+    content.vb: Public MustInherit Class Feedback Inherits GraphElement
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.VisualElements.AreaFeedback
+  - ISILab.LBS.VisualElements.CircleFeedback
+  - ISILab.LBS.VisualElements.ConnectedCornerLine
+  - ISILab.LBS.VisualElements.ConnectedLine
+  - ISILab.LBS.VisualElements.ConnectedMemoryLine
+  - ISILab.LBS.VisualElements.DottedAreaFeedback
+  - ISILab.LBS.VisualElements.IconFeedback
+- uid: ISILab.LBS.VisualElements.Feedback.currentColor
+  commentId: F:ISILab.LBS.VisualElements.Feedback.currentColor
+  id: currentColor
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: currentColor
+  nameWithType: Feedback.currentColor
+  fullName: ISILab.LBS.VisualElements.Feedback.currentColor
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected Color currentColor
+    return:
+      type: UnityEngine.Color
+    content.vb: Protected currentColor As Color
+- uid: ISILab.LBS.VisualElements.Feedback.startPosition
+  commentId: F:ISILab.LBS.VisualElements.Feedback.startPosition
+  id: startPosition
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: startPosition
+  nameWithType: Feedback.startPosition
+  fullName: ISILab.LBS.VisualElements.Feedback.startPosition
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected Vector2Int startPosition
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Protected startPosition As Vector2Int
+- uid: ISILab.LBS.VisualElements.Feedback.endPosition
+  commentId: F:ISILab.LBS.VisualElements.Feedback.endPosition
+  id: endPosition
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: endPosition
+  nameWithType: Feedback.endPosition
+  fullName: ISILab.LBS.VisualElements.Feedback.endPosition
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected Vector2Int endPosition
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Protected endPosition As Vector2Int
+- uid: ISILab.LBS.VisualElements.Feedback.fixToTeselation
+  commentId: F:ISILab.LBS.VisualElements.Feedback.fixToTeselation
+  id: fixToTeselation
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: fixToTeselation
+  nameWithType: Feedback.fixToTeselation
+  fullName: ISILab.LBS.VisualElements.Feedback.fixToTeselation
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public bool fixToTeselation
+    return:
+      type: System.Boolean
+    content.vb: Public fixToTeselation As Boolean
+- uid: ISILab.LBS.VisualElements.Feedback.delete
+  commentId: F:ISILab.LBS.VisualElements.Feedback.delete
+  id: delete
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: delete
+  nameWithType: Feedback.delete
+  fullName: ISILab.LBS.VisualElements.Feedback.delete
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public bool delete
+    return:
+      type: System.Boolean
+    content.vb: Public delete As Boolean
+- uid: ISILab.LBS.VisualElements.Feedback.preview
+  commentId: F:ISILab.LBS.VisualElements.Feedback.preview
+  id: preview
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: preview
+  nameWithType: Feedback.preview
+  fullName: ISILab.LBS.VisualElements.Feedback.preview
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public bool preview
+    return:
+      type: System.Boolean
+    content.vb: Public preview As Boolean
+- uid: ISILab.LBS.VisualElements.Feedback.fixAspect
+  commentId: F:ISILab.LBS.VisualElements.Feedback.fixAspect
+  id: fixAspect
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: fixAspect
+  nameWithType: Feedback.fixAspect
+  fullName: ISILab.LBS.VisualElements.Feedback.fixAspect
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public bool fixAspect
+    return:
+      type: System.Boolean
+    content.vb: Public fixAspect As Boolean
+- uid: ISILab.LBS.VisualElements.Feedback.#ctor(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.#ctor(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  id: '#ctor(UnityEngine.Vector2Int,UnityEngine.Vector2Int)'
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: Feedback(Vector2Int, Vector2Int)
+  nameWithType: Feedback.Feedback(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.VisualElements.Feedback.Feedback(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Feedback(Vector2Int p1, Vector2Int p2)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector2Int
+    - id: p2
+      type: UnityEngine.Vector2Int
+    content.vb: Public Sub New(p1 As Vector2Int, p2 As Vector2Int)
+  overload: ISILab.LBS.VisualElements.Feedback.#ctor*
+  nameWithType.vb: Feedback.New(Vector2Int, Vector2Int)
+  fullName.vb: ISILab.LBS.VisualElements.Feedback.New(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  name.vb: New(Vector2Int, Vector2Int)
+- uid: ISILab.LBS.VisualElements.Feedback.#ctor
+  commentId: M:ISILab.LBS.VisualElements.Feedback.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: Feedback()
+  nameWithType: Feedback.Feedback()
+  fullName: ISILab.LBS.VisualElements.Feedback.Feedback()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Feedback()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.VisualElements.Feedback.#ctor*
+  nameWithType.vb: Feedback.New()
+  fullName.vb: ISILab.LBS.VisualElements.Feedback.New()
+  name.vb: New()
+- uid: ISILab.LBS.VisualElements.Feedback.CalcFixTeselation(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.CalcFixTeselation(UnityEngine.Vector2Int)
+  id: CalcFixTeselation(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: CalcFixTeselation(Vector2Int)
+  nameWithType: Feedback.CalcFixTeselation(Vector2Int)
+  fullName: ISILab.LBS.VisualElements.Feedback.CalcFixTeselation(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected Vector2Int CalcFixTeselation(Vector2Int position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector2Int
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Protected Function CalcFixTeselation(position As Vector2Int) As Vector2Int
+  overload: ISILab.LBS.VisualElements.Feedback.CalcFixTeselation*
+- uid: ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  id: OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: OnGenerateVisualContent(MeshGenerationContext)
+  nameWithType: Feedback.OnGenerateVisualContent(MeshGenerationContext)
+  fullName: ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent(UnityEngine.UIElements.MeshGenerationContext)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected abstract void OnGenerateVisualContent(MeshGenerationContext mgc)
+    parameters:
+    - id: mgc
+      type: UnityEngine.UIElements.MeshGenerationContext
+    content.vb: Protected MustOverride Sub OnGenerateVisualContent(mgc As MeshGenerationContext)
+  overload: ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent*
+- uid: ISILab.LBS.VisualElements.Feedback.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  id: UpdatePositions(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: UpdatePositions(Vector2Int, Vector2Int)
+  nameWithType: Feedback.UpdatePositions(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.VisualElements.Feedback.UpdatePositions(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public abstract void UpdatePositions(Vector2Int p1, Vector2Int p2)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector2Int
+    - id: p2
+      type: UnityEngine.Vector2Int
+    content.vb: Public MustOverride Sub UpdatePositions(p1 As Vector2Int, p2 As Vector2Int)
+  overload: ISILab.LBS.VisualElements.Feedback.UpdatePositions*
+- uid: ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  id: GetFixedEndPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: GetFixedEndPosition(Vector2Int, Vector2Int)
+  nameWithType: Feedback.GetFixedEndPosition(Vector2Int, Vector2Int)
+  fullName: ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public virtual Vector2Int GetFixedEndPosition(Vector2Int p1, Vector2Int p2)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector2Int
+    - id: p2
+      type: UnityEngine.Vector2Int
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Overridable Function GetFixedEndPosition(p1 As Vector2Int, p2 As Vector2Int) As Vector2Int
+  overload: ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition*
+- uid: ISILab.LBS.VisualElements.Feedback.ValidForInput(System.Boolean)
+  commentId: M:ISILab.LBS.VisualElements.Feedback.ValidForInput(System.Boolean)
+  id: ValidForInput(System.Boolean)
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: ValidForInput(bool)
+  nameWithType: Feedback.ValidForInput(bool)
+  fullName: ISILab.LBS.VisualElements.Feedback.ValidForInput(bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void ValidForInput(bool valid)
+    parameters:
+    - id: valid
+      type: System.Boolean
+    content.vb: Public Sub ValidForInput(valid As Boolean)
+  overload: ISILab.LBS.VisualElements.Feedback.ValidForInput*
+  nameWithType.vb: Feedback.ValidForInput(Boolean)
+  fullName.vb: ISILab.LBS.VisualElements.Feedback.ValidForInput(Boolean)
+  name.vb: ValidForInput(Boolean)
+- uid: ISILab.LBS.VisualElements.Feedback.TeselationSize
+  commentId: P:ISILab.LBS.VisualElements.Feedback.TeselationSize
+  id: TeselationSize
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: TeselationSize
+  nameWithType: Feedback.TeselationSize
+  fullName: ISILab.LBS.VisualElements.Feedback.TeselationSize
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Vector2Int TeselationSize { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Public Property TeselationSize As Vector2Int
+  overload: ISILab.LBS.VisualElements.Feedback.TeselationSize*
+- uid: ISILab.LBS.VisualElements.Feedback.StartOffset
+  commentId: P:ISILab.LBS.VisualElements.Feedback.StartOffset
+  id: StartOffset
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: StartOffset
+  nameWithType: Feedback.StartOffset
+  fullName: ISILab.LBS.VisualElements.Feedback.StartOffset
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected Vector2Int StartOffset { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Protected Property StartOffset As Vector2Int
+  overload: ISILab.LBS.VisualElements.Feedback.StartOffset*
+- uid: ISILab.LBS.VisualElements.Feedback.EndOffset
+  commentId: P:ISILab.LBS.VisualElements.Feedback.EndOffset
+  id: EndOffset
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: EndOffset
+  nameWithType: Feedback.EndOffset
+  fullName: ISILab.LBS.VisualElements.Feedback.EndOffset
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected Vector2Int EndOffset { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector2Int
+    content.vb: Protected Property EndOffset As Vector2Int
+  overload: ISILab.LBS.VisualElements.Feedback.EndOffset*
+- uid: ISILab.LBS.VisualElements.Feedback.CurrentState
+  commentId: P:ISILab.LBS.VisualElements.Feedback.CurrentState
+  id: CurrentState
+  parent: ISILab.LBS.VisualElements.Feedback
+  langs:
+  - csharp
+  - vb
+  name: CurrentState
+  nameWithType: Feedback.CurrentState
+  fullName: ISILab.LBS.VisualElements.Feedback.CurrentState
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected Feedback.State CurrentState { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.VisualElements.Feedback.State
+    content.vb: Protected Property CurrentState As Feedback.State
+  overload: ISILab.LBS.VisualElements.Feedback.CurrentState*
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.VisualElements.Feedback.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.Feedback.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback__ctor_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: Feedback
+  nameWithType: Feedback.Feedback
+  fullName: ISILab.LBS.VisualElements.Feedback.Feedback
+  nameWithType.vb: Feedback.New
+  fullName.vb: ISILab.LBS.VisualElements.Feedback.New
+  name.vb: New
+- uid: ISILab.LBS.VisualElements.Feedback.CalcFixTeselation*
+  commentId: Overload:ISILab.LBS.VisualElements.Feedback.CalcFixTeselation
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_CalcFixTeselation_UnityEngine_Vector2Int_
+  name: CalcFixTeselation
+  nameWithType: Feedback.CalcFixTeselation
+  fullName: ISILab.LBS.VisualElements.Feedback.CalcFixTeselation
+- uid: ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent*
+  commentId: Overload:ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_OnGenerateVisualContent_UnityEngine_UIElements_MeshGenerationContext_
+  name: OnGenerateVisualContent
+  nameWithType: Feedback.OnGenerateVisualContent
+  fullName: ISILab.LBS.VisualElements.Feedback.OnGenerateVisualContent
+- uid: UnityEngine.UIElements.MeshGenerationContext
+  isExternal: true
+  name: MeshGenerationContext
+  nameWithType: MeshGenerationContext
+  fullName: UnityEngine.UIElements.MeshGenerationContext
+- uid: ISILab.LBS.VisualElements.Feedback.UpdatePositions*
+  commentId: Overload:ISILab.LBS.VisualElements.Feedback.UpdatePositions
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_UpdatePositions_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: UpdatePositions
+  nameWithType: Feedback.UpdatePositions
+  fullName: ISILab.LBS.VisualElements.Feedback.UpdatePositions
+- uid: ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition*
+  commentId: Overload:ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_GetFixedEndPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_
+  name: GetFixedEndPosition
+  nameWithType: Feedback.GetFixedEndPosition
+  fullName: ISILab.LBS.VisualElements.Feedback.GetFixedEndPosition
+- uid: ISILab.LBS.VisualElements.Feedback.ValidForInput*
+  commentId: Overload:ISILab.LBS.VisualElements.Feedback.ValidForInput
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_ValidForInput_System_Boolean_
+  name: ValidForInput
+  nameWithType: Feedback.ValidForInput
+  fullName: ISILab.LBS.VisualElements.Feedback.ValidForInput
+- uid: ISILab.LBS.VisualElements.Feedback.TeselationSize*
+  commentId: Overload:ISILab.LBS.VisualElements.Feedback.TeselationSize
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_TeselationSize
+  name: TeselationSize
+  nameWithType: Feedback.TeselationSize
+  fullName: ISILab.LBS.VisualElements.Feedback.TeselationSize
+- uid: ISILab.LBS.VisualElements.Feedback.StartOffset*
+  commentId: Overload:ISILab.LBS.VisualElements.Feedback.StartOffset
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_StartOffset
+  name: StartOffset
+  nameWithType: Feedback.StartOffset
+  fullName: ISILab.LBS.VisualElements.Feedback.StartOffset
+- uid: ISILab.LBS.VisualElements.Feedback.EndOffset*
+  commentId: Overload:ISILab.LBS.VisualElements.Feedback.EndOffset
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_EndOffset
+  name: EndOffset
+  nameWithType: Feedback.EndOffset
+  fullName: ISILab.LBS.VisualElements.Feedback.EndOffset
+- uid: ISILab.LBS.VisualElements.Feedback.CurrentState*
+  commentId: Overload:ISILab.LBS.VisualElements.Feedback.CurrentState
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html#ISILab_LBS_VisualElements_Feedback_CurrentState
+  name: CurrentState
+  nameWithType: Feedback.CurrentState
+  fullName: ISILab.LBS.VisualElements.Feedback.CurrentState
+- uid: ISILab.LBS.VisualElements.Feedback.State
+  commentId: T:ISILab.LBS.VisualElements.Feedback.State
+  parent: ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Feedback.html
+  name: Feedback.State
+  nameWithType: Feedback.State
+  fullName: ISILab.LBS.VisualElements.Feedback.State
+  spec.csharp:
+  - uid: ISILab.LBS.VisualElements.Feedback
+    name: Feedback
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Feedback.State
+    name: State
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.State.html
+  spec.vb:
+  - uid: ISILab.LBS.VisualElements.Feedback
+    name: Feedback
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Feedback.State
+    name: State
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Feedback.State.html
+shouldSkipMarkup: true

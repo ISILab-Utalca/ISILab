@@ -1,0 +1,927 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Grammar.LBSGrammar
+  commentId: T:ISILab.AI.Grammar.LBSGrammar
+  id: LBSGrammar
+  parent: ISILab.AI.Grammar
+  children:
+  - ISILab.AI.Grammar.LBSGrammar.#ctor
+  - ISILab.AI.Grammar.LBSGrammar.GetExpansions(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.GetFirstTerminals(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.GetGrammarElement(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.GetLastTerminals(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.GetNextTerminals(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.GetOwningRules(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.GetPreviousTerminals(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.GetRule(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.GetTerminal(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.IsRule(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.IsTerminal(System.String)
+  - ISILab.AI.Grammar.LBSGrammar.LBSRules
+  - ISILab.AI.Grammar.LBSGrammar.LBSTerminals
+  - ISILab.AI.Grammar.LBSGrammar.PathGUID
+  - ISILab.AI.Grammar.LBSGrammar.Rules
+  - ISILab.AI.Grammar.LBSGrammar.TerminalActions
+  - ISILab.AI.Grammar.LBSGrammar.lbsRules
+  - ISILab.AI.Grammar.LBSGrammar.lbsTerminals
+  langs:
+  - csharp
+  - vb
+  name: LBSGrammar
+  nameWithType: LBSGrammar
+  fullName: ISILab.AI.Grammar.LBSGrammar
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: 'public class LBSGrammar : ScriptableObject'
+    content.vb: Public Class LBSGrammar Inherits ScriptableObject
+  inheritance:
+  - System.Object
+- uid: ISILab.AI.Grammar.LBSGrammar.lbsRules
+  commentId: F:ISILab.AI.Grammar.LBSGrammar.lbsRules
+  id: lbsRules
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: lbsRules
+  nameWithType: LBSGrammar.lbsRules
+  fullName: ISILab.AI.Grammar.LBSGrammar.lbsRules
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<GrammarRule> lbsRules
+    return:
+      type: System.Collections.Generic.List{ISILab.AI.Grammar.GrammarRule}
+    content.vb: Public lbsRules As List(Of GrammarRule)
+- uid: ISILab.AI.Grammar.LBSGrammar.lbsTerminals
+  commentId: F:ISILab.AI.Grammar.LBSGrammar.lbsTerminals
+  id: lbsTerminals
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: lbsTerminals
+  nameWithType: LBSGrammar.lbsTerminals
+  fullName: ISILab.AI.Grammar.LBSGrammar.lbsTerminals
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<GrammarTerminal> lbsTerminals
+    return:
+      type: System.Collections.Generic.List{ISILab.AI.Grammar.GrammarTerminal}
+    content.vb: Public lbsTerminals As List(Of GrammarTerminal)
+- uid: ISILab.AI.Grammar.LBSGrammar.IsRule(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.IsRule(System.String)
+  id: IsRule(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: IsRule(string)
+  nameWithType: LBSGrammar.IsRule(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.IsRule(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public bool IsRule(string id)
+    parameters:
+    - id: id
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsRule(id As String) As Boolean
+  overload: ISILab.AI.Grammar.LBSGrammar.IsRule*
+  nameWithType.vb: LBSGrammar.IsRule(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.IsRule(String)
+  name.vb: IsRule(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.IsTerminal(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.IsTerminal(System.String)
+  id: IsTerminal(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: IsTerminal(string)
+  nameWithType: LBSGrammar.IsTerminal(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.IsTerminal(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public bool IsTerminal(string id)
+    parameters:
+    - id: id
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsTerminal(id As String) As Boolean
+  overload: ISILab.AI.Grammar.LBSGrammar.IsTerminal*
+  nameWithType.vb: LBSGrammar.IsTerminal(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.IsTerminal(String)
+  name.vb: IsTerminal(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.GetTerminal(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.GetTerminal(System.String)
+  id: GetTerminal(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: GetTerminal(string)
+  nameWithType: LBSGrammar.GetTerminal(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetTerminal(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public GrammarTerminal GetTerminal(string id)
+    parameters:
+    - id: id
+      type: System.String
+    return:
+      type: ISILab.AI.Grammar.GrammarTerminal
+    content.vb: Public Function GetTerminal(id As String) As GrammarTerminal
+  overload: ISILab.AI.Grammar.LBSGrammar.GetTerminal*
+  nameWithType.vb: LBSGrammar.GetTerminal(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.GetTerminal(String)
+  name.vb: GetTerminal(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.GetRule(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.GetRule(System.String)
+  id: GetRule(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: GetRule(string)
+  nameWithType: LBSGrammar.GetRule(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetRule(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public GrammarRule GetRule(string id)
+    parameters:
+    - id: id
+      type: System.String
+    return:
+      type: ISILab.AI.Grammar.GrammarRule
+    content.vb: Public Function GetRule(id As String) As GrammarRule
+  overload: ISILab.AI.Grammar.LBSGrammar.GetRule*
+  nameWithType.vb: LBSGrammar.GetRule(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.GetRule(String)
+  name.vb: GetRule(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.GetGrammarElement(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.GetGrammarElement(System.String)
+  id: GetGrammarElement(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: GetGrammarElement(string)
+  nameWithType: LBSGrammar.GetGrammarElement(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetGrammarElement(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public object GetGrammarElement(string id)
+    parameters:
+    - id: id
+      type: System.String
+    return:
+      type: System.Object
+    content.vb: Public Function GetGrammarElement(id As String) As Object
+  overload: ISILab.AI.Grammar.LBSGrammar.GetGrammarElement*
+  nameWithType.vb: LBSGrammar.GetGrammarElement(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.GetGrammarElement(String)
+  name.vb: GetGrammarElement(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.GetOwningRules(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.GetOwningRules(System.String)
+  id: GetOwningRules(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: GetOwningRules(string)
+  nameWithType: LBSGrammar.GetOwningRules(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetOwningRules(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<string> GetOwningRules(string element)
+    parameters:
+    - id: element
+      type: System.String
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function GetOwningRules(element As String) As List(Of String)
+  overload: ISILab.AI.Grammar.LBSGrammar.GetOwningRules*
+  nameWithType.vb: LBSGrammar.GetOwningRules(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.GetOwningRules(String)
+  name.vb: GetOwningRules(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.GetFirstTerminals(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.GetFirstTerminals(System.String)
+  id: GetFirstTerminals(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: GetFirstTerminals(string)
+  nameWithType: LBSGrammar.GetFirstTerminals(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetFirstTerminals(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<string> GetFirstTerminals(string element)
+    parameters:
+    - id: element
+      type: System.String
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function GetFirstTerminals(element As String) As List(Of String)
+  overload: ISILab.AI.Grammar.LBSGrammar.GetFirstTerminals*
+  nameWithType.vb: LBSGrammar.GetFirstTerminals(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.GetFirstTerminals(String)
+  name.vb: GetFirstTerminals(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.GetNextTerminals(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.GetNextTerminals(System.String)
+  id: GetNextTerminals(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: GetNextTerminals(string)
+  nameWithType: LBSGrammar.GetNextTerminals(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetNextTerminals(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<string> GetNextTerminals(string element)
+    parameters:
+    - id: element
+      type: System.String
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function GetNextTerminals(element As String) As List(Of String)
+  overload: ISILab.AI.Grammar.LBSGrammar.GetNextTerminals*
+  nameWithType.vb: LBSGrammar.GetNextTerminals(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.GetNextTerminals(String)
+  name.vb: GetNextTerminals(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.GetLastTerminals(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.GetLastTerminals(System.String)
+  id: GetLastTerminals(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: GetLastTerminals(string)
+  nameWithType: LBSGrammar.GetLastTerminals(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetLastTerminals(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<string> GetLastTerminals(string element)
+    parameters:
+    - id: element
+      type: System.String
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function GetLastTerminals(element As String) As List(Of String)
+  overload: ISILab.AI.Grammar.LBSGrammar.GetLastTerminals*
+  nameWithType.vb: LBSGrammar.GetLastTerminals(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.GetLastTerminals(String)
+  name.vb: GetLastTerminals(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.GetPreviousTerminals(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.GetPreviousTerminals(System.String)
+  id: GetPreviousTerminals(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: GetPreviousTerminals(string)
+  nameWithType: LBSGrammar.GetPreviousTerminals(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetPreviousTerminals(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<string> GetPreviousTerminals(string element)
+    parameters:
+    - id: element
+      type: System.String
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function GetPreviousTerminals(element As String) As List(Of String)
+  overload: ISILab.AI.Grammar.LBSGrammar.GetPreviousTerminals*
+  nameWithType.vb: LBSGrammar.GetPreviousTerminals(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.GetPreviousTerminals(String)
+  name.vb: GetPreviousTerminals(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.GetExpansions(System.String)
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.GetExpansions(System.String)
+  id: GetExpansions(System.String)
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: GetExpansions(string)
+  nameWithType: LBSGrammar.GetExpansions(string)
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetExpansions(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<List<string>> GetExpansions(string element)
+    parameters:
+    - id: element
+      type: System.String
+    return:
+      type: System.Collections.Generic.List{System.Collections.Generic.List{System.String}}
+    content.vb: Public Function GetExpansions(element As String) As List(Of List(Of String))
+  overload: ISILab.AI.Grammar.LBSGrammar.GetExpansions*
+  nameWithType.vb: LBSGrammar.GetExpansions(String)
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.GetExpansions(String)
+  name.vb: GetExpansions(String)
+- uid: ISILab.AI.Grammar.LBSGrammar.#ctor
+  commentId: M:ISILab.AI.Grammar.LBSGrammar.#ctor
+  id: '#ctor'
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: LBSGrammar()
+  nameWithType: LBSGrammar.LBSGrammar()
+  fullName: ISILab.AI.Grammar.LBSGrammar.LBSGrammar()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public LBSGrammar()
+    content.vb: Public Sub New()
+  overload: ISILab.AI.Grammar.LBSGrammar.#ctor*
+  nameWithType.vb: LBSGrammar.New()
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.New()
+  name.vb: New()
+- uid: ISILab.AI.Grammar.LBSGrammar.LBSRules
+  commentId: P:ISILab.AI.Grammar.LBSGrammar.LBSRules
+  id: LBSRules
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: LBSRules
+  nameWithType: LBSGrammar.LBSRules
+  fullName: ISILab.AI.Grammar.LBSGrammar.LBSRules
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<GrammarRule> LBSRules { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.AI.Grammar.GrammarRule}
+    content.vb: Public ReadOnly Property LBSRules As List(Of GrammarRule)
+  overload: ISILab.AI.Grammar.LBSGrammar.LBSRules*
+- uid: ISILab.AI.Grammar.LBSGrammar.LBSTerminals
+  commentId: P:ISILab.AI.Grammar.LBSGrammar.LBSTerminals
+  id: LBSTerminals
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: LBSTerminals
+  nameWithType: LBSGrammar.LBSTerminals
+  fullName: ISILab.AI.Grammar.LBSGrammar.LBSTerminals
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<GrammarTerminal> LBSTerminals { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.AI.Grammar.GrammarTerminal}
+    content.vb: Public ReadOnly Property LBSTerminals As List(Of GrammarTerminal)
+  overload: ISILab.AI.Grammar.LBSGrammar.LBSTerminals*
+- uid: ISILab.AI.Grammar.LBSGrammar.TerminalActions
+  commentId: P:ISILab.AI.Grammar.LBSGrammar.TerminalActions
+  id: TerminalActions
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: TerminalActions
+  nameWithType: LBSGrammar.TerminalActions
+  fullName: ISILab.AI.Grammar.LBSGrammar.TerminalActions
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<string> TerminalActions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property TerminalActions As List(Of String)
+  overload: ISILab.AI.Grammar.LBSGrammar.TerminalActions*
+- uid: ISILab.AI.Grammar.LBSGrammar.Rules
+  commentId: P:ISILab.AI.Grammar.LBSGrammar.Rules
+  id: Rules
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: Rules
+  nameWithType: LBSGrammar.Rules
+  fullName: ISILab.AI.Grammar.LBSGrammar.Rules
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public List<string> Rules { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property Rules As List(Of String)
+  overload: ISILab.AI.Grammar.LBSGrammar.Rules*
+- uid: ISILab.AI.Grammar.LBSGrammar.PathGUID
+  commentId: P:ISILab.AI.Grammar.LBSGrammar.PathGUID
+  id: PathGUID
+  parent: ISILab.AI.Grammar.LBSGrammar
+  langs:
+  - csharp
+  - vb
+  name: PathGUID
+  nameWithType: LBSGrammar.PathGUID
+  fullName: ISILab.AI.Grammar.LBSGrammar.PathGUID
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  syntax:
+    content: public string PathGUID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PathGUID As String
+  overload: ISILab.AI.Grammar.LBSGrammar.PathGUID*
+references:
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    isExternal: true
+    href: ISILab.AI.Grammar.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{ISILab.AI.Grammar.GrammarRule}
+  commentId: T:System.Collections.Generic.List{ISILab.AI.Grammar.GrammarRule}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GrammarRule>
+  nameWithType: List<GrammarRule>
+  fullName: System.Collections.Generic.List<ISILab.AI.Grammar.GrammarRule>
+  nameWithType.vb: List(Of GrammarRule)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.AI.Grammar.GrammarRule)
+  name.vb: List(Of GrammarRule)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.AI.Grammar.GrammarRule
+    name: GrammarRule
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarRule.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Grammar.GrammarRule
+    name: GrammarRule
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarRule.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{ISILab.AI.Grammar.GrammarTerminal}
+  commentId: T:System.Collections.Generic.List{ISILab.AI.Grammar.GrammarTerminal}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GrammarTerminal>
+  nameWithType: List<GrammarTerminal>
+  fullName: System.Collections.Generic.List<ISILab.AI.Grammar.GrammarTerminal>
+  nameWithType.vb: List(Of GrammarTerminal)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.AI.Grammar.GrammarTerminal)
+  name.vb: List(Of GrammarTerminal)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.AI.Grammar.GrammarTerminal
+    name: GrammarTerminal
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarTerminal.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Grammar.GrammarTerminal
+    name: GrammarTerminal
+    isExternal: true
+    href: ISILab.AI.Grammar.GrammarTerminal.html
+  - name: )
+- uid: ISILab.AI.Grammar.LBSGrammar.IsRule*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.IsRule
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_IsRule_System_String_
+  name: IsRule
+  nameWithType: LBSGrammar.IsRule
+  fullName: ISILab.AI.Grammar.LBSGrammar.IsRule
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.AI.Grammar.LBSGrammar.IsTerminal*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.IsTerminal
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_IsTerminal_System_String_
+  name: IsTerminal
+  nameWithType: LBSGrammar.IsTerminal
+  fullName: ISILab.AI.Grammar.LBSGrammar.IsTerminal
+- uid: ISILab.AI.Grammar.LBSGrammar.GetTerminal*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.GetTerminal
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_GetTerminal_System_String_
+  name: GetTerminal
+  nameWithType: LBSGrammar.GetTerminal
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetTerminal
+- uid: ISILab.AI.Grammar.GrammarTerminal
+  commentId: T:ISILab.AI.Grammar.GrammarTerminal
+  parent: ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarTerminal.html
+  name: GrammarTerminal
+  nameWithType: GrammarTerminal
+  fullName: ISILab.AI.Grammar.GrammarTerminal
+- uid: ISILab.AI.Grammar.LBSGrammar.GetRule*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.GetRule
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_GetRule_System_String_
+  name: GetRule
+  nameWithType: LBSGrammar.GetRule
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetRule
+- uid: ISILab.AI.Grammar.GrammarRule
+  commentId: T:ISILab.AI.Grammar.GrammarRule
+  parent: ISILab.AI.Grammar
+  isExternal: true
+  href: ISILab.AI.Grammar.GrammarRule.html
+  name: GrammarRule
+  nameWithType: GrammarRule
+  fullName: ISILab.AI.Grammar.GrammarRule
+- uid: ISILab.AI.Grammar.LBSGrammar.GetGrammarElement*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.GetGrammarElement
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_GetGrammarElement_System_String_
+  name: GetGrammarElement
+  nameWithType: LBSGrammar.GetGrammarElement
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetGrammarElement
+- uid: ISILab.AI.Grammar.LBSGrammar.GetOwningRules*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.GetOwningRules
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_GetOwningRules_System_String_
+  name: GetOwningRules
+  nameWithType: LBSGrammar.GetOwningRules
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetOwningRules
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ISILab.AI.Grammar.LBSGrammar.GetFirstTerminals*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.GetFirstTerminals
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_GetFirstTerminals_System_String_
+  name: GetFirstTerminals
+  nameWithType: LBSGrammar.GetFirstTerminals
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetFirstTerminals
+- uid: ISILab.AI.Grammar.LBSGrammar.GetNextTerminals*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.GetNextTerminals
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_GetNextTerminals_System_String_
+  name: GetNextTerminals
+  nameWithType: LBSGrammar.GetNextTerminals
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetNextTerminals
+- uid: ISILab.AI.Grammar.LBSGrammar.GetLastTerminals*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.GetLastTerminals
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_GetLastTerminals_System_String_
+  name: GetLastTerminals
+  nameWithType: LBSGrammar.GetLastTerminals
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetLastTerminals
+- uid: ISILab.AI.Grammar.LBSGrammar.GetPreviousTerminals*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.GetPreviousTerminals
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_GetPreviousTerminals_System_String_
+  name: GetPreviousTerminals
+  nameWithType: LBSGrammar.GetPreviousTerminals
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetPreviousTerminals
+- uid: ISILab.AI.Grammar.LBSGrammar.GetExpansions*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.GetExpansions
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_GetExpansions_System_String_
+  name: GetExpansions
+  nameWithType: LBSGrammar.GetExpansions
+  fullName: ISILab.AI.Grammar.LBSGrammar.GetExpansions
+- uid: System.Collections.Generic.List{System.Collections.Generic.List{System.String}}
+  commentId: T:System.Collections.Generic.List{System.Collections.Generic.List{System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<List<string>>
+  nameWithType: List<List<string>>
+  fullName: System.Collections.Generic.List<System.Collections.Generic.List<string>>
+  nameWithType.vb: List(Of List(Of String))
+  fullName.vb: System.Collections.Generic.List(Of System.Collections.Generic.List(Of String))
+  name.vb: List(Of List(Of String))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: ISILab.AI.Grammar.LBSGrammar.#ctor*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.#ctor
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar__ctor
+  name: LBSGrammar
+  nameWithType: LBSGrammar.LBSGrammar
+  fullName: ISILab.AI.Grammar.LBSGrammar.LBSGrammar
+  nameWithType.vb: LBSGrammar.New
+  fullName.vb: ISILab.AI.Grammar.LBSGrammar.New
+  name.vb: New
+- uid: ISILab.AI.Grammar.LBSGrammar.LBSRules*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.LBSRules
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_LBSRules
+  name: LBSRules
+  nameWithType: LBSGrammar.LBSRules
+  fullName: ISILab.AI.Grammar.LBSGrammar.LBSRules
+- uid: ISILab.AI.Grammar.LBSGrammar.LBSTerminals*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.LBSTerminals
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_LBSTerminals
+  name: LBSTerminals
+  nameWithType: LBSGrammar.LBSTerminals
+  fullName: ISILab.AI.Grammar.LBSGrammar.LBSTerminals
+- uid: ISILab.AI.Grammar.LBSGrammar.TerminalActions*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.TerminalActions
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_TerminalActions
+  name: TerminalActions
+  nameWithType: LBSGrammar.TerminalActions
+  fullName: ISILab.AI.Grammar.LBSGrammar.TerminalActions
+- uid: ISILab.AI.Grammar.LBSGrammar.Rules*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.Rules
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_Rules
+  name: Rules
+  nameWithType: LBSGrammar.Rules
+  fullName: ISILab.AI.Grammar.LBSGrammar.Rules
+- uid: ISILab.AI.Grammar.LBSGrammar.PathGUID*
+  commentId: Overload:ISILab.AI.Grammar.LBSGrammar.PathGUID
+  isExternal: true
+  href: ISILab.AI.Grammar.LBSGrammar.html#ISILab_AI_Grammar_LBSGrammar_PathGUID
+  name: PathGUID
+  nameWithType: LBSGrammar.PathGUID
+  fullName: ISILab.AI.Grammar.LBSGrammar.PathGUID
+shouldSkipMarkup: true

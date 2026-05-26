@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UniversalRendererData | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UniversalRendererData | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.Universal.UniversalRendererData">
+
+
+
+  <h1 id="UnityEngine_Rendering_Universal_UniversalRendererData" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData" class="text-break">
+Class UniversalRendererData  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.Universal.html">Universal</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Universal.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ReloadGroup]
+public class UniversalRendererData : ScriptableRendererData, ISerializationCallbackReceiver</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html">ScriptableRendererData</a></div>
+      <div><span class="xref">UniversalRendererData</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ISerializationCallbackReceiver</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html#UnityEngine_Rendering_Universal_ScriptableRendererData_debugShaders">ScriptableRendererData.debugShaders</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html#UnityEngine_Rendering_Universal_ScriptableRendererData_probeVolumeResources">ScriptableRendererData.probeVolumeResources</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html#UnityEngine_Rendering_Universal_ScriptableRendererData_SetDirty">ScriptableRendererData.SetDirty()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html#UnityEngine_Rendering_Universal_ScriptableRendererData_OnValidate">ScriptableRendererData.OnValidate()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html#UnityEngine_Rendering_Universal_ScriptableRendererData_TryGetRendererFeature__1___0__">ScriptableRendererData.TryGetRendererFeature&lt;T&gt;(out T)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html#UnityEngine_Rendering_Universal_ScriptableRendererData_rendererFeatures">ScriptableRendererData.rendererFeatures</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRendererData.html#UnityEngine_Rendering_Universal_ScriptableRendererData_useNativeRenderPass">ScriptableRendererData.useNativeRenderPass</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData__ctor_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData__ctor" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.#ctor">
+  UniversalRendererData()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniversalRendererData()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_postProcessData" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.postProcessData">
+  postProcessData
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PostProcessData postProcessData</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.PostProcessData.html">PostProcessData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_xrSystemData" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.xrSystemData">
+  xrSystemData
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Moved to UniversalRenderPipelineRuntimeXRResources on GraphicsSettings. #from(2023.3)&quot;, false)]
+public XRSystemData xrSystemData</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.XRSystemData.html">XRSystemData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_accurateGbufferNormals_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.accurateGbufferNormals*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_accurateGbufferNormals" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.accurateGbufferNormals">
+  accurateGbufferNormals
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool accurateGbufferNormals { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_copyDepthMode_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.copyDepthMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_copyDepthMode" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.copyDepthMode">
+  copyDepthMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CopyDepthMode copyDepthMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.CopyDepthMode.html">CopyDepthMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_defaultStencilState_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.defaultStencilState*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_defaultStencilState" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.defaultStencilState">
+  defaultStencilState
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StencilStateData defaultStencilState { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.StencilStateData.html">StencilStateData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_depthAttachmentFormat_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.depthAttachmentFormat*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_depthAttachmentFormat" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.depthAttachmentFormat">
+  depthAttachmentFormat
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DepthFormat depthAttachmentFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.DepthFormat.html">DepthFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_depthPrimingMode_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.depthPrimingMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_depthPrimingMode" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.depthPrimingMode">
+  depthPrimingMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DepthPrimingMode depthPrimingMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.DepthPrimingMode.html">DepthPrimingMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_depthTextureFormat_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.depthTextureFormat*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_depthTextureFormat" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.depthTextureFormat">
+  depthTextureFormat
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DepthFormat depthTextureFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.DepthFormat.html">DepthFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_intermediateTextureMode_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.intermediateTextureMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_intermediateTextureMode" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.intermediateTextureMode">
+  intermediateTextureMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntermediateTextureMode intermediateTextureMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.IntermediateTextureMode.html">IntermediateTextureMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_opaqueLayerMask_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.opaqueLayerMask*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_opaqueLayerMask" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.opaqueLayerMask">
+  opaqueLayerMask
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LayerMask opaqueLayerMask { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">LayerMask</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_renderingMode_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.renderingMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_renderingMode" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.renderingMode">
+  renderingMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderingMode renderingMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.RenderingMode.html">RenderingMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_shadowTransparentReceive_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.shadowTransparentReceive*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_shadowTransparentReceive" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.shadowTransparentReceive">
+  shadowTransparentReceive
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool shadowTransparentReceive { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_transparentLayerMask_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.transparentLayerMask*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_transparentLayerMask" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.transparentLayerMask">
+  transparentLayerMask
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LayerMask transparentLayerMask { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">LayerMask</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_Create_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.Create*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_Create" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.Create">
+  Create()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override ScriptableRenderer Create()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderer.html">ScriptableRenderer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalRendererData_OnEnable_" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.OnEnable*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalRendererData_OnEnable" data-uid="UnityEngine.Rendering.Universal.UniversalRendererData.OnEnable">
+  OnEnable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnEnable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

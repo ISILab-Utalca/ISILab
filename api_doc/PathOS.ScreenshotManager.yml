@@ -1,0 +1,401 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.ScreenshotManager
+  commentId: T:PathOS.ScreenshotManager
+  id: ScreenshotManager
+  parent: PathOS
+  children:
+  - PathOS.ScreenshotManager.#ctor
+  - PathOS.ScreenshotManager.GetFilename
+  - PathOS.ScreenshotManager.GetFolderName
+  - PathOS.ScreenshotManager.GetNewScreenshot
+  - PathOS.ScreenshotManager.GetSafeFilename(System.String)
+  - PathOS.ScreenshotManager.GetSafePath(System.String)
+  - PathOS.ScreenshotManager.GetScreenshot
+  - PathOS.ScreenshotManager.SetFilename(System.String)
+  - PathOS.ScreenshotManager.SetFolderName(System.String)
+  - PathOS.ScreenshotManager.TakeScreenshotEvaluation(System.String,System.String)
+  - PathOS.ScreenshotManager.TakeScreenshotGeneral
+  langs:
+  - csharp
+  - vb
+  name: ScreenshotManager
+  nameWithType: ScreenshotManager
+  fullName: PathOS.ScreenshotManager
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class ScreenshotManager : MonoBehaviour'
+    content.vb: Public Class ScreenshotManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: PathOS.ScreenshotManager.GetNewScreenshot
+  commentId: M:PathOS.ScreenshotManager.GetNewScreenshot
+  id: GetNewScreenshot
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: GetNewScreenshot()
+  nameWithType: ScreenshotManager.GetNewScreenshot()
+  fullName: PathOS.ScreenshotManager.GetNewScreenshot()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Texture2D GetNewScreenshot()
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Function GetNewScreenshot() As Texture2D
+  overload: PathOS.ScreenshotManager.GetNewScreenshot*
+- uid: PathOS.ScreenshotManager.GetScreenshot
+  commentId: M:PathOS.ScreenshotManager.GetScreenshot
+  id: GetScreenshot
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: GetScreenshot()
+  nameWithType: ScreenshotManager.GetScreenshot()
+  fullName: PathOS.ScreenshotManager.GetScreenshot()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Texture2D GetScreenshot()
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Function GetScreenshot() As Texture2D
+  overload: PathOS.ScreenshotManager.GetScreenshot*
+- uid: PathOS.ScreenshotManager.TakeScreenshotEvaluation(System.String,System.String)
+  commentId: M:PathOS.ScreenshotManager.TakeScreenshotEvaluation(System.String,System.String)
+  id: TakeScreenshotEvaluation(System.String,System.String)
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: TakeScreenshotEvaluation(string, string)
+  nameWithType: ScreenshotManager.TakeScreenshotEvaluation(string, string)
+  fullName: PathOS.ScreenshotManager.TakeScreenshotEvaluation(string, string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void TakeScreenshotEvaluation(string evalFolder, string screenshotName)
+    parameters:
+    - id: evalFolder
+      type: System.String
+    - id: screenshotName
+      type: System.String
+    content.vb: Public Sub TakeScreenshotEvaluation(evalFolder As String, screenshotName As String)
+  overload: PathOS.ScreenshotManager.TakeScreenshotEvaluation*
+  nameWithType.vb: ScreenshotManager.TakeScreenshotEvaluation(String, String)
+  fullName.vb: PathOS.ScreenshotManager.TakeScreenshotEvaluation(String, String)
+  name.vb: TakeScreenshotEvaluation(String, String)
+- uid: PathOS.ScreenshotManager.TakeScreenshotGeneral
+  commentId: M:PathOS.ScreenshotManager.TakeScreenshotGeneral
+  id: TakeScreenshotGeneral
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: TakeScreenshotGeneral()
+  nameWithType: ScreenshotManager.TakeScreenshotGeneral()
+  fullName: PathOS.ScreenshotManager.TakeScreenshotGeneral()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void TakeScreenshotGeneral()
+    content.vb: Public Sub TakeScreenshotGeneral()
+  overload: PathOS.ScreenshotManager.TakeScreenshotGeneral*
+- uid: PathOS.ScreenshotManager.GetSafePath(System.String)
+  commentId: M:PathOS.ScreenshotManager.GetSafePath(System.String)
+  id: GetSafePath(System.String)
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: GetSafePath(string)
+  nameWithType: ScreenshotManager.GetSafePath(string)
+  fullName: PathOS.ScreenshotManager.GetSafePath(string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public string GetSafePath(string path)
+    parameters:
+    - id: path
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function GetSafePath(path As String) As String
+  overload: PathOS.ScreenshotManager.GetSafePath*
+  nameWithType.vb: ScreenshotManager.GetSafePath(String)
+  fullName.vb: PathOS.ScreenshotManager.GetSafePath(String)
+  name.vb: GetSafePath(String)
+- uid: PathOS.ScreenshotManager.GetSafeFilename(System.String)
+  commentId: M:PathOS.ScreenshotManager.GetSafeFilename(System.String)
+  id: GetSafeFilename(System.String)
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: GetSafeFilename(string)
+  nameWithType: ScreenshotManager.GetSafeFilename(string)
+  fullName: PathOS.ScreenshotManager.GetSafeFilename(string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public string GetSafeFilename(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function GetSafeFilename(filename As String) As String
+  overload: PathOS.ScreenshotManager.GetSafeFilename*
+  nameWithType.vb: ScreenshotManager.GetSafeFilename(String)
+  fullName.vb: PathOS.ScreenshotManager.GetSafeFilename(String)
+  name.vb: GetSafeFilename(String)
+- uid: PathOS.ScreenshotManager.SetFolderName(System.String)
+  commentId: M:PathOS.ScreenshotManager.SetFolderName(System.String)
+  id: SetFolderName(System.String)
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: SetFolderName(string)
+  nameWithType: ScreenshotManager.SetFolderName(string)
+  fullName: PathOS.ScreenshotManager.SetFolderName(string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void SetFolderName(string newName)
+    parameters:
+    - id: newName
+      type: System.String
+    content.vb: Public Sub SetFolderName(newName As String)
+  overload: PathOS.ScreenshotManager.SetFolderName*
+  nameWithType.vb: ScreenshotManager.SetFolderName(String)
+  fullName.vb: PathOS.ScreenshotManager.SetFolderName(String)
+  name.vb: SetFolderName(String)
+- uid: PathOS.ScreenshotManager.SetFilename(System.String)
+  commentId: M:PathOS.ScreenshotManager.SetFilename(System.String)
+  id: SetFilename(System.String)
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: SetFilename(string)
+  nameWithType: ScreenshotManager.SetFilename(string)
+  fullName: PathOS.ScreenshotManager.SetFilename(string)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void SetFilename(string newName)
+    parameters:
+    - id: newName
+      type: System.String
+    content.vb: Public Sub SetFilename(newName As String)
+  overload: PathOS.ScreenshotManager.SetFilename*
+  nameWithType.vb: ScreenshotManager.SetFilename(String)
+  fullName.vb: PathOS.ScreenshotManager.SetFilename(String)
+  name.vb: SetFilename(String)
+- uid: PathOS.ScreenshotManager.GetFolderName
+  commentId: M:PathOS.ScreenshotManager.GetFolderName
+  id: GetFolderName
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: GetFolderName()
+  nameWithType: ScreenshotManager.GetFolderName()
+  fullName: PathOS.ScreenshotManager.GetFolderName()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public string GetFolderName()
+    return:
+      type: System.String
+    content.vb: Public Function GetFolderName() As String
+  overload: PathOS.ScreenshotManager.GetFolderName*
+- uid: PathOS.ScreenshotManager.GetFilename
+  commentId: M:PathOS.ScreenshotManager.GetFilename
+  id: GetFilename
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: GetFilename()
+  nameWithType: ScreenshotManager.GetFilename()
+  fullName: PathOS.ScreenshotManager.GetFilename()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public string GetFilename()
+    return:
+      type: System.String
+    content.vb: Public Function GetFilename() As String
+  overload: PathOS.ScreenshotManager.GetFilename*
+- uid: PathOS.ScreenshotManager.#ctor
+  commentId: M:PathOS.ScreenshotManager.#ctor
+  id: '#ctor'
+  parent: PathOS.ScreenshotManager
+  langs:
+  - csharp
+  - vb
+  name: ScreenshotManager()
+  nameWithType: ScreenshotManager.ScreenshotManager()
+  fullName: PathOS.ScreenshotManager.ScreenshotManager()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public ScreenshotManager()
+    content.vb: Public Sub New()
+  overload: PathOS.ScreenshotManager.#ctor*
+  nameWithType.vb: ScreenshotManager.New()
+  fullName.vb: PathOS.ScreenshotManager.New()
+  name.vb: New()
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PathOS.ScreenshotManager.GetNewScreenshot*
+  commentId: Overload:PathOS.ScreenshotManager.GetNewScreenshot
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager_GetNewScreenshot
+  name: GetNewScreenshot
+  nameWithType: ScreenshotManager.GetNewScreenshot
+  fullName: PathOS.ScreenshotManager.GetNewScreenshot
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: PathOS.ScreenshotManager.GetScreenshot*
+  commentId: Overload:PathOS.ScreenshotManager.GetScreenshot
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager_GetScreenshot
+  name: GetScreenshot
+  nameWithType: ScreenshotManager.GetScreenshot
+  fullName: PathOS.ScreenshotManager.GetScreenshot
+- uid: PathOS.ScreenshotManager.TakeScreenshotEvaluation*
+  commentId: Overload:PathOS.ScreenshotManager.TakeScreenshotEvaluation
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager_TakeScreenshotEvaluation_System_String_System_String_
+  name: TakeScreenshotEvaluation
+  nameWithType: ScreenshotManager.TakeScreenshotEvaluation
+  fullName: PathOS.ScreenshotManager.TakeScreenshotEvaluation
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PathOS.ScreenshotManager.TakeScreenshotGeneral*
+  commentId: Overload:PathOS.ScreenshotManager.TakeScreenshotGeneral
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager_TakeScreenshotGeneral
+  name: TakeScreenshotGeneral
+  nameWithType: ScreenshotManager.TakeScreenshotGeneral
+  fullName: PathOS.ScreenshotManager.TakeScreenshotGeneral
+- uid: PathOS.ScreenshotManager.GetSafePath*
+  commentId: Overload:PathOS.ScreenshotManager.GetSafePath
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager_GetSafePath_System_String_
+  name: GetSafePath
+  nameWithType: ScreenshotManager.GetSafePath
+  fullName: PathOS.ScreenshotManager.GetSafePath
+- uid: PathOS.ScreenshotManager.GetSafeFilename*
+  commentId: Overload:PathOS.ScreenshotManager.GetSafeFilename
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager_GetSafeFilename_System_String_
+  name: GetSafeFilename
+  nameWithType: ScreenshotManager.GetSafeFilename
+  fullName: PathOS.ScreenshotManager.GetSafeFilename
+- uid: PathOS.ScreenshotManager.SetFolderName*
+  commentId: Overload:PathOS.ScreenshotManager.SetFolderName
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager_SetFolderName_System_String_
+  name: SetFolderName
+  nameWithType: ScreenshotManager.SetFolderName
+  fullName: PathOS.ScreenshotManager.SetFolderName
+- uid: PathOS.ScreenshotManager.SetFilename*
+  commentId: Overload:PathOS.ScreenshotManager.SetFilename
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager_SetFilename_System_String_
+  name: SetFilename
+  nameWithType: ScreenshotManager.SetFilename
+  fullName: PathOS.ScreenshotManager.SetFilename
+- uid: PathOS.ScreenshotManager.GetFolderName*
+  commentId: Overload:PathOS.ScreenshotManager.GetFolderName
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager_GetFolderName
+  name: GetFolderName
+  nameWithType: ScreenshotManager.GetFolderName
+  fullName: PathOS.ScreenshotManager.GetFolderName
+- uid: PathOS.ScreenshotManager.GetFilename*
+  commentId: Overload:PathOS.ScreenshotManager.GetFilename
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager_GetFilename
+  name: GetFilename
+  nameWithType: ScreenshotManager.GetFilename
+  fullName: PathOS.ScreenshotManager.GetFilename
+- uid: PathOS.ScreenshotManager.#ctor*
+  commentId: Overload:PathOS.ScreenshotManager.#ctor
+  isExternal: true
+  href: PathOS.ScreenshotManager.html#PathOS_ScreenshotManager__ctor
+  name: ScreenshotManager
+  nameWithType: ScreenshotManager.ScreenshotManager
+  fullName: PathOS.ScreenshotManager.ScreenshotManager
+  nameWithType.vb: ScreenshotManager.New
+  fullName.vb: PathOS.ScreenshotManager.New
+  name.vb: New
+shouldSkipMarkup: true

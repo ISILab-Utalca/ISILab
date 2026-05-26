@@ -1,0 +1,2726 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FbxProperty | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FbxProperty | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Autodesk.Fbx.FbxProperty">
+
+
+
+  <h1 id="Autodesk_Fbx_FbxProperty" data-uid="Autodesk.Fbx.FbxProperty" class="text-break">
+Class FbxProperty  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Autodesk.html">Autodesk</a>.<a class="xref" href="Autodesk.Fbx.html">Fbx</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Autodesk.Fbx.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FbxProperty : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FbxProperty</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyBool.html">FbxPropertyBool</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyDouble.html">FbxPropertyDouble</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyDouble3.html">FbxPropertyDouble3</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyEAreaLightShape.html">FbxPropertyEAreaLightShape</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyEBlendMode.html">FbxPropertyEBlendMode</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyEDecayType.html">FbxPropertyEDecayType</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyEGateFit.html">FbxPropertyEGateFit</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyEInheritType.html">FbxPropertyEInheritType</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyELightType.html">FbxPropertyELightType</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyEProjectionType.html">FbxPropertyEProjectionType</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyEWrapMode.html">FbxPropertyEWrapMode</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyFloat.html">FbxPropertyFloat</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyInt.html">FbxPropertyInt</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyMarkerELook.html">FbxPropertyMarkerELook</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyNullELook.html">FbxPropertyNullELook</a></div>
+      <div><a class="xref" href="Autodesk.Fbx.FbxPropertyString.html">FbxPropertyString</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Autodesk_Fbx_FbxProperty_swigCMemOwn" data-uid="Autodesk.Fbx.FbxProperty.swigCMemOwn">
+  swigCMemOwn
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool swigCMemOwn</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Autodesk_Fbx_FbxProperty_ConnectDstObject_" data-uid="Autodesk.Fbx.FbxProperty.ConnectDstObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_ConnectDstObject_Autodesk_Fbx_FbxObject_" data-uid="Autodesk.Fbx.FbxProperty.ConnectDstObject(Autodesk.Fbx.FbxObject)">
+  ConnectDstObject(FbxObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ConnectDstObject(FbxObject pObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_ConnectDstObject_" data-uid="Autodesk.Fbx.FbxProperty.ConnectDstObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_ConnectDstObject_Autodesk_Fbx_FbxObject_Autodesk_Fbx_FbxConnection_EType_" data-uid="Autodesk.Fbx.FbxProperty.ConnectDstObject(Autodesk.Fbx.FbxObject,Autodesk.Fbx.FbxConnection.EType)">
+  ConnectDstObject(FbxObject, EType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ConnectDstObject(FbxObject pObject, FbxConnection.EType pType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+    <dt><code>pType</code> <a class="xref" href="Autodesk.Fbx.FbxConnection.html">FbxConnection</a>.<a class="xref" href="Autodesk.Fbx.FbxConnection.EType.html">EType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_ConnectSrcObject_" data-uid="Autodesk.Fbx.FbxProperty.ConnectSrcObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_ConnectSrcObject_Autodesk_Fbx_FbxObject_" data-uid="Autodesk.Fbx.FbxProperty.ConnectSrcObject(Autodesk.Fbx.FbxObject)">
+  ConnectSrcObject(FbxObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ConnectSrcObject(FbxObject pObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_ConnectSrcObject_" data-uid="Autodesk.Fbx.FbxProperty.ConnectSrcObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_ConnectSrcObject_Autodesk_Fbx_FbxObject_Autodesk_Fbx_FbxConnection_EType_" data-uid="Autodesk.Fbx.FbxProperty.ConnectSrcObject(Autodesk.Fbx.FbxObject,Autodesk.Fbx.FbxConnection.EType)">
+  ConnectSrcObject(FbxObject, EType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ConnectSrcObject(FbxObject pObject, FbxConnection.EType pType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+    <dt><code>pType</code> <a class="xref" href="Autodesk.Fbx.FbxConnection.html">FbxConnection</a>.<a class="xref" href="Autodesk.Fbx.FbxConnection.EType.html">EType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Create_" data-uid="Autodesk.Fbx.FbxProperty.Create*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Create_Autodesk_Fbx_FbxObject_Autodesk_Fbx_FbxDataType_System_String_" data-uid="Autodesk.Fbx.FbxProperty.Create(Autodesk.Fbx.FbxObject,Autodesk.Fbx.FbxDataType,System.String)">
+  Create(FbxObject, FbxDataType, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxProperty Create(FbxObject pObject, FbxDataType pDataType, string pName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+    <dt><code>pDataType</code> <a class="xref" href="Autodesk.Fbx.FbxDataType.html">FbxDataType</a></dt>
+    <dd></dd>
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Create_" data-uid="Autodesk.Fbx.FbxProperty.Create*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Create_Autodesk_Fbx_FbxObject_Autodesk_Fbx_FbxDataType_System_String_System_String_" data-uid="Autodesk.Fbx.FbxProperty.Create(Autodesk.Fbx.FbxObject,Autodesk.Fbx.FbxDataType,System.String,System.String)">
+  Create(FbxObject, FbxDataType, string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxProperty Create(FbxObject pObject, FbxDataType pDataType, string pName, string pLabel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+    <dt><code>pDataType</code> <a class="xref" href="Autodesk.Fbx.FbxDataType.html">FbxDataType</a></dt>
+    <dd></dd>
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pLabel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Create_" data-uid="Autodesk.Fbx.FbxProperty.Create*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Create_Autodesk_Fbx_FbxObject_Autodesk_Fbx_FbxDataType_System_String_System_String_System_Boolean_" data-uid="Autodesk.Fbx.FbxProperty.Create(Autodesk.Fbx.FbxObject,Autodesk.Fbx.FbxDataType,System.String,System.String,System.Boolean)">
+  Create(FbxObject, FbxDataType, string, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxProperty Create(FbxObject pObject, FbxDataType pDataType, string pName, string pLabel, bool pCheckForDup)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+    <dt><code>pDataType</code> <a class="xref" href="Autodesk.Fbx.FbxDataType.html">FbxDataType</a></dt>
+    <dd></dd>
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pLabel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pCheckForDup</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Create_" data-uid="Autodesk.Fbx.FbxProperty.Create*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Create_Autodesk_Fbx_FbxObject_Autodesk_Fbx_FbxDataType_System_String_System_String_System_Boolean_System_Boolean__" data-uid="Autodesk.Fbx.FbxProperty.Create(Autodesk.Fbx.FbxObject,Autodesk.Fbx.FbxDataType,System.String,System.String,System.Boolean,System.Boolean@)">
+  Create(FbxObject, FbxDataType, string, string, bool, out bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxProperty Create(FbxObject pObject, FbxDataType pDataType, string pName, string pLabel, bool pCheckForDup, out bool pWasFound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+    <dt><code>pDataType</code> <a class="xref" href="Autodesk.Fbx.FbxDataType.html">FbxDataType</a></dt>
+    <dd></dd>
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pLabel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pCheckForDup</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>pWasFound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Create_" data-uid="Autodesk.Fbx.FbxProperty.Create*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Create_Autodesk_Fbx_FbxProperty_Autodesk_Fbx_FbxDataType_System_String_" data-uid="Autodesk.Fbx.FbxProperty.Create(Autodesk.Fbx.FbxProperty,Autodesk.Fbx.FbxDataType,System.String)">
+  Create(FbxProperty, FbxDataType, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxProperty Create(FbxProperty pCompoundProperty, FbxDataType pDataType, string pName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pCompoundProperty</code> <a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+    <dt><code>pDataType</code> <a class="xref" href="Autodesk.Fbx.FbxDataType.html">FbxDataType</a></dt>
+    <dd></dd>
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Create_" data-uid="Autodesk.Fbx.FbxProperty.Create*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Create_Autodesk_Fbx_FbxProperty_Autodesk_Fbx_FbxDataType_System_String_System_String_" data-uid="Autodesk.Fbx.FbxProperty.Create(Autodesk.Fbx.FbxProperty,Autodesk.Fbx.FbxDataType,System.String,System.String)">
+  Create(FbxProperty, FbxDataType, string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxProperty Create(FbxProperty pCompoundProperty, FbxDataType pDataType, string pName, string pLabel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pCompoundProperty</code> <a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+    <dt><code>pDataType</code> <a class="xref" href="Autodesk.Fbx.FbxDataType.html">FbxDataType</a></dt>
+    <dd></dd>
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pLabel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Create_" data-uid="Autodesk.Fbx.FbxProperty.Create*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Create_Autodesk_Fbx_FbxProperty_Autodesk_Fbx_FbxDataType_System_String_System_String_System_Boolean_" data-uid="Autodesk.Fbx.FbxProperty.Create(Autodesk.Fbx.FbxProperty,Autodesk.Fbx.FbxDataType,System.String,System.String,System.Boolean)">
+  Create(FbxProperty, FbxDataType, string, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxProperty Create(FbxProperty pCompoundProperty, FbxDataType pDataType, string pName, string pLabel, bool pCheckForDup)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pCompoundProperty</code> <a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+    <dt><code>pDataType</code> <a class="xref" href="Autodesk.Fbx.FbxDataType.html">FbxDataType</a></dt>
+    <dd></dd>
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pLabel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pCheckForDup</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Create_" data-uid="Autodesk.Fbx.FbxProperty.Create*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Create_Autodesk_Fbx_FbxProperty_Autodesk_Fbx_FbxDataType_System_String_System_String_System_Boolean_System_Boolean__" data-uid="Autodesk.Fbx.FbxProperty.Create(Autodesk.Fbx.FbxProperty,Autodesk.Fbx.FbxDataType,System.String,System.String,System.Boolean,System.Boolean@)">
+  Create(FbxProperty, FbxDataType, string, string, bool, out bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FbxProperty Create(FbxProperty pCompoundProperty, FbxDataType pDataType, string pName, string pLabel, bool pCheckForDup, out bool pWasFound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pCompoundProperty</code> <a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+    <dt><code>pDataType</code> <a class="xref" href="Autodesk.Fbx.FbxDataType.html">FbxDataType</a></dt>
+    <dd></dd>
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pLabel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pCheckForDup</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>pWasFound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Destroy_" data-uid="Autodesk.Fbx.FbxProperty.Destroy*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Destroy" data-uid="Autodesk.Fbx.FbxProperty.Destroy">
+  Destroy()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_DestroyChildren_" data-uid="Autodesk.Fbx.FbxProperty.DestroyChildren*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_DestroyChildren" data-uid="Autodesk.Fbx.FbxProperty.DestroyChildren">
+  DestroyChildren()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DestroyChildren()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_DestroyRecursively_" data-uid="Autodesk.Fbx.FbxProperty.DestroyRecursively*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_DestroyRecursively" data-uid="Autodesk.Fbx.FbxProperty.DestroyRecursively">
+  DestroyRecursively()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DestroyRecursively()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_DisconnectAllDstObject_" data-uid="Autodesk.Fbx.FbxProperty.DisconnectAllDstObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_DisconnectAllDstObject" data-uid="Autodesk.Fbx.FbxProperty.DisconnectAllDstObject">
+  DisconnectAllDstObject()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DisconnectAllDstObject()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_DisconnectAllSrcObject_" data-uid="Autodesk.Fbx.FbxProperty.DisconnectAllSrcObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_DisconnectAllSrcObject" data-uid="Autodesk.Fbx.FbxProperty.DisconnectAllSrcObject">
+  DisconnectAllSrcObject()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DisconnectAllSrcObject()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_DisconnectDstObject_" data-uid="Autodesk.Fbx.FbxProperty.DisconnectDstObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_DisconnectDstObject_Autodesk_Fbx_FbxObject_" data-uid="Autodesk.Fbx.FbxProperty.DisconnectDstObject(Autodesk.Fbx.FbxObject)">
+  DisconnectDstObject(FbxObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DisconnectDstObject(FbxObject pObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_DisconnectSrcObject_" data-uid="Autodesk.Fbx.FbxProperty.DisconnectSrcObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_DisconnectSrcObject_Autodesk_Fbx_FbxObject_" data-uid="Autodesk.Fbx.FbxProperty.DisconnectSrcObject(Autodesk.Fbx.FbxObject)">
+  DisconnectSrcObject(FbxObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DisconnectSrcObject(FbxObject pObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Dispose_" data-uid="Autodesk.Fbx.FbxProperty.Dispose*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Dispose" data-uid="Autodesk.Fbx.FbxProperty.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Equals_" data-uid="Autodesk.Fbx.FbxProperty.Equals*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Equals_Autodesk_Fbx_FbxProperty_" data-uid="Autodesk.Fbx.FbxProperty.Equals(Autodesk.Fbx.FbxProperty)">
+  Equals(FbxProperty)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(FbxProperty other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Equals_" data-uid="Autodesk.Fbx.FbxProperty.Equals*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Equals_System_Object_" data-uid="Autodesk.Fbx.FbxProperty.Equals(System.Object)">
+  Equals(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_FindDstObject_" data-uid="Autodesk.Fbx.FbxProperty.FindDstObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_FindDstObject_System_String_System_Int32_" data-uid="Autodesk.Fbx.FbxProperty.FindDstObject(System.String,System.Int32)">
+  FindDstObject(string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxObject FindDstObject(string pName, int pStartIndex = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pStartIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_FindSrcObject_" data-uid="Autodesk.Fbx.FbxProperty.FindSrcObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_FindSrcObject_System_String_System_Int32_" data-uid="Autodesk.Fbx.FbxProperty.FindSrcObject(System.String,System.Int32)">
+  FindSrcObject(string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxObject FindSrcObject(string pName, int pStartIndex = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pStartIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetBool_" data-uid="Autodesk.Fbx.FbxProperty.GetBool*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetBool" data-uid="Autodesk.Fbx.FbxProperty.GetBool">
+  GetBool()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetBool()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurve_" data-uid="Autodesk.Fbx.FbxProperty.GetCurve*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurve_Autodesk_Fbx_FbxAnimLayer_" data-uid="Autodesk.Fbx.FbxProperty.GetCurve(Autodesk.Fbx.FbxAnimLayer)">
+  GetCurve(FbxAnimLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurve GetCurve(FbxAnimLayer pAnimLayer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAnimLayer</code> <a class="xref" href="Autodesk.Fbx.FbxAnimLayer.html">FbxAnimLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurve.html">FbxAnimCurve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurve_" data-uid="Autodesk.Fbx.FbxProperty.GetCurve*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurve_Autodesk_Fbx_FbxAnimLayer_System_Boolean_" data-uid="Autodesk.Fbx.FbxProperty.GetCurve(Autodesk.Fbx.FbxAnimLayer,System.Boolean)">
+  GetCurve(FbxAnimLayer, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurve GetCurve(FbxAnimLayer pAnimLayer, bool pCreate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAnimLayer</code> <a class="xref" href="Autodesk.Fbx.FbxAnimLayer.html">FbxAnimLayer</a></dt>
+    <dd></dd>
+    <dt><code>pCreate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurve.html">FbxAnimCurve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurve_" data-uid="Autodesk.Fbx.FbxProperty.GetCurve*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurve_Autodesk_Fbx_FbxAnimLayer_System_String_" data-uid="Autodesk.Fbx.FbxProperty.GetCurve(Autodesk.Fbx.FbxAnimLayer,System.String)">
+  GetCurve(FbxAnimLayer, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurve GetCurve(FbxAnimLayer pAnimLayer, string pChannel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAnimLayer</code> <a class="xref" href="Autodesk.Fbx.FbxAnimLayer.html">FbxAnimLayer</a></dt>
+    <dd></dd>
+    <dt><code>pChannel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurve.html">FbxAnimCurve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurve_" data-uid="Autodesk.Fbx.FbxProperty.GetCurve*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurve_Autodesk_Fbx_FbxAnimLayer_System_String_System_Boolean_" data-uid="Autodesk.Fbx.FbxProperty.GetCurve(Autodesk.Fbx.FbxAnimLayer,System.String,System.Boolean)">
+  GetCurve(FbxAnimLayer, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurve GetCurve(FbxAnimLayer pAnimLayer, string pChannel, bool pCreate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAnimLayer</code> <a class="xref" href="Autodesk.Fbx.FbxAnimLayer.html">FbxAnimLayer</a></dt>
+    <dd></dd>
+    <dt><code>pChannel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pCreate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurve.html">FbxAnimCurve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurve_" data-uid="Autodesk.Fbx.FbxProperty.GetCurve*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurve_Autodesk_Fbx_FbxAnimLayer_System_String_System_String_System_Boolean_" data-uid="Autodesk.Fbx.FbxProperty.GetCurve(Autodesk.Fbx.FbxAnimLayer,System.String,System.String,System.Boolean)">
+  GetCurve(FbxAnimLayer, string, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurve GetCurve(FbxAnimLayer pAnimLayer, string pName, string pChannel, bool pCreate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAnimLayer</code> <a class="xref" href="Autodesk.Fbx.FbxAnimLayer.html">FbxAnimLayer</a></dt>
+    <dd></dd>
+    <dt><code>pName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pChannel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>pCreate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurve.html">FbxAnimCurve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurveNode_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurveNode" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode">
+  GetCurveNode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveNode GetCurveNode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveNode.html">FbxAnimCurveNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurveNode_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurveNode_Autodesk_Fbx_FbxAnimLayer_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode(Autodesk.Fbx.FbxAnimLayer)">
+  GetCurveNode(FbxAnimLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveNode GetCurveNode(FbxAnimLayer pAnimLayer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAnimLayer</code> <a class="xref" href="Autodesk.Fbx.FbxAnimLayer.html">FbxAnimLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveNode.html">FbxAnimCurveNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurveNode_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurveNode_Autodesk_Fbx_FbxAnimLayer_System_Boolean_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode(Autodesk.Fbx.FbxAnimLayer,System.Boolean)">
+  GetCurveNode(FbxAnimLayer, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveNode GetCurveNode(FbxAnimLayer pAnimLayer, bool pCreate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAnimLayer</code> <a class="xref" href="Autodesk.Fbx.FbxAnimLayer.html">FbxAnimLayer</a></dt>
+    <dd></dd>
+    <dt><code>pCreate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveNode.html">FbxAnimCurveNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurveNode_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurveNode_Autodesk_Fbx_FbxAnimStack_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode(Autodesk.Fbx.FbxAnimStack)">
+  GetCurveNode(FbxAnimStack)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveNode GetCurveNode(FbxAnimStack pAnimStack)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAnimStack</code> <a class="xref" href="Autodesk.Fbx.FbxAnimStack.html">FbxAnimStack</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveNode.html">FbxAnimCurveNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurveNode_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurveNode_Autodesk_Fbx_FbxAnimStack_System_Boolean_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode(Autodesk.Fbx.FbxAnimStack,System.Boolean)">
+  GetCurveNode(FbxAnimStack, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveNode GetCurveNode(FbxAnimStack pAnimStack, bool pCreate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pAnimStack</code> <a class="xref" href="Autodesk.Fbx.FbxAnimStack.html">FbxAnimStack</a></dt>
+    <dd></dd>
+    <dt><code>pCreate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveNode.html">FbxAnimCurveNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetCurveNode_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetCurveNode_System_Boolean_" data-uid="Autodesk.Fbx.FbxProperty.GetCurveNode(System.Boolean)">
+  GetCurveNode(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxAnimCurveNode GetCurveNode(bool pCreate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pCreate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxAnimCurveNode.html">FbxAnimCurveNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetDouble_" data-uid="Autodesk.Fbx.FbxProperty.GetDouble*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetDouble" data-uid="Autodesk.Fbx.FbxProperty.GetDouble">
+  GetDouble()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GetDouble()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetDstObject_" data-uid="Autodesk.Fbx.FbxProperty.GetDstObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetDstObject" data-uid="Autodesk.Fbx.FbxProperty.GetDstObject">
+  GetDstObject()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxObject GetDstObject()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetDstObject_" data-uid="Autodesk.Fbx.FbxProperty.GetDstObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetDstObject_System_Int32_" data-uid="Autodesk.Fbx.FbxProperty.GetDstObject(System.Int32)">
+  GetDstObject(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxObject GetDstObject(int pIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetDstObjectCount_" data-uid="Autodesk.Fbx.FbxProperty.GetDstObjectCount*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetDstObjectCount" data-uid="Autodesk.Fbx.FbxProperty.GetDstObjectCount">
+  GetDstObjectCount()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetDstObjectCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetFbxColor_" data-uid="Autodesk.Fbx.FbxProperty.GetFbxColor*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetFbxColor" data-uid="Autodesk.Fbx.FbxProperty.GetFbxColor">
+  GetFbxColor()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxColor GetFbxColor()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxColor.html">FbxColor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetFbxDouble3_" data-uid="Autodesk.Fbx.FbxProperty.GetFbxDouble3*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetFbxDouble3" data-uid="Autodesk.Fbx.FbxProperty.GetFbxDouble3">
+  GetFbxDouble3()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxDouble3 GetFbxDouble3()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxDouble3.html">FbxDouble3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetFbxObject_" data-uid="Autodesk.Fbx.FbxProperty.GetFbxObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetFbxObject" data-uid="Autodesk.Fbx.FbxProperty.GetFbxObject">
+  GetFbxObject()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxObject GetFbxObject()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetFlag_" data-uid="Autodesk.Fbx.FbxProperty.GetFlag*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetFlag_Autodesk_Fbx_FbxPropertyFlags_EFlags_" data-uid="Autodesk.Fbx.FbxProperty.GetFlag(Autodesk.Fbx.FbxPropertyFlags.EFlags)">
+  GetFlag(EFlags)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetFlag(FbxPropertyFlags.EFlags pFlag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pFlag</code> <a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.html">FbxPropertyFlags</a>.<a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.EFlags.html">EFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetFlagInheritType_" data-uid="Autodesk.Fbx.FbxProperty.GetFlagInheritType*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetFlagInheritType_Autodesk_Fbx_FbxPropertyFlags_EFlags_" data-uid="Autodesk.Fbx.FbxProperty.GetFlagInheritType(Autodesk.Fbx.FbxPropertyFlags.EFlags)">
+  GetFlagInheritType(EFlags)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxPropertyFlags.EInheritType GetFlagInheritType(FbxPropertyFlags.EFlags pFlag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pFlag</code> <a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.html">FbxPropertyFlags</a>.<a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.EFlags.html">EFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.html">FbxPropertyFlags</a>.<a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.EInheritType.html">EInheritType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetFlags_" data-uid="Autodesk.Fbx.FbxProperty.GetFlags*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetFlags" data-uid="Autodesk.Fbx.FbxProperty.GetFlags">
+  GetFlags()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxPropertyFlags.EFlags GetFlags()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.html">FbxPropertyFlags</a>.<a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.EFlags.html">EFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetFloat_" data-uid="Autodesk.Fbx.FbxProperty.GetFloat*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetFloat" data-uid="Autodesk.Fbx.FbxProperty.GetFloat">
+  GetFloat()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetFloat()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetHashCode_" data-uid="Autodesk.Fbx.FbxProperty.GetHashCode*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetHashCode" data-uid="Autodesk.Fbx.FbxProperty.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetHierarchicalName_" data-uid="Autodesk.Fbx.FbxProperty.GetHierarchicalName*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetHierarchicalName" data-uid="Autodesk.Fbx.FbxProperty.GetHierarchicalName">
+  GetHierarchicalName()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetHierarchicalName()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetInt_" data-uid="Autodesk.Fbx.FbxProperty.GetInt*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetInt" data-uid="Autodesk.Fbx.FbxProperty.GetInt">
+  GetInt()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetInt()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetLabel_" data-uid="Autodesk.Fbx.FbxProperty.GetLabel*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetLabel" data-uid="Autodesk.Fbx.FbxProperty.GetLabel">
+  GetLabel()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetLabel()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetLabel_" data-uid="Autodesk.Fbx.FbxProperty.GetLabel*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetLabel_System_Boolean_" data-uid="Autodesk.Fbx.FbxProperty.GetLabel(System.Boolean)">
+  GetLabel(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetLabel(bool pReturnNameIfEmpty)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pReturnNameIfEmpty</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetName_" data-uid="Autodesk.Fbx.FbxProperty.GetName*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetName" data-uid="Autodesk.Fbx.FbxProperty.GetName">
+  GetName()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetName()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetPropertyDataType_" data-uid="Autodesk.Fbx.FbxProperty.GetPropertyDataType*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetPropertyDataType" data-uid="Autodesk.Fbx.FbxProperty.GetPropertyDataType">
+  GetPropertyDataType()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxDataType GetPropertyDataType()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxDataType.html">FbxDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetSrcObject_" data-uid="Autodesk.Fbx.FbxProperty.GetSrcObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetSrcObject" data-uid="Autodesk.Fbx.FbxProperty.GetSrcObject">
+  GetSrcObject()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxObject GetSrcObject()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetSrcObject_" data-uid="Autodesk.Fbx.FbxProperty.GetSrcObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetSrcObject_System_Int32_" data-uid="Autodesk.Fbx.FbxProperty.GetSrcObject(System.Int32)">
+  GetSrcObject(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FbxObject GetSrcObject(int pIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetSrcObjectCount_" data-uid="Autodesk.Fbx.FbxProperty.GetSrcObjectCount*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetSrcObjectCount" data-uid="Autodesk.Fbx.FbxProperty.GetSrcObjectCount">
+  GetSrcObjectCount()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetSrcObjectCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_GetString_" data-uid="Autodesk.Fbx.FbxProperty.GetString*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_GetString" data-uid="Autodesk.Fbx.FbxProperty.GetString">
+  GetString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_IsConnectedDstObject_" data-uid="Autodesk.Fbx.FbxProperty.IsConnectedDstObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_IsConnectedDstObject_Autodesk_Fbx_FbxObject_" data-uid="Autodesk.Fbx.FbxProperty.IsConnectedDstObject(Autodesk.Fbx.FbxObject)">
+  IsConnectedDstObject(FbxObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConnectedDstObject(FbxObject pObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_IsConnectedSrcObject_" data-uid="Autodesk.Fbx.FbxProperty.IsConnectedSrcObject*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_IsConnectedSrcObject_Autodesk_Fbx_FbxObject_" data-uid="Autodesk.Fbx.FbxProperty.IsConnectedSrcObject(Autodesk.Fbx.FbxObject)">
+  IsConnectedSrcObject(FbxObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConnectedSrcObject(FbxObject pObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pObject</code> <a class="xref" href="Autodesk.Fbx.FbxObject.html">FbxObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_IsValid_" data-uid="Autodesk.Fbx.FbxProperty.IsValid*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_IsValid" data-uid="Autodesk.Fbx.FbxProperty.IsValid">
+  IsValid()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsValid()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_ModifiedFlag_" data-uid="Autodesk.Fbx.FbxProperty.ModifiedFlag*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_ModifiedFlag_Autodesk_Fbx_FbxPropertyFlags_EFlags_" data-uid="Autodesk.Fbx.FbxProperty.ModifiedFlag(Autodesk.Fbx.FbxPropertyFlags.EFlags)">
+  ModifiedFlag(EFlags)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ModifiedFlag(FbxPropertyFlags.EFlags pFlag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pFlag</code> <a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.html">FbxPropertyFlags</a>.<a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.EFlags.html">EFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_ModifyFlag_" data-uid="Autodesk.Fbx.FbxProperty.ModifyFlag*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_ModifyFlag_Autodesk_Fbx_FbxPropertyFlags_EFlags_System_Boolean_" data-uid="Autodesk.Fbx.FbxProperty.ModifyFlag(Autodesk.Fbx.FbxPropertyFlags.EFlags,System.Boolean)">
+  ModifyFlag(EFlags, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ModifyFlag(FbxPropertyFlags.EFlags pFlag, bool pValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pFlag</code> <a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.html">FbxPropertyFlags</a>.<a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.EFlags.html">EFlags</a></dt>
+    <dd></dd>
+    <dt><code>pValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Set_" data-uid="Autodesk.Fbx.FbxProperty.Set*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Set_Autodesk_Fbx_FbxColor_" data-uid="Autodesk.Fbx.FbxProperty.Set(Autodesk.Fbx.FbxColor)">
+  Set(FbxColor)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Set(FbxColor pValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pValue</code> <a class="xref" href="Autodesk.Fbx.FbxColor.html">FbxColor</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Set_" data-uid="Autodesk.Fbx.FbxProperty.Set*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Set_System_Single_" data-uid="Autodesk.Fbx.FbxProperty.Set(System.Single)">
+  Set(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Set(float pValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_Set_" data-uid="Autodesk.Fbx.FbxProperty.Set*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_Set_System_String_" data-uid="Autodesk.Fbx.FbxProperty.Set(System.String)">
+  Set(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Set(string pValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_SetFlagInheritType_" data-uid="Autodesk.Fbx.FbxProperty.SetFlagInheritType*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_SetFlagInheritType_Autodesk_Fbx_FbxPropertyFlags_EFlags_Autodesk_Fbx_FbxPropertyFlags_EInheritType_" data-uid="Autodesk.Fbx.FbxProperty.SetFlagInheritType(Autodesk.Fbx.FbxPropertyFlags.EFlags,Autodesk.Fbx.FbxPropertyFlags.EInheritType)">
+  SetFlagInheritType(EFlags, EInheritType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetFlagInheritType(FbxPropertyFlags.EFlags pFlag, FbxPropertyFlags.EInheritType pType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pFlag</code> <a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.html">FbxPropertyFlags</a>.<a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.EFlags.html">EFlags</a></dt>
+    <dd></dd>
+    <dt><code>pType</code> <a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.html">FbxPropertyFlags</a>.<a class="xref" href="Autodesk.Fbx.FbxPropertyFlags.EInheritType.html">EInheritType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_SetLabel_" data-uid="Autodesk.Fbx.FbxProperty.SetLabel*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_SetLabel_System_String_" data-uid="Autodesk.Fbx.FbxProperty.SetLabel(System.String)">
+  SetLabel(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLabel(string pLabel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pLabel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_ToString_" data-uid="Autodesk.Fbx.FbxProperty.ToString*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_ToString" data-uid="Autodesk.Fbx.FbxProperty.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Autodesk_Fbx_FbxProperty_op_Equality_" data-uid="Autodesk.Fbx.FbxProperty.op_Equality*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_op_Equality_Autodesk_Fbx_FbxProperty_Autodesk_Fbx_FbxProperty_" data-uid="Autodesk.Fbx.FbxProperty.op_Equality(Autodesk.Fbx.FbxProperty,Autodesk.Fbx.FbxProperty)">
+  operator ==(FbxProperty, FbxProperty)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(FbxProperty a, FbxProperty b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Autodesk_Fbx_FbxProperty_op_Inequality_" data-uid="Autodesk.Fbx.FbxProperty.op_Inequality*"></a>
+
+  <h3 id="Autodesk_Fbx_FbxProperty_op_Inequality_Autodesk_Fbx_FbxProperty_Autodesk_Fbx_FbxProperty_" data-uid="Autodesk.Fbx.FbxProperty.op_Inequality(Autodesk.Fbx.FbxProperty,Autodesk.Fbx.FbxProperty)">
+  operator !=(FbxProperty, FbxProperty)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(FbxProperty a, FbxProperty b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Autodesk.Fbx.FbxProperty.html">FbxProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,627 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob
+  id: MeshInstanceJob
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools
+  children:
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.#ctor(Unity.Collections.NativeArray{UnityEngine.Vector3},Unity.Collections.NativeArray{UnityEngine.Quaternion},Unity.Collections.NativeArray{UnityEngine.Vector3},Unity.Collections.NativeArray{UnityEngine.Matrix4x4},Unity.Collections.NativeArray{UnityEngine.Vector3})
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Execute(System.Int32)
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Matrices
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Normals
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Positions
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Rotations
+  - ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Scales
+  langs:
+  - csharp
+  - vb
+  name: MeshInstanceJob
+  nameWithType: MeshInstanceJob
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob
+  type: Struct
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: >-
+      [BurstCompile]
+
+      public struct MeshInstanceJob : IJobParallelFor
+    content.vb: >-
+      <BurstCompile>
+
+      Public Structure MeshInstanceJob Implements IJobParallelFor
+  implements:
+  - Unity.Jobs.IJobParallelFor
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: Unity.Burst.BurstCompileAttribute
+    ctor: Unity.Burst.BurstCompileAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Positions
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Positions
+  id: Positions
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob
+  langs:
+  - csharp
+  - vb
+  name: Positions
+  nameWithType: MeshInstanceJob.Positions
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Positions
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public NativeArray<Vector3> Positions
+    return:
+      type: Unity.Collections.NativeArray{UnityEngine.Vector3}
+    content.vb: Public Positions As NativeArray(Of Vector3)
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Rotations
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Rotations
+  id: Rotations
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob
+  langs:
+  - csharp
+  - vb
+  name: Rotations
+  nameWithType: MeshInstanceJob.Rotations
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Rotations
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public NativeArray<Quaternion> Rotations
+    return:
+      type: Unity.Collections.NativeArray{UnityEngine.Quaternion}
+    content.vb: Public Rotations As NativeArray(Of Quaternion)
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Scales
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Scales
+  id: Scales
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob
+  langs:
+  - csharp
+  - vb
+  name: Scales
+  nameWithType: MeshInstanceJob.Scales
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Scales
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public NativeArray<Vector3> Scales
+    return:
+      type: Unity.Collections.NativeArray{UnityEngine.Vector3}
+    content.vb: Public Scales As NativeArray(Of Vector3)
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Matrices
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Matrices
+  id: Matrices
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob
+  langs:
+  - csharp
+  - vb
+  name: Matrices
+  nameWithType: MeshInstanceJob.Matrices
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Matrices
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public NativeArray<Matrix4x4> Matrices
+    return:
+      type: Unity.Collections.NativeArray{UnityEngine.Matrix4x4}
+    content.vb: Public Matrices As NativeArray(Of Matrix4x4)
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Normals
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Normals
+  id: Normals
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob
+  langs:
+  - csharp
+  - vb
+  name: Normals
+  nameWithType: MeshInstanceJob.Normals
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Normals
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public NativeArray<Vector3> Normals
+    return:
+      type: Unity.Collections.NativeArray{UnityEngine.Vector3}
+    content.vb: Public Normals As NativeArray(Of Vector3)
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.#ctor(Unity.Collections.NativeArray{UnityEngine.Vector3},Unity.Collections.NativeArray{UnityEngine.Quaternion},Unity.Collections.NativeArray{UnityEngine.Vector3},Unity.Collections.NativeArray{UnityEngine.Matrix4x4},Unity.Collections.NativeArray{UnityEngine.Vector3})
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.#ctor(Unity.Collections.NativeArray{UnityEngine.Vector3},Unity.Collections.NativeArray{UnityEngine.Quaternion},Unity.Collections.NativeArray{UnityEngine.Vector3},Unity.Collections.NativeArray{UnityEngine.Matrix4x4},Unity.Collections.NativeArray{UnityEngine.Vector3})
+  id: '#ctor(Unity.Collections.NativeArray{UnityEngine.Vector3},Unity.Collections.NativeArray{UnityEngine.Quaternion},Unity.Collections.NativeArray{UnityEngine.Vector3},Unity.Collections.NativeArray{UnityEngine.Matrix4x4},Unity.Collections.NativeArray{UnityEngine.Vector3})'
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob
+  langs:
+  - csharp
+  - vb
+  name: MeshInstanceJob(NativeArray<Vector3>, NativeArray<Quaternion>, NativeArray<Vector3>, NativeArray<Matrix4x4>, NativeArray<Vector3>)
+  nameWithType: MeshInstanceJob.MeshInstanceJob(NativeArray<Vector3>, NativeArray<Quaternion>, NativeArray<Vector3>, NativeArray<Matrix4x4>, NativeArray<Vector3>)
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.MeshInstanceJob(Unity.Collections.NativeArray<UnityEngine.Vector3>, Unity.Collections.NativeArray<UnityEngine.Quaternion>, Unity.Collections.NativeArray<UnityEngine.Vector3>, Unity.Collections.NativeArray<UnityEngine.Matrix4x4>, Unity.Collections.NativeArray<UnityEngine.Vector3>)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public MeshInstanceJob(NativeArray<Vector3> _positions, NativeArray<Quaternion> _rotations, NativeArray<Vector3> _scales, NativeArray<Matrix4x4> _matrices, NativeArray<Vector3> _normals)
+    parameters:
+    - id: _positions
+      type: Unity.Collections.NativeArray{UnityEngine.Vector3}
+    - id: _rotations
+      type: Unity.Collections.NativeArray{UnityEngine.Quaternion}
+    - id: _scales
+      type: Unity.Collections.NativeArray{UnityEngine.Vector3}
+    - id: _matrices
+      type: Unity.Collections.NativeArray{UnityEngine.Matrix4x4}
+    - id: _normals
+      type: Unity.Collections.NativeArray{UnityEngine.Vector3}
+    content.vb: Public Sub New(_positions As NativeArray(Of Vector3), _rotations As NativeArray(Of Quaternion), _scales As NativeArray(Of Vector3), _matrices As NativeArray(Of Matrix4x4), _normals As NativeArray(Of Vector3))
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.#ctor*
+  nameWithType.vb: MeshInstanceJob.New(NativeArray(Of Vector3), NativeArray(Of Quaternion), NativeArray(Of Vector3), NativeArray(Of Matrix4x4), NativeArray(Of Vector3))
+  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.New(Unity.Collections.NativeArray(Of UnityEngine.Vector3), Unity.Collections.NativeArray(Of UnityEngine.Quaternion), Unity.Collections.NativeArray(Of UnityEngine.Vector3), Unity.Collections.NativeArray(Of UnityEngine.Matrix4x4), Unity.Collections.NativeArray(Of UnityEngine.Vector3))
+  name.vb: New(NativeArray(Of Vector3), NativeArray(Of Quaternion), NativeArray(Of Vector3), NativeArray(Of Matrix4x4), NativeArray(Of Vector3))
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Execute(System.Int32)
+  commentId: M:ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Execute(System.Int32)
+  id: Execute(System.Int32)
+  parent: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob
+  langs:
+  - csharp
+  - vb
+  name: Execute(int)
+  nameWithType: MeshInstanceJob.Execute(int)
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Execute(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles.Tools
+  syntax:
+    content: public void Execute(int _index)
+    parameters:
+    - id: _index
+      type: System.Int32
+    content.vb: Public Sub Execute(_index As Integer)
+  overload: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Execute*
+  nameWithType.vb: MeshInstanceJob.Execute(Integer)
+  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Execute(Integer)
+  name.vb: Execute(Integer)
+references:
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools
+  commentId: N:ISILab.LBS.Plugin.Components.Bundles.Tools
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Bundles.Tools
+  nameWithType: ISILab.LBS.Plugin.Components.Bundles.Tools
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools
+    name: Tools
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Tools
+    name: Tools
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.Tools.html
+- uid: Unity.Jobs.IJobParallelFor
+  commentId: '!:Unity.Jobs.IJobParallelFor'
+  isExternal: true
+  name: IJobParallelFor
+  nameWithType: IJobParallelFor
+  fullName: Unity.Jobs.IJobParallelFor
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Unity.Collections.NativeArray{UnityEngine.Vector3}
+  commentId: '!:Unity.Collections.NativeArray{UnityEngine.Vector3}'
+  definition: Unity.Collections.NativeArray`1
+  name: NativeArray<Vector3>
+  nameWithType: NativeArray<Vector3>
+  fullName: Unity.Collections.NativeArray<UnityEngine.Vector3>
+  nameWithType.vb: NativeArray(Of Vector3)
+  fullName.vb: Unity.Collections.NativeArray(Of UnityEngine.Vector3)
+  name.vb: NativeArray(Of Vector3)
+  spec.csharp:
+  - uid: Unity.Collections.NativeArray`1
+    name: NativeArray
+    isExternal: true
+  - name: <
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Unity.Collections.NativeArray`1
+    name: NativeArray
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: Unity.Collections.NativeArray`1
+  isExternal: true
+  name: NativeArray<>
+  nameWithType: NativeArray<>
+  fullName: Unity.Collections.NativeArray<>
+  nameWithType.vb: NativeArray(Of )
+  fullName.vb: Unity.Collections.NativeArray(Of )
+  name.vb: NativeArray(Of )
+  spec.csharp:
+  - uid: Unity.Collections.NativeArray`1
+    name: NativeArray
+    isExternal: true
+  - name: <
+  - name: '>'
+  spec.vb:
+  - uid: Unity.Collections.NativeArray`1
+    name: NativeArray
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: Unity.Collections.NativeArray{UnityEngine.Quaternion}
+  commentId: '!:Unity.Collections.NativeArray{UnityEngine.Quaternion}'
+  definition: Unity.Collections.NativeArray`1
+  name: NativeArray<Quaternion>
+  nameWithType: NativeArray<Quaternion>
+  fullName: Unity.Collections.NativeArray<UnityEngine.Quaternion>
+  nameWithType.vb: NativeArray(Of Quaternion)
+  fullName.vb: Unity.Collections.NativeArray(Of UnityEngine.Quaternion)
+  name.vb: NativeArray(Of Quaternion)
+  spec.csharp:
+  - uid: Unity.Collections.NativeArray`1
+    name: NativeArray
+    isExternal: true
+  - name: <
+  - uid: UnityEngine.Quaternion
+    name: Quaternion
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Unity.Collections.NativeArray`1
+    name: NativeArray
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Quaternion
+    name: Quaternion
+    isExternal: true
+  - name: )
+- uid: Unity.Collections.NativeArray{UnityEngine.Matrix4x4}
+  commentId: '!:Unity.Collections.NativeArray{UnityEngine.Matrix4x4}'
+  definition: Unity.Collections.NativeArray`1
+  name: NativeArray<Matrix4x4>
+  nameWithType: NativeArray<Matrix4x4>
+  fullName: Unity.Collections.NativeArray<UnityEngine.Matrix4x4>
+  nameWithType.vb: NativeArray(Of Matrix4x4)
+  fullName.vb: Unity.Collections.NativeArray(Of UnityEngine.Matrix4x4)
+  name.vb: NativeArray(Of Matrix4x4)
+  spec.csharp:
+  - uid: Unity.Collections.NativeArray`1
+    name: NativeArray
+    isExternal: true
+  - name: <
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Unity.Collections.NativeArray`1
+    name: NativeArray
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.html#ISILab_LBS_Plugin_Components_Bundles_Tools_MeshInstanceJob__ctor_Unity_Collections_NativeArray_UnityEngine_Vector3__Unity_Collections_NativeArray_UnityEngine_Quaternion__Unity_Collections_NativeArray_UnityEngine_Vector3__Unity_Collections_NativeArray_UnityEngine_Matrix4x4__Unity_Collections_NativeArray_UnityEngine_Vector3__
+  name: MeshInstanceJob
+  nameWithType: MeshInstanceJob.MeshInstanceJob
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.MeshInstanceJob
+  nameWithType.vb: MeshInstanceJob.New
+  fullName.vb: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Execute*
+  commentId: Overload:ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Execute
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.html#ISILab_LBS_Plugin_Components_Bundles_Tools_MeshInstanceJob_Execute_System_Int32_
+  name: Execute
+  nameWithType: MeshInstanceJob.Execute
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Tools.MeshInstanceJob.Execute
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+shouldSkipMarkup: true

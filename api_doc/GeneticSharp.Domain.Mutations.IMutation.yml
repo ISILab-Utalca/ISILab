@@ -1,0 +1,195 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeneticSharp.Domain.Mutations.IMutation
+  commentId: T:GeneticSharp.Domain.Mutations.IMutation
+  id: IMutation
+  parent: GeneticSharp.Domain.Mutations
+  children:
+  - GeneticSharp.Domain.Mutations.IMutation.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: IMutation
+  nameWithType: IMutation
+  fullName: GeneticSharp.Domain.Mutations.IMutation
+  type: Interface
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Mutations
+  syntax:
+    content: 'public interface IMutation : IChromosomeOperator'
+    content.vb: Public Interface IMutation Inherits IChromosomeOperator
+  derivedClasses:
+  - GeneticSharp.Domain.Mutations.DisplacementMutation
+  - GeneticSharp.Domain.Mutations.FlipBitMutation
+  - GeneticSharp.Domain.Mutations.InsertionMutation
+  - GeneticSharp.Domain.Mutations.MutationBase
+  - GeneticSharp.Domain.Mutations.PartialShuffleMutation
+  - GeneticSharp.Domain.Mutations.ReverseSequenceMutation
+  - GeneticSharp.Domain.Mutations.SequenceMutationBase
+  - GeneticSharp.Domain.Mutations.TworsMutation
+  - GeneticSharp.Domain.Mutations.UniformMutation
+  - ISILab.AI.Categorization.AddGene
+  - ISILab.AI.Categorization.ExhaustiveAddGene
+  - ISILab.AI.Categorization.ExhaustiveMoveGene
+  - ISILab.AI.Categorization.ExhaustiveRemoveGene
+  - ISILab.AI.Categorization.ExhaustiveSwapGene
+  - ISILab.AI.Categorization.Ranged2DSwapMutation
+  - ISILab.AI.Categorization.RangedSwapGene
+  - ISILab.AI.Categorization.RemoveGene
+  - ISILab.AI.Categorization.RoulleteWheelMutation
+  - ISILab.AI.Categorization.SequenceMutation
+  - ISILab.AI.Categorization.SwapGene
+  inheritedMembers:
+  - GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered
+- uid: GeneticSharp.Domain.Mutations.IMutation.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  commentId: M:GeneticSharp.Domain.Mutations.IMutation.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  id: Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  parent: GeneticSharp.Domain.Mutations.IMutation
+  langs:
+  - csharp
+  - vb
+  name: Mutate(ChromosomeBase, float)
+  nameWithType: IMutation.Mutate(ChromosomeBase, float)
+  fullName: GeneticSharp.Domain.Mutations.IMutation.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase, float)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Mutations
+  syntax:
+    content: void Mutate(ChromosomeBase chromosome, float probability)
+    parameters:
+    - id: chromosome
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+    - id: probability
+      type: System.Single
+    content.vb: Sub Mutate(chromosome As ChromosomeBase, probability As Single)
+  overload: GeneticSharp.Domain.Mutations.IMutation.Mutate*
+  nameWithType.vb: IMutation.Mutate(ChromosomeBase, Single)
+  fullName.vb: GeneticSharp.Domain.Mutations.IMutation.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase, Single)
+  name.vb: Mutate(ChromosomeBase, Single)
+references:
+- uid: GeneticSharp.Domain.Mutations
+  commentId: N:GeneticSharp.Domain.Mutations
+  isExternal: true
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Mutations
+  nameWithType: GeneticSharp.Domain.Mutations
+  fullName: GeneticSharp.Domain.Mutations
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Mutations
+    name: Mutations
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Mutations
+    name: Mutations
+    isExternal: true
+    href: GeneticSharp.Domain.Mutations.html
+- uid: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered
+  commentId: P:GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered
+  parent: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.html#GeneticSharp_Domain_Chromosomes_IChromosomeOperator_IsOrdered
+  name: IsOrdered
+  nameWithType: IChromosomeOperator.IsOrdered
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered
+- uid: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+  commentId: T:GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+  parent: GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.html
+  name: IChromosomeOperator
+  nameWithType: IChromosomeOperator
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+- uid: GeneticSharp.Domain.Chromosomes
+  commentId: N:GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Chromosomes
+  nameWithType: GeneticSharp.Domain.Chromosomes
+  fullName: GeneticSharp.Domain.Chromosomes
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Chromosomes
+    name: Chromosomes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Chromosomes
+    name: Chromosomes
+    isExternal: true
+    href: GeneticSharp.Domain.Chromosomes.html
+- uid: GeneticSharp.Domain.Mutations.IMutation.Mutate*
+  commentId: Overload:GeneticSharp.Domain.Mutations.IMutation.Mutate
+  isExternal: true
+  href: GeneticSharp.Domain.Mutations.IMutation.html#GeneticSharp_Domain_Mutations_IMutation_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
+  name: Mutate
+  nameWithType: IMutation.Mutate
+  fullName: GeneticSharp.Domain.Mutations.IMutation.Mutate
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  commentId: T:GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  parent: GeneticSharp.Domain.Chromosomes
+  isExternal: true
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  name: ChromosomeBase
+  nameWithType: ChromosomeBase
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+shouldSkipMarkup: true

@@ -1,0 +1,582 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor
+  commentId: T:ISILab.LBS.Editor.AssistantMapEliteEditor
+  id: AssistantMapEliteEditor
+  parent: ISILab.LBS.Editor
+  children:
+  - ISILab.LBS.Editor.AssistantMapEliteEditor.#ctor(System.Object)
+  - ISILab.LBS.Editor.AssistantMapEliteEditor.ChangePresset
+  - ISILab.LBS.Editor.AssistantMapEliteEditor.CreateVisualElement
+  - ISILab.LBS.Editor.AssistantMapEliteEditor.SetBackgorundTexture(UnityEngine.Rect)
+  - ISILab.LBS.Editor.AssistantMapEliteEditor.SetInfo(System.Object)
+  - ISILab.LBS.Editor.AssistantMapEliteEditor.SetTools(LBS.VisualElements.ToolKit)
+  langs:
+  - csharp
+  - vb
+  name: AssistantMapEliteEditor
+  nameWithType: AssistantMapEliteEditor
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: >-
+      [LBSCustomEditor("Assistant Map Elite", typeof(AssistantMapElite))]
+
+      public class AssistantMapEliteEditor : LBSCustomEditor, IToolProvider
+    content.vb: >-
+      <LBSCustomEditor("Assistant Map Elite", GetType(AssistantMapElite))>
+
+      Public Class AssistantMapEliteEditor Inherits LBSCustomEditor Implements IToolProvider
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Editor.LBSCustomEditor
+  implements:
+  - ISILab.LBS.Manipulators.IToolProvider
+  inheritedMembers:
+  - ISILab.LBS.Editor.LBSCustomEditor.target
+  - ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  - ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  - ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  - ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  - ISILab.LBS.Editor.LBSCustomEditor.Target
+  attributes:
+  - type: ISILab.LBS.LBSCustomEditorAttribute
+    ctor: ISILab.LBS.LBSCustomEditorAttribute.#ctor(System.String,System.Type)
+    arguments:
+    - type: System.String
+      value: Assistant Map Elite
+    - type: System.Type
+      value: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.#ctor(System.Object)
+  commentId: M:ISILab.LBS.Editor.AssistantMapEliteEditor.#ctor(System.Object)
+  id: '#ctor(System.Object)'
+  parent: ISILab.LBS.Editor.AssistantMapEliteEditor
+  langs:
+  - csharp
+  - vb
+  name: AssistantMapEliteEditor(object)
+  nameWithType: AssistantMapEliteEditor.AssistantMapEliteEditor(object)
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.AssistantMapEliteEditor(object)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: public AssistantMapEliteEditor(object target)
+    parameters:
+    - id: target
+      type: System.Object
+    content.vb: Public Sub New(target As Object)
+  overload: ISILab.LBS.Editor.AssistantMapEliteEditor.#ctor*
+  nameWithType.vb: AssistantMapEliteEditor.New(Object)
+  fullName.vb: ISILab.LBS.Editor.AssistantMapEliteEditor.New(Object)
+  name.vb: New(Object)
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.ChangePresset
+  commentId: M:ISILab.LBS.Editor.AssistantMapEliteEditor.ChangePresset
+  id: ChangePresset
+  parent: ISILab.LBS.Editor.AssistantMapEliteEditor
+  langs:
+  - csharp
+  - vb
+  name: ChangePresset()
+  nameWithType: AssistantMapEliteEditor.ChangePresset()
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.ChangePresset()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: public void ChangePresset()
+    content.vb: Public Sub ChangePresset()
+  overload: ISILab.LBS.Editor.AssistantMapEliteEditor.ChangePresset*
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.Editor.AssistantMapEliteEditor.SetInfo(System.Object)
+  id: SetInfo(System.Object)
+  parent: ISILab.LBS.Editor.AssistantMapEliteEditor
+  langs:
+  - csharp
+  - vb
+  name: SetInfo(object)
+  nameWithType: AssistantMapEliteEditor.SetInfo(object)
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.SetInfo(object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  example: []
+  syntax:
+    content: public override void SetInfo(object paramTarget)
+    parameters:
+    - id: paramTarget
+      type: System.Object
+    content.vb: Public Overrides Sub SetInfo(paramTarget As Object)
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  overload: ISILab.LBS.Editor.AssistantMapEliteEditor.SetInfo*
+  nameWithType.vb: AssistantMapEliteEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.Editor.AssistantMapEliteEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.Editor.AssistantMapEliteEditor.CreateVisualElement
+  id: CreateVisualElement
+  parent: ISILab.LBS.Editor.AssistantMapEliteEditor
+  langs:
+  - csharp
+  - vb
+  name: CreateVisualElement()
+  nameWithType: AssistantMapEliteEditor.CreateVisualElement()
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.CreateVisualElement()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  example: []
+  syntax:
+    content: protected override VisualElement CreateVisualElement()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Protected Overrides Function CreateVisualElement() As VisualElement
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  overload: ISILab.LBS.Editor.AssistantMapEliteEditor.CreateVisualElement*
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.SetTools(LBS.VisualElements.ToolKit)
+  commentId: M:ISILab.LBS.Editor.AssistantMapEliteEditor.SetTools(LBS.VisualElements.ToolKit)
+  id: SetTools(LBS.VisualElements.ToolKit)
+  parent: ISILab.LBS.Editor.AssistantMapEliteEditor
+  langs:
+  - csharp
+  - vb
+  name: SetTools(ToolKit)
+  nameWithType: AssistantMapEliteEditor.SetTools(ToolKit)
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.SetTools(LBS.VisualElements.ToolKit)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  example: []
+  syntax:
+    content: public void SetTools(ToolKit toolkit)
+    parameters:
+    - id: toolkit
+      type: LBS.VisualElements.ToolKit
+    content.vb: Public Sub SetTools(toolkit As ToolKit)
+  overload: ISILab.LBS.Editor.AssistantMapEliteEditor.SetTools*
+  implements:
+  - ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.SetBackgorundTexture(UnityEngine.Rect)
+  commentId: M:ISILab.LBS.Editor.AssistantMapEliteEditor.SetBackgorundTexture(UnityEngine.Rect)
+  id: SetBackgorundTexture(UnityEngine.Rect)
+  parent: ISILab.LBS.Editor.AssistantMapEliteEditor
+  langs:
+  - csharp
+  - vb
+  name: SetBackgorundTexture(Rect)
+  nameWithType: AssistantMapEliteEditor.SetBackgorundTexture(Rect)
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.SetBackgorundTexture(UnityEngine.Rect)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: public void SetBackgorundTexture(Rect rect)
+    parameters:
+    - id: rect
+      type: UnityEngine.Rect
+    content.vb: Public Sub SetBackgorundTexture(rect As Rect)
+  overload: ISILab.LBS.Editor.AssistantMapEliteEditor.SetBackgorundTexture*
+references:
+- uid: ISILab.LBS.Editor
+  commentId: N:ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Editor
+  nameWithType: ISILab.LBS.Editor
+  fullName: ISILab.LBS.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Editor.LBSCustomEditor
+  commentId: T:ISILab.LBS.Editor.LBSCustomEditor
+  parent: ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html
+  name: LBSCustomEditor
+  nameWithType: LBSCustomEditor
+  fullName: ISILab.LBS.Editor.LBSCustomEditor
+- uid: ISILab.LBS.Manipulators.IToolProvider
+  commentId: T:ISILab.LBS.Manipulators.IToolProvider
+  parent: ISILab.LBS.Manipulators
+  isExternal: true
+  href: ISILab.LBS.Manipulators.IToolProvider.html
+  name: IToolProvider
+  nameWithType: IToolProvider
+  fullName: ISILab.LBS.Manipulators.IToolProvider
+- uid: ISILab.LBS.Editor.LBSCustomEditor.target
+  commentId: F:ISILab.LBS.Editor.LBSCustomEditor.target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_target
+  name: target
+  nameWithType: LBSCustomEditor.target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.target
+- uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  name: ContextMenu(ContextualMenuPopulateEvent)
+  nameWithType: LBSCustomEditor.ContextMenu(ContextualMenuPopulateEvent)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  name: Repaint()
+  nameWithType: LBSCustomEditor.Repaint()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Repaint()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  name: OnFocus()
+  nameWithType: LBSCustomEditor.OnFocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnFocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  name: OnUnfocus()
+  nameWithType: LBSCustomEditor.OnUnfocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Target
+  commentId: P:ISILab.LBS.Editor.LBSCustomEditor.Target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Target
+  name: Target
+  nameWithType: LBSCustomEditor.Target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Target
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Manipulators
+  commentId: N:ISILab.LBS.Manipulators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Manipulators
+  nameWithType: ISILab.LBS.Manipulators
+  fullName: ISILab.LBS.Manipulators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Manipulators
+    name: Manipulators
+    isExternal: true
+    href: ISILab.LBS.Manipulators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Manipulators
+    name: Manipulators
+    isExternal: true
+    href: ISILab.LBS.Manipulators.html
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.#ctor*
+  commentId: Overload:ISILab.LBS.Editor.AssistantMapEliteEditor.#ctor
+  isExternal: true
+  href: ISILab.LBS.Editor.AssistantMapEliteEditor.html#ISILab_LBS_Editor_AssistantMapEliteEditor__ctor_System_Object_
+  name: AssistantMapEliteEditor
+  nameWithType: AssistantMapEliteEditor.AssistantMapEliteEditor
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.AssistantMapEliteEditor
+  nameWithType.vb: AssistantMapEliteEditor.New
+  fullName.vb: ISILab.LBS.Editor.AssistantMapEliteEditor.New
+  name.vb: New
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.ChangePresset*
+  commentId: Overload:ISILab.LBS.Editor.AssistantMapEliteEditor.ChangePresset
+  isExternal: true
+  href: ISILab.LBS.Editor.AssistantMapEliteEditor.html#ISILab_LBS_Editor_AssistantMapEliteEditor_ChangePresset
+  name: ChangePresset
+  nameWithType: AssistantMapEliteEditor.ChangePresset
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.ChangePresset
+- uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  name: SetInfo(object)
+  nameWithType: LBSCustomEditor.SetInfo(object)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(object)
+  nameWithType.vb: LBSCustomEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.SetInfo*
+  commentId: Overload:ISILab.LBS.Editor.AssistantMapEliteEditor.SetInfo
+  isExternal: true
+  href: ISILab.LBS.Editor.AssistantMapEliteEditor.html#ISILab_LBS_Editor_AssistantMapEliteEditor_SetInfo_System_Object_
+  name: SetInfo
+  nameWithType: AssistantMapEliteEditor.SetInfo
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.SetInfo
+- uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  name: CreateVisualElement()
+  nameWithType: LBSCustomEditor.CreateVisualElement()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.CreateVisualElement*
+  commentId: Overload:ISILab.LBS.Editor.AssistantMapEliteEditor.CreateVisualElement
+  isExternal: true
+  href: ISILab.LBS.Editor.AssistantMapEliteEditor.html#ISILab_LBS_Editor_AssistantMapEliteEditor_CreateVisualElement
+  name: CreateVisualElement
+  nameWithType: AssistantMapEliteEditor.CreateVisualElement
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.CreateVisualElement
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.SetTools*
+  commentId: Overload:ISILab.LBS.Editor.AssistantMapEliteEditor.SetTools
+  isExternal: true
+  href: ISILab.LBS.Editor.AssistantMapEliteEditor.html#ISILab_LBS_Editor_AssistantMapEliteEditor_SetTools_LBS_VisualElements_ToolKit_
+  name: SetTools
+  nameWithType: AssistantMapEliteEditor.SetTools
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.SetTools
+- uid: ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+  commentId: M:ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+  parent: ISILab.LBS.Manipulators.IToolProvider
+  isExternal: true
+  href: ISILab.LBS.Manipulators.IToolProvider.html#ISILab_LBS_Manipulators_IToolProvider_SetTools_LBS_VisualElements_ToolKit_
+  name: SetTools(ToolKit)
+  nameWithType: IToolProvider.SetTools(ToolKit)
+  fullName: ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+  spec.csharp:
+  - uid: ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+    name: SetTools
+    isExternal: true
+    href: ISILab.LBS.Manipulators.IToolProvider.html#ISILab_LBS_Manipulators_IToolProvider_SetTools_LBS_VisualElements_ToolKit_
+  - name: (
+  - uid: LBS.VisualElements.ToolKit
+    name: ToolKit
+    isExternal: true
+    href: LBS.VisualElements.ToolKit.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Manipulators.IToolProvider.SetTools(LBS.VisualElements.ToolKit)
+    name: SetTools
+    isExternal: true
+    href: ISILab.LBS.Manipulators.IToolProvider.html#ISILab_LBS_Manipulators_IToolProvider_SetTools_LBS_VisualElements_ToolKit_
+  - name: (
+  - uid: LBS.VisualElements.ToolKit
+    name: ToolKit
+    isExternal: true
+    href: LBS.VisualElements.ToolKit.html
+  - name: )
+- uid: LBS.VisualElements.ToolKit
+  commentId: T:LBS.VisualElements.ToolKit
+  parent: LBS.VisualElements
+  isExternal: true
+  href: LBS.VisualElements.ToolKit.html
+  name: ToolKit
+  nameWithType: ToolKit
+  fullName: LBS.VisualElements.ToolKit
+- uid: LBS.VisualElements
+  commentId: N:LBS.VisualElements
+  isExternal: true
+  href: LBS.html
+  name: LBS.VisualElements
+  nameWithType: LBS.VisualElements
+  fullName: LBS.VisualElements
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+- uid: ISILab.LBS.Editor.AssistantMapEliteEditor.SetBackgorundTexture*
+  commentId: Overload:ISILab.LBS.Editor.AssistantMapEliteEditor.SetBackgorundTexture
+  isExternal: true
+  href: ISILab.LBS.Editor.AssistantMapEliteEditor.html#ISILab_LBS_Editor_AssistantMapEliteEditor_SetBackgorundTexture_UnityEngine_Rect_
+  name: SetBackgorundTexture
+  nameWithType: AssistantMapEliteEditor.SetBackgorundTexture
+  fullName: ISILab.LBS.Editor.AssistantMapEliteEditor.SetBackgorundTexture
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+shouldSkipMarkup: true

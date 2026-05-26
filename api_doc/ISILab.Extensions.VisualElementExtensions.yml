@@ -1,0 +1,622 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.Extensions.VisualElementExtensions
+  commentId: T:ISILab.Extensions.VisualElementExtensions
+  id: VisualElementExtensions
+  parent: ISILab.Extensions
+  children:
+  - ISILab.Extensions.VisualElementExtensions.ConvertToBackground(UnityEngine.Object)
+  - ISILab.Extensions.VisualElementExtensions.GetDisplay(UnityEngine.UIElements.VisualElement)
+  - ISILab.Extensions.VisualElementExtensions.SetBackgroundColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  - ISILab.Extensions.VisualElementExtensions.SetBorder(UnityEngine.UIElements.VisualElement,UnityEngine.Color,System.Single)
+  - ISILab.Extensions.VisualElementExtensions.SetBorderRadius(UnityEngine.UIElements.VisualElement,System.Single)
+  - ISILab.Extensions.VisualElementExtensions.SetDisplay(UnityEngine.UIElements.VisualElement,System.Boolean)
+  - ISILab.Extensions.VisualElementExtensions.SetMargins(UnityEngine.UIElements.VisualElement,System.Int32)
+  - ISILab.Extensions.VisualElementExtensions.SetPaddings(UnityEngine.UIElements.VisualElement,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: VisualElementExtensions
+  nameWithType: VisualElementExtensions
+  fullName: ISILab.Extensions.VisualElementExtensions
+  type: Class
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static class VisualElementExtensions
+    content.vb: Public Module VisualElementExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.Extensions.VisualElementExtensions.SetDisplay(UnityEngine.UIElements.VisualElement,System.Boolean)
+  commentId: M:ISILab.Extensions.VisualElementExtensions.SetDisplay(UnityEngine.UIElements.VisualElement,System.Boolean)
+  id: SetDisplay(UnityEngine.UIElements.VisualElement,System.Boolean)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.VisualElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetDisplay(VisualElement, bool)
+  nameWithType: VisualElementExtensions.SetDisplay(VisualElement, bool)
+  fullName: ISILab.Extensions.VisualElementExtensions.SetDisplay(UnityEngine.UIElements.VisualElement, bool)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void SetDisplay(this VisualElement element, bool value)
+    parameters:
+    - id: element
+      type: UnityEngine.UIElements.VisualElement
+    - id: value
+      type: System.Boolean
+    content.vb: Public Shared Sub SetDisplay(element As VisualElement, value As Boolean)
+  overload: ISILab.Extensions.VisualElementExtensions.SetDisplay*
+  nameWithType.vb: VisualElementExtensions.SetDisplay(VisualElement, Boolean)
+  fullName.vb: ISILab.Extensions.VisualElementExtensions.SetDisplay(UnityEngine.UIElements.VisualElement, Boolean)
+  name.vb: SetDisplay(VisualElement, Boolean)
+- uid: ISILab.Extensions.VisualElementExtensions.GetDisplay(UnityEngine.UIElements.VisualElement)
+  commentId: M:ISILab.Extensions.VisualElementExtensions.GetDisplay(UnityEngine.UIElements.VisualElement)
+  id: GetDisplay(UnityEngine.UIElements.VisualElement)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.VisualElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetDisplay(VisualElement)
+  nameWithType: VisualElementExtensions.GetDisplay(VisualElement)
+  fullName: ISILab.Extensions.VisualElementExtensions.GetDisplay(UnityEngine.UIElements.VisualElement)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static bool GetDisplay(this VisualElement element)
+    parameters:
+    - id: element
+      type: UnityEngine.UIElements.VisualElement
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function GetDisplay(element As VisualElement) As Boolean
+  overload: ISILab.Extensions.VisualElementExtensions.GetDisplay*
+- uid: ISILab.Extensions.VisualElementExtensions.SetBackgroundColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  commentId: M:ISILab.Extensions.VisualElementExtensions.SetBackgroundColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  id: SetBackgroundColor(UnityEngine.UIElements.VisualElement,UnityEngine.Color)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.VisualElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetBackgroundColor(VisualElement, Color)
+  nameWithType: VisualElementExtensions.SetBackgroundColor(VisualElement, Color)
+  fullName: ISILab.Extensions.VisualElementExtensions.SetBackgroundColor(UnityEngine.UIElements.VisualElement, UnityEngine.Color)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void SetBackgroundColor(this VisualElement element, Color color)
+    parameters:
+    - id: element
+      type: UnityEngine.UIElements.VisualElement
+    - id: color
+      type: UnityEngine.Color
+    content.vb: Public Shared Sub SetBackgroundColor(element As VisualElement, color As Color)
+  overload: ISILab.Extensions.VisualElementExtensions.SetBackgroundColor*
+- uid: ISILab.Extensions.VisualElementExtensions.SetMargins(UnityEngine.UIElements.VisualElement,System.Int32)
+  commentId: M:ISILab.Extensions.VisualElementExtensions.SetMargins(UnityEngine.UIElements.VisualElement,System.Int32)
+  id: SetMargins(UnityEngine.UIElements.VisualElement,System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.VisualElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetMargins(VisualElement, int)
+  nameWithType: VisualElementExtensions.SetMargins(VisualElement, int)
+  fullName: ISILab.Extensions.VisualElementExtensions.SetMargins(UnityEngine.UIElements.VisualElement, int)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void SetMargins(this VisualElement element, int value)
+    parameters:
+    - id: element
+      type: UnityEngine.UIElements.VisualElement
+    - id: value
+      type: System.Int32
+    content.vb: Public Shared Sub SetMargins(element As VisualElement, value As Integer)
+  overload: ISILab.Extensions.VisualElementExtensions.SetMargins*
+  nameWithType.vb: VisualElementExtensions.SetMargins(VisualElement, Integer)
+  fullName.vb: ISILab.Extensions.VisualElementExtensions.SetMargins(UnityEngine.UIElements.VisualElement, Integer)
+  name.vb: SetMargins(VisualElement, Integer)
+- uid: ISILab.Extensions.VisualElementExtensions.SetPaddings(UnityEngine.UIElements.VisualElement,System.Int32)
+  commentId: M:ISILab.Extensions.VisualElementExtensions.SetPaddings(UnityEngine.UIElements.VisualElement,System.Int32)
+  id: SetPaddings(UnityEngine.UIElements.VisualElement,System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.VisualElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetPaddings(VisualElement, int)
+  nameWithType: VisualElementExtensions.SetPaddings(VisualElement, int)
+  fullName: ISILab.Extensions.VisualElementExtensions.SetPaddings(UnityEngine.UIElements.VisualElement, int)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void SetPaddings(this VisualElement element, int value)
+    parameters:
+    - id: element
+      type: UnityEngine.UIElements.VisualElement
+    - id: value
+      type: System.Int32
+    content.vb: Public Shared Sub SetPaddings(element As VisualElement, value As Integer)
+  overload: ISILab.Extensions.VisualElementExtensions.SetPaddings*
+  nameWithType.vb: VisualElementExtensions.SetPaddings(VisualElement, Integer)
+  fullName.vb: ISILab.Extensions.VisualElementExtensions.SetPaddings(UnityEngine.UIElements.VisualElement, Integer)
+  name.vb: SetPaddings(VisualElement, Integer)
+- uid: ISILab.Extensions.VisualElementExtensions.SetBorder(UnityEngine.UIElements.VisualElement,UnityEngine.Color,System.Single)
+  commentId: M:ISILab.Extensions.VisualElementExtensions.SetBorder(UnityEngine.UIElements.VisualElement,UnityEngine.Color,System.Single)
+  id: SetBorder(UnityEngine.UIElements.VisualElement,UnityEngine.Color,System.Single)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.VisualElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetBorder(VisualElement, Color, float)
+  nameWithType: VisualElementExtensions.SetBorder(VisualElement, Color, float)
+  fullName: ISILab.Extensions.VisualElementExtensions.SetBorder(UnityEngine.UIElements.VisualElement, UnityEngine.Color, float)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void SetBorder(this VisualElement element, Color color, float value = 0)
+    parameters:
+    - id: element
+      type: UnityEngine.UIElements.VisualElement
+    - id: color
+      type: UnityEngine.Color
+    - id: value
+      type: System.Single
+    content.vb: Public Shared Sub SetBorder(element As VisualElement, color As Color, value As Single = 0)
+  overload: ISILab.Extensions.VisualElementExtensions.SetBorder*
+  nameWithType.vb: VisualElementExtensions.SetBorder(VisualElement, Color, Single)
+  fullName.vb: ISILab.Extensions.VisualElementExtensions.SetBorder(UnityEngine.UIElements.VisualElement, UnityEngine.Color, Single)
+  name.vb: SetBorder(VisualElement, Color, Single)
+- uid: ISILab.Extensions.VisualElementExtensions.SetBorderRadius(UnityEngine.UIElements.VisualElement,System.Single)
+  commentId: M:ISILab.Extensions.VisualElementExtensions.SetBorderRadius(UnityEngine.UIElements.VisualElement,System.Single)
+  id: SetBorderRadius(UnityEngine.UIElements.VisualElement,System.Single)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.VisualElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetBorderRadius(VisualElement, float)
+  nameWithType: VisualElementExtensions.SetBorderRadius(VisualElement, float)
+  fullName: ISILab.Extensions.VisualElementExtensions.SetBorderRadius(UnityEngine.UIElements.VisualElement, float)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void SetBorderRadius(this VisualElement element, float value)
+    parameters:
+    - id: element
+      type: UnityEngine.UIElements.VisualElement
+    - id: value
+      type: System.Single
+    content.vb: Public Shared Sub SetBorderRadius(element As VisualElement, value As Single)
+  overload: ISILab.Extensions.VisualElementExtensions.SetBorderRadius*
+  nameWithType.vb: VisualElementExtensions.SetBorderRadius(VisualElement, Single)
+  fullName.vb: ISILab.Extensions.VisualElementExtensions.SetBorderRadius(UnityEngine.UIElements.VisualElement, Single)
+  name.vb: SetBorderRadius(VisualElement, Single)
+- uid: ISILab.Extensions.VisualElementExtensions.ConvertToBackground(UnityEngine.Object)
+  commentId: M:ISILab.Extensions.VisualElementExtensions.ConvertToBackground(UnityEngine.Object)
+  id: ConvertToBackground(UnityEngine.Object)
+  parent: ISILab.Extensions.VisualElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: ConvertToBackground(Object)
+  nameWithType: VisualElementExtensions.ConvertToBackground(Object)
+  fullName: ISILab.Extensions.VisualElementExtensions.ConvertToBackground(UnityEngine.Object)
+  type: Method
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Background ConvertToBackground(Object obj)
+    parameters:
+    - id: obj
+      type: UnityEngine.Object
+    return:
+      type: UnityEngine.UIElements.Background
+    content.vb: Public Shared Function ConvertToBackground(obj As [Object]) As Background
+  overload: ISILab.Extensions.VisualElementExtensions.ConvertToBackground*
+references:
+- uid: ISILab.Extensions
+  commentId: N:ISILab.Extensions
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Extensions
+  nameWithType: ISILab.Extensions
+  fullName: ISILab.Extensions
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Extensions.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.Extensions.VisualElementExtensions.SetDisplay*
+  commentId: Overload:ISILab.Extensions.VisualElementExtensions.SetDisplay
+  isExternal: true
+  href: ISILab.Extensions.VisualElementExtensions.html#ISILab_Extensions_VisualElementExtensions_SetDisplay_UnityEngine_UIElements_VisualElement_System_Boolean_
+  name: SetDisplay
+  nameWithType: VisualElementExtensions.SetDisplay
+  fullName: ISILab.Extensions.VisualElementExtensions.SetDisplay
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.Extensions.VisualElementExtensions.GetDisplay*
+  commentId: Overload:ISILab.Extensions.VisualElementExtensions.GetDisplay
+  isExternal: true
+  href: ISILab.Extensions.VisualElementExtensions.html#ISILab_Extensions_VisualElementExtensions_GetDisplay_UnityEngine_UIElements_VisualElement_
+  name: GetDisplay
+  nameWithType: VisualElementExtensions.GetDisplay
+  fullName: ISILab.Extensions.VisualElementExtensions.GetDisplay
+- uid: ISILab.Extensions.VisualElementExtensions.SetBackgroundColor*
+  commentId: Overload:ISILab.Extensions.VisualElementExtensions.SetBackgroundColor
+  isExternal: true
+  href: ISILab.Extensions.VisualElementExtensions.html#ISILab_Extensions_VisualElementExtensions_SetBackgroundColor_UnityEngine_UIElements_VisualElement_UnityEngine_Color_
+  name: SetBackgroundColor
+  nameWithType: VisualElementExtensions.SetBackgroundColor
+  fullName: ISILab.Extensions.VisualElementExtensions.SetBackgroundColor
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.Extensions.VisualElementExtensions.SetMargins*
+  commentId: Overload:ISILab.Extensions.VisualElementExtensions.SetMargins
+  isExternal: true
+  href: ISILab.Extensions.VisualElementExtensions.html#ISILab_Extensions_VisualElementExtensions_SetMargins_UnityEngine_UIElements_VisualElement_System_Int32_
+  name: SetMargins
+  nameWithType: VisualElementExtensions.SetMargins
+  fullName: ISILab.Extensions.VisualElementExtensions.SetMargins
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.Extensions.VisualElementExtensions.SetPaddings*
+  commentId: Overload:ISILab.Extensions.VisualElementExtensions.SetPaddings
+  isExternal: true
+  href: ISILab.Extensions.VisualElementExtensions.html#ISILab_Extensions_VisualElementExtensions_SetPaddings_UnityEngine_UIElements_VisualElement_System_Int32_
+  name: SetPaddings
+  nameWithType: VisualElementExtensions.SetPaddings
+  fullName: ISILab.Extensions.VisualElementExtensions.SetPaddings
+- uid: ISILab.Extensions.VisualElementExtensions.SetBorder*
+  commentId: Overload:ISILab.Extensions.VisualElementExtensions.SetBorder
+  isExternal: true
+  href: ISILab.Extensions.VisualElementExtensions.html#ISILab_Extensions_VisualElementExtensions_SetBorder_UnityEngine_UIElements_VisualElement_UnityEngine_Color_System_Single_
+  name: SetBorder
+  nameWithType: VisualElementExtensions.SetBorder
+  fullName: ISILab.Extensions.VisualElementExtensions.SetBorder
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.Extensions.VisualElementExtensions.SetBorderRadius*
+  commentId: Overload:ISILab.Extensions.VisualElementExtensions.SetBorderRadius
+  isExternal: true
+  href: ISILab.Extensions.VisualElementExtensions.html#ISILab_Extensions_VisualElementExtensions_SetBorderRadius_UnityEngine_UIElements_VisualElement_System_Single_
+  name: SetBorderRadius
+  nameWithType: VisualElementExtensions.SetBorderRadius
+  fullName: ISILab.Extensions.VisualElementExtensions.SetBorderRadius
+- uid: ISILab.Extensions.VisualElementExtensions.ConvertToBackground*
+  commentId: Overload:ISILab.Extensions.VisualElementExtensions.ConvertToBackground
+  isExternal: true
+  href: ISILab.Extensions.VisualElementExtensions.html#ISILab_Extensions_VisualElementExtensions_ConvertToBackground_UnityEngine_Object_
+  name: ConvertToBackground
+  nameWithType: VisualElementExtensions.ConvertToBackground
+  fullName: ISILab.Extensions.VisualElementExtensions.ConvertToBackground
+- uid: UnityEngine.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.UIElements.Background
+  commentId: '!:UnityEngine.UIElements.Background'
+  isExternal: true
+  name: Background
+  nameWithType: Background
+  fullName: UnityEngine.UIElements.Background
+shouldSkipMarkup: true

@@ -1,0 +1,981 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Macros.LBSAssetMacro
+  commentId: T:ISILab.LBS.Macros.LBSAssetMacro
+  id: LBSAssetMacro
+  parent: ISILab.LBS.Macros
+  children:
+  - ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.String)
+  - ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID
+  - ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  - ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset(UnityEngine.Object)
+  - ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag(System.String)
+  - ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  - ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.Collections.Generic.List{System.String})
+  - ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid``1(System.String)
+  - ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture
+  - ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage
+  langs:
+  - csharp
+  - vb
+  name: LBSAssetMacro
+  nameWithType: LBSAssetMacro
+  fullName: ISILab.LBS.Macros.LBSAssetMacro
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: public static class LBSAssetMacro
+    content.vb: Public Module LBSAssetMacro
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid``1(System.String)
+  commentId: M:ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid``1(System.String)
+  id: LoadAssetByGuid``1(System.String)
+  parent: ISILab.LBS.Macros.LBSAssetMacro
+  langs:
+  - csharp
+  - vb
+  name: LoadAssetByGuid<T>(string)
+  nameWithType: LBSAssetMacro.LoadAssetByGuid<T>(string)
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid<T>(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: 'public static T LoadAssetByGuid<T>(string _guid) where T : Object'
+    parameters:
+    - id: _guid
+      type: System.String
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function LoadAssetByGuid(Of T As [Object])(_guid As String) As T
+  overload: ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid*
+  nameWithType.vb: LBSAssetMacro.LoadAssetByGuid(Of T)(String)
+  fullName.vb: ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid(Of T)(String)
+  name.vb: LoadAssetByGuid(Of T)(String)
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset(UnityEngine.Object)
+  commentId: M:ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset(UnityEngine.Object)
+  id: GetGuidFromAsset(UnityEngine.Object)
+  parent: ISILab.LBS.Macros.LBSAssetMacro
+  langs:
+  - csharp
+  - vb
+  name: GetGuidFromAsset(Object)
+  nameWithType: LBSAssetMacro.GetGuidFromAsset(Object)
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset(UnityEngine.Object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: public static string GetGuidFromAsset(Object _asset)
+    parameters:
+    - id: _asset
+      type: UnityEngine.Object
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetGuidFromAsset(_asset As [Object]) As String
+  overload: ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset*
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag(System.String)
+  commentId: M:ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag(System.String)
+  id: GetLBSTag(System.String)
+  parent: ISILab.LBS.Macros.LBSAssetMacro
+  langs:
+  - csharp
+  - vb
+  name: GetLBSTag(string)
+  nameWithType: LBSAssetMacro.GetLBSTag(string)
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag(string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: public static LBSTag GetLBSTag(string tag)
+    parameters:
+    - id: tag
+      type: System.String
+    return:
+      type: ISILab.LBS.Components.LBSTag
+    content.vb: Public Shared Function GetLBSTag(tag As String) As LBSTag
+  overload: ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag*
+  nameWithType.vb: LBSAssetMacro.GetLBSTag(String)
+  fullName.vb: ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag(String)
+  name.vb: GetLBSTag(String)
+- uid: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture
+  commentId: M:ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture
+  id: LoadPlaceholderTexture
+  parent: ISILab.LBS.Macros.LBSAssetMacro
+  langs:
+  - csharp
+  - vb
+  name: LoadPlaceholderTexture()
+  nameWithType: LBSAssetMacro.LoadPlaceholderTexture()
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: public static Texture2D LoadPlaceholderTexture()
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared Function LoadPlaceholderTexture() As Texture2D
+  overload: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture*
+- uid: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage
+  commentId: M:ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage
+  id: LoadPlaceholderVectorImage
+  parent: ISILab.LBS.Macros.LBSAssetMacro
+  langs:
+  - csharp
+  - vb
+  name: LoadPlaceholderVectorImage()
+  nameWithType: LBSAssetMacro.LoadPlaceholderVectorImage()
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: public static VectorImage LoadPlaceholderVectorImage()
+    return:
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Public Shared Function LoadPlaceholderVectorImage() As VectorImage
+  overload: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage*
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.Collections.Generic.List{System.String})
+  commentId: M:ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.Collections.Generic.List{System.String})
+  id: GetTagsFromBundle(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.Collections.Generic.List{System.String})
+  parent: ISILab.LBS.Macros.LBSAssetMacro
+  langs:
+  - csharp
+  - vb
+  name: GetTagsFromBundle(Bundle, List<string>)
+  nameWithType: LBSAssetMacro.GetTagsFromBundle(Bundle, List<string>)
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle(ISILab.LBS.Plugin.Components.Bundles.Bundle, System.Collections.Generic.List<string>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: public static IEnumerable<LBSTag> GetTagsFromBundle(Bundle bundle, List<string> Filter = null)
+    parameters:
+    - id: bundle
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    - id: Filter
+      type: System.Collections.Generic.List{System.String}
+    return:
+      type: System.Collections.Generic.IEnumerable{ISILab.LBS.Components.LBSTag}
+    content.vb: Public Shared Function GetTagsFromBundle(bundle As Bundle, Filter As List(Of String) = Nothing) As IEnumerable(Of LBSTag)
+  overload: ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle*
+  nameWithType.vb: LBSAssetMacro.GetTagsFromBundle(Bundle, List(Of String))
+  fullName.vb: ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle(ISILab.LBS.Plugin.Components.Bundles.Bundle, System.Collections.Generic.List(Of String))
+  name.vb: GetTagsFromBundle(Bundle, List(Of String))
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  commentId: M:ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  id: GetRandomBundleWithTag``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  parent: ISILab.LBS.Macros.LBSAssetMacro
+  langs:
+  - csharp
+  - vb
+  name: GetRandomBundleWithTag<T>(IEnumerable<T>, string)
+  nameWithType: LBSAssetMacro.GetRandomBundleWithTag<T>(IEnumerable<T>, string)
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag<T>(System.Collections.Generic.IEnumerable<T>, string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: 'public static T GetRandomBundleWithTag<T>(IEnumerable<T> bundles, string tagName) where T : Bundle'
+    parameters:
+    - id: bundles
+      type: System.Collections.Generic.IEnumerable{{T}}
+    - id: tagName
+      type: System.String
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function GetRandomBundleWithTag(Of T As Bundle)(bundles As IEnumerable(Of T), tagName As String) As T
+  overload: ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag*
+  nameWithType.vb: LBSAssetMacro.GetRandomBundleWithTag(Of T)(IEnumerable(Of T), String)
+  fullName.vb: ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag(Of T)(System.Collections.Generic.IEnumerable(Of T), String)
+  name.vb: GetRandomBundleWithTag(Of T)(IEnumerable(Of T), String)
+- uid: ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.String)
+  commentId: M:ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.String)
+  id: BundleHasTag(ISILab.LBS.Plugin.Components.Bundles.Bundle,System.String)
+  parent: ISILab.LBS.Macros.LBSAssetMacro
+  langs:
+  - csharp
+  - vb
+  name: BundleHasTag(Bundle, string)
+  nameWithType: LBSAssetMacro.BundleHasTag(Bundle, string)
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag(ISILab.LBS.Plugin.Components.Bundles.Bundle, string)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: public static bool BundleHasTag(Bundle b, string tagName)
+    parameters:
+    - id: b
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    - id: tagName
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function BundleHasTag(b As Bundle, tagName As String) As Boolean
+  overload: ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag*
+  nameWithType.vb: LBSAssetMacro.BundleHasTag(Bundle, String)
+  fullName.vb: ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag(ISILab.LBS.Plugin.Components.Bundles.Bundle, String)
+  name.vb: BundleHasTag(Bundle, String)
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  commentId: M:ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  id: GetAllTagNames(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  parent: ISILab.LBS.Macros.LBSAssetMacro
+  langs:
+  - csharp
+  - vb
+  name: GetAllTagNames(Bundle)
+  nameWithType: LBSAssetMacro.GetAllTagNames(Bundle)
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames(ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: public static List<string> GetAllTagNames(Bundle b)
+    parameters:
+    - id: b
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Shared Function GetAllTagNames(b As Bundle) As List(Of String)
+  overload: ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames*
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID
+  commentId: M:ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID
+  id: GetActiveSceneGUID
+  parent: ISILab.LBS.Macros.LBSAssetMacro
+  langs:
+  - csharp
+  - vb
+  name: GetActiveSceneGUID()
+  nameWithType: LBSAssetMacro.GetActiveSceneGUID()
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  syntax:
+    content: public static string GetActiveSceneGUID()
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetActiveSceneGUID() As String
+  overload: ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID*
+references:
+- uid: ISILab.LBS.Macros
+  commentId: N:ISILab.LBS.Macros
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Macros
+  nameWithType: ISILab.LBS.Macros
+  fullName: ISILab.LBS.Macros
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Macros
+    name: Macros
+    isExternal: true
+    href: ISILab.LBS.Macros.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Macros
+    name: Macros
+    isExternal: true
+    href: ISILab.LBS.Macros.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid*
+  commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid
+  isExternal: true
+  href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_LoadAssetByGuid__1_System_String_
+  name: LoadAssetByGuid
+  nameWithType: LBSAssetMacro.LoadAssetByGuid
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadAssetByGuid
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset*
+  commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset
+  isExternal: true
+  href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetGuidFromAsset_UnityEngine_Object_
+  name: GetGuidFromAsset
+  nameWithType: LBSAssetMacro.GetGuidFromAsset
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetGuidFromAsset
+- uid: UnityEngine.Object
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag*
+  commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag
+  isExternal: true
+  href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetLBSTag_System_String_
+  name: GetLBSTag
+  nameWithType: LBSAssetMacro.GetLBSTag
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetLBSTag
+- uid: ISILab.LBS.Components.LBSTag
+  commentId: T:ISILab.LBS.Components.LBSTag
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.LBSTag.html
+  name: LBSTag
+  nameWithType: LBSTag
+  fullName: ISILab.LBS.Components.LBSTag
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture*
+  commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture
+  isExternal: true
+  href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_LoadPlaceholderTexture
+  name: LoadPlaceholderTexture
+  nameWithType: LBSAssetMacro.LoadPlaceholderTexture
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderTexture
+- uid: UnityEngine.Texture2D
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage*
+  commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage
+  isExternal: true
+  href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_LoadPlaceholderVectorImage
+  name: LoadPlaceholderVectorImage
+  nameWithType: LBSAssetMacro.LoadPlaceholderVectorImage
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.LoadPlaceholderVectorImage
+- uid: UnityEngine.UIElements.VectorImage
+  isExternal: true
+  name: VectorImage
+  nameWithType: VectorImage
+  fullName: UnityEngine.UIElements.VectorImage
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle*
+  commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle
+  isExternal: true
+  href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetTagsFromBundle_ISILab_LBS_Plugin_Components_Bundles_Bundle_System_Collections_Generic_List_System_String__
+  name: GetTagsFromBundle
+  nameWithType: LBSAssetMacro.GetTagsFromBundle
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetTagsFromBundle
+- uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle
+  parent: ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  name: Bundle
+  nameWithType: Bundle
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{ISILab.LBS.Components.LBSTag}
+  commentId: T:System.Collections.Generic.IEnumerable{ISILab.LBS.Components.LBSTag}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<LBSTag>
+  nameWithType: IEnumerable<LBSTag>
+  fullName: System.Collections.Generic.IEnumerable<ISILab.LBS.Components.LBSTag>
+  nameWithType.vb: IEnumerable(Of LBSTag)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ISILab.LBS.Components.LBSTag)
+  name.vb: IEnumerable(Of LBSTag)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.LBSTag
+    name: LBSTag
+    isExternal: true
+    href: ISILab.LBS.Components.LBSTag.html
+  - name: )
+- uid: ISILab.LBS.Plugin.Components.Bundles
+  commentId: N:ISILab.LBS.Plugin.Components.Bundles
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Bundles
+  nameWithType: ISILab.LBS.Plugin.Components.Bundles
+  fullName: ISILab.LBS.Plugin.Components.Bundles
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag*
+  commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag
+  isExternal: true
+  href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetRandomBundleWithTag__1_System_Collections_Generic_IEnumerable___0__System_String_
+  name: GetRandomBundleWithTag
+  nameWithType: LBSAssetMacro.GetRandomBundleWithTag
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetRandomBundleWithTag
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag*
+  commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag
+  isExternal: true
+  href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_BundleHasTag_ISILab_LBS_Plugin_Components_Bundles_Bundle_System_String_
+  name: BundleHasTag
+  nameWithType: LBSAssetMacro.BundleHasTag
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.BundleHasTag
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames*
+  commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames
+  isExternal: true
+  href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetAllTagNames_ISILab_LBS_Plugin_Components_Bundles_Bundle_
+  name: GetAllTagNames
+  nameWithType: LBSAssetMacro.GetAllTagNames
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetAllTagNames
+- uid: ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID*
+  commentId: Overload:ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID
+  isExternal: true
+  href: ISILab.LBS.Macros.LBSAssetMacro.html#ISILab_LBS_Macros_LBSAssetMacro_GetActiveSceneGUID
+  name: GetActiveSceneGUID
+  nameWithType: LBSAssetMacro.GetActiveSceneGUID
+  fullName: ISILab.LBS.Macros.LBSAssetMacro.GetActiveSceneGUID
+shouldSkipMarkup: true

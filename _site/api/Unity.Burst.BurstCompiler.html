@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class BurstCompiler | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BurstCompiler | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Unity.Burst.BurstCompiler">
+
+
+
+  <h1 id="Unity_Burst_BurstCompiler" data-uid="Unity.Burst.BurstCompiler" class="text-break">
+Class BurstCompiler  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Unity.html">Unity</a>.<a class="xref" href="Unity.Burst.html">Burst</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Burst.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class BurstCompiler</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BurstCompiler</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Unity_Burst_BurstCompiler_Options" data-uid="Unity.Burst.BurstCompiler.Options">
+  Options
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly BurstCompilerOptions Options</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.BurstCompilerOptions.html">BurstCompilerOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Unity_Burst_BurstCompiler_IsEnabled_" data-uid="Unity.Burst.BurstCompiler.IsEnabled*"></a>
+
+  <h3 id="Unity_Burst_BurstCompiler_IsEnabled" data-uid="Unity.Burst.BurstCompiler.IsEnabled">
+  IsEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsEnabled { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Unity_Burst_BurstCompiler_CompileFunctionPointer_" data-uid="Unity.Burst.BurstCompiler.CompileFunctionPointer*"></a>
+
+  <h3 id="Unity_Burst_BurstCompiler_CompileFunctionPointer__1___0_" data-uid="Unity.Burst.BurstCompiler.CompileFunctionPointer``1(``0)">
+  CompileFunctionPointer&lt;T&gt;(T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FunctionPointer&lt;T&gt; CompileFunctionPointer&lt;T&gt;(T delegateMethod) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delegateMethod</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.FunctionPointer-1.html">FunctionPointer</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_BurstCompiler_CompileILPPMethod_" data-uid="Unity.Burst.BurstCompiler.CompileILPPMethod*"></a>
+
+  <h3 id="Unity_Burst_BurstCompiler_CompileILPPMethod_System_RuntimeMethodHandle_System_RuntimeMethodHandle_System_RuntimeTypeHandle_" data-uid="Unity.Burst.BurstCompiler.CompileILPPMethod(System.RuntimeMethodHandle,System.RuntimeMethodHandle,System.RuntimeTypeHandle)">
+  CompileILPPMethod(RuntimeMethodHandle, RuntimeMethodHandle, RuntimeTypeHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed in a future version of Burst&quot;)]
+public static nint CompileILPPMethod(RuntimeMethodHandle burstMethodHandle, RuntimeMethodHandle managedMethodHandle, RuntimeTypeHandle delegateTypeHandle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>burstMethodHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtimemethodhandle">RuntimeMethodHandle</a></dt>
+    <dd></dd>
+    <dt><code>managedMethodHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtimemethodhandle">RuntimeMethodHandle</a></dt>
+    <dd></dd>
+    <dt><code>delegateTypeHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtimetypehandle">RuntimeTypeHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_BurstCompiler_CompileILPPMethod2_" data-uid="Unity.Burst.BurstCompiler.CompileILPPMethod2*"></a>
+
+  <h3 id="Unity_Burst_BurstCompiler_CompileILPPMethod2_System_RuntimeMethodHandle_" data-uid="Unity.Burst.BurstCompiler.CompileILPPMethod2(System.RuntimeMethodHandle)">
+  CompileILPPMethod2(RuntimeMethodHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static nint CompileILPPMethod2(RuntimeMethodHandle burstMethodHandle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>burstMethodHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtimemethodhandle">RuntimeMethodHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_BurstCompiler_CompileUnsafeStaticMethod_" data-uid="Unity.Burst.BurstCompiler.CompileUnsafeStaticMethod*"></a>
+
+  <h3 id="Unity_Burst_BurstCompiler_CompileUnsafeStaticMethod_System_RuntimeMethodHandle_" data-uid="Unity.Burst.BurstCompiler.CompileUnsafeStaticMethod(System.RuntimeMethodHandle)">
+  CompileUnsafeStaticMethod(RuntimeMethodHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed in a future version of Burst&quot;)]
+public static void* CompileUnsafeStaticMethod(RuntimeMethodHandle handle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtimemethodhandle">RuntimeMethodHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_BurstCompiler_GetExecutionMode_" data-uid="Unity.Burst.BurstCompiler.GetExecutionMode*"></a>
+
+  <h3 id="Unity_Burst_BurstCompiler_GetExecutionMode" data-uid="Unity.Burst.BurstCompiler.GetExecutionMode">
+  GetExecutionMode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BurstExecutionEnvironment GetExecutionMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.BurstExecutionEnvironment.html">BurstExecutionEnvironment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_BurstCompiler_GetILPPMethodFunctionPointer_" data-uid="Unity.Burst.BurstCompiler.GetILPPMethodFunctionPointer*"></a>
+
+  <h3 id="Unity_Burst_BurstCompiler_GetILPPMethodFunctionPointer_System_IntPtr_" data-uid="Unity.Burst.BurstCompiler.GetILPPMethodFunctionPointer(System.IntPtr)">
+  GetILPPMethodFunctionPointer(nint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed in a future version of Burst&quot;)]
+public static void* GetILPPMethodFunctionPointer(nint ilppMethod)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ilppMethod</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_BurstCompiler_GetILPPMethodFunctionPointer2_" data-uid="Unity.Burst.BurstCompiler.GetILPPMethodFunctionPointer2*"></a>
+
+  <h3 id="Unity_Burst_BurstCompiler_GetILPPMethodFunctionPointer2_System_IntPtr_System_RuntimeMethodHandle_System_RuntimeTypeHandle_" data-uid="Unity.Burst.BurstCompiler.GetILPPMethodFunctionPointer2(System.IntPtr,System.RuntimeMethodHandle,System.RuntimeTypeHandle)">
+  GetILPPMethodFunctionPointer2(nint, RuntimeMethodHandle, RuntimeTypeHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void* GetILPPMethodFunctionPointer2(nint ilppMethod, RuntimeMethodHandle managedMethodHandle, RuntimeTypeHandle delegateTypeHandle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ilppMethod</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>managedMethodHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtimemethodhandle">RuntimeMethodHandle</a></dt>
+    <dd></dd>
+    <dt><code>delegateTypeHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtimetypehandle">RuntimeTypeHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_BurstCompiler_IsLoadAdditionalLibrarySupported_" data-uid="Unity.Burst.BurstCompiler.IsLoadAdditionalLibrarySupported*"></a>
+
+  <h3 id="Unity_Burst_BurstCompiler_IsLoadAdditionalLibrarySupported" data-uid="Unity.Burst.BurstCompiler.IsLoadAdditionalLibrarySupported">
+  IsLoadAdditionalLibrarySupported()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsLoadAdditionalLibrarySupported()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_BurstCompiler_SetExecutionMode_" data-uid="Unity.Burst.BurstCompiler.SetExecutionMode*"></a>
+
+  <h3 id="Unity_Burst_BurstCompiler_SetExecutionMode_Unity_Burst_BurstExecutionEnvironment_" data-uid="Unity.Burst.BurstCompiler.SetExecutionMode(Unity.Burst.BurstExecutionEnvironment)">
+  SetExecutionMode(BurstExecutionEnvironment)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetExecutionMode(BurstExecutionEnvironment mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="Unity.Burst.BurstExecutionEnvironment.html">BurstExecutionEnvironment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

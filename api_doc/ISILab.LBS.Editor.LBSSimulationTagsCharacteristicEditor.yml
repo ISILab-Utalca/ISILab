@@ -1,0 +1,426 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor
+  commentId: T:ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor
+  id: LBSSimulationTagsCharacteristicEditor
+  parent: ISILab.LBS.Editor
+  children:
+  - ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.#ctor
+  - ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.#ctor(System.Object)
+  - ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.CreateVisualElement
+  - ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.SetInfo(System.Object)
+  - ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.dropdownField
+  langs:
+  - csharp
+  - vb
+  name: LBSSimulationTagsCharacteristicEditor
+  nameWithType: LBSSimulationTagsCharacteristicEditor
+  fullName: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: >-
+      [LBSCustomEditor("PathOSTag Identifier", typeof(LBSSimulationTagsCharacteristic))]
+
+      public class LBSSimulationTagsCharacteristicEditor : LBSCustomEditor
+    content.vb: >-
+      <LBSCustomEditor("PathOSTag Identifier", GetType(LBSSimulationTagsCharacteristic))>
+
+      Public Class LBSSimulationTagsCharacteristicEditor Inherits LBSCustomEditor
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Editor.LBSCustomEditor
+  inheritedMembers:
+  - ISILab.LBS.Editor.LBSCustomEditor.target
+  - ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  - ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  - ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  - ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  - ISILab.LBS.Editor.LBSCustomEditor.Target
+  attributes:
+  - type: ISILab.LBS.LBSCustomEditorAttribute
+    ctor: ISILab.LBS.LBSCustomEditorAttribute.#ctor(System.String,System.Type)
+    arguments:
+    - type: System.String
+      value: PathOSTag Identifier
+    - type: System.Type
+      value: ISILab.LBS.Characteristics.LBSSimulationTagsCharacteristic
+- uid: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.dropdownField
+  commentId: F:ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.dropdownField
+  id: dropdownField
+  parent: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor
+  langs:
+  - csharp
+  - vb
+  name: dropdownField
+  nameWithType: LBSSimulationTagsCharacteristicEditor.dropdownField
+  fullName: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.dropdownField
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: public DropdownField dropdownField
+    return:
+      type: UnityEngine.UIElements.DropdownField
+    content.vb: Public dropdownField As DropdownField
+- uid: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.#ctor
+  commentId: M:ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor
+  langs:
+  - csharp
+  - vb
+  name: LBSSimulationTagsCharacteristicEditor()
+  nameWithType: LBSSimulationTagsCharacteristicEditor.LBSSimulationTagsCharacteristicEditor()
+  fullName: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.LBSSimulationTagsCharacteristicEditor()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: public LBSSimulationTagsCharacteristicEditor()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.#ctor*
+  nameWithType.vb: LBSSimulationTagsCharacteristicEditor.New()
+  fullName.vb: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.New()
+  name.vb: New()
+- uid: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.#ctor(System.Object)
+  commentId: M:ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.#ctor(System.Object)
+  id: '#ctor(System.Object)'
+  parent: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor
+  langs:
+  - csharp
+  - vb
+  name: LBSSimulationTagsCharacteristicEditor(object)
+  nameWithType: LBSSimulationTagsCharacteristicEditor.LBSSimulationTagsCharacteristicEditor(object)
+  fullName: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.LBSSimulationTagsCharacteristicEditor(object)
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  syntax:
+    content: public LBSSimulationTagsCharacteristicEditor(object target)
+    parameters:
+    - id: target
+      type: System.Object
+    content.vb: Public Sub New(target As Object)
+  overload: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.#ctor*
+  nameWithType.vb: LBSSimulationTagsCharacteristicEditor.New(Object)
+  fullName.vb: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.New(Object)
+  name.vb: New(Object)
+- uid: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.SetInfo(System.Object)
+  id: SetInfo(System.Object)
+  parent: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor
+  langs:
+  - csharp
+  - vb
+  name: SetInfo(object)
+  nameWithType: LBSSimulationTagsCharacteristicEditor.SetInfo(object)
+  fullName: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.SetInfo(object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  example: []
+  syntax:
+    content: public override void SetInfo(object target)
+    parameters:
+    - id: target
+      type: System.Object
+    content.vb: Public Overrides Sub SetInfo(target As Object)
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  overload: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.SetInfo*
+  nameWithType.vb: LBSSimulationTagsCharacteristicEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+- uid: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.CreateVisualElement
+  id: CreateVisualElement
+  parent: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor
+  langs:
+  - csharp
+  - vb
+  name: CreateVisualElement()
+  nameWithType: LBSSimulationTagsCharacteristicEditor.CreateVisualElement()
+  fullName: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.CreateVisualElement()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Editor
+  example: []
+  syntax:
+    content: protected override VisualElement CreateVisualElement()
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Protected Overrides Function CreateVisualElement() As VisualElement
+  overridden: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  overload: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.CreateVisualElement*
+references:
+- uid: ISILab.LBS.Editor
+  commentId: N:ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Editor
+  nameWithType: ISILab.LBS.Editor
+  fullName: ISILab.LBS.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Editor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Editor.LBSCustomEditor
+  commentId: T:ISILab.LBS.Editor.LBSCustomEditor
+  parent: ISILab.LBS.Editor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html
+  name: LBSCustomEditor
+  nameWithType: LBSCustomEditor
+  fullName: ISILab.LBS.Editor.LBSCustomEditor
+- uid: ISILab.LBS.Editor.LBSCustomEditor.target
+  commentId: F:ISILab.LBS.Editor.LBSCustomEditor.target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_target
+  name: target
+  nameWithType: LBSCustomEditor.target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.target
+- uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  name: ContextMenu(ContextualMenuPopulateEvent)
+  nameWithType: LBSCustomEditor.ContextMenu(ContextualMenuPopulateEvent)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.ContextMenu(UnityEngine.UIElements.ContextualMenuPopulateEvent)
+    name: ContextMenu
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_ContextMenu_UnityEngine_UIElements_ContextualMenuPopulateEvent_
+  - name: (
+  - uid: UnityEngine.UIElements.ContextualMenuPopulateEvent
+    name: ContextualMenuPopulateEvent
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.Repaint
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  name: Repaint()
+  nameWithType: LBSCustomEditor.Repaint()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Repaint()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.Repaint
+    name: Repaint
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Repaint
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  name: OnFocus()
+  nameWithType: LBSCustomEditor.OnFocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnFocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnFocus
+    name: OnFocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnFocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  name: OnUnfocus()
+  nameWithType: LBSCustomEditor.OnUnfocus()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.OnUnfocus
+    name: OnUnfocus
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_OnUnfocus
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSCustomEditor.Target
+  commentId: P:ISILab.LBS.Editor.LBSCustomEditor.Target
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_Target
+  name: Target
+  nameWithType: LBSCustomEditor.Target
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.Target
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.UIElements.DropdownField
+  commentId: '!:UnityEngine.UIElements.DropdownField'
+  isExternal: true
+  name: DropdownField
+  nameWithType: DropdownField
+  fullName: UnityEngine.UIElements.DropdownField
+- uid: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.#ctor*
+  commentId: Overload:ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.#ctor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.html#ISILab_LBS_Editor_LBSSimulationTagsCharacteristicEditor__ctor
+  name: LBSSimulationTagsCharacteristicEditor
+  nameWithType: LBSSimulationTagsCharacteristicEditor.LBSSimulationTagsCharacteristicEditor
+  fullName: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.LBSSimulationTagsCharacteristicEditor
+  nameWithType.vb: LBSSimulationTagsCharacteristicEditor.New
+  fullName.vb: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.New
+  name.vb: New
+- uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  name: SetInfo(object)
+  nameWithType: LBSCustomEditor.SetInfo(object)
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(object)
+  nameWithType.vb: LBSCustomEditor.SetInfo(Object)
+  fullName.vb: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(Object)
+  name.vb: SetInfo(Object)
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
+    name: SetInfo
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_SetInfo_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.SetInfo*
+  commentId: Overload:ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.SetInfo
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.html#ISILab_LBS_Editor_LBSSimulationTagsCharacteristicEditor_SetInfo_System_Object_
+  name: SetInfo
+  nameWithType: LBSSimulationTagsCharacteristicEditor.SetInfo
+  fullName: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.SetInfo
+- uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  commentId: M:ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+  parent: ISILab.LBS.Editor.LBSCustomEditor
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  name: CreateVisualElement()
+  nameWithType: LBSCustomEditor.CreateVisualElement()
+  fullName: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement()
+  spec.csharp:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Editor.LBSCustomEditor.CreateVisualElement
+    name: CreateVisualElement
+    isExternal: true
+    href: ISILab.LBS.Editor.LBSCustomEditor.html#ISILab_LBS_Editor_LBSCustomEditor_CreateVisualElement
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.CreateVisualElement*
+  commentId: Overload:ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.CreateVisualElement
+  isExternal: true
+  href: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.html#ISILab_LBS_Editor_LBSSimulationTagsCharacteristicEditor_CreateVisualElement
+  name: CreateVisualElement
+  nameWithType: LBSSimulationTagsCharacteristicEditor.CreateVisualElement
+  fullName: ISILab.LBS.Editor.LBSSimulationTagsCharacteristicEditor.CreateVisualElement
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+shouldSkipMarkup: true

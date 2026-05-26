@@ -1,0 +1,263 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.IGrupable
+  commentId: T:ISILab.LBS.IGrupable
+  id: IGrupable
+  parent: ISILab.LBS
+  children:
+  - ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
+  - ISILab.LBS.IGrupable.GetLabel
+  - ISILab.LBS.IGrupable.OnBlur
+  - ISILab.LBS.IGrupable.OnBlurEvent
+  - ISILab.LBS.IGrupable.OnFocus
+  - ISILab.LBS.IGrupable.OnFocusEvent
+  - ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+  langs:
+  - csharp
+  - vb
+  name: IGrupable
+  nameWithType: IGrupable
+  fullName: ISILab.LBS.IGrupable
+  type: Interface
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: public interface IGrupable
+    content.vb: Public Interface IGrupable
+  derivedClasses:
+  - ISILab.LBS.VisualElements.GrupalbeButton
+  - ISILab.LBS.VisualElements.ToolButton
+- uid: ISILab.LBS.IGrupable.GetLabel
+  commentId: M:ISILab.LBS.IGrupable.GetLabel
+  id: GetLabel
+  parent: ISILab.LBS.IGrupable
+  langs:
+  - csharp
+  - vb
+  name: GetLabel()
+  nameWithType: IGrupable.GetLabel()
+  fullName: ISILab.LBS.IGrupable.GetLabel()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: string GetLabel()
+    return:
+      type: System.String
+    content.vb: Function GetLabel() As String
+  overload: ISILab.LBS.IGrupable.GetLabel*
+- uid: ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+  commentId: M:ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+  id: SetColorGroup(UnityEngine.Color,UnityEngine.Color)
+  parent: ISILab.LBS.IGrupable
+  langs:
+  - csharp
+  - vb
+  name: SetColorGroup(Color, Color)
+  nameWithType: IGrupable.SetColorGroup(Color, Color)
+  fullName: ISILab.LBS.IGrupable.SetColorGroup(UnityEngine.Color, UnityEngine.Color)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: void SetColorGroup(Color color, Color select)
+    parameters:
+    - id: color
+      type: UnityEngine.Color
+    - id: select
+      type: UnityEngine.Color
+    content.vb: Sub SetColorGroup(color As Color, [select] As Color)
+  overload: ISILab.LBS.IGrupable.SetColorGroup*
+- uid: ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
+  commentId: M:ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
+  id: AddGroupEvent(System.Action)
+  parent: ISILab.LBS.IGrupable
+  langs:
+  - csharp
+  - vb
+  name: AddGroupEvent(Action)
+  nameWithType: IGrupable.AddGroupEvent(Action)
+  fullName: ISILab.LBS.IGrupable.AddGroupEvent(System.Action)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: void AddGroupEvent(Action action)
+    parameters:
+    - id: action
+      type: System.Action
+    content.vb: Sub AddGroupEvent(action As Action)
+  overload: ISILab.LBS.IGrupable.AddGroupEvent*
+- uid: ISILab.LBS.IGrupable.OnBlur
+  commentId: M:ISILab.LBS.IGrupable.OnBlur
+  id: OnBlur
+  parent: ISILab.LBS.IGrupable
+  langs:
+  - csharp
+  - vb
+  name: OnBlur()
+  nameWithType: IGrupable.OnBlur()
+  fullName: ISILab.LBS.IGrupable.OnBlur()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: void OnBlur()
+    content.vb: Sub OnBlur()
+  overload: ISILab.LBS.IGrupable.OnBlur*
+- uid: ISILab.LBS.IGrupable.OnFocus
+  commentId: M:ISILab.LBS.IGrupable.OnFocus
+  id: OnFocus
+  parent: ISILab.LBS.IGrupable
+  langs:
+  - csharp
+  - vb
+  name: OnFocus()
+  nameWithType: IGrupable.OnFocus()
+  fullName: ISILab.LBS.IGrupable.OnFocus()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: void OnFocus()
+    content.vb: Sub OnFocus()
+  overload: ISILab.LBS.IGrupable.OnFocus*
+- uid: ISILab.LBS.IGrupable.OnFocusEvent
+  commentId: E:ISILab.LBS.IGrupable.OnFocusEvent
+  id: OnFocusEvent
+  parent: ISILab.LBS.IGrupable
+  langs:
+  - csharp
+  - vb
+  name: OnFocusEvent
+  nameWithType: IGrupable.OnFocusEvent
+  fullName: ISILab.LBS.IGrupable.OnFocusEvent
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: event Action OnFocusEvent
+    return:
+      type: System.Action
+    content.vb: Event OnFocusEvent As Action
+- uid: ISILab.LBS.IGrupable.OnBlurEvent
+  commentId: E:ISILab.LBS.IGrupable.OnBlurEvent
+  id: OnBlurEvent
+  parent: ISILab.LBS.IGrupable
+  langs:
+  - csharp
+  - vb
+  name: OnBlurEvent
+  nameWithType: IGrupable.OnBlurEvent
+  fullName: ISILab.LBS.IGrupable.OnBlurEvent
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS
+  syntax:
+    content: event Action OnBlurEvent
+    return:
+      type: System.Action
+    content.vb: Event OnBlurEvent As Action
+references:
+- uid: ISILab.LBS
+  commentId: N:ISILab.LBS
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS
+  nameWithType: ISILab.LBS
+  fullName: ISILab.LBS
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+- uid: ISILab.LBS.IGrupable.GetLabel*
+  commentId: Overload:ISILab.LBS.IGrupable.GetLabel
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_GetLabel
+  name: GetLabel
+  nameWithType: IGrupable.GetLabel
+  fullName: ISILab.LBS.IGrupable.GetLabel
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.IGrupable.SetColorGroup*
+  commentId: Overload:ISILab.LBS.IGrupable.SetColorGroup
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_SetColorGroup_UnityEngine_Color_UnityEngine_Color_
+  name: SetColorGroup
+  nameWithType: IGrupable.SetColorGroup
+  fullName: ISILab.LBS.IGrupable.SetColorGroup
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: ISILab.LBS.IGrupable.AddGroupEvent*
+  commentId: Overload:ISILab.LBS.IGrupable.AddGroupEvent
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_AddGroupEvent_System_Action_
+  name: AddGroupEvent
+  nameWithType: IGrupable.AddGroupEvent
+  fullName: ISILab.LBS.IGrupable.AddGroupEvent
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.IGrupable.OnBlur*
+  commentId: Overload:ISILab.LBS.IGrupable.OnBlur
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_OnBlur
+  name: OnBlur
+  nameWithType: IGrupable.OnBlur
+  fullName: ISILab.LBS.IGrupable.OnBlur
+- uid: ISILab.LBS.IGrupable.OnFocus*
+  commentId: Overload:ISILab.LBS.IGrupable.OnFocus
+  isExternal: true
+  href: ISILab.LBS.IGrupable.html#ISILab_LBS_IGrupable_OnFocus
+  name: OnFocus
+  nameWithType: IGrupable.OnFocus
+  fullName: ISILab.LBS.IGrupable.OnFocus
+shouldSkipMarkup: true

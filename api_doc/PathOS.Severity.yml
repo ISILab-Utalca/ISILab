@@ -1,0 +1,113 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.Severity
+  commentId: T:PathOS.Severity
+  id: Severity
+  parent: PathOS
+  children:
+  - PathOS.Severity.HIGH
+  - PathOS.Severity.LOW
+  - PathOS.Severity.MED
+  - PathOS.Severity.NONE
+  langs:
+  - csharp
+  - vb
+  name: Severity
+  nameWithType: Severity
+  fullName: PathOS.Severity
+  type: Enum
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public enum Severity
+    content.vb: Public Enum Severity
+- uid: PathOS.Severity.NONE
+  commentId: F:PathOS.Severity.NONE
+  id: NONE
+  parent: PathOS.Severity
+  langs:
+  - csharp
+  - vb
+  name: NONE
+  nameWithType: Severity.NONE
+  fullName: PathOS.Severity.NONE
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: NONE = 0
+    return:
+      type: PathOS.Severity
+- uid: PathOS.Severity.LOW
+  commentId: F:PathOS.Severity.LOW
+  id: LOW
+  parent: PathOS.Severity
+  langs:
+  - csharp
+  - vb
+  name: LOW
+  nameWithType: Severity.LOW
+  fullName: PathOS.Severity.LOW
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: LOW = 1
+    return:
+      type: PathOS.Severity
+- uid: PathOS.Severity.MED
+  commentId: F:PathOS.Severity.MED
+  id: MED
+  parent: PathOS.Severity
+  langs:
+  - csharp
+  - vb
+  name: MED
+  nameWithType: Severity.MED
+  fullName: PathOS.Severity.MED
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: MED = 2
+    return:
+      type: PathOS.Severity
+- uid: PathOS.Severity.HIGH
+  commentId: F:PathOS.Severity.HIGH
+  id: HIGH
+  parent: PathOS.Severity
+  langs:
+  - csharp
+  - vb
+  name: HIGH
+  nameWithType: Severity.HIGH
+  fullName: PathOS.Severity.HIGH
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: HIGH = 3
+    return:
+      type: PathOS.Severity
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: PathOS.Severity
+  commentId: T:PathOS.Severity
+  parent: PathOS
+  isExternal: true
+  href: PathOS.Severity.html
+  name: Severity
+  nameWithType: Severity
+  fullName: PathOS.Severity
+shouldSkipMarkup: true

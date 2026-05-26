@@ -1,0 +1,211 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData
+  commentId: T:ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData
+  id: LBSCustomLabel.UxmlSerializedData
+  parent: ISILab.LBS.CustomComponents
+  children:
+  - ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.#ctor
+  - ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.CreateInstance
+  - ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Deserialize(System.Object)
+  - ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Register
+  langs:
+  - csharp
+  - vb
+  name: LBSCustomLabel.UxmlSerializedData
+  nameWithType: LBSCustomLabel.UxmlSerializedData
+  fullName: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: 'public class LBSCustomLabel.UxmlSerializedData : Label.UxmlSerializedData'
+    content.vb: Public Class LBSCustomLabel.UxmlSerializedData Inherits Label.UxmlSerializedData
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Register
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Register
+  id: Register
+  parent: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData
+  langs:
+  - csharp
+  - vb
+  name: Register()
+  nameWithType: LBSCustomLabel.UxmlSerializedData.Register()
+  fullName: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Register()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: >-
+      [Conditional("UNITY_EDITOR")]
+
+      public static void Register()
+    content.vb: >-
+      <Conditional("UNITY_EDITOR")>
+
+      Public Shared Sub Register()
+  overload: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Register*
+  attributes:
+  - type: System.Diagnostics.ConditionalAttribute
+    ctor: System.Diagnostics.ConditionalAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: UNITY_EDITOR
+- uid: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.CreateInstance
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.CreateInstance
+  id: CreateInstance
+  parent: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData
+  langs:
+  - csharp
+  - vb
+  name: CreateInstance()
+  nameWithType: LBSCustomLabel.UxmlSerializedData.CreateInstance()
+  fullName: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.CreateInstance()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  example: []
+  syntax:
+    content: public override object CreateInstance()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function CreateInstance() As Object
+  overload: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.CreateInstance*
+- uid: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Deserialize(System.Object)
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Deserialize(System.Object)
+  id: Deserialize(System.Object)
+  parent: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(object)
+  nameWithType: LBSCustomLabel.UxmlSerializedData.Deserialize(object)
+  fullName: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Deserialize(object)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  example: []
+  syntax:
+    content: public override void Deserialize(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    content.vb: Public Overrides Sub Deserialize(obj As Object)
+  overload: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Deserialize*
+  nameWithType.vb: LBSCustomLabel.UxmlSerializedData.Deserialize(Object)
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Deserialize(Object)
+  name.vb: Deserialize(Object)
+- uid: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.#ctor
+  commentId: M:ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData
+  langs:
+  - csharp
+  - vb
+  name: UxmlSerializedData()
+  nameWithType: LBSCustomLabel.UxmlSerializedData.UxmlSerializedData()
+  fullName: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.UxmlSerializedData()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public UxmlSerializedData()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.#ctor*
+  nameWithType.vb: LBSCustomLabel.UxmlSerializedData.New()
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.New()
+  name.vb: New()
+references:
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Register*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Register
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSCustomLabel_UxmlSerializedData_Register
+  name: Register
+  nameWithType: LBSCustomLabel.UxmlSerializedData.Register
+  fullName: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Register
+- uid: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.CreateInstance*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.CreateInstance
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSCustomLabel_UxmlSerializedData_CreateInstance
+  name: CreateInstance
+  nameWithType: LBSCustomLabel.UxmlSerializedData.CreateInstance
+  fullName: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.CreateInstance
+- uid: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Deserialize*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Deserialize
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSCustomLabel_UxmlSerializedData_Deserialize_System_Object_
+  name: Deserialize
+  nameWithType: LBSCustomLabel.UxmlSerializedData.Deserialize
+  fullName: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.Deserialize
+- uid: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.#ctor*
+  commentId: Overload:ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.#ctor
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.html#ISILab_LBS_CustomComponents_LBSCustomLabel_UxmlSerializedData__ctor
+  name: UxmlSerializedData
+  nameWithType: LBSCustomLabel.UxmlSerializedData.UxmlSerializedData
+  fullName: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.UxmlSerializedData
+  nameWithType.vb: LBSCustomLabel.UxmlSerializedData.New
+  fullName.vb: ISILab.LBS.CustomComponents.LBSCustomLabel.UxmlSerializedData.New
+  name.vb: New
+shouldSkipMarkup: true

@@ -1,0 +1,617 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle
+  commentId: T:ISILab.LBS.CustomComponents.LBSCustomStyle
+  id: LBSCustomStyle
+  parent: ISILab.LBS.CustomComponents
+  children:
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.BACKGROUND_PREFIX
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.BASE_USS_CLASS
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.CONTAINER_PREFIX
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_ITEM
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_ITEM_BOX
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PANEL
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PANEL_ITEM
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PREFIX
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.CUSTOM_USS_CLASS
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.ICON_PREFIX
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.LABEL_PREFIX
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.LBS_BASE_USS_CLASS
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.LBS_ICON
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.TEXT_PREFIX
+  - ISILab.LBS.CustomComponents.LBSCustomStyle.TOGGLE_PREFIX
+  langs:
+  - csharp
+  - vb
+  name: LBSCustomStyle
+  nameWithType: LBSCustomStyle
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public static class LBSCustomStyle
+    content.vb: Public Module LBSCustomStyle
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.BASE_USS_CLASS
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.BASE_USS_CLASS
+  id: BASE_USS_CLASS
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: BASE_USS_CLASS
+  nameWithType: LBSCustomStyle.BASE_USS_CLASS
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.BASE_USS_CLASS
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string BASE_USS_CLASS = "lbs"
+    return:
+      type: System.String
+    content.vb: Public Const BASE_USS_CLASS As String = "lbs"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.CUSTOM_USS_CLASS
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.CUSTOM_USS_CLASS
+  id: CUSTOM_USS_CLASS
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: CUSTOM_USS_CLASS
+  nameWithType: LBSCustomStyle.CUSTOM_USS_CLASS
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.CUSTOM_USS_CLASS
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string CUSTOM_USS_CLASS = "lbs-custom"
+    return:
+      type: System.String
+    content.vb: Public Const CUSTOM_USS_CLASS As String = "lbs-custom"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.LBS_BASE_USS_CLASS
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.LBS_BASE_USS_CLASS
+  id: LBS_BASE_USS_CLASS
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: LBS_BASE_USS_CLASS
+  nameWithType: LBSCustomStyle.LBS_BASE_USS_CLASS
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.LBS_BASE_USS_CLASS
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string LBS_BASE_USS_CLASS = "lbs-base"
+    return:
+      type: System.String
+    content.vb: Public Const LBS_BASE_USS_CLASS As String = "lbs-base"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PANEL
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PANEL
+  id: CONTENT_PANEL
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: CONTENT_PANEL
+  nameWithType: LBSCustomStyle.CONTENT_PANEL
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PANEL
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string CONTENT_PANEL = "lbs-generic-panel"
+    return:
+      type: System.String
+    content.vb: Public Const CONTENT_PANEL As String = "lbs-generic-panel"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_ITEM
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_ITEM
+  id: CONTENT_ITEM
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: CONTENT_ITEM
+  nameWithType: LBSCustomStyle.CONTENT_ITEM
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_ITEM
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string CONTENT_ITEM = "lbs-custom-panel"
+    return:
+      type: System.String
+    content.vb: Public Const CONTENT_ITEM As String = "lbs-custom-panel"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PANEL_ITEM
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PANEL_ITEM
+  id: CONTENT_PANEL_ITEM
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: CONTENT_PANEL_ITEM
+  nameWithType: LBSCustomStyle.CONTENT_PANEL_ITEM
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PANEL_ITEM
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string CONTENT_PANEL_ITEM = "lbs-custom-panel-item"
+    return:
+      type: System.String
+    content.vb: Public Const CONTENT_PANEL_ITEM As String = "lbs-custom-panel-item"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_ITEM_BOX
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_ITEM_BOX
+  id: CONTENT_ITEM_BOX
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: CONTENT_ITEM_BOX
+  nameWithType: LBSCustomStyle.CONTENT_ITEM_BOX
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_ITEM_BOX
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string CONTENT_ITEM_BOX = "lbs-custom-box"
+    return:
+      type: System.String
+    content.vb: Public Const CONTENT_ITEM_BOX As String = "lbs-custom-box"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.LBS_ICON
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.LBS_ICON
+  id: LBS_ICON
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: LBS_ICON
+  nameWithType: LBSCustomStyle.LBS_ICON
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.LBS_ICON
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string LBS_ICON = "lbs-icon"
+    return:
+      type: System.String
+    content.vb: Public Const LBS_ICON As String = "lbs-icon"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTAINER_PREFIX
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.CONTAINER_PREFIX
+  id: CONTAINER_PREFIX
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: CONTAINER_PREFIX
+  nameWithType: LBSCustomStyle.CONTAINER_PREFIX
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTAINER_PREFIX
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string CONTAINER_PREFIX = "__container"
+    return:
+      type: System.String
+    content.vb: Public Const CONTAINER_PREFIX As String = "__container"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PREFIX
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PREFIX
+  id: CONTENT_PREFIX
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: CONTENT_PREFIX
+  nameWithType: LBSCustomStyle.CONTENT_PREFIX
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.CONTENT_PREFIX
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string CONTENT_PREFIX = "____content"
+    return:
+      type: System.String
+    content.vb: Public Const CONTENT_PREFIX As String = "____content"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.BACKGROUND_PREFIX
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.BACKGROUND_PREFIX
+  id: BACKGROUND_PREFIX
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: BACKGROUND_PREFIX
+  nameWithType: LBSCustomStyle.BACKGROUND_PREFIX
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.BACKGROUND_PREFIX
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string BACKGROUND_PREFIX = "__background"
+    return:
+      type: System.String
+    content.vb: Public Const BACKGROUND_PREFIX As String = "__background"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.ICON_PREFIX
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.ICON_PREFIX
+  id: ICON_PREFIX
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: ICON_PREFIX
+  nameWithType: LBSCustomStyle.ICON_PREFIX
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.ICON_PREFIX
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string ICON_PREFIX = "__icon"
+    return:
+      type: System.String
+    content.vb: Public Const ICON_PREFIX As String = "__icon"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.LABEL_PREFIX
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.LABEL_PREFIX
+  id: LABEL_PREFIX
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: LABEL_PREFIX
+  nameWithType: LBSCustomStyle.LABEL_PREFIX
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.LABEL_PREFIX
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string LABEL_PREFIX = "__label"
+    return:
+      type: System.String
+    content.vb: Public Const LABEL_PREFIX As String = "__label"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.TEXT_PREFIX
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.TEXT_PREFIX
+  id: TEXT_PREFIX
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: TEXT_PREFIX
+  nameWithType: LBSCustomStyle.TEXT_PREFIX
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.TEXT_PREFIX
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string TEXT_PREFIX = "__text"
+    return:
+      type: System.String
+    content.vb: Public Const TEXT_PREFIX As String = "__text"
+- uid: ISILab.LBS.CustomComponents.LBSCustomStyle.TOGGLE_PREFIX
+  commentId: F:ISILab.LBS.CustomComponents.LBSCustomStyle.TOGGLE_PREFIX
+  id: TOGGLE_PREFIX
+  parent: ISILab.LBS.CustomComponents.LBSCustomStyle
+  langs:
+  - csharp
+  - vb
+  name: TOGGLE_PREFIX
+  nameWithType: LBSCustomStyle.TOGGLE_PREFIX
+  fullName: ISILab.LBS.CustomComponents.LBSCustomStyle.TOGGLE_PREFIX
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.CustomComponents
+  syntax:
+    content: public const string TOGGLE_PREFIX = "__toggle"
+    return:
+      type: System.String
+    content.vb: Public Const TOGGLE_PREFIX As String = "__toggle"
+references:
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+shouldSkipMarkup: true

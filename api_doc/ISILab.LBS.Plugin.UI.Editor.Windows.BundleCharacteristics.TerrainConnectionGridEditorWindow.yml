@@ -1,0 +1,1276 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  id: TerrainConnectionGridEditorWindow
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  children:
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.#ctor
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ActiveTool
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorButton(System.Int32,UnityEngine.Color,System.Boolean,System.Boolean,System.Boolean)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorKey
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ClearChangesConfirmed
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ColorPaletteKey
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.CreateGUI
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnColorRemoved
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnScaleModify
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnWindowClosed
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.PaintGridListPanel
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RemoveColorKey(System.Int32)
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RevertChangesConfirmed
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.SetFOVScale
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.UpdateColorButtons
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.addColorButton
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.baseColorButton
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.borderColorContainer
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.brushTool
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.colorButtons
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.colorList
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.connectionGridTarget
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.currentColor
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.eraserTool
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.fillTool
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.fovScale
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.gridTerrainTools
+  - ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.gridsVE
+  langs:
+  - csharp
+  - vb
+  name: TerrainConnectionGridEditorWindow
+  nameWithType: TerrainConnectionGridEditorWindow
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: 'public class TerrainConnectionGridEditorWindow : EditorWindow'
+    content.vb: Public Class TerrainConnectionGridEditorWindow Inherits EditorWindow
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.connectionGridTarget
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.connectionGridTarget
+  id: connectionGridTarget
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: connectionGridTarget
+  nameWithType: TerrainConnectionGridEditorWindow.connectionGridTarget
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.connectionGridTarget
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public LBSTerrainConnectionGrid connectionGridTarget
+    return:
+      type: ISILab.LBS.Characteristics.LBSTerrainConnectionGrid
+    content.vb: Public connectionGridTarget As LBSTerrainConnectionGrid
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.currentColor
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.currentColor
+  id: currentColor
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: currentColor
+  nameWithType: TerrainConnectionGridEditorWindow.currentColor
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.currentColor
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public int currentColor
+    return:
+      type: System.Int32
+    content.vb: Public currentColor As Integer
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.borderColorContainer
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.borderColorContainer
+  id: borderColorContainer
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: borderColorContainer
+  nameWithType: TerrainConnectionGridEditorWindow.borderColorContainer
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.borderColorContainer
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public VisualElement borderColorContainer
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public borderColorContainer As VisualElement
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.baseColorButton
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.baseColorButton
+  id: baseColorButton
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: baseColorButton
+  nameWithType: TerrainConnectionGridEditorWindow.baseColorButton
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.baseColorButton
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public LBSSelectableButton baseColorButton
+    return:
+      type: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+    content.vb: Public baseColorButton As LBSSelectableButton
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.colorButtons
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.colorButtons
+  id: colorButtons
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: colorButtons
+  nameWithType: TerrainConnectionGridEditorWindow.colorButtons
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.colorButtons
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public List<LBSSelectableButton> colorButtons
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.VisualElements.Editor.LBSSelectableButton}
+    content.vb: Public colorButtons As List(Of LBSSelectableButton)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.addColorButton
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.addColorButton
+  id: addColorButton
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: addColorButton
+  nameWithType: TerrainConnectionGridEditorWindow.addColorButton
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.addColorButton
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public LBSCustomButton addColorButton
+    return:
+      type: ISILab.LBS.CustomComponents.LBSCustomButton
+    content.vb: Public addColorButton As LBSCustomButton
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.colorList
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.colorList
+  id: colorList
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: colorList
+  nameWithType: TerrainConnectionGridEditorWindow.colorList
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.colorList
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public VisualElement colorList
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public colorList As VisualElement
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.gridTerrainTools
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.gridTerrainTools
+  id: gridTerrainTools
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: gridTerrainTools
+  nameWithType: TerrainConnectionGridEditorWindow.gridTerrainTools
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.gridTerrainTools
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public List<LBSToolbarToggle> gridTerrainTools
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.CustomComponents.LBSToolbarToggle}
+    content.vb: Public gridTerrainTools As List(Of LBSToolbarToggle)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.brushTool
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.brushTool
+  id: brushTool
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: brushTool
+  nameWithType: TerrainConnectionGridEditorWindow.brushTool
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.brushTool
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public LBSToolbarToggle brushTool
+    return:
+      type: ISILab.LBS.CustomComponents.LBSToolbarToggle
+    content.vb: Public brushTool As LBSToolbarToggle
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.fillTool
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.fillTool
+  id: fillTool
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: fillTool
+  nameWithType: TerrainConnectionGridEditorWindow.fillTool
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.fillTool
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public LBSToolbarToggle fillTool
+    return:
+      type: ISILab.LBS.CustomComponents.LBSToolbarToggle
+    content.vb: Public fillTool As LBSToolbarToggle
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.eraserTool
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.eraserTool
+  id: eraserTool
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: eraserTool
+  nameWithType: TerrainConnectionGridEditorWindow.eraserTool
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.eraserTool
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public LBSToolbarToggle eraserTool
+    return:
+      type: ISILab.LBS.CustomComponents.LBSToolbarToggle
+    content.vb: Public eraserTool As LBSToolbarToggle
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.gridsVE
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.gridsVE
+  id: gridsVE
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: gridsVE
+  nameWithType: TerrainConnectionGridEditorWindow.gridsVE
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.gridsVE
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public VisualElement gridsVE
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public gridsVE As VisualElement
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.fovScale
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.fovScale
+  id: fovScale
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: fovScale
+  nameWithType: TerrainConnectionGridEditorWindow.fovScale
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.fovScale
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public float fovScale
+    return:
+      type: System.Single
+    content.vb: Public fovScale As Single
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.SetFOVScale
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.SetFOVScale
+  id: SetFOVScale
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: SetFOVScale
+  nameWithType: TerrainConnectionGridEditorWindow.SetFOVScale
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.SetFOVScale
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public Action SetFOVScale
+    return:
+      type: System.Action
+    content.vb: Public SetFOVScale As Action
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnWindowClosed
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnWindowClosed
+  id: OnWindowClosed
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: OnWindowClosed
+  nameWithType: TerrainConnectionGridEditorWindow.OnWindowClosed
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnWindowClosed
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public Action OnWindowClosed
+    return:
+      type: System.Action
+    content.vb: Public OnWindowClosed As Action
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnColorRemoved
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnColorRemoved
+  id: OnColorRemoved
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: OnColorRemoved
+  nameWithType: TerrainConnectionGridEditorWindow.OnColorRemoved
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnColorRemoved
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public Action OnColorRemoved
+    return:
+      type: System.Action
+    content.vb: Public OnColorRemoved As Action
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnScaleModify
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnScaleModify
+  id: OnScaleModify
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: OnScaleModify
+  nameWithType: TerrainConnectionGridEditorWindow.OnScaleModify
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.OnScaleModify
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public Action<float> OnScaleModify
+    return:
+      type: System.Action{System.Single}
+    content.vb: Public OnScaleModify As Action(Of Single)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RevertChangesConfirmed
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RevertChangesConfirmed
+  id: RevertChangesConfirmed
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: RevertChangesConfirmed
+  nameWithType: TerrainConnectionGridEditorWindow.RevertChangesConfirmed
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RevertChangesConfirmed
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public Action RevertChangesConfirmed
+    return:
+      type: System.Action
+    content.vb: Public RevertChangesConfirmed As Action
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ClearChangesConfirmed
+  commentId: F:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ClearChangesConfirmed
+  id: ClearChangesConfirmed
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: ClearChangesConfirmed
+  nameWithType: TerrainConnectionGridEditorWindow.ClearChangesConfirmed
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ClearChangesConfirmed
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public Action ClearChangesConfirmed
+    return:
+      type: System.Action
+    content.vb: Public ClearChangesConfirmed As Action
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.CreateGUI
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.CreateGUI
+  id: CreateGUI
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: CreateGUI()
+  nameWithType: TerrainConnectionGridEditorWindow.CreateGUI()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.CreateGUI()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public void CreateGUI()
+    content.vb: Public Sub CreateGUI()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.CreateGUI*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorKey
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorKey
+  id: AddColorKey
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: AddColorKey()
+  nameWithType: TerrainConnectionGridEditorWindow.AddColorKey()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorKey()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public void AddColorKey()
+    content.vb: Public Sub AddColorKey()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorKey*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RemoveColorKey(System.Int32)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RemoveColorKey(System.Int32)
+  id: RemoveColorKey(System.Int32)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: RemoveColorKey(int)
+  nameWithType: TerrainConnectionGridEditorWindow.RemoveColorKey(int)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RemoveColorKey(int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public void RemoveColorKey(int key)
+    parameters:
+    - id: key
+      type: System.Int32
+    content.vb: Public Sub RemoveColorKey(key As Integer)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RemoveColorKey*
+  nameWithType.vb: TerrainConnectionGridEditorWindow.RemoveColorKey(Integer)
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RemoveColorKey(Integer)
+  name.vb: RemoveColorKey(Integer)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorButton(System.Int32,UnityEngine.Color,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorButton(System.Int32,UnityEngine.Color,System.Boolean,System.Boolean,System.Boolean)
+  id: AddColorButton(System.Int32,UnityEngine.Color,System.Boolean,System.Boolean,System.Boolean)
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: AddColorButton(int, Color, bool, bool, bool)
+  nameWithType: TerrainConnectionGridEditorWindow.AddColorButton(int, Color, bool, bool, bool)
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorButton(int, UnityEngine.Color, bool, bool, bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public LBSSelectableButton AddColorButton(int key, Color color, bool selectAfterCreation = false, bool borderColor = false, bool removable = true)
+    parameters:
+    - id: key
+      type: System.Int32
+    - id: color
+      type: UnityEngine.Color
+    - id: selectAfterCreation
+      type: System.Boolean
+    - id: borderColor
+      type: System.Boolean
+    - id: removable
+      type: System.Boolean
+    return:
+      type: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+    content.vb: Public Function AddColorButton(key As Integer, color As Color, selectAfterCreation As Boolean = False, borderColor As Boolean = False, removable As Boolean = True) As LBSSelectableButton
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorButton*
+  nameWithType.vb: TerrainConnectionGridEditorWindow.AddColorButton(Integer, Color, Boolean, Boolean, Boolean)
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorButton(Integer, UnityEngine.Color, Boolean, Boolean, Boolean)
+  name.vb: AddColorButton(Integer, Color, Boolean, Boolean, Boolean)
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.UpdateColorButtons
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.UpdateColorButtons
+  id: UpdateColorButtons
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: UpdateColorButtons()
+  nameWithType: TerrainConnectionGridEditorWindow.UpdateColorButtons()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.UpdateColorButtons()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public void UpdateColorButtons()
+    content.vb: Public Sub UpdateColorButtons()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.UpdateColorButtons*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.PaintGridListPanel
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.PaintGridListPanel
+  id: PaintGridListPanel
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: PaintGridListPanel()
+  nameWithType: TerrainConnectionGridEditorWindow.PaintGridListPanel()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.PaintGridListPanel()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public void PaintGridListPanel()
+    content.vb: Public Sub PaintGridListPanel()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.PaintGridListPanel*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.#ctor
+  commentId: M:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: TerrainConnectionGridEditorWindow()
+  nameWithType: TerrainConnectionGridEditorWindow.TerrainConnectionGridEditorWindow()
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.TerrainConnectionGridEditorWindow()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public TerrainConnectionGridEditorWindow()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.#ctor*
+  nameWithType.vb: TerrainConnectionGridEditorWindow.New()
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ColorPaletteKey
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ColorPaletteKey
+  id: ColorPaletteKey
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: ColorPaletteKey
+  nameWithType: TerrainConnectionGridEditorWindow.ColorPaletteKey
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ColorPaletteKey
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public Dictionary<int, Color> ColorPaletteKey { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,UnityEngine.Color}
+    content.vb: Public ReadOnly Property ColorPaletteKey As Dictionary(Of Integer, Color)
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ColorPaletteKey*
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ActiveTool
+  commentId: P:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ActiveTool
+  id: ActiveTool
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+  langs:
+  - csharp
+  - vb
+  name: ActiveTool
+  nameWithType: TerrainConnectionGridEditorWindow.ActiveTool
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ActiveTool
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  syntax:
+    content: public TerrainConnectionGridEditorWindow.GridTerrainTool ActiveTool { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.GridTerrainTool
+    content.vb: Public ReadOnly Property ActiveTool As TerrainConnectionGridEditorWindow.GridTerrainTool
+  overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ActiveTool*
+references:
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  commentId: N:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  nameWithType: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+    name: BundleCharacteristics
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI
+    name: UI
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows
+    name: Windows
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+    name: BundleCharacteristics
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Characteristics.LBSTerrainConnectionGrid
+  commentId: T:ISILab.LBS.Characteristics.LBSTerrainConnectionGrid
+  parent: ISILab.LBS.Characteristics
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSTerrainConnectionGrid.html
+  name: LBSTerrainConnectionGrid
+  nameWithType: LBSTerrainConnectionGrid
+  fullName: ISILab.LBS.Characteristics.LBSTerrainConnectionGrid
+- uid: ISILab.LBS.Characteristics
+  commentId: N:ISILab.LBS.Characteristics
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Characteristics
+  nameWithType: ISILab.LBS.Characteristics
+  fullName: ISILab.LBS.Characteristics
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    isExternal: true
+    href: ISILab.LBS.Characteristics.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    isExternal: true
+    href: ISILab.LBS.Characteristics.html
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  commentId: T:ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+  parent: ISILab.LBS.VisualElements.Editor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.html
+  name: LBSSelectableButton
+  nameWithType: LBSSelectableButton
+  fullName: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+- uid: ISILab.LBS.VisualElements.Editor
+  commentId: N:ISILab.LBS.VisualElements.Editor
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements.Editor
+  nameWithType: ISILab.LBS.VisualElements.Editor
+  fullName: ISILab.LBS.VisualElements.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements.Editor
+    name: Editor
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.html
+- uid: System.Collections.Generic.List{ISILab.LBS.VisualElements.Editor.LBSSelectableButton}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.VisualElements.Editor.LBSSelectableButton}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSSelectableButton>
+  nameWithType: List<LBSSelectableButton>
+  fullName: System.Collections.Generic.List<ISILab.LBS.VisualElements.Editor.LBSSelectableButton>
+  nameWithType.vb: List(Of LBSSelectableButton)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.VisualElements.Editor.LBSSelectableButton)
+  name.vb: List(Of LBSSelectableButton)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+    name: LBSSelectableButton
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.VisualElements.Editor.LBSSelectableButton
+    name: LBSSelectableButton
+    isExternal: true
+    href: ISILab.LBS.VisualElements.Editor.LBSSelectableButton.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.CustomComponents.LBSCustomButton
+  commentId: T:ISILab.LBS.CustomComponents.LBSCustomButton
+  parent: ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSCustomButton.html
+  name: LBSCustomButton
+  nameWithType: LBSCustomButton
+  fullName: ISILab.LBS.CustomComponents.LBSCustomButton
+- uid: ISILab.LBS.CustomComponents
+  commentId: N:ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.CustomComponents
+  nameWithType: ISILab.LBS.CustomComponents
+  fullName: ISILab.LBS.CustomComponents
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.CustomComponents
+    name: CustomComponents
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.html
+- uid: System.Collections.Generic.List{ISILab.LBS.CustomComponents.LBSToolbarToggle}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.CustomComponents.LBSToolbarToggle}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSToolbarToggle>
+  nameWithType: List<LBSToolbarToggle>
+  fullName: System.Collections.Generic.List<ISILab.LBS.CustomComponents.LBSToolbarToggle>
+  nameWithType.vb: List(Of LBSToolbarToggle)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.CustomComponents.LBSToolbarToggle)
+  name.vb: List(Of LBSToolbarToggle)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.CustomComponents.LBSToolbarToggle
+    name: LBSToolbarToggle
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.LBSToolbarToggle.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.CustomComponents.LBSToolbarToggle
+    name: LBSToolbarToggle
+    isExternal: true
+    href: ISILab.LBS.CustomComponents.LBSToolbarToggle.html
+  - name: )
+- uid: ISILab.LBS.CustomComponents.LBSToolbarToggle
+  commentId: T:ISILab.LBS.CustomComponents.LBSToolbarToggle
+  parent: ISILab.LBS.CustomComponents
+  isExternal: true
+  href: ISILab.LBS.CustomComponents.LBSToolbarToggle.html
+  name: LBSToolbarToggle
+  nameWithType: LBSToolbarToggle
+  fullName: ISILab.LBS.CustomComponents.LBSToolbarToggle
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System.Action{System.Single}
+  commentId: T:System.Action{System.Single}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<float>
+  nameWithType: Action<float>
+  fullName: System.Action<float>
+  nameWithType.vb: Action(Of Single)
+  fullName.vb: System.Action(Of Single)
+  name.vb: Action(Of Single)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.CreateGUI*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.CreateGUI
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleCharacteristics_TerrainConnectionGridEditorWindow_CreateGUI
+  name: CreateGUI
+  nameWithType: TerrainConnectionGridEditorWindow.CreateGUI
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.CreateGUI
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorKey*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorKey
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleCharacteristics_TerrainConnectionGridEditorWindow_AddColorKey
+  name: AddColorKey
+  nameWithType: TerrainConnectionGridEditorWindow.AddColorKey
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorKey
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RemoveColorKey*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RemoveColorKey
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleCharacteristics_TerrainConnectionGridEditorWindow_RemoveColorKey_System_Int32_
+  name: RemoveColorKey
+  nameWithType: TerrainConnectionGridEditorWindow.RemoveColorKey
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.RemoveColorKey
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorButton*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorButton
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleCharacteristics_TerrainConnectionGridEditorWindow_AddColorButton_System_Int32_UnityEngine_Color_System_Boolean_System_Boolean_System_Boolean_
+  name: AddColorButton
+  nameWithType: TerrainConnectionGridEditorWindow.AddColorButton
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.AddColorButton
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.UpdateColorButtons*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.UpdateColorButtons
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleCharacteristics_TerrainConnectionGridEditorWindow_UpdateColorButtons
+  name: UpdateColorButtons
+  nameWithType: TerrainConnectionGridEditorWindow.UpdateColorButtons
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.UpdateColorButtons
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.PaintGridListPanel*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.PaintGridListPanel
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleCharacteristics_TerrainConnectionGridEditorWindow_PaintGridListPanel
+  name: PaintGridListPanel
+  nameWithType: TerrainConnectionGridEditorWindow.PaintGridListPanel
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.PaintGridListPanel
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleCharacteristics_TerrainConnectionGridEditorWindow__ctor
+  name: TerrainConnectionGridEditorWindow
+  nameWithType: TerrainConnectionGridEditorWindow.TerrainConnectionGridEditorWindow
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.TerrainConnectionGridEditorWindow
+  nameWithType.vb: TerrainConnectionGridEditorWindow.New
+  fullName.vb: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ColorPaletteKey*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ColorPaletteKey
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleCharacteristics_TerrainConnectionGridEditorWindow_ColorPaletteKey
+  name: ColorPaletteKey
+  nameWithType: TerrainConnectionGridEditorWindow.ColorPaletteKey
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ColorPaletteKey
+- uid: System.Collections.Generic.Dictionary{System.Int32,UnityEngine.Color}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,UnityEngine.Color}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<int, Color>
+  nameWithType: Dictionary<int, Color>
+  fullName: System.Collections.Generic.Dictionary<int, UnityEngine.Color>
+  nameWithType.vb: Dictionary(Of Integer, Color)
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, UnityEngine.Color)
+  name.vb: Dictionary(Of Integer, Color)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ActiveTool*
+  commentId: Overload:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ActiveTool
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html#ISILab_LBS_Plugin_UI_Editor_Windows_BundleCharacteristics_TerrainConnectionGridEditorWindow_ActiveTool
+  name: ActiveTool
+  nameWithType: TerrainConnectionGridEditorWindow.ActiveTool
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.ActiveTool
+- uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.GridTerrainTool
+  commentId: T:ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.GridTerrainTool
+  parent: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  isExternal: true
+  href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html
+  name: TerrainConnectionGridEditorWindow.GridTerrainTool
+  nameWithType: TerrainConnectionGridEditorWindow.GridTerrainTool
+  fullName: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.GridTerrainTool
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+    name: TerrainConnectionGridEditorWindow
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.GridTerrainTool
+    name: GridTerrainTool
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.GridTerrainTool.html
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow
+    name: TerrainConnectionGridEditorWindow
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.GridTerrainTool
+    name: GridTerrainTool
+    isExternal: true
+    href: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGridEditorWindow.GridTerrainTool.html
+shouldSkipMarkup: true

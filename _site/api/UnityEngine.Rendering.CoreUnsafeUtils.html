@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CoreUnsafeUtils | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CoreUnsafeUtils | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.CoreUnsafeUtils">
+
+
+
+  <h1 id="UnityEngine_Rendering_CoreUnsafeUtils" data-uid="UnityEngine.Rendering.CoreUnsafeUtils" class="text-break">
+Class CoreUnsafeUtils  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class CoreUnsafeUtils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CoreUnsafeUtils</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_CombineHashes_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CombineHashes*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_CombineHashes_System_Int32_UnityEngine_Hash128__UnityEngine_Hash128__" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CombineHashes(System.Int32,UnityEngine.Hash128*,UnityEngine.Hash128*)">
+  CombineHashes(int, Hash128*, Hash128*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CombineHashes(int count, Hash128* hashes, Hash128* outHash)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>hashes</code> <span class="xref">Hash128</span>*</dt>
+    <dd></dd>
+    <dt><code>outHash</code> <span class="xref">Hash128</span>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_CombineHashes_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CombineHashes*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_CombineHashes__2_System_Int32_System_Void__UnityEngine_Hash128__" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CombineHashes``2(System.Int32,System.Void*,UnityEngine.Hash128*)">
+  CombineHashes&lt;TValue, TGetter&gt;(int, void*, Hash128*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CombineHashes&lt;TValue, TGetter&gt;(int count, void* hashes, Hash128* outHash) where TValue : struct where TGetter : struct, CoreUnsafeUtils.IKeyGetter&lt;TValue, Hash128&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>hashes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>outHash</code> <span class="xref">Hash128</span>*</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TValue</code></dt>
+    <dd></dd>
+    <dt><code>TGetter</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_CompareHashes_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CompareHashes*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_CompareHashes_System_Int32_UnityEngine_Hash128__System_Int32_UnityEngine_Hash128__System_Int32__System_Int32__System_Int32__System_Int32__" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CompareHashes(System.Int32,UnityEngine.Hash128*,System.Int32,UnityEngine.Hash128*,System.Int32*,System.Int32*,System.Int32@,System.Int32@)">
+  CompareHashes(int, Hash128*, int, Hash128*, int*, int*, out int, out int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CompareHashes(int oldHashCount, Hash128* oldHashes, int newHashCount, Hash128* newHashes, int* addIndices, int* removeIndices, out int addCount, out int remCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldHashCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>oldHashes</code> <span class="xref">Hash128</span>*</dt>
+    <dd></dd>
+    <dt><code>newHashCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>newHashes</code> <span class="xref">Hash128</span>*</dt>
+    <dd></dd>
+    <dt><code>addIndices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+    <dt><code>removeIndices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+    <dt><code>addCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>remCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_CompareHashes_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CompareHashes*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_CompareHashes__4_System_Int32_System_Void__System_Int32_System_Void__System_Int32__System_Int32__System_Int32__System_Int32__" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CompareHashes``4(System.Int32,System.Void*,System.Int32,System.Void*,System.Int32*,System.Int32*,System.Int32@,System.Int32@)">
+  CompareHashes&lt;TOldValue, TOldGetter, TNewValue, TNewGetter&gt;(int, void*, int, void*, int*, int*, out int, out int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CompareHashes&lt;TOldValue, TOldGetter, TNewValue, TNewGetter&gt;(int oldHashCount, void* oldHashes, int newHashCount, void* newHashes, int* addIndices, int* removeIndices, out int addCount, out int remCount) where TOldValue : struct where TOldGetter : struct, CoreUnsafeUtils.IKeyGetter&lt;TOldValue, Hash128&gt; where TNewValue : struct where TNewGetter : struct, CoreUnsafeUtils.IKeyGetter&lt;TNewValue, Hash128&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldHashCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>oldHashes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>newHashCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>newHashes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>addIndices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+    <dt><code>removeIndices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+    <dt><code>addCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>remCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOldValue</code></dt>
+    <dd></dd>
+    <dt><code>TOldGetter</code></dt>
+    <dd></dd>
+    <dt><code>TNewValue</code></dt>
+    <dd></dd>
+    <dt><code>TNewGetter</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_CopyTo_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CopyTo*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_CopyTo__1_System_Collections_Generic_List___0__System_Void__System_Int32_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CopyTo``1(System.Collections.Generic.List{``0},System.Void*,System.Int32)">
+  CopyTo&lt;T&gt;(List&lt;T&gt;, void*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CopyTo&lt;T&gt;(this List&lt;T&gt; list, void* dest, int count) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>list</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_CopyTo_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CopyTo*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_CopyTo__1___0___System_Void__System_Int32_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.CopyTo``1(``0[],System.Void*,System.Int32)">
+  CopyTo&lt;T&gt;(T[], void*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CopyTo&lt;T&gt;(this T[] list, void* dest, int count) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>list</code> T[]</dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_HaveDuplicates_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.HaveDuplicates*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_HaveDuplicates_System_Int32___" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.HaveDuplicates(System.Int32[])">
+  HaveDuplicates(int[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HaveDuplicates(int[] arr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_IndexOf_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.IndexOf*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_IndexOf__1_System_Void__System_Int32___0_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.IndexOf``1(System.Void*,System.Int32,``0)">
+  IndexOf&lt;T&gt;(void*, int, T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int IndexOf&lt;T&gt;(void* data, int count, T v) where T : struct, IEquatable&lt;T&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>v</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_InsertionSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.InsertionSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_InsertionSort_System_UInt32___System_Int32_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.InsertionSort(System.UInt32[],System.Int32)">
+  InsertionSort(uint[], int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void InsertionSort(uint[] arr, int sortSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</dt>
+    <dd></dd>
+    <dt><code>sortSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_InsertionSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.InsertionSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_InsertionSort_Unity_Collections_NativeArray_System_UInt32__System_Int32_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.InsertionSort(Unity.Collections.NativeArray{System.UInt32},System.Int32)">
+  InsertionSort(NativeArray&lt;uint&gt;, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void InsertionSort(NativeArray&lt;uint&gt; arr, int sortSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arr</code> <span class="xref">NativeArray</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>sortSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_MergeSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.MergeSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_MergeSort_System_UInt32___System_Int32_System_UInt32____" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.MergeSort(System.UInt32[],System.Int32,System.UInt32[]@)">
+  MergeSort(uint[], int, ref uint[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MergeSort(uint[] arr, int sortSize, ref uint[] supportArray)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</dt>
+    <dd></dd>
+    <dt><code>sortSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>supportArray</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_MergeSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.MergeSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_MergeSort_Unity_Collections_NativeArray_System_UInt32__System_Int32_Unity_Collections_NativeArray_System_UInt32___" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.MergeSort(Unity.Collections.NativeArray{System.UInt32},System.Int32,Unity.Collections.NativeArray{System.UInt32}@)">
+  MergeSort(NativeArray&lt;uint&gt;, int, ref NativeArray&lt;uint&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MergeSort(NativeArray&lt;uint&gt; arr, int sortSize, ref NativeArray&lt;uint&gt; supportArray)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arr</code> <span class="xref">NativeArray</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>sortSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>supportArray</code> <span class="xref">NativeArray</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_QuickSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.QuickSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_QuickSort_System_UInt32___System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.QuickSort(System.UInt32[],System.Int32,System.Int32)">
+  QuickSort(uint[], int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void QuickSort(uint[] arr, int left, int right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</dt>
+    <dd></dd>
+    <dt><code>left</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_QuickSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.QuickSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_QuickSort_System_UInt64___System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.QuickSort(System.UInt64[],System.Int32,System.Int32)">
+  QuickSort(ulong[], int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void QuickSort(ulong[] arr, int left, int right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a>[]</dt>
+    <dd></dd>
+    <dt><code>left</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_QuickSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.QuickSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_QuickSort__1_System_Int32_System_Void__" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.QuickSort``1(System.Int32,System.Void*)">
+  QuickSort&lt;T&gt;(int, void*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void QuickSort&lt;T&gt;(int count, void* data) where T : struct, IComparable&lt;T&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_QuickSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.QuickSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_QuickSort__3_System_Int32_System_Void__" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.QuickSort``3(System.Int32,System.Void*)">
+  QuickSort&lt;TValue, TKey, TGetter&gt;(int, void*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void QuickSort&lt;TValue, TKey, TGetter&gt;(int count, void* data) where TValue : struct where TKey : struct, IComparable&lt;TKey&gt; where TGetter : struct, CoreUnsafeUtils.IKeyGetter&lt;TValue, TKey&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TValue</code></dt>
+    <dd></dd>
+    <dt><code>TKey</code></dt>
+    <dd></dd>
+    <dt><code>TGetter</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_QuickSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.QuickSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_QuickSort__3_System_Void__System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.QuickSort``3(System.Void*,System.Int32,System.Int32)">
+  QuickSort&lt;TValue, TKey, TGetter&gt;(void*, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void QuickSort&lt;TValue, TKey, TGetter&gt;(void* data, int left, int right) where TValue : struct where TKey : struct, IComparable&lt;TKey&gt; where TGetter : struct, CoreUnsafeUtils.IKeyGetter&lt;TValue, TKey&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>left</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TValue</code></dt>
+    <dd></dd>
+    <dt><code>TKey</code></dt>
+    <dd></dd>
+    <dt><code>TGetter</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_RadixSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.RadixSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_RadixSort_System_UInt32___System_Int32_System_UInt32____System_Int32_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.RadixSort(System.UInt32[],System.Int32,System.UInt32[]@,System.Int32)">
+  RadixSort(uint[], int, ref uint[], int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RadixSort(uint[] arr, int sortSize, ref uint[] supportArray, int radixBits = 8)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</dt>
+    <dd></dd>
+    <dt><code>sortSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>supportArray</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</dt>
+    <dd></dd>
+    <dt><code>radixBits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUnsafeUtils_RadixSort_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.RadixSort*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUnsafeUtils_RadixSort_Unity_Collections_NativeArray_System_UInt32__System_Int32_Unity_Collections_NativeArray_System_UInt32___System_Int32_" data-uid="UnityEngine.Rendering.CoreUnsafeUtils.RadixSort(Unity.Collections.NativeArray{System.UInt32},System.Int32,Unity.Collections.NativeArray{System.UInt32}@,System.Int32)">
+  RadixSort(NativeArray&lt;uint&gt;, int, ref NativeArray&lt;uint&gt;, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RadixSort(NativeArray&lt;uint&gt; array, int sortSize, ref NativeArray&lt;uint&gt; supportArray, int radixBits = 8)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <span class="xref">NativeArray</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>sortSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>supportArray</code> <span class="xref">NativeArray</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>radixBits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

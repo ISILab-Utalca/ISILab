@@ -1,0 +1,677 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.VisualElements.LBSInspector
+  commentId: T:ISILab.LBS.VisualElements.LBSInspector
+  id: LBSInspector
+  parent: ISILab.LBS.VisualElements
+  children:
+  - ISILab.LBS.VisualElements.LBSInspector.#ctor
+  - ISILab.LBS.VisualElements.LBSInspector.GetInspector(System.Type,LBS.Components.LBSLayer)
+  - ISILab.LBS.VisualElements.LBSInspector.InitCustomEditors(System.Collections.Generic.List{LBS.Components.LBSLayer}@)
+  - ISILab.LBS.VisualElements.LBSInspector.OnFocus
+  - ISILab.LBS.VisualElements.LBSInspector.OnUnfocus
+  - ISILab.LBS.VisualElements.LBSInspector.Repaint
+  - ISILab.LBS.VisualElements.LBSInspector.SetTarget(LBS.Components.LBSLayer)
+  - ISILab.LBS.VisualElements.LBSInspector.activeEditor
+  - ISILab.LBS.VisualElements.LBSInspector.contentPanel
+  - ISILab.LBS.VisualElements.LBSInspector.customEditor
+  - ISILab.LBS.VisualElements.LBSInspector.noContentPanel
+  langs:
+  - csharp
+  - vb
+  name: LBSInspector
+  nameWithType: LBSInspector
+  fullName: ISILab.LBS.VisualElements.LBSInspector
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: 'public abstract class LBSInspector : VisualElement'
+    content.vb: Public MustInherit Class LBSInspector Inherits VisualElement
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.VisualElements.LBSLocalAssistants
+  - ISILab.LBS.VisualElements.LBSLocalBehaviours
+  - ISILab.LBS.VisualElements.LBSLocalCurrent
+- uid: ISILab.LBS.VisualElements.LBSInspector.customEditor
+  commentId: F:ISILab.LBS.VisualElements.LBSInspector.customEditor
+  id: customEditor
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: customEditor
+  nameWithType: LBSInspector.customEditor
+  fullName: ISILab.LBS.VisualElements.LBSInspector.customEditor
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected Dictionary<Type, Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>> customEditor
+    return:
+      type: System.Collections.Generic.Dictionary{System.Type,System.Tuple{System.Type,System.Collections.Generic.IEnumerable{ISILab.LBS.LBSCustomEditorAttribute}}}
+    content.vb: Protected customEditor As Dictionary(Of Type, Tuple(Of Type, IEnumerable(Of LBSCustomEditorAttribute)))
+- uid: ISILab.LBS.VisualElements.LBSInspector.activeEditor
+  commentId: F:ISILab.LBS.VisualElements.LBSInspector.activeEditor
+  id: activeEditor
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: activeEditor
+  nameWithType: LBSInspector.activeEditor
+  fullName: ISILab.LBS.VisualElements.LBSInspector.activeEditor
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected Dictionary<InspectorInstance, VisualElement> activeEditor
+    return:
+      type: System.Collections.Generic.Dictionary{ISILab.LBS.VisualElements.InspectorInstance,UnityEngine.UIElements.VisualElement}
+    content.vb: Protected activeEditor As Dictionary(Of InspectorInstance, VisualElement)
+- uid: ISILab.LBS.VisualElements.LBSInspector.noContentPanel
+  commentId: F:ISILab.LBS.VisualElements.LBSInspector.noContentPanel
+  id: noContentPanel
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: noContentPanel
+  nameWithType: LBSInspector.noContentPanel
+  fullName: ISILab.LBS.VisualElements.LBSInspector.noContentPanel
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected VisualElement noContentPanel
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Protected noContentPanel As VisualElement
+- uid: ISILab.LBS.VisualElements.LBSInspector.contentPanel
+  commentId: F:ISILab.LBS.VisualElements.LBSInspector.contentPanel
+  id: contentPanel
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: contentPanel
+  nameWithType: LBSInspector.contentPanel
+  fullName: ISILab.LBS.VisualElements.LBSInspector.contentPanel
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected VisualElement contentPanel
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Protected contentPanel As VisualElement
+- uid: ISILab.LBS.VisualElements.LBSInspector.OnFocus
+  commentId: F:ISILab.LBS.VisualElements.LBSInspector.OnFocus
+  id: OnFocus
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: OnFocus
+  nameWithType: LBSInspector.OnFocus
+  fullName: ISILab.LBS.VisualElements.LBSInspector.OnFocus
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Action OnFocus
+    return:
+      type: System.Action
+    content.vb: Public OnFocus As Action
+- uid: ISILab.LBS.VisualElements.LBSInspector.OnUnfocus
+  commentId: F:ISILab.LBS.VisualElements.LBSInspector.OnUnfocus
+  id: OnUnfocus
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: OnUnfocus
+  nameWithType: LBSInspector.OnUnfocus
+  fullName: ISILab.LBS.VisualElements.LBSInspector.OnUnfocus
+  type: Field
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public Action OnUnfocus
+    return:
+      type: System.Action
+    content.vb: Public OnUnfocus As Action
+- uid: ISILab.LBS.VisualElements.LBSInspector.InitCustomEditors(System.Collections.Generic.List{LBS.Components.LBSLayer}@)
+  commentId: M:ISILab.LBS.VisualElements.LBSInspector.InitCustomEditors(System.Collections.Generic.List{LBS.Components.LBSLayer}@)
+  id: InitCustomEditors(System.Collections.Generic.List{LBS.Components.LBSLayer}@)
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: InitCustomEditors(ref List<LBSLayer>)
+  nameWithType: LBSInspector.InitCustomEditors(ref List<LBSLayer>)
+  fullName: ISILab.LBS.VisualElements.LBSInspector.InitCustomEditors(ref System.Collections.Generic.List<LBS.Components.LBSLayer>)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public abstract void InitCustomEditors(ref List<LBSLayer> layers)
+    parameters:
+    - id: layers
+      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
+    content.vb: Public MustOverride Sub InitCustomEditors(layers As List(Of LBSLayer))
+  overload: ISILab.LBS.VisualElements.LBSInspector.InitCustomEditors*
+  nameWithType.vb: LBSInspector.InitCustomEditors(List(Of LBSLayer))
+  fullName.vb: ISILab.LBS.VisualElements.LBSInspector.InitCustomEditors(System.Collections.Generic.List(Of LBS.Components.LBSLayer))
+  name.vb: InitCustomEditors(List(Of LBSLayer))
+- uid: ISILab.LBS.VisualElements.LBSInspector.SetTarget(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.VisualElements.LBSInspector.SetTarget(LBS.Components.LBSLayer)
+  id: SetTarget(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: SetTarget(LBSLayer)
+  nameWithType: LBSInspector.SetTarget(LBSLayer)
+  fullName: ISILab.LBS.VisualElements.LBSInspector.SetTarget(LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public abstract void SetTarget(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public MustOverride Sub SetTarget(layer As LBSLayer)
+  overload: ISILab.LBS.VisualElements.LBSInspector.SetTarget*
+- uid: ISILab.LBS.VisualElements.LBSInspector.Repaint
+  commentId: M:ISILab.LBS.VisualElements.LBSInspector.Repaint
+  id: Repaint
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: Repaint()
+  nameWithType: LBSInspector.Repaint()
+  fullName: ISILab.LBS.VisualElements.LBSInspector.Repaint()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public virtual void Repaint()
+    content.vb: Public Overridable Sub Repaint()
+  overload: ISILab.LBS.VisualElements.LBSInspector.Repaint*
+- uid: ISILab.LBS.VisualElements.LBSInspector.GetInspector(System.Type,LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.VisualElements.LBSInspector.GetInspector(System.Type,LBS.Components.LBSLayer)
+  id: GetInspector(System.Type,LBS.Components.LBSLayer)
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: GetInspector(Type, LBSLayer)
+  nameWithType: LBSInspector.GetInspector(Type, LBSLayer)
+  fullName: ISILab.LBS.VisualElements.LBSInspector.GetInspector(System.Type, LBS.Components.LBSLayer)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public VisualElement GetInspector(Type ObjectType, LBSLayer Layer)
+    parameters:
+    - id: ObjectType
+      type: System.Type
+    - id: Layer
+      type: LBS.Components.LBSLayer
+    return:
+      type: UnityEngine.UIElements.VisualElement
+    content.vb: Public Function GetInspector(ObjectType As Type, Layer As LBSLayer) As VisualElement
+  overload: ISILab.LBS.VisualElements.LBSInspector.GetInspector*
+- uid: ISILab.LBS.VisualElements.LBSInspector.#ctor
+  commentId: M:ISILab.LBS.VisualElements.LBSInspector.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.VisualElements.LBSInspector
+  langs:
+  - csharp
+  - vb
+  name: LBSInspector()
+  nameWithType: LBSInspector.LBSInspector()
+  fullName: ISILab.LBS.VisualElements.LBSInspector.LBSInspector()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: protected LBSInspector()
+    content.vb: Protected Sub New()
+  overload: ISILab.LBS.VisualElements.LBSInspector.#ctor*
+  nameWithType.vb: LBSInspector.New()
+  fullName.vb: ISILab.LBS.VisualElements.LBSInspector.New()
+  name.vb: New()
+references:
+- uid: ISILab.LBS.VisualElements
+  commentId: N:ISILab.LBS.VisualElements
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.VisualElements
+  nameWithType: ISILab.LBS.VisualElements
+  fullName: ISILab.LBS.VisualElements
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: ISILab.LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.Dictionary{System.Type,System.Tuple{System.Type,System.Collections.Generic.IEnumerable{ISILab.LBS.LBSCustomEditorAttribute}}}
+  commentId: T:System.Collections.Generic.Dictionary{System.Type,System.Tuple{System.Type,System.Collections.Generic.IEnumerable{ISILab.LBS.LBSCustomEditorAttribute}}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<Type, Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>>
+  nameWithType: Dictionary<Type, Tuple<Type, IEnumerable<LBSCustomEditorAttribute>>>
+  fullName: System.Collections.Generic.Dictionary<System.Type, System.Tuple<System.Type, System.Collections.Generic.IEnumerable<ISILab.LBS.LBSCustomEditorAttribute>>>
+  nameWithType.vb: Dictionary(Of Type, Tuple(Of Type, IEnumerable(Of LBSCustomEditorAttribute)))
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.Type, System.Tuple(Of System.Type, System.Collections.Generic.IEnumerable(Of ISILab.LBS.LBSCustomEditorAttribute)))
+  name.vb: Dictionary(Of Type, Tuple(Of Type, IEnumerable(Of LBSCustomEditorAttribute)))
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ISILab.LBS.LBSCustomEditorAttribute
+    name: LBSCustomEditorAttribute
+    isExternal: true
+    href: ISILab.LBS.LBSCustomEditorAttribute.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.LBSCustomEditorAttribute
+    name: LBSCustomEditorAttribute
+    isExternal: true
+    href: ISILab.LBS.LBSCustomEditorAttribute.html
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.Dictionary{ISILab.LBS.VisualElements.InspectorInstance,UnityEngine.UIElements.VisualElement}
+  commentId: T:System.Collections.Generic.Dictionary{ISILab.LBS.VisualElements.InspectorInstance,UnityEngine.UIElements.VisualElement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<InspectorInstance, VisualElement>
+  nameWithType: Dictionary<InspectorInstance, VisualElement>
+  fullName: System.Collections.Generic.Dictionary<ISILab.LBS.VisualElements.InspectorInstance, UnityEngine.UIElements.VisualElement>
+  nameWithType.vb: Dictionary(Of InspectorInstance, VisualElement)
+  fullName.vb: System.Collections.Generic.Dictionary(Of ISILab.LBS.VisualElements.InspectorInstance, UnityEngine.UIElements.VisualElement)
+  name.vb: Dictionary(Of InspectorInstance, VisualElement)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: ISILab.LBS.VisualElements.InspectorInstance
+    name: InspectorInstance
+    isExternal: true
+    href: ISILab.LBS.VisualElements.InspectorInstance.html
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.UIElements.VisualElement
+    name: VisualElement
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.VisualElements.InspectorInstance
+    name: InspectorInstance
+    isExternal: true
+    href: ISILab.LBS.VisualElements.InspectorInstance.html
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.UIElements.VisualElement
+    name: VisualElement
+    isExternal: true
+  - name: )
+- uid: UnityEngine.UIElements.VisualElement
+  isExternal: true
+  name: VisualElement
+  nameWithType: VisualElement
+  fullName: UnityEngine.UIElements.VisualElement
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.VisualElements.LBSInspector.InitCustomEditors*
+  commentId: Overload:ISILab.LBS.VisualElements.LBSInspector.InitCustomEditors
+  isExternal: true
+  href: ISILab.LBS.VisualElements.LBSInspector.html#ISILab_LBS_VisualElements_LBSInspector_InitCustomEditors_System_Collections_Generic_List_LBS_Components_LBSLayer___
+  name: InitCustomEditors
+  nameWithType: LBSInspector.InitCustomEditors
+  fullName: ISILab.LBS.VisualElements.LBSInspector.InitCustomEditors
+- uid: System.Collections.Generic.List{LBS.Components.LBSLayer}
+  commentId: T:System.Collections.Generic.List{LBS.Components.LBSLayer}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSLayer>
+  nameWithType: List<LBSLayer>
+  fullName: System.Collections.Generic.List<LBS.Components.LBSLayer>
+  nameWithType.vb: List(Of LBSLayer)
+  fullName.vb: System.Collections.Generic.List(Of LBS.Components.LBSLayer)
+  name.vb: List(Of LBSLayer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.VisualElements.LBSInspector.SetTarget*
+  commentId: Overload:ISILab.LBS.VisualElements.LBSInspector.SetTarget
+  isExternal: true
+  href: ISILab.LBS.VisualElements.LBSInspector.html#ISILab_LBS_VisualElements_LBSInspector_SetTarget_LBS_Components_LBSLayer_
+  name: SetTarget
+  nameWithType: LBSInspector.SetTarget
+  fullName: ISILab.LBS.VisualElements.LBSInspector.SetTarget
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  isExternal: true
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  isExternal: true
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    isExternal: true
+    href: LBS.Components.html
+- uid: ISILab.LBS.VisualElements.LBSInspector.Repaint*
+  commentId: Overload:ISILab.LBS.VisualElements.LBSInspector.Repaint
+  isExternal: true
+  href: ISILab.LBS.VisualElements.LBSInspector.html#ISILab_LBS_VisualElements_LBSInspector_Repaint
+  name: Repaint
+  nameWithType: LBSInspector.Repaint
+  fullName: ISILab.LBS.VisualElements.LBSInspector.Repaint
+- uid: ISILab.LBS.VisualElements.LBSInspector.GetInspector*
+  commentId: Overload:ISILab.LBS.VisualElements.LBSInspector.GetInspector
+  isExternal: true
+  href: ISILab.LBS.VisualElements.LBSInspector.html#ISILab_LBS_VisualElements_LBSInspector_GetInspector_System_Type_LBS_Components_LBSLayer_
+  name: GetInspector
+  nameWithType: LBSInspector.GetInspector
+  fullName: ISILab.LBS.VisualElements.LBSInspector.GetInspector
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: ISILab.LBS.VisualElements.LBSInspector.#ctor*
+  commentId: Overload:ISILab.LBS.VisualElements.LBSInspector.#ctor
+  isExternal: true
+  href: ISILab.LBS.VisualElements.LBSInspector.html#ISILab_LBS_VisualElements_LBSInspector__ctor
+  name: LBSInspector
+  nameWithType: LBSInspector.LBSInspector
+  fullName: ISILab.LBS.VisualElements.LBSInspector.LBSInspector
+  nameWithType.vb: LBSInspector.New
+  fullName.vb: ISILab.LBS.VisualElements.LBSInspector.New
+  name.vb: New
+shouldSkipMarkup: true

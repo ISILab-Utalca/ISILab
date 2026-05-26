@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AOVRecorderSettings | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AOVRecorderSettings | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEditor.Recorder.AOVRecorderSettings">
+
+
+
+  <h1 id="UnityEditor_Recorder_AOVRecorderSettings" data-uid="UnityEditor.Recorder.AOVRecorderSettings" class="text-break">
+Class AOVRecorderSettings  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEditor.html">UnityEditor</a>.<a class="xref" href="UnityEditor.Recorder.html">Recorder</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Recorder.Editor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[RecorderSettings(typeof(AOVRecorder), &quot;AOV Image Sequence&quot;, &quot;aovimagesequence_16&quot;)]
+public class AOVRecorderSettings : RecorderSettings, ISerializationCallbackReceiver</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEditor.Recorder.RecorderSettings.html">RecorderSettings</a></div>
+      <div><span class="xref">AOVRecorderSettings</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ISerializationCallbackReceiver</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_ValidityCheck_System_Collections_Generic_List_System_String__">RecorderSettings.ValidityCheck(List&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_GetWarnings_System_Collections_Generic_List_System_String__">RecorderSettings.GetWarnings(List&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_OnAfterDuplicate">RecorderSettings.OnAfterDuplicate()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_HasErrors">RecorderSettings.HasErrors()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_IsAccumulationSupported">RecorderSettings.IsAccumulationSupported()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_OnBeforeSerialize">RecorderSettings.OnBeforeSerialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_OnAfterDeserialize">RecorderSettings.OnAfterDeserialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_OutputFile">RecorderSettings.OutputFile</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_Enabled">RecorderSettings.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_Take">RecorderSettings.Take</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_FileNameGenerator">RecorderSettings.FileNameGenerator</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_RecordMode">RecorderSettings.RecordMode</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_FrameRatePlayback">RecorderSettings.FrameRatePlayback</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_FrameRate">RecorderSettings.FrameRate</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_StartFrame">RecorderSettings.StartFrame</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_EndFrame">RecorderSettings.EndFrame</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_StartTime">RecorderSettings.StartTime</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_EndTime">RecorderSettings.EndTime</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_CapFrameRate">RecorderSettings.CapFrameRate</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEditor.Recorder.RecorderSettings.html#UnityEditor_Recorder_RecorderSettings_IsPlatformSupported">RecorderSettings.IsPlatformSupported</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings__ctor_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.#ctor*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings__ctor" data-uid="UnityEditor.Recorder.AOVRecorderSettings.#ctor">
+  AOVRecorderSettings()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AOVRecorderSettings()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_AOVSelection_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.AOVSelection*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_AOVSelection" data-uid="UnityEditor.Recorder.AOVRecorderSettings.AOVSelection">
+  AOVSelection
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Get/SetAOVSelection to choose the AOVs&quot;)]
+public AOVType AOVSelection { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.Recorder.AOVType.html">AOVType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_CaptureHDR_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.CaptureHDR*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_CaptureHDR" data-uid="UnityEditor.Recorder.AOVRecorderSettings.CaptureHDR">
+  CaptureHDR
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CaptureHDR { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_EXRCompression_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.EXRCompression*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_EXRCompression" data-uid="UnityEditor.Recorder.AOVRecorderSettings.EXRCompression">
+  EXRCompression
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CompressionUtility.EXRCompressionType EXRCompression { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.Recorder.CompressionUtility.html">CompressionUtility</a>.<a class="xref" href="UnityEditor.Recorder.CompressionUtility.EXRCompressionType.html">EXRCompressionType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_EXRCompressionLevel_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.EXRCompressionLevel*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_EXRCompressionLevel" data-uid="UnityEditor.Recorder.AOVRecorderSettings.EXRCompressionLevel">
+  EXRCompressionLevel
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int EXRCompressionLevel { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_Extension_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.Extension*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_Extension" data-uid="UnityEditor.Recorder.AOVRecorderSettings.Extension">
+  Extension
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string Extension { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_InputsSettings_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.InputsSettings*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_InputsSettings" data-uid="UnityEditor.Recorder.AOVRecorderSettings.InputsSettings">
+  InputsSettings
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;RecorderInputSettings&gt; InputsSettings { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UnityEditor.Recorder.RecorderInputSettings.html">RecorderInputSettings</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_IsMultiPartEXR_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.IsMultiPartEXR*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_IsMultiPartEXR" data-uid="UnityEditor.Recorder.AOVRecorderSettings.IsMultiPartEXR">
+  IsMultiPartEXR
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsMultiPartEXR { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_LatestVersion_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.LatestVersion*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_LatestVersion" data-uid="UnityEditor.Recorder.AOVRecorderSettings.LatestVersion">
+  LatestVersion
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override int LatestVersion { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_OutputColorSpace_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.OutputColorSpace*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_OutputColorSpace" data-uid="UnityEditor.Recorder.AOVRecorderSettings.OutputColorSpace">
+  OutputColorSpace
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImageRecorderSettings.ColorSpaceType OutputColorSpace { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.Recorder.ImageRecorderSettings.html">ImageRecorderSettings</a>.<a class="xref" href="UnityEditor.Recorder.ImageRecorderSettings.ColorSpaceType.html">ColorSpaceType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_OutputFormat_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.OutputFormat*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_OutputFormat" data-uid="UnityEditor.Recorder.AOVRecorderSettings.OutputFormat">
+  OutputFormat
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImageRecorderSettings.ImageRecorderOutputFormat OutputFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.Recorder.ImageRecorderSettings.html">ImageRecorderSettings</a>.<a class="xref" href="UnityEditor.Recorder.ImageRecorderSettings.ImageRecorderOutputFormat.html">ImageRecorderOutputFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_Version_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.Version*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_Version" data-uid="UnityEditor.Recorder.AOVRecorderSettings.Version">
+  Version
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override int Version { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_imageInputSettings_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.imageInputSettings*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_imageInputSettings" data-uid="UnityEditor.Recorder.AOVRecorderSettings.imageInputSettings">
+  imageInputSettings
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImageInputSettings imageInputSettings { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.Recorder.Input.ImageInputSettings.html">ImageInputSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_GetAOVSelection_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.GetAOVSelection*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_GetAOVSelection" data-uid="UnityEditor.Recorder.AOVRecorderSettings.GetAOVSelection">
+  GetAOVSelection()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AOVType[] GetAOVSelection()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEditor.Recorder.AOVType.html">AOVType</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_GetErrors_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.GetErrors*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_GetErrors_System_Collections_Generic_List_System_String__" data-uid="UnityEditor.Recorder.AOVRecorderSettings.GetErrors(System.Collections.Generic.List{System.String})">
+  GetErrors(List&lt;string&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void GetErrors(List&lt;string&gt; errors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>errors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_OnUpgradeFromVersion_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.OnUpgradeFromVersion*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_OnUpgradeFromVersion" data-uid="UnityEditor.Recorder.AOVRecorderSettings.OnUpgradeFromVersion">
+  OnUpgradeFromVersion()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnUpgradeFromVersion()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEditor_Recorder_AOVRecorderSettings_SetAOVSelection_" data-uid="UnityEditor.Recorder.AOVRecorderSettings.SetAOVSelection*"></a>
+
+  <h3 id="UnityEditor_Recorder_AOVRecorderSettings_SetAOVSelection_UnityEditor_Recorder_AOVType___" data-uid="UnityEditor.Recorder.AOVRecorderSettings.SetAOVSelection(UnityEditor.Recorder.AOVType[])">
+  SetAOVSelection(params AOVType[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetAOVSelection(params AOVType[] value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="UnityEditor.Recorder.AOVType.html">AOVType</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

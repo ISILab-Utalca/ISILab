@@ -1,0 +1,391 @@
+### YamlMime:ManagedReference
+items:
+- uid: OGVis.PlayerLog.EventRecord
+  commentId: T:OGVis.PlayerLog.EventRecord
+  id: PlayerLog.EventRecord
+  parent: OGVis
+  children:
+  - OGVis.PlayerLog.EventRecord.#ctor(System.Single,UnityEngine.Vector3)
+  - OGVis.PlayerLog.EventRecord.pos
+  - OGVis.PlayerLog.EventRecord.realPos
+  - OGVis.PlayerLog.EventRecord.timestamp
+  langs:
+  - csharp
+  - vb
+  name: PlayerLog.EventRecord
+  nameWithType: PlayerLog.EventRecord
+  fullName: OGVis.PlayerLog.EventRecord
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public abstract class PlayerLog.EventRecord
+    content.vb: Public MustInherit Class PlayerLog.EventRecord
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - OGVis.PlayerLog.InteractionEvent
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: OGVis.PlayerLog.EventRecord.timestamp
+  commentId: F:OGVis.PlayerLog.EventRecord.timestamp
+  id: timestamp
+  parent: OGVis.PlayerLog.EventRecord
+  langs:
+  - csharp
+  - vb
+  name: timestamp
+  nameWithType: PlayerLog.EventRecord.timestamp
+  fullName: OGVis.PlayerLog.EventRecord.timestamp
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public float timestamp
+    return:
+      type: System.Single
+    content.vb: Public timestamp As Single
+- uid: OGVis.PlayerLog.EventRecord.realPos
+  commentId: F:OGVis.PlayerLog.EventRecord.realPos
+  id: realPos
+  parent: OGVis.PlayerLog.EventRecord
+  langs:
+  - csharp
+  - vb
+  name: realPos
+  nameWithType: PlayerLog.EventRecord.realPos
+  fullName: OGVis.PlayerLog.EventRecord.realPos
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public Vector3 realPos
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public realPos As Vector3
+- uid: OGVis.PlayerLog.EventRecord.pos
+  commentId: F:OGVis.PlayerLog.EventRecord.pos
+  id: pos
+  parent: OGVis.PlayerLog.EventRecord
+  langs:
+  - csharp
+  - vb
+  name: pos
+  nameWithType: PlayerLog.EventRecord.pos
+  fullName: OGVis.PlayerLog.EventRecord.pos
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public Vector3 pos
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public pos As Vector3
+- uid: OGVis.PlayerLog.EventRecord.#ctor(System.Single,UnityEngine.Vector3)
+  commentId: M:OGVis.PlayerLog.EventRecord.#ctor(System.Single,UnityEngine.Vector3)
+  id: '#ctor(System.Single,UnityEngine.Vector3)'
+  parent: OGVis.PlayerLog.EventRecord
+  langs:
+  - csharp
+  - vb
+  name: EventRecord(float, Vector3)
+  nameWithType: PlayerLog.EventRecord.EventRecord(float, Vector3)
+  fullName: OGVis.PlayerLog.EventRecord.EventRecord(float, UnityEngine.Vector3)
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: OGVis
+  syntax:
+    content: public EventRecord(float timestamp, Vector3 pos)
+    parameters:
+    - id: timestamp
+      type: System.Single
+    - id: pos
+      type: UnityEngine.Vector3
+    content.vb: Public Sub New(timestamp As Single, pos As Vector3)
+  overload: OGVis.PlayerLog.EventRecord.#ctor*
+  nameWithType.vb: PlayerLog.EventRecord.New(Single, Vector3)
+  fullName.vb: OGVis.PlayerLog.EventRecord.New(Single, UnityEngine.Vector3)
+  name.vb: New(Single, Vector3)
+references:
+- uid: OGVis
+  commentId: N:OGVis
+  isExternal: true
+  href: OGVis.html
+  name: OGVis
+  nameWithType: OGVis
+  fullName: OGVis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: OGVis.PlayerLog.EventRecord.#ctor*
+  commentId: Overload:OGVis.PlayerLog.EventRecord.#ctor
+  isExternal: true
+  href: OGVis.PlayerLog.EventRecord.html#OGVis_PlayerLog_EventRecord__ctor_System_Single_UnityEngine_Vector3_
+  name: EventRecord
+  nameWithType: PlayerLog.EventRecord.EventRecord
+  fullName: OGVis.PlayerLog.EventRecord.EventRecord
+  nameWithType.vb: PlayerLog.EventRecord.New
+  fullName.vb: OGVis.PlayerLog.EventRecord.New
+  name.vb: New
+shouldSkipMarkup: true

@@ -1,0 +1,336 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler
+  id: LBSTriggerHandler
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  children:
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.#ctor
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.ActivationMode
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.GenEventHook
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.Hooker
+  langs:
+  - csharp
+  - vb
+  name: LBSTriggerHandler
+  nameWithType: LBSTriggerHandler
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: 'public class LBSTriggerHandler : MonoBehaviour'
+    content.vb: Public Class LBSTriggerHandler Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.#ctor
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler
+  langs:
+  - csharp
+  - vb
+  name: LBSTriggerHandler()
+  nameWithType: LBSTriggerHandler.LBSTriggerHandler()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.LBSTriggerHandler()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public LBSTriggerHandler()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.#ctor*
+  nameWithType.vb: LBSTriggerHandler.New()
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.New()
+  name.vb: New()
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.Hooker
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.Hooker
+  id: Hooker
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler
+  langs:
+  - csharp
+  - vb
+  name: Hooker
+  nameWithType: LBSTriggerHandler.Hooker
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.Hooker
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public LBSEventHooker Hooker { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+    content.vb: Public Property Hooker As LBSEventHooker
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.Hooker*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.GenEventHook
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.GenEventHook
+  id: GenEventHook
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler
+  langs:
+  - csharp
+  - vb
+  name: GenEventHook
+  nameWithType: LBSTriggerHandler.GenEventHook
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.GenEventHook
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public LBSGeneratedEventHook GenEventHook { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratedEventHook
+    content.vb: Public ReadOnly Property GenEventHook As LBSGeneratedEventHook
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.GenEventHook*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.ActivationMode
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.ActivationMode
+  id: ActivationMode
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler
+  langs:
+  - csharp
+  - vb
+  name: ActivationMode
+  nameWithType: LBSTriggerHandler.ActivationMode
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.ActivationMode
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public TriggerActivationMode ActivationMode { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.TriggerActivationMode
+    content.vb: Public ReadOnly Property ActivationMode As TriggerActivationMode
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.ActivationMode*
+references:
+- uid: ISILab.LBS.Plugin.MapTools.Generators
+  commentId: N:ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.Generators
+  nameWithType: ISILab.LBS.Plugin.MapTools.Generators
+  fullName: ISILab.LBS.Plugin.MapTools.Generators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    isExternal: true
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.#ctor
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.html#ISILab_LBS_Plugin_MapTools_Generators_LBSTriggerHandler__ctor
+  name: LBSTriggerHandler
+  nameWithType: LBSTriggerHandler.LBSTriggerHandler
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.LBSTriggerHandler
+  nameWithType.vb: LBSTriggerHandler.New
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.New
+  name.vb: New
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.Hooker*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.Hooker
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.html#ISILab_LBS_Plugin_MapTools_Generators_LBSTriggerHandler_Hooker
+  name: Hooker
+  nameWithType: LBSTriggerHandler.Hooker
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.Hooker
+- uid: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+  commentId: T:ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+  parent: ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.LBSEventHooker.html
+  name: LBSEventHooker
+  nameWithType: LBSEventHooker
+  fullName: ISILab.LBS.Plugin.Components.Data.LBSEventHooker
+- uid: ISILab.LBS.Plugin.Components.Data
+  commentId: N:ISILab.LBS.Plugin.Components.Data
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data
+  nameWithType: ISILab.LBS.Plugin.Components.Data
+  fullName: ISILab.LBS.Plugin.Components.Data
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.GenEventHook*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.GenEventHook
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.html#ISILab_LBS_Plugin_MapTools_Generators_LBSTriggerHandler_GenEventHook
+  name: GenEventHook
+  nameWithType: LBSTriggerHandler.GenEventHook
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.GenEventHook
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratedEventHook
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratedEventHook
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratedEventHook.html
+  name: LBSGeneratedEventHook
+  nameWithType: LBSGeneratedEventHook
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratedEventHook
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.ActivationMode*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.ActivationMode
+  isExternal: true
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.html#ISILab_LBS_Plugin_MapTools_Generators_LBSTriggerHandler_ActivationMode
+  name: ActivationMode
+  nameWithType: LBSTriggerHandler.ActivationMode
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSTriggerHandler.ActivationMode
+- uid: ISILab.LBS.Components.TriggerActivationMode
+  commentId: T:ISILab.LBS.Components.TriggerActivationMode
+  parent: ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.LBS.Components.TriggerActivationMode.html
+  name: TriggerActivationMode
+  nameWithType: TriggerActivationMode
+  fullName: ISILab.LBS.Components.TriggerActivationMode
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Components.html
+shouldSkipMarkup: true

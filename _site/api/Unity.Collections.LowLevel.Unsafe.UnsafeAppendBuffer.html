@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct UnsafeAppendBuffer | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct UnsafeAppendBuffer | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer">
+
+
+
+  <h1 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer" class="text-break">
+Struct UnsafeAppendBuffer  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Unity.html">Unity</a>.<a class="xref" href="Unity.Collections.html">Collections</a>.<a class="xref" href="Unity.Collections.LowLevel.html">LowLevel</a>.<a class="xref" href="Unity.Collections.LowLevel.Unsafe.html">Unsafe</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Collections.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility]
+public struct UnsafeAppendBuffer : INativeDisposable, IDisposable</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Unity.Collections.INativeDisposable.html">INativeDisposable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Unity.Collections.LowLevel.Unsafe.NotBurstCompatible.Extensions.html#Unity_Collections_LowLevel_Unsafe_NotBurstCompatible_Extensions_AddNBC_Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer__System_String_">Extensions.AddNBC(ref UnsafeAppendBuffer, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="Unity.Collections.LowLevel.Unsafe.NotBurstCompatible.Extensions.html#Unity_Collections_LowLevel_Unsafe_NotBurstCompatible_Extensions_ToBytesNBC_Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer__">Extensions.ToBytesNBC(ref UnsafeAppendBuffer)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer__ctor_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.#ctor*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer__ctor_System_Int32_System_Int32_Unity_Collections_AllocatorManager_AllocatorHandle_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.#ctor(System.Int32,System.Int32,Unity.Collections.AllocatorManager.AllocatorHandle)">
+  UnsafeAppendBuffer(int, int, AllocatorHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnsafeAppendBuffer(int initialCapacity, int alignment, AllocatorManager.AllocatorHandle allocator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>initialCapacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>alignment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>allocator</code> <a class="xref" href="Unity.Collections.AllocatorManager.html">AllocatorManager</a>.<a class="xref" href="Unity.Collections.AllocatorManager.AllocatorHandle.html">AllocatorHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer__ctor_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.#ctor*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer__ctor_System_Void__System_Int32_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.#ctor(System.Void*,System.Int32)">
+  UnsafeAppendBuffer(void*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnsafeAppendBuffer(void* ptr, int length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Alignment" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Alignment">
+  Alignment
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int Alignment</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Allocator" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Allocator">
+  Allocator
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AllocatorManager.AllocatorHandle Allocator</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.AllocatorManager.html">AllocatorManager</a>.<a class="xref" href="Unity.Collections.AllocatorManager.AllocatorHandle.html">AllocatorHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Capacity" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Capacity">
+  Capacity
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Capacity</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Length" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Length">
+  Length
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Length</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Ptr" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Ptr">
+  Ptr
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte* Ptr</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_IsCreated_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.IsCreated*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_IsCreated" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.IsCreated">
+  IsCreated
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsCreated { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_IsEmpty_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.IsEmpty*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_IsEmpty" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.IsEmpty">
+  IsEmpty
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsEmpty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Add_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Add*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Add_System_Void__System_Int32_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Add(System.Void*,System.Int32)">
+  Add(void*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(void* ptr, int structSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>structSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_AddArray_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.AddArray*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_AddArray__1_System_Void__System_Int32_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.AddArray``1(System.Void*,System.Int32)">
+  AddArray&lt;T&gt;(void*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public void AddArray&lt;T&gt;(void* ptr, int length) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Add_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Add*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Add__1_Unity_Collections_NativeArray___0__" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Add``1(Unity.Collections.NativeArray{``0})">
+  Add&lt;T&gt;(NativeArray&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public void Add&lt;T&gt;(NativeArray&lt;T&gt; value) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">NativeArray</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Add_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Add*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Add__1___0_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Add``1(``0)">
+  Add&lt;T&gt;(T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public void Add&lt;T&gt;(T value) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_AsReader_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.AsReader*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_AsReader" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.AsReader">
+  AsReader()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnsafeAppendBuffer.Reader AsReader()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.html">UnsafeAppendBuffer</a>.<a class="xref" href="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Reader.html">Reader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Dispose_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Dispose*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Dispose" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Dispose_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Dispose*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Dispose_Unity_Jobs_JobHandle_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Dispose(Unity.Jobs.JobHandle)">
+  Dispose(JobHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JobHandle Dispose(JobHandle inputDeps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputDeps</code> <span class="xref">JobHandle</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">JobHandle</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Pop_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Pop*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Pop_System_Void__System_Int32_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Pop(System.Void*,System.Int32)">
+  Pop(void*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Pop(void* ptr, int structSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>structSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Pop_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Pop*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Pop__1" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Pop``1">
+  Pop&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility(GenericTypeArguments = new Type[] { typeof(int) })]
+public T Pop&lt;T&gt;() where T : unmanaged</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Reset_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Reset*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_Reset" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.Reset">
+  Reset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_ResizeUninitialized_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.ResizeUninitialized*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_ResizeUninitialized_System_Int32_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.ResizeUninitialized(System.Int32)">
+  ResizeUninitialized(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResizeUninitialized(int length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_SetCapacity_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.SetCapacity*"></a>
+
+  <h3 id="Unity_Collections_LowLevel_Unsafe_UnsafeAppendBuffer_SetCapacity_System_Int32_" data-uid="Unity.Collections.LowLevel.Unsafe.UnsafeAppendBuffer.SetCapacity(System.Int32)">
+  SetCapacity(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCapacity(int capacity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

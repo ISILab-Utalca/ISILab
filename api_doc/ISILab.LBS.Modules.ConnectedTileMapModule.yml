@@ -1,0 +1,2228 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule
+  commentId: T:ISILab.LBS.Modules.ConnectedTileMapModule
+  id: ConnectedTileMapModule
+  parent: ISILab.LBS.Modules
+  children:
+  - ISILab.LBS.Modules.ConnectedTileMapModule.#ctor
+  - ISILab.LBS.Modules.ConnectedTileMapModule.#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},System.Int32,ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.AddPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  - ISILab.LBS.Modules.ConnectedTileMapModule.Clear
+  - ISILab.LBS.Modules.ConnectedTileMapModule.Clone
+  - ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
+  - ISILab.LBS.Modules.ConnectedTileMapModule.Equals(System.Object)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.GetAllPairsWithConnections(System.String[])
+  - ISILab.LBS.Modules.ConnectedTileMapModule.GetBounds
+  - ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections(UnityEngine.Vector2Int)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.GetHashCode
+  - ISILab.LBS.Modules.ConnectedTileMapModule.GetPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.GetPair(UnityEngine.Vector2Int)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.GridType
+  - ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding(UnityEngine.Rect,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.IsEmpty
+  - ISILab.LBS.Modules.ConnectedTileMapModule.JPSDistances
+  - ISILab.LBS.Modules.ConnectedTileMapModule.OnAddPair
+  - ISILab.LBS.Modules.ConnectedTileMapModule.OnRemovePair
+  - ISILab.LBS.Modules.ConnectedTileMapModule.Pairs
+  - ISILab.LBS.Modules.ConnectedTileMapModule.Pathfind
+  - ISILab.LBS.Modules.ConnectedTileMapModule.PathfindNodes
+  - ISILab.LBS.Modules.ConnectedTileMapModule.Print
+  - ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(ISILab.LBS.Modules.TileConnectionsPair)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(System.Int32)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.SetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  langs:
+  - csharp
+  - vb
+  name: ConnectedTileMapModule
+  nameWithType: ConnectedTileMapModule
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: 'public class ConnectedTileMapModule : LBSModule, ICloneable'
+    content.vb: Public Class ConnectedTileMapModule Inherits LBSModule Implements ICloneable
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Modules.LBSModule
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - ISILab.LBS.Modules.LBSModule.id
+  - ISILab.LBS.Modules.LBSModule.OnChanged
+  - ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  - ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  - ISILab.LBS.Modules.LBSModule.OwnerLayer
+  - ISILab.LBS.Modules.LBSModule.ID
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Pathfind
+  commentId: F:ISILab.LBS.Modules.ConnectedTileMapModule.Pathfind
+  id: Pathfind
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: Pathfind
+  nameWithType: ConnectedTileMapModule.Pathfind
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Pathfind
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public PathfindInfo Pathfind
+    return:
+      type: ISILab.LBS.Modules.PathfindInfo
+    content.vb: Public Pathfind As PathfindInfo
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.#ctor
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: ConnectedTileMapModule()
+  nameWithType: ConnectedTileMapModule.ConnectedTileMapModule()
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileMapModule()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public ConnectedTileMapModule()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.#ctor*
+  nameWithType.vb: ConnectedTileMapModule.New()
+  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.New()
+  name.vb: New()
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},System.Int32,ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},System.Int32,ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)
+  id: '#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},System.Int32,ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)'
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: ConnectedTileMapModule(IEnumerable<TileConnectionsPair>, int, ConnectedTileType, PathfindInfo, string)
+  nameWithType: ConnectedTileMapModule.ConnectedTileMapModule(IEnumerable<TileConnectionsPair>, int, ConnectedTileMapModule.ConnectedTileType, PathfindInfo, string)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileMapModule(System.Collections.Generic.IEnumerable<ISILab.LBS.Modules.TileConnectionsPair>, int, ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType, ISILab.LBS.Modules.PathfindInfo, string)
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public ConnectedTileMapModule(IEnumerable<TileConnectionsPair> tiles, int connectedDirections, ConnectedTileMapModule.ConnectedTileType gridType, PathfindInfo pathfindInfo, string id = "ConnectedTileMapModule")
+    parameters:
+    - id: tiles
+      type: System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair}
+    - id: connectedDirections
+      type: System.Int32
+    - id: gridType
+      type: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
+    - id: pathfindInfo
+      type: ISILab.LBS.Modules.PathfindInfo
+    - id: id
+      type: System.String
+    content.vb: Public Sub New(tiles As IEnumerable(Of TileConnectionsPair), connectedDirections As Integer, gridType As ConnectedTileMapModule.ConnectedTileType, pathfindInfo As PathfindInfo, id As String = "ConnectedTileMapModule")
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.#ctor*
+  nameWithType.vb: ConnectedTileMapModule.New(IEnumerable(Of TileConnectionsPair), Integer, ConnectedTileMapModule.ConnectedTileType, PathfindInfo, String)
+  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.New(System.Collections.Generic.IEnumerable(Of ISILab.LBS.Modules.TileConnectionsPair), Integer, ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType, ISILab.LBS.Modules.PathfindInfo, String)
+  name.vb: New(IEnumerable(Of TileConnectionsPair), Integer, ConnectedTileType, PathfindInfo, String)
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
+  id: SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: SetConnection(LBSTile, int, string, bool)
+  nameWithType: ConnectedTileMapModule.SetConnection(LBSTile, int, string, bool)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, int, string, bool)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void SetConnection(LBSTile tile, int direction, string connection, bool editedByIA)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    - id: direction
+      type: System.Int32
+    - id: connection
+      type: System.String
+    - id: editedByIA
+      type: System.Boolean
+    content.vb: Public Sub SetConnection(tile As LBSTile, direction As Integer, connection As String, editedByIA As Boolean)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection*
+  nameWithType.vb: ConnectedTileMapModule.SetConnection(LBSTile, Integer, String, Boolean)
+  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, Integer, String, Boolean)
+  name.vb: SetConnection(LBSTile, Integer, String, Boolean)
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.SetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  id: SetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: SetConnections(LBSTile, List<string>, List<bool>)
+  nameWithType: ConnectedTileMapModule.SetConnections(LBSTile, List<string>, List<bool>)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, System.Collections.Generic.List<string>, System.Collections.Generic.List<bool>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void SetConnections(LBSTile tile, List<string> connections, List<bool> canBeEditedByIA)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    - id: connections
+      type: System.Collections.Generic.List{System.String}
+    - id: canBeEditedByIA
+      type: System.Collections.Generic.List{System.Boolean}
+    content.vb: Public Sub SetConnections(tile As LBSTile, connections As List(Of String), canBeEditedByIA As List(Of Boolean))
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnections*
+  nameWithType.vb: ConnectedTileMapModule.SetConnections(LBSTile, List(Of String), List(Of Boolean))
+  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, System.Collections.Generic.List(Of String), System.Collections.Generic.List(Of Boolean))
+  name.vb: SetConnections(LBSTile, List(Of String), List(Of Boolean))
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.AddPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.AddPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  id: AddPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: AddPair(LBSTile, List<string>, List<bool>)
+  nameWithType: ConnectedTileMapModule.AddPair(LBSTile, List<string>, List<bool>)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.AddPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, System.Collections.Generic.List<string>, System.Collections.Generic.List<bool>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void AddPair(LBSTile tile, List<string> connections, List<bool> canBeEditedByIA)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    - id: connections
+      type: System.Collections.Generic.List{System.String}
+    - id: canBeEditedByIA
+      type: System.Collections.Generic.List{System.Boolean}
+    content.vb: Public Sub AddPair(tile As LBSTile, connections As List(Of String), canBeEditedByIA As List(Of Boolean))
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.AddPair*
+  nameWithType.vb: ConnectedTileMapModule.AddPair(LBSTile, List(Of String), List(Of Boolean))
+  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.AddPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, System.Collections.Generic.List(Of String), System.Collections.Generic.List(Of Boolean))
+  name.vb: AddPair(LBSTile, List(Of String), List(Of Boolean))
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.GetPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  id: GetPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: GetPair(LBSTile)
+  nameWithType: ConnectedTileMapModule.GetPair(LBSTile)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public TileConnectionsPair GetPair(LBSTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    return:
+      type: ISILab.LBS.Modules.TileConnectionsPair
+    content.vb: Public Function GetPair(tile As LBSTile) As TileConnectionsPair
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.GetPair*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetPair(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.GetPair(UnityEngine.Vector2Int)
+  id: GetPair(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: GetPair(Vector2Int)
+  nameWithType: ConnectedTileMapModule.GetPair(Vector2Int)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetPair(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public TileConnectionsPair GetPair(Vector2Int pos)
+    parameters:
+    - id: pos
+      type: UnityEngine.Vector2Int
+    return:
+      type: ISILab.LBS.Modules.TileConnectionsPair
+    content.vb: Public Function GetPair(pos As Vector2Int) As TileConnectionsPair
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.GetPair*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetAllPairsWithConnections(System.String[])
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.GetAllPairsWithConnections(System.String[])
+  id: GetAllPairsWithConnections(System.String[])
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: GetAllPairsWithConnections(params string[])
+  nameWithType: ConnectedTileMapModule.GetAllPairsWithConnections(params string[])
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetAllPairsWithConnections(params string[])
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<Tuple<TileConnectionsPair, int>> GetAllPairsWithConnections(params string[] connections)
+    parameters:
+    - id: connections
+      type: System.String[]
+    return:
+      type: System.Collections.Generic.List{System.Tuple{ISILab.LBS.Modules.TileConnectionsPair,System.Int32}}
+    content.vb: Public Function GetAllPairsWithConnections(ParamArray connections As String()) As List(Of Tuple(Of TileConnectionsPair, Integer))
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.GetAllPairsWithConnections*
+  nameWithType.vb: ConnectedTileMapModule.GetAllPairsWithConnections(ParamArray String())
+  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.GetAllPairsWithConnections(ParamArray String())
+  name.vb: GetAllPairsWithConnections(ParamArray String())
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  id: GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: GetConnections(LBSTile)
+  nameWithType: ConnectedTileMapModule.GetConnections(LBSTile)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<string> GetConnections(LBSTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function GetConnections(tile As LBSTile) As List(Of String)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections(UnityEngine.Vector2Int)
+  id: GetConnections(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: GetConnections(Vector2Int)
+  nameWithType: ConnectedTileMapModule.GetConnections(Vector2Int)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections(UnityEngine.Vector2Int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<string> GetConnections(Vector2Int pos)
+    parameters:
+    - id: pos
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Function GetConnections(pos As Vector2Int) As List(Of String)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(ISILab.LBS.Modules.TileConnectionsPair)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(ISILab.LBS.Modules.TileConnectionsPair)
+  id: RemoveTile(ISILab.LBS.Modules.TileConnectionsPair)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: RemoveTile(TileConnectionsPair)
+  nameWithType: ConnectedTileMapModule.RemoveTile(TileConnectionsPair)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(ISILab.LBS.Modules.TileConnectionsPair)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void RemoveTile(TileConnectionsPair pair)
+    parameters:
+    - id: pair
+      type: ISILab.LBS.Modules.TileConnectionsPair
+    content.vb: Public Sub RemoveTile(pair As TileConnectionsPair)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  id: RemoveTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: RemoveTile(LBSTile)
+  nameWithType: ConnectedTileMapModule.RemoveTile(LBSTile)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void RemoveTile(LBSTile tile)
+    parameters:
+    - id: tile
+      type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    content.vb: Public Sub RemoveTile(tile As LBSTile)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(System.Int32)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(System.Int32)
+  id: RemoveTile(System.Int32)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: RemoveTile(int)
+  nameWithType: ConnectedTileMapModule.RemoveTile(int)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(int)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void RemoveTile(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub RemoveTile(index As Integer)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile*
+  nameWithType.vb: ConnectedTileMapModule.RemoveTile(Integer)
+  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile(Integer)
+  name.vb: RemoveTile(Integer)
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  id: InitializePathfinding(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: InitializePathfinding(PathfindingAlgorithm)
+  nameWithType: ConnectedTileMapModule.InitializePathfinding(PathfindingAlgorithm)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void InitializePathfinding(PathfindingAlgorithm searchType = PathfindingAlgorithm.JPS_Plus)
+    parameters:
+    - id: searchType
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+    content.vb: Public Sub InitializePathfinding(searchType As PathfindingAlgorithm = PathfindingAlgorithm.JPS_Plus)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding(UnityEngine.Rect,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding(UnityEngine.Rect,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  id: InitializePathfinding(UnityEngine.Rect,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: InitializePathfinding(Rect, PathfindingAlgorithm)
+  nameWithType: ConnectedTileMapModule.InitializePathfinding(Rect, PathfindingAlgorithm)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding(UnityEngine.Rect, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public void InitializePathfinding(Rect selection, PathfindingAlgorithm searchType = PathfindingAlgorithm.JPS_Plus)
+    parameters:
+    - id: selection
+      type: UnityEngine.Rect
+    - id: searchType
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+    content.vb: Public Sub InitializePathfinding(selection As Rect, searchType As PathfindingAlgorithm = PathfindingAlgorithm.JPS_Plus)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetBounds
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.GetBounds
+  id: GetBounds
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: GetBounds()
+  nameWithType: ConnectedTileMapModule.GetBounds()
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetBounds()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override Rect GetBounds()
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public Overrides Function GetBounds() As Rect
+  overridden: ISILab.LBS.Modules.LBSModule.GetBounds
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.GetBounds*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.IsEmpty
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.IsEmpty
+  id: IsEmpty
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty()
+  nameWithType: ConnectedTileMapModule.IsEmpty()
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.IsEmpty()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override bool IsEmpty()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function IsEmpty() As Boolean
+  overridden: ISILab.LBS.Modules.LBSModule.IsEmpty
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.IsEmpty*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Clear
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.Clear
+  id: Clear
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ConnectedTileMapModule.Clear()
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Clear()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override void Clear()
+    content.vb: Public Overrides Sub Clear()
+  overridden: ISILab.LBS.Modules.LBSModule.Clear
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.Clear*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Clone
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.Clone
+  id: Clone
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ConnectedTileMapModule.Clone()
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Overrides Function Clone() As Object
+  overridden: ISILab.LBS.Modules.LBSModule.Clone
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.Clone*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  id: Rewrite(ISILab.LBS.Modules.LBSModule)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: Rewrite(LBSModule)
+  nameWithType: ConnectedTileMapModule.Rewrite(LBSModule)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override void Rewrite(LBSModule module)
+    parameters:
+    - id: module
+      type: ISILab.LBS.Modules.LBSModule
+    content.vb: Public Overrides Sub Rewrite([module] As LBSModule)
+  overridden: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.Rewrite*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Print
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.Print
+  id: Print
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: Print()
+  nameWithType: ConnectedTileMapModule.Print()
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Print()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override void Print()
+    content.vb: Public Overrides Sub Print()
+  overridden: ISILab.LBS.Modules.LBSModule.Print
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.Print*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Equals(System.Object)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: ConnectedTileMapModule.Equals(object)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Equals(object)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.Equals*
+  nameWithType.vb: ConnectedTileMapModule.Equals(Object)
+  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetHashCode
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ConnectedTileMapModule.GetHashCode()
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetHashCode()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.GetHashCode*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
+  commentId: P:ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
+  id: ConnectedDirections
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: ConnectedDirections
+  nameWithType: ConnectedTileMapModule.ConnectedDirections
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public int ConnectedDirections { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ConnectedDirections As Integer
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Pairs
+  commentId: P:ISILab.LBS.Modules.ConnectedTileMapModule.Pairs
+  id: Pairs
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: Pairs
+  nameWithType: ConnectedTileMapModule.Pairs
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Pairs
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public List<TileConnectionsPair> Pairs { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.TileConnectionsPair}
+    content.vb: Public ReadOnly Property Pairs As List(Of TileConnectionsPair)
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.Pairs*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GridType
+  commentId: P:ISILab.LBS.Modules.ConnectedTileMapModule.GridType
+  id: GridType
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: GridType
+  nameWithType: ConnectedTileMapModule.GridType
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GridType
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public ConnectedTileMapModule.ConnectedTileType GridType { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
+    content.vb: Public ReadOnly Property GridType As ConnectedTileMapModule.ConnectedTileType
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.GridType*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.PathfindNodes
+  commentId: P:ISILab.LBS.Modules.ConnectedTileMapModule.PathfindNodes
+  id: PathfindNodes
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: PathfindNodes
+  nameWithType: ConnectedTileMapModule.PathfindNodes
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.PathfindNodes
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public EvaluatorHelper.AStarNode[] PathfindNodes { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode[]
+    content.vb: Public Property PathfindNodes As EvaluatorHelper.AStarNode()
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.PathfindNodes*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.JPSDistances
+  commentId: P:ISILab.LBS.Modules.ConnectedTileMapModule.JPSDistances
+  id: JPSDistances
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: JPSDistances
+  nameWithType: ConnectedTileMapModule.JPSDistances
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.JPSDistances
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public Dictionary<Vector2Int, int[]> JPSDistances { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{UnityEngine.Vector2Int,System.Int32[]}
+    content.vb: Public Property JPSDistances As Dictionary(Of Vector2Int, Integer())
+  overload: ISILab.LBS.Modules.ConnectedTileMapModule.JPSDistances*
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.OnAddPair
+  commentId: E:ISILab.LBS.Modules.ConnectedTileMapModule.OnAddPair
+  id: OnAddPair
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: OnAddPair
+  nameWithType: ConnectedTileMapModule.OnAddPair
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.OnAddPair
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public event Action<ConnectedTileMapModule, TileConnectionsPair> OnAddPair
+    return:
+      type: System.Action{ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.TileConnectionsPair}
+    content.vb: Public Event OnAddPair As Action(Of ConnectedTileMapModule, TileConnectionsPair)
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.OnRemovePair
+  commentId: E:ISILab.LBS.Modules.ConnectedTileMapModule.OnRemovePair
+  id: OnRemovePair
+  parent: ISILab.LBS.Modules.ConnectedTileMapModule
+  langs:
+  - csharp
+  - vb
+  name: OnRemovePair
+  nameWithType: ConnectedTileMapModule.OnRemovePair
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.OnRemovePair
+  type: Event
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Modules
+  syntax:
+    content: public event Action<ConnectedTileMapModule, TileConnectionsPair> OnRemovePair
+    return:
+      type: System.Action{ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.TileConnectionsPair}
+    content.vb: Public Event OnRemovePair As Action(Of ConnectedTileMapModule, TileConnectionsPair)
+references:
+- uid: ISILab.LBS.Modules
+  commentId: N:ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Modules
+  nameWithType: ISILab.LBS.Modules
+  fullName: ISILab.LBS.Modules
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Modules.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Modules.LBSModule
+  commentId: T:ISILab.LBS.Modules.LBSModule
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html
+  name: LBSModule
+  nameWithType: LBSModule
+  fullName: ISILab.LBS.Modules.LBSModule
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: ISILab.LBS.Modules.LBSModule.id
+  commentId: F:ISILab.LBS.Modules.LBSModule.id
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_id
+  name: id
+  nameWithType: LBSModule.id
+  fullName: ISILab.LBS.Modules.LBSModule.id
+- uid: ISILab.LBS.Modules.LBSModule.OnChanged
+  commentId: F:ISILab.LBS.Modules.LBSModule.OnChanged
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnChanged
+  name: OnChanged
+  nameWithType: LBSModule.OnChanged
+  fullName: ISILab.LBS.Modules.LBSModule.OnChanged
+- uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  name: OnAttach(LBSLayer)
+  nameWithType: LBSModule.OnAttach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnAttach(LBS.Components.LBSLayer)
+    name: OnAttach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnAttach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  name: OnDetach(LBSLayer)
+  nameWithType: LBSModule.OnDetach(LBSLayer)
+  fullName: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.OnDetach(LBS.Components.LBSLayer)
+    name: OnDetach
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OnDetach_LBS_Components_LBSLayer_
+  - name: (
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    isExternal: true
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.Modules.LBSModule.OwnerLayer
+  commentId: P:ISILab.LBS.Modules.LBSModule.OwnerLayer
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSModule.OwnerLayer
+  fullName: ISILab.LBS.Modules.LBSModule.OwnerLayer
+- uid: ISILab.LBS.Modules.LBSModule.ID
+  commentId: P:ISILab.LBS.Modules.LBSModule.ID
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_ID
+  name: ID
+  nameWithType: LBSModule.ID
+  fullName: ISILab.LBS.Modules.LBSModule.ID
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Modules.PathfindInfo
+  commentId: T:ISILab.LBS.Modules.PathfindInfo
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.PathfindInfo.html
+  name: PathfindInfo
+  nameWithType: PathfindInfo
+  fullName: ISILab.LBS.Modules.PathfindInfo
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.#ctor*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.#ctor
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule__ctor
+  name: ConnectedTileMapModule
+  nameWithType: ConnectedTileMapModule.ConnectedTileMapModule
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileMapModule
+  nameWithType.vb: ConnectedTileMapModule.New
+  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.New
+  name.vb: New
+- uid: System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair}
+  commentId: T:System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TileConnectionsPair>
+  nameWithType: IEnumerable<TileConnectionsPair>
+  fullName: System.Collections.Generic.IEnumerable<ISILab.LBS.Modules.TileConnectionsPair>
+  nameWithType.vb: IEnumerable(Of TileConnectionsPair)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ISILab.LBS.Modules.TileConnectionsPair)
+  name.vb: IEnumerable(Of TileConnectionsPair)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ISILab.LBS.Modules.TileConnectionsPair
+    name: TileConnectionsPair
+    isExternal: true
+    href: ISILab.LBS.Modules.TileConnectionsPair.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.TileConnectionsPair
+    name: TileConnectionsPair
+    isExternal: true
+    href: ISILab.LBS.Modules.TileConnectionsPair.html
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
+  commentId: T:ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html
+  name: ConnectedTileMapModule.ConnectedTileType
+  nameWithType: ConnectedTileMapModule.ConnectedTileType
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.ConnectedTileMapModule
+    name: ConnectedTileMapModule
+    isExternal: true
+    href: ISILab.LBS.Modules.ConnectedTileMapModule.html
+  - name: .
+  - uid: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
+    name: ConnectedTileType
+    isExternal: true
+    href: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType.html
+  spec.vb:
+  - uid: ISILab.LBS.Modules.ConnectedTileMapModule
+    name: ConnectedTileMapModule
+    isExternal: true
+    href: ISILab.LBS.Modules.ConnectedTileMapModule.html
+  - name: .
+  - uid: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
+    name: ConnectedTileType
+    isExternal: true
+    href: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_SetConnection_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_System_Int32_System_String_System_Boolean_
+  name: SetConnection
+  nameWithType: ConnectedTileMapModule.SetConnection
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+  commentId: T:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+  parent: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  isExternal: true
+  href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  name: LBSTile
+  nameWithType: LBSTile
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  commentId: N:ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  nameWithType: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
+    name: Tessellation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+    name: TileMap
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data
+    name: Data
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation
+    name: Tessellation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap
+    name: TileMap
+    isExternal: true
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnections*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.SetConnections
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_SetConnections_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_Boolean__
+  name: SetConnections
+  nameWithType: ConnectedTileMapModule.SetConnections
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnections
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List{System.Boolean}
+  commentId: T:System.Collections.Generic.List{System.Boolean}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<bool>
+  nameWithType: List<bool>
+  fullName: System.Collections.Generic.List<bool>
+  nameWithType.vb: List(Of Boolean)
+  fullName.vb: System.Collections.Generic.List(Of Boolean)
+  name.vb: List(Of Boolean)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.AddPair*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.AddPair
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_AddPair_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_Boolean__
+  name: AddPair
+  nameWithType: ConnectedTileMapModule.AddPair
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.AddPair
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetPair*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.GetPair
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_GetPair_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
+  name: GetPair
+  nameWithType: ConnectedTileMapModule.GetPair
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetPair
+- uid: ISILab.LBS.Modules.TileConnectionsPair
+  commentId: T:ISILab.LBS.Modules.TileConnectionsPair
+  parent: ISILab.LBS.Modules
+  isExternal: true
+  href: ISILab.LBS.Modules.TileConnectionsPair.html
+  name: TileConnectionsPair
+  nameWithType: TileConnectionsPair
+  fullName: ISILab.LBS.Modules.TileConnectionsPair
+- uid: UnityEngine.Vector2Int
+  isExternal: true
+  name: Vector2Int
+  nameWithType: Vector2Int
+  fullName: UnityEngine.Vector2Int
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetAllPairsWithConnections*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.GetAllPairsWithConnections
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_GetAllPairsWithConnections_System_String___
+  name: GetAllPairsWithConnections
+  nameWithType: ConnectedTileMapModule.GetAllPairsWithConnections
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetAllPairsWithConnections
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.List{System.Tuple{ISILab.LBS.Modules.TileConnectionsPair,System.Int32}}
+  commentId: T:System.Collections.Generic.List{System.Tuple{ISILab.LBS.Modules.TileConnectionsPair,System.Int32}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Tuple<TileConnectionsPair, int>>
+  nameWithType: List<Tuple<TileConnectionsPair, int>>
+  fullName: System.Collections.Generic.List<System.Tuple<ISILab.LBS.Modules.TileConnectionsPair, int>>
+  nameWithType.vb: List(Of Tuple(Of TileConnectionsPair, Integer))
+  fullName.vb: System.Collections.Generic.List(Of System.Tuple(Of ISILab.LBS.Modules.TileConnectionsPair, Integer))
+  name.vb: List(Of Tuple(Of TileConnectionsPair, Integer))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: <
+  - uid: ISILab.LBS.Modules.TileConnectionsPair
+    name: TileConnectionsPair
+    isExternal: true
+    href: ISILab.LBS.Modules.TileConnectionsPair.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.TileConnectionsPair
+    name: TileConnectionsPair
+    isExternal: true
+    href: ISILab.LBS.Modules.TileConnectionsPair.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_GetConnections_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_
+  name: GetConnections
+  nameWithType: ConnectedTileMapModule.GetConnections
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetConnections
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_RemoveTile_ISILab_LBS_Modules_TileConnectionsPair_
+  name: RemoveTile
+  nameWithType: ConnectedTileMapModule.RemoveTile
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.RemoveTile
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_InitializePathfinding_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_
+  name: InitializePathfinding
+  nameWithType: ConnectedTileMapModule.InitializePathfinding
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.InitializePathfinding
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm.html
+  name: PathfindingAlgorithm
+  nameWithType: PathfindingAlgorithm
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: ISILab.LBS.Modules.LBSModule.GetBounds
+  commentId: M:ISILab.LBS.Modules.LBSModule.GetBounds
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  name: GetBounds()
+  nameWithType: LBSModule.GetBounds()
+  fullName: ISILab.LBS.Modules.LBSModule.GetBounds()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.GetBounds
+    name: GetBounds
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_GetBounds
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetBounds*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.GetBounds
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_GetBounds
+  name: GetBounds
+  nameWithType: ConnectedTileMapModule.GetBounds
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetBounds
+- uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+  commentId: M:ISILab.LBS.Modules.LBSModule.IsEmpty
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  name: IsEmpty()
+  nameWithType: LBSModule.IsEmpty()
+  fullName: ISILab.LBS.Modules.LBSModule.IsEmpty()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+    name: IsEmpty
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.IsEmpty
+    name: IsEmpty
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_IsEmpty
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.IsEmpty*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.IsEmpty
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_IsEmpty
+  name: IsEmpty
+  nameWithType: ConnectedTileMapModule.IsEmpty
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.IsEmpty
+- uid: ISILab.LBS.Modules.LBSModule.Clear
+  commentId: M:ISILab.LBS.Modules.LBSModule.Clear
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  name: Clear()
+  nameWithType: LBSModule.Clear()
+  fullName: ISILab.LBS.Modules.LBSModule.Clear()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Clear
+    name: Clear
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Clear
+    name: Clear
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clear
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Clear*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.Clear
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_Clear
+  name: Clear
+  nameWithType: ConnectedTileMapModule.Clear
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Clear
+- uid: ISILab.LBS.Modules.LBSModule.Clone
+  commentId: M:ISILab.LBS.Modules.LBSModule.Clone
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  name: Clone()
+  nameWithType: LBSModule.Clone()
+  fullName: ISILab.LBS.Modules.LBSModule.Clone()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Clone
+    name: Clone
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Clone*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.Clone
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_Clone
+  name: Clone
+  nameWithType: ConnectedTileMapModule.Clone
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Clone
+- uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  commentId: M:ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  name: Rewrite(LBSModule)
+  nameWithType: LBSModule.Rewrite(LBSModule)
+  fullName: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Rewrite(ISILab.LBS.Modules.LBSModule)
+    name: Rewrite
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  - name: (
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Rewrite*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.Rewrite
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_Rewrite_ISILab_LBS_Modules_LBSModule_
+  name: Rewrite
+  nameWithType: ConnectedTileMapModule.Rewrite
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Rewrite
+- uid: ISILab.LBS.Modules.LBSModule.Print
+  commentId: M:ISILab.LBS.Modules.LBSModule.Print
+  parent: ISILab.LBS.Modules.LBSModule
+  isExternal: true
+  href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  name: Print()
+  nameWithType: LBSModule.Print()
+  fullName: ISILab.LBS.Modules.LBSModule.Print()
+  spec.csharp:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Modules.LBSModule.Print
+    name: Print
+    isExternal: true
+    href: ISILab.LBS.Modules.LBSModule.html#ISILab_LBS_Modules_LBSModule_Print
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Print*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.Print
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_Print
+  name: Print
+  nameWithType: ConnectedTileMapModule.Print
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Print
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Equals*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.Equals
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_Equals_System_Object_
+  name: Equals
+  nameWithType: ConnectedTileMapModule.Equals
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Equals
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GetHashCode*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.GetHashCode
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_GetHashCode
+  name: GetHashCode
+  nameWithType: ConnectedTileMapModule.GetHashCode
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GetHashCode
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_ConnectedDirections
+  name: ConnectedDirections
+  nameWithType: ConnectedTileMapModule.ConnectedDirections
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.Pairs*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.Pairs
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_Pairs
+  name: Pairs
+  nameWithType: ConnectedTileMapModule.Pairs
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.Pairs
+- uid: System.Collections.Generic.List{ISILab.LBS.Modules.TileConnectionsPair}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.TileConnectionsPair}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TileConnectionsPair>
+  nameWithType: List<TileConnectionsPair>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.TileConnectionsPair>
+  nameWithType.vb: List(Of TileConnectionsPair)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.TileConnectionsPair)
+  name.vb: List(Of TileConnectionsPair)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Modules.TileConnectionsPair
+    name: TileConnectionsPair
+    isExternal: true
+    href: ISILab.LBS.Modules.TileConnectionsPair.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.TileConnectionsPair
+    name: TileConnectionsPair
+    isExternal: true
+    href: ISILab.LBS.Modules.TileConnectionsPair.html
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.GridType*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.GridType
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_GridType
+  name: GridType
+  nameWithType: ConnectedTileMapModule.GridType
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.GridType
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.PathfindNodes*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.PathfindNodes
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_PathfindNodes
+  name: PathfindNodes
+  nameWithType: ConnectedTileMapModule.PathfindNodes
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.PathfindNodes
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode[]
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html
+  name: AStarNode[]
+  nameWithType: EvaluatorHelper.AStarNode[]
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode[]
+  nameWithType.vb: EvaluatorHelper.AStarNode()
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode()
+  name.vb: AStarNode()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode
+    name: AStarNode
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode
+    name: AStarNode
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.AStarNode.html
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.JPSDistances*
+  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.JPSDistances
+  isExternal: true
+  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_JPSDistances
+  name: JPSDistances
+  nameWithType: ConnectedTileMapModule.JPSDistances
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.JPSDistances
+- uid: System.Collections.Generic.Dictionary{UnityEngine.Vector2Int,System.Int32[]}
+  commentId: T:System.Collections.Generic.Dictionary{UnityEngine.Vector2Int,System.Int32[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<Vector2Int, int[]>
+  nameWithType: Dictionary<Vector2Int, int[]>
+  fullName: System.Collections.Generic.Dictionary<UnityEngine.Vector2Int, int[]>
+  nameWithType.vb: Dictionary(Of Vector2Int, Integer())
+  fullName.vb: System.Collections.Generic.Dictionary(Of UnityEngine.Vector2Int, Integer())
+  name.vb: Dictionary(Of Vector2Int, Integer())
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector2Int
+    name: Vector2Int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Action{ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.TileConnectionsPair}
+  commentId: T:System.Action{ISILab.LBS.Modules.ConnectedTileMapModule,ISILab.LBS.Modules.TileConnectionsPair}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<ConnectedTileMapModule, TileConnectionsPair>
+  nameWithType: Action<ConnectedTileMapModule, TileConnectionsPair>
+  fullName: System.Action<ISILab.LBS.Modules.ConnectedTileMapModule, ISILab.LBS.Modules.TileConnectionsPair>
+  nameWithType.vb: Action(Of ConnectedTileMapModule, TileConnectionsPair)
+  fullName.vb: System.Action(Of ISILab.LBS.Modules.ConnectedTileMapModule, ISILab.LBS.Modules.TileConnectionsPair)
+  name.vb: Action(Of ConnectedTileMapModule, TileConnectionsPair)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: ISILab.LBS.Modules.ConnectedTileMapModule
+    name: ConnectedTileMapModule
+    isExternal: true
+    href: ISILab.LBS.Modules.ConnectedTileMapModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Modules.TileConnectionsPair
+    name: TileConnectionsPair
+    isExternal: true
+    href: ISILab.LBS.Modules.TileConnectionsPair.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.ConnectedTileMapModule
+    name: ConnectedTileMapModule
+    isExternal: true
+    href: ISILab.LBS.Modules.ConnectedTileMapModule.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Modules.TileConnectionsPair
+    name: TileConnectionsPair
+    isExternal: true
+    href: ISILab.LBS.Modules.TileConnectionsPair.html
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+shouldSkipMarkup: true

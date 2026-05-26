@@ -1,0 +1,1000 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.AI.Categorization.SafetyFairness
+  commentId: T:ISILab.AI.Categorization.SafetyFairness
+  id: SafetyFairness
+  parent: ISILab.AI.Categorization
+  children:
+  - ISILab.AI.Categorization.SafetyFairness.#ctor
+  - ISILab.AI.Categorization.SafetyFairness.AstarDistance(System.Int32,System.Int32,ISILab.AI.Categorization.BundleTilemapChromosome)
+  - ISILab.AI.Categorization.SafetyFairness.Clone
+  - ISILab.AI.Categorization.SafetyFairness.Evaluate(ISILab.AI.Optimization.IOptimizable)
+  - ISILab.AI.Categorization.SafetyFairness.FlatDistance(System.Int32,System.Int32,ISILab.AI.Categorization.BundleTilemapChromosome)
+  - ISILab.AI.Categorization.SafetyFairness.InitializeDefault
+  - ISILab.AI.Categorization.SafetyFairness.MaxValue
+  - ISILab.AI.Categorization.SafetyFairness.MinValue
+  - ISILab.AI.Categorization.SafetyFairness.Tooltip
+  - ISILab.AI.Categorization.SafetyFairness.colliderCharacteristic
+  - ISILab.AI.Categorization.SafetyFairness.playerCharacteristic
+  langs:
+  - csharp
+  - vb
+  name: SafetyFairness
+  nameWithType: SafetyFairness
+  fullName: ISILab.AI.Categorization.SafetyFairness
+  type: Class
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: >-
+      [Obsolete("Currently not in use.")]
+
+      public class SafetyFairness : IRangedEvaluator, IEvaluator, ICloneable
+    content.vb: >-
+      <Obsolete("Currently not in use.")>
+
+      Public Class SafetyFairness Implements IRangedEvaluator, IEvaluator, ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Currently not in use.
+- uid: ISILab.AI.Categorization.SafetyFairness.playerCharacteristic
+  commentId: F:ISILab.AI.Categorization.SafetyFairness.playerCharacteristic
+  id: playerCharacteristic
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: playerCharacteristic
+  nameWithType: SafetyFairness.playerCharacteristic
+  fullName: ISILab.AI.Categorization.SafetyFairness.playerCharacteristic
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: public LBSCharacteristic playerCharacteristic
+    return:
+      type: ISILab.LBS.Characteristics.LBSCharacteristic
+    content.vb: Public playerCharacteristic As LBSCharacteristic
+- uid: ISILab.AI.Categorization.SafetyFairness.colliderCharacteristic
+  commentId: F:ISILab.AI.Categorization.SafetyFairness.colliderCharacteristic
+  id: colliderCharacteristic
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: colliderCharacteristic
+  nameWithType: SafetyFairness.colliderCharacteristic
+  fullName: ISILab.AI.Categorization.SafetyFairness.colliderCharacteristic
+  type: Field
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: public LBSCharacteristic colliderCharacteristic
+    return:
+      type: ISILab.LBS.Characteristics.LBSCharacteristic
+    content.vb: Public colliderCharacteristic As LBSCharacteristic
+- uid: ISILab.AI.Categorization.SafetyFairness.Evaluate(ISILab.AI.Optimization.IOptimizable)
+  commentId: M:ISILab.AI.Categorization.SafetyFairness.Evaluate(ISILab.AI.Optimization.IOptimizable)
+  id: Evaluate(ISILab.AI.Optimization.IOptimizable)
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: Evaluate(IOptimizable)
+  nameWithType: SafetyFairness.Evaluate(IOptimizable)
+  fullName: ISILab.AI.Categorization.SafetyFairness.Evaluate(ISILab.AI.Optimization.IOptimizable)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public float Evaluate(IOptimizable evaluable)
+    parameters:
+    - id: evaluable
+      type: ISILab.AI.Optimization.IOptimizable
+    return:
+      type: System.Single
+    content.vb: Public Function Evaluate(evaluable As IOptimizable) As Single
+  overload: ISILab.AI.Categorization.SafetyFairness.Evaluate*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+- uid: ISILab.AI.Categorization.SafetyFairness.Clone
+  commentId: M:ISILab.AI.Categorization.SafetyFairness.Clone
+  id: Clone
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SafetyFairness.Clone()
+  fullName: ISILab.AI.Categorization.SafetyFairness.Clone()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+    content.vb: Public Function Clone() As Object
+  overload: ISILab.AI.Categorization.SafetyFairness.Clone*
+  implements:
+  - System.ICloneable.Clone
+- uid: ISILab.AI.Categorization.SafetyFairness.AstarDistance(System.Int32,System.Int32,ISILab.AI.Categorization.BundleTilemapChromosome)
+  commentId: M:ISILab.AI.Categorization.SafetyFairness.AstarDistance(System.Int32,System.Int32,ISILab.AI.Categorization.BundleTilemapChromosome)
+  id: AstarDistance(System.Int32,System.Int32,ISILab.AI.Categorization.BundleTilemapChromosome)
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: AstarDistance(int, int, BundleTilemapChromosome)
+  nameWithType: SafetyFairness.AstarDistance(int, int, BundleTilemapChromosome)
+  fullName: ISILab.AI.Categorization.SafetyFairness.AstarDistance(int, int, ISILab.AI.Categorization.BundleTilemapChromosome)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: public float AstarDistance(int first, int second, BundleTilemapChromosome chrom)
+    parameters:
+    - id: first
+      type: System.Int32
+    - id: second
+      type: System.Int32
+    - id: chrom
+      type: ISILab.AI.Categorization.BundleTilemapChromosome
+    return:
+      type: System.Single
+    content.vb: Public Function AstarDistance(first As Integer, second As Integer, chrom As BundleTilemapChromosome) As Single
+  overload: ISILab.AI.Categorization.SafetyFairness.AstarDistance*
+  nameWithType.vb: SafetyFairness.AstarDistance(Integer, Integer, BundleTilemapChromosome)
+  fullName.vb: ISILab.AI.Categorization.SafetyFairness.AstarDistance(Integer, Integer, ISILab.AI.Categorization.BundleTilemapChromosome)
+  name.vb: AstarDistance(Integer, Integer, BundleTilemapChromosome)
+- uid: ISILab.AI.Categorization.SafetyFairness.FlatDistance(System.Int32,System.Int32,ISILab.AI.Categorization.BundleTilemapChromosome)
+  commentId: M:ISILab.AI.Categorization.SafetyFairness.FlatDistance(System.Int32,System.Int32,ISILab.AI.Categorization.BundleTilemapChromosome)
+  id: FlatDistance(System.Int32,System.Int32,ISILab.AI.Categorization.BundleTilemapChromosome)
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: FlatDistance(int, int, BundleTilemapChromosome)
+  nameWithType: SafetyFairness.FlatDistance(int, int, BundleTilemapChromosome)
+  fullName: ISILab.AI.Categorization.SafetyFairness.FlatDistance(int, int, ISILab.AI.Categorization.BundleTilemapChromosome)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: public float FlatDistance(int first, int second, BundleTilemapChromosome chrom)
+    parameters:
+    - id: first
+      type: System.Int32
+    - id: second
+      type: System.Int32
+    - id: chrom
+      type: ISILab.AI.Categorization.BundleTilemapChromosome
+    return:
+      type: System.Single
+    content.vb: Public Function FlatDistance(first As Integer, second As Integer, chrom As BundleTilemapChromosome) As Single
+  overload: ISILab.AI.Categorization.SafetyFairness.FlatDistance*
+  nameWithType.vb: SafetyFairness.FlatDistance(Integer, Integer, BundleTilemapChromosome)
+  fullName.vb: ISILab.AI.Categorization.SafetyFairness.FlatDistance(Integer, Integer, ISILab.AI.Categorization.BundleTilemapChromosome)
+  name.vb: FlatDistance(Integer, Integer, BundleTilemapChromosome)
+- uid: ISILab.AI.Categorization.SafetyFairness.InitializeDefault
+  commentId: M:ISILab.AI.Categorization.SafetyFairness.InitializeDefault
+  id: InitializeDefault
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: InitializeDefault()
+  nameWithType: SafetyFairness.InitializeDefault()
+  fullName: ISILab.AI.Categorization.SafetyFairness.InitializeDefault()
+  type: Method
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public void InitializeDefault()
+    content.vb: Public Sub InitializeDefault()
+  overload: ISILab.AI.Categorization.SafetyFairness.InitializeDefault*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
+- uid: ISILab.AI.Categorization.SafetyFairness.#ctor
+  commentId: M:ISILab.AI.Categorization.SafetyFairness.#ctor
+  id: '#ctor'
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: SafetyFairness()
+  nameWithType: SafetyFairness.SafetyFairness()
+  fullName: ISILab.AI.Categorization.SafetyFairness.SafetyFairness()
+  type: Constructor
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  syntax:
+    content: public SafetyFairness()
+    content.vb: Public Sub New()
+  overload: ISILab.AI.Categorization.SafetyFairness.#ctor*
+  nameWithType.vb: SafetyFairness.New()
+  fullName.vb: ISILab.AI.Categorization.SafetyFairness.New()
+  name.vb: New()
+- uid: ISILab.AI.Categorization.SafetyFairness.MaxValue
+  commentId: P:ISILab.AI.Categorization.SafetyFairness.MaxValue
+  id: MaxValue
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: MaxValue
+  nameWithType: SafetyFairness.MaxValue
+  fullName: ISILab.AI.Categorization.SafetyFairness.MaxValue
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public float MaxValue { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property MaxValue As Single
+  overload: ISILab.AI.Categorization.SafetyFairness.MaxValue*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
+- uid: ISILab.AI.Categorization.SafetyFairness.MinValue
+  commentId: P:ISILab.AI.Categorization.SafetyFairness.MinValue
+  id: MinValue
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: MinValue
+  nameWithType: SafetyFairness.MinValue
+  fullName: ISILab.AI.Categorization.SafetyFairness.MinValue
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public float MinValue { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property MinValue As Single
+  overload: ISILab.AI.Categorization.SafetyFairness.MinValue*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
+- uid: ISILab.AI.Categorization.SafetyFairness.Tooltip
+  commentId: P:ISILab.AI.Categorization.SafetyFairness.Tooltip
+  id: Tooltip
+  parent: ISILab.AI.Categorization.SafetyFairness
+  langs:
+  - csharp
+  - vb
+  name: Tooltip
+  nameWithType: SafetyFairness.Tooltip
+  fullName: ISILab.AI.Categorization.SafetyFairness.Tooltip
+  type: Property
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Categorization
+  example: []
+  syntax:
+    content: public string Tooltip { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Tooltip As String
+  overload: ISILab.AI.Categorization.SafetyFairness.Tooltip*
+  implements:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
+references:
+- uid: ISILab.AI.Categorization
+  commentId: N:ISILab.AI.Categorization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Categorization
+  nameWithType: ISILab.AI.Categorization
+  fullName: ISILab.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Categorization
+    name: Categorization
+    isExternal: true
+    href: ISILab.AI.Categorization.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html
+  name: IRangedEvaluator
+  nameWithType: IRangedEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html
+  name: IEvaluator
+  nameWithType: IEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic
+  commentId: T:ISILab.LBS.Characteristics.LBSCharacteristic
+  parent: ISILab.LBS.Characteristics
+  isExternal: true
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html
+  name: LBSCharacteristic
+  nameWithType: LBSCharacteristic
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic
+- uid: ISILab.LBS.Characteristics
+  commentId: N:ISILab.LBS.Characteristics
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Characteristics
+  nameWithType: ISILab.LBS.Characteristics
+  fullName: ISILab.LBS.Characteristics
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    isExternal: true
+    href: ISILab.LBS.Characteristics.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    isExternal: true
+    href: ISILab.LBS.Characteristics.html
+- uid: ISILab.AI.Categorization.SafetyFairness.Evaluate*
+  commentId: Overload:ISILab.AI.Categorization.SafetyFairness.Evaluate
+  isExternal: true
+  href: ISILab.AI.Categorization.SafetyFairness.html#ISILab_AI_Categorization_SafetyFairness_Evaluate_ISILab_AI_Optimization_IOptimizable_
+  name: Evaluate
+  nameWithType: SafetyFairness.Evaluate
+  fullName: ISILab.AI.Categorization.SafetyFairness.Evaluate
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
+  name: Evaluate(IOptimizable)
+  nameWithType: IEvaluator.Evaluate(IOptimizable)
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+    name: Evaluate
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
+  - name: (
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Evaluate(ISILab.AI.Optimization.IOptimizable)
+    name: Evaluate
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Evaluate_ISILab_AI_Optimization_IOptimizable_
+  - name: (
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+- uid: ISILab.AI.Optimization.IOptimizable
+  commentId: T:ISILab.AI.Optimization.IOptimizable
+  parent: ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.AI.Optimization.IOptimizable.html
+  name: IOptimizable
+  nameWithType: IOptimizable
+  fullName: ISILab.AI.Optimization.IOptimizable
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.AI.Optimization
+  commentId: N:ISILab.AI.Optimization
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization
+  nameWithType: ISILab.AI.Optimization
+  fullName: ISILab.AI.Optimization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+- uid: ISILab.AI.Categorization.SafetyFairness.Clone*
+  commentId: Overload:ISILab.AI.Categorization.SafetyFairness.Clone
+  isExternal: true
+  href: ISILab.AI.Categorization.SafetyFairness.html#ISILab_AI_Categorization_SafetyFairness_Clone
+  name: Clone
+  nameWithType: SafetyFairness.Clone
+  fullName: ISILab.AI.Categorization.SafetyFairness.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: ISILab.AI.Categorization.SafetyFairness.AstarDistance*
+  commentId: Overload:ISILab.AI.Categorization.SafetyFairness.AstarDistance
+  isExternal: true
+  href: ISILab.AI.Categorization.SafetyFairness.html#ISILab_AI_Categorization_SafetyFairness_AstarDistance_System_Int32_System_Int32_ISILab_AI_Categorization_BundleTilemapChromosome_
+  name: AstarDistance
+  nameWithType: SafetyFairness.AstarDistance
+  fullName: ISILab.AI.Categorization.SafetyFairness.AstarDistance
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome
+  commentId: T:ISILab.AI.Categorization.BundleTilemapChromosome
+  parent: ISILab.AI.Categorization
+  isExternal: true
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html
+  name: BundleTilemapChromosome
+  nameWithType: BundleTilemapChromosome
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome
+- uid: ISILab.AI.Categorization.SafetyFairness.FlatDistance*
+  commentId: Overload:ISILab.AI.Categorization.SafetyFairness.FlatDistance
+  isExternal: true
+  href: ISILab.AI.Categorization.SafetyFairness.html#ISILab_AI_Categorization_SafetyFairness_FlatDistance_System_Int32_System_Int32_ISILab_AI_Categorization_BundleTilemapChromosome_
+  name: FlatDistance
+  nameWithType: SafetyFairness.FlatDistance
+  fullName: ISILab.AI.Categorization.SafetyFairness.FlatDistance
+- uid: ISILab.AI.Categorization.SafetyFairness.InitializeDefault*
+  commentId: Overload:ISILab.AI.Categorization.SafetyFairness.InitializeDefault
+  isExternal: true
+  href: ISILab.AI.Categorization.SafetyFairness.html#ISILab_AI_Categorization_SafetyFairness_InitializeDefault
+  name: InitializeDefault
+  nameWithType: SafetyFairness.InitializeDefault
+  fullName: ISILab.AI.Categorization.SafetyFairness.InitializeDefault
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_InitializeDefault
+  name: InitializeDefault()
+  nameWithType: IEvaluator.InitializeDefault()
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
+    name: InitializeDefault
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_InitializeDefault
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.InitializeDefault
+    name: InitializeDefault
+    isExternal: true
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_InitializeDefault
+  - name: (
+  - name: )
+- uid: ISILab.AI.Categorization.SafetyFairness.#ctor*
+  commentId: Overload:ISILab.AI.Categorization.SafetyFairness.#ctor
+  isExternal: true
+  href: ISILab.AI.Categorization.SafetyFairness.html#ISILab_AI_Categorization_SafetyFairness__ctor
+  name: SafetyFairness
+  nameWithType: SafetyFairness.SafetyFairness
+  fullName: ISILab.AI.Categorization.SafetyFairness.SafetyFairness
+  nameWithType.vb: SafetyFairness.New
+  fullName.vb: ISILab.AI.Categorization.SafetyFairness.New
+  name.vb: New
+- uid: ISILab.AI.Categorization.SafetyFairness.MaxValue*
+  commentId: Overload:ISILab.AI.Categorization.SafetyFairness.MaxValue
+  isExternal: true
+  href: ISILab.AI.Categorization.SafetyFairness.html#ISILab_AI_Categorization_SafetyFairness_MaxValue
+  name: MaxValue
+  nameWithType: SafetyFairness.MaxValue
+  fullName: ISILab.AI.Categorization.SafetyFairness.MaxValue
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_MaxValue
+  name: MaxValue
+  nameWithType: IRangedEvaluator.MaxValue
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MaxValue
+- uid: ISILab.AI.Categorization.SafetyFairness.MinValue*
+  commentId: Overload:ISILab.AI.Categorization.SafetyFairness.MinValue
+  isExternal: true
+  href: ISILab.AI.Categorization.SafetyFairness.html#ISILab_AI_Categorization_SafetyFairness_MinValue
+  name: MinValue
+  nameWithType: SafetyFairness.MinValue
+  fullName: ISILab.AI.Categorization.SafetyFairness.MinValue
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_MinValue
+  name: MinValue
+  nameWithType: IRangedEvaluator.MinValue
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.MinValue
+- uid: ISILab.AI.Categorization.SafetyFairness.Tooltip*
+  commentId: Overload:ISILab.AI.Categorization.SafetyFairness.Tooltip
+  isExternal: true
+  href: ISILab.AI.Categorization.SafetyFairness.html#ISILab_AI_Categorization_SafetyFairness_Tooltip
+  name: Tooltip
+  nameWithType: SafetyFairness.Tooltip
+  fullName: ISILab.AI.Categorization.SafetyFairness.Tooltip
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator
+  isExternal: true
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html#ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_Tooltip
+  name: Tooltip
+  nameWithType: IEvaluator.Tooltip
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.Tooltip
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+shouldSkipMarkup: true

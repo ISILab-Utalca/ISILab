@@ -1,0 +1,1036 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.Extensions.Painter2DExtensions
+  commentId: T:ISILab.Extensions.Painter2DExtensions
+  id: Painter2DExtensions
+  parent: ISILab.Extensions
+  children:
+  - ISILab.Extensions.Painter2DExtensions.BezierTangent(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  - ISILab.Extensions.Painter2DExtensions.DrawArrow(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,System.Single,UnityEngine.Color,System.Boolean)
+  - ISILab.Extensions.Painter2DExtensions.DrawBezierLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,UnityEngine.Color)
+  - ISILab.Extensions.Painter2DExtensions.DrawCircle(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,UnityEngine.Color)
+  - ISILab.Extensions.Painter2DExtensions.DrawDottedBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
+  - ISILab.Extensions.Painter2DExtensions.DrawDottedLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Single,System.Single)
+  - ISILab.Extensions.Painter2DExtensions.DrawDottedPolygon(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{UnityEngine.Vector2},UnityEngine.Color,System.Single,System.Boolean)
+  - ISILab.Extensions.Painter2DExtensions.DrawEquilateralArrow(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,UnityEngine.Color,System.Boolean)
+  - ISILab.Extensions.Painter2DExtensions.DrawHoleyShape(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}},UnityEngine.Color,UnityEngine.Color,System.Single)
+  - ISILab.Extensions.Painter2DExtensions.DrawLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Single)
+  - ISILab.Extensions.Painter2DExtensions.DrawPolygon(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{UnityEngine.Vector2},UnityEngine.Color,UnityEngine.Color,System.Single,System.Boolean)
+  - ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
+  - ISILab.Extensions.Painter2DExtensions.DrawSquareGrid(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}},UnityEngine.Color,UnityEngine.Color,System.Single,System.Single,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: Painter2DExtensions
+  nameWithType: Painter2DExtensions
+  fullName: ISILab.Extensions.Painter2DExtensions
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static class Painter2DExtensions
+    content.vb: Public Module Painter2DExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: ISILab.Extensions.Painter2DExtensions.DrawHoleyShape(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}},UnityEngine.Color,UnityEngine.Color,System.Single)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawHoleyShape(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}},UnityEngine.Color,UnityEngine.Color,System.Single)
+  id: DrawHoleyShape(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}},UnityEngine.Color,UnityEngine.Color,System.Single)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawHoleyShape(Painter2D, List<List<Vector2>>, Color, Color, float)
+  nameWithType: Painter2DExtensions.DrawHoleyShape(Painter2D, List<List<Vector2>>, Color, Color, float)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawHoleyShape(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List<System.Collections.Generic.List<UnityEngine.Vector2>>, UnityEngine.Color, UnityEngine.Color, float)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawHoleyShape(this Painter2D paint2D, List<List<Vector2>> points, Color color, Color border, float stroke = 1)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: points
+      type: System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}}
+    - id: color
+      type: UnityEngine.Color
+    - id: border
+      type: UnityEngine.Color
+    - id: stroke
+      type: System.Single
+    content.vb: Public Shared Sub DrawHoleyShape(paint2D As Painter2D, points As List(Of List(Of Vector2)), color As Color, border As Color, stroke As Single = 1)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawHoleyShape*
+  nameWithType.vb: Painter2DExtensions.DrawHoleyShape(Painter2D, List(Of List(Of Vector2)), Color, Color, Single)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawHoleyShape(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List(Of System.Collections.Generic.List(Of UnityEngine.Vector2)), UnityEngine.Color, UnityEngine.Color, Single)
+  name.vb: DrawHoleyShape(Painter2D, List(Of List(Of Vector2)), Color, Color, Single)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
+  id: DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawSelectionBox(Painter2D, Vector2, Vector2, Color, int)
+  nameWithType: Painter2DExtensions.DrawSelectionBox(Painter2D, Vector2, Vector2, Color, int)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawSelectionBox(this Painter2D paint2D, Vector2 pos1, Vector2 pos2, Color color, int width = 1)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: pos1
+      type: UnityEngine.Vector2
+    - id: pos2
+      type: UnityEngine.Vector2
+    - id: color
+      type: UnityEngine.Color
+    - id: width
+      type: System.Int32
+    content.vb: Public Shared Sub DrawSelectionBox(paint2D As Painter2D, pos1 As Vector2, pos2 As Vector2, color As Color, width As Integer = 1)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox*
+  nameWithType.vb: Painter2DExtensions.DrawSelectionBox(Painter2D, Vector2, Vector2, Color, Integer)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, Integer)
+  name.vb: DrawSelectionBox(Painter2D, Vector2, Vector2, Color, Integer)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawCircle(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,UnityEngine.Color)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawCircle(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,UnityEngine.Color)
+  id: DrawCircle(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,UnityEngine.Color)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawCircle(Painter2D, Vector2, float, Color)
+  nameWithType: Painter2DExtensions.DrawCircle(Painter2D, Vector2, float, Color)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawCircle(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, float, UnityEngine.Color)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawCircle(this Painter2D paint2D, Vector2 pos, float radius, Color color)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: pos
+      type: UnityEngine.Vector2
+    - id: radius
+      type: System.Single
+    - id: color
+      type: UnityEngine.Color
+    content.vb: Public Shared Sub DrawCircle(paint2D As Painter2D, pos As Vector2, radius As Single, color As Color)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawCircle*
+  nameWithType.vb: Painter2DExtensions.DrawCircle(Painter2D, Vector2, Single, Color)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawCircle(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, Single, UnityEngine.Color)
+  name.vb: DrawCircle(Painter2D, Vector2, Single, Color)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawDottedBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawDottedBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
+  id: DrawDottedBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawDottedBox(Painter2D, Vector2, Vector2, Color, int)
+  nameWithType: Painter2DExtensions.DrawDottedBox(Painter2D, Vector2, Vector2, Color, int)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawDottedBox(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, int)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawDottedBox(this Painter2D painter2D, Vector2 pos1, Vector2 pos2, Color color, int width = 1)
+    parameters:
+    - id: painter2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: pos1
+      type: UnityEngine.Vector2
+    - id: pos2
+      type: UnityEngine.Vector2
+    - id: color
+      type: UnityEngine.Color
+    - id: width
+      type: System.Int32
+    content.vb: Public Shared Sub DrawDottedBox(painter2D As Painter2D, pos1 As Vector2, pos2 As Vector2, color As Color, width As Integer = 1)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawDottedBox*
+  nameWithType.vb: Painter2DExtensions.DrawDottedBox(Painter2D, Vector2, Vector2, Color, Integer)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawDottedBox(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, Integer)
+  name.vb: DrawDottedBox(Painter2D, Vector2, Vector2, Color, Integer)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawDottedLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Single,System.Single)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawDottedLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Single,System.Single)
+  id: DrawDottedLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Single,System.Single)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawDottedLine(Painter2D, Vector2, Vector2, Color, float, float)
+  nameWithType: Painter2DExtensions.DrawDottedLine(Painter2D, Vector2, Vector2, Color, float, float)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawDottedLine(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, float, float)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawDottedLine(this Painter2D paint2D, Vector2 initPos, Vector2 endPos, Color color, float stroke = 5, float lineWidth = 15)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: initPos
+      type: UnityEngine.Vector2
+    - id: endPos
+      type: UnityEngine.Vector2
+    - id: color
+      type: UnityEngine.Color
+    - id: stroke
+      type: System.Single
+    - id: lineWidth
+      type: System.Single
+    content.vb: Public Shared Sub DrawDottedLine(paint2D As Painter2D, initPos As Vector2, endPos As Vector2, color As Color, stroke As Single = 5, lineWidth As Single = 15)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawDottedLine*
+  nameWithType.vb: Painter2DExtensions.DrawDottedLine(Painter2D, Vector2, Vector2, Color, Single, Single)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawDottedLine(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, Single, Single)
+  name.vb: DrawDottedLine(Painter2D, Vector2, Vector2, Color, Single, Single)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Single)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Single)
+  id: DrawLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Single)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawLine(Painter2D, Vector2, Vector2, Color, float)
+  nameWithType: Painter2DExtensions.DrawLine(Painter2D, Vector2, Vector2, Color, float)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawLine(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, float)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawLine(this Painter2D paint2D, Vector2 iniPos, Vector2 endPos, Color color, float stroke = 5)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: iniPos
+      type: UnityEngine.Vector2
+    - id: endPos
+      type: UnityEngine.Vector2
+    - id: color
+      type: UnityEngine.Color
+    - id: stroke
+      type: System.Single
+    content.vb: Public Shared Sub DrawLine(paint2D As Painter2D, iniPos As Vector2, endPos As Vector2, color As Color, stroke As Single = 5)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawLine*
+  nameWithType.vb: Painter2DExtensions.DrawLine(Painter2D, Vector2, Vector2, Color, Single)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawLine(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, Single)
+  name.vb: DrawLine(Painter2D, Vector2, Vector2, Color, Single)
+- uid: ISILab.Extensions.Painter2DExtensions.BezierTangent(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.BezierTangent(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  id: BezierTangent(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: BezierTangent(Painter2D, Vector2, Vector2, Vector2, Vector2)
+  nameWithType: Painter2DExtensions.BezierTangent(Painter2D, Vector2, Vector2, Vector2, Vector2)
+  fullName: ISILab.Extensions.Painter2DExtensions.BezierTangent(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Vector2 BezierTangent(this Painter2D _, Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3)
+    parameters:
+    - id: _
+      type: UnityEngine.UIElements.Painter2D
+    - id: p0
+      type: UnityEngine.Vector2
+    - id: p1
+      type: UnityEngine.Vector2
+    - id: p2
+      type: UnityEngine.Vector2
+    - id: p3
+      type: UnityEngine.Vector2
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Shared Function BezierTangent(_ As Painter2D, p0 As Vector2, p1 As Vector2, p2 As Vector2, p3 As Vector2) As Vector2
+  overload: ISILab.Extensions.Painter2DExtensions.BezierTangent*
+- uid: ISILab.Extensions.Painter2DExtensions.DrawBezierLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,UnityEngine.Color)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawBezierLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,UnityEngine.Color)
+  id: DrawBezierLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,UnityEngine.Color)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawBezierLine(Painter2D, Vector2, Vector2, Vector2, Vector2, Color, Color)
+  nameWithType: Painter2DExtensions.DrawBezierLine(Painter2D, Vector2, Vector2, Vector2, Vector2, Color, Color)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawBezierLine(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, UnityEngine.Color)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static Vector2 DrawBezierLine(this Painter2D paint2D, Vector2 iniPos, Vector2 controlPoint1, Vector2 controlPoint2, Vector2 endPos, Color color, Color border)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: iniPos
+      type: UnityEngine.Vector2
+    - id: controlPoint1
+      type: UnityEngine.Vector2
+    - id: controlPoint2
+      type: UnityEngine.Vector2
+    - id: endPos
+      type: UnityEngine.Vector2
+    - id: color
+      type: UnityEngine.Color
+    - id: border
+      type: UnityEngine.Color
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Shared Function DrawBezierLine(paint2D As Painter2D, iniPos As Vector2, controlPoint1 As Vector2, controlPoint2 As Vector2, endPos As Vector2, color As Color, border As Color) As Vector2
+  overload: ISILab.Extensions.Painter2DExtensions.DrawBezierLine*
+- uid: ISILab.Extensions.Painter2DExtensions.DrawDottedPolygon(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{UnityEngine.Vector2},UnityEngine.Color,System.Single,System.Boolean)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawDottedPolygon(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{UnityEngine.Vector2},UnityEngine.Color,System.Single,System.Boolean)
+  id: DrawDottedPolygon(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{UnityEngine.Vector2},UnityEngine.Color,System.Single,System.Boolean)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawDottedPolygon(Painter2D, List<Vector2>, Color, float, bool)
+  nameWithType: Painter2DExtensions.DrawDottedPolygon(Painter2D, List<Vector2>, Color, float, bool)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawDottedPolygon(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List<UnityEngine.Vector2>, UnityEngine.Color, float, bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawDottedPolygon(this Painter2D paint2D, List<Vector2> point, Color color, float stroke = 1, bool closed = false)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: point
+      type: System.Collections.Generic.List{UnityEngine.Vector2}
+    - id: color
+      type: UnityEngine.Color
+    - id: stroke
+      type: System.Single
+    - id: closed
+      type: System.Boolean
+    content.vb: Public Shared Sub DrawDottedPolygon(paint2D As Painter2D, point As List(Of Vector2), color As Color, stroke As Single = 1, closed As Boolean = False)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawDottedPolygon*
+  nameWithType.vb: Painter2DExtensions.DrawDottedPolygon(Painter2D, List(Of Vector2), Color, Single, Boolean)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawDottedPolygon(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List(Of UnityEngine.Vector2), UnityEngine.Color, Single, Boolean)
+  name.vb: DrawDottedPolygon(Painter2D, List(Of Vector2), Color, Single, Boolean)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawPolygon(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{UnityEngine.Vector2},UnityEngine.Color,UnityEngine.Color,System.Single,System.Boolean)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawPolygon(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{UnityEngine.Vector2},UnityEngine.Color,UnityEngine.Color,System.Single,System.Boolean)
+  id: DrawPolygon(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{UnityEngine.Vector2},UnityEngine.Color,UnityEngine.Color,System.Single,System.Boolean)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawPolygon(Painter2D, List<Vector2>, Color, Color, float, bool)
+  nameWithType: Painter2DExtensions.DrawPolygon(Painter2D, List<Vector2>, Color, Color, float, bool)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawPolygon(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List<UnityEngine.Vector2>, UnityEngine.Color, UnityEngine.Color, float, bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawPolygon(this Painter2D paint2D, List<Vector2> point, Color color, Color border, float stroke = 1, bool closed = false)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: point
+      type: System.Collections.Generic.List{UnityEngine.Vector2}
+    - id: color
+      type: UnityEngine.Color
+    - id: border
+      type: UnityEngine.Color
+    - id: stroke
+      type: System.Single
+    - id: closed
+      type: System.Boolean
+    content.vb: Public Shared Sub DrawPolygon(paint2D As Painter2D, point As List(Of Vector2), color As Color, border As Color, stroke As Single = 1, closed As Boolean = False)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawPolygon*
+  nameWithType.vb: Painter2DExtensions.DrawPolygon(Painter2D, List(Of Vector2), Color, Color, Single, Boolean)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawPolygon(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List(Of UnityEngine.Vector2), UnityEngine.Color, UnityEngine.Color, Single, Boolean)
+  name.vb: DrawPolygon(Painter2D, List(Of Vector2), Color, Color, Single, Boolean)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawSquareGrid(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}},UnityEngine.Color,UnityEngine.Color,System.Single,System.Single,System.Single)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawSquareGrid(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}},UnityEngine.Color,UnityEngine.Color,System.Single,System.Single,System.Single)
+  id: DrawSquareGrid(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}},UnityEngine.Color,UnityEngine.Color,System.Single,System.Single,System.Single)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawSquareGrid(Painter2D, List<List<Vector2>>, Color, Color, float, float, float)
+  nameWithType: Painter2DExtensions.DrawSquareGrid(Painter2D, List<List<Vector2>>, Color, Color, float, float, float)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawSquareGrid(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List<System.Collections.Generic.List<UnityEngine.Vector2>>, UnityEngine.Color, UnityEngine.Color, float, float, float)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawSquareGrid(this Painter2D paint2D, List<List<Vector2>> points, Color color, Color border, float stroke, float scale, float angle)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: points
+      type: System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}}
+    - id: color
+      type: UnityEngine.Color
+    - id: border
+      type: UnityEngine.Color
+    - id: stroke
+      type: System.Single
+    - id: scale
+      type: System.Single
+    - id: angle
+      type: System.Single
+    content.vb: Public Shared Sub DrawSquareGrid(paint2D As Painter2D, points As List(Of List(Of Vector2)), color As Color, border As Color, stroke As Single, scale As Single, angle As Single)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawSquareGrid*
+  nameWithType.vb: Painter2DExtensions.DrawSquareGrid(Painter2D, List(Of List(Of Vector2)), Color, Color, Single, Single, Single)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawSquareGrid(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List(Of System.Collections.Generic.List(Of UnityEngine.Vector2)), UnityEngine.Color, UnityEngine.Color, Single, Single, Single)
+  name.vb: DrawSquareGrid(Painter2D, List(Of List(Of Vector2)), Color, Color, Single, Single, Single)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawEquilateralArrow(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,UnityEngine.Color,System.Boolean)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawEquilateralArrow(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,UnityEngine.Color,System.Boolean)
+  id: DrawEquilateralArrow(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,UnityEngine.Color,System.Boolean)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawEquilateralArrow(Painter2D, Vector2, Vector2, float, Color, bool)
+  nameWithType: Painter2DExtensions.DrawEquilateralArrow(Painter2D, Vector2, Vector2, float, Color, bool)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawEquilateralArrow(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, float, UnityEngine.Color, bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawEquilateralArrow(this Painter2D painter, Vector2 center, Vector2 arrowDirection, float arrowWidth, Color color, bool closed = true)
+    parameters:
+    - id: painter
+      type: UnityEngine.UIElements.Painter2D
+    - id: center
+      type: UnityEngine.Vector2
+    - id: arrowDirection
+      type: UnityEngine.Vector2
+    - id: arrowWidth
+      type: System.Single
+    - id: color
+      type: UnityEngine.Color
+    - id: closed
+      type: System.Boolean
+    content.vb: Public Shared Sub DrawEquilateralArrow(painter As Painter2D, center As Vector2, arrowDirection As Vector2, arrowWidth As Single, color As Color, closed As Boolean = True)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawEquilateralArrow*
+  nameWithType.vb: Painter2DExtensions.DrawEquilateralArrow(Painter2D, Vector2, Vector2, Single, Color, Boolean)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawEquilateralArrow(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, Single, UnityEngine.Color, Boolean)
+  name.vb: DrawEquilateralArrow(Painter2D, Vector2, Vector2, Single, Color, Boolean)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawArrow(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,System.Single,UnityEngine.Color,System.Boolean)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawArrow(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,System.Single,UnityEngine.Color,System.Boolean)
+  id: DrawArrow(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,System.Single,UnityEngine.Color,System.Boolean)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawArrow(Painter2D, Vector2, Vector2, float, float, Color, bool)
+  nameWithType: Painter2DExtensions.DrawArrow(Painter2D, Vector2, Vector2, float, float, Color, bool)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawArrow(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, float, float, UnityEngine.Color, bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawArrow(this Painter2D painter, Vector2 center, Vector2 arrowDirection, float arrowWidth, float arrowLengthFactor, Color color, bool closed = true)
+    parameters:
+    - id: painter
+      type: UnityEngine.UIElements.Painter2D
+    - id: center
+      type: UnityEngine.Vector2
+    - id: arrowDirection
+      type: UnityEngine.Vector2
+    - id: arrowWidth
+      type: System.Single
+    - id: arrowLengthFactor
+      type: System.Single
+    - id: color
+      type: UnityEngine.Color
+    - id: closed
+      type: System.Boolean
+    content.vb: Public Shared Sub DrawArrow(painter As Painter2D, center As Vector2, arrowDirection As Vector2, arrowWidth As Single, arrowLengthFactor As Single, color As Color, closed As Boolean = True)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawArrow*
+  nameWithType.vb: Painter2DExtensions.DrawArrow(Painter2D, Vector2, Vector2, Single, Single, Color, Boolean)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawArrow(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, Single, Single, UnityEngine.Color, Boolean)
+  name.vb: DrawArrow(Painter2D, Vector2, Vector2, Single, Single, Color, Boolean)
+references:
+- uid: ISILab.Extensions
+  commentId: N:ISILab.Extensions
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.Extensions
+  nameWithType: ISILab.Extensions
+  fullName: ISILab.Extensions
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Extensions.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    isExternal: true
+    href: ISILab.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.Extensions.Painter2DExtensions.DrawHoleyShape*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawHoleyShape
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawHoleyShape_UnityEngine_UIElements_Painter2D_System_Collections_Generic_List_System_Collections_Generic_List_UnityEngine_Vector2___UnityEngine_Color_UnityEngine_Color_System_Single_
+  name: DrawHoleyShape
+  nameWithType: Painter2DExtensions.DrawHoleyShape
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawHoleyShape
+- uid: UnityEngine.UIElements.Painter2D
+  isExternal: true
+  name: Painter2D
+  nameWithType: Painter2D
+  fullName: UnityEngine.UIElements.Painter2D
+- uid: System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}}
+  commentId: T:System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<List<Vector2>>
+  nameWithType: List<List<Vector2>>
+  fullName: System.Collections.Generic.List<System.Collections.Generic.List<UnityEngine.Vector2>>
+  nameWithType.vb: List(Of List(Of Vector2))
+  fullName.vb: System.Collections.Generic.List(Of System.Collections.Generic.List(Of UnityEngine.Vector2))
+  name.vb: List(Of List(Of Vector2))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+  - name: )
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawSelectionBox
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawSelectionBox_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Color_System_Int32_
+  name: DrawSelectionBox
+  nameWithType: Painter2DExtensions.DrawSelectionBox
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox
+- uid: UnityEngine.Vector2
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.Extensions.Painter2DExtensions.DrawCircle*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawCircle
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawCircle_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_System_Single_UnityEngine_Color_
+  name: DrawCircle
+  nameWithType: Painter2DExtensions.DrawCircle
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawCircle
+- uid: ISILab.Extensions.Painter2DExtensions.DrawDottedBox*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawDottedBox
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawDottedBox_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Color_System_Int32_
+  name: DrawDottedBox
+  nameWithType: Painter2DExtensions.DrawDottedBox
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawDottedBox
+- uid: ISILab.Extensions.Painter2DExtensions.DrawDottedLine*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawDottedLine
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawDottedLine_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Color_System_Single_System_Single_
+  name: DrawDottedLine
+  nameWithType: Painter2DExtensions.DrawDottedLine
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawDottedLine
+- uid: ISILab.Extensions.Painter2DExtensions.DrawLine*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawLine
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawLine_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Color_System_Single_
+  name: DrawLine
+  nameWithType: Painter2DExtensions.DrawLine
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawLine
+- uid: ISILab.Extensions.Painter2DExtensions.BezierTangent*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.BezierTangent
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_BezierTangent_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_
+  name: BezierTangent
+  nameWithType: Painter2DExtensions.BezierTangent
+  fullName: ISILab.Extensions.Painter2DExtensions.BezierTangent
+- uid: ISILab.Extensions.Painter2DExtensions.DrawBezierLine*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawBezierLine
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawBezierLine_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Color_UnityEngine_Color_
+  name: DrawBezierLine
+  nameWithType: Painter2DExtensions.DrawBezierLine
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawBezierLine
+- uid: ISILab.Extensions.Painter2DExtensions.DrawDottedPolygon*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawDottedPolygon
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawDottedPolygon_UnityEngine_UIElements_Painter2D_System_Collections_Generic_List_UnityEngine_Vector2__UnityEngine_Color_System_Single_System_Boolean_
+  name: DrawDottedPolygon
+  nameWithType: Painter2DExtensions.DrawDottedPolygon
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawDottedPolygon
+- uid: System.Collections.Generic.List{UnityEngine.Vector2}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Vector2}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vector2>
+  nameWithType: List<Vector2>
+  fullName: System.Collections.Generic.List<UnityEngine.Vector2>
+  nameWithType.vb: List(Of Vector2)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Vector2)
+  name.vb: List(Of Vector2)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector2
+    name: Vector2
+    isExternal: true
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.Extensions.Painter2DExtensions.DrawPolygon*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawPolygon
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawPolygon_UnityEngine_UIElements_Painter2D_System_Collections_Generic_List_UnityEngine_Vector2__UnityEngine_Color_UnityEngine_Color_System_Single_System_Boolean_
+  name: DrawPolygon
+  nameWithType: Painter2DExtensions.DrawPolygon
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawPolygon
+- uid: ISILab.Extensions.Painter2DExtensions.DrawSquareGrid*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawSquareGrid
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawSquareGrid_UnityEngine_UIElements_Painter2D_System_Collections_Generic_List_System_Collections_Generic_List_UnityEngine_Vector2___UnityEngine_Color_UnityEngine_Color_System_Single_System_Single_System_Single_
+  name: DrawSquareGrid
+  nameWithType: Painter2DExtensions.DrawSquareGrid
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawSquareGrid
+- uid: ISILab.Extensions.Painter2DExtensions.DrawEquilateralArrow*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawEquilateralArrow
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawEquilateralArrow_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_UnityEngine_Vector2_System_Single_UnityEngine_Color_System_Boolean_
+  name: DrawEquilateralArrow
+  nameWithType: Painter2DExtensions.DrawEquilateralArrow
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawEquilateralArrow
+- uid: ISILab.Extensions.Painter2DExtensions.DrawArrow*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawArrow
+  isExternal: true
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawArrow_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_UnityEngine_Vector2_System_Single_System_Single_UnityEngine_Color_System_Boolean_
+  name: DrawArrow
+  nameWithType: Painter2DExtensions.DrawArrow
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawArrow
+shouldSkipMarkup: true

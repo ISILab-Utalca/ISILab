@@ -1,0 +1,334 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeneticSharp.Domain.Reinsertions.IReinsertion
+  commentId: T:GeneticSharp.Domain.Reinsertions.IReinsertion
+  id: IReinsertion
+  parent: GeneticSharp.Domain.Reinsertions
+  children:
+  - GeneticSharp.Domain.Reinsertions.IReinsertion.CanCollapse
+  - GeneticSharp.Domain.Reinsertions.IReinsertion.CanExpand
+  - GeneticSharp.Domain.Reinsertions.IReinsertion.SelectChromosomes(ISILab.AI.Optimization.Populations.IPopulation,System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})
+  langs:
+  - csharp
+  - vb
+  name: IReinsertion
+  nameWithType: IReinsertion
+  fullName: GeneticSharp.Domain.Reinsertions.IReinsertion
+  type: Interface
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Reinsertions
+  syntax:
+    content: public interface IReinsertion
+    content.vb: Public Interface IReinsertion
+  derivedClasses:
+  - GeneticSharp.Domain.Reinsertions.ElitistReinsertion
+  - GeneticSharp.Domain.Reinsertions.FitnessBasedReinsertion
+  - GeneticSharp.Domain.Reinsertions.PureReinsertion
+  - GeneticSharp.Domain.Reinsertions.ReinsertionBase
+  - GeneticSharp.Domain.Reinsertions.UniformReinsertion
+- uid: GeneticSharp.Domain.Reinsertions.IReinsertion.SelectChromosomes(ISILab.AI.Optimization.Populations.IPopulation,System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})
+  commentId: M:GeneticSharp.Domain.Reinsertions.IReinsertion.SelectChromosomes(ISILab.AI.Optimization.Populations.IPopulation,System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})
+  id: SelectChromosomes(ISILab.AI.Optimization.Populations.IPopulation,System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable})
+  parent: GeneticSharp.Domain.Reinsertions.IReinsertion
+  langs:
+  - csharp
+  - vb
+  name: SelectChromosomes(IPopulation, IList<IOptimizable>, IList<IOptimizable>)
+  nameWithType: IReinsertion.SelectChromosomes(IPopulation, IList<IOptimizable>, IList<IOptimizable>)
+  fullName: GeneticSharp.Domain.Reinsertions.IReinsertion.SelectChromosomes(ISILab.AI.Optimization.Populations.IPopulation, System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>, System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>)
+  type: Method
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Reinsertions
+  syntax:
+    content: IList<IOptimizable> SelectChromosomes(IPopulation population, IList<IOptimizable> offspring, IList<IOptimizable> parents)
+    parameters:
+    - id: population
+      type: ISILab.AI.Optimization.Populations.IPopulation
+    - id: offspring
+      type: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+    - id: parents
+      type: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+    return:
+      type: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+    content.vb: Function SelectChromosomes(population As IPopulation, offspring As IList(Of IOptimizable), parents As IList(Of IOptimizable)) As IList(Of IOptimizable)
+  overload: GeneticSharp.Domain.Reinsertions.IReinsertion.SelectChromosomes*
+  nameWithType.vb: IReinsertion.SelectChromosomes(IPopulation, IList(Of IOptimizable), IList(Of IOptimizable))
+  fullName.vb: GeneticSharp.Domain.Reinsertions.IReinsertion.SelectChromosomes(ISILab.AI.Optimization.Populations.IPopulation, System.Collections.Generic.IList(Of ISILab.AI.Optimization.IOptimizable), System.Collections.Generic.IList(Of ISILab.AI.Optimization.IOptimizable))
+  name.vb: SelectChromosomes(IPopulation, IList(Of IOptimizable), IList(Of IOptimizable))
+- uid: GeneticSharp.Domain.Reinsertions.IReinsertion.CanCollapse
+  commentId: P:GeneticSharp.Domain.Reinsertions.IReinsertion.CanCollapse
+  id: CanCollapse
+  parent: GeneticSharp.Domain.Reinsertions.IReinsertion
+  langs:
+  - csharp
+  - vb
+  name: CanCollapse
+  nameWithType: IReinsertion.CanCollapse
+  fullName: GeneticSharp.Domain.Reinsertions.IReinsertion.CanCollapse
+  type: Property
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Reinsertions
+  syntax:
+    content: bool CanCollapse { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanCollapse As Boolean
+  overload: GeneticSharp.Domain.Reinsertions.IReinsertion.CanCollapse*
+- uid: GeneticSharp.Domain.Reinsertions.IReinsertion.CanExpand
+  commentId: P:GeneticSharp.Domain.Reinsertions.IReinsertion.CanExpand
+  id: CanExpand
+  parent: GeneticSharp.Domain.Reinsertions.IReinsertion
+  langs:
+  - csharp
+  - vb
+  name: CanExpand
+  nameWithType: IReinsertion.CanExpand
+  fullName: GeneticSharp.Domain.Reinsertions.IReinsertion.CanExpand
+  type: Property
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Reinsertions
+  syntax:
+    content: bool CanExpand { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanExpand As Boolean
+  overload: GeneticSharp.Domain.Reinsertions.IReinsertion.CanExpand*
+references:
+- uid: GeneticSharp.Domain.Reinsertions
+  commentId: N:GeneticSharp.Domain.Reinsertions
+  isExternal: true
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Reinsertions
+  nameWithType: GeneticSharp.Domain.Reinsertions
+  fullName: GeneticSharp.Domain.Reinsertions
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Reinsertions
+    name: Reinsertions
+    isExternal: true
+    href: GeneticSharp.Domain.Reinsertions.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    isExternal: true
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    isExternal: true
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Reinsertions
+    name: Reinsertions
+    isExternal: true
+    href: GeneticSharp.Domain.Reinsertions.html
+- uid: GeneticSharp.Domain.Reinsertions.IReinsertion.SelectChromosomes*
+  commentId: Overload:GeneticSharp.Domain.Reinsertions.IReinsertion.SelectChromosomes
+  isExternal: true
+  href: GeneticSharp.Domain.Reinsertions.IReinsertion.html#GeneticSharp_Domain_Reinsertions_IReinsertion_SelectChromosomes_ISILab_AI_Optimization_Populations_IPopulation_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__
+  name: SelectChromosomes
+  nameWithType: IReinsertion.SelectChromosomes
+  fullName: GeneticSharp.Domain.Reinsertions.IReinsertion.SelectChromosomes
+- uid: ISILab.AI.Optimization.Populations.IPopulation
+  commentId: T:ISILab.AI.Optimization.Populations.IPopulation
+  parent: ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.AI.Optimization.Populations.IPopulation.html
+  name: IPopulation
+  nameWithType: IPopulation
+  fullName: ISILab.AI.Optimization.Populations.IPopulation
+- uid: System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+  commentId: T:System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<IOptimizable>
+  nameWithType: IList<IOptimizable>
+  fullName: System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>
+  nameWithType.vb: IList(Of IOptimizable)
+  fullName.vb: System.Collections.Generic.IList(Of ISILab.AI.Optimization.IOptimizable)
+  name.vb: IList(Of IOptimizable)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.AI.Optimization.IOptimizable
+    name: IOptimizable
+    isExternal: true
+    href: ISILab.AI.Optimization.IOptimizable.html
+  - name: )
+- uid: ISILab.AI.Optimization.Populations
+  commentId: N:ISILab.AI.Optimization.Populations
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.AI.Optimization.Populations
+  nameWithType: ISILab.AI.Optimization.Populations
+  fullName: ISILab.AI.Optimization.Populations
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    isExternal: true
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Optimization
+    name: Optimization
+    isExternal: true
+    href: ISILab.AI.Optimization.html
+  - name: .
+  - uid: ISILab.AI.Optimization.Populations
+    name: Populations
+    isExternal: true
+    href: ISILab.AI.Optimization.Populations.html
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: GeneticSharp.Domain.Reinsertions.IReinsertion.CanCollapse*
+  commentId: Overload:GeneticSharp.Domain.Reinsertions.IReinsertion.CanCollapse
+  isExternal: true
+  href: GeneticSharp.Domain.Reinsertions.IReinsertion.html#GeneticSharp_Domain_Reinsertions_IReinsertion_CanCollapse
+  name: CanCollapse
+  nameWithType: IReinsertion.CanCollapse
+  fullName: GeneticSharp.Domain.Reinsertions.IReinsertion.CanCollapse
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GeneticSharp.Domain.Reinsertions.IReinsertion.CanExpand*
+  commentId: Overload:GeneticSharp.Domain.Reinsertions.IReinsertion.CanExpand
+  isExternal: true
+  href: GeneticSharp.Domain.Reinsertions.IReinsertion.html#GeneticSharp_Domain_Reinsertions_IReinsertion_CanExpand
+  name: CanExpand
+  nameWithType: IReinsertion.CanExpand
+  fullName: GeneticSharp.Domain.Reinsertions.IReinsertion.CanExpand
+shouldSkipMarkup: true

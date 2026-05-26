@@ -1,0 +1,1030 @@
+### YamlMime:ManagedReference
+items:
+- uid: LBS.VisualElements.SimplePallete
+  commentId: T:LBS.VisualElements.SimplePallete
+  id: SimplePallete
+  parent: LBS.VisualElements
+  children:
+  - LBS.VisualElements.SimplePallete.#ctor
+  - LBS.VisualElements.SimplePallete.CollectionSelected
+  - LBS.VisualElements.SimplePallete.DisplayAddElement
+  - LBS.VisualElements.SimplePallete.DisplayContent(System.Boolean)
+  - LBS.VisualElements.SimplePallete.DisplayRemoveElement
+  - LBS.VisualElements.SimplePallete.NameLabel
+  - LBS.VisualElements.SimplePallete.OnAddOption
+  - LBS.VisualElements.SimplePallete.OnChangeGroup
+  - LBS.VisualElements.SimplePallete.OnRemoveOption
+  - LBS.VisualElements.SimplePallete.OnRepaint
+  - LBS.VisualElements.SimplePallete.OnSelectOption
+  - LBS.VisualElements.SimplePallete.OnSetTooltip
+  - LBS.VisualElements.SimplePallete.Options
+  - LBS.VisualElements.SimplePallete.Repaint
+  - LBS.VisualElements.SimplePallete.Selected
+  - LBS.VisualElements.SimplePallete.SetIcon(UnityEngine.UIElements.VectorImage,UnityEngine.Color)
+  - LBS.VisualElements.SimplePallete.SetName(System.String)
+  - LBS.VisualElements.SimplePallete.SetOptions(System.Object[],System.Action{LBS.VisualElements.OptionView,System.Object})
+  - LBS.VisualElements.SimplePallete.ShowAddButton
+  - LBS.VisualElements.SimplePallete.ShowDropdown
+  - LBS.VisualElements.SimplePallete.ShowGroups
+  - LBS.VisualElements.SimplePallete.ShowNoElement
+  - LBS.VisualElements.SimplePallete.ShowRemoveButton
+  langs:
+  - csharp
+  - vb
+  name: SimplePallete
+  nameWithType: SimplePallete
+  fullName: LBS.VisualElements.SimplePallete
+  type: Class
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: 'public class SimplePallete : VisualElement'
+    content.vb: Public Class SimplePallete Inherits VisualElement
+  inheritance:
+  - System.Object
+- uid: LBS.VisualElements.SimplePallete.#ctor
+  commentId: M:LBS.VisualElements.SimplePallete.#ctor
+  id: '#ctor'
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: SimplePallete()
+  nameWithType: SimplePallete.SimplePallete()
+  fullName: LBS.VisualElements.SimplePallete.SimplePallete()
+  type: Constructor
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public SimplePallete()
+    content.vb: Public Sub New()
+  overload: LBS.VisualElements.SimplePallete.#ctor*
+  nameWithType.vb: SimplePallete.New()
+  fullName.vb: LBS.VisualElements.SimplePallete.New()
+  name.vb: New()
+- uid: LBS.VisualElements.SimplePallete.SetOptions(System.Object[],System.Action{LBS.VisualElements.OptionView,System.Object})
+  commentId: M:LBS.VisualElements.SimplePallete.SetOptions(System.Object[],System.Action{LBS.VisualElements.OptionView,System.Object})
+  id: SetOptions(System.Object[],System.Action{LBS.VisualElements.OptionView,System.Object})
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: SetOptions(object[], Action<OptionView, object>)
+  nameWithType: SimplePallete.SetOptions(object[], Action<OptionView, object>)
+  fullName: LBS.VisualElements.SimplePallete.SetOptions(object[], System.Action<LBS.VisualElements.OptionView, object>)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void SetOptions(object[] options, Action<OptionView, object> onSetView)
+    parameters:
+    - id: options
+      type: System.Object[]
+    - id: onSetView
+      type: System.Action{LBS.VisualElements.OptionView,System.Object}
+    content.vb: Public Sub SetOptions(options As Object(), onSetView As Action(Of OptionView, Object))
+  overload: LBS.VisualElements.SimplePallete.SetOptions*
+  nameWithType.vb: SimplePallete.SetOptions(Object(), Action(Of OptionView, Object))
+  fullName.vb: LBS.VisualElements.SimplePallete.SetOptions(Object(), System.Action(Of LBS.VisualElements.OptionView, Object))
+  name.vb: SetOptions(Object(), Action(Of OptionView, Object))
+- uid: LBS.VisualElements.SimplePallete.SetIcon(UnityEngine.UIElements.VectorImage,UnityEngine.Color)
+  commentId: M:LBS.VisualElements.SimplePallete.SetIcon(UnityEngine.UIElements.VectorImage,UnityEngine.Color)
+  id: SetIcon(UnityEngine.UIElements.VectorImage,UnityEngine.Color)
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: SetIcon(VectorImage, Color)
+  nameWithType: SimplePallete.SetIcon(VectorImage, Color)
+  fullName: LBS.VisualElements.SimplePallete.SetIcon(UnityEngine.UIElements.VectorImage, UnityEngine.Color)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void SetIcon(VectorImage icon, Color color)
+    parameters:
+    - id: icon
+      type: UnityEngine.UIElements.VectorImage
+    - id: color
+      type: UnityEngine.Color
+    content.vb: Public Sub SetIcon(icon As VectorImage, color As Color)
+  overload: LBS.VisualElements.SimplePallete.SetIcon*
+- uid: LBS.VisualElements.SimplePallete.SetName(System.String)
+  commentId: M:LBS.VisualElements.SimplePallete.SetName(System.String)
+  id: SetName(System.String)
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: SetName(string)
+  nameWithType: SimplePallete.SetName(string)
+  fullName: LBS.VisualElements.SimplePallete.SetName(string)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void SetName(string name)
+    parameters:
+    - id: name
+      type: System.String
+    content.vb: Public Sub SetName(name As String)
+  overload: LBS.VisualElements.SimplePallete.SetName*
+  nameWithType.vb: SimplePallete.SetName(String)
+  fullName.vb: LBS.VisualElements.SimplePallete.SetName(String)
+  name.vb: SetName(String)
+- uid: LBS.VisualElements.SimplePallete.DisplayContent(System.Boolean)
+  commentId: M:LBS.VisualElements.SimplePallete.DisplayContent(System.Boolean)
+  id: DisplayContent(System.Boolean)
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: DisplayContent(bool)
+  nameWithType: SimplePallete.DisplayContent(bool)
+  fullName: LBS.VisualElements.SimplePallete.DisplayContent(bool)
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void DisplayContent(bool show)
+    parameters:
+    - id: show
+      type: System.Boolean
+    content.vb: Public Sub DisplayContent(show As Boolean)
+  overload: LBS.VisualElements.SimplePallete.DisplayContent*
+  nameWithType.vb: SimplePallete.DisplayContent(Boolean)
+  fullName.vb: LBS.VisualElements.SimplePallete.DisplayContent(Boolean)
+  name.vb: DisplayContent(Boolean)
+- uid: LBS.VisualElements.SimplePallete.Repaint
+  commentId: M:LBS.VisualElements.SimplePallete.Repaint
+  id: Repaint
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: Repaint()
+  nameWithType: SimplePallete.Repaint()
+  fullName: LBS.VisualElements.SimplePallete.Repaint()
+  type: Method
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public void Repaint()
+    content.vb: Public Sub Repaint()
+  overload: LBS.VisualElements.SimplePallete.Repaint*
+- uid: LBS.VisualElements.SimplePallete.DisplayAddElement
+  commentId: P:LBS.VisualElements.SimplePallete.DisplayAddElement
+  id: DisplayAddElement
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: DisplayAddElement
+  nameWithType: SimplePallete.DisplayAddElement
+  fullName: LBS.VisualElements.SimplePallete.DisplayAddElement
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public bool DisplayAddElement { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property DisplayAddElement As Boolean
+  overload: LBS.VisualElements.SimplePallete.DisplayAddElement*
+- uid: LBS.VisualElements.SimplePallete.DisplayRemoveElement
+  commentId: P:LBS.VisualElements.SimplePallete.DisplayRemoveElement
+  id: DisplayRemoveElement
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: DisplayRemoveElement
+  nameWithType: SimplePallete.DisplayRemoveElement
+  fullName: LBS.VisualElements.SimplePallete.DisplayRemoveElement
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public bool DisplayRemoveElement { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property DisplayRemoveElement As Boolean
+  overload: LBS.VisualElements.SimplePallete.DisplayRemoveElement*
+- uid: LBS.VisualElements.SimplePallete.NameLabel
+  commentId: P:LBS.VisualElements.SimplePallete.NameLabel
+  id: NameLabel
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: NameLabel
+  nameWithType: SimplePallete.NameLabel
+  fullName: LBS.VisualElements.SimplePallete.NameLabel
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public string NameLabel { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NameLabel As String
+  overload: LBS.VisualElements.SimplePallete.NameLabel*
+- uid: LBS.VisualElements.SimplePallete.Selected
+  commentId: P:LBS.VisualElements.SimplePallete.Selected
+  id: Selected
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: Selected
+  nameWithType: SimplePallete.Selected
+  fullName: LBS.VisualElements.SimplePallete.Selected
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public object Selected { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property Selected As Object
+  overload: LBS.VisualElements.SimplePallete.Selected*
+- uid: LBS.VisualElements.SimplePallete.CollectionSelected
+  commentId: P:LBS.VisualElements.SimplePallete.CollectionSelected
+  id: CollectionSelected
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: CollectionSelected
+  nameWithType: SimplePallete.CollectionSelected
+  fullName: LBS.VisualElements.SimplePallete.CollectionSelected
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public object CollectionSelected { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property CollectionSelected As Object
+  overload: LBS.VisualElements.SimplePallete.CollectionSelected*
+- uid: LBS.VisualElements.SimplePallete.Options
+  commentId: P:LBS.VisualElements.SimplePallete.Options
+  id: Options
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: Options
+  nameWithType: SimplePallete.Options
+  fullName: LBS.VisualElements.SimplePallete.Options
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public object[] Options { get; set; }
+    parameters: []
+    return:
+      type: System.Object[]
+    content.vb: Public Property Options As Object()
+  overload: LBS.VisualElements.SimplePallete.Options*
+- uid: LBS.VisualElements.SimplePallete.ShowGroups
+  commentId: P:LBS.VisualElements.SimplePallete.ShowGroups
+  id: ShowGroups
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: ShowGroups
+  nameWithType: SimplePallete.ShowGroups
+  fullName: LBS.VisualElements.SimplePallete.ShowGroups
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public bool ShowGroups { set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public WriteOnly Property ShowGroups As Boolean
+  overload: LBS.VisualElements.SimplePallete.ShowGroups*
+- uid: LBS.VisualElements.SimplePallete.ShowRemoveButton
+  commentId: P:LBS.VisualElements.SimplePallete.ShowRemoveButton
+  id: ShowRemoveButton
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: ShowRemoveButton
+  nameWithType: SimplePallete.ShowRemoveButton
+  fullName: LBS.VisualElements.SimplePallete.ShowRemoveButton
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public bool ShowRemoveButton { set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public WriteOnly Property ShowRemoveButton As Boolean
+  overload: LBS.VisualElements.SimplePallete.ShowRemoveButton*
+- uid: LBS.VisualElements.SimplePallete.ShowAddButton
+  commentId: P:LBS.VisualElements.SimplePallete.ShowAddButton
+  id: ShowAddButton
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: ShowAddButton
+  nameWithType: SimplePallete.ShowAddButton
+  fullName: LBS.VisualElements.SimplePallete.ShowAddButton
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public bool ShowAddButton { set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public WriteOnly Property ShowAddButton As Boolean
+  overload: LBS.VisualElements.SimplePallete.ShowAddButton*
+- uid: LBS.VisualElements.SimplePallete.ShowNoElement
+  commentId: P:LBS.VisualElements.SimplePallete.ShowNoElement
+  id: ShowNoElement
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: ShowNoElement
+  nameWithType: SimplePallete.ShowNoElement
+  fullName: LBS.VisualElements.SimplePallete.ShowNoElement
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public bool ShowNoElement { set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public WriteOnly Property ShowNoElement As Boolean
+  overload: LBS.VisualElements.SimplePallete.ShowNoElement*
+- uid: LBS.VisualElements.SimplePallete.ShowDropdown
+  commentId: P:LBS.VisualElements.SimplePallete.ShowDropdown
+  id: ShowDropdown
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: ShowDropdown
+  nameWithType: SimplePallete.ShowDropdown
+  fullName: LBS.VisualElements.SimplePallete.ShowDropdown
+  type: Property
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public bool ShowDropdown { set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public WriteOnly Property ShowDropdown As Boolean
+  overload: LBS.VisualElements.SimplePallete.ShowDropdown*
+- uid: LBS.VisualElements.SimplePallete.OnChangeGroup
+  commentId: E:LBS.VisualElements.SimplePallete.OnChangeGroup
+  id: OnChangeGroup
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: OnChangeGroup
+  nameWithType: SimplePallete.OnChangeGroup
+  fullName: LBS.VisualElements.SimplePallete.OnChangeGroup
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public event Action<ChangeEvent<string>> OnChangeGroup
+    return:
+      type: System.Action{UnityEngine.UIElements.ChangeEvent{System.String}}
+    content.vb: Public Event OnChangeGroup As Action(Of ChangeEvent(Of String))
+- uid: LBS.VisualElements.SimplePallete.OnSelectOption
+  commentId: E:LBS.VisualElements.SimplePallete.OnSelectOption
+  id: OnSelectOption
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: OnSelectOption
+  nameWithType: SimplePallete.OnSelectOption
+  fullName: LBS.VisualElements.SimplePallete.OnSelectOption
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public event Action<object> OnSelectOption
+    return:
+      type: System.Action{System.Object}
+    content.vb: Public Event OnSelectOption As Action(Of Object)
+- uid: LBS.VisualElements.SimplePallete.OnRemoveOption
+  commentId: E:LBS.VisualElements.SimplePallete.OnRemoveOption
+  id: OnRemoveOption
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: OnRemoveOption
+  nameWithType: SimplePallete.OnRemoveOption
+  fullName: LBS.VisualElements.SimplePallete.OnRemoveOption
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public event Action<object> OnRemoveOption
+    return:
+      type: System.Action{System.Object}
+    content.vb: Public Event OnRemoveOption As Action(Of Object)
+- uid: LBS.VisualElements.SimplePallete.OnAddOption
+  commentId: E:LBS.VisualElements.SimplePallete.OnAddOption
+  id: OnAddOption
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: OnAddOption
+  nameWithType: SimplePallete.OnAddOption
+  fullName: LBS.VisualElements.SimplePallete.OnAddOption
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public event Action OnAddOption
+    return:
+      type: System.Action
+    content.vb: Public Event OnAddOption As Action
+- uid: LBS.VisualElements.SimplePallete.OnRepaint
+  commentId: E:LBS.VisualElements.SimplePallete.OnRepaint
+  id: OnRepaint
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: OnRepaint
+  nameWithType: SimplePallete.OnRepaint
+  fullName: LBS.VisualElements.SimplePallete.OnRepaint
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public event Action OnRepaint
+    return:
+      type: System.Action
+    content.vb: Public Event OnRepaint As Action
+- uid: LBS.VisualElements.SimplePallete.OnSetTooltip
+  commentId: E:LBS.VisualElements.SimplePallete.OnSetTooltip
+  id: OnSetTooltip
+  parent: LBS.VisualElements.SimplePallete
+  langs:
+  - csharp
+  - vb
+  name: OnSetTooltip
+  nameWithType: SimplePallete.OnSetTooltip
+  fullName: LBS.VisualElements.SimplePallete.OnSetTooltip
+  type: Event
+  assemblies:
+  - LBS.Editor
+  namespace: LBS.VisualElements
+  syntax:
+    content: public event Func<object, string> OnSetTooltip
+    return:
+      type: System.Func{System.Object,System.String}
+    content.vb: Public Event OnSetTooltip As Func(Of Object, String)
+references:
+- uid: LBS.VisualElements
+  commentId: N:LBS.VisualElements
+  isExternal: true
+  href: LBS.html
+  name: LBS.VisualElements
+  nameWithType: LBS.VisualElements
+  fullName: LBS.VisualElements
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    isExternal: true
+    href: LBS.html
+  - name: .
+  - uid: LBS.VisualElements
+    name: VisualElements
+    isExternal: true
+    href: LBS.VisualElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LBS.VisualElements.SimplePallete.#ctor*
+  commentId: Overload:LBS.VisualElements.SimplePallete.#ctor
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete__ctor
+  name: SimplePallete
+  nameWithType: SimplePallete.SimplePallete
+  fullName: LBS.VisualElements.SimplePallete.SimplePallete
+  nameWithType.vb: SimplePallete.New
+  fullName.vb: LBS.VisualElements.SimplePallete.New
+  name.vb: New
+- uid: LBS.VisualElements.SimplePallete.SetOptions*
+  commentId: Overload:LBS.VisualElements.SimplePallete.SetOptions
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_SetOptions_System_Object___System_Action_LBS_VisualElements_OptionView_System_Object__
+  name: SetOptions
+  nameWithType: SimplePallete.SetOptions
+  fullName: LBS.VisualElements.SimplePallete.SetOptions
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: System.Action{LBS.VisualElements.OptionView,System.Object}
+  commentId: T:System.Action{LBS.VisualElements.OptionView,System.Object}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<OptionView, object>
+  nameWithType: Action<OptionView, object>
+  fullName: System.Action<LBS.VisualElements.OptionView, object>
+  nameWithType.vb: Action(Of OptionView, Object)
+  fullName.vb: System.Action(Of LBS.VisualElements.OptionView, Object)
+  name.vb: Action(Of OptionView, Object)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: LBS.VisualElements.OptionView
+    name: OptionView
+    isExternal: true
+    href: LBS.VisualElements.OptionView.html
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LBS.VisualElements.OptionView
+    name: OptionView
+    isExternal: true
+    href: LBS.VisualElements.OptionView.html
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: LBS.VisualElements.SimplePallete.SetIcon*
+  commentId: Overload:LBS.VisualElements.SimplePallete.SetIcon
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_SetIcon_UnityEngine_UIElements_VectorImage_UnityEngine_Color_
+  name: SetIcon
+  nameWithType: SimplePallete.SetIcon
+  fullName: LBS.VisualElements.SimplePallete.SetIcon
+- uid: UnityEngine.UIElements.VectorImage
+  isExternal: true
+  name: VectorImage
+  nameWithType: VectorImage
+  fullName: UnityEngine.UIElements.VectorImage
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: LBS.VisualElements.SimplePallete.SetName*
+  commentId: Overload:LBS.VisualElements.SimplePallete.SetName
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_SetName_System_String_
+  name: SetName
+  nameWithType: SimplePallete.SetName
+  fullName: LBS.VisualElements.SimplePallete.SetName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LBS.VisualElements.SimplePallete.DisplayContent*
+  commentId: Overload:LBS.VisualElements.SimplePallete.DisplayContent
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_DisplayContent_System_Boolean_
+  name: DisplayContent
+  nameWithType: SimplePallete.DisplayContent
+  fullName: LBS.VisualElements.SimplePallete.DisplayContent
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LBS.VisualElements.SimplePallete.Repaint*
+  commentId: Overload:LBS.VisualElements.SimplePallete.Repaint
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_Repaint
+  name: Repaint
+  nameWithType: SimplePallete.Repaint
+  fullName: LBS.VisualElements.SimplePallete.Repaint
+- uid: LBS.VisualElements.SimplePallete.DisplayAddElement*
+  commentId: Overload:LBS.VisualElements.SimplePallete.DisplayAddElement
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_DisplayAddElement
+  name: DisplayAddElement
+  nameWithType: SimplePallete.DisplayAddElement
+  fullName: LBS.VisualElements.SimplePallete.DisplayAddElement
+- uid: LBS.VisualElements.SimplePallete.DisplayRemoveElement*
+  commentId: Overload:LBS.VisualElements.SimplePallete.DisplayRemoveElement
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_DisplayRemoveElement
+  name: DisplayRemoveElement
+  nameWithType: SimplePallete.DisplayRemoveElement
+  fullName: LBS.VisualElements.SimplePallete.DisplayRemoveElement
+- uid: LBS.VisualElements.SimplePallete.NameLabel*
+  commentId: Overload:LBS.VisualElements.SimplePallete.NameLabel
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_NameLabel
+  name: NameLabel
+  nameWithType: SimplePallete.NameLabel
+  fullName: LBS.VisualElements.SimplePallete.NameLabel
+- uid: LBS.VisualElements.SimplePallete.Selected*
+  commentId: Overload:LBS.VisualElements.SimplePallete.Selected
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_Selected
+  name: Selected
+  nameWithType: SimplePallete.Selected
+  fullName: LBS.VisualElements.SimplePallete.Selected
+- uid: LBS.VisualElements.SimplePallete.CollectionSelected*
+  commentId: Overload:LBS.VisualElements.SimplePallete.CollectionSelected
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_CollectionSelected
+  name: CollectionSelected
+  nameWithType: SimplePallete.CollectionSelected
+  fullName: LBS.VisualElements.SimplePallete.CollectionSelected
+- uid: LBS.VisualElements.SimplePallete.Options*
+  commentId: Overload:LBS.VisualElements.SimplePallete.Options
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_Options
+  name: Options
+  nameWithType: SimplePallete.Options
+  fullName: LBS.VisualElements.SimplePallete.Options
+- uid: LBS.VisualElements.SimplePallete.ShowGroups*
+  commentId: Overload:LBS.VisualElements.SimplePallete.ShowGroups
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_ShowGroups
+  name: ShowGroups
+  nameWithType: SimplePallete.ShowGroups
+  fullName: LBS.VisualElements.SimplePallete.ShowGroups
+- uid: LBS.VisualElements.SimplePallete.ShowRemoveButton*
+  commentId: Overload:LBS.VisualElements.SimplePallete.ShowRemoveButton
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_ShowRemoveButton
+  name: ShowRemoveButton
+  nameWithType: SimplePallete.ShowRemoveButton
+  fullName: LBS.VisualElements.SimplePallete.ShowRemoveButton
+- uid: LBS.VisualElements.SimplePallete.ShowAddButton*
+  commentId: Overload:LBS.VisualElements.SimplePallete.ShowAddButton
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_ShowAddButton
+  name: ShowAddButton
+  nameWithType: SimplePallete.ShowAddButton
+  fullName: LBS.VisualElements.SimplePallete.ShowAddButton
+- uid: LBS.VisualElements.SimplePallete.ShowNoElement*
+  commentId: Overload:LBS.VisualElements.SimplePallete.ShowNoElement
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_ShowNoElement
+  name: ShowNoElement
+  nameWithType: SimplePallete.ShowNoElement
+  fullName: LBS.VisualElements.SimplePallete.ShowNoElement
+- uid: LBS.VisualElements.SimplePallete.ShowDropdown*
+  commentId: Overload:LBS.VisualElements.SimplePallete.ShowDropdown
+  isExternal: true
+  href: LBS.VisualElements.SimplePallete.html#LBS_VisualElements_SimplePallete_ShowDropdown
+  name: ShowDropdown
+  nameWithType: SimplePallete.ShowDropdown
+  fullName: LBS.VisualElements.SimplePallete.ShowDropdown
+- uid: System.Action{UnityEngine.UIElements.ChangeEvent{System.String}}
+  commentId: T:System.Action{UnityEngine.UIElements.ChangeEvent{System.String}}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<ChangeEvent<string>>
+  nameWithType: Action<ChangeEvent<string>>
+  fullName: System.Action<UnityEngine.UIElements.ChangeEvent<string>>
+  nameWithType.vb: Action(Of ChangeEvent(Of String))
+  fullName.vb: System.Action(Of UnityEngine.UIElements.ChangeEvent(Of String))
+  name.vb: Action(Of ChangeEvent(Of String))
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: UnityEngine.UIElements.ChangeEvent`1
+    name: ChangeEvent
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.UIElements.ChangeEvent`1
+    name: ChangeEvent
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action{System.Object}
+  commentId: T:System.Action{System.Object}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<object>
+  nameWithType: Action<object>
+  fullName: System.Action<object>
+  nameWithType.vb: Action(Of Object)
+  fullName.vb: System.Action(Of Object)
+  name.vb: Action(Of Object)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System.Func{System.Object,System.String}
+  commentId: T:System.Func{System.Object,System.String}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<object, string>
+  nameWithType: Func<object, string>
+  fullName: System.Func<object, string>
+  nameWithType.vb: Func(Of Object, String)
+  fullName.vb: System.Func(Of Object, String)
+  name.vb: Func(Of Object, String)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+shouldSkipMarkup: true
