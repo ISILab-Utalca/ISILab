@@ -7,6 +7,8 @@ namespace ISILab.AI.Grammar
     public class GrammarBool : GrammarField<bool>
     {
         public override Type PrimitiveType => typeof(GrammarBool);
+
+        public override bool IsValid() => true;
     }
 
     [Serializable]
@@ -14,5 +16,6 @@ namespace ISILab.AI.Grammar
     public class GrammarBoolList : GrammarListField<GrammarBool>
     {
         public override Type PrimitiveType => typeof(GrammarBool);
+
     }
 }

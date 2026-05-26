@@ -1,6 +1,7 @@
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Linq;
 using static UnityEngine.Rendering.VirtualTexturing.Debugging;
@@ -15,11 +16,15 @@ namespace ISILab.AI.Grammar
 
         public override void SetValue(object newValue)
         {
-            if (newValue is BundleTargetGraph target)
+            if (newValue is BundleTarget target)
             {
                 value = target.GUID;
             }
         }
+
+        public override bool IsValid() => value != string.Empty;
+        public override LBSLog GetValidStateLog() => 
+            IsValid() ? base.GetValidStateLog() : new LBSLog($"{name}: No bundle type assigned!", UnityEngine.LogType.Error);
 
         // expect to pass just the bundle and extract type
         public override void SetObjectBundle(object[] objs)

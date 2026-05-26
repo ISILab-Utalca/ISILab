@@ -215,18 +215,18 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
         public List<List<string>> GetAllExpansions(
-            string currentAction,
-            Action<float> onProgress = null,
-            CancellationToken token = default)
+        string currentAction,
+        Action<float> onProgress = null,
+        CancellationToken token = default)
         {
             if (Graph == null || Graph.Grammar == null) return new List<List<string>>();
 
-            // STEP 1: get raw expansions from grammar
+            // STEP 1: Get raw expansions from grammar (already flattened to terminals!)
             var rawExpansions = Graph.Grammar.GetExpansions(currentAction);
             if (rawExpansions == null || rawExpansions.Count == 0)
                 return new List<List<string>>();
 
-            var result = new HashSet<string>(); // for uniqueness (string key)
+            var uniqueSequences = new HashSet<string>(); // For structural uniqueness
             var final = new List<List<string>>();
 
             for (int index = 0; index < rawExpansions.Count; index++)
@@ -236,32 +236,31 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
                 var expansion = rawExpansions[index];
                 var sequence = new List<string>();
+                string lastAdded = null;
 
-                foreach (var element in expansion)
+                // STEP 2: Simply iterate through the pre-flattened terminals
+                foreach (var terminal in expansion)
                 {
                     if (token.IsCancellationRequested)
                         return final;
 
-                    if (Graph.Grammar.IsTerminal(element))
+                    // Clean consecutive duplicates right here
+                    if (terminal != lastAdded)
                     {
-                        sequence.Add(element);
-                    }
-                    else
-                    {
-                        var terminals = new HashSet<string>();
-                        Graph.Grammar.GetFirstTerminals(element);
-
-                        sequence.AddRange(terminals);
+                        sequence.Add(terminal);
+                        lastAdded = terminal;
                     }
                 }
 
-                // skip useless self-only expansions
-                if (sequence.Count == 1 && sequence[0] == currentAction)
+                // Skip useless or truncated expansions
+                if (sequence.Count < 3 ||
+                    sequence[0] == currentAction || sequence[1] == currentAction ||
+                    sequence[0] == sequence[2])
                     continue;
 
-                // ensure uniqueness (since List<> in HashSet is broken)
+                // Ensure global structural uniqueness
                 var key = string.Join("|", sequence);
-                if (result.Add(key))
+                if (uniqueSequences.Add(key))
                 {
                     final.Add(sequence);
                 }

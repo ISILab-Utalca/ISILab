@@ -24,12 +24,12 @@ namespace ISILab.LBS.VisualElements
             visualTree.CloneTree(content);
 
             var pv2 = this.Q<PickerVector2Int>();
-            pv2.OnAreaChange = (newArea) =>
+            pv2.OnAreaChange += (newArea) =>
             {
                 (target as GrammarArea).SetValue(newArea);
             };
-
-            (target as GrammarField).Refresh = () =>
+            
+            (target as GrammarField).Refresh += (target) =>
             {
                 UnityEngine.Rect area = (target as GrammarArea).value;
                 pv2._areaView.SetValueWithoutNotify(area);

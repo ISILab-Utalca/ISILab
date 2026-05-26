@@ -1,3 +1,4 @@
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 
 namespace ISILab.AI.Grammar
@@ -7,6 +8,10 @@ namespace ISILab.AI.Grammar
     public class GrammarString : GrammarField<string>
     {
         public override Type PrimitiveType => typeof(GrammarString);
+        public override bool IsValid() => value != string.Empty;
+        public override LBSLog GetValidStateLog() =>
+            IsValid() ? base.GetValidStateLog() : new LBSLog($"{name}: String is empty!", UnityEngine.LogType.Error);
+
     }
 
     [Serializable]

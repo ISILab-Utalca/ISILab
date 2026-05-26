@@ -30,7 +30,7 @@ namespace ISILab.LBS.VisualElements
                 SetTargetValue(evt);
             });
 
-            (target as GrammarField).Refresh = () =>
+            (target as GrammarField).Refresh += (target) =>
             {
                 this.Q<ColorField>().SetValueWithoutNotify(GetTargetValue<Color>());
             };

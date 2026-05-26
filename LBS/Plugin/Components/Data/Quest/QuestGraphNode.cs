@@ -241,6 +241,7 @@ namespace ISILab.LBS.Components
 
         [SerializeField, JsonRequired]
         private QuestState questState = QuestState.Blocked;
+        internal bool validData;
         #endregion
 
         #region PROPERTIES

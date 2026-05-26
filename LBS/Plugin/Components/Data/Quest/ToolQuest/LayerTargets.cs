@@ -79,7 +79,7 @@ namespace ISILab.LBS.Components
             new Vector2Int((int)tileBundleGroup.AreaRect.x, (int)tileBundleGroup.AreaRect.y) :
             Vector2Int.zero;
 
-        public override bool IsValid() => base.IsValid() && layer != null;
+        public override bool IsValid() => base.IsValid() && layer != null && TileBundleGroup != null;
 
         #endregion
     }

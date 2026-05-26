@@ -7,6 +7,8 @@ namespace ISILab.AI.Grammar
 {
     public class ExploreTrigger : QuestTriggerNode
     {
+        public bool Visited;
+
         [Header("Grammar Fields")]
         [SerializeField, InspectorName("Subareas to enter")]
         private GrammarAreaList _Subareastoenter;
@@ -23,6 +25,23 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete()
+        {
+            var subAreasGOs = GetComponentsInChildren<ExploreTrigger>();
+            foreach(var subAreaGo in subAreasGOs)
+            {
+                if (!subAreaGo.Visited) return false;
+            }
+            return true;
+        }
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            if (IsPlayer(other))
+            {
+                Visited = true;
+                TryComplete();
+            }
+        }
     }
 }

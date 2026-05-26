@@ -7,6 +7,7 @@ namespace ISILab.AI.Grammar
     public class GrammarInt : GrammarField<int>
     {
         public override Type PrimitiveType => typeof(GrammarInt);
+        public override bool IsValid() => true;
     }
 
     [Serializable]

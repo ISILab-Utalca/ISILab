@@ -43,7 +43,7 @@ namespace ISILab.LBS.Drawers.Editor
 
         private void LoadAllTiles(NodeDataBehaviour bh, MainView view)
         {
-            foreach (var node in bh.Graph.GetQuestNodes())
+            foreach (var node in bh.Graph.QuestNodes)
             {
                 if (node.Data == null) continue;
 
@@ -82,7 +82,7 @@ namespace ISILab.LBS.Drawers.Editor
                 if (field == null) 
                     return;
 
-                var displayMode = (field.data == bh.Graph.SelectedQuestData) ? DisplayStyle.Flex : DisplayStyle.None;
+                var displayMode = (field.Data == bh.Graph.SelectedQuestData) ? DisplayStyle.Flex : DisplayStyle.None;
 
                 // already drawn no need to draw
                 var existing = view.GetElementsFromLayer(bh.OwnerLayer, field);
@@ -90,7 +90,7 @@ namespace ISILab.LBS.Drawers.Editor
                     continue; 
                 
 
-                var questNodeView = view.GetElementsFromLayer(bh.OwnerLayer, field.data.Node);
+                var questNodeView = view.GetElementsFromLayer(bh.OwnerLayer, field.Data.Node);
                 if (questNodeView == null && questNodeView.Count == 0) 
                     continue;
 
@@ -147,7 +147,7 @@ namespace ISILab.LBS.Drawers.Editor
             foreach (var key in bh.Keys)
             {
                 var field = key as GrammarField;
-                var data = field?.data;
+                var data = field?.Data;
                 if (data ==null || !data.Equals(bh.SelectedNodeData))
                     continue;
 

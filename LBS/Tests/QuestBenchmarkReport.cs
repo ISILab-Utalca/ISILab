@@ -71,7 +71,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    var nodes = _questGraph.GetQuestNodes();
+                    var nodes = _questGraph.QuestNodes;
                     QuestNode chosenNode = null;
                     string nextAction = null;
                     int attempts = 0;
@@ -101,7 +101,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    var nodes = _questGraph.GetQuestNodes();
+                    var nodes = _questGraph.QuestNodes;
                     QuestNode chosenNode = null;
                     string prevAction = null;
                     int attempts = 0;
@@ -131,7 +131,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    var nodes = _questGraph.GetQuestNodes();
+                    var nodes = _questGraph.QuestNodes;
                     QuestNode chosenNode = null;
                     List<string> expansion = null;
                     int attempts = 0;

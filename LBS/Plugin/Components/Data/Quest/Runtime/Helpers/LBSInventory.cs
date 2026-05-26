@@ -40,7 +40,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Quest.Runtime
         /// <summary>
         /// Call to add a GUID by n amount
         /// </summary>
-        public void AddItems(string guid, int amount)
+        public void AddItems(string guid, int amount = 1)
         {
             if (string.IsNullOrEmpty(guid))
             {
@@ -87,7 +87,7 @@ namespace ISILab.LBS.Plugin.Components.Data.Quest.Runtime
             }
         }
 
-        internal void RemoveItem(string key, int amount = 1)
+        internal void RemoveItems(string key, int amount = 1)
         {
             if (!Inventory.ContainsKey(key)) return;
 
