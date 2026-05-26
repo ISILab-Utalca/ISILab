@@ -653,7 +653,7 @@
                     "selectedTypeFilter": "All",
                     "bundleGuid": "668e6768d7619b3459df4f6378dfa3bb",
                     "bundleElement": {
-                        "instanceID": 44638
+                        "instanceID": 45262
                     }
                 }
             },
@@ -1589,6 +1589,9 @@
                         },
                         {
                             "rid": 1144
+                        },
+                        {
+                            "rid": 1145
                         }
                     ]
                 }
@@ -1691,9 +1694,6 @@
                     },
                     "groups": [
                         {
-                            "rid": 1145
-                        },
-                        {
                             "rid": 1146
                         },
                         {
@@ -1731,6 +1731,12 @@
                         },
                         {
                             "rid": 1158
+                        },
+                        {
+                            "rid": 1159
+                        },
+                        {
+                            "rid": 1160
                         }
                     ]
                 }
@@ -4602,12 +4608,6 @@
                     },
                     "tiles": [
                         {
-                            "rid": 1159
-                        },
-                        {
-                            "rid": 1160
-                        },
-                        {
                             "rid": 1161
                         },
                         {
@@ -4912,6 +4912,12 @@
                         },
                         {
                             "rid": 1262
+                        },
+                        {
+                            "rid": 1263
+                        },
+                        {
+                            "rid": 1264
                         }
                     ]
                 }
@@ -5012,12 +5018,6 @@
                     "connectedDirections": 4,
                     "gridType": 0,
                     "pairs": [
-                        {
-                            "rid": 1263
-                        },
-                        {
-                            "rid": 1264
-                        },
                         {
                             "rid": 1265
                         },
@@ -5323,6 +5323,12 @@
                         },
                         {
                             "rid": 1366
+                        },
+                        {
+                            "rid": 1367
+                        },
+                        {
+                            "rid": 1368
                         }
                     ]
                 }
@@ -5422,12 +5428,6 @@
                     },
                     "zones": [
                         {
-                            "rid": 1367
-                        },
-                        {
-                            "rid": 1368
-                        },
-                        {
                             "rid": 1369
                         },
                         {
@@ -5447,15 +5447,15 @@
                         },
                         {
                             "rid": 1375
-                        }
-                    ],
-                    "pairs": [
+                        },
                         {
                             "rid": 1376
                         },
                         {
                             "rid": 1377
-                        },
+                        }
+                    ],
+                    "pairs": [
                         {
                             "rid": 1378
                         },
@@ -5761,6 +5761,12 @@
                         },
                         {
                             "rid": 1479
+                        },
+                        {
+                            "rid": 1480
+                        },
+                        {
+                            "rid": 1481
                         }
                     ]
                 }
@@ -6148,12 +6154,6 @@
                     },
                     "pairs": [
                         {
-                            "rid": 1480
-                        },
-                        {
-                            "rid": 1481
-                        },
-                        {
                             "rid": 1482
                         },
                         {
@@ -6173,6 +6173,12 @@
                         },
                         {
                             "rid": 1488
+                        },
+                        {
+                            "rid": 1489
+                        },
+                        {
+                            "rid": 1490
                         }
                     ]
                 }
@@ -12423,6 +12429,18 @@
             {
                 "rid": 1145,
                 "type": {
+                    "class": "LBSTile",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "x": 1,
+                    "y": 8
+                }
+            },
+            {
+                "rid": 1146,
+                "type": {
                     "class": "TileBundleGroup",
                     "ns": "ISILab.LBS.Modules",
                     "asm": "LBS"
@@ -12437,48 +12455,7 @@
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1489
-                            }
-                        ],
-                        "guid": "3c4b0aadeb41e954fa49de2f6b96cc80",
-                        "bundleName": "Enemy",
-                        "bundle": {
-                            "instanceID": 44584
-                        }
-                    },
-                    "rotation": {
-                        "x": -1.0,
-                        "y": 0.0
-                    },
-                    "guid": "3c4b0aadeb41e954fa49de2f6b96cc80",
-                    "addons": [
-                        {
-                            "rid": 1490
-                        },
-                        {
-                            "rid": 1491
-                        }
-                    ]
-                }
-            },
-            {
-                "rid": 1146,
-                "type": {
-                    "class": "TileBundleGroup",
-                    "ns": "ISILab.LBS.Modules",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "tileGroup": [
-                        {
-                            "x": 2,
-                            "y": 10
-                        }
-                    ],
-                    "bData": {
-                        "characteristics": [
-                            {
-                                "rid": 1489
+                                "rid": 1491
                             }
                         ],
                         "guid": "3c4b0aadeb41e954fa49de2f6b96cc80",
@@ -12512,14 +12489,14 @@
                 "data": {
                     "tileGroup": [
                         {
-                            "x": 8,
-                            "y": 8
+                            "x": 2,
+                            "y": 10
                         }
                     ],
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1489
+                                "rid": 1491
                             }
                         ],
                         "guid": "3c4b0aadeb41e954fa49de2f6b96cc80",
@@ -12553,14 +12530,14 @@
                 "data": {
                     "tileGroup": [
                         {
-                            "x": 9,
-                            "y": 9
+                            "x": 8,
+                            "y": 8
                         }
                     ],
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1489
+                                "rid": 1491
                             }
                         ],
                         "guid": "3c4b0aadeb41e954fa49de2f6b96cc80",
@@ -12594,14 +12571,14 @@
                 "data": {
                     "tileGroup": [
                         {
-                            "x": 16,
-                            "y": 8
+                            "x": 9,
+                            "y": 9
                         }
                     ],
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1489
+                                "rid": 1491
                             }
                         ],
                         "guid": "3c4b0aadeb41e954fa49de2f6b96cc80",
@@ -12635,14 +12612,14 @@
                 "data": {
                     "tileGroup": [
                         {
-                            "x": 7,
-                            "y": 1
+                            "x": 16,
+                            "y": 8
                         }
                     ],
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1489
+                                "rid": 1491
                             }
                         ],
                         "guid": "3c4b0aadeb41e954fa49de2f6b96cc80",
@@ -12676,6 +12653,47 @@
                 "data": {
                     "tileGroup": [
                         {
+                            "x": 7,
+                            "y": 1
+                        }
+                    ],
+                    "bData": {
+                        "characteristics": [
+                            {
+                                "rid": 1491
+                            }
+                        ],
+                        "guid": "3c4b0aadeb41e954fa49de2f6b96cc80",
+                        "bundleName": "Enemy",
+                        "bundle": {
+                            "instanceID": 44584
+                        }
+                    },
+                    "rotation": {
+                        "x": -1.0,
+                        "y": 0.0
+                    },
+                    "guid": "3c4b0aadeb41e954fa49de2f6b96cc80",
+                    "addons": [
+                        {
+                            "rid": 1502
+                        },
+                        {
+                            "rid": 1503
+                        }
+                    ]
+                }
+            },
+            {
+                "rid": 1152,
+                "type": {
+                    "class": "TileBundleGroup",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "tileGroup": [
+                        {
                             "x": 9,
                             "y": 17
                         }
@@ -12683,13 +12701,13 @@
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1502
+                                "rid": 1504
                             }
                         ],
                         "guid": "f165a46bac1fc294887ab889baa0650f",
                         "bundleName": "Chest",
                         "bundle": {
-                            "instanceID": 45282
+                            "instanceID": 45280
                         }
                     },
                     "rotation": {
@@ -12699,16 +12717,16 @@
                     "guid": "f165a46bac1fc294887ab889baa0650f",
                     "addons": [
                         {
-                            "rid": 1503
+                            "rid": 1505
                         },
                         {
-                            "rid": 1504
+                            "rid": 1506
                         }
                     ]
                 }
             },
             {
-                "rid": 1152,
+                "rid": 1153,
                 "type": {
                     "class": "TileBundleGroup",
                     "ns": "ISILab.LBS.Modules",
@@ -12724,47 +12742,13 @@
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1505
+                                "rid": 1507
                             }
                         ],
                         "guid": "8046d189afa0d034e964643ea01aedee",
                         "bundleName": "Proto_Coin_01_Bundle",
                         "bundle": {
-                            "instanceID": 45294
-                        }
-                    },
-                    "rotation": {
-                        "x": -1.0,
-                        "y": 0.0
-                    },
-                    "guid": "8046d189afa0d034e964643ea01aedee",
-                    "addons": []
-                }
-            },
-            {
-                "rid": 1153,
-                "type": {
-                    "class": "TileBundleGroup",
-                    "ns": "ISILab.LBS.Modules",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "tileGroup": [
-                        {
-                            "x": 2,
-                            "y": 7
-                        }
-                    ],
-                    "bData": {
-                        "characteristics": [
-                            {
-                                "rid": 1505
-                            }
-                        ],
-                        "guid": "8046d189afa0d034e964643ea01aedee",
-                        "bundleName": "Proto_Coin_01_Bundle",
-                        "bundle": {
-                            "instanceID": 45294
+                            "instanceID": 45292
                         }
                     },
                     "rotation": {
@@ -12785,20 +12769,20 @@
                 "data": {
                     "tileGroup": [
                         {
-                            "x": 8,
-                            "y": 3
+                            "x": 2,
+                            "y": 7
                         }
                     ],
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1505
+                                "rid": 1507
                             }
                         ],
                         "guid": "8046d189afa0d034e964643ea01aedee",
                         "bundleName": "Proto_Coin_01_Bundle",
                         "bundle": {
-                            "instanceID": 45294
+                            "instanceID": 45292
                         }
                     },
                     "rotation": {
@@ -12819,20 +12803,20 @@
                 "data": {
                     "tileGroup": [
                         {
-                            "x": 9,
-                            "y": 1
+                            "x": 8,
+                            "y": 3
                         }
                     ],
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1505
+                                "rid": 1507
                             }
                         ],
                         "guid": "8046d189afa0d034e964643ea01aedee",
                         "bundleName": "Proto_Coin_01_Bundle",
                         "bundle": {
-                            "instanceID": 45294
+                            "instanceID": 45292
                         }
                     },
                     "rotation": {
@@ -12853,20 +12837,20 @@
                 "data": {
                     "tileGroup": [
                         {
-                            "x": 7,
-                            "y": 0
+                            "x": 9,
+                            "y": 1
                         }
                     ],
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1505
+                                "rid": 1507
                             }
                         ],
                         "guid": "8046d189afa0d034e964643ea01aedee",
                         "bundleName": "Proto_Coin_01_Bundle",
                         "bundle": {
-                            "instanceID": 45294
+                            "instanceID": 45292
                         }
                     },
                     "rotation": {
@@ -12888,26 +12872,26 @@
                     "tileGroup": [
                         {
                             "x": 7,
-                            "y": 15
+                            "y": 0
                         }
                     ],
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1506
+                                "rid": 1507
                             }
                         ],
-                        "guid": "28377c55743b4574bb1b44a0c9730e89",
-                        "bundleName": "Spikes1mBundle",
+                        "guid": "8046d189afa0d034e964643ea01aedee",
+                        "bundleName": "Proto_Coin_01_Bundle",
                         "bundle": {
-                            "instanceID": 44638
+                            "instanceID": 45292
                         }
                     },
                     "rotation": {
                         "x": -1.0,
                         "y": 0.0
                     },
-                    "guid": "28377c55743b4574bb1b44a0c9730e89",
+                    "guid": "8046d189afa0d034e964643ea01aedee",
                     "addons": []
                 }
             },
@@ -12921,14 +12905,14 @@
                 "data": {
                     "tileGroup": [
                         {
-                            "x": 15,
-                            "y": 10
+                            "x": 7,
+                            "y": 15
                         }
                     ],
                     "bData": {
                         "characteristics": [
                             {
-                                "rid": 1506
+                                "rid": 1508
                             }
                         ],
                         "guid": "28377c55743b4574bb1b44a0c9730e89",
@@ -12948,25 +12932,69 @@
             {
                 "rid": 1159,
                 "type": {
-                    "class": "LBSTile",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
+                    "class": "TileBundleGroup",
+                    "ns": "ISILab.LBS.Modules",
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": 7
+                    "tileGroup": [
+                        {
+                            "x": 15,
+                            "y": 10
+                        }
+                    ],
+                    "bData": {
+                        "characteristics": [
+                            {
+                                "rid": 1508
+                            }
+                        ],
+                        "guid": "28377c55743b4574bb1b44a0c9730e89",
+                        "bundleName": "Spikes1mBundle",
+                        "bundle": {
+                            "instanceID": 44638
+                        }
+                    },
+                    "rotation": {
+                        "x": -1.0,
+                        "y": 0.0
+                    },
+                    "guid": "28377c55743b4574bb1b44a0c9730e89",
+                    "addons": []
                 }
             },
             {
                 "rid": 1160,
                 "type": {
-                    "class": "LBSTile",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
+                    "class": "TileBundleGroup",
+                    "ns": "ISILab.LBS.Modules",
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": 8
+                    "tileGroup": [
+                        {
+                            "x": 1,
+                            "y": 8
+                        }
+                    ],
+                    "bData": {
+                        "characteristics": [
+                            {
+                                "rid": 1509
+                            }
+                        ],
+                        "guid": "",
+                        "bundleName": "DNGCrawlerPlayer",
+                        "bundle": {
+                            "instanceID": 45262
+                        }
+                    },
+                    "rotation": {
+                        "x": -1.0,
+                        "y": 0.0
+                    },
+                    "guid": "50238b964364050418416fa48f290579",
+                    "addons": []
                 }
             },
             {
@@ -12978,7 +13006,7 @@
                 },
                 "data": {
                     "x": 7,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -12990,7 +13018,7 @@
                 },
                 "data": {
                     "x": 7,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13001,8 +13029,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 7
+                    "x": 7,
+                    "y": 9
                 }
             },
             {
@@ -13013,8 +13041,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 8
+                    "x": 7,
+                    "y": 10
                 }
             },
             {
@@ -13026,7 +13054,7 @@
                 },
                 "data": {
                     "x": 8,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13038,7 +13066,7 @@
                 },
                 "data": {
                     "x": 8,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13049,8 +13077,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": 7
+                    "x": 8,
+                    "y": 9
                 }
             },
             {
@@ -13061,8 +13089,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": 8
+                    "x": 8,
+                    "y": 10
                 }
             },
             {
@@ -13074,7 +13102,7 @@
                 },
                 "data": {
                     "x": 9,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13086,7 +13114,7 @@
                 },
                 "data": {
                     "x": 9,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13097,8 +13125,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": 7
+                    "x": 9,
+                    "y": 9
                 }
             },
             {
@@ -13109,8 +13137,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": 8
+                    "x": 9,
+                    "y": 10
                 }
             },
             {
@@ -13122,7 +13150,7 @@
                 },
                 "data": {
                     "x": 10,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13134,7 +13162,7 @@
                 },
                 "data": {
                     "x": 10,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13145,8 +13173,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": 8
+                    "x": 10,
+                    "y": 9
                 }
             },
             {
@@ -13157,8 +13185,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": 9
+                    "x": 10,
+                    "y": 10
                 }
             },
             {
@@ -13169,7 +13197,7 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
+                    "x": 4,
                     "y": 8
                 }
             },
@@ -13181,7 +13209,7 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
+                    "x": 4,
                     "y": 9
                 }
             },
@@ -13193,7 +13221,7 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
+                    "x": 5,
                     "y": 8
                 }
             },
@@ -13205,7 +13233,7 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
+                    "x": 5,
                     "y": 9
                 }
             },
@@ -13217,8 +13245,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 0,
-                    "y": 7
+                    "x": 6,
+                    "y": 8
                 }
             },
             {
@@ -13229,8 +13257,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 0,
-                    "y": 8
+                    "x": 6,
+                    "y": 9
                 }
             },
             {
@@ -13242,7 +13270,7 @@
                 },
                 "data": {
                     "x": 0,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13254,7 +13282,7 @@
                 },
                 "data": {
                     "x": 0,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13265,8 +13293,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 1,
-                    "y": 7
+                    "x": 0,
+                    "y": 9
                 }
             },
             {
@@ -13277,8 +13305,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 1,
-                    "y": 8
+                    "x": 0,
+                    "y": 10
                 }
             },
             {
@@ -13290,7 +13318,7 @@
                 },
                 "data": {
                     "x": 1,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13302,7 +13330,7 @@
                 },
                 "data": {
                     "x": 1,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13313,8 +13341,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 2,
-                    "y": 7
+                    "x": 1,
+                    "y": 9
                 }
             },
             {
@@ -13325,8 +13353,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 2,
-                    "y": 8
+                    "x": 1,
+                    "y": 10
                 }
             },
             {
@@ -13338,7 +13366,7 @@
                 },
                 "data": {
                     "x": 2,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13350,7 +13378,7 @@
                 },
                 "data": {
                     "x": 2,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13361,8 +13389,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 3,
-                    "y": 7
+                    "x": 2,
+                    "y": 9
                 }
             },
             {
@@ -13373,8 +13401,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 3,
-                    "y": 8
+                    "x": 2,
+                    "y": 10
                 }
             },
             {
@@ -13386,7 +13414,7 @@
                 },
                 "data": {
                     "x": 3,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13398,7 +13426,7 @@
                 },
                 "data": {
                     "x": 3,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13409,8 +13437,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 11
+                    "x": 3,
+                    "y": 9
                 }
             },
             {
@@ -13421,8 +13449,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 12
+                    "x": 3,
+                    "y": 10
                 }
             },
             {
@@ -13433,7 +13461,7 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
+                    "x": 8,
                     "y": 11
                 }
             },
@@ -13445,7 +13473,7 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
+                    "x": 8,
                     "y": 12
                 }
             },
@@ -13457,8 +13485,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 13
+                    "x": 9,
+                    "y": 11
                 }
             },
             {
@@ -13470,7 +13498,7 @@
                 },
                 "data": {
                     "x": 9,
-                    "y": 13
+                    "y": 12
                 }
             },
             {
@@ -13481,8 +13509,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": 14
+                    "x": 8,
+                    "y": 13
                 }
             },
             {
@@ -13493,8 +13521,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": 15
+                    "x": 9,
+                    "y": 13
                 }
             },
             {
@@ -13506,7 +13534,7 @@
                 },
                 "data": {
                     "x": 7,
-                    "y": 16
+                    "y": 14
                 }
             },
             {
@@ -13518,7 +13546,7 @@
                 },
                 "data": {
                     "x": 7,
-                    "y": 17
+                    "y": 15
                 }
             },
             {
@@ -13529,8 +13557,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 14
+                    "x": 7,
+                    "y": 16
                 }
             },
             {
@@ -13541,8 +13569,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 15
+                    "x": 7,
+                    "y": 17
                 }
             },
             {
@@ -13554,7 +13582,7 @@
                 },
                 "data": {
                     "x": 8,
-                    "y": 16
+                    "y": 14
                 }
             },
             {
@@ -13566,7 +13594,7 @@
                 },
                 "data": {
                     "x": 8,
-                    "y": 17
+                    "y": 15
                 }
             },
             {
@@ -13577,8 +13605,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": 14
+                    "x": 8,
+                    "y": 16
                 }
             },
             {
@@ -13589,8 +13617,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": 15
+                    "x": 8,
+                    "y": 17
                 }
             },
             {
@@ -13602,7 +13630,7 @@
                 },
                 "data": {
                     "x": 9,
-                    "y": 16
+                    "y": 14
                 }
             },
             {
@@ -13614,7 +13642,7 @@
                 },
                 "data": {
                     "x": 9,
-                    "y": 17
+                    "y": 15
                 }
             },
             {
@@ -13625,8 +13653,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": 14
+                    "x": 9,
+                    "y": 16
                 }
             },
             {
@@ -13637,8 +13665,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": 15
+                    "x": 9,
+                    "y": 17
                 }
             },
             {
@@ -13650,7 +13678,7 @@
                 },
                 "data": {
                     "x": 10,
-                    "y": 16
+                    "y": 14
                 }
             },
             {
@@ -13662,7 +13690,7 @@
                 },
                 "data": {
                     "x": 10,
-                    "y": 17
+                    "y": 15
                 }
             },
             {
@@ -13673,8 +13701,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": 8
+                    "x": 10,
+                    "y": 16
                 }
             },
             {
@@ -13685,8 +13713,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": 9
+                    "x": 10,
+                    "y": 17
                 }
             },
             {
@@ -13697,7 +13725,7 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
+                    "x": 11,
                     "y": 8
                 }
             },
@@ -13709,7 +13737,7 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
+                    "x": 11,
                     "y": 9
                 }
             },
@@ -13721,7 +13749,7 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 13,
+                    "x": 12,
                     "y": 8
                 }
             },
@@ -13733,7 +13761,7 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 13,
+                    "x": 12,
                     "y": 9
                 }
             },
@@ -13745,8 +13773,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 14,
-                    "y": 7
+                    "x": 13,
+                    "y": 8
                 }
             },
             {
@@ -13757,8 +13785,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 14,
-                    "y": 8
+                    "x": 13,
+                    "y": 9
                 }
             },
             {
@@ -13770,7 +13798,7 @@
                 },
                 "data": {
                     "x": 14,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13782,7 +13810,7 @@
                 },
                 "data": {
                     "x": 14,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13793,8 +13821,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 15,
-                    "y": 7
+                    "x": 14,
+                    "y": 9
                 }
             },
             {
@@ -13805,8 +13833,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 15,
-                    "y": 8
+                    "x": 14,
+                    "y": 10
                 }
             },
             {
@@ -13818,7 +13846,7 @@
                 },
                 "data": {
                     "x": 15,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13830,7 +13858,7 @@
                 },
                 "data": {
                     "x": 15,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13841,8 +13869,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 16,
-                    "y": 7
+                    "x": 15,
+                    "y": 9
                 }
             },
             {
@@ -13853,8 +13881,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 16,
-                    "y": 8
+                    "x": 15,
+                    "y": 10
                 }
             },
             {
@@ -13866,7 +13894,7 @@
                 },
                 "data": {
                     "x": 16,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13878,7 +13906,7 @@
                 },
                 "data": {
                     "x": 16,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13889,8 +13917,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 17,
-                    "y": 7
+                    "x": 16,
+                    "y": 9
                 }
             },
             {
@@ -13901,8 +13929,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 17,
-                    "y": 8
+                    "x": 16,
+                    "y": 10
                 }
             },
             {
@@ -13914,7 +13942,7 @@
                 },
                 "data": {
                     "x": 17,
-                    "y": 9
+                    "y": 7
                 }
             },
             {
@@ -13926,7 +13954,7 @@
                 },
                 "data": {
                     "x": 17,
-                    "y": 10
+                    "y": 8
                 }
             },
             {
@@ -13937,8 +13965,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 4
+                    "x": 17,
+                    "y": 9
                 }
             },
             {
@@ -13949,8 +13977,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 5
+                    "x": 17,
+                    "y": 10
                 }
             },
             {
@@ -13962,7 +13990,7 @@
                 },
                 "data": {
                     "x": 8,
-                    "y": 6
+                    "y": 4
                 }
             },
             {
@@ -13973,8 +14001,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": 4
+                    "x": 8,
+                    "y": 5
                 }
             },
             {
@@ -13985,8 +14013,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": 5
+                    "x": 8,
+                    "y": 6
                 }
             },
             {
@@ -13998,7 +14026,7 @@
                 },
                 "data": {
                     "x": 9,
-                    "y": 6
+                    "y": 4
                 }
             },
             {
@@ -14009,8 +14037,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": 0
+                    "x": 9,
+                    "y": 5
                 }
             },
             {
@@ -14021,8 +14049,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": 1
+                    "x": 9,
+                    "y": 6
                 }
             },
             {
@@ -14034,7 +14062,7 @@
                 },
                 "data": {
                     "x": 7,
-                    "y": 2
+                    "y": 0
                 }
             },
             {
@@ -14046,7 +14074,7 @@
                 },
                 "data": {
                     "x": 7,
-                    "y": 3
+                    "y": 1
                 }
             },
             {
@@ -14057,8 +14085,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 0
+                    "x": 7,
+                    "y": 2
                 }
             },
             {
@@ -14069,8 +14097,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": 1
+                    "x": 7,
+                    "y": 3
                 }
             },
             {
@@ -14082,7 +14110,7 @@
                 },
                 "data": {
                     "x": 8,
-                    "y": 2
+                    "y": 0
                 }
             },
             {
@@ -14094,7 +14122,7 @@
                 },
                 "data": {
                     "x": 8,
-                    "y": 3
+                    "y": 1
                 }
             },
             {
@@ -14105,8 +14133,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": 0
+                    "x": 8,
+                    "y": 2
                 }
             },
             {
@@ -14117,8 +14145,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": 1
+                    "x": 8,
+                    "y": 3
                 }
             },
             {
@@ -14130,7 +14158,7 @@
                 },
                 "data": {
                     "x": 9,
-                    "y": 2
+                    "y": 0
                 }
             },
             {
@@ -14142,7 +14170,7 @@
                 },
                 "data": {
                     "x": 9,
-                    "y": 3
+                    "y": 1
                 }
             },
             {
@@ -14153,8 +14181,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": 0
+                    "x": 9,
+                    "y": 2
                 }
             },
             {
@@ -14165,8 +14193,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": 1
+                    "x": 9,
+                    "y": 3
                 }
             },
             {
@@ -14178,7 +14206,7 @@
                 },
                 "data": {
                     "x": 10,
-                    "y": 2
+                    "y": 0
                 }
             },
             {
@@ -14190,57 +14218,31 @@
                 },
                 "data": {
                     "x": 10,
-                    "y": 3
+                    "y": 1
                 }
             },
             {
                 "rid": 1263,
                 "type": {
-                    "class": "TileConnectionsPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSTile",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "tile": {
-                        "rid": 1159
-                    },
-                    "connections": [
-                        "Empty",
-                        "Empty",
-                        "Wall",
-                        "Wall"
-                    ],
-                    "editedByIA": [
-                        true,
-                        true,
-                        true,
-                        true
-                    ]
+                    "x": 10,
+                    "y": 2
                 }
             },
             {
                 "rid": 1264,
                 "type": {
-                    "class": "TileConnectionsPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSTile",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "tile": {
-                        "rid": 1160
-                    },
-                    "connections": [
-                        "Empty",
-                        "Empty",
-                        "Wall",
-                        "Empty"
-                    ],
-                    "editedByIA": [
-                        true,
-                        true,
-                        true,
-                        true
-                    ]
+                    "x": 10,
+                    "y": 3
                 }
             },
             {
@@ -14257,13 +14259,13 @@
                     "connections": [
                         "Empty",
                         "Empty",
-                        "Door",
-                        "Empty"
+                        "Wall",
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
                         true,
-                        false,
+                        true,
                         true
                     ]
                 }
@@ -14281,7 +14283,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Wall",
                         "Empty"
                     ],
@@ -14307,13 +14309,13 @@
                     "connections": [
                         "Empty",
                         "Empty",
-                        "Empty",
-                        "Wall"
+                        "Door",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
                         true,
-                        true,
+                        false,
                         true
                     ]
                 }
@@ -14331,8 +14333,8 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
-                        "Empty",
+                        "Wall",
+                        "Wall",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -14358,7 +14360,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -14381,7 +14383,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -14408,13 +14410,13 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Door"
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
                         true,
                         true,
-                        false
+                        true
                     ]
                 }
             },
@@ -14431,7 +14433,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
+                        "Wall",
                         "Empty",
                         "Empty"
                     ],
@@ -14458,13 +14460,13 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Door"
                     ],
                     "editedByIA": [
                         true,
                         true,
                         true,
-                        true
+                        false
                     ]
                 }
             },
@@ -14481,13 +14483,13 @@
                     },
                     "connections": [
                         "Empty",
-                        "Door",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
                         true,
-                        false,
+                        true,
                         true,
                         true
                     ]
@@ -14505,10 +14507,10 @@
                         "rid": 1171
                     },
                     "connections": [
-                        "Wall",
                         "Empty",
                         "Empty",
-                        "Wall"
+                        "Empty",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -14530,14 +14532,14 @@
                         "rid": 1172
                     },
                     "connections": [
-                        "Door",
                         "Empty",
+                        "Door",
                         "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
-                        false,
                         true,
+                        false,
                         true,
                         true
                     ]
@@ -14558,7 +14560,7 @@
                         "Wall",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -14580,13 +14582,13 @@
                         "rid": 1174
                     },
                     "connections": [
-                        "Wall",
-                        "Wall",
+                        "Door",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
-                        true,
+                        false,
                         true,
                         true,
                         true
@@ -14605,10 +14607,10 @@
                         "rid": 1175
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
                         "Wall",
-                        "Wall"
+                        "Empty",
+                        "Empty",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -14630,15 +14632,15 @@
                         "rid": 1176
                     },
                     "connections": [
-                        "Empty",
                         "Wall",
-                        "Door",
+                        "Wall",
+                        "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
                         true,
                         true,
-                        false,
+                        true,
                         true
                     ]
                 }
@@ -14657,7 +14659,7 @@
                     "connections": [
                         "Empty",
                         "Empty",
-                        "Empty",
+                        "Wall",
                         "Wall"
                     ],
                     "editedByIA": [
@@ -14682,13 +14684,13 @@
                     "connections": [
                         "Empty",
                         "Wall",
-                        "Empty",
+                        "Door",
                         "Empty"
                     ],
                     "editedByIA": [
                         true,
                         true,
-                        true,
+                        false,
                         true
                     ]
                 }
@@ -14705,7 +14707,7 @@
                         "rid": 1179
                     },
                     "connections": [
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty",
                         "Wall"
@@ -14730,13 +14732,13 @@
                         "rid": 1180
                     },
                     "connections": [
-                        "Door",
+                        "Empty",
                         "Wall",
                         "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
-                        false,
+                        true,
                         true,
                         true,
                         true
@@ -14755,9 +14757,9 @@
                         "rid": 1181
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
                         "Wall",
+                        "Empty",
+                        "Empty",
                         "Wall"
                     ],
                     "editedByIA": [
@@ -14780,13 +14782,13 @@
                         "rid": 1182
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
+                        "Door",
                         "Wall",
+                        "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
-                        true,
+                        false,
                         true,
                         true,
                         true
@@ -14808,7 +14810,7 @@
                         "Empty",
                         "Empty",
                         "Wall",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -14831,7 +14833,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Wall",
                         "Empty"
                     ],
@@ -14857,8 +14859,8 @@
                     "connections": [
                         "Empty",
                         "Empty",
-                        "Empty",
-                        "Wall"
+                        "Wall",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -14881,8 +14883,8 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
-                        "Empty",
+                        "Wall",
+                        "Wall",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -14908,7 +14910,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -14931,7 +14933,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -14958,7 +14960,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Wall"
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -14981,7 +14983,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
+                        "Wall",
                         "Empty",
                         "Empty"
                     ],
@@ -15008,7 +15010,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -15031,7 +15033,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -15055,10 +15057,10 @@
                         "rid": 1193
                     },
                     "connections": [
-                        "Wall",
                         "Empty",
                         "Empty",
-                        "Wall"
+                        "Empty",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -15080,8 +15082,8 @@
                         "rid": 1194
                     },
                     "connections": [
-                        "Wall",
                         "Empty",
+                        "Wall",
                         "Empty",
                         "Empty"
                     ],
@@ -15105,13 +15107,13 @@
                         "rid": 1195
                     },
                     "connections": [
-                        "Door",
+                        "Wall",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
-                        false,
+                        true,
                         true,
                         true,
                         true
@@ -15131,7 +15133,7 @@
                     },
                     "connections": [
                         "Wall",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -15155,13 +15157,13 @@
                         "rid": 1197
                     },
                     "connections": [
+                        "Door",
                         "Empty",
                         "Empty",
-                        "Wall",
-                        "Wall"
+                        "Empty"
                     ],
                     "editedByIA": [
-                        true,
+                        false,
                         true,
                         true,
                         true
@@ -15180,9 +15182,9 @@
                         "rid": 1198
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
                         "Wall",
+                        "Wall",
+                        "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -15205,16 +15207,16 @@
                         "rid": 1199
                     },
                     "connections": [
+                        "Empty",
+                        "Empty",
                         "Wall",
-                        "Empty",
-                        "Empty",
-                        "Door"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
                         true,
                         true,
-                        false
+                        true
                     ]
                 }
             },
@@ -15230,9 +15232,9 @@
                         "rid": 1200
                     },
                     "connections": [
+                        "Empty",
+                        "Empty",
                         "Wall",
-                        "Empty",
-                        "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -15255,16 +15257,16 @@
                         "rid": 1201
                     },
                     "connections": [
-                        "Empty",
-                        "Door",
                         "Wall",
-                        "Empty"
+                        "Empty",
+                        "Empty",
+                        "Door"
                     ],
                     "editedByIA": [
                         true,
-                        false,
                         true,
-                        true
+                        true,
+                        false
                     ]
                 }
             },
@@ -15281,7 +15283,7 @@
                     },
                     "connections": [
                         "Wall",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -15306,13 +15308,13 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
+                        "Door",
                         "Wall",
-                        "Wall"
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
-                        true,
+                        false,
                         true,
                         true
                     ]
@@ -15330,9 +15332,9 @@
                         "rid": 1204
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
                         "Wall",
+                        "Wall",
+                        "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -15358,7 +15360,7 @@
                         "Empty",
                         "Empty",
                         "Wall",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -15381,7 +15383,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Wall",
                         "Empty"
                     ],
@@ -15407,14 +15409,14 @@
                     "connections": [
                         "Empty",
                         "Empty",
-                        "Empty",
-                        "Door"
+                        "Wall",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
                         true,
                         true,
-                        false
+                        true
                     ]
                 }
             },
@@ -15431,8 +15433,8 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
-                        "Empty",
+                        "Wall",
+                        "Wall",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -15458,13 +15460,13 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Door"
                     ],
                     "editedByIA": [
                         true,
                         true,
                         true,
-                        true
+                        false
                     ]
                 }
             },
@@ -15481,7 +15483,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -15508,7 +15510,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Wall"
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -15531,7 +15533,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
+                        "Wall",
                         "Empty",
                         "Empty"
                     ],
@@ -15558,7 +15560,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -15581,7 +15583,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -15605,10 +15607,10 @@
                         "rid": 1215
                     },
                     "connections": [
-                        "Wall",
                         "Empty",
                         "Empty",
-                        "Wall"
+                        "Empty",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -15630,8 +15632,8 @@
                         "rid": 1216
                     },
                     "connections": [
-                        "Wall",
                         "Empty",
+                        "Wall",
                         "Empty",
                         "Empty"
                     ],
@@ -15658,7 +15660,7 @@
                         "Wall",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -15681,7 +15683,7 @@
                     },
                     "connections": [
                         "Wall",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -15705,15 +15707,15 @@
                         "rid": 1219
                     },
                     "connections": [
+                        "Wall",
                         "Empty",
                         "Empty",
-                        "Door",
-                        "Wall"
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
                         true,
-                        false,
+                        true,
                         true
                     ]
                 }
@@ -15730,9 +15732,9 @@
                         "rid": 1220
                     },
                     "connections": [
+                        "Wall",
+                        "Wall",
                         "Empty",
-                        "Wall",
-                        "Wall",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -15757,13 +15759,13 @@
                     "connections": [
                         "Empty",
                         "Empty",
-                        "Empty",
+                        "Door",
                         "Wall"
                     ],
                     "editedByIA": [
                         true,
                         true,
-                        true,
+                        false,
                         true
                     ]
                 }
@@ -15782,7 +15784,7 @@
                     "connections": [
                         "Empty",
                         "Wall",
-                        "Empty",
+                        "Wall",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -15805,7 +15807,7 @@
                         "rid": 1223
                     },
                     "connections": [
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty",
                         "Wall"
@@ -15830,13 +15832,13 @@
                         "rid": 1224
                     },
                     "connections": [
-                        "Door",
+                        "Empty",
                         "Wall",
                         "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
-                        false,
+                        true,
                         true,
                         true,
                         true
@@ -15855,9 +15857,9 @@
                         "rid": 1225
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
                         "Wall",
+                        "Empty",
+                        "Empty",
                         "Wall"
                     ],
                     "editedByIA": [
@@ -15880,13 +15882,13 @@
                         "rid": 1226
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
+                        "Door",
                         "Wall",
+                        "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
-                        true,
+                        false,
                         true,
                         true,
                         true
@@ -15907,13 +15909,13 @@
                     "connections": [
                         "Empty",
                         "Empty",
-                        "Door",
-                        "Empty"
+                        "Wall",
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
                         true,
-                        false,
+                        true,
                         true
                     ]
                 }
@@ -15931,7 +15933,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Wall",
                         "Empty"
                     ],
@@ -15957,13 +15959,13 @@
                     "connections": [
                         "Empty",
                         "Empty",
-                        "Empty",
-                        "Wall"
+                        "Door",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
                         true,
-                        true,
+                        false,
                         true
                     ]
                 }
@@ -15981,8 +15983,8 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
-                        "Empty",
+                        "Wall",
+                        "Wall",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -16008,7 +16010,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -16031,7 +16033,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -16058,7 +16060,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Wall"
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -16081,7 +16083,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
+                        "Wall",
                         "Empty",
                         "Empty"
                     ],
@@ -16108,7 +16110,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -16131,7 +16133,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -16155,10 +16157,10 @@
                         "rid": 1237
                     },
                     "connections": [
-                        "Wall",
                         "Empty",
                         "Empty",
-                        "Wall"
+                        "Empty",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -16180,8 +16182,8 @@
                         "rid": 1238
                     },
                     "connections": [
-                        "Wall",
                         "Empty",
+                        "Wall",
                         "Empty",
                         "Empty"
                     ],
@@ -16208,7 +16210,7 @@
                         "Wall",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -16231,7 +16233,7 @@
                     },
                     "connections": [
                         "Wall",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -16255,10 +16257,10 @@
                         "rid": 1241
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
                         "Wall",
-                        "Wall"
+                        "Empty",
+                        "Empty",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -16280,9 +16282,9 @@
                         "rid": 1242
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
                         "Wall",
+                        "Wall",
+                        "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -16306,9 +16308,9 @@
                     },
                     "connections": [
                         "Empty",
+                        "Empty",
                         "Wall",
-                        "Wall",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -16330,16 +16332,16 @@
                         "rid": 1244
                     },
                     "connections": [
+                        "Empty",
+                        "Empty",
                         "Wall",
-                        "Empty",
-                        "Empty",
-                        "Door"
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
                         true,
                         true,
-                        false
+                        true
                     ]
                 }
             },
@@ -16355,9 +16357,9 @@
                         "rid": 1245
                     },
                     "connections": [
+                        "Empty",
                         "Wall",
-                        "Empty",
-                        "Empty",
+                        "Wall",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -16381,15 +16383,15 @@
                     },
                     "connections": [
                         "Wall",
-                        "Door",
                         "Empty",
-                        "Empty"
+                        "Empty",
+                        "Door"
                     ],
                     "editedByIA": [
                         true,
-                        false,
                         true,
-                        true
+                        true,
+                        false
                     ]
                 }
             },
@@ -16405,10 +16407,10 @@
                         "rid": 1247
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
                         "Wall",
-                        "Wall"
+                        "Empty",
+                        "Empty",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -16430,14 +16432,14 @@
                         "rid": 1248
                     },
                     "connections": [
-                        "Empty",
-                        "Empty",
                         "Wall",
+                        "Door",
+                        "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
                         true,
-                        true,
+                        false,
                         true,
                         true
                     ]
@@ -16458,7 +16460,7 @@
                         "Empty",
                         "Empty",
                         "Wall",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -16481,7 +16483,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Wall",
                         "Empty"
                     ],
@@ -16507,8 +16509,8 @@
                     "connections": [
                         "Empty",
                         "Empty",
-                        "Empty",
-                        "Wall"
+                        "Wall",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -16531,8 +16533,8 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
-                        "Empty",
+                        "Wall",
+                        "Wall",
                         "Empty"
                     ],
                     "editedByIA": [
@@ -16558,7 +16560,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -16581,7 +16583,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -16608,7 +16610,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Wall"
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -16631,7 +16633,7 @@
                     },
                     "connections": [
                         "Empty",
-                        "Empty",
+                        "Wall",
                         "Empty",
                         "Empty"
                     ],
@@ -16658,7 +16660,7 @@
                         "Empty",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -16681,13 +16683,13 @@
                     },
                     "connections": [
                         "Empty",
-                        "Door",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
                         true,
-                        false,
+                        true,
                         true,
                         true
                     ]
@@ -16705,10 +16707,10 @@
                         "rid": 1259
                     },
                     "connections": [
-                        "Wall",
                         "Empty",
                         "Empty",
-                        "Wall"
+                        "Empty",
+                        "Empty"
                     ],
                     "editedByIA": [
                         true,
@@ -16730,14 +16732,14 @@
                         "rid": 1260
                     },
                     "connections": [
-                        "Wall",
                         "Empty",
+                        "Door",
                         "Empty",
                         "Empty"
                     ],
                     "editedByIA": [
                         true,
-                        true,
+                        false,
                         true,
                         true
                     ]
@@ -16758,7 +16760,7 @@
                         "Wall",
                         "Empty",
                         "Empty",
-                        "Empty"
+                        "Wall"
                     ],
                     "editedByIA": [
                         true,
@@ -16781,7 +16783,7 @@
                     },
                     "connections": [
                         "Wall",
-                        "Wall",
+                        "Empty",
                         "Empty",
                         "Empty"
                     ],
@@ -16795,6 +16797,56 @@
             },
             {
                 "rid": 1367,
+                "type": {
+                    "class": "TileConnectionsPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "tile": {
+                        "rid": 1263
+                    },
+                    "connections": [
+                        "Wall",
+                        "Empty",
+                        "Empty",
+                        "Empty"
+                    ],
+                    "editedByIA": [
+                        true,
+                        true,
+                        true,
+                        true
+                    ]
+                }
+            },
+            {
+                "rid": 1368,
+                "type": {
+                    "class": "TileConnectionsPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "tile": {
+                        "rid": 1264
+                    },
+                    "connections": [
+                        "Wall",
+                        "Wall",
+                        "Empty",
+                        "Empty"
+                    ],
+                    "editedByIA": [
+                        true,
+                        true,
+                        true,
+                        true
+                    ]
+                }
+            },
+            {
+                "rid": 1369,
                 "type": {
                     "class": "Zone",
                     "ns": "ISILab.LBS.Plugin.Components.Data",
@@ -16822,7 +16874,7 @@
                 }
             },
             {
-                "rid": 1368,
+                "rid": 1370,
                 "type": {
                     "class": "Zone",
                     "ns": "ISILab.LBS.Plugin.Components.Data",
@@ -16850,7 +16902,7 @@
                 }
             },
             {
-                "rid": 1369,
+                "rid": 1371,
                 "type": {
                     "class": "Zone",
                     "ns": "ISILab.LBS.Plugin.Components.Data",
@@ -16878,7 +16930,7 @@
                 }
             },
             {
-                "rid": 1370,
+                "rid": 1372,
                 "type": {
                     "class": "Zone",
                     "ns": "ISILab.LBS.Plugin.Components.Data",
@@ -16906,7 +16958,7 @@
                 }
             },
             {
-                "rid": 1371,
+                "rid": 1373,
                 "type": {
                     "class": "Zone",
                     "ns": "ISILab.LBS.Plugin.Components.Data",
@@ -16934,7 +16986,7 @@
                 }
             },
             {
-                "rid": 1372,
+                "rid": 1374,
                 "type": {
                     "class": "Zone",
                     "ns": "ISILab.LBS.Plugin.Components.Data",
@@ -16962,7 +17014,7 @@
                 }
             },
             {
-                "rid": 1373,
+                "rid": 1375,
                 "type": {
                     "class": "Zone",
                     "ns": "ISILab.LBS.Plugin.Components.Data",
@@ -16990,7 +17042,7 @@
                 }
             },
             {
-                "rid": 1374,
+                "rid": 1376,
                 "type": {
                     "class": "Zone",
                     "ns": "ISILab.LBS.Plugin.Components.Data",
@@ -17018,7 +17070,7 @@
                 }
             },
             {
-                "rid": 1375,
+                "rid": 1377,
                 "type": {
                     "class": "Zone",
                     "ns": "ISILab.LBS.Plugin.Components.Data",
@@ -17046,38 +17098,6 @@
                 }
             },
             {
-                "rid": 1376,
-                "type": {
-                    "class": "TileZonePair",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "tile": {
-                        "rid": 1159
-                    },
-                    "zone": {
-                        "rid": 1367
-                    }
-                }
-            },
-            {
-                "rid": 1377,
-                "type": {
-                    "class": "TileZonePair",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "tile": {
-                        "rid": 1160
-                    },
-                    "zone": {
-                        "rid": 1367
-                    }
-                }
-            },
-            {
                 "rid": 1378,
                 "type": {
                     "class": "TileZonePair",
@@ -17089,7 +17109,7 @@
                         "rid": 1161
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17105,7 +17125,7 @@
                         "rid": 1162
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17121,7 +17141,7 @@
                         "rid": 1163
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17137,7 +17157,7 @@
                         "rid": 1164
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17153,7 +17173,7 @@
                         "rid": 1165
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17169,7 +17189,7 @@
                         "rid": 1166
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17185,7 +17205,7 @@
                         "rid": 1167
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17201,7 +17221,7 @@
                         "rid": 1168
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17217,7 +17237,7 @@
                         "rid": 1169
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17233,7 +17253,7 @@
                         "rid": 1170
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17249,7 +17269,7 @@
                         "rid": 1171
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17265,7 +17285,7 @@
                         "rid": 1172
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17281,7 +17301,7 @@
                         "rid": 1173
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17297,7 +17317,7 @@
                         "rid": 1174
                     },
                     "zone": {
-                        "rid": 1367
+                        "rid": 1369
                     }
                 }
             },
@@ -17313,7 +17333,7 @@
                         "rid": 1175
                     },
                     "zone": {
-                        "rid": 1368
+                        "rid": 1369
                     }
                 }
             },
@@ -17329,7 +17349,7 @@
                         "rid": 1176
                     },
                     "zone": {
-                        "rid": 1368
+                        "rid": 1369
                     }
                 }
             },
@@ -17345,7 +17365,7 @@
                         "rid": 1177
                     },
                     "zone": {
-                        "rid": 1368
+                        "rid": 1370
                     }
                 }
             },
@@ -17361,7 +17381,7 @@
                         "rid": 1178
                     },
                     "zone": {
-                        "rid": 1368
+                        "rid": 1370
                     }
                 }
             },
@@ -17377,7 +17397,7 @@
                         "rid": 1179
                     },
                     "zone": {
-                        "rid": 1368
+                        "rid": 1370
                     }
                 }
             },
@@ -17393,7 +17413,7 @@
                         "rid": 1180
                     },
                     "zone": {
-                        "rid": 1368
+                        "rid": 1370
                     }
                 }
             },
@@ -17409,7 +17429,7 @@
                         "rid": 1181
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1370
                     }
                 }
             },
@@ -17425,7 +17445,7 @@
                         "rid": 1182
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1370
                     }
                 }
             },
@@ -17441,7 +17461,7 @@
                         "rid": 1183
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17457,7 +17477,7 @@
                         "rid": 1184
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17473,7 +17493,7 @@
                         "rid": 1185
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17489,7 +17509,7 @@
                         "rid": 1186
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17505,7 +17525,7 @@
                         "rid": 1187
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17521,7 +17541,7 @@
                         "rid": 1188
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17537,7 +17557,7 @@
                         "rid": 1189
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17553,7 +17573,7 @@
                         "rid": 1190
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17569,7 +17589,7 @@
                         "rid": 1191
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17585,7 +17605,7 @@
                         "rid": 1192
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17601,7 +17621,7 @@
                         "rid": 1193
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17617,7 +17637,7 @@
                         "rid": 1194
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17633,7 +17653,7 @@
                         "rid": 1195
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17649,7 +17669,7 @@
                         "rid": 1196
                     },
                     "zone": {
-                        "rid": 1369
+                        "rid": 1371
                     }
                 }
             },
@@ -17665,7 +17685,7 @@
                         "rid": 1197
                     },
                     "zone": {
-                        "rid": 1370
+                        "rid": 1371
                     }
                 }
             },
@@ -17681,7 +17701,7 @@
                         "rid": 1198
                     },
                     "zone": {
-                        "rid": 1370
+                        "rid": 1371
                     }
                 }
             },
@@ -17697,7 +17717,7 @@
                         "rid": 1199
                     },
                     "zone": {
-                        "rid": 1370
+                        "rid": 1372
                     }
                 }
             },
@@ -17713,7 +17733,7 @@
                         "rid": 1200
                     },
                     "zone": {
-                        "rid": 1370
+                        "rid": 1372
                     }
                 }
             },
@@ -17729,7 +17749,7 @@
                         "rid": 1201
                     },
                     "zone": {
-                        "rid": 1370
+                        "rid": 1372
                     }
                 }
             },
@@ -17745,7 +17765,7 @@
                         "rid": 1202
                     },
                     "zone": {
-                        "rid": 1370
+                        "rid": 1372
                     }
                 }
             },
@@ -17761,7 +17781,7 @@
                         "rid": 1203
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1372
                     }
                 }
             },
@@ -17777,7 +17797,7 @@
                         "rid": 1204
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1372
                     }
                 }
             },
@@ -17793,7 +17813,7 @@
                         "rid": 1205
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17809,7 +17829,7 @@
                         "rid": 1206
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17825,7 +17845,7 @@
                         "rid": 1207
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17841,7 +17861,7 @@
                         "rid": 1208
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17857,7 +17877,7 @@
                         "rid": 1209
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17873,7 +17893,7 @@
                         "rid": 1210
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17889,7 +17909,7 @@
                         "rid": 1211
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17905,7 +17925,7 @@
                         "rid": 1212
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17921,7 +17941,7 @@
                         "rid": 1213
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17937,7 +17957,7 @@
                         "rid": 1214
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17953,7 +17973,7 @@
                         "rid": 1215
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17969,7 +17989,7 @@
                         "rid": 1216
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -17985,7 +18005,7 @@
                         "rid": 1217
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -18001,7 +18021,7 @@
                         "rid": 1218
                     },
                     "zone": {
-                        "rid": 1371
+                        "rid": 1373
                     }
                 }
             },
@@ -18017,7 +18037,7 @@
                         "rid": 1219
                     },
                     "zone": {
-                        "rid": 1372
+                        "rid": 1373
                     }
                 }
             },
@@ -18033,7 +18053,7 @@
                         "rid": 1220
                     },
                     "zone": {
-                        "rid": 1372
+                        "rid": 1373
                     }
                 }
             },
@@ -18049,7 +18069,7 @@
                         "rid": 1221
                     },
                     "zone": {
-                        "rid": 1372
+                        "rid": 1374
                     }
                 }
             },
@@ -18065,7 +18085,7 @@
                         "rid": 1222
                     },
                     "zone": {
-                        "rid": 1372
+                        "rid": 1374
                     }
                 }
             },
@@ -18081,7 +18101,7 @@
                         "rid": 1223
                     },
                     "zone": {
-                        "rid": 1372
+                        "rid": 1374
                     }
                 }
             },
@@ -18097,7 +18117,7 @@
                         "rid": 1224
                     },
                     "zone": {
-                        "rid": 1372
+                        "rid": 1374
                     }
                 }
             },
@@ -18113,7 +18133,7 @@
                         "rid": 1225
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1374
                     }
                 }
             },
@@ -18129,7 +18149,7 @@
                         "rid": 1226
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1374
                     }
                 }
             },
@@ -18145,7 +18165,7 @@
                         "rid": 1227
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18161,7 +18181,7 @@
                         "rid": 1228
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18177,7 +18197,7 @@
                         "rid": 1229
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18193,7 +18213,7 @@
                         "rid": 1230
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18209,7 +18229,7 @@
                         "rid": 1231
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18225,7 +18245,7 @@
                         "rid": 1232
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18241,7 +18261,7 @@
                         "rid": 1233
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18257,7 +18277,7 @@
                         "rid": 1234
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18273,7 +18293,7 @@
                         "rid": 1235
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18289,7 +18309,7 @@
                         "rid": 1236
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18305,7 +18325,7 @@
                         "rid": 1237
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18321,7 +18341,7 @@
                         "rid": 1238
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18337,7 +18357,7 @@
                         "rid": 1239
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18353,7 +18373,7 @@
                         "rid": 1240
                     },
                     "zone": {
-                        "rid": 1373
+                        "rid": 1375
                     }
                 }
             },
@@ -18369,7 +18389,7 @@
                         "rid": 1241
                     },
                     "zone": {
-                        "rid": 1374
+                        "rid": 1375
                     }
                 }
             },
@@ -18385,7 +18405,7 @@
                         "rid": 1242
                     },
                     "zone": {
-                        "rid": 1374
+                        "rid": 1375
                     }
                 }
             },
@@ -18401,7 +18421,7 @@
                         "rid": 1243
                     },
                     "zone": {
-                        "rid": 1374
+                        "rid": 1376
                     }
                 }
             },
@@ -18417,7 +18437,7 @@
                         "rid": 1244
                     },
                     "zone": {
-                        "rid": 1374
+                        "rid": 1376
                     }
                 }
             },
@@ -18433,7 +18453,7 @@
                         "rid": 1245
                     },
                     "zone": {
-                        "rid": 1374
+                        "rid": 1376
                     }
                 }
             },
@@ -18449,7 +18469,7 @@
                         "rid": 1246
                     },
                     "zone": {
-                        "rid": 1374
+                        "rid": 1376
                     }
                 }
             },
@@ -18465,7 +18485,7 @@
                         "rid": 1247
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1376
                     }
                 }
             },
@@ -18481,7 +18501,7 @@
                         "rid": 1248
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1376
                     }
                 }
             },
@@ -18497,7 +18517,7 @@
                         "rid": 1249
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18513,7 +18533,7 @@
                         "rid": 1250
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18529,7 +18549,7 @@
                         "rid": 1251
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18545,7 +18565,7 @@
                         "rid": 1252
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18561,7 +18581,7 @@
                         "rid": 1253
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18577,7 +18597,7 @@
                         "rid": 1254
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18593,7 +18613,7 @@
                         "rid": 1255
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18609,7 +18629,7 @@
                         "rid": 1256
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18625,7 +18645,7 @@
                         "rid": 1257
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18641,7 +18661,7 @@
                         "rid": 1258
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18657,7 +18677,7 @@
                         "rid": 1259
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18673,7 +18693,7 @@
                         "rid": 1260
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18689,7 +18709,7 @@
                         "rid": 1261
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
@@ -18705,39 +18725,39 @@
                         "rid": 1262
                     },
                     "zone": {
-                        "rid": 1375
+                        "rid": 1377
                     }
                 }
             },
             {
                 "rid": 1480,
                 "type": {
-                    "class": "ConstraintPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "TileZonePair",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "zone": {
-                        "rid": 1367
+                    "tile": {
+                        "rid": 1263
                     },
-                    "constraint": {
-                        "rid": 1507
+                    "zone": {
+                        "rid": 1377
                     }
                 }
             },
             {
                 "rid": 1481,
                 "type": {
-                    "class": "ConstraintPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "TileZonePair",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "zone": {
-                        "rid": 1368
+                    "tile": {
+                        "rid": 1264
                     },
-                    "constraint": {
-                        "rid": 1508
+                    "zone": {
+                        "rid": 1377
                     }
                 }
             },
@@ -18753,7 +18773,7 @@
                         "rid": 1369
                     },
                     "constraint": {
-                        "rid": 1509
+                        "rid": 1510
                     }
                 }
             },
@@ -18769,7 +18789,7 @@
                         "rid": 1370
                     },
                     "constraint": {
-                        "rid": 1510
+                        "rid": 1511
                     }
                 }
             },
@@ -18785,7 +18805,7 @@
                         "rid": 1371
                     },
                     "constraint": {
-                        "rid": 1511
+                        "rid": 1512
                     }
                 }
             },
@@ -18801,7 +18821,7 @@
                         "rid": 1372
                     },
                     "constraint": {
-                        "rid": 1512
+                        "rid": 1513
                     }
                 }
             },
@@ -18817,7 +18837,7 @@
                         "rid": 1373
                     },
                     "constraint": {
-                        "rid": 1513
+                        "rid": 1514
                     }
                 }
             },
@@ -18833,7 +18853,7 @@
                         "rid": 1374
                     },
                     "constraint": {
-                        "rid": 1514
+                        "rid": 1515
                     }
                 }
             },
@@ -18849,12 +18869,44 @@
                         "rid": 1375
                     },
                     "constraint": {
-                        "rid": 1515
+                        "rid": 1516
                     }
                 }
             },
             {
                 "rid": 1489,
+                "type": {
+                    "class": "ConstraintPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "zone": {
+                        "rid": 1376
+                    },
+                    "constraint": {
+                        "rid": 1517
+                    }
+                }
+            },
+            {
+                "rid": 1490,
+                "type": {
+                    "class": "ConstraintPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "zone": {
+                        "rid": 1377
+                    },
+                    "constraint": {
+                        "rid": 1518
+                    }
+                }
+            },
+            {
+                "rid": 1491,
                 "type": {
                     "class": "LBSTagsCharacteristic",
                     "ns": "ISILab.LBS.Characteristics",
@@ -18894,29 +18946,6 @@
                             "tagGUID": "1a444632a5be67d42a25143941fa7abe"
                         }
                     ]
-                }
-            },
-            {
-                "rid": 1490,
-                "type": {
-                    "class": "Addon_Patrol",
-                    "ns": "ISILab.LBS.Components",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "loops": false,
-                    "points": []
-                }
-            },
-            {
-                "rid": 1491,
-                "type": {
-                    "class": "Addon_Trigger",
-                    "ns": "ISILab.LBS.Components",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "triggers": []
                 }
             },
             {
@@ -19037,19 +19066,42 @@
             {
                 "rid": 1502,
                 "type": {
+                    "class": "Addon_Patrol",
+                    "ns": "ISILab.LBS.Components",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "loops": false,
+                    "points": []
+                }
+            },
+            {
+                "rid": 1503,
+                "type": {
+                    "class": "Addon_Trigger",
+                    "ns": "ISILab.LBS.Components",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "triggers": []
+                }
+            },
+            {
+                "rid": 1504,
+                "type": {
                     "class": "LBSTagsCharacteristic",
                     "ns": "ISILab.LBS.Characteristics",
                     "asm": "LBS"
                 },
                 "data": {
                     "owner": {
-                        "instanceID": 45282
+                        "instanceID": 0
                     },
                     "tagEntries": [
                         {
                             "tagName": "Chest",
                             "value": {
-                                "instanceID": 45448
+                                "instanceID": 45444
                             },
                             "tagGUID": "08dd0ea3801e02447b5d7dd01339fa26"
                         },
@@ -19071,7 +19123,7 @@
                 }
             },
             {
-                "rid": 1503,
+                "rid": 1505,
                 "type": {
                     "class": "Addon_Interact",
                     "ns": "ISILab.LBS.Components",
@@ -19079,12 +19131,12 @@
                 },
                 "data": {
                     "interact": {
-                        "rid": 1516
+                        "rid": 1519
                     }
                 }
             },
             {
-                "rid": 1504,
+                "rid": 1506,
                 "type": {
                     "class": "Addon_Drop",
                     "ns": "ISILab.LBS.Components",
@@ -19095,7 +19147,7 @@
                 }
             },
             {
-                "rid": 1505,
+                "rid": 1507,
                 "type": {
                     "class": "LBSTagsCharacteristic",
                     "ns": "ISILab.LBS.Characteristics",
@@ -19103,13 +19155,13 @@
                 },
                 "data": {
                     "owner": {
-                        "instanceID": 45294
+                        "instanceID": 0
                     },
                     "tagEntries": [
                         {
                             "tagName": "Chest",
                             "value": {
-                                "instanceID": 45448
+                                "instanceID": 45444
                             },
                             "tagGUID": "08dd0ea3801e02447b5d7dd01339fa26"
                         },
@@ -19124,7 +19176,7 @@
                 }
             },
             {
-                "rid": 1506,
+                "rid": 1508,
                 "type": {
                     "class": "LBSTagsCharacteristic",
                     "ns": "ISILab.LBS.Characteristics",
@@ -19146,45 +19198,25 @@
                 }
             },
             {
-                "rid": 1507,
-                "type": {
-                    "class": "Constraint",
-                    "ns": "ISILab.LBS.Modules",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "minWidth": 2.0,
-                    "minHeight": 2.0,
-                    "maxWidth": 6.0,
-                    "maxHeight": 6.0
-                }
-            },
-            {
-                "rid": 1508,
-                "type": {
-                    "class": "Constraint",
-                    "ns": "ISILab.LBS.Modules",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "minWidth": 1.0,
-                    "minHeight": 1.0,
-                    "maxWidth": 5.0,
-                    "maxHeight": 4.0
-                }
-            },
-            {
                 "rid": 1509,
                 "type": {
-                    "class": "Constraint",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSTagsCharacteristic",
+                    "ns": "ISILab.LBS.Characteristics",
                     "asm": "LBS"
                 },
                 "data": {
-                    "minWidth": 2.0,
-                    "minHeight": 2.0,
-                    "maxWidth": 6.0,
-                    "maxHeight": 6.0
+                    "owner": {
+                        "instanceID": 45262
+                    },
+                    "tagEntries": [
+                        {
+                            "tagName": "Player",
+                            "value": {
+                                "instanceID": 45472
+                            },
+                            "tagGUID": "975a57a1811d3f743838422b5c87c58a"
+                        }
+                    ]
                 }
             },
             {
@@ -19195,20 +19227,6 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "minWidth": 1.0,
-                    "minHeight": 1.0,
-                    "maxWidth": 4.0,
-                    "maxHeight": 5.0
-                }
-            },
-            {
-                "rid": 1511,
-                "type": {
-                    "class": "Constraint",
-                    "ns": "ISILab.LBS.Modules",
-                    "asm": "LBS"
-                },
-                "data": {
                     "minWidth": 2.0,
                     "minHeight": 2.0,
                     "maxWidth": 6.0,
@@ -19216,7 +19234,7 @@
                 }
             },
             {
-                "rid": 1512,
+                "rid": 1511,
                 "type": {
                     "class": "Constraint",
                     "ns": "ISILab.LBS.Modules",
@@ -19230,7 +19248,7 @@
                 }
             },
             {
-                "rid": 1513,
+                "rid": 1512,
                 "type": {
                     "class": "Constraint",
                     "ns": "ISILab.LBS.Modules",
@@ -19244,7 +19262,7 @@
                 }
             },
             {
-                "rid": 1514,
+                "rid": 1513,
                 "type": {
                     "class": "Constraint",
                     "ns": "ISILab.LBS.Modules",
@@ -19258,7 +19276,7 @@
                 }
             },
             {
-                "rid": 1515,
+                "rid": 1514,
                 "type": {
                     "class": "Constraint",
                     "ns": "ISILab.LBS.Modules",
@@ -19272,7 +19290,63 @@
                 }
             },
             {
+                "rid": 1515,
+                "type": {
+                    "class": "Constraint",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "minWidth": 1.0,
+                    "minHeight": 1.0,
+                    "maxWidth": 5.0,
+                    "maxHeight": 4.0
+                }
+            },
+            {
                 "rid": 1516,
+                "type": {
+                    "class": "Constraint",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "minWidth": 2.0,
+                    "minHeight": 2.0,
+                    "maxWidth": 6.0,
+                    "maxHeight": 6.0
+                }
+            },
+            {
+                "rid": 1517,
+                "type": {
+                    "class": "Constraint",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "minWidth": 1.0,
+                    "minHeight": 1.0,
+                    "maxWidth": 4.0,
+                    "maxHeight": 5.0
+                }
+            },
+            {
+                "rid": 1518,
+                "type": {
+                    "class": "Constraint",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "minWidth": 2.0,
+                    "minHeight": 2.0,
+                    "maxWidth": 6.0,
+                    "maxHeight": 6.0
+                }
+            },
+            {
+                "rid": 1519,
                 "type": {
                     "class": "LBSEventHooker",
                     "ns": "ISILab.LBS.Plugin.Components.Data",
