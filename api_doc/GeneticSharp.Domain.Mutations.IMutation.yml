@@ -1,0 +1,228 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeneticSharp.Domain.Mutations.IMutation
+  commentId: T:GeneticSharp.Domain.Mutations.IMutation
+  id: IMutation
+  parent: GeneticSharp.Domain.Mutations
+  children:
+  - GeneticSharp.Domain.Mutations.IMutation.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: IMutation
+  nameWithType: IMutation
+  fullName: GeneticSharp.Domain.Mutations.IMutation
+  type: Interface
+  source:
+    id: IMutation
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Mutations\IMutation.cs
+    startLine: 25
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Mutations
+  summary: >-
+    Mutation is a genetic operator used to maintain genetic diversity from one generation of a population of genetic algorithm 
+
+    chromosomes to the next. It is analogous to biological mutation. Mutation alters one or more gene values in a chromosome from 
+
+    its initial state. In mutation, the solution may change entirely from the previous solution. Hence GA can come to better solution 
+
+    by using mutation. Mutation occurs during evolution according to a user-definable mutation probability. This probability should be 
+
+    set low. If it is set too high, the search will turn into a primitive random search.
+
+    <p>
+
+    The classic example of a mutation operator involves a probability that an arbitrary bit in a genetic sequence will be changed 
+
+    from its original state. A common method of implementing the mutation operator involves generating a random variable for each bit 
+
+    in a sequence. This random variable tells whether or not a particular bit will be modified.This mutation procedure, based on the 
+
+    biological point mutation, is called single point mutation. Other types are inversion and floating point mutation. When the gene 
+
+    encoding is restrictive as in permutation problems, mutations are swaps, inversions, and scrambles.
+
+    </p>
+
+    <p>
+
+    The purpose of mutation in GAs is preserving and introducing diversity. Mutation should allow the algorithm to avoid local minima 
+
+    by preventing the population of chromosomes from becoming too similar to each other, thus slowing or even stopping evolution. 
+
+    This reasoning also explains the fact that most GA systems avoid only taking the fittest of the population in generating the next 
+
+    but rather a random (or semi-random) selection with a weighting toward those that are fitter.
+
+    </p>
+
+    <a href="http://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)">http://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)</a>
+  example: []
+  syntax:
+    content: 'public interface IMutation : IChromosomeOperator'
+    content.vb: Public Interface IMutation Inherits IChromosomeOperator
+  derivedClasses:
+  - GeneticSharp.Domain.Mutations.DisplacementMutation
+  - GeneticSharp.Domain.Mutations.FlipBitMutation
+  - GeneticSharp.Domain.Mutations.InsertionMutation
+  - GeneticSharp.Domain.Mutations.MutationBase
+  - GeneticSharp.Domain.Mutations.PartialShuffleMutation
+  - GeneticSharp.Domain.Mutations.ReverseSequenceMutation
+  - GeneticSharp.Domain.Mutations.SequenceMutationBase
+  - GeneticSharp.Domain.Mutations.TworsMutation
+  - GeneticSharp.Domain.Mutations.UniformMutation
+  - ISILab.AI.Categorization.AddGene
+  - ISILab.AI.Categorization.ExhaustiveAddGene
+  - ISILab.AI.Categorization.ExhaustiveMoveGene
+  - ISILab.AI.Categorization.ExhaustiveRemoveGene
+  - ISILab.AI.Categorization.ExhaustiveSwapGene
+  - ISILab.AI.Categorization.Ranged2DSwapMutation
+  - ISILab.AI.Categorization.RangedSwapGene
+  - ISILab.AI.Categorization.RemoveGene
+  - ISILab.AI.Categorization.RoulleteWheelMutation
+  - ISILab.AI.Categorization.SequenceMutation
+  - ISILab.AI.Categorization.SwapGene
+  inheritedMembers:
+  - GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered
+- uid: GeneticSharp.Domain.Mutations.IMutation.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  commentId: M:GeneticSharp.Domain.Mutations.IMutation.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  id: Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase,System.Single)
+  parent: GeneticSharp.Domain.Mutations.IMutation
+  langs:
+  - csharp
+  - vb
+  name: Mutate(ChromosomeBase, float)
+  nameWithType: IMutation.Mutate(ChromosomeBase, float)
+  fullName: GeneticSharp.Domain.Mutations.IMutation.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase, float)
+  type: Method
+  source:
+    id: Mutate
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\GeneticSharp.Domain\Mutations\IMutation.cs
+    startLine: 32
+  assemblies:
+  - LBS
+  namespace: GeneticSharp.Domain.Mutations
+  summary: Mutate the specified chromosome.
+  example: []
+  syntax:
+    content: void Mutate(ChromosomeBase chromosome, float probability)
+    parameters:
+    - id: chromosome
+      type: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+      description: The chromosome.
+    - id: probability
+      type: System.Single
+      description: The probability to mutate each chromosome.
+    content.vb: Sub Mutate(chromosome As ChromosomeBase, probability As Single)
+  overload: GeneticSharp.Domain.Mutations.IMutation.Mutate*
+  nameWithType.vb: IMutation.Mutate(ChromosomeBase, Single)
+  fullName.vb: GeneticSharp.Domain.Mutations.IMutation.Mutate(GeneticSharp.Domain.Chromosomes.ChromosomeBase, Single)
+  name.vb: Mutate(ChromosomeBase, Single)
+references:
+- uid: GeneticSharp.Domain.Mutations
+  commentId: N:GeneticSharp.Domain.Mutations
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Mutations
+  nameWithType: GeneticSharp.Domain.Mutations
+  fullName: GeneticSharp.Domain.Mutations
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Mutations
+    name: Mutations
+    href: GeneticSharp.Domain.Mutations.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Mutations
+    name: Mutations
+    href: GeneticSharp.Domain.Mutations.html
+- uid: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered
+  commentId: P:GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered
+  parent: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+  href: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.html#GeneticSharp_Domain_Chromosomes_IChromosomeOperator_IsOrdered
+  name: IsOrdered
+  nameWithType: IChromosomeOperator.IsOrdered
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.IsOrdered
+- uid: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+  commentId: T:GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+  parent: GeneticSharp.Domain.Chromosomes
+  href: GeneticSharp.Domain.Chromosomes.IChromosomeOperator.html
+  name: IChromosomeOperator
+  nameWithType: IChromosomeOperator
+  fullName: GeneticSharp.Domain.Chromosomes.IChromosomeOperator
+- uid: GeneticSharp.Domain.Chromosomes
+  commentId: N:GeneticSharp.Domain.Chromosomes
+  href: GeneticSharp.html
+  name: GeneticSharp.Domain.Chromosomes
+  nameWithType: GeneticSharp.Domain.Chromosomes
+  fullName: GeneticSharp.Domain.Chromosomes
+  spec.csharp:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Chromosomes
+    name: Chromosomes
+    href: GeneticSharp.Domain.Chromosomes.html
+  spec.vb:
+  - uid: GeneticSharp
+    name: GeneticSharp
+    href: GeneticSharp.html
+  - name: .
+  - uid: GeneticSharp.Domain
+    name: Domain
+    href: GeneticSharp.Domain.html
+  - name: .
+  - uid: GeneticSharp.Domain.Chromosomes
+    name: Chromosomes
+    href: GeneticSharp.Domain.Chromosomes.html
+- uid: GeneticSharp.Domain.Mutations.IMutation.Mutate*
+  commentId: Overload:GeneticSharp.Domain.Mutations.IMutation.Mutate
+  href: GeneticSharp.Domain.Mutations.IMutation.html#GeneticSharp_Domain_Mutations_IMutation_Mutate_GeneticSharp_Domain_Chromosomes_ChromosomeBase_System_Single_
+  name: Mutate
+  nameWithType: IMutation.Mutate
+  fullName: GeneticSharp.Domain.Mutations.IMutation.Mutate
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  commentId: T:GeneticSharp.Domain.Chromosomes.ChromosomeBase
+  parent: GeneticSharp.Domain.Chromosomes
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html
+  name: ChromosomeBase
+  nameWithType: ChromosomeBase
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+shouldSkipMarkup: true

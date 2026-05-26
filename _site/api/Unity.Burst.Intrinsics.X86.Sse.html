@@ -1,0 +1,3611 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class X86.Sse | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class X86.Sse | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Unity.Burst.Intrinsics.X86.Sse">
+
+
+
+  <h1 id="Unity_Burst_Intrinsics_X86_Sse" data-uid="Unity.Burst.Intrinsics.X86.Sse" class="text-break">
+Class X86.Sse  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Unity.html">Unity</a>.<a class="xref" href="Unity.Burst.html">Burst</a>.<a class="xref" href="Unity.Burst.Intrinsics.html">Intrinsics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Burst.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class X86.Sse</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">X86.Sse</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_IsSseSupported_" data-uid="Unity.Burst.Intrinsics.X86.Sse.IsSseSupported*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_IsSseSupported" data-uid="Unity.Burst.Intrinsics.X86.Sse.IsSseSupported">
+  IsSseSupported
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsSseSupported { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_SHUFFLE_" data-uid="Unity.Burst.Intrinsics.X86.Sse.SHUFFLE*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_SHUFFLE_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="Unity.Burst.Intrinsics.X86.Sse.SHUFFLE(System.Int32,System.Int32,System.Int32,System.Int32)">
+  SHUFFLE(int, int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int SHUFFLE(int d, int c, int b, int a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_TRANSPOSE4_PS_" data-uid="Unity.Burst.Intrinsics.X86.Sse.TRANSPOSE4_PS*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_TRANSPOSE4_PS_Unity_Burst_Intrinsics_v128__Unity_Burst_Intrinsics_v128__Unity_Burst_Intrinsics_v128__Unity_Burst_Intrinsics_v128__" data-uid="Unity.Burst.Intrinsics.X86.Sse.TRANSPOSE4_PS(Unity.Burst.Intrinsics.v128@,Unity.Burst.Intrinsics.v128@,Unity.Burst.Intrinsics.v128@,Unity.Burst.Intrinsics.v128@)">
+  TRANSPOSE4_PS(ref v128, ref v128, ref v128, ref v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void TRANSPOSE4_PS(ref v128 row0, ref v128 row1, ref v128 row2, ref v128 row3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>row0</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>row1</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>row2</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>row3</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_add_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.add_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_add_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.add_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  add_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 add_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_add_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.add_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_add_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.add_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  add_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 add_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_and_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.and_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_and_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.and_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  and_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 and_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_andnot_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.andnot_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_andnot_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.andnot_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  andnot_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 andnot_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpeq_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpeq_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpeq_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpeq_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpeq_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpeq_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpeq_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpeq_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpeq_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpeq_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpeq_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpeq_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpge_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpge_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpge_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpge_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpge_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpge_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpge_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpge_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpge_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpge_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpge_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpge_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpgt_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpgt_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpgt_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpgt_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpgt_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpgt_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpgt_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpgt_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpgt_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpgt_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpgt_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpgt_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmple_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmple_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmple_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmple_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmple_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmple_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmple_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmple_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmple_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmple_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmple_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmple_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmplt_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmplt_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmplt_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmplt_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmplt_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmplt_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmplt_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmplt_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmplt_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmplt_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmplt_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmplt_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpneq_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpneq_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpneq_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpneq_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpneq_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpneq_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpneq_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpneq_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpneq_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpneq_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpneq_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpneq_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpnge_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnge_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpnge_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnge_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpnge_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpnge_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpnge_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnge_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpnge_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnge_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpnge_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpnge_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpngt_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpngt_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpngt_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpngt_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpngt_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpngt_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpngt_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpngt_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpngt_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpngt_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpngt_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpngt_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpnle_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnle_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpnle_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnle_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpnle_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpnle_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpnle_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnle_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpnle_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnle_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpnle_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpnle_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpnlt_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnlt_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpnlt_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnlt_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpnlt_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpnlt_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpnlt_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnlt_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpnlt_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpnlt_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpnlt_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpnlt_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpord_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpord_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpord_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpord_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpord_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpord_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpord_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpord_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpord_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpord_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpord_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpord_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpunord_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpunord_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpunord_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpunord_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpunord_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpunord_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cmpunord_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpunord_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cmpunord_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cmpunord_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  cmpunord_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cmpunord_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_comieq_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comieq_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_comieq_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comieq_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  comieq_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int comieq_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_comige_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comige_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_comige_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comige_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  comige_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int comige_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_comigt_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comigt_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_comigt_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comigt_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  comigt_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int comigt_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_comile_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comile_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_comile_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comile_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  comile_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int comile_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_comilt_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comilt_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_comilt_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comilt_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  comilt_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int comilt_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_comineq_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comineq_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_comineq_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.comineq_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  comineq_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int comineq_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cvt_ss2si_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvt_ss2si*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cvt_ss2si_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvt_ss2si(Unity.Burst.Intrinsics.v128)">
+  cvt_ss2si(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int cvt_ss2si(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cvtsi32_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtsi32_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cvtsi32_ss_Unity_Burst_Intrinsics_v128_System_Int32_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtsi32_ss(Unity.Burst.Intrinsics.v128,System.Int32)">
+  cvtsi32_ss(v128, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cvtsi32_ss(v128 a, int b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cvtsi64_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtsi64_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cvtsi64_ss_Unity_Burst_Intrinsics_v128_System_Int64_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtsi64_ss(Unity.Burst.Intrinsics.v128,System.Int64)">
+  cvtsi64_ss(v128, long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 cvtsi64_ss(v128 a, long b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cvtss_f32_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtss_f32*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cvtss_f32_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtss_f32(Unity.Burst.Intrinsics.v128)">
+  cvtss_f32(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float cvtss_f32(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cvtss_si32_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtss_si32*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cvtss_si32_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtss_si32(Unity.Burst.Intrinsics.v128)">
+  cvtss_si32(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int cvtss_si32(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cvtss_si64_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtss_si64*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cvtss_si64_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtss_si64(Unity.Burst.Intrinsics.v128)">
+  cvtss_si64(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long cvtss_si64(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cvtt_ss2si_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtt_ss2si*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cvtt_ss2si_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvtt_ss2si(Unity.Burst.Intrinsics.v128)">
+  cvtt_ss2si(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int cvtt_ss2si(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cvttss_si32_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvttss_si32*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cvttss_si32_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvttss_si32(Unity.Burst.Intrinsics.v128)">
+  cvttss_si32(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int cvttss_si32(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_cvttss_si64_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvttss_si64*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_cvttss_si64_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.cvttss_si64(Unity.Burst.Intrinsics.v128)">
+  cvttss_si64(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long cvttss_si64(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_div_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.div_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_div_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.div_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  div_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 div_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_div_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.div_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_div_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.div_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  div_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 div_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_load_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.load_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_load_ps_System_Void__" data-uid="Unity.Burst.Intrinsics.X86.Sse.load_ps(System.Void*)">
+  load_ps(void*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 load_ps(void* ptr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_loadu_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.loadu_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_loadu_ps_System_Void__" data-uid="Unity.Burst.Intrinsics.X86.Sse.loadu_ps(System.Void*)">
+  loadu_ps(void*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 loadu_ps(void* ptr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_loadu_si16_" data-uid="Unity.Burst.Intrinsics.X86.Sse.loadu_si16*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_loadu_si16_System_Void__" data-uid="Unity.Burst.Intrinsics.X86.Sse.loadu_si16(System.Void*)">
+  loadu_si16(void*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 loadu_si16(void* mem_addr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mem_addr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_loadu_si64_" data-uid="Unity.Burst.Intrinsics.X86.Sse.loadu_si64*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_loadu_si64_System_Void__" data-uid="Unity.Burst.Intrinsics.X86.Sse.loadu_si64(System.Void*)">
+  loadu_si64(void*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 loadu_si64(void* mem_addr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mem_addr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_max_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.max_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_max_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.max_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  max_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 max_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_max_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.max_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_max_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.max_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  max_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 max_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_min_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.min_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_min_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.min_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  min_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 min_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_min_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.min_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_min_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.min_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  min_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 min_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_move_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.move_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_move_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.move_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  move_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 move_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_movehl_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.movehl_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_movehl_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.movehl_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  movehl_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 movehl_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_movelh_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.movelh_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_movelh_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.movelh_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  movelh_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 movelh_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_movemask_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.movemask_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_movemask_ps_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.movemask_ps(Unity.Burst.Intrinsics.v128)">
+  movemask_ps(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int movemask_ps(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_mul_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.mul_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_mul_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.mul_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  mul_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 mul_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_mul_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.mul_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_mul_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.mul_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  mul_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 mul_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_or_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.or_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_or_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.or_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  or_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 or_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_rcp_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.rcp_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_rcp_ps_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.rcp_ps(Unity.Burst.Intrinsics.v128)">
+  rcp_ps(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 rcp_ps(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_rcp_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.rcp_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_rcp_ss_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.rcp_ss(Unity.Burst.Intrinsics.v128)">
+  rcp_ss(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 rcp_ss(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_rsqrt_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.rsqrt_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_rsqrt_ps_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.rsqrt_ps(Unity.Burst.Intrinsics.v128)">
+  rsqrt_ps(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 rsqrt_ps(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_rsqrt_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.rsqrt_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_rsqrt_ss_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.rsqrt_ss(Unity.Burst.Intrinsics.v128)">
+  rsqrt_ss(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 rsqrt_ss(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_set1_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.set1_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_set1_ps_System_Single_" data-uid="Unity.Burst.Intrinsics.X86.Sse.set1_ps(System.Single)">
+  set1_ps(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 set1_ps(float a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_set_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.set_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_set_ps_System_Single_System_Single_System_Single_System_Single_" data-uid="Unity.Burst.Intrinsics.X86.Sse.set_ps(System.Single,System.Single,System.Single,System.Single)">
+  set_ps(float, float, float, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 set_ps(float e3, float e2, float e1, float e0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>e2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>e1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>e0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_set_ps1_" data-uid="Unity.Burst.Intrinsics.X86.Sse.set_ps1*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_set_ps1_System_Single_" data-uid="Unity.Burst.Intrinsics.X86.Sse.set_ps1(System.Single)">
+  set_ps1(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 set_ps1(float a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_set_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.set_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_set_ss_System_Single_" data-uid="Unity.Burst.Intrinsics.X86.Sse.set_ss(System.Single)">
+  set_ss(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 set_ss(float a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_setr_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.setr_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_setr_ps_System_Single_System_Single_System_Single_System_Single_" data-uid="Unity.Burst.Intrinsics.X86.Sse.setr_ps(System.Single,System.Single,System.Single,System.Single)">
+  setr_ps(float, float, float, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 setr_ps(float e3, float e2, float e1, float e0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e3</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>e2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>e1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>e0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_setzero_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.setzero_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_setzero_ps" data-uid="Unity.Burst.Intrinsics.X86.Sse.setzero_ps">
+  setzero_ps()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 setzero_ps()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_shuffle_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.shuffle_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_shuffle_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_System_Int32_" data-uid="Unity.Burst.Intrinsics.X86.Sse.shuffle_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128,System.Int32)">
+  shuffle_ps(v128, v128, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 shuffle_ps(v128 a, v128 b, int imm8)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>imm8</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_sqrt_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.sqrt_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_sqrt_ps_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.sqrt_ps(Unity.Burst.Intrinsics.v128)">
+  sqrt_ps(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 sqrt_ps(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_sqrt_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.sqrt_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_sqrt_ss_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.sqrt_ss(Unity.Burst.Intrinsics.v128)">
+  sqrt_ss(v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 sqrt_ss(v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_store_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.store_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_store_ps_System_Void__Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.store_ps(System.Void*,Unity.Burst.Intrinsics.v128)">
+  store_ps(void*, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void store_ps(void* ptr, v128 val)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>val</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_storeu_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.storeu_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_storeu_ps_System_Void__Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.storeu_ps(System.Void*,Unity.Burst.Intrinsics.v128)">
+  storeu_ps(void*, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void storeu_ps(void* ptr, v128 val)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>val</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_storeu_si16_" data-uid="Unity.Burst.Intrinsics.X86.Sse.storeu_si16*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_storeu_si16_System_Void__Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.storeu_si16(System.Void*,Unity.Burst.Intrinsics.v128)">
+  storeu_si16(void*, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void storeu_si16(void* mem_addr, v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mem_addr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_storeu_si64_" data-uid="Unity.Burst.Intrinsics.X86.Sse.storeu_si64*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_storeu_si64_System_Void__Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.storeu_si64(System.Void*,Unity.Burst.Intrinsics.v128)">
+  storeu_si64(void*, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void storeu_si64(void* mem_addr, v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mem_addr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_stream_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.stream_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_stream_ps_System_Void__Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.stream_ps(System.Void*,Unity.Burst.Intrinsics.v128)">
+  stream_ps(void*, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void stream_ps(void* mem_addr, v128 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mem_addr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_sub_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.sub_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_sub_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.sub_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  sub_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 sub_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_sub_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.sub_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_sub_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.sub_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  sub_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 sub_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_ucomieq_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomieq_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_ucomieq_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomieq_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  ucomieq_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ucomieq_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_ucomige_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomige_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_ucomige_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomige_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  ucomige_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ucomige_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_ucomigt_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomigt_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_ucomigt_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomigt_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  ucomigt_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ucomigt_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_ucomile_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomile_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_ucomile_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomile_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  ucomile_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ucomile_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_ucomilt_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomilt_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_ucomilt_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomilt_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  ucomilt_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ucomilt_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_ucomineq_ss_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomineq_ss*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_ucomineq_ss_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.ucomineq_ss(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  ucomineq_ss(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ucomineq_ss(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_unpackhi_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.unpackhi_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_unpackhi_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.unpackhi_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  unpackhi_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 unpackhi_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_unpacklo_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.unpacklo_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_unpacklo_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.unpacklo_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  unpacklo_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 unpacklo_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Burst_Intrinsics_X86_Sse_xor_ps_" data-uid="Unity.Burst.Intrinsics.X86.Sse.xor_ps*"></a>
+
+  <h3 id="Unity_Burst_Intrinsics_X86_Sse_xor_ps_Unity_Burst_Intrinsics_v128_Unity_Burst_Intrinsics_v128_" data-uid="Unity.Burst.Intrinsics.X86.Sse.xor_ps(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)">
+  xor_ps(v128, v128)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static v128 xor_ps(v128 a, v128 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.Burst.Intrinsics.v128.html">v128</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,318 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.PathOSWindow
+  commentId: T:PathOS.PathOSWindow
+  id: PathOSWindow
+  parent: PathOS
+  children:
+  - PathOS.PathOSWindow.#ctor
+  - PathOS.PathOSWindow.HasAgent
+  - PathOS.PathOSWindow.Layout
+  - PathOS.PathOSWindow.OnGUI
+  - PathOS.PathOSWindow.SetAgentReference(PathOS.PathOSAgent)
+  - PathOS.PathOSWindow.SetManagerReference(PathOS.PathOSManager)
+  - PathOS.PathOSWindow.SetScreenshotCameraReference(PathOS.ScreenshotManager)
+  - PathOS.PathOSWindow.ShowWindow
+  langs:
+  - csharp
+  - vb
+  name: PathOSWindow
+  nameWithType: PathOSWindow
+  fullName: PathOS.PathOSWindow
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class PathOSWindow : EditorWindow'
+    content.vb: Public Class PathOSWindow Inherits EditorWindow
+  inheritance:
+  - System.Object
+- uid: PathOS.PathOSWindow.ShowWindow
+  commentId: M:PathOS.PathOSWindow.ShowWindow
+  id: ShowWindow
+  parent: PathOS.PathOSWindow
+  langs:
+  - csharp
+  - vb
+  name: ShowWindow()
+  nameWithType: PathOSWindow.ShowWindow()
+  fullName: PathOS.PathOSWindow.ShowWindow()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public static void ShowWindow()
+    content.vb: Public Shared Sub ShowWindow()
+  overload: PathOS.PathOSWindow.ShowWindow*
+- uid: PathOS.PathOSWindow.OnGUI
+  commentId: M:PathOS.PathOSWindow.OnGUI
+  id: OnGUI
+  parent: PathOS.PathOSWindow
+  langs:
+  - csharp
+  - vb
+  name: OnGUI()
+  nameWithType: PathOSWindow.OnGUI()
+  fullName: PathOS.PathOSWindow.OnGUI()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void OnGUI()
+    content.vb: Public Sub OnGUI()
+  overload: PathOS.PathOSWindow.OnGUI*
+- uid: PathOS.PathOSWindow.SetAgentReference(PathOS.PathOSAgent)
+  commentId: M:PathOS.PathOSWindow.SetAgentReference(PathOS.PathOSAgent)
+  id: SetAgentReference(PathOS.PathOSAgent)
+  parent: PathOS.PathOSWindow
+  langs:
+  - csharp
+  - vb
+  name: SetAgentReference(PathOSAgent)
+  nameWithType: PathOSWindow.SetAgentReference(PathOSAgent)
+  fullName: PathOS.PathOSWindow.SetAgentReference(PathOS.PathOSAgent)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void SetAgentReference(PathOSAgent agent)
+    parameters:
+    - id: agent
+      type: PathOS.PathOSAgent
+    content.vb: Public Sub SetAgentReference(agent As PathOSAgent)
+  overload: PathOS.PathOSWindow.SetAgentReference*
+- uid: PathOS.PathOSWindow.SetManagerReference(PathOS.PathOSManager)
+  commentId: M:PathOS.PathOSWindow.SetManagerReference(PathOS.PathOSManager)
+  id: SetManagerReference(PathOS.PathOSManager)
+  parent: PathOS.PathOSWindow
+  langs:
+  - csharp
+  - vb
+  name: SetManagerReference(PathOSManager)
+  nameWithType: PathOSWindow.SetManagerReference(PathOSManager)
+  fullName: PathOS.PathOSWindow.SetManagerReference(PathOS.PathOSManager)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void SetManagerReference(PathOSManager manager)
+    parameters:
+    - id: manager
+      type: PathOS.PathOSManager
+    content.vb: Public Sub SetManagerReference(manager As PathOSManager)
+  overload: PathOS.PathOSWindow.SetManagerReference*
+- uid: PathOS.PathOSWindow.SetScreenshotCameraReference(PathOS.ScreenshotManager)
+  commentId: M:PathOS.PathOSWindow.SetScreenshotCameraReference(PathOS.ScreenshotManager)
+  id: SetScreenshotCameraReference(PathOS.ScreenshotManager)
+  parent: PathOS.PathOSWindow
+  langs:
+  - csharp
+  - vb
+  name: SetScreenshotCameraReference(ScreenshotManager)
+  nameWithType: PathOSWindow.SetScreenshotCameraReference(ScreenshotManager)
+  fullName: PathOS.PathOSWindow.SetScreenshotCameraReference(PathOS.ScreenshotManager)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void SetScreenshotCameraReference(ScreenshotManager camera)
+    parameters:
+    - id: camera
+      type: PathOS.ScreenshotManager
+    content.vb: Public Sub SetScreenshotCameraReference(camera As ScreenshotManager)
+  overload: PathOS.PathOSWindow.SetScreenshotCameraReference*
+- uid: PathOS.PathOSWindow.#ctor
+  commentId: M:PathOS.PathOSWindow.#ctor
+  id: '#ctor'
+  parent: PathOS.PathOSWindow
+  langs:
+  - csharp
+  - vb
+  name: PathOSWindow()
+  nameWithType: PathOSWindow.PathOSWindow()
+  fullName: PathOS.PathOSWindow.PathOSWindow()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PathOSWindow()
+    content.vb: Public Sub New()
+  overload: PathOS.PathOSWindow.#ctor*
+  nameWithType.vb: PathOSWindow.New()
+  fullName.vb: PathOS.PathOSWindow.New()
+  name.vb: New()
+- uid: PathOS.PathOSWindow.HasAgent
+  commentId: P:PathOS.PathOSWindow.HasAgent
+  id: HasAgent
+  parent: PathOS.PathOSWindow
+  langs:
+  - csharp
+  - vb
+  name: HasAgent
+  nameWithType: PathOSWindow.HasAgent
+  fullName: PathOS.PathOSWindow.HasAgent
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool HasAgent { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasAgent As Boolean
+  overload: PathOS.PathOSWindow.HasAgent*
+- uid: PathOS.PathOSWindow.Layout
+  commentId: P:PathOS.PathOSWindow.Layout
+  id: Layout
+  parent: PathOS.PathOSWindow
+  langs:
+  - csharp
+  - vb
+  name: Layout
+  nameWithType: PathOSWindow.Layout
+  fullName: PathOS.PathOSWindow.Layout
+  type: Property
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Rect Layout { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public Property Layout As Rect
+  overload: PathOS.PathOSWindow.Layout*
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PathOS.PathOSWindow.ShowWindow*
+  commentId: Overload:PathOS.PathOSWindow.ShowWindow
+  isExternal: true
+  href: PathOS.PathOSWindow.html#PathOS_PathOSWindow_ShowWindow
+  name: ShowWindow
+  nameWithType: PathOSWindow.ShowWindow
+  fullName: PathOS.PathOSWindow.ShowWindow
+- uid: PathOS.PathOSWindow.OnGUI*
+  commentId: Overload:PathOS.PathOSWindow.OnGUI
+  isExternal: true
+  href: PathOS.PathOSWindow.html#PathOS_PathOSWindow_OnGUI
+  name: OnGUI
+  nameWithType: PathOSWindow.OnGUI
+  fullName: PathOS.PathOSWindow.OnGUI
+- uid: PathOS.PathOSWindow.SetAgentReference*
+  commentId: Overload:PathOS.PathOSWindow.SetAgentReference
+  isExternal: true
+  href: PathOS.PathOSWindow.html#PathOS_PathOSWindow_SetAgentReference_PathOS_PathOSAgent_
+  name: SetAgentReference
+  nameWithType: PathOSWindow.SetAgentReference
+  fullName: PathOS.PathOSWindow.SetAgentReference
+- uid: PathOS.PathOSAgent
+  commentId: T:PathOS.PathOSAgent
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSAgent.html
+  name: PathOSAgent
+  nameWithType: PathOSAgent
+  fullName: PathOS.PathOSAgent
+- uid: PathOS.PathOSWindow.SetManagerReference*
+  commentId: Overload:PathOS.PathOSWindow.SetManagerReference
+  isExternal: true
+  href: PathOS.PathOSWindow.html#PathOS_PathOSWindow_SetManagerReference_PathOS_PathOSManager_
+  name: SetManagerReference
+  nameWithType: PathOSWindow.SetManagerReference
+  fullName: PathOS.PathOSWindow.SetManagerReference
+- uid: PathOS.PathOSManager
+  commentId: T:PathOS.PathOSManager
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PathOSManager.html
+  name: PathOSManager
+  nameWithType: PathOSManager
+  fullName: PathOS.PathOSManager
+- uid: PathOS.PathOSWindow.SetScreenshotCameraReference*
+  commentId: Overload:PathOS.PathOSWindow.SetScreenshotCameraReference
+  isExternal: true
+  href: PathOS.PathOSWindow.html#PathOS_PathOSWindow_SetScreenshotCameraReference_PathOS_ScreenshotManager_
+  name: SetScreenshotCameraReference
+  nameWithType: PathOSWindow.SetScreenshotCameraReference
+  fullName: PathOS.PathOSWindow.SetScreenshotCameraReference
+- uid: PathOS.ScreenshotManager
+  commentId: T:PathOS.ScreenshotManager
+  parent: PathOS
+  isExternal: true
+  href: PathOS.ScreenshotManager.html
+  name: ScreenshotManager
+  nameWithType: ScreenshotManager
+  fullName: PathOS.ScreenshotManager
+- uid: PathOS.PathOSWindow.#ctor*
+  commentId: Overload:PathOS.PathOSWindow.#ctor
+  isExternal: true
+  href: PathOS.PathOSWindow.html#PathOS_PathOSWindow__ctor
+  name: PathOSWindow
+  nameWithType: PathOSWindow.PathOSWindow
+  fullName: PathOS.PathOSWindow.PathOSWindow
+  nameWithType.vb: PathOSWindow.New
+  fullName.vb: PathOS.PathOSWindow.New
+  name.vb: New
+- uid: PathOS.PathOSWindow.HasAgent*
+  commentId: Overload:PathOS.PathOSWindow.HasAgent
+  isExternal: true
+  href: PathOS.PathOSWindow.html#PathOS_PathOSWindow_HasAgent
+  name: HasAgent
+  nameWithType: PathOSWindow.HasAgent
+  fullName: PathOS.PathOSWindow.HasAgent
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: PathOS.PathOSWindow.Layout*
+  commentId: Overload:PathOS.PathOSWindow.Layout
+  isExternal: true
+  href: PathOS.PathOSWindow.html#PathOS_PathOSWindow_Layout
+  name: Layout
+  nameWithType: PathOSWindow.Layout
+  fullName: PathOS.PathOSWindow.Layout
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+shouldSkipMarkup: true

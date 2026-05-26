@@ -1,27 +1,39 @@
 using UnityEngine;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
-using ISILab.AI.Grammar;
 using ISILab.LBS.Plugin.MapTools.Generators;
+
 namespace ISILab.AI.Grammar
 {
-    public class KillTrigger : QuestTrigger 
+    public class KillTrigger : QuestTriggerNode
     {
-        [Commons.Attributes.ReadOnly]
-        [SerializeField] private GrammarTerminal _terminal;
-
         [Header("Grammar Fields")]
-    [SerializeField,Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Type to kill")] private GrammarBundleType _Typetokill;
-    [SerializeField, InspectorName("Required kills")] private GrammarInt _Requiredkills;
+        [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Type to kill")]
+        private GrammarBundleType _Typetokill;
 
-        protected override void SetData(QuestNodeData data) 
+        [SerializeField, InspectorName("Required kills")]
+        private GrammarInt _Requiredkills;
+
+        protected override void BindFields(List<GrammarField> fields) 
         {
-            _terminal = data.Terminal;
-            _Typetokill = data.Fields.Find(f => f.name == "Type to kill") as GrammarBundleType;
-        _Requiredkills = data.Fields.Find(f => f.name == "Required kills") as GrammarInt;
+            // Ensure the target field is instantiated so it isn't null
+            if (_Typetokill == null) _Typetokill = new GrammarBundleType();
 
+            var sourceTypetokill = fields.Find(f => f.name == "Type to kill") as GrammarBundleType;
+            if (sourceTypetokill != null)
+            {
+                _Typetokill.SetValue(sourceTypetokill.value);
+            }
+            // Ensure the target field is instantiated so it isn't null
+            if (_Requiredkills == null) _Requiredkills = new GrammarInt();
+
+            var sourceRequiredkills = fields.Find(f => f.name == "Required kills") as GrammarInt;
+            if (sourceRequiredkills != null)
+            {
+                _Requiredkills.SetValue(sourceRequiredkills.value);
+            }
         }
 
-        protected override bool CanComplete() => false;
+        protected override bool CanComplete() => true;
     }
 }

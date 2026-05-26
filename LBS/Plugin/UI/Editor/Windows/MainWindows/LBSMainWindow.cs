@@ -33,6 +33,9 @@ using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 namespace ISILab.LBS.Editor.Windows
 {
 
+    /// <summary>
+    /// The General LBS Main Windows
+    /// </summary>
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public sealed class LBSMainWindow : ThemeableWindow
     {

@@ -1,0 +1,3833 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CoreUtils | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CoreUtils | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.CoreUtils">
+
+
+
+  <h1 id="UnityEngine_Rendering_CoreUtils" data-uid="UnityEngine.Rendering.CoreUtils" class="text-break">
+Class CoreUtils  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class CoreUtils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CoreUtils</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_assetCreateMenuPriority1" data-uid="UnityEngine.Rendering.CoreUtils.assetCreateMenuPriority1">
+  assetCreateMenuPriority1
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CoreUtils.Priorities instead&quot;, false)]
+public const int assetCreateMenuPriority1 = 230</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_assetCreateMenuPriority2" data-uid="UnityEngine.Rendering.CoreUtils.assetCreateMenuPriority2">
+  assetCreateMenuPriority2
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CoreUtils.Priorities instead&quot;, false)]
+public const int assetCreateMenuPriority2 = 241</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_assetCreateMenuPriority3" data-uid="UnityEngine.Rendering.CoreUtils.assetCreateMenuPriority3">
+  assetCreateMenuPriority3
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CoreUtils.Priorities instead&quot;, false)]
+public const int assetCreateMenuPriority3 = 300</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_editMenuPriority1" data-uid="UnityEngine.Rendering.CoreUtils.editMenuPriority1">
+  editMenuPriority1
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CoreUtils.Priorities instead&quot;, false)]
+public const int editMenuPriority1 = 320</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_editMenuPriority2" data-uid="UnityEngine.Rendering.CoreUtils.editMenuPriority2">
+  editMenuPriority2
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CoreUtils.Priorities instead&quot;, false)]
+public const int editMenuPriority2 = 331</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_editMenuPriority3" data-uid="UnityEngine.Rendering.CoreUtils.editMenuPriority3">
+  editMenuPriority3
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CoreUtils.Priorities instead&quot;, false)]
+public const int editMenuPriority3 = 342</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_editMenuPriority4" data-uid="UnityEngine.Rendering.CoreUtils.editMenuPriority4">
+  editMenuPriority4
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CoreUtils.Priorities instead&quot;, false)]
+public const int editMenuPriority4 = 353</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_gameObjectMenuPriority" data-uid="UnityEngine.Rendering.CoreUtils.gameObjectMenuPriority">
+  gameObjectMenuPriority
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CoreUtils.Priorities instead&quot;, false)]
+public const int gameObjectMenuPriority = 10</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_lookAtList" data-uid="UnityEngine.Rendering.CoreUtils.lookAtList">
+  lookAtList
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vector3[] lookAtList</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_upVectorList" data-uid="UnityEngine.Rendering.CoreUtils.upVectorList">
+  upVectorList
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vector3[] upVectorList</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_blackCubeTexture_" data-uid="UnityEngine.Rendering.CoreUtils.blackCubeTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_blackCubeTexture" data-uid="UnityEngine.Rendering.CoreUtils.blackCubeTexture">
+  blackCubeTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Cubemap blackCubeTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Cubemap</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_blackVolumeTexture_" data-uid="UnityEngine.Rendering.CoreUtils.blackVolumeTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_blackVolumeTexture" data-uid="UnityEngine.Rendering.CoreUtils.blackVolumeTexture">
+  blackVolumeTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture3D blackVolumeTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture3D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_emptyBuffer_" data-uid="UnityEngine.Rendering.CoreUtils.emptyBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_emptyBuffer" data-uid="UnityEngine.Rendering.CoreUtils.emptyBuffer">
+  emptyBuffer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GraphicsBuffer emptyBuffer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_emptyUAV_" data-uid="UnityEngine.Rendering.CoreUtils.emptyUAV*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_emptyUAV" data-uid="UnityEngine.Rendering.CoreUtils.emptyUAV">
+  emptyUAV
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RenderTexture emptyUAV { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RenderTexture</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_magentaCubeTexture_" data-uid="UnityEngine.Rendering.CoreUtils.magentaCubeTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_magentaCubeTexture" data-uid="UnityEngine.Rendering.CoreUtils.magentaCubeTexture">
+  magentaCubeTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Cubemap magentaCubeTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Cubemap</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_magentaCubeTextureArray_" data-uid="UnityEngine.Rendering.CoreUtils.magentaCubeTextureArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_magentaCubeTextureArray" data-uid="UnityEngine.Rendering.CoreUtils.magentaCubeTextureArray">
+  magentaCubeTextureArray
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CubemapArray magentaCubeTextureArray { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">CubemapArray</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_whiteCubeTexture_" data-uid="UnityEngine.Rendering.CoreUtils.whiteCubeTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_whiteCubeTexture" data-uid="UnityEngine.Rendering.CoreUtils.whiteCubeTexture">
+  whiteCubeTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Cubemap whiteCubeTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Cubemap</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_AreAnimatedMaterialsEnabled_" data-uid="UnityEngine.Rendering.CoreUtils.AreAnimatedMaterialsEnabled*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_AreAnimatedMaterialsEnabled_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.CoreUtils.AreAnimatedMaterialsEnabled(UnityEngine.Camera)">
+  AreAnimatedMaterialsEnabled(Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreAnimatedMaterialsEnabled(Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_ArePostProcessesEnabled_" data-uid="UnityEngine.Rendering.CoreUtils.ArePostProcessesEnabled*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_ArePostProcessesEnabled_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.CoreUtils.ArePostProcessesEnabled(UnityEngine.Camera)">
+  ArePostProcessesEnabled(Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ArePostProcessesEnabled(Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_CalculateViewSpaceCorners_" data-uid="UnityEngine.Rendering.CoreUtils.CalculateViewSpaceCorners*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_CalculateViewSpaceCorners_UnityEngine_Matrix4x4_System_Single_" data-uid="UnityEngine.Rendering.CoreUtils.CalculateViewSpaceCorners(UnityEngine.Matrix4x4,System.Single)">
+  CalculateViewSpaceCorners(Matrix4x4, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3[] CalculateViewSpaceCorners(Matrix4x4 proj, float z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>proj</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_ClearCubemap_" data-uid="UnityEngine.Rendering.CoreUtils.ClearCubemap*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_ClearCubemap_UnityEngine_Rendering_CommandBuffer_UnityEngine_RenderTexture_UnityEngine_Color_System_Boolean_" data-uid="UnityEngine.Rendering.CoreUtils.ClearCubemap(UnityEngine.Rendering.CommandBuffer,UnityEngine.RenderTexture,UnityEngine.Color,System.Boolean)">
+  ClearCubemap(CommandBuffer, RenderTexture, Color, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClearCubemap(CommandBuffer cmd, RenderTexture renderTexture, Color clearColor, bool clearMips = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>renderTexture</code> <span class="xref">RenderTexture</span></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>clearMips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_ClearRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.ClearRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_ClearRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_" data-uid="UnityEngine.Rendering.CoreUtils.ClearRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.ClearFlag,UnityEngine.Color)">
+  ClearRenderTarget(CommandBuffer, ClearFlag, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClearRenderTarget(CommandBuffer cmd, ClearFlag clearFlag, Color clearColor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_ConvertLinearToActiveColorSpace_" data-uid="UnityEngine.Rendering.CoreUtils.ConvertLinearToActiveColorSpace*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_ConvertLinearToActiveColorSpace_UnityEngine_Color_" data-uid="UnityEngine.Rendering.CoreUtils.ConvertLinearToActiveColorSpace(UnityEngine.Color)">
+  ConvertLinearToActiveColorSpace(Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color ConvertLinearToActiveColorSpace(Color color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_ConvertSRGBToActiveColorSpace_" data-uid="UnityEngine.Rendering.CoreUtils.ConvertSRGBToActiveColorSpace*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_ConvertSRGBToActiveColorSpace_UnityEngine_Color_" data-uid="UnityEngine.Rendering.CoreUtils.ConvertSRGBToActiveColorSpace(UnityEngine.Color)">
+  ConvertSRGBToActiveColorSpace(Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color ConvertSRGBToActiveColorSpace(Color color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_CreateCubeMesh_" data-uid="UnityEngine.Rendering.CoreUtils.CreateCubeMesh*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_CreateCubeMesh_UnityEngine_Vector3_UnityEngine_Vector3_" data-uid="UnityEngine.Rendering.CoreUtils.CreateCubeMesh(UnityEngine.Vector3,UnityEngine.Vector3)">
+  CreateCubeMesh(Vector3, Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Mesh CreateCubeMesh(Vector3 min, Vector3 max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>min</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>max</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Mesh</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_CreateEngineMaterial_" data-uid="UnityEngine.Rendering.CoreUtils.CreateEngineMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_CreateEngineMaterial_System_String_" data-uid="UnityEngine.Rendering.CoreUtils.CreateEngineMaterial(System.String)">
+  CreateEngineMaterial(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Material CreateEngineMaterial(string shaderPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shaderPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_CreateEngineMaterial_" data-uid="UnityEngine.Rendering.CoreUtils.CreateEngineMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_CreateEngineMaterial_UnityEngine_Shader_" data-uid="UnityEngine.Rendering.CoreUtils.CreateEngineMaterial(UnityEngine.Shader)">
+  CreateEngineMaterial(Shader)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Material CreateEngineMaterial(Shader shader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shader</code> <span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_Destroy_" data-uid="UnityEngine.Rendering.CoreUtils.Destroy*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_Destroy_UnityEngine_Object_" data-uid="UnityEngine.Rendering.CoreUtils.Destroy(UnityEngine.Object)">
+  Destroy(Object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Destroy(Object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">Object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_DivRoundUp_" data-uid="UnityEngine.Rendering.CoreUtils.DivRoundUp*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_DivRoundUp_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.DivRoundUp(System.Int32,System.Int32)">
+  DivRoundUp(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int DivRoundUp(int value, int divisor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>divisor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_UnityEngine_Rendering_CommandBuffer_UnityEngine_Material_UnityEngine_MaterialPropertyBlock_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen(UnityEngine.Rendering.CommandBuffer,UnityEngine.Material,UnityEngine.MaterialPropertyBlock,System.Int32)">
+  DrawFullScreen(CommandBuffer, Material, MaterialPropertyBlock, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFullScreen(CommandBuffer commandBuffer, Material material, MaterialPropertyBlock properties = null, int shaderPassId = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandBuffer</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+    <dt><code>shaderPassId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_UnityEngine_Rendering_CommandBuffer_UnityEngine_Material_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_MaterialPropertyBlock_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen(UnityEngine.Rendering.CommandBuffer,UnityEngine.Material,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.MaterialPropertyBlock,System.Int32)">
+  DrawFullScreen(CommandBuffer, Material, RenderTargetIdentifier, MaterialPropertyBlock, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFullScreen(CommandBuffer commandBuffer, Material material, RenderTargetIdentifier colorBuffer, MaterialPropertyBlock properties = null, int shaderPassId = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandBuffer</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+    <dt><code>shaderPassId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_UnityEngine_Rendering_CommandBuffer_UnityEngine_Material_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_MaterialPropertyBlock_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen(UnityEngine.Rendering.CommandBuffer,UnityEngine.Material,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.MaterialPropertyBlock,System.Int32)">
+  DrawFullScreen(CommandBuffer, Material, RenderTargetIdentifier, RenderTargetIdentifier, MaterialPropertyBlock, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFullScreen(CommandBuffer commandBuffer, Material material, RenderTargetIdentifier colorBuffer, RenderTargetIdentifier depthStencilBuffer, MaterialPropertyBlock properties = null, int shaderPassId = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandBuffer</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depthStencilBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+    <dt><code>shaderPassId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_UnityEngine_Rendering_CommandBuffer_UnityEngine_Material_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_MaterialPropertyBlock_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen(UnityEngine.Rendering.CommandBuffer,UnityEngine.Material,UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.MaterialPropertyBlock,System.Int32)">
+  DrawFullScreen(CommandBuffer, Material, RenderTargetIdentifier[], MaterialPropertyBlock, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFullScreen(CommandBuffer commandBuffer, Material material, RenderTargetIdentifier[] colorBuffers, MaterialPropertyBlock properties = null, int shaderPassId = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandBuffer</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffers</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+    <dt><code>shaderPassId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_UnityEngine_Rendering_CommandBuffer_UnityEngine_Material_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_MaterialPropertyBlock_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen(UnityEngine.Rendering.CommandBuffer,UnityEngine.Material,UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.MaterialPropertyBlock,System.Int32)">
+  DrawFullScreen(CommandBuffer, Material, RenderTargetIdentifier[], RenderTargetIdentifier, MaterialPropertyBlock, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFullScreen(CommandBuffer commandBuffer, Material material, RenderTargetIdentifier[] colorBuffers, RenderTargetIdentifier depthStencilBuffer, MaterialPropertyBlock properties = null, int shaderPassId = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandBuffer</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffers</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>depthStencilBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+    <dt><code>shaderPassId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_DrawFullScreen_UnityEngine_Rendering_RasterCommandBuffer_UnityEngine_Material_UnityEngine_MaterialPropertyBlock_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.DrawFullScreen(UnityEngine.Rendering.RasterCommandBuffer,UnityEngine.Material,UnityEngine.MaterialPropertyBlock,System.Int32)">
+  DrawFullScreen(RasterCommandBuffer, Material, MaterialPropertyBlock, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawFullScreen(RasterCommandBuffer commandBuffer, Material material, MaterialPropertyBlock properties = null, int shaderPassId = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandBuffer</code> <a class="xref" href="UnityEngine.Rendering.RasterCommandBuffer.html">RasterCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+    <dt><code>shaderPassId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_DrawRendererList_" data-uid="UnityEngine.Rendering.CoreUtils.DrawRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_DrawRendererList_UnityEngine_Rendering_ScriptableRenderContext_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RendererList_" data-uid="UnityEngine.Rendering.CoreUtils.DrawRendererList(UnityEngine.Rendering.ScriptableRenderContext,UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RendererList)">
+  DrawRendererList(ScriptableRenderContext, CommandBuffer, RendererList)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawRendererList(ScriptableRenderContext renderContext, CommandBuffer cmd, RendererList rendererList)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderContext</code> <span class="xref">ScriptableRenderContext</span></dt>
+    <dd></dd>
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>rendererList</code> <span class="xref">RendererList</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_EnsureFolderTreeInAssetFilePath_" data-uid="UnityEngine.Rendering.CoreUtils.EnsureFolderTreeInAssetFilePath*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_EnsureFolderTreeInAssetFilePath_System_String_" data-uid="UnityEngine.Rendering.CoreUtils.EnsureFolderTreeInAssetFilePath(System.String)">
+  EnsureFolderTreeInAssetFilePath(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void EnsureFolderTreeInAssetFilePath(string filePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetAllAssemblyTypes_" data-uid="UnityEngine.Rendering.CoreUtils.GetAllAssemblyTypes*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetAllAssemblyTypes" data-uid="UnityEngine.Rendering.CoreUtils.GetAllAssemblyTypes">
+  GetAllAssemblyTypes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;Type&gt; GetAllAssemblyTypes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetAllTypesDerivedFrom_" data-uid="UnityEngine.Rendering.CoreUtils.GetAllTypesDerivedFrom*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetAllTypesDerivedFrom__1" data-uid="UnityEngine.Rendering.CoreUtils.GetAllTypesDerivedFrom``1">
+  GetAllTypesDerivedFrom&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;Type&gt; GetAllTypesDerivedFrom&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetDefaultDepthBufferBits_" data-uid="UnityEngine.Rendering.CoreUtils.GetDefaultDepthBufferBits*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetDefaultDepthBufferBits" data-uid="UnityEngine.Rendering.CoreUtils.GetDefaultDepthBufferBits">
+  GetDefaultDepthBufferBits()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DepthBits GetDefaultDepthBufferBits()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.DepthBits.html">DepthBits</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetDefaultDepthOnlyFormat_" data-uid="UnityEngine.Rendering.CoreUtils.GetDefaultDepthOnlyFormat*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetDefaultDepthOnlyFormat" data-uid="UnityEngine.Rendering.CoreUtils.GetDefaultDepthOnlyFormat">
+  GetDefaultDepthOnlyFormat()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GraphicsFormat GetDefaultDepthOnlyFormat()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetDefaultDepthStencilFormat_" data-uid="UnityEngine.Rendering.CoreUtils.GetDefaultDepthStencilFormat*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetDefaultDepthStencilFormat" data-uid="UnityEngine.Rendering.CoreUtils.GetDefaultDepthStencilFormat">
+  GetDefaultDepthStencilFormat()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GraphicsFormat GetDefaultDepthStencilFormat()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetLastEnumValue_" data-uid="UnityEngine.Rendering.CoreUtils.GetLastEnumValue*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetLastEnumValue__1" data-uid="UnityEngine.Rendering.CoreUtils.GetLastEnumValue``1">
+  GetLastEnumValue&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T GetLastEnumValue&lt;T&gt;() where T : Enum</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetMipCount_" data-uid="UnityEngine.Rendering.CoreUtils.GetMipCount*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetMipCount_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.GetMipCount(System.Int32)">
+  GetMipCount(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetMipCount(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetMipCount_" data-uid="UnityEngine.Rendering.CoreUtils.GetMipCount*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetMipCount_System_Single_" data-uid="UnityEngine.Rendering.CoreUtils.GetMipCount(System.Single)">
+  GetMipCount(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetMipCount(float size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetRenderTargetAutoName_" data-uid="UnityEngine.Rendering.CoreUtils.GetRenderTargetAutoName*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetRenderTargetAutoName_System_Int32_System_Int32_System_Int32_UnityEngine_Experimental_Rendering_GraphicsFormat_System_String_System_Boolean_System_Boolean_UnityEngine_Rendering_MSAASamples_" data-uid="UnityEngine.Rendering.CoreUtils.GetRenderTargetAutoName(System.Int32,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,System.String,System.Boolean,System.Boolean,UnityEngine.Rendering.MSAASamples)">
+  GetRenderTargetAutoName(int, int, int, GraphicsFormat, string, bool, bool, MSAASamples)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetRenderTargetAutoName(int width, int height, int depth, GraphicsFormat format, string name, bool mips = false, bool enableMSAA = false, MSAASamples msaaSamples = MSAASamples.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>enableMSAA</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetRenderTargetAutoName_" data-uid="UnityEngine.Rendering.CoreUtils.GetRenderTargetAutoName*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetRenderTargetAutoName_System_Int32_System_Int32_System_Int32_UnityEngine_Experimental_Rendering_GraphicsFormat_UnityEngine_Rendering_TextureDimension_System_String_System_Boolean_System_Boolean_UnityEngine_Rendering_MSAASamples_System_Boolean_System_Boolean_" data-uid="UnityEngine.Rendering.CoreUtils.GetRenderTargetAutoName(System.Int32,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Rendering.TextureDimension,System.String,System.Boolean,System.Boolean,UnityEngine.Rendering.MSAASamples,System.Boolean,System.Boolean)">
+  GetRenderTargetAutoName(int, int, int, GraphicsFormat, TextureDimension, string, bool, bool, MSAASamples, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetRenderTargetAutoName(int width, int height, int depth, GraphicsFormat format, TextureDimension dim, string name, bool mips = false, bool enableMSAA = false, MSAASamples msaaSamples = MSAASamples.None, bool dynamicRes = false, bool dynamicResExplicit = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>dim</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>enableMSAA</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+    <dt><code>dynamicRes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>dynamicResExplicit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetRenderTargetAutoName_" data-uid="UnityEngine.Rendering.CoreUtils.GetRenderTargetAutoName*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetRenderTargetAutoName_System_Int32_System_Int32_System_Int32_UnityEngine_RenderTextureFormat_System_String_System_Boolean_System_Boolean_UnityEngine_Rendering_MSAASamples_" data-uid="UnityEngine.Rendering.CoreUtils.GetRenderTargetAutoName(System.Int32,System.Int32,System.Int32,UnityEngine.RenderTextureFormat,System.String,System.Boolean,System.Boolean,UnityEngine.Rendering.MSAASamples)">
+  GetRenderTargetAutoName(int, int, int, RenderTextureFormat, string, bool, bool, MSAASamples)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetRenderTargetAutoName(int width, int height, int depth, RenderTextureFormat format, string name, bool mips = false, bool enableMSAA = false, MSAASamples msaaSamples = MSAASamples.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">RenderTextureFormat</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>enableMSAA</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>msaaSamples</code> <a class="xref" href="UnityEngine.Rendering.MSAASamples.html">MSAASamples</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetTextureAutoName_" data-uid="UnityEngine.Rendering.CoreUtils.GetTextureAutoName*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetTextureAutoName_System_Int32_System_Int32_UnityEngine_Experimental_Rendering_GraphicsFormat_UnityEngine_Rendering_TextureDimension_System_String_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.GetTextureAutoName(System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Rendering.TextureDimension,System.String,System.Boolean,System.Int32)">
+  GetTextureAutoName(int, int, GraphicsFormat, TextureDimension, string, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetTextureAutoName(int width, int height, GraphicsFormat format, TextureDimension dim = 0, string name = &quot;&quot;, bool mips = false, int depth = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>dim</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetTextureAutoName_" data-uid="UnityEngine.Rendering.CoreUtils.GetTextureAutoName*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetTextureAutoName_System_Int32_System_Int32_UnityEngine_TextureFormat_UnityEngine_Rendering_TextureDimension_System_String_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.GetTextureAutoName(System.Int32,System.Int32,UnityEngine.TextureFormat,UnityEngine.Rendering.TextureDimension,System.String,System.Boolean,System.Int32)">
+  GetTextureAutoName(int, int, TextureFormat, TextureDimension, string, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetTextureAutoName(int width, int height, TextureFormat format, TextureDimension dim = 0, string name = &quot;&quot;, bool mips = false, int depth = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <span class="xref">TextureFormat</span></dt>
+    <dd></dd>
+    <dt><code>dim</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_GetTextureHash_" data-uid="UnityEngine.Rendering.CoreUtils.GetTextureHash*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_GetTextureHash_UnityEngine_Texture_" data-uid="UnityEngine.Rendering.CoreUtils.GetTextureHash(UnityEngine.Texture)">
+  GetTextureHash(Texture)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetTextureHash(Texture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_HasFlag_" data-uid="UnityEngine.Rendering.CoreUtils.HasFlag*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_HasFlag__1___0___0_" data-uid="UnityEngine.Rendering.CoreUtils.HasFlag``1(``0,``0)">
+  HasFlag&lt;T&gt;(T, T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasFlag&lt;T&gt;(T mask, T flag) where T : IConvertible</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mask</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>flag</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_IsLightOverlapDebugEnabled_" data-uid="UnityEngine.Rendering.CoreUtils.IsLightOverlapDebugEnabled*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_IsLightOverlapDebugEnabled_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.CoreUtils.IsLightOverlapDebugEnabled(UnityEngine.Camera)">
+  IsLightOverlapDebugEnabled(Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsLightOverlapDebugEnabled(Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_IsSceneFilteringEnabled_" data-uid="UnityEngine.Rendering.CoreUtils.IsSceneFilteringEnabled*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_IsSceneFilteringEnabled" data-uid="UnityEngine.Rendering.CoreUtils.IsSceneFilteringEnabled">
+  IsSceneFilteringEnabled()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsSceneFilteringEnabled()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_IsSceneLightingDisabled_" data-uid="UnityEngine.Rendering.CoreUtils.IsSceneLightingDisabled*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_IsSceneLightingDisabled_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.CoreUtils.IsSceneLightingDisabled(UnityEngine.Camera)">
+  IsSceneLightingDisabled(Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsSceneLightingDisabled(Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_IsSceneViewFogEnabled_" data-uid="UnityEngine.Rendering.CoreUtils.IsSceneViewFogEnabled*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_IsSceneViewFogEnabled_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.CoreUtils.IsSceneViewFogEnabled(UnityEngine.Camera)">
+  IsSceneViewFogEnabled(Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsSceneViewFogEnabled(Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_IsSceneViewPrefabStageContextHidden_" data-uid="UnityEngine.Rendering.CoreUtils.IsSceneViewPrefabStageContextHidden*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_IsSceneViewPrefabStageContextHidden" data-uid="UnityEngine.Rendering.CoreUtils.IsSceneViewPrefabStageContextHidden">
+  IsSceneViewPrefabStageContextHidden()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsSceneViewPrefabStageContextHidden()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_LoadAllAssets_" data-uid="UnityEngine.Rendering.CoreUtils.LoadAllAssets*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_LoadAllAssets__1_System_String_System_Boolean_" data-uid="UnityEngine.Rendering.CoreUtils.LoadAllAssets``1(System.String,System.Boolean)">
+  LoadAllAssets&lt;T&gt;(string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; LoadAllAssets&lt;T&gt;(string extension = &quot;asset&quot;, bool allowSubTypes = true) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>extension</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>allowSubTypes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_PopulateNullFieldsFrom_" data-uid="UnityEngine.Rendering.CoreUtils.PopulateNullFieldsFrom*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_PopulateNullFieldsFrom__1___0___0_" data-uid="UnityEngine.Rendering.CoreUtils.PopulateNullFieldsFrom``1(``0,``0)">
+  PopulateNullFieldsFrom&lt;T&gt;(T, T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void PopulateNullFieldsFrom&lt;T&gt;(T source, T target) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>target</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_PreviousPowerOfTwo_" data-uid="UnityEngine.Rendering.CoreUtils.PreviousPowerOfTwo*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_PreviousPowerOfTwo_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.PreviousPowerOfTwo(System.Int32)">
+  PreviousPowerOfTwo(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int PreviousPowerOfTwo(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SafeRelease_" data-uid="UnityEngine.Rendering.CoreUtils.SafeRelease*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SafeRelease_UnityEngine_ComputeBuffer_" data-uid="UnityEngine.Rendering.CoreUtils.SafeRelease(UnityEngine.ComputeBuffer)">
+  SafeRelease(ComputeBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SafeRelease(ComputeBuffer buffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SafeRelease_" data-uid="UnityEngine.Rendering.CoreUtils.SafeRelease*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SafeRelease_UnityEngine_GraphicsBuffer_" data-uid="UnityEngine.Rendering.CoreUtils.SafeRelease(UnityEngine.GraphicsBuffer)">
+  SafeRelease(GraphicsBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SafeRelease(GraphicsBuffer buffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetKeyword_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetKeyword_UnityEngine_ComputeShader_System_String_System_Boolean_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword(UnityEngine.ComputeShader,System.String,System.Boolean)">
+  SetKeyword(ComputeShader, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetKeyword(ComputeShader cs, string keyword, bool state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cs</code> <span class="xref">ComputeShader</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetKeyword_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetKeyword_UnityEngine_Material_System_String_System_Boolean_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword(UnityEngine.Material,System.String,System.Boolean)">
+  SetKeyword(Material, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetKeyword(Material material, string keyword, bool state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetKeyword_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetKeyword_UnityEngine_Material_UnityEngine_Rendering_LocalKeyword_System_Boolean_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword(UnityEngine.Material,UnityEngine.Rendering.LocalKeyword,System.Boolean)">
+  SetKeyword(Material, LocalKeyword, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetKeyword(Material material, LocalKeyword keyword, bool state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetKeyword_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetKeyword_UnityEngine_Rendering_BaseCommandBuffer_System_String_System_Boolean_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword(UnityEngine.Rendering.BaseCommandBuffer,System.String,System.Boolean)">
+  SetKeyword(BaseCommandBuffer, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetKeyword(BaseCommandBuffer cmd, string keyword, bool state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html">BaseCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetKeyword_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetKeyword_UnityEngine_Rendering_CommandBuffer_System_String_System_Boolean_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword(UnityEngine.Rendering.CommandBuffer,System.String,System.Boolean)">
+  SetKeyword(CommandBuffer, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetKeyword(CommandBuffer cmd, string keyword, bool state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetKeyword_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetKeyword_UnityEngine_Rendering_CommandBuffer_UnityEngine_ComputeShader_System_String_System_Boolean_" data-uid="UnityEngine.Rendering.CoreUtils.SetKeyword(UnityEngine.Rendering.CommandBuffer,UnityEngine.ComputeShader,System.String,System.Boolean)">
+  SetKeyword(CommandBuffer, ComputeShader, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetKeyword(CommandBuffer cmd, ComputeShader cs, string keyword, bool state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>cs</code> <span class="xref">ComputeShader</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_ClearFlag_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.ClearFlag,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RTHandle, ClearFlag, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RTHandle buffer, ClearFlag clearFlag = ClearFlag.None, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.ClearFlag,UnityEngine.Color,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RTHandle, ClearFlag, Color, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RTHandle buffer, ClearFlag clearFlag, Color clearColor, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RTHandle,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RTHandle, RTHandle, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RTHandle colorBuffer, RTHandle depthBuffer, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_ClearFlag_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.ClearFlag,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RTHandle, RTHandle, ClearFlag, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RTHandle colorBuffer, RTHandle depthBuffer, ClearFlag clearFlag, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.ClearFlag,UnityEngine.Color,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RTHandle, RTHandle, ClearFlag, Color, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RTHandle colorBuffer, RTHandle depthBuffer, ClearFlag clearFlag, Color clearColor, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.ClearFlag,UnityEngine.Color,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RTHandle, RenderBufferLoadAction, RenderBufferStoreAction, ClearFlag, Color, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RTHandle buffer, RenderBufferLoadAction loadAction, RenderBufferStoreAction storeAction, ClearFlag clearFlag, Color clearColor, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>storeAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.ClearFlag,UnityEngine.Color,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RTHandle, RenderBufferLoadAction, RenderBufferStoreAction, RTHandle, RenderBufferLoadAction, RenderBufferStoreAction, ClearFlag, Color, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RTHandle colorBuffer, RenderBufferLoadAction colorLoadAction, RenderBufferStoreAction colorStoreAction, RTHandle depthBuffer, RenderBufferLoadAction depthLoadAction, RenderBufferStoreAction depthStoreAction, ClearFlag clearFlag, Color clearColor, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>colorLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>colorStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>depthLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>depthStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_ClearFlag_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.ClearFlag,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, ClearFlag, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier buffer, ClearFlag clearFlag = ClearFlag.None, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.ClearFlag,UnityEngine.Color,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, ClearFlag, Color, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier buffer, ClearFlag clearFlag, Color clearColor, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier buffer, RenderBufferLoadAction loadAction, RenderBufferStoreAction storeAction, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>storeAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_ClearFlag_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.ClearFlag)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, ClearFlag)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier buffer, RenderBufferLoadAction loadAction, RenderBufferStoreAction storeAction, ClearFlag clearFlag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>storeAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.ClearFlag,UnityEngine.Color)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, ClearFlag, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier buffer, RenderBufferLoadAction loadAction, RenderBufferStoreAction storeAction, ClearFlag clearFlag, Color clearColor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>storeAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.ClearFlag,UnityEngine.Color,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, ClearFlag, Color, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier buffer, RenderBufferLoadAction loadAction, RenderBufferStoreAction storeAction, ClearFlag clearFlag, Color clearColor, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>storeAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.ClearFlag,UnityEngine.Color)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, RenderBufferLoadAction, RenderBufferStoreAction, ClearFlag, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier buffer, RenderBufferLoadAction colorLoadAction, RenderBufferStoreAction colorStoreAction, RenderBufferLoadAction depthLoadAction, RenderBufferStoreAction depthStoreAction, ClearFlag clearFlag, Color clearColor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>colorLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>colorStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>depthLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>depthStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier colorBuffer, RenderBufferLoadAction colorLoadAction, RenderBufferStoreAction colorStoreAction, RenderTargetIdentifier depthBuffer, RenderBufferLoadAction depthLoadAction, RenderBufferStoreAction depthStoreAction, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>colorLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>colorStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depthLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>depthStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_ClearFlag_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.ClearFlag)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, ClearFlag)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier colorBuffer, RenderBufferLoadAction colorLoadAction, RenderBufferStoreAction colorStoreAction, RenderTargetIdentifier depthBuffer, RenderBufferLoadAction depthLoadAction, RenderBufferStoreAction depthStoreAction, ClearFlag clearFlag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>colorLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>colorStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depthLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>depthStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.ClearFlag,UnityEngine.Color)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, ClearFlag, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier colorBuffer, RenderBufferLoadAction colorLoadAction, RenderBufferStoreAction colorStoreAction, RenderTargetIdentifier depthBuffer, RenderBufferLoadAction depthLoadAction, RenderBufferStoreAction depthStoreAction, ClearFlag clearFlag, Color clearColor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>colorLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>colorStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depthLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>depthStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Rendering.ClearFlag,UnityEngine.Color,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, ClearFlag, Color, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier colorBuffer, RenderBufferLoadAction colorLoadAction, RenderBufferStoreAction colorStoreAction, RenderTargetIdentifier depthBuffer, RenderBufferLoadAction depthLoadAction, RenderBufferStoreAction depthStoreAction, ClearFlag clearFlag, Color clearColor, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>colorLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>colorStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depthLoadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>depthStoreAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier colorBuffer, RenderTargetIdentifier depthBuffer, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_ClearFlag_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.ClearFlag,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, ClearFlag, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier colorBuffer, RenderTargetIdentifier depthBuffer, ClearFlag clearFlag, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_System_Int32_UnityEngine_CubemapFace_System_Int32_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.ClearFlag,UnityEngine.Color,System.Int32,UnityEngine.CubemapFace,System.Int32)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, ClearFlag, Color, int, CubemapFace, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier colorBuffer, RenderTargetIdentifier depthBuffer, ClearFlag clearFlag, Color clearColor, int miplevel = 0, CubemapFace cubemapFace = -1, int depthSlice = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>miplevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemapFace</code> <span class="xref">CubemapFace</span></dt>
+    <dd></dd>
+    <dt><code>depthSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RTHandle_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RTHandle)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier[], RTHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier[] colorBuffers, RTHandle depthBuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffers</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_ClearFlag_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.ClearFlag)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier[], RTHandle, ClearFlag)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier[] colorBuffers, RTHandle depthBuffer, ClearFlag clearFlag = ClearFlag.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffers</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.ClearFlag,UnityEngine.Color)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier[], RTHandle, ClearFlag, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier[] colorBuffers, RTHandle depthBuffer, ClearFlag clearFlag, Color clearColor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffers</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RenderTargetIdentifier_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RenderTargetIdentifier)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier[], RenderTargetIdentifier)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier[] colorBuffers, RenderTargetIdentifier depthBuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffers</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_ClearFlag_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.ClearFlag)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier[], RenderTargetIdentifier, ClearFlag)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier[] colorBuffers, RenderTargetIdentifier depthBuffer, ClearFlag clearFlag = ClearFlag.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffers</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetRenderTarget_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_" data-uid="UnityEngine.Rendering.CoreUtils.SetRenderTarget(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier[],UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.ClearFlag,UnityEngine.Color)">
+  SetRenderTarget(CommandBuffer, RenderTargetIdentifier[], RenderTargetIdentifier, ClearFlag, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRenderTarget(CommandBuffer cmd, RenderTargetIdentifier[] colorBuffers, RenderTargetIdentifier depthBuffer, ClearFlag clearFlag, Color clearColor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>colorBuffers</code> <span class="xref">RenderTargetIdentifier</span>[]</dt>
+    <dd></dd>
+    <dt><code>depthBuffer</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>clearFlag</code> <a class="xref" href="UnityEngine.Rendering.ClearFlag.html">ClearFlag</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_SetViewport_" data-uid="UnityEngine.Rendering.CoreUtils.SetViewport*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_SetViewport_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_" data-uid="UnityEngine.Rendering.CoreUtils.SetViewport(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle)">
+  SetViewport(CommandBuffer, RTHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetViewport(CommandBuffer cmd, RTHandle target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_CoreUtils_Swap_" data-uid="UnityEngine.Rendering.CoreUtils.Swap*"></a>
+
+  <h3 id="UnityEngine_Rendering_CoreUtils_Swap__1___0____0__" data-uid="UnityEngine.Rendering.CoreUtils.Swap``1(``0@,``0@)">
+  Swap&lt;T&gt;(ref T, ref T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Swap&lt;T&gt;(ref T a, ref T b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

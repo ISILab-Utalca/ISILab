@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DebugUIHandlerWidget | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DebugUIHandlerWidget | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget">
+
+
+
+  <h1 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget" class="text-break">
+Class DebugUIHandlerWidget  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.UI.html">UI</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[CoreRPHelpURL(&quot;Rendering-Debugger&quot;, &quot;com.unity.render-pipelines.core&quot;)]
+public class DebugUIHandlerWidget : MonoBehaviour</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DebugUIHandlerWidget</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerBitField.html">DebugUIHandlerBitField</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerButton.html">DebugUIHandlerButton</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerColor.html">DebugUIHandlerColor</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerField-1.html">DebugUIHandlerField&lt;T&gt;</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerFloatField.html">DebugUIHandlerFloatField</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerFoldout.html">DebugUIHandlerFoldout</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerGroup.html">DebugUIHandlerGroup</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerHBox.html">DebugUIHandlerHBox</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerIndirectFloatField.html">DebugUIHandlerIndirectFloatField</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerIndirectToggle.html">DebugUIHandlerIndirectToggle</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerIntField.html">DebugUIHandlerIntField</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerMessageBox.html">DebugUIHandlerMessageBox</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerObject.html">DebugUIHandlerObject</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerProgressBar.html">DebugUIHandlerProgressBar</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerRenderingLayerField.html">DebugUIHandlerRenderingLayerField</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerToggle.html">DebugUIHandlerToggle</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerUIntField.html">DebugUIHandlerUIntField</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerVBox.html">DebugUIHandlerVBox</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerValue.html">DebugUIHandlerValue</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerValueTuple.html">DebugUIHandlerValueTuple</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerVector2.html">DebugUIHandlerVector2</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerVector3.html">DebugUIHandlerVector3</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerVector4.html">DebugUIHandlerVector4</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget__ctor_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget__ctor" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.#ctor">
+  DebugUIHandlerWidget()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DebugUIHandlerWidget()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_colorDefault" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.colorDefault">
+  colorDefault
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color colorDefault</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_colorSelected" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.colorSelected">
+  colorSelected
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color colorSelected</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_m_Widget" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.m_Widget">
+  m_Widget
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DebugUI.Widget m_Widget</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.DebugUI.html">DebugUI</a>.<a class="xref" href="UnityEngine.Rendering.DebugUI.Widget.html">Widget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_nextUIHandler_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.nextUIHandler*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_nextUIHandler" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.nextUIHandler">
+  nextUIHandler
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DebugUIHandlerWidget nextUIHandler { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerWidget.html">DebugUIHandlerWidget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_parentUIHandler_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.parentUIHandler*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_parentUIHandler" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.parentUIHandler">
+  parentUIHandler
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DebugUIHandlerWidget parentUIHandler { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerWidget.html">DebugUIHandlerWidget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_previousUIHandler_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.previousUIHandler*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_previousUIHandler" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.previousUIHandler">
+  previousUIHandler
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DebugUIHandlerWidget previousUIHandler { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerWidget.html">DebugUIHandlerWidget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_CastWidget_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.CastWidget*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_CastWidget__1" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.CastWidget``1">
+  CastWidget&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected T CastWidget&lt;T&gt;() where T : DebugUI.Widget</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_Next_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.Next*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_Next" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.Next">
+  Next()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DebugUIHandlerWidget Next()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerWidget.html">DebugUIHandlerWidget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnAction_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnAction*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnAction" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnAction">
+  OnAction()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnAction()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnDecrement_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnDecrement*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnDecrement_System_Boolean_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnDecrement(System.Boolean)">
+  OnDecrement(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnDecrement(bool fast)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fast</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnDeselection_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnDeselection*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnDeselection" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnDeselection">
+  OnDeselection()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnDeselection()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnEnable_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnEnable*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnEnable" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnEnable">
+  OnEnable()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnEnable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnIncrement_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnIncrement*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnIncrement_System_Boolean_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnIncrement(System.Boolean)">
+  OnIncrement(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnIncrement(bool fast)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fast</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnSelection_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnSelection*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_OnSelection_System_Boolean_UnityEngine_Rendering_UI_DebugUIHandlerWidget_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.OnSelection(System.Boolean,UnityEngine.Rendering.UI.DebugUIHandlerWidget)">
+  OnSelection(bool, DebugUIHandlerWidget)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool OnSelection(bool fromNext, DebugUIHandlerWidget previous)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromNext</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>previous</code> <a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerWidget.html">DebugUIHandlerWidget</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_Previous_" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.Previous*"></a>
+
+  <h3 id="UnityEngine_Rendering_UI_DebugUIHandlerWidget_Previous" data-uid="UnityEngine.Rendering.UI.DebugUIHandlerWidget.Previous">
+  Previous()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DebugUIHandlerWidget Previous()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.UI.DebugUIHandlerWidget.html">DebugUIHandlerWidget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

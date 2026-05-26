@@ -321,14 +321,14 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             //foreach (var tile in Tiles)
             for(int i = 0; i < tiles.Count; i++)
             {
-                var currZone = GetZone(tiles[i]);
+                Zone currZone = GetZone(tiles[i]);
 
-                var currConnects = GetConnections(tiles[i]);
+                List<string> currConnects = GetConnections(tiles[i]);
                 UnityEngine.Assertions.Assert.IsNotNull(currConnects);
 
-                var neigs = GetTileNeighbors(tiles[i], Directions);
+                List<LBSTile> neigs = GetTileNeighbors(tiles[i], Directions);
 
-                var edt = tileConnections.GetPair(tiles[i]).EditedByIA;
+                List<bool> edt = tileConnections.GetPair(tiles[i]).EditedByIA;
 
                 for (int j = 0; j < Directions.Count; j++)
                 {
@@ -344,10 +344,12 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                         continue;
                     }
 
-                    var otherZone = GetZone(neigs[j]);
+                    Zone otherZone = GetZone(neigs[j]);
                     if (otherZone.Equals(currZone))
                     {
-                        SetConnection(tiles[i], j, "Empty", true);
+                        string conn = GetConnections(neigs[j])[(j+2)%4];
+                        bool notWallNorEmpty = conn != "Wall" && conn != "Empty" && conn != "";
+                        SetConnection(tiles[i], j, notWallNorEmpty ? conn : "Empty", true);
                     }
                     else
                     {
@@ -373,21 +375,21 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             //foreach (var tile in Tiles)
             for (int i = 0; i < tiles.Count; i++)
             {
-                var tile = tiles[i];
-                var currZone = sectorizedMod.GetPairTile(tile).Zone;
-                var currConnects = connectedMod.GetPair(tile).Connections;
+                LBSTile tile = tiles[i];
+                Zone currZone = sectorizedMod.GetPairTile(tile).Zone;
+                List<string> currConnects = connectedMod.GetPair(tile).Connections;
 
                 UnityEngine.Assertions.Assert.IsNotNull(currConnects);
 
                 // Get tile neighbors
                 var neigs = new List<LBSTile>();
-                foreach (var dir in Directions)
+                foreach (Vector2Int dir in Directions)
                 {
-                    var t = tilemapMod.GetTile(dir + tile.Position);
+                    LBSTile t = tilemapMod.GetTile(dir + tile.Position);
                     neigs.Add(t);
                 }
 
-                var edt = connectedMod.GetPair(tile).EditedByIA;
+                List<bool> edt = connectedMod.GetPair(tile).EditedByIA;
 
                 for (int j = 0; j < Directions.Count; j++)
                 {
@@ -405,7 +407,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                         continue;
                     }
 
-                    var otherZone = sectorizedMod.GetPairTile(neigs[j]).Zone;
+                    Zone otherZone = sectorizedMod.GetPairTile(neigs[j]).Zone;
                     if (otherZone.Equals(currZone))
                     {
                         TileConnectionsPair t = connectedMod.GetPair(tile);

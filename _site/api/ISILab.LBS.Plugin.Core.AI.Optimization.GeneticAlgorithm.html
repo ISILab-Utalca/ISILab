@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GeneticAlgorithm | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GeneticAlgorithm | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm">
+
+
+
+  <h1 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm" class="text-break">
+Class GeneticAlgorithm  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.LBS.html">LBS</a>.<a class="xref" href="ISILab.LBS.Plugin.html">Plugin</a>.<a class="xref" href="ISILab.LBS.Plugin.Core.html">Core</a>.<a class="xref" href="ISILab.LBS.Plugin.Core.AI.html">AI</a>.<a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.html">Optimization</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GeneticAlgorithm : BaseOptimizer, ICloneable, IAssistantThreaded</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html">BaseOptimizer</a></div>
+      <div><span class="xref">GeneticAlgorithm</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
+      <div><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.html">IAssistantThreaded</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_state">BaseOptimizer.state</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_clock">BaseOptimizer.clock</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_m_lock">BaseOptimizer.m_lock</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_stopRequested">BaseOptimizer.stopRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_pauseRequested">BaseOptimizer.pauseRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_adam">BaseOptimizer.adam</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_bestCandidate">BaseOptimizer.bestCandidate</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Pause">BaseOptimizer.Pause()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Resume">BaseOptimizer.Resume()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Stop">BaseOptimizer.Stop()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Start_System_Action_System_Single__System_Threading_CancellationToken_">BaseOptimizer.Start(Action&lt;float&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_StartOne_System_Action_System_Single__System_Threading_CancellationToken_">BaseOptimizer.StartOne(Action&lt;float&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Restart_System_Action_System_Single__System_Threading_CancellationToken_">BaseOptimizer.Restart(Action&lt;float&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Run_System_Action_System_Single__System_Threading_CancellationToken_">BaseOptimizer.Run(Action&lt;float&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_TerminationReached">BaseOptimizer.TerminationReached()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RequestStop">BaseOptimizer.RequestStop()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RequestPause">BaseOptimizer.RequestPause()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_PrintClocks">BaseOptimizer.PrintClocks()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_GenerationsNumber">BaseOptimizer.GenerationsNumber</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_BestCandidate">BaseOptimizer.BestCandidate</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_TimeEvolving">BaseOptimizer.TimeEvolving</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_IsRunning">BaseOptimizer.IsRunning</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Population">BaseOptimizer.Population</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Termination">BaseOptimizer.Termination</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Evaluator">BaseOptimizer.Evaluator</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Selection">BaseOptimizer.Selection</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_State">BaseOptimizer.State</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_LastGeneration">BaseOptimizer.LastGeneration</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnGenerationRan">BaseOptimizer.OnGenerationRan</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnTerminationReached">BaseOptimizer.OnTerminationReached</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnStopped">BaseOptimizer.OnStopped</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnResumed">BaseOptimizer.OnResumed</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnPaused">BaseOptimizer.OnPaused</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnStarted">BaseOptimizer.OnStarted</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm__ctor_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.#ctor*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm__ctor" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.#ctor">
+  GeneticAlgorithm()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GeneticAlgorithm()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_Adam_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.Adam*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_Adam" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.Adam">
+  Adam
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IOptimizable Adam { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_Crossover_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.Crossover*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_Crossover" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.Crossover">
+  Crossover
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICrossover Crossover { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="GeneticSharp.Domain.Crossovers.ICrossover.html">ICrossover</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_CrossoverProbability_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.CrossoverProbability*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_CrossoverProbability" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.CrossoverProbability">
+  CrossoverProbability
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CrossoverProbability { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_Mutation_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.Mutation*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_Mutation" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.Mutation">
+  Mutation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMutation Mutation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="GeneticSharp.Domain.Mutations.IMutation.html">IMutation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_MutationProbability_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.MutationProbability*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_MutationProbability" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.MutationProbability">
+  MutationProbability
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MutationProbability { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_OperatorsStrategy_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.OperatorsStrategy*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_OperatorsStrategy" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.OperatorsStrategy">
+  OperatorsStrategy
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IOperatorsStrategy OperatorsStrategy { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="GeneticSharp.Domain.IOperatorsStrategy.html">IOperatorsStrategy</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_Reinsertion_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.Reinsertion*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_Reinsertion" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.Reinsertion">
+  Reinsertion
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReinsertion Reinsertion { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="GeneticSharp.Domain.Reinsertions.IReinsertion.html">IReinsertion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_TaskExecutor_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.TaskExecutor*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_TaskExecutor" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.TaskExecutor">
+  TaskExecutor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITaskExecutor TaskExecutor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ITaskExecutor</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_Clone_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.Clone*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_Clone" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_EvaluateFitness_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.EvaluateFitness*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_EvaluateFitness_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Action_System_Single__System_Threading_CancellationToken_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)">
+  EvaluateFitness(IList&lt;IOptimizable&gt;, Action&lt;float&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void EvaluateFitness(IList&lt;IOptimizable&gt; optimizables, Action&lt;float&gt; onProgress = null, CancellationToken token = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optimizables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>onProgress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>token</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_InitializeDefault_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.InitializeDefault*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_InitializeDefault" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.InitializeDefault">
+  InitializeDefault()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void InitializeDefault()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_RunOnce_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.RunOnce*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_Core_AI_Optimization_GeneticAlgorithm_RunOnce_System_Action_System_Single__System_Threading_CancellationToken_" data-uid="ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm.RunOnce(System.Action{System.Single},System.Threading.CancellationToken)">
+  RunOnce(Action&lt;float&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RunOnce(Action&lt;float&gt; onProgress = null, CancellationToken token = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>onProgress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>token</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

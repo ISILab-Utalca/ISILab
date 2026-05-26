@@ -1,0 +1,757 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.EntityMemory
+  commentId: T:PathOS.EntityMemory
+  id: EntityMemory
+  parent: PathOS
+  children:
+  - PathOS.EntityMemory.#ctor(PathOS.LevelEntity)
+  - PathOS.EntityMemory.#ctor(PathOS.PerceivedEntity)
+  - PathOS.EntityMemory.MakeUnforgettable
+  - PathOS.EntityMemory.MakeUnreachable
+  - PathOS.EntityMemory.RecallPos
+  - PathOS.EntityMemory.Visit
+  - PathOS.EntityMemory.Visit(UnityEngine.GameObject,ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager)
+  - PathOS.EntityMemory.XZActualPos
+  - PathOS.EntityMemory.entity
+  - PathOS.EntityMemory.forgettable
+  - PathOS.EntityMemory.impressionTime
+  - PathOS.EntityMemory.ltm
+  - PathOS.EntityMemory.unreachable
+  - PathOS.EntityMemory.visited
+  langs:
+  - csharp
+  - vb
+  name: EntityMemory
+  nameWithType: EntityMemory
+  fullName: PathOS.EntityMemory
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public class EntityMemory
+    content.vb: Public Class EntityMemory
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PathOS.EntityMemory.entity
+  commentId: F:PathOS.EntityMemory.entity
+  id: entity
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: entity
+  nameWithType: EntityMemory.entity
+  fullName: PathOS.EntityMemory.entity
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public PerceivedEntity entity
+    return:
+      type: PathOS.PerceivedEntity
+    content.vb: Public entity As PerceivedEntity
+- uid: PathOS.EntityMemory.visited
+  commentId: F:PathOS.EntityMemory.visited
+  id: visited
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: visited
+  nameWithType: EntityMemory.visited
+  fullName: PathOS.EntityMemory.visited
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool visited
+    return:
+      type: System.Boolean
+    content.vb: Public visited As Boolean
+- uid: PathOS.EntityMemory.unreachable
+  commentId: F:PathOS.EntityMemory.unreachable
+  id: unreachable
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: unreachable
+  nameWithType: EntityMemory.unreachable
+  fullName: PathOS.EntityMemory.unreachable
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool unreachable
+    return:
+      type: System.Boolean
+    content.vb: Public unreachable As Boolean
+- uid: PathOS.EntityMemory.ltm
+  commentId: F:PathOS.EntityMemory.ltm
+  id: ltm
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: ltm
+  nameWithType: EntityMemory.ltm
+  fullName: PathOS.EntityMemory.ltm
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool ltm
+    return:
+      type: System.Boolean
+    content.vb: Public ltm As Boolean
+- uid: PathOS.EntityMemory.forgettable
+  commentId: F:PathOS.EntityMemory.forgettable
+  id: forgettable
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: forgettable
+  nameWithType: EntityMemory.forgettable
+  fullName: PathOS.EntityMemory.forgettable
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public bool forgettable
+    return:
+      type: System.Boolean
+    content.vb: Public forgettable As Boolean
+- uid: PathOS.EntityMemory.impressionTime
+  commentId: F:PathOS.EntityMemory.impressionTime
+  id: impressionTime
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: impressionTime
+  nameWithType: EntityMemory.impressionTime
+  fullName: PathOS.EntityMemory.impressionTime
+  type: Field
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public float impressionTime
+    return:
+      type: System.Single
+    content.vb: Public impressionTime As Single
+- uid: PathOS.EntityMemory.#ctor(PathOS.LevelEntity)
+  commentId: M:PathOS.EntityMemory.#ctor(PathOS.LevelEntity)
+  id: '#ctor(PathOS.LevelEntity)'
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: EntityMemory(LevelEntity)
+  nameWithType: EntityMemory.EntityMemory(LevelEntity)
+  fullName: PathOS.EntityMemory.EntityMemory(PathOS.LevelEntity)
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public EntityMemory(LevelEntity entity)
+    parameters:
+    - id: entity
+      type: PathOS.LevelEntity
+    content.vb: Public Sub New(entity As LevelEntity)
+  overload: PathOS.EntityMemory.#ctor*
+  nameWithType.vb: EntityMemory.New(LevelEntity)
+  fullName.vb: PathOS.EntityMemory.New(PathOS.LevelEntity)
+  name.vb: New(LevelEntity)
+- uid: PathOS.EntityMemory.#ctor(PathOS.PerceivedEntity)
+  commentId: M:PathOS.EntityMemory.#ctor(PathOS.PerceivedEntity)
+  id: '#ctor(PathOS.PerceivedEntity)'
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: EntityMemory(PerceivedEntity)
+  nameWithType: EntityMemory.EntityMemory(PerceivedEntity)
+  fullName: PathOS.EntityMemory.EntityMemory(PathOS.PerceivedEntity)
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public EntityMemory(PerceivedEntity entity)
+    parameters:
+    - id: entity
+      type: PathOS.PerceivedEntity
+    content.vb: Public Sub New(entity As PerceivedEntity)
+  overload: PathOS.EntityMemory.#ctor*
+  nameWithType.vb: EntityMemory.New(PerceivedEntity)
+  fullName.vb: PathOS.EntityMemory.New(PathOS.PerceivedEntity)
+  name.vb: New(PerceivedEntity)
+- uid: PathOS.EntityMemory.MakeUnforgettable
+  commentId: M:PathOS.EntityMemory.MakeUnforgettable
+  id: MakeUnforgettable
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: MakeUnforgettable()
+  nameWithType: EntityMemory.MakeUnforgettable()
+  fullName: PathOS.EntityMemory.MakeUnforgettable()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void MakeUnforgettable()
+    content.vb: Public Sub MakeUnforgettable()
+  overload: PathOS.EntityMemory.MakeUnforgettable*
+- uid: PathOS.EntityMemory.Visit
+  commentId: M:PathOS.EntityMemory.Visit
+  id: Visit
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: Visit()
+  nameWithType: EntityMemory.Visit()
+  fullName: PathOS.EntityMemory.Visit()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void Visit()
+    content.vb: Public Sub Visit()
+  overload: PathOS.EntityMemory.Visit*
+- uid: PathOS.EntityMemory.Visit(UnityEngine.GameObject,ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager)
+  commentId: M:PathOS.EntityMemory.Visit(UnityEngine.GameObject,ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager)
+  id: Visit(UnityEngine.GameObject,ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager)
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: Visit(GameObject, OGLogManager)
+  nameWithType: EntityMemory.Visit(GameObject, OGLogManager)
+  fullName: PathOS.EntityMemory.Visit(UnityEngine.GameObject, ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void Visit(GameObject caller, OGLogManager logger)
+    parameters:
+    - id: caller
+      type: UnityEngine.GameObject
+    - id: logger
+      type: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+    content.vb: Public Sub Visit(caller As GameObject, logger As OGLogManager)
+  overload: PathOS.EntityMemory.Visit*
+- uid: PathOS.EntityMemory.MakeUnreachable
+  commentId: M:PathOS.EntityMemory.MakeUnreachable
+  id: MakeUnreachable
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: MakeUnreachable()
+  nameWithType: EntityMemory.MakeUnreachable()
+  fullName: PathOS.EntityMemory.MakeUnreachable()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void MakeUnreachable()
+    content.vb: Public Sub MakeUnreachable()
+  overload: PathOS.EntityMemory.MakeUnreachable*
+- uid: PathOS.EntityMemory.RecallPos
+  commentId: M:PathOS.EntityMemory.RecallPos
+  id: RecallPos
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: RecallPos()
+  nameWithType: EntityMemory.RecallPos()
+  fullName: PathOS.EntityMemory.RecallPos()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Vector3 RecallPos()
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Function RecallPos() As Vector3
+  overload: PathOS.EntityMemory.RecallPos*
+- uid: PathOS.EntityMemory.XZActualPos
+  commentId: M:PathOS.EntityMemory.XZActualPos
+  id: XZActualPos
+  parent: PathOS.EntityMemory
+  langs:
+  - csharp
+  - vb
+  name: XZActualPos()
+  nameWithType: EntityMemory.XZActualPos()
+  fullName: PathOS.EntityMemory.XZActualPos()
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public Vector3 XZActualPos()
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Function XZActualPos() As Vector3
+  overload: PathOS.EntityMemory.XZActualPos*
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PathOS.PerceivedEntity
+  commentId: T:PathOS.PerceivedEntity
+  parent: PathOS
+  isExternal: true
+  href: PathOS.PerceivedEntity.html
+  name: PerceivedEntity
+  nameWithType: PerceivedEntity
+  fullName: PathOS.PerceivedEntity
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: PathOS.EntityMemory.#ctor*
+  commentId: Overload:PathOS.EntityMemory.#ctor
+  isExternal: true
+  href: PathOS.EntityMemory.html#PathOS_EntityMemory__ctor_PathOS_LevelEntity_
+  name: EntityMemory
+  nameWithType: EntityMemory.EntityMemory
+  fullName: PathOS.EntityMemory.EntityMemory
+  nameWithType.vb: EntityMemory.New
+  fullName.vb: PathOS.EntityMemory.New
+  name.vb: New
+- uid: PathOS.LevelEntity
+  commentId: T:PathOS.LevelEntity
+  parent: PathOS
+  isExternal: true
+  href: PathOS.LevelEntity.html
+  name: LevelEntity
+  nameWithType: LevelEntity
+  fullName: PathOS.LevelEntity
+- uid: PathOS.EntityMemory.MakeUnforgettable*
+  commentId: Overload:PathOS.EntityMemory.MakeUnforgettable
+  isExternal: true
+  href: PathOS.EntityMemory.html#PathOS_EntityMemory_MakeUnforgettable
+  name: MakeUnforgettable
+  nameWithType: EntityMemory.MakeUnforgettable
+  fullName: PathOS.EntityMemory.MakeUnforgettable
+- uid: PathOS.EntityMemory.Visit*
+  commentId: Overload:PathOS.EntityMemory.Visit
+  isExternal: true
+  href: PathOS.EntityMemory.html#PathOS_EntityMemory_Visit
+  name: Visit
+  nameWithType: EntityMemory.Visit
+  fullName: PathOS.EntityMemory.Visit
+- uid: UnityEngine.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  commentId: T:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+  parent: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  isExternal: true
+  href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager.html
+  name: OGLogManager
+  nameWithType: OGLogManager
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.OGLogManager
+- uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  commentId: N:ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  isExternal: true
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  nameWithType: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  fullName: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    isExternal: true
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    isExternal: true
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    isExternal: true
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules
+    name: Modules
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation
+    name: Simulation
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus
+    name: PathOSPlus
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis
+    name: OGVis
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts
+    name: Scripts
+    isExternal: true
+    href: ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts.html
+- uid: PathOS.EntityMemory.MakeUnreachable*
+  commentId: Overload:PathOS.EntityMemory.MakeUnreachable
+  isExternal: true
+  href: PathOS.EntityMemory.html#PathOS_EntityMemory_MakeUnreachable
+  name: MakeUnreachable
+  nameWithType: EntityMemory.MakeUnreachable
+  fullName: PathOS.EntityMemory.MakeUnreachable
+- uid: PathOS.EntityMemory.RecallPos*
+  commentId: Overload:PathOS.EntityMemory.RecallPos
+  isExternal: true
+  href: PathOS.EntityMemory.html#PathOS_EntityMemory_RecallPos
+  name: RecallPos
+  nameWithType: EntityMemory.RecallPos
+  fullName: PathOS.EntityMemory.RecallPos
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: PathOS.EntityMemory.XZActualPos*
+  commentId: Overload:PathOS.EntityMemory.XZActualPos
+  isExternal: true
+  href: PathOS.EntityMemory.html#PathOS_EntityMemory_XZActualPos
+  name: XZActualPos
+  nameWithType: EntityMemory.XZActualPos
+  fullName: PathOS.EntityMemory.XZActualPos
+shouldSkipMarkup: true

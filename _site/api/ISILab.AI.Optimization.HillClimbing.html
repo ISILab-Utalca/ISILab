@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class HillClimbing | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HillClimbing | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.AI.Optimization.HillClimbing">
+
+
+
+  <h1 id="ISILab_AI_Optimization_HillClimbing" data-uid="ISILab.AI.Optimization.HillClimbing" class="text-break">
+Class HillClimbing  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.AI.html">AI</a>.<a class="xref" href="ISILab.AI.Optimization.html">Optimization</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class HillClimbing : BaseOptimizer, ICloneable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html">BaseOptimizer</a></div>
+      <div><span class="xref">HillClimbing</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_state">BaseOptimizer.state</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_clock">BaseOptimizer.clock</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_m_lock">BaseOptimizer.m_lock</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_stopRequested">BaseOptimizer.stopRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_pauseRequested">BaseOptimizer.pauseRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_adam">BaseOptimizer.adam</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_bestCandidate">BaseOptimizer.bestCandidate</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Pause">BaseOptimizer.Pause()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Resume">BaseOptimizer.Resume()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Stop">BaseOptimizer.Stop()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Start_System_Action_System_Single__System_Threading_CancellationToken_">BaseOptimizer.Start(Action&lt;float&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_StartOne_System_Action_System_Single__System_Threading_CancellationToken_">BaseOptimizer.StartOne(Action&lt;float&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Restart_System_Action_System_Single__System_Threading_CancellationToken_">BaseOptimizer.Restart(Action&lt;float&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Run_System_Action_System_Single__System_Threading_CancellationToken_">BaseOptimizer.Run(Action&lt;float&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_TerminationReached">BaseOptimizer.TerminationReached()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RequestStop">BaseOptimizer.RequestStop()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_RequestPause">BaseOptimizer.RequestPause()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_GenerationsNumber">BaseOptimizer.GenerationsNumber</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_BestCandidate">BaseOptimizer.BestCandidate</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Adam">BaseOptimizer.Adam</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_TimeEvolving">BaseOptimizer.TimeEvolving</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_IsRunning">BaseOptimizer.IsRunning</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Population">BaseOptimizer.Population</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Termination">BaseOptimizer.Termination</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Evaluator">BaseOptimizer.Evaluator</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_Selection">BaseOptimizer.Selection</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_State">BaseOptimizer.State</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_LastGeneration">BaseOptimizer.LastGeneration</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnGenerationRan">BaseOptimizer.OnGenerationRan</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnTerminationReached">BaseOptimizer.OnTerminationReached</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnStopped">BaseOptimizer.OnStopped</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnResumed">BaseOptimizer.OnResumed</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnPaused">BaseOptimizer.OnPaused</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.AI.Optimization.BaseOptimizer.html#ISILab_AI_Optimization_BaseOptimizer_OnStarted">BaseOptimizer.OnStarted</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_AI_Optimization_HillClimbing__ctor_" data-uid="ISILab.AI.Optimization.HillClimbing.#ctor*"></a>
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing__ctor_ISILab_AI_Optimization_Populations_IPopulation_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IEvaluator_ISILab_AI_Optimization_Selections_ISelection_System_Func_ISILab_AI_Optimization_IOptimizable_System_Collections_Generic_List_ISILab_AI_Optimization_IOptimizable___ISILab_AI_Optimization_Terminations_ITermination_" data-uid="ISILab.AI.Optimization.HillClimbing.#ctor(ISILab.AI.Optimization.Populations.IPopulation,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator,ISILab.AI.Optimization.Selections.ISelection,System.Func{ISILab.AI.Optimization.IOptimizable,System.Collections.Generic.List{ISILab.AI.Optimization.IOptimizable}},ISILab.AI.Optimization.Terminations.ITermination)">
+  HillClimbing(IPopulation, IEvaluator, ISelection, Func&lt;IOptimizable, List&lt;IOptimizable&gt;&gt;, ITermination)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HillClimbing(IPopulation population, IEvaluator evaluator, ISelection selection, Func&lt;IOptimizable, List&lt;IOptimizable&gt;&gt; getNeighbors, ITermination termination)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>population</code> <a class="xref" href="ISILab.AI.Optimization.Populations.IPopulation.html">IPopulation</a></dt>
+    <dd></dd>
+    <dt><code>evaluator</code> <a class="xref" href="ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IEvaluator.html">IEvaluator</a></dt>
+    <dd></dd>
+    <dt><code>selection</code> <a class="xref" href="ISILab.AI.Optimization.Selections.ISelection.html">ISelection</a></dt>
+    <dd></dd>
+    <dt><code>getNeighbors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>termination</code> <a class="xref" href="ISILab.AI.Optimization.Terminations.ITermination.html">ITermination</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing_Elog" data-uid="ISILab.AI.Optimization.HillClimbing.Elog">
+  Elog
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Elog</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing_NNlog" data-uid="ISILab.AI.Optimization.HillClimbing.NNlog">
+  NNlog
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double NNlog</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing_Nlog" data-uid="ISILab.AI.Optimization.HillClimbing.Nlog">
+  Nlog
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Nlog</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing__fitTimer" data-uid="ISILab.AI.Optimization.HillClimbing._fitTimer">
+  _fitTimer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float _fitTimer</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing__nbrsTimer" data-uid="ISILab.AI.Optimization.HillClimbing._nbrsTimer">
+  _nbrsTimer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float _nbrsTimer</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_AI_Optimization_HillClimbing_Clone_" data-uid="ISILab.AI.Optimization.HillClimbing.Clone*"></a>
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing_Clone" data-uid="ISILab.AI.Optimization.HillClimbing.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Optimization_HillClimbing_EvaluateFitness_" data-uid="ISILab.AI.Optimization.HillClimbing.EvaluateFitness*"></a>
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing_EvaluateFitness_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Action_System_Single__System_Threading_CancellationToken_" data-uid="ISILab.AI.Optimization.HillClimbing.EvaluateFitness(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Action{System.Single},System.Threading.CancellationToken)">
+  EvaluateFitness(IList&lt;IOptimizable&gt;, Action&lt;float&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void EvaluateFitness(IList&lt;IOptimizable&gt; optimizables, Action&lt;float&gt; onProgress = null, CancellationToken token = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optimizables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="ISILab.AI.Optimization.IOptimizable.html">IOptimizable</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>onProgress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>token</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Optimization_HillClimbing_InitializeDefault_" data-uid="ISILab.AI.Optimization.HillClimbing.InitializeDefault*"></a>
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing_InitializeDefault" data-uid="ISILab.AI.Optimization.HillClimbing.InitializeDefault">
+  InitializeDefault()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void InitializeDefault()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Optimization_HillClimbing_PrintClocks_" data-uid="ISILab.AI.Optimization.HillClimbing.PrintClocks*"></a>
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing_PrintClocks" data-uid="ISILab.AI.Optimization.HillClimbing.PrintClocks">
+  PrintClocks()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void PrintClocks()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_AI_Optimization_HillClimbing_RunOnce_" data-uid="ISILab.AI.Optimization.HillClimbing.RunOnce*"></a>
+
+  <h3 id="ISILab_AI_Optimization_HillClimbing_RunOnce_System_Action_System_Single__System_Threading_CancellationToken_" data-uid="ISILab.AI.Optimization.HillClimbing.RunOnce(System.Action{System.Single},System.Threading.CancellationToken)">
+  RunOnce(Action&lt;float&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RunOnce(Action&lt;float&gt; onProgress = null, CancellationToken token = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>onProgress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>token</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

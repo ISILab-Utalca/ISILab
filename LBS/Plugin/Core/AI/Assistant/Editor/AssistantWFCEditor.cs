@@ -8,6 +8,7 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
+using ISILab.LBS.Editor.Utilities;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Components.Bundles;
@@ -16,7 +17,6 @@ using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
 using ISILab.LBS.VisualElements;
 using LBS;
-using LBS.Components;
 using LBS.VisualElements;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -154,13 +154,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant.Editor
             saveWeightsButton.clicked += SaveWeights;
             presetName = this.Q<TextField>("PresetName");
             presetsFolder = this.Q<TextField>("PresetsPath");
-            //presetsFolder.focusable = false; // This field needs to be reworked. Meanwhile it'll remain disabled.
+            //presetsFolder.focusable = false; 
+            presetsFolder.style.display = DisplayStyle.None;// This field needs to be reworked. Meanwhile it'll remain disabled.
 
             // Load weights from a preset
             var loadWeightsButton = this.Q<Button>("LoadWeights");
             loadWeightsButton.clicked += LoadWeights;
             currentPreset = this.Q<ObjectField>("CurrentPreset");
-            currentPreset.value = AssetMacro.LoadAssetByGuid<WFCPreset>(defaultWFCAssetGUID);
+            //currentPreset.value = AssetMacro.LoadAssetByGuid<WFCPreset>(defaultWFCAssetGUID);
+
             // Safe Generation Mode
             var safeModeToggle = this.Q<LBSCustomToggleField>("SafeMode");
             safeModeToggle.RegisterValueChangedCallback(evt =>

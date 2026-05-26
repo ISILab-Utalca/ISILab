@@ -22,16 +22,17 @@
                     "blocked": false,
                     "iconGuid": "02a644759487ae249bc3a20d019c8745",
                     "id": "Exterior",
-                    "name": "exterior",
-                    "modules": [
+                    "name": "New Layer",
+                    "activeFloor": 0,
+                    "floors": [
                         {
                             "rid": 1001
-                        },
-                        {
-                            "rid": 1002
                         }
                     ],
                     "behaviours": [
+                        {
+                            "rid": 1002
+                        },
                         {
                             "rid": 1003
                         }
@@ -52,7 +53,8 @@
                         "reflectionProbe": false,
                         "scale": {
                             "x": 2.0,
-                            "y": 2.0
+                            "y": 2.0,
+                            "z": 2.0
                         },
                         "resize": {
                             "x": 0.0,
@@ -64,7 +66,10 @@
                             "z": 0.0
                         },
                         "replacePrevious": true,
-                        "name": "DEFAULT",
+                        "buildLightProbes": true,
+                        "bakeLights": false,
+                        "optimization3d": 0,
+                        "generatedRootName": "DEFAULT",
                         "rootParentName": "Root_Parent"
                     },
                     "index": 0
@@ -73,27 +78,52 @@
             {
                 "rid": 1001,
                 "type": {
-                    "class": "TileMapModule",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSFloor",
+                    "ns": "LBS.Components",
                     "asm": "LBS"
                 },
                 "data": {
-                    "id": "TileMapModule",
-                    "ownerLayer": {
+                    "modules": [
+                        {
+                            "rid": 1006
+                        },
+                        {
+                            "rid": 1007
+                        },
+                        {
+                            "rid": 1008
+                        },
+                        {
+                            "rid": 1009
+                        }
+                    ]
+                }
+            },
+            {
+                "rid": 1002,
+                "type": {
+                    "class": "ExteriorBehaviour",
+                    "ns": "ISILab.LBS.Behaviours",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "visible": true,
+                    "ownerLayerLayer": {
                         "visible": true,
                         "blocked": false,
                         "iconGuid": "02a644759487ae249bc3a20d019c8745",
                         "id": "Exterior",
-                        "name": "exterior",
-                        "modules": [
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
                             {
                                 "rid": 1001
-                            },
-                            {
-                                "rid": 1002
                             }
                         ],
                         "behaviours": [
+                            {
+                                "rid": 1002
+                            },
                             {
                                 "rid": 1003
                             }
@@ -114,7 +144,8 @@
                             "reflectionProbe": false,
                             "scale": {
                                 "x": 2.0,
-                                "y": 2.0
+                                "y": 2.0,
+                                "z": 2.0
                             },
                             "resize": {
                                 "x": 0.0,
@@ -126,24 +157,269 @@
                                 "z": 0.0
                             },
                             "replacePrevious": true,
-                            "name": "DEFAULT",
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
+                            "rootParentName": "Root_Parent"
+                        },
+                        "index": 0
+                    },
+                    "colorTint": {
+                        "r": 0.5299999713897705,
+                        "g": 0.8399999737739563,
+                        "b": 0.9599999785423279,
+                        "a": 1.0
+                    },
+                    "name": "Exterior behaviour",
+                    "iconGuid": "e17eb0e02534666439fca8ea30b4d4e4",
+                    "icon": {
+                        "instanceID": 27560
+                    },
+                    "bundleGuid": "38075b72e84101f499766c3c0a48cb25",
+                    "identifierToSet": {
+                        "instanceID": 45048
+                    }
+                }
+            },
+            {
+                "rid": 1003,
+                "type": {
+                    "class": "NoteBehaviour",
+                    "ns": "ISILab.LBS.Behaviours",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "visible": true,
+                    "ownerLayerLayer": {
+                        "visible": true,
+                        "blocked": false,
+                        "iconGuid": "02a644759487ae249bc3a20d019c8745",
+                        "id": "Exterior",
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
+                            {
+                                "rid": 1001
+                            }
+                        ],
+                        "behaviours": [
+                            {
+                                "rid": 1002
+                            },
+                            {
+                                "rid": 1003
+                            }
+                        ],
+                        "assistants": [
+                            {
+                                "rid": 1004
+                            }
+                        ],
+                        "generatorRules": [
+                            {
+                                "rid": 1005
+                            }
+                        ],
+                        "settings": {
+                            "useBundleSize": false,
+                            "lightVolume": false,
+                            "reflectionProbe": false,
+                            "scale": {
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
+                            },
+                            "resize": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "replacePrevious": true,
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
+                            "rootParentName": "Root_Parent"
+                        },
+                        "index": 0
+                    },
+                    "colorTint": {
+                        "r": 0.0,
+                        "g": 0.0,
+                        "b": 0.0,
+                        "a": 0.0
+                    },
+                    "name": "NoteBehaviour",
+                    "iconGuid": "e17eb0e02534666439fca8ea30b4d4e4",
+                    "icon": {
+                        "instanceID": 0
+                    }
+                }
+            },
+            {
+                "rid": 1004,
+                "type": {
+                    "class": "AssistantWFC",
+                    "ns": "ISILab.LBS.Plugin.Core.AI.Assistant",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "visible": true,
+                    "ownerLayer": {
+                        "visible": true,
+                        "blocked": false,
+                        "iconGuid": "02a644759487ae249bc3a20d019c8745",
+                        "id": "Exterior",
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
+                            {
+                                "rid": 1001
+                            }
+                        ],
+                        "behaviours": [
+                            {
+                                "rid": 1002
+                            },
+                            {
+                                "rid": 1003
+                            }
+                        ],
+                        "assistants": [
+                            {
+                                "rid": 1004
+                            }
+                        ],
+                        "generatorRules": [
+                            {
+                                "rid": 1005
+                            }
+                        ],
+                        "settings": {
+                            "useBundleSize": false,
+                            "lightVolume": false,
+                            "reflectionProbe": false,
+                            "scale": {
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
+                            },
+                            "resize": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "replacePrevious": true,
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
+                            "rootParentName": "Root_Parent"
+                        },
+                        "index": 0
+                    },
+                    "colorTint": {
+                        "r": 0.7599999904632568,
+                        "g": 0.9599999785423279,
+                        "b": 0.4399999976158142,
+                        "a": 1.0
+                    },
+                    "name": "Assistant WFC",
+                    "iconGuid": "ad8feef201665454ca79e31b7d798ac3",
+                    "icon": {
+                        "instanceID": 27470
+                    },
+                    "overrideValues": false,
+                    "targetBundleRef": {
+                        "instanceID": 45452
+                    }
+                }
+            },
+            {
+                "rid": 1005,
+                "type": {
+                    "class": "ExteriorRuleGenerator",
+                    "ns": "ISILab.LBS.Plugin.MapTools.Generators",
+                    "asm": "LBS"
+                },
+                "data": {}
+            },
+            {
+                "rid": 1006,
+                "type": {
+                    "class": "TileMapModule",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "id": "TileMapModule",
+                    "ownerLayer": {
+                        "visible": true,
+                        "blocked": false,
+                        "iconGuid": "02a644759487ae249bc3a20d019c8745",
+                        "id": "Exterior",
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
+                            {
+                                "rid": 1001
+                            }
+                        ],
+                        "behaviours": [
+                            {
+                                "rid": 1002
+                            },
+                            {
+                                "rid": 1003
+                            }
+                        ],
+                        "assistants": [
+                            {
+                                "rid": 1004
+                            }
+                        ],
+                        "generatorRules": [
+                            {
+                                "rid": 1005
+                            }
+                        ],
+                        "settings": {
+                            "useBundleSize": false,
+                            "lightVolume": false,
+                            "reflectionProbe": false,
+                            "scale": {
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
+                            },
+                            "resize": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "replacePrevious": true,
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
                             "rootParentName": "Root_Parent"
                         },
                         "index": 0
                     },
                     "tiles": [
-                        {
-                            "rid": 1006
-                        },
-                        {
-                            "rid": 1007
-                        },
-                        {
-                            "rid": 1008
-                        },
-                        {
-                            "rid": 1009
-                        },
                         {
                             "rid": 1010
                         },
@@ -431,12 +707,24 @@
                         },
                         {
                             "rid": 1105
+                        },
+                        {
+                            "rid": 1106
+                        },
+                        {
+                            "rid": 1107
+                        },
+                        {
+                            "rid": 1108
+                        },
+                        {
+                            "rid": 1109
                         }
                     ]
                 }
             },
             {
-                "rid": 1002,
+                "rid": 1007,
                 "type": {
                     "class": "ConnectedTileMapModule",
                     "ns": "ISILab.LBS.Modules",
@@ -449,16 +737,17 @@
                         "blocked": false,
                         "iconGuid": "02a644759487ae249bc3a20d019c8745",
                         "id": "Exterior",
-                        "name": "exterior",
-                        "modules": [
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
                             {
                                 "rid": 1001
-                            },
-                            {
-                                "rid": 1002
                             }
                         ],
                         "behaviours": [
+                            {
+                                "rid": 1002
+                            },
                             {
                                 "rid": 1003
                             }
@@ -479,7 +768,8 @@
                             "reflectionProbe": false,
                             "scale": {
                                 "x": 2.0,
-                                "y": 2.0
+                                "y": 2.0,
+                                "z": 2.0
                             },
                             "resize": {
                                 "x": 0.0,
@@ -491,7 +781,10 @@
                                 "z": 0.0
                             },
                             "replacePrevious": true,
-                            "name": "DEFAULT",
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
                             "rootParentName": "Root_Parent"
                         },
                         "index": 0
@@ -499,18 +792,6 @@
                     "connectedDirections": 4,
                     "gridType": 1,
                     "pairs": [
-                        {
-                            "rid": 1106
-                        },
-                        {
-                            "rid": 1107
-                        },
-                        {
-                            "rid": 1108
-                        },
-                        {
-                            "rid": 1109
-                        },
                         {
                             "rid": 1110
                         },
@@ -798,115 +1079,47 @@
                         },
                         {
                             "rid": 1205
+                        },
+                        {
+                            "rid": 1206
+                        },
+                        {
+                            "rid": 1207
+                        },
+                        {
+                            "rid": 1208
+                        },
+                        {
+                            "rid": 1209
                         }
                     ]
                 }
             },
             {
-                "rid": 1003,
+                "rid": 1008,
                 "type": {
-                    "class": "ExteriorBehaviour",
-                    "ns": "ISILab.LBS.Behaviours",
+                    "class": "NoteModule",
+                    "ns": "ISILab.LBS.Modules",
                     "asm": "LBS"
                 },
                 "data": {
-                    "visible": true,
-                    "ownerLayerLayer": {
-                        "visible": true,
-                        "blocked": false,
-                        "iconGuid": "02a644759487ae249bc3a20d019c8745",
-                        "id": "Exterior",
-                        "name": "exterior",
-                        "modules": [
-                            {
-                                "rid": 1001
-                            },
-                            {
-                                "rid": 1002
-                            }
-                        ],
-                        "behaviours": [
-                            {
-                                "rid": 1003
-                            }
-                        ],
-                        "assistants": [
-                            {
-                                "rid": 1004
-                            }
-                        ],
-                        "generatorRules": [
-                            {
-                                "rid": 1005
-                            }
-                        ],
-                        "settings": {
-                            "useBundleSize": false,
-                            "lightVolume": false,
-                            "reflectionProbe": false,
-                            "scale": {
-                                "x": 2.0,
-                                "y": 2.0
-                            },
-                            "resize": {
-                                "x": 0.0,
-                                "y": 0.0
-                            },
-                            "position": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "replacePrevious": true,
-                            "name": "DEFAULT",
-                            "rootParentName": "Root_Parent"
-                        },
-                        "index": 0
-                    },
-                    "colorTint": {
-                        "r": 0.529411792755127,
-                        "g": 0.8431373238563538,
-                        "b": 0.9647059440612793,
-                        "a": 1.0
-                    },
-                    "name": "Exterior Layer's Palette",
-                    "iconGuid": "87f2bb6f2c78b184a8ea2b6a5b14f878",
-                    "icon": {
-                        "instanceID": 30278
-                    },
-                    "targetBundleRef": {
-                        "instanceID": 48242
-                    },
-                    "bundleRefGui": "38075b72e84101f499766c3c0a48cb25",
-                    "identifierToSet": {
-                        "instanceID": 48004
-                    }
-                }
-            },
-            {
-                "rid": 1004,
-                "type": {
-                    "class": "AssistantWFC",
-                    "ns": "ISILab.LBS.Plugin.Core.AI.Assistant",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "visible": true,
+                    "id": "NoteModule",
                     "ownerLayer": {
                         "visible": true,
                         "blocked": false,
                         "iconGuid": "02a644759487ae249bc3a20d019c8745",
                         "id": "Exterior",
-                        "name": "exterior",
-                        "modules": [
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
                             {
                                 "rid": 1001
-                            },
-                            {
-                                "rid": 1002
                             }
                         ],
                         "behaviours": [
+                            {
+                                "rid": 1002
+                            },
                             {
                                 "rid": 1003
                             }
@@ -927,7 +1140,8 @@
                             "reflectionProbe": false,
                             "scale": {
                                 "x": 2.0,
-                                "y": 2.0
+                                "y": 2.0,
+                                "z": 2.0
                             },
                             "resize": {
                                 "x": 0.0,
@@ -939,83 +1153,86 @@
                                 "z": 0.0
                             },
                             "replacePrevious": true,
-                            "name": "DEFAULT",
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
                             "rootParentName": "Root_Parent"
                         },
                         "index": 0
                     },
-                    "colorTint": {
-                        "r": 0.7607843279838562,
-                        "g": 0.9607843160629273,
-                        "b": 0.43921568989753725,
-                        "a": 1.0
-                    },
-                    "name": "Wave Function Collapse Assistant",
-                    "iconGuid": "ad8feef201665454ca79e31b7d798ac3",
-                    "icon": {
-                        "instanceID": 30634
-                    },
-                    "overrideValues": false,
-                    "targetBundleRef": {
-                        "instanceID": 48242
-                    }
-                }
-            },
-            {
-                "rid": 1005,
-                "type": {
-                    "class": "ExteriorRuleGenerator",
-                    "ns": "ISILab.LBS.Plugin.MapTools.Generators",
-                    "asm": "LBS"
-                },
-                "data": {}
-            },
-            {
-                "rid": 1006,
-                "type": {
-                    "class": "LBSTile",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "x": 3,
-                    "y": -11
-                }
-            },
-            {
-                "rid": 1007,
-                "type": {
-                    "class": "LBSTile",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "x": 3,
-                    "y": -10
-                }
-            },
-            {
-                "rid": 1008,
-                "type": {
-                    "class": "LBSTile",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
-                    "asm": "LBS"
-                },
-                "data": {
-                    "x": 3,
-                    "y": -9
+                    "notes": []
                 }
             },
             {
                 "rid": 1009,
                 "type": {
-                    "class": "LBSTile",
-                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
+                    "class": "ConnectedTileMapModule",
+                    "ns": "ISILab.LBS.Modules",
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 3,
-                    "y": -8
+                    "id": "ConnectedTileMapModule",
+                    "ownerLayer": {
+                        "visible": true,
+                        "blocked": false,
+                        "iconGuid": "02a644759487ae249bc3a20d019c8745",
+                        "id": "Exterior",
+                        "name": "New Layer",
+                        "activeFloor": 0,
+                        "floors": [
+                            {
+                                "rid": 1001
+                            }
+                        ],
+                        "behaviours": [
+                            {
+                                "rid": 1002
+                            },
+                            {
+                                "rid": 1003
+                            }
+                        ],
+                        "assistants": [
+                            {
+                                "rid": 1004
+                            }
+                        ],
+                        "generatorRules": [
+                            {
+                                "rid": 1005
+                            }
+                        ],
+                        "settings": {
+                            "useBundleSize": false,
+                            "lightVolume": false,
+                            "reflectionProbe": false,
+                            "scale": {
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
+                            },
+                            "resize": {
+                                "x": 0.0,
+                                "y": 0.0
+                            },
+                            "position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "replacePrevious": true,
+                            "buildLightProbes": true,
+                            "bakeLights": false,
+                            "optimization3d": 0,
+                            "generatedRootName": "DEFAULT",
+                            "rootParentName": "Root_Parent"
+                        },
+                        "index": 0
+                    },
+                    "connectedDirections": 4,
+                    "gridType": 0,
+                    "pairs": []
                 }
             },
             {
@@ -1026,8 +1243,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 3,
-                    "y": -7
+                    "x": 0,
+                    "y": 0
                 }
             },
             {
@@ -1038,8 +1255,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 3,
-                    "y": -6
+                    "x": 0,
+                    "y": 1
                 }
             },
             {
@@ -1050,8 +1267,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 3,
-                    "y": -5
+                    "x": 0,
+                    "y": 2
                 }
             },
             {
@@ -1062,8 +1279,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 3,
-                    "y": -4
+                    "x": 0,
+                    "y": 3
                 }
             },
             {
@@ -1074,8 +1291,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 3,
-                    "y": -3
+                    "x": 0,
+                    "y": 4
                 }
             },
             {
@@ -1086,8 +1303,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 3,
-                    "y": -2
+                    "x": 0,
+                    "y": 5
                 }
             },
             {
@@ -1098,8 +1315,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": -11
+                    "x": 0,
+                    "y": 6
                 }
             },
             {
@@ -1110,8 +1327,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": -10
+                    "x": 0,
+                    "y": 7
                 }
             },
             {
@@ -1122,8 +1339,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": -9
+                    "x": 0,
+                    "y": 8
                 }
             },
             {
@@ -1134,8 +1351,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": -8
+                    "x": 0,
+                    "y": 9
                 }
             },
             {
@@ -1146,8 +1363,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": -7
+                    "x": 1,
+                    "y": 0
                 }
             },
             {
@@ -1158,8 +1375,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": -6
+                    "x": 1,
+                    "y": 1
                 }
             },
             {
@@ -1170,8 +1387,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": -5
+                    "x": 1,
+                    "y": 2
                 }
             },
             {
@@ -1182,8 +1399,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": -4
+                    "x": 1,
+                    "y": 3
                 }
             },
             {
@@ -1194,8 +1411,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": -3
+                    "x": 1,
+                    "y": 4
                 }
             },
             {
@@ -1206,8 +1423,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 4,
-                    "y": -2
+                    "x": 1,
+                    "y": 5
                 }
             },
             {
@@ -1218,8 +1435,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -11
+                    "x": 1,
+                    "y": 6
                 }
             },
             {
@@ -1230,8 +1447,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -10
+                    "x": 1,
+                    "y": 7
                 }
             },
             {
@@ -1242,8 +1459,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -9
+                    "x": 1,
+                    "y": 8
                 }
             },
             {
@@ -1254,8 +1471,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -8
+                    "x": 1,
+                    "y": 9
                 }
             },
             {
@@ -1266,8 +1483,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -7
+                    "x": 2,
+                    "y": 0
                 }
             },
             {
@@ -1278,8 +1495,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -6
+                    "x": 2,
+                    "y": 1
                 }
             },
             {
@@ -1290,8 +1507,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -5
+                    "x": 2,
+                    "y": 2
                 }
             },
             {
@@ -1302,8 +1519,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -4
+                    "x": 2,
+                    "y": 3
                 }
             },
             {
@@ -1314,8 +1531,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -3
+                    "x": 2,
+                    "y": 4
                 }
             },
             {
@@ -1326,8 +1543,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 5,
-                    "y": -2
+                    "x": 2,
+                    "y": 5
                 }
             },
             {
@@ -1338,8 +1555,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -11
+                    "x": 2,
+                    "y": 6
                 }
             },
             {
@@ -1350,8 +1567,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -10
+                    "x": 2,
+                    "y": 7
                 }
             },
             {
@@ -1362,8 +1579,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -9
+                    "x": 2,
+                    "y": 8
                 }
             },
             {
@@ -1374,8 +1591,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -8
+                    "x": 2,
+                    "y": 9
                 }
             },
             {
@@ -1386,8 +1603,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -7
+                    "x": 3,
+                    "y": 0
                 }
             },
             {
@@ -1398,8 +1615,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -6
+                    "x": 3,
+                    "y": 1
                 }
             },
             {
@@ -1410,8 +1627,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -5
+                    "x": 3,
+                    "y": 2
                 }
             },
             {
@@ -1422,8 +1639,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -4
+                    "x": 3,
+                    "y": 3
                 }
             },
             {
@@ -1434,8 +1651,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -3
+                    "x": 3,
+                    "y": 4
                 }
             },
             {
@@ -1446,8 +1663,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 6,
-                    "y": -2
+                    "x": 3,
+                    "y": 5
                 }
             },
             {
@@ -1458,8 +1675,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -11
+                    "x": 3,
+                    "y": 6
                 }
             },
             {
@@ -1470,8 +1687,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -10
+                    "x": 3,
+                    "y": 7
                 }
             },
             {
@@ -1482,8 +1699,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -9
+                    "x": 3,
+                    "y": 8
                 }
             },
             {
@@ -1494,8 +1711,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -8
+                    "x": 3,
+                    "y": 9
                 }
             },
             {
@@ -1506,8 +1723,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -7
+                    "x": 4,
+                    "y": 0
                 }
             },
             {
@@ -1518,8 +1735,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -6
+                    "x": 4,
+                    "y": 1
                 }
             },
             {
@@ -1530,8 +1747,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -5
+                    "x": 4,
+                    "y": 2
                 }
             },
             {
@@ -1542,8 +1759,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -4
+                    "x": 4,
+                    "y": 3
                 }
             },
             {
@@ -1554,8 +1771,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -3
+                    "x": 4,
+                    "y": 4
                 }
             },
             {
@@ -1566,8 +1783,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 7,
-                    "y": -2
+                    "x": 4,
+                    "y": 5
                 }
             },
             {
@@ -1578,8 +1795,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -11
+                    "x": 4,
+                    "y": 6
                 }
             },
             {
@@ -1590,8 +1807,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -10
+                    "x": 4,
+                    "y": 7
                 }
             },
             {
@@ -1602,8 +1819,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -9
+                    "x": 4,
+                    "y": 8
                 }
             },
             {
@@ -1614,8 +1831,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -8
+                    "x": 4,
+                    "y": 9
                 }
             },
             {
@@ -1626,8 +1843,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -7
+                    "x": 5,
+                    "y": 0
                 }
             },
             {
@@ -1638,8 +1855,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -6
+                    "x": 5,
+                    "y": 1
                 }
             },
             {
@@ -1650,8 +1867,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -5
+                    "x": 5,
+                    "y": 2
                 }
             },
             {
@@ -1662,8 +1879,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -4
+                    "x": 5,
+                    "y": 3
                 }
             },
             {
@@ -1674,8 +1891,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -3
+                    "x": 5,
+                    "y": 4
                 }
             },
             {
@@ -1686,8 +1903,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 8,
-                    "y": -2
+                    "x": 5,
+                    "y": 5
                 }
             },
             {
@@ -1698,8 +1915,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -11
+                    "x": 5,
+                    "y": 6
                 }
             },
             {
@@ -1710,8 +1927,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -10
+                    "x": 5,
+                    "y": 7
                 }
             },
             {
@@ -1722,8 +1939,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -9
+                    "x": 5,
+                    "y": 8
                 }
             },
             {
@@ -1734,8 +1951,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -8
+                    "x": 5,
+                    "y": 9
                 }
             },
             {
@@ -1746,8 +1963,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -7
+                    "x": 6,
+                    "y": 0
                 }
             },
             {
@@ -1758,8 +1975,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -6
+                    "x": 6,
+                    "y": 1
                 }
             },
             {
@@ -1770,8 +1987,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -5
+                    "x": 6,
+                    "y": 2
                 }
             },
             {
@@ -1782,8 +1999,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -4
+                    "x": 6,
+                    "y": 3
                 }
             },
             {
@@ -1794,8 +2011,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -3
+                    "x": 6,
+                    "y": 4
                 }
             },
             {
@@ -1806,8 +2023,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 9,
-                    "y": -2
+                    "x": 6,
+                    "y": 5
                 }
             },
             {
@@ -1818,8 +2035,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": -11
+                    "x": 6,
+                    "y": 6
                 }
             },
             {
@@ -1830,8 +2047,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": -10
+                    "x": 6,
+                    "y": 7
                 }
             },
             {
@@ -1842,8 +2059,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": -9
+                    "x": 6,
+                    "y": 8
                 }
             },
             {
@@ -1854,8 +2071,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": -8
+                    "x": 6,
+                    "y": 9
                 }
             },
             {
@@ -1866,8 +2083,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": -7
+                    "x": 7,
+                    "y": 0
                 }
             },
             {
@@ -1878,8 +2095,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": -6
+                    "x": 7,
+                    "y": 1
                 }
             },
             {
@@ -1890,8 +2107,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": -5
+                    "x": 7,
+                    "y": 2
                 }
             },
             {
@@ -1902,8 +2119,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": -4
+                    "x": 7,
+                    "y": 3
                 }
             },
             {
@@ -1914,8 +2131,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": -3
+                    "x": 7,
+                    "y": 4
                 }
             },
             {
@@ -1926,8 +2143,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 10,
-                    "y": -2
+                    "x": 7,
+                    "y": 5
                 }
             },
             {
@@ -1938,8 +2155,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": -11
+                    "x": 7,
+                    "y": 6
                 }
             },
             {
@@ -1950,8 +2167,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": -10
+                    "x": 7,
+                    "y": 7
                 }
             },
             {
@@ -1962,8 +2179,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": -9
+                    "x": 7,
+                    "y": 8
                 }
             },
             {
@@ -1974,8 +2191,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": -8
+                    "x": 7,
+                    "y": 9
                 }
             },
             {
@@ -1986,8 +2203,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": -7
+                    "x": 8,
+                    "y": 0
                 }
             },
             {
@@ -1998,8 +2215,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": -6
+                    "x": 8,
+                    "y": 1
                 }
             },
             {
@@ -2010,8 +2227,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": -5
+                    "x": 8,
+                    "y": 2
                 }
             },
             {
@@ -2022,8 +2239,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": -4
+                    "x": 8,
+                    "y": 3
                 }
             },
             {
@@ -2034,8 +2251,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": -3
+                    "x": 8,
+                    "y": 4
                 }
             },
             {
@@ -2046,8 +2263,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 11,
-                    "y": -2
+                    "x": 8,
+                    "y": 5
                 }
             },
             {
@@ -2058,8 +2275,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
-                    "y": -11
+                    "x": 8,
+                    "y": 6
                 }
             },
             {
@@ -2070,8 +2287,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
-                    "y": -10
+                    "x": 8,
+                    "y": 7
                 }
             },
             {
@@ -2082,8 +2299,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
-                    "y": -9
+                    "x": 8,
+                    "y": 8
                 }
             },
             {
@@ -2094,8 +2311,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
-                    "y": -8
+                    "x": 8,
+                    "y": 9
                 }
             },
             {
@@ -2106,8 +2323,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
-                    "y": -7
+                    "x": 9,
+                    "y": 0
                 }
             },
             {
@@ -2118,8 +2335,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
-                    "y": -6
+                    "x": 9,
+                    "y": 1
                 }
             },
             {
@@ -2130,8 +2347,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
-                    "y": -5
+                    "x": 9,
+                    "y": 2
                 }
             },
             {
@@ -2142,8 +2359,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
-                    "y": -4
+                    "x": 9,
+                    "y": 3
                 }
             },
             {
@@ -2154,8 +2371,8 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
-                    "y": -3
+                    "x": 9,
+                    "y": 4
                 }
             },
             {
@@ -2166,108 +2383,56 @@
                     "asm": "LBS"
                 },
                 "data": {
-                    "x": 12,
-                    "y": -2
+                    "x": 9,
+                    "y": 5
                 }
             },
             {
                 "rid": 1106,
                 "type": {
-                    "class": "TileConnectionsPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSTile",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "tile": {
-                        "rid": 1006
-                    },
-                    "connections": [
-                        "",
-                        "",
-                        "",
-                        ""
-                    ],
-                    "editedByIA": [
-                        false,
-                        false,
-                        false,
-                        false
-                    ]
+                    "x": 9,
+                    "y": 6
                 }
             },
             {
                 "rid": 1107,
                 "type": {
-                    "class": "TileConnectionsPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSTile",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "tile": {
-                        "rid": 1007
-                    },
-                    "connections": [
-                        "",
-                        "",
-                        "",
-                        ""
-                    ],
-                    "editedByIA": [
-                        false,
-                        false,
-                        false,
-                        false
-                    ]
+                    "x": 9,
+                    "y": 7
                 }
             },
             {
                 "rid": 1108,
                 "type": {
-                    "class": "TileConnectionsPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSTile",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "tile": {
-                        "rid": 1008
-                    },
-                    "connections": [
-                        "",
-                        "",
-                        "",
-                        ""
-                    ],
-                    "editedByIA": [
-                        false,
-                        false,
-                        false,
-                        false
-                    ]
+                    "x": 9,
+                    "y": 8
                 }
             },
             {
                 "rid": 1109,
                 "type": {
-                    "class": "TileConnectionsPair",
-                    "ns": "ISILab.LBS.Modules",
+                    "class": "LBSTile",
+                    "ns": "ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap",
                     "asm": "LBS"
                 },
                 "data": {
-                    "tile": {
-                        "rid": 1009
-                    },
-                    "connections": [
-                        "",
-                        "",
-                        "",
-                        ""
-                    ],
-                    "editedByIA": [
-                        false,
-                        false,
-                        false,
-                        false
-                    ]
+                    "x": 9,
+                    "y": 9
                 }
             },
             {
@@ -4655,6 +4820,106 @@
                 "data": {
                     "tile": {
                         "rid": 1105
+                    },
+                    "connections": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "editedByIA": [
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                }
+            },
+            {
+                "rid": 1206,
+                "type": {
+                    "class": "TileConnectionsPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "tile": {
+                        "rid": 1106
+                    },
+                    "connections": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "editedByIA": [
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                }
+            },
+            {
+                "rid": 1207,
+                "type": {
+                    "class": "TileConnectionsPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "tile": {
+                        "rid": 1107
+                    },
+                    "connections": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "editedByIA": [
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                }
+            },
+            {
+                "rid": 1208,
+                "type": {
+                    "class": "TileConnectionsPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "tile": {
+                        "rid": 1108
+                    },
+                    "connections": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "editedByIA": [
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                }
+            },
+            {
+                "rid": 1209,
+                "type": {
+                    "class": "TileConnectionsPair",
+                    "ns": "ISILab.LBS.Modules",
+                    "asm": "LBS"
+                },
+                "data": {
+                    "tile": {
+                        "rid": 1109
                     },
                     "connections": [
                         "",

@@ -16,9 +16,9 @@ namespace ISILab.LBS.Tests
     public class MAPElitesBenchmarkReport : MAPElitesBaseBenchmark
     {
 
-        const string level4Rooms = "04acda0b4a6f7ca4da575ba34b30d554";
-        const string level20Rooms = "b93245dd9ffc3d84d9b6bb9e58d1d05e";
-        
+        const string level9Rooms = "f584add7bb7a37144a9ea0bca12db4ec";//"04acda0b4a6f7ca4da575ba34b30d554";
+        const string level21Rooms = "917eb1d1b0892ba4092b71f862fd69d2";//"b93245dd9ffc3d84d9b6bb9e58d1d05e";
+
 
         #region Full MAP-Elites Execution
 
@@ -26,7 +26,7 @@ namespace ISILab.LBS.Tests
 
         [Test, Performance]
         [Timeout(600000)]
-        public void MeasureMAPElites_4_Rooms_Exploration()
+        public void MeasureMAPElites_9_Rooms_Exploration()
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
 
@@ -52,7 +52,7 @@ namespace ISILab.LBS.Tests
             .SetUp(() =>
             {
                 Selection.activeObject = null;
-                SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
+                SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea());
             })
             .CleanUp(CleanUpMAPElitesTest)
             .GC()
@@ -61,7 +61,7 @@ namespace ISILab.LBS.Tests
 
         [Test, Performance]
         [Timeout(600000)]
-        public void MeasureMAPElites_4_Rooms_ResourceSafety()
+        public void MeasureMAPElites_9_Rooms_ResourceSafety()
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
 
@@ -84,14 +84,14 @@ namespace ISILab.LBS.Tests
                 .WarmupCount(0)
                 .MeasurementCount(10)
                 .IterationsPerMeasurement(1)
-                .SetUp(() => SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCResourceSafety(), new DCSafeArea(), new DCExploration()))
+                .SetUp(() => SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, new DCResourceSafety(), new DCSafeArea(), new DCExploration()))
                 .CleanUp(CleanUpMAPElitesTest)
                 .Run();
         }
 
         [Test, Performance]
         [Timeout(600000)]
-        public void MeasureMAPElites_4_Rooms_SafeArea()
+        public void MeasureMAPElites_9_Rooms_SafeArea()
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
 
@@ -114,14 +114,14 @@ namespace ISILab.LBS.Tests
                 .WarmupCount(0)
                 .MeasurementCount(10)
                 .IterationsPerMeasurement(1)
-                .SetUp(() => SetUpMAPElitesTest(level4Rooms, dungeonPresetPath, new DCSafeArea(), new DCExploration(), new DCResourceSafety()))
+                .SetUp(() => SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, new DCSafeArea(), new DCExploration(), new DCResourceSafety()))
                 .CleanUp(CleanUpMAPElitesTest)
                 .Run();
         }
 
         [Test, Performance]
         [Timeout(600000)]
-        public void MeasureMAPElites_20_Rooms_Exploration()
+        public void MeasureMAPElites_21_Rooms_Exploration()
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
 
@@ -144,7 +144,7 @@ namespace ISILab.LBS.Tests
                 .WarmupCount(0)
                 .MeasurementCount(10)
                 .IterationsPerMeasurement(1)
-                .SetUp(() => SetUpMAPElitesTest(level20Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea()))
+                .SetUp(() => SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, new DCExploration(), new DCResourceSafety(), new DCSafeArea()))
                 .CleanUp(CleanUpMAPElitesTest)
                 .Run();
         }

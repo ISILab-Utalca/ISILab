@@ -1,0 +1,4387 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RasterCommandBuffer | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RasterCommandBuffer | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.RasterCommandBuffer">
+
+
+
+  <h1 id="UnityEngine_Rendering_RasterCommandBuffer" data-uid="UnityEngine.Rendering.RasterCommandBuffer" class="text-break">
+Class RasterCommandBuffer  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RasterCommandBuffer : BaseCommandBuffer, IRasterCommandBuffer, IBaseCommandBuffer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html">BaseCommandBuffer</a></div>
+      <div><span class="xref">RasterCommandBuffer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="UnityEngine.Rendering.IRasterCommandBuffer.html">IRasterCommandBuffer</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.IBaseCommandBuffer.html">IBaseCommandBuffer</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html#UnityEngine_Rendering_BaseCommandBuffer_m_WrappedCommandBuffer">BaseCommandBuffer.m_WrappedCommandBuffer</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html#UnityEngine_Rendering_BaseCommandBuffer_ThrowIfGlobalStateNotAllowed">BaseCommandBuffer.ThrowIfGlobalStateNotAllowed()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html#UnityEngine_Rendering_BaseCommandBuffer_ThrowIfRasterNotAllowed">BaseCommandBuffer.ThrowIfRasterNotAllowed()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html#UnityEngine_Rendering_BaseCommandBuffer_ValidateTextureHandle_UnityEngine_Rendering_RenderGraphModule_TextureHandle_">BaseCommandBuffer.ValidateTextureHandle(TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html#UnityEngine_Rendering_BaseCommandBuffer_ValidateTextureHandleRead_UnityEngine_Rendering_RenderGraphModule_TextureHandle_">BaseCommandBuffer.ValidateTextureHandleRead(TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html#UnityEngine_Rendering_BaseCommandBuffer_ValidateTextureHandleWrite_UnityEngine_Rendering_RenderGraphModule_TextureHandle_">BaseCommandBuffer.ValidateTextureHandleWrite(TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html#UnityEngine_Rendering_BaseCommandBuffer_name">BaseCommandBuffer.name</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.BaseCommandBuffer.html#UnityEngine_Rendering_BaseCommandBuffer_sizeInBytes">BaseCommandBuffer.sizeInBytes</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_BeginSample_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.BeginSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_BeginSample_System_String_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.BeginSample(System.String)">
+  BeginSample(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginSample(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_BeginSample_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.BeginSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_BeginSample_Unity_Profiling_ProfilerMarker_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.BeginSample(Unity.Profiling.ProfilerMarker)">
+  BeginSample(ProfilerMarker)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginSample(ProfilerMarker marker)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>marker</code> <span class="xref">ProfilerMarker</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_BeginSample_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.BeginSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_BeginSample_UnityEngine_Profiling_CustomSampler_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.BeginSample(UnityEngine.Profiling.CustomSampler)">
+  BeginSample(CustomSampler)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginSample(CustomSampler sampler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sampler</code> <span class="xref">CustomSampler</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_ClearRenderTarget_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ClearRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_ClearRenderTarget_System_Boolean_System_Boolean_UnityEngine_Color_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ClearRenderTarget(System.Boolean,System.Boolean,UnityEngine.Color)">
+  ClearRenderTarget(bool, bool, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearRenderTarget(bool clearDepth, bool clearColor, Color backgroundColor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clearDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>backgroundColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_ClearRenderTarget_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ClearRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_ClearRenderTarget_System_Boolean_System_Boolean_UnityEngine_Color_System_Single_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ClearRenderTarget(System.Boolean,System.Boolean,UnityEngine.Color,System.Single)">
+  ClearRenderTarget(bool, bool, Color, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearRenderTarget(bool clearDepth, bool clearColor, Color backgroundColor, float depth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clearDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>backgroundColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_ClearRenderTarget_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ClearRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_ClearRenderTarget_System_Boolean_System_Boolean_UnityEngine_Color_System_Single_System_UInt32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ClearRenderTarget(System.Boolean,System.Boolean,UnityEngine.Color,System.Single,System.UInt32)">
+  ClearRenderTarget(bool, bool, Color, float, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearRenderTarget(bool clearDepth, bool clearColor, Color backgroundColor, float depth, uint stencil)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clearDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>clearColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>backgroundColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>stencil</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_ClearRenderTarget_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ClearRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_ClearRenderTarget_UnityEngine_Rendering_RTClearFlags_UnityEngine_Color_System_Single_System_UInt32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ClearRenderTarget(UnityEngine.Rendering.RTClearFlags,UnityEngine.Color,System.Single,System.UInt32)">
+  ClearRenderTarget(RTClearFlags, Color, float, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearRenderTarget(RTClearFlags clearFlags, Color backgroundColor, float depth, uint stencil)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clearFlags</code> <span class="xref">RTClearFlags</span></dt>
+    <dd></dd>
+    <dt><code>backgroundColor</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>stencil</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_ClearRenderTarget_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ClearRenderTarget*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_ClearRenderTarget_UnityEngine_Rendering_RTClearFlags_UnityEngine_Color___System_Single_System_UInt32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ClearRenderTarget(UnityEngine.Rendering.RTClearFlags,UnityEngine.Color[],System.Single,System.UInt32)">
+  ClearRenderTarget(RTClearFlags, Color[], float, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearRenderTarget(RTClearFlags clearFlags, Color[] backgroundColors, float depth, uint stencil)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clearFlags</code> <span class="xref">RTClearFlags</span></dt>
+    <dd></dd>
+    <dt><code>backgroundColors</code> <span class="xref">Color</span>[]</dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>stencil</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_ConfigureFoveatedRendering_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ConfigureFoveatedRendering*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_ConfigureFoveatedRendering_System_IntPtr_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.ConfigureFoveatedRendering(System.IntPtr)">
+  ConfigureFoveatedRendering(nint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConfigureFoveatedRendering(nint platformData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>platformData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DisableKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DisableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DisableKeyword_UnityEngine_ComputeShader_UnityEngine_Rendering_LocalKeyword__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DisableKeyword(UnityEngine.ComputeShader,UnityEngine.Rendering.LocalKeyword@)">
+  DisableKeyword(ComputeShader, in LocalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DisableKeyword(ComputeShader computeShader, in LocalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>computeShader</code> <span class="xref">ComputeShader</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DisableKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DisableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DisableKeyword_UnityEngine_Material_UnityEngine_Rendering_LocalKeyword__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DisableKeyword(UnityEngine.Material,UnityEngine.Rendering.LocalKeyword@)">
+  DisableKeyword(Material, in LocalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DisableKeyword(Material material, in LocalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DisableKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DisableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DisableKeyword_UnityEngine_Rendering_GlobalKeyword__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DisableKeyword(UnityEngine.Rendering.GlobalKeyword@)">
+  DisableKeyword(in GlobalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DisableKeyword(in GlobalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyword</code> <span class="xref">GlobalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DisableScissorRect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DisableScissorRect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DisableScissorRect" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DisableScissorRect">
+  DisableScissorRect()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DisableScissorRect()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DisableShaderKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DisableShaderKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DisableShaderKeyword_System_String_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DisableShaderKeyword(System.String)">
+  DisableShaderKeyword(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DisableShaderKeyword(string keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyword</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMesh_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMesh*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMesh_UnityEngine_Mesh_UnityEngine_Matrix4x4_UnityEngine_Material_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMesh(UnityEngine.Mesh,UnityEngine.Matrix4x4,UnityEngine.Material)">
+  DrawMesh(Mesh, Matrix4x4, Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMesh(Mesh mesh, Matrix4x4 matrix, Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMesh_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMesh*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMesh_UnityEngine_Mesh_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMesh(UnityEngine.Mesh,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32)">
+  DrawMesh(Mesh, Matrix4x4, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMesh(Mesh mesh, Matrix4x4 matrix, Material material, int submeshIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMesh_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMesh*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMesh_UnityEngine_Mesh_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMesh(UnityEngine.Mesh,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,System.Int32)">
+  DrawMesh(Mesh, Matrix4x4, Material, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMesh(Mesh mesh, Matrix4x4 matrix, Material material, int submeshIndex, int shaderPass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMesh_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMesh*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMesh_UnityEngine_Mesh_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMesh(UnityEngine.Mesh,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawMesh(Mesh, Matrix4x4, Material, int, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMesh(Mesh mesh, Matrix4x4 matrix, Material material, int submeshIndex, int shaderPass, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstanced_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstanced*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstanced_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_Matrix4x4___" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstanced(UnityEngine.Mesh,System.Int32,UnityEngine.Material,System.Int32,UnityEngine.Matrix4x4[])">
+  DrawMeshInstanced(Mesh, int, Material, int, Matrix4x4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMeshInstanced(Mesh mesh, int submeshIndex, Material material, int shaderPass, Matrix4x4[] matrices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>matrices</code> <span class="xref">Matrix4x4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstanced_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstanced*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstanced_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_Matrix4x4___System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstanced(UnityEngine.Mesh,System.Int32,UnityEngine.Material,System.Int32,UnityEngine.Matrix4x4[],System.Int32)">
+  DrawMeshInstanced(Mesh, int, Material, int, Matrix4x4[], int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMeshInstanced(Mesh mesh, int submeshIndex, Material material, int shaderPass, Matrix4x4[] matrices, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>matrices</code> <span class="xref">Matrix4x4</span>[]</dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstanced_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstanced*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstanced_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_Matrix4x4___System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstanced(UnityEngine.Mesh,System.Int32,UnityEngine.Material,System.Int32,UnityEngine.Matrix4x4[],System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawMeshInstanced(Mesh, int, Material, int, Matrix4x4[], int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMeshInstanced(Mesh mesh, int submeshIndex, Material material, int shaderPass, Matrix4x4[] matrices, int count, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>matrices</code> <span class="xref">Matrix4x4</span>[]</dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_ComputeBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect(UnityEngine.Mesh,System.Int32,UnityEngine.Material,System.Int32,UnityEngine.ComputeBuffer)">
+  DrawMeshInstancedIndirect(Mesh, int, Material, int, ComputeBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMeshInstancedIndirect(Mesh mesh, int submeshIndex, Material material, int shaderPass, ComputeBuffer bufferWithArgs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_ComputeBuffer_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect(UnityEngine.Mesh,System.Int32,UnityEngine.Material,System.Int32,UnityEngine.ComputeBuffer,System.Int32)">
+  DrawMeshInstancedIndirect(Mesh, int, Material, int, ComputeBuffer, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMeshInstancedIndirect(Mesh mesh, int submeshIndex, Material material, int shaderPass, ComputeBuffer bufferWithArgs, int argsOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_ComputeBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect(UnityEngine.Mesh,System.Int32,UnityEngine.Material,System.Int32,UnityEngine.ComputeBuffer,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawMeshInstancedIndirect(Mesh, int, Material, int, ComputeBuffer, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMeshInstancedIndirect(Mesh mesh, int submeshIndex, Material material, int shaderPass, ComputeBuffer bufferWithArgs, int argsOffset, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_GraphicsBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect(UnityEngine.Mesh,System.Int32,UnityEngine.Material,System.Int32,UnityEngine.GraphicsBuffer)">
+  DrawMeshInstancedIndirect(Mesh, int, Material, int, GraphicsBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMeshInstancedIndirect(Mesh mesh, int submeshIndex, Material material, int shaderPass, GraphicsBuffer bufferWithArgs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_GraphicsBuffer_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect(UnityEngine.Mesh,System.Int32,UnityEngine.Material,System.Int32,UnityEngine.GraphicsBuffer,System.Int32)">
+  DrawMeshInstancedIndirect(Mesh, int, Material, int, GraphicsBuffer, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMeshInstancedIndirect(Mesh mesh, int submeshIndex, Material material, int shaderPass, GraphicsBuffer bufferWithArgs, int argsOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedIndirect_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_UnityEngine_GraphicsBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedIndirect(UnityEngine.Mesh,System.Int32,UnityEngine.Material,System.Int32,UnityEngine.GraphicsBuffer,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawMeshInstancedIndirect(Mesh, int, Material, int, GraphicsBuffer, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMeshInstancedIndirect(Mesh mesh, int submeshIndex, Material material, int shaderPass, GraphicsBuffer bufferWithArgs, int argsOffset, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedProcedural_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedProcedural*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMeshInstancedProcedural_UnityEngine_Mesh_System_Int32_UnityEngine_Material_System_Int32_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMeshInstancedProcedural(UnityEngine.Mesh,System.Int32,UnityEngine.Material,System.Int32,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawMeshInstancedProcedural(Mesh, int, Material, int, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMeshInstancedProcedural(Mesh mesh, int submeshIndex, Material material, int shaderPass, int count, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawMultipleMeshes_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMultipleMeshes*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawMultipleMeshes_UnityEngine_Matrix4x4___UnityEngine_Mesh___System_Int32___System_Int32_UnityEngine_Material_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawMultipleMeshes(UnityEngine.Matrix4x4[],UnityEngine.Mesh[],System.Int32[],System.Int32,UnityEngine.Material,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawMultipleMeshes(Matrix4x4[], Mesh[], int[], int, Material, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawMultipleMeshes(Matrix4x4[] matrices, Mesh[] meshes, int[] subsetIndices, int count, Material material, int shaderPass, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrices</code> <span class="xref">Matrix4x4</span>[]</dt>
+    <dd></dd>
+    <dt><code>meshes</code> <span class="xref">Mesh</span>[]</dt>
+    <dd></dd>
+    <dt><code>subsetIndices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawOcclusionMesh_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawOcclusionMesh*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawOcclusionMesh_UnityEngine_RectInt_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawOcclusionMesh(UnityEngine.RectInt)">
+  DrawOcclusionMesh(RectInt)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawOcclusionMesh(RectInt normalizedCamViewport)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>normalizedCamViewport</code> <span class="xref">RectInt</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural(UnityEngine.GraphicsBuffer,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,System.Int32)">
+  DrawProcedural(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProcedural(GraphicsBuffer indexBuffer, Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, int indexCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexBuffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>indexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural(UnityEngine.GraphicsBuffer,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,System.Int32,System.Int32)">
+  DrawProcedural(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProcedural(GraphicsBuffer indexBuffer, Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, int indexCount, int instanceCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexBuffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>indexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>instanceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural(UnityEngine.GraphicsBuffer,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,System.Int32,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawProcedural(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, int, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProcedural(GraphicsBuffer indexBuffer, Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, int indexCount, int instanceCount, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexBuffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>indexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>instanceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural(UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,System.Int32)">
+  DrawProcedural(Matrix4x4, Material, int, MeshTopology, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProcedural(Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, int vertexCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>vertexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural(UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,System.Int32,System.Int32)">
+  DrawProcedural(Matrix4x4, Material, int, MeshTopology, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProcedural(Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, int vertexCount, int instanceCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>vertexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>instanceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProcedural_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_System_Int32_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProcedural(UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,System.Int32,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawProcedural(Matrix4x4, Material, int, MeshTopology, int, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProcedural(Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, int vertexCount, int instanceCount, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>vertexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>instanceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.GraphicsBuffer,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.ComputeBuffer)">
+  DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, ComputeBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(GraphicsBuffer indexBuffer, Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, ComputeBuffer bufferWithArgs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexBuffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.GraphicsBuffer,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.ComputeBuffer,System.Int32)">
+  DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, ComputeBuffer, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(GraphicsBuffer indexBuffer, Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, ComputeBuffer bufferWithArgs, int argsOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexBuffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.GraphicsBuffer,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.ComputeBuffer,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, ComputeBuffer, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(GraphicsBuffer indexBuffer, Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, ComputeBuffer bufferWithArgs, int argsOffset, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexBuffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.GraphicsBuffer,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.GraphicsBuffer)">
+  DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, GraphicsBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(GraphicsBuffer indexBuffer, Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, GraphicsBuffer bufferWithArgs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexBuffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.GraphicsBuffer,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.GraphicsBuffer,System.Int32)">
+  DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, GraphicsBuffer, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(GraphicsBuffer indexBuffer, Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, GraphicsBuffer bufferWithArgs, int argsOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexBuffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_GraphicsBuffer_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.GraphicsBuffer,UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.GraphicsBuffer,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawProceduralIndirect(GraphicsBuffer, Matrix4x4, Material, int, MeshTopology, GraphicsBuffer, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(GraphicsBuffer indexBuffer, Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, GraphicsBuffer bufferWithArgs, int argsOffset, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexBuffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.ComputeBuffer)">
+  DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, ComputeBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, ComputeBuffer bufferWithArgs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.ComputeBuffer,System.Int32)">
+  DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, ComputeBuffer, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, ComputeBuffer bufferWithArgs, int argsOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_ComputeBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.ComputeBuffer,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, ComputeBuffer, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, ComputeBuffer bufferWithArgs, int argsOffset, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.GraphicsBuffer)">
+  DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, GraphicsBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, GraphicsBuffer bufferWithArgs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.GraphicsBuffer,System.Int32)">
+  DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, GraphicsBuffer, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, GraphicsBuffer bufferWithArgs, int argsOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawProceduralIndirect_UnityEngine_Matrix4x4_UnityEngine_Material_System_Int32_UnityEngine_MeshTopology_UnityEngine_GraphicsBuffer_System_Int32_UnityEngine_MaterialPropertyBlock_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawProceduralIndirect(UnityEngine.Matrix4x4,UnityEngine.Material,System.Int32,UnityEngine.MeshTopology,UnityEngine.GraphicsBuffer,System.Int32,UnityEngine.MaterialPropertyBlock)">
+  DrawProceduralIndirect(Matrix4x4, Material, int, MeshTopology, GraphicsBuffer, int, MaterialPropertyBlock)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawProceduralIndirect(Matrix4x4 matrix, Material material, int shaderPass, MeshTopology topology, GraphicsBuffer bufferWithArgs, int argsOffset, MaterialPropertyBlock properties)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>topology</code> <span class="xref">MeshTopology</span></dt>
+    <dd></dd>
+    <dt><code>bufferWithArgs</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>argsOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <span class="xref">MaterialPropertyBlock</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawRenderer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawRenderer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawRenderer_UnityEngine_Renderer_UnityEngine_Material_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawRenderer(UnityEngine.Renderer,UnityEngine.Material)">
+  DrawRenderer(Renderer, Material)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawRenderer(Renderer renderer, Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <span class="xref">Renderer</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawRenderer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawRenderer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawRenderer_UnityEngine_Renderer_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawRenderer(UnityEngine.Renderer,UnityEngine.Material,System.Int32)">
+  DrawRenderer(Renderer, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawRenderer(Renderer renderer, Material material, int submeshIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <span class="xref">Renderer</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawRenderer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawRenderer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawRenderer_UnityEngine_Renderer_UnityEngine_Material_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawRenderer(UnityEngine.Renderer,UnityEngine.Material,System.Int32,System.Int32)">
+  DrawRenderer(Renderer, Material, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawRenderer(Renderer renderer, Material material, int submeshIndex, int shaderPass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <span class="xref">Renderer</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>submeshIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shaderPass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_DrawRendererList_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawRendererList*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_DrawRendererList_UnityEngine_Rendering_RendererList_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.DrawRendererList(UnityEngine.Rendering.RendererList)">
+  DrawRendererList(RendererList)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawRendererList(RendererList rendererList)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rendererList</code> <span class="xref">RendererList</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_EnableKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EnableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_EnableKeyword_UnityEngine_ComputeShader_UnityEngine_Rendering_LocalKeyword__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EnableKeyword(UnityEngine.ComputeShader,UnityEngine.Rendering.LocalKeyword@)">
+  EnableKeyword(ComputeShader, in LocalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EnableKeyword(ComputeShader computeShader, in LocalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>computeShader</code> <span class="xref">ComputeShader</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_EnableKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EnableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_EnableKeyword_UnityEngine_Material_UnityEngine_Rendering_LocalKeyword__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EnableKeyword(UnityEngine.Material,UnityEngine.Rendering.LocalKeyword@)">
+  EnableKeyword(Material, in LocalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EnableKeyword(Material material, in LocalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_EnableKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EnableKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_EnableKeyword_UnityEngine_Rendering_GlobalKeyword__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EnableKeyword(UnityEngine.Rendering.GlobalKeyword@)">
+  EnableKeyword(in GlobalKeyword)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EnableKeyword(in GlobalKeyword keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyword</code> <span class="xref">GlobalKeyword</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_EnableScissorRect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EnableScissorRect*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_EnableScissorRect_UnityEngine_Rect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EnableScissorRect(UnityEngine.Rect)">
+  EnableScissorRect(Rect)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EnableScissorRect(Rect scissor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scissor</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_EnableShaderKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EnableShaderKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_EnableShaderKeyword_System_String_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EnableShaderKeyword(System.String)">
+  EnableShaderKeyword(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EnableShaderKeyword(string keyword)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyword</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_EndSample_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EndSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_EndSample_System_String_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EndSample(System.String)">
+  EndSample(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndSample(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_EndSample_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EndSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_EndSample_Unity_Profiling_ProfilerMarker_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EndSample(Unity.Profiling.ProfilerMarker)">
+  EndSample(ProfilerMarker)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndSample(ProfilerMarker marker)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>marker</code> <span class="xref">ProfilerMarker</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_EndSample_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EndSample*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_EndSample_UnityEngine_Profiling_CustomSampler_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.EndSample(UnityEngine.Profiling.CustomSampler)">
+  EndSample(CustomSampler)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndSample(CustomSampler sampler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sampler</code> <span class="xref">CustomSampler</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_IncrementUpdateCount_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.IncrementUpdateCount*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_IncrementUpdateCount_UnityEngine_Rendering_RenderTargetIdentifier_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.IncrementUpdateCount(UnityEngine.Rendering.RenderTargetIdentifier)">
+  IncrementUpdateCount(RenderTargetIdentifier)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void IncrementUpdateCount(RenderTargetIdentifier dest)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_InvokeOnRenderObjectCallbacks_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.InvokeOnRenderObjectCallbacks*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_InvokeOnRenderObjectCallbacks" data-uid="UnityEngine.Rendering.RasterCommandBuffer.InvokeOnRenderObjectCallbacks">
+  InvokeOnRenderObjectCallbacks()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InvokeOnRenderObjectCallbacks()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_IssuePluginCustomBlit_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.IssuePluginCustomBlit*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_IssuePluginCustomBlit_System_IntPtr_System_UInt32_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_System_UInt32_System_UInt32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.IssuePluginCustomBlit(System.IntPtr,System.UInt32,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,System.UInt32,System.UInt32)">
+  IssuePluginCustomBlit(nint, uint, RenderTargetIdentifier, RenderTargetIdentifier, uint, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void IssuePluginCustomBlit(nint callback, uint command, RenderTargetIdentifier source, RenderTargetIdentifier dest, uint commandParam, uint commandFlags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>dest</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>commandParam</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>commandFlags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_IssuePluginCustomTextureUpdateV2_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.IssuePluginCustomTextureUpdateV2*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_IssuePluginCustomTextureUpdateV2_System_IntPtr_UnityEngine_Texture_System_UInt32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.IssuePluginCustomTextureUpdateV2(System.IntPtr,UnityEngine.Texture,System.UInt32)">
+  IssuePluginCustomTextureUpdateV2(nint, Texture, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void IssuePluginCustomTextureUpdateV2(nint callback, Texture targetTexture, uint userData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>targetTexture</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_IssuePluginEvent_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.IssuePluginEvent*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_IssuePluginEvent_System_IntPtr_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.IssuePluginEvent(System.IntPtr,System.Int32)">
+  IssuePluginEvent(nint, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void IssuePluginEvent(nint callback, int eventID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>eventID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_IssuePluginEventAndData_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.IssuePluginEventAndData*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_IssuePluginEventAndData_System_IntPtr_System_Int32_System_IntPtr_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.IssuePluginEventAndData(System.IntPtr,System.Int32,System.IntPtr)">
+  IssuePluginEventAndData(nint, int, nint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void IssuePluginEventAndData(nint callback, int eventID, nint data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>eventID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_MarkLateLatchMatrixShaderPropertyID_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.MarkLateLatchMatrixShaderPropertyID*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_MarkLateLatchMatrixShaderPropertyID_UnityEngine_Rendering_CameraLateLatchMatrixType_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.MarkLateLatchMatrixShaderPropertyID(UnityEngine.Rendering.CameraLateLatchMatrixType,System.Int32)">
+  MarkLateLatchMatrixShaderPropertyID(CameraLateLatchMatrixType, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MarkLateLatchMatrixShaderPropertyID(CameraLateLatchMatrixType matrixPropertyType, int shaderPropertyID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrixPropertyType</code> <span class="xref">CameraLateLatchMatrixType</span></dt>
+    <dd></dd>
+    <dt><code>shaderPropertyID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetFoveatedRenderingMode_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetFoveatedRenderingMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetFoveatedRenderingMode_UnityEngine_Rendering_FoveatedRenderingMode_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetFoveatedRenderingMode(UnityEngine.Rendering.FoveatedRenderingMode)">
+  SetFoveatedRenderingMode(FoveatedRenderingMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetFoveatedRenderingMode(FoveatedRenderingMode foveatedRenderingMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>foveatedRenderingMode</code> <span class="xref">FoveatedRenderingMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalBuffer_System_Int32_UnityEngine_ComputeBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalBuffer(System.Int32,UnityEngine.ComputeBuffer)">
+  SetGlobalBuffer(int, ComputeBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalBuffer(int nameID, ComputeBuffer value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalBuffer_System_Int32_UnityEngine_GraphicsBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalBuffer(System.Int32,UnityEngine.GraphicsBuffer)">
+  SetGlobalBuffer(int, GraphicsBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalBuffer(int nameID, GraphicsBuffer value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalBuffer_System_String_UnityEngine_ComputeBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalBuffer(System.String,UnityEngine.ComputeBuffer)">
+  SetGlobalBuffer(string, ComputeBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalBuffer(string name, ComputeBuffer value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalBuffer_System_String_UnityEngine_GraphicsBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalBuffer(System.String,UnityEngine.GraphicsBuffer)">
+  SetGlobalBuffer(string, GraphicsBuffer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalBuffer(string name, GraphicsBuffer value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalColor_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalColor*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalColor_System_Int32_UnityEngine_Color_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalColor(System.Int32,UnityEngine.Color)">
+  SetGlobalColor(int, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalColor(int nameID, Color value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalColor_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalColor*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalColor_System_String_UnityEngine_Color_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalColor(System.String,UnityEngine.Color)">
+  SetGlobalColor(string, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalColor(string name, Color value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalConstantBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalConstantBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalConstantBuffer_UnityEngine_ComputeBuffer_System_Int32_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalConstantBuffer(UnityEngine.ComputeBuffer,System.Int32,System.Int32,System.Int32)">
+  SetGlobalConstantBuffer(ComputeBuffer, int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalConstantBuffer(ComputeBuffer buffer, int nameID, int offset, int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalConstantBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalConstantBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalConstantBuffer_UnityEngine_ComputeBuffer_System_String_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalConstantBuffer(UnityEngine.ComputeBuffer,System.String,System.Int32,System.Int32)">
+  SetGlobalConstantBuffer(ComputeBuffer, string, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalConstantBuffer(ComputeBuffer buffer, string name, int offset, int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <span class="xref">ComputeBuffer</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalConstantBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalConstantBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalConstantBuffer_UnityEngine_GraphicsBuffer_System_Int32_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalConstantBuffer(UnityEngine.GraphicsBuffer,System.Int32,System.Int32,System.Int32)">
+  SetGlobalConstantBuffer(GraphicsBuffer, int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalConstantBuffer(GraphicsBuffer buffer, int nameID, int offset, int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalConstantBuffer_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalConstantBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalConstantBuffer_UnityEngine_GraphicsBuffer_System_String_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalConstantBuffer(UnityEngine.GraphicsBuffer,System.String,System.Int32,System.Int32)">
+  SetGlobalConstantBuffer(GraphicsBuffer, string, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalConstantBuffer(GraphicsBuffer buffer, string name, int offset, int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <span class="xref">GraphicsBuffer</span></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalDepthBias_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalDepthBias*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalDepthBias_System_Single_System_Single_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalDepthBias(System.Single,System.Single)">
+  SetGlobalDepthBias(float, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalDepthBias(float bias, float slopeBias)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>slopeBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloat_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloat*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloat_System_Int32_System_Single_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloat(System.Int32,System.Single)">
+  SetGlobalFloat(int, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalFloat(int nameID, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloat_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloat*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloat_System_String_System_Single_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloat(System.String,System.Single)">
+  SetGlobalFloat(string, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalFloat(string name, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloatArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloatArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloatArray_System_Int32_System_Collections_Generic_List_System_Single__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloatArray(System.Int32,System.Collections.Generic.List{System.Single})">
+  SetGlobalFloatArray(int, List&lt;float&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalFloatArray(int nameID, List&lt;float&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloatArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloatArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloatArray_System_Int32_System_Single___" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloatArray(System.Int32,System.Single[])">
+  SetGlobalFloatArray(int, float[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalFloatArray(int nameID, float[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloatArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloatArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloatArray_System_String_System_Collections_Generic_List_System_Single__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloatArray(System.String,System.Collections.Generic.List{System.Single})">
+  SetGlobalFloatArray(string, List&lt;float&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalFloatArray(string propertyName, List&lt;float&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloatArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloatArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalFloatArray_System_String_System_Single___" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalFloatArray(System.String,System.Single[])">
+  SetGlobalFloatArray(string, float[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalFloatArray(string propertyName, float[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalInt_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalInt*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalInt_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalInt(System.Int32,System.Int32)">
+  SetGlobalInt(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalInt(int nameID, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalInt_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalInt*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalInt_System_String_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalInt(System.String,System.Int32)">
+  SetGlobalInt(string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalInt(string name, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalInteger_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalInteger*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalInteger_System_Int32_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalInteger(System.Int32,System.Int32)">
+  SetGlobalInteger(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalInteger(int nameID, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalInteger_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalInteger*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalInteger_System_String_System_Int32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalInteger(System.String,System.Int32)">
+  SetGlobalInteger(string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalInteger(string name, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrix_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrix_System_Int32_UnityEngine_Matrix4x4_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrix(System.Int32,UnityEngine.Matrix4x4)">
+  SetGlobalMatrix(int, Matrix4x4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalMatrix(int nameID, Matrix4x4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrix_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrix_System_String_UnityEngine_Matrix4x4_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrix(System.String,UnityEngine.Matrix4x4)">
+  SetGlobalMatrix(string, Matrix4x4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalMatrix(string name, Matrix4x4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrixArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrixArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrixArray_System_Int32_System_Collections_Generic_List_UnityEngine_Matrix4x4__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrixArray(System.Int32,System.Collections.Generic.List{UnityEngine.Matrix4x4})">
+  SetGlobalMatrixArray(int, List&lt;Matrix4x4&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalMatrixArray(int nameID, List&lt;Matrix4x4&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Matrix4x4</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrixArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrixArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrixArray_System_Int32_UnityEngine_Matrix4x4___" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrixArray(System.Int32,UnityEngine.Matrix4x4[])">
+  SetGlobalMatrixArray(int, Matrix4x4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalMatrixArray(int nameID, Matrix4x4[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <span class="xref">Matrix4x4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrixArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrixArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrixArray_System_String_System_Collections_Generic_List_UnityEngine_Matrix4x4__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrixArray(System.String,System.Collections.Generic.List{UnityEngine.Matrix4x4})">
+  SetGlobalMatrixArray(string, List&lt;Matrix4x4&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalMatrixArray(string propertyName, List&lt;Matrix4x4&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Matrix4x4</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrixArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrixArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalMatrixArray_System_String_UnityEngine_Matrix4x4___" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalMatrixArray(System.String,UnityEngine.Matrix4x4[])">
+  SetGlobalMatrixArray(string, Matrix4x4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalMatrixArray(string propertyName, Matrix4x4[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <span class="xref">Matrix4x4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalTexture_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalTexture_System_Int32_UnityEngine_Rendering_RenderGraphModule_TextureHandle_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalTexture(System.Int32,UnityEngine.Rendering.RenderGraphModule.TextureHandle)">
+  SetGlobalTexture(int, TextureHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalTexture(int nameID, TextureHandle value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalTexture_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalTexture_System_Int32_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Rendering_RenderTextureSubElement_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalTexture(System.Int32,UnityEngine.Rendering.RenderGraphModule.TextureHandle,UnityEngine.Rendering.RenderTextureSubElement)">
+  SetGlobalTexture(int, TextureHandle, RenderTextureSubElement)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalTexture(int nameID, TextureHandle value, RenderTextureSubElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+    <dt><code>element</code> <span class="xref">RenderTextureSubElement</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalTexture_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalTexture_System_String_UnityEngine_Rendering_RenderGraphModule_TextureHandle_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalTexture(System.String,UnityEngine.Rendering.RenderGraphModule.TextureHandle)">
+  SetGlobalTexture(string, TextureHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalTexture(string name, TextureHandle value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalTexture_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalTexture_System_String_UnityEngine_Rendering_RenderGraphModule_TextureHandle_UnityEngine_Rendering_RenderTextureSubElement_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalTexture(System.String,UnityEngine.Rendering.RenderGraphModule.TextureHandle,UnityEngine.Rendering.RenderTextureSubElement)">
+  SetGlobalTexture(string, TextureHandle, RenderTextureSubElement)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalTexture(string name, TextureHandle value, RenderTextureSubElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+    <dt><code>element</code> <span class="xref">RenderTextureSubElement</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVector_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVector*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVector_System_Int32_UnityEngine_Vector4_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVector(System.Int32,UnityEngine.Vector4)">
+  SetGlobalVector(int, Vector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalVector(int nameID, Vector4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVector_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVector*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVector_System_String_UnityEngine_Vector4_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVector(System.String,UnityEngine.Vector4)">
+  SetGlobalVector(string, Vector4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalVector(string name, Vector4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVectorArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVectorArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVectorArray_System_Int32_System_Collections_Generic_List_UnityEngine_Vector4__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVectorArray(System.Int32,System.Collections.Generic.List{UnityEngine.Vector4})">
+  SetGlobalVectorArray(int, List&lt;Vector4&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalVectorArray(int nameID, List&lt;Vector4&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector4</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVectorArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVectorArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVectorArray_System_Int32_UnityEngine_Vector4___" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVectorArray(System.Int32,UnityEngine.Vector4[])">
+  SetGlobalVectorArray(int, Vector4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalVectorArray(int nameID, Vector4[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameID</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <span class="xref">Vector4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVectorArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVectorArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVectorArray_System_String_System_Collections_Generic_List_UnityEngine_Vector4__" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVectorArray(System.String,System.Collections.Generic.List{UnityEngine.Vector4})">
+  SetGlobalVectorArray(string, List&lt;Vector4&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalVectorArray(string propertyName, List&lt;Vector4&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Vector4</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVectorArray_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVectorArray*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetGlobalVectorArray_System_String_UnityEngine_Vector4___" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetGlobalVectorArray(System.String,UnityEngine.Vector4[])">
+  SetGlobalVectorArray(string, Vector4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGlobalVectorArray(string propertyName, Vector4[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <span class="xref">Vector4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetInstanceMultiplier_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetInstanceMultiplier*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetInstanceMultiplier_System_UInt32_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetInstanceMultiplier(System.UInt32)">
+  SetInstanceMultiplier(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetInstanceMultiplier(uint multiplier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>multiplier</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetInvertCulling_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetInvertCulling*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetInvertCulling_System_Boolean_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetInvertCulling(System.Boolean)">
+  SetInvertCulling(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetInvertCulling(bool invertCulling)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>invertCulling</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetKeyword_UnityEngine_ComputeShader_UnityEngine_Rendering_LocalKeyword__System_Boolean_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetKeyword(UnityEngine.ComputeShader,UnityEngine.Rendering.LocalKeyword@,System.Boolean)">
+  SetKeyword(ComputeShader, in LocalKeyword, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetKeyword(ComputeShader computeShader, in LocalKeyword keyword, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>computeShader</code> <span class="xref">ComputeShader</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetKeyword_UnityEngine_Material_UnityEngine_Rendering_LocalKeyword__System_Boolean_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetKeyword(UnityEngine.Material,UnityEngine.Rendering.LocalKeyword@,System.Boolean)">
+  SetKeyword(Material, in LocalKeyword, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetKeyword(Material material, in LocalKeyword keyword, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>keyword</code> <span class="xref">LocalKeyword</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetKeyword_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetKeyword*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetKeyword_UnityEngine_Rendering_GlobalKeyword__System_Boolean_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetKeyword(UnityEngine.Rendering.GlobalKeyword@,System.Boolean)">
+  SetKeyword(in GlobalKeyword, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetKeyword(in GlobalKeyword keyword, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyword</code> <span class="xref">GlobalKeyword</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetLateLatchProjectionMatrices_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetLateLatchProjectionMatrices*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetLateLatchProjectionMatrices_UnityEngine_Matrix4x4___" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetLateLatchProjectionMatrices(UnityEngine.Matrix4x4[])">
+  SetLateLatchProjectionMatrices(Matrix4x4[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLateLatchProjectionMatrices(Matrix4x4[] projectionMat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>projectionMat</code> <span class="xref">Matrix4x4</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetShadowSamplingMode_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetShadowSamplingMode*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetShadowSamplingMode_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_ShadowSamplingMode_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetShadowSamplingMode(UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.ShadowSamplingMode)">
+  SetShadowSamplingMode(RenderTargetIdentifier, ShadowSamplingMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetShadowSamplingMode(RenderTargetIdentifier shadowmap, ShadowSamplingMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shadowmap</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>mode</code> <span class="xref">ShadowSamplingMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetSinglePassStereo_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetSinglePassStereo*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetSinglePassStereo_UnityEngine_Rendering_SinglePassStereoMode_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetSinglePassStereo(UnityEngine.Rendering.SinglePassStereoMode)">
+  SetSinglePassStereo(SinglePassStereoMode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSinglePassStereo(SinglePassStereoMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <span class="xref">SinglePassStereoMode</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetViewProjectionMatrices_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetViewProjectionMatrices*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetViewProjectionMatrices_UnityEngine_Matrix4x4_UnityEngine_Matrix4x4_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetViewProjectionMatrices(UnityEngine.Matrix4x4,UnityEngine.Matrix4x4)">
+  SetViewProjectionMatrices(Matrix4x4, Matrix4x4)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetViewProjectionMatrices(Matrix4x4 view, Matrix4x4 proj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>view</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>proj</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetViewport_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetViewport*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetViewport_UnityEngine_Rect_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetViewport(UnityEngine.Rect)">
+  SetViewport(Rect)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetViewport(Rect pixelRect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixelRect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetWireframe_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetWireframe*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetWireframe_System_Boolean_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetWireframe(System.Boolean)">
+  SetWireframe(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetWireframe(bool enable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>enable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_SetupCameraProperties_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetupCameraProperties*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_SetupCameraProperties_UnityEngine_Camera_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.SetupCameraProperties(UnityEngine.Camera)">
+  SetupCameraProperties(Camera)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetupCameraProperties(Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <span class="xref">Camera</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_RasterCommandBuffer_UnmarkLateLatchMatrix_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.UnmarkLateLatchMatrix*"></a>
+
+  <h3 id="UnityEngine_Rendering_RasterCommandBuffer_UnmarkLateLatchMatrix_UnityEngine_Rendering_CameraLateLatchMatrixType_" data-uid="UnityEngine.Rendering.RasterCommandBuffer.UnmarkLateLatchMatrix(UnityEngine.Rendering.CameraLateLatchMatrixType)">
+  UnmarkLateLatchMatrix(CameraLateLatchMatrixType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnmarkLateLatchMatrix(CameraLateLatchMatrixType matrixPropertyType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrixPropertyType</code> <span class="xref">CameraLateLatchMatrixType</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

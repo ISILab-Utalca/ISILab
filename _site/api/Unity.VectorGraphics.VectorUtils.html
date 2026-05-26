@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class VectorUtils | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class VectorUtils | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Unity.VectorGraphics.VectorUtils">
+
+
+
+  <h1 id="Unity_VectorGraphics_VectorUtils" data-uid="Unity.VectorGraphics.VectorUtils" class="text-break">
+Class VectorUtils  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Unity.html">Unity</a>.<a class="xref" href="Unity.VectorGraphics.html">VectorGraphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.VectorGraphics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class VectorUtils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">VectorUtils</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_Epsilon" data-uid="Unity.VectorGraphics.VectorUtils.Epsilon">
+  Epsilon
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly float Epsilon</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_ApproximateSceneNodeBounds_" data-uid="Unity.VectorGraphics.VectorUtils.ApproximateSceneNodeBounds*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_ApproximateSceneNodeBounds_Unity_VectorGraphics_SceneNode_" data-uid="Unity.VectorGraphics.VectorUtils.ApproximateSceneNodeBounds(Unity.VectorGraphics.SceneNode)">
+  ApproximateSceneNodeBounds(SceneNode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rect ApproximateSceneNodeBounds(SceneNode root)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>root</code> <a class="xref" href="Unity.VectorGraphics.SceneNode.html">SceneNode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_BezierSegmentToPath_" data-uid="Unity.VectorGraphics.VectorUtils.BezierSegmentToPath*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_BezierSegmentToPath_Unity_VectorGraphics_BezierSegment_" data-uid="Unity.VectorGraphics.VectorUtils.BezierSegmentToPath(Unity.VectorGraphics.BezierSegment)">
+  BezierSegmentToPath(BezierSegment)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierPathSegment[] BezierSegmentToPath(BezierSegment segment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_BezierSegmentsToPath_" data-uid="Unity.VectorGraphics.VectorUtils.BezierSegmentsToPath*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_BezierSegmentsToPath_Unity_VectorGraphics_BezierSegment___" data-uid="Unity.VectorGraphics.VectorUtils.BezierSegmentsToPath(Unity.VectorGraphics.BezierSegment[])">
+  BezierSegmentsToPath(BezierSegment[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierPathSegment[] BezierSegmentsToPath(BezierSegment[] segments)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segments</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_Bounds_" data-uid="Unity.VectorGraphics.VectorUtils.Bounds*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_Bounds_System_Collections_Generic_IEnumerable_UnityEngine_Vector2__" data-uid="Unity.VectorGraphics.VectorUtils.Bounds(System.Collections.Generic.IEnumerable{UnityEngine.Vector2})">
+  Bounds(IEnumerable&lt;Vector2&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rect Bounds(IEnumerable&lt;Vector2&gt; vertices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_Bounds_" data-uid="Unity.VectorGraphics.VectorUtils.Bounds*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_Bounds_Unity_VectorGraphics_BezierPathSegment___" data-uid="Unity.VectorGraphics.VectorUtils.Bounds(Unity.VectorGraphics.BezierPathSegment[])">
+  Bounds(BezierPathSegment[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rect Bounds(BezierPathSegment[] path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_Bounds_" data-uid="Unity.VectorGraphics.VectorUtils.Bounds*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_Bounds_Unity_VectorGraphics_BezierSegment_UnityEngine_Vector2__UnityEngine_Vector2__" data-uid="Unity.VectorGraphics.VectorUtils.Bounds(Unity.VectorGraphics.BezierSegment,UnityEngine.Vector2@,UnityEngine.Vector2@)">
+  Bounds(BezierSegment, out Vector2, out Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Bounds(BezierSegment segment, out Vector2 min, out Vector2 max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>min</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>max</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_BuildRectangleContour_" data-uid="Unity.VectorGraphics.VectorUtils.BuildRectangleContour*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_BuildRectangleContour_UnityEngine_Rect_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_" data-uid="Unity.VectorGraphics.VectorUtils.BuildRectangleContour(UnityEngine.Rect,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)">
+  BuildRectangleContour(Rect, Vector2, Vector2, Vector2, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierContour BuildRectangleContour(Rect rect, Vector2 radiusTL, Vector2 radiusTR, Vector2 radiusBR, Vector2 radiusBL)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>radiusTL</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>radiusTR</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>radiusBR</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>radiusBL</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierContour.html">BezierContour</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_BuildSprite_" data-uid="Unity.VectorGraphics.VectorUtils.BuildSprite*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_BuildSprite_System_Collections_Generic_List_Unity_VectorGraphics_VectorUtils_Geometry__System_Single_Unity_VectorGraphics_VectorUtils_Alignment_UnityEngine_Vector2_System_UInt16_System_Boolean_" data-uid="Unity.VectorGraphics.VectorUtils.BuildSprite(System.Collections.Generic.List{Unity.VectorGraphics.VectorUtils.Geometry},System.Single,Unity.VectorGraphics.VectorUtils.Alignment,UnityEngine.Vector2,System.UInt16,System.Boolean)">
+  BuildSprite(List&lt;Geometry&gt;, float, Alignment, Vector2, ushort, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Sprite BuildSprite(List&lt;VectorUtils.Geometry&gt; geoms, float svgPixelsPerUnit, VectorUtils.Alignment alignment, Vector2 customPivot, ushort gradientResolution, bool flipYAxis = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>geoms</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.Geometry.html">Geometry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>svgPixelsPerUnit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>alignment</code> <a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.Alignment.html">Alignment</a></dt>
+    <dd></dd>
+    <dt><code>customPivot</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>gradientResolution</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>flipYAxis</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Sprite</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_BuildSprite_" data-uid="Unity.VectorGraphics.VectorUtils.BuildSprite*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_BuildSprite_System_Collections_Generic_List_Unity_VectorGraphics_VectorUtils_Geometry__UnityEngine_Rect_System_Single_Unity_VectorGraphics_VectorUtils_Alignment_UnityEngine_Vector2_System_UInt16_System_Boolean_" data-uid="Unity.VectorGraphics.VectorUtils.BuildSprite(System.Collections.Generic.List{Unity.VectorGraphics.VectorUtils.Geometry},UnityEngine.Rect,System.Single,Unity.VectorGraphics.VectorUtils.Alignment,UnityEngine.Vector2,System.UInt16,System.Boolean)">
+  BuildSprite(List&lt;Geometry&gt;, Rect, float, Alignment, Vector2, ushort, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Sprite BuildSprite(List&lt;VectorUtils.Geometry&gt; geoms, Rect rect, float svgPixelsPerUnit, VectorUtils.Alignment alignment, Vector2 customPivot, ushort gradientResolution, bool flipYAxis = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>geoms</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.Geometry.html">Geometry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>rect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>svgPixelsPerUnit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>alignment</code> <a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.Alignment.html">Alignment</a></dt>
+    <dd></dd>
+    <dt><code>customPivot</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>gradientResolution</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+    <dt><code>flipYAxis</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Sprite</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_Eval_" data-uid="Unity.VectorGraphics.VectorUtils.Eval*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_Eval_Unity_VectorGraphics_BezierSegment_System_Single_" data-uid="Unity.VectorGraphics.VectorUtils.Eval(Unity.VectorGraphics.BezierSegment,System.Single)">
+  Eval(BezierSegment, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 Eval(BezierSegment segment, float t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_EvalFull_" data-uid="Unity.VectorGraphics.VectorUtils.EvalFull*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_EvalFull_Unity_VectorGraphics_BezierSegment_System_Single_UnityEngine_Vector2__" data-uid="Unity.VectorGraphics.VectorUtils.EvalFull(Unity.VectorGraphics.BezierSegment,System.Single,UnityEngine.Vector2@)">
+  EvalFull(BezierSegment, float, out Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 EvalFull(BezierSegment segment, float t, out Vector2 tangent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>tangent</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_EvalFull_" data-uid="Unity.VectorGraphics.VectorUtils.EvalFull*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_EvalFull_Unity_VectorGraphics_BezierSegment_System_Single_UnityEngine_Vector2__UnityEngine_Vector2__" data-uid="Unity.VectorGraphics.VectorUtils.EvalFull(Unity.VectorGraphics.BezierSegment,System.Single,UnityEngine.Vector2@,UnityEngine.Vector2@)">
+  EvalFull(BezierSegment, float, out Vector2, out Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 EvalFull(BezierSegment segment, float t, out Vector2 tangent, out Vector2 normal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>tangent</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>normal</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_EvalNormal_" data-uid="Unity.VectorGraphics.VectorUtils.EvalNormal*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_EvalNormal_Unity_VectorGraphics_BezierSegment_System_Single_" data-uid="Unity.VectorGraphics.VectorUtils.EvalNormal(Unity.VectorGraphics.BezierSegment,System.Single)">
+  EvalNormal(BezierSegment, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 EvalNormal(BezierSegment segment, float t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_EvalTangent_" data-uid="Unity.VectorGraphics.VectorUtils.EvalTangent*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_EvalTangent_Unity_VectorGraphics_BezierSegment_System_Single_" data-uid="Unity.VectorGraphics.VectorUtils.EvalTangent(Unity.VectorGraphics.BezierSegment,System.Single)">
+  EvalTangent(BezierSegment, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 EvalTangent(BezierSegment segment, float t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_FillMesh_" data-uid="Unity.VectorGraphics.VectorUtils.FillMesh*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_FillMesh_UnityEngine_Mesh_System_Collections_Generic_List_Unity_VectorGraphics_VectorUtils_Geometry__System_Single_System_Boolean_" data-uid="Unity.VectorGraphics.VectorUtils.FillMesh(UnityEngine.Mesh,System.Collections.Generic.List{Unity.VectorGraphics.VectorUtils.Geometry},System.Single,System.Boolean)">
+  FillMesh(Mesh, List&lt;Geometry&gt;, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FillMesh(Mesh mesh, List&lt;VectorUtils.Geometry&gt; geoms, float svgPixelsPerUnit, bool flipYAxis = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <span class="xref">Mesh</span></dt>
+    <dd></dd>
+    <dt><code>geoms</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.Geometry.html">Geometry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>svgPixelsPerUnit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>flipYAxis</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_FillUVs_" data-uid="Unity.VectorGraphics.VectorUtils.FillUVs*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_FillUVs_System_Collections_Generic_IEnumerable_Unity_VectorGraphics_VectorUtils_Geometry__Unity_VectorGraphics_VectorUtils_TextureAtlas_" data-uid="Unity.VectorGraphics.VectorUtils.FillUVs(System.Collections.Generic.IEnumerable{Unity.VectorGraphics.VectorUtils.Geometry},Unity.VectorGraphics.VectorUtils.TextureAtlas)">
+  FillUVs(IEnumerable&lt;Geometry&gt;, TextureAtlas)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FillUVs(IEnumerable&lt;VectorUtils.Geometry&gt; geoms, VectorUtils.TextureAtlas texAtlas)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>geoms</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.Geometry.html">Geometry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>texAtlas</code> <a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.TextureAtlas.html">TextureAtlas</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_FindBezierLineIntersections_" data-uid="Unity.VectorGraphics.VectorUtils.FindBezierLineIntersections*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_FindBezierLineIntersections_Unity_VectorGraphics_BezierSegment_UnityEngine_Vector2_UnityEngine_Vector2_" data-uid="Unity.VectorGraphics.VectorUtils.FindBezierLineIntersections(Unity.VectorGraphics.BezierSegment,UnityEngine.Vector2,UnityEngine.Vector2)">
+  FindBezierLineIntersections(BezierSegment, Vector2, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float[] FindBezierLineIntersections(BezierSegment segment, Vector2 p0, Vector2 p1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>p0</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>p1</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_FlipSegment_" data-uid="Unity.VectorGraphics.VectorUtils.FlipSegment*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_FlipSegment_Unity_VectorGraphics_BezierSegment_" data-uid="Unity.VectorGraphics.VectorUtils.FlipSegment(Unity.VectorGraphics.BezierSegment)">
+  FlipSegment(BezierSegment)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierSegment FlipSegment(BezierSegment segment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_FlipVerticesInBounds_" data-uid="Unity.VectorGraphics.VectorUtils.FlipVerticesInBounds*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_FlipVerticesInBounds_System_Collections_Generic_IList_UnityEngine_Vector2__UnityEngine_Rect_" data-uid="Unity.VectorGraphics.VectorUtils.FlipVerticesInBounds(System.Collections.Generic.IList{UnityEngine.Vector2},UnityEngine.Rect)">
+  FlipVerticesInBounds(IList&lt;Vector2&gt;, Rect)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FlipVerticesInBounds(IList&lt;Vector2&gt; vertices, Rect bounds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>bounds</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_GenerateAtlas_" data-uid="Unity.VectorGraphics.VectorUtils.GenerateAtlas*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_GenerateAtlas_System_Collections_Generic_IEnumerable_Unity_VectorGraphics_VectorUtils_Geometry__System_UInt32_System_Boolean_System_Boolean_System_Boolean_" data-uid="Unity.VectorGraphics.VectorUtils.GenerateAtlas(System.Collections.Generic.IEnumerable{Unity.VectorGraphics.VectorUtils.Geometry},System.UInt32,System.Boolean,System.Boolean,System.Boolean)">
+  GenerateAtlas(IEnumerable&lt;Geometry&gt;, uint, bool, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VectorUtils.TextureAtlas GenerateAtlas(IEnumerable&lt;VectorUtils.Geometry&gt; geoms, uint rasterSize, bool generatePOTTexture = true, bool encodeSettings = true, bool linear = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>geoms</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.Geometry.html">Geometry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>rasterSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>generatePOTTexture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>encodeSettings</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>linear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.TextureAtlas.html">TextureAtlas</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_GenerateAtlasAndFillUVs_" data-uid="Unity.VectorGraphics.VectorUtils.GenerateAtlasAndFillUVs*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_GenerateAtlasAndFillUVs_System_Collections_Generic_IEnumerable_Unity_VectorGraphics_VectorUtils_Geometry__System_UInt32_" data-uid="Unity.VectorGraphics.VectorUtils.GenerateAtlasAndFillUVs(System.Collections.Generic.IEnumerable{Unity.VectorGraphics.VectorUtils.Geometry},System.UInt32)">
+  GenerateAtlasAndFillUVs(IEnumerable&lt;Geometry&gt;, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VectorUtils.TextureAtlas GenerateAtlasAndFillUVs(IEnumerable&lt;VectorUtils.Geometry&gt; geoms, uint rasterSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>geoms</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.Geometry.html">Geometry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>rasterSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.TextureAtlas.html">TextureAtlas</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_IntersectLineSegments_" data-uid="Unity.VectorGraphics.VectorUtils.IntersectLineSegments*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_IntersectLineSegments_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_" data-uid="Unity.VectorGraphics.VectorUtils.IntersectLineSegments(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)">
+  IntersectLineSegments(Vector2, Vector2, Vector2, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 IntersectLineSegments(Vector2 line1Pt1, Vector2 line1Pt2, Vector2 line2Pt1, Vector2 line2Pt2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>line1Pt1</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>line1Pt2</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>line2Pt1</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>line2Pt2</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_IntersectLines_" data-uid="Unity.VectorGraphics.VectorUtils.IntersectLines*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_IntersectLines_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_" data-uid="Unity.VectorGraphics.VectorUtils.IntersectLines(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)">
+  IntersectLines(Vector2, Vector2, Vector2, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 IntersectLines(Vector2 line1Pt1, Vector2 line1Pt2, Vector2 line2Pt1, Vector2 line2Pt2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>line1Pt1</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>line1Pt2</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>line2Pt1</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>line2Pt2</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_MakeArc_" data-uid="Unity.VectorGraphics.VectorUtils.MakeArc*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_MakeArc_UnityEngine_Vector2_System_Single_System_Single_System_Single_" data-uid="Unity.VectorGraphics.VectorUtils.MakeArc(UnityEngine.Vector2,System.Single,System.Single,System.Single)">
+  MakeArc(Vector2, float, float, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierPathSegment[] MakeArc(Vector2 center, float startAngleRads, float sweepAngleRads, float radius)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>center</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>startAngleRads</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>sweepAngleRads</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_MakeCircleShape_" data-uid="Unity.VectorGraphics.VectorUtils.MakeCircleShape*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_MakeCircleShape_Unity_VectorGraphics_Shape_UnityEngine_Vector2_System_Single_" data-uid="Unity.VectorGraphics.VectorUtils.MakeCircleShape(Unity.VectorGraphics.Shape,UnityEngine.Vector2,System.Single)">
+  MakeCircleShape(Shape, Vector2, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MakeCircleShape(Shape circleShape, Vector2 pos, float radius)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>circleShape</code> <a class="xref" href="Unity.VectorGraphics.Shape.html">Shape</a></dt>
+    <dd></dd>
+    <dt><code>pos</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_MakeEllipseShape_" data-uid="Unity.VectorGraphics.VectorUtils.MakeEllipseShape*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_MakeEllipseShape_Unity_VectorGraphics_Shape_UnityEngine_Vector2_System_Single_System_Single_" data-uid="Unity.VectorGraphics.VectorUtils.MakeEllipseShape(Unity.VectorGraphics.Shape,UnityEngine.Vector2,System.Single,System.Single)">
+  MakeEllipseShape(Shape, Vector2, float, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MakeEllipseShape(Shape ellipseShape, Vector2 pos, float radiusX, float radiusY)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ellipseShape</code> <a class="xref" href="Unity.VectorGraphics.Shape.html">Shape</a></dt>
+    <dd></dd>
+    <dt><code>pos</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>radiusX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>radiusY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_MakeLine_" data-uid="Unity.VectorGraphics.VectorUtils.MakeLine*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_MakeLine_UnityEngine_Vector2_UnityEngine_Vector2_" data-uid="Unity.VectorGraphics.VectorUtils.MakeLine(UnityEngine.Vector2,UnityEngine.Vector2)">
+  MakeLine(Vector2, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierSegment MakeLine(Vector2 from, Vector2 to)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>to</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_MakePathLine_" data-uid="Unity.VectorGraphics.VectorUtils.MakePathLine*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_MakePathLine_UnityEngine_Vector2_UnityEngine_Vector2_" data-uid="Unity.VectorGraphics.VectorUtils.MakePathLine(UnityEngine.Vector2,UnityEngine.Vector2)">
+  MakePathLine(Vector2, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierPathSegment[] MakePathLine(Vector2 from, Vector2 to)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>to</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_MakeRectangleShape_" data-uid="Unity.VectorGraphics.VectorUtils.MakeRectangleShape*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_MakeRectangleShape_Unity_VectorGraphics_Shape_UnityEngine_Rect_" data-uid="Unity.VectorGraphics.VectorUtils.MakeRectangleShape(Unity.VectorGraphics.Shape,UnityEngine.Rect)">
+  MakeRectangleShape(Shape, Rect)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MakeRectangleShape(Shape rectShape, Rect rect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rectShape</code> <a class="xref" href="Unity.VectorGraphics.Shape.html">Shape</a></dt>
+    <dd></dd>
+    <dt><code>rect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_MakeRectangleShape_" data-uid="Unity.VectorGraphics.VectorUtils.MakeRectangleShape*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_MakeRectangleShape_Unity_VectorGraphics_Shape_UnityEngine_Rect_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_" data-uid="Unity.VectorGraphics.VectorUtils.MakeRectangleShape(Unity.VectorGraphics.Shape,UnityEngine.Rect,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)">
+  MakeRectangleShape(Shape, Rect, Vector2, Vector2, Vector2, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MakeRectangleShape(Shape rectShape, Rect rect, Vector2 radiusTL, Vector2 radiusTR, Vector2 radiusBR, Vector2 radiusBL)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rectShape</code> <a class="xref" href="Unity.VectorGraphics.Shape.html">Shape</a></dt>
+    <dd></dd>
+    <dt><code>rect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>radiusTL</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>radiusTR</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>radiusBR</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>radiusBL</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_PathEndsPerfectlyMatch_" data-uid="Unity.VectorGraphics.VectorUtils.PathEndsPerfectlyMatch*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_PathEndsPerfectlyMatch_System_Collections_Generic_IList_Unity_VectorGraphics_BezierPathSegment__" data-uid="Unity.VectorGraphics.VectorUtils.PathEndsPerfectlyMatch(System.Collections.Generic.IList{Unity.VectorGraphics.BezierPathSegment})">
+  PathEndsPerfectlyMatch(IList&lt;BezierPathSegment&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool PathEndsPerfectlyMatch(IList&lt;BezierPathSegment&gt; path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_PathSegmentAtIndex_" data-uid="Unity.VectorGraphics.VectorUtils.PathSegmentAtIndex*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_PathSegmentAtIndex_System_Collections_Generic_IList_Unity_VectorGraphics_BezierPathSegment__System_Int32_" data-uid="Unity.VectorGraphics.VectorUtils.PathSegmentAtIndex(System.Collections.Generic.IList{Unity.VectorGraphics.BezierPathSegment},System.Int32)">
+  PathSegmentAtIndex(IList&lt;BezierPathSegment&gt;, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierSegment PathSegmentAtIndex(IList&lt;BezierPathSegment&gt; path, int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_QuadraticToCubic_" data-uid="Unity.VectorGraphics.VectorUtils.QuadraticToCubic*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_QuadraticToCubic_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Vector2_" data-uid="Unity.VectorGraphics.VectorUtils.QuadraticToCubic(UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Vector2)">
+  QuadraticToCubic(Vector2, Vector2, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierSegment QuadraticToCubic(Vector2 p0, Vector2 p1, Vector2 p2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>p0</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>p1</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>p2</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_RealignVerticesInBounds_" data-uid="Unity.VectorGraphics.VectorUtils.RealignVerticesInBounds*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_RealignVerticesInBounds_System_Collections_Generic_IList_UnityEngine_Vector2__UnityEngine_Rect_System_Boolean_" data-uid="Unity.VectorGraphics.VectorUtils.RealignVerticesInBounds(System.Collections.Generic.IList{UnityEngine.Vector2},UnityEngine.Rect,System.Boolean)">
+  RealignVerticesInBounds(IList&lt;Vector2&gt;, Rect, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RealignVerticesInBounds(IList&lt;Vector2&gt; vertices, Rect bounds, bool flip)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<span class="xref">Vector2</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>bounds</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>flip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_RenderSprite_" data-uid="Unity.VectorGraphics.VectorUtils.RenderSprite*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_RenderSprite_UnityEngine_Sprite_UnityEngine_Material_System_Boolean_" data-uid="Unity.VectorGraphics.VectorUtils.RenderSprite(UnityEngine.Sprite,UnityEngine.Material,System.Boolean)">
+  RenderSprite(Sprite, Material, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RenderSprite(Sprite sprite, Material mat, bool clear = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sprite</code> <span class="xref">Sprite</span></dt>
+    <dd></dd>
+    <dt><code>mat</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>clear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_RenderSpriteToTexture2D_" data-uid="Unity.VectorGraphics.VectorUtils.RenderSpriteToTexture2D*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_RenderSpriteToTexture2D_UnityEngine_Sprite_System_Int32_System_Int32_UnityEngine_Material_System_Int32_System_Boolean_" data-uid="Unity.VectorGraphics.VectorUtils.RenderSpriteToTexture2D(UnityEngine.Sprite,System.Int32,System.Int32,UnityEngine.Material,System.Int32,System.Boolean)">
+  RenderSpriteToTexture2D(Sprite, int, int, Material, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture2D RenderSpriteToTexture2D(Sprite sprite, int width, int height, Material mat, int antiAliasing = 1, bool expandEdges = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sprite</code> <span class="xref">Sprite</span></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mat</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>antiAliasing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>expandEdges</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Texture2D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_SceneNodeBounds_" data-uid="Unity.VectorGraphics.VectorUtils.SceneNodeBounds*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_SceneNodeBounds_Unity_VectorGraphics_SceneNode_" data-uid="Unity.VectorGraphics.VectorUtils.SceneNodeBounds(Unity.VectorGraphics.SceneNode)">
+  SceneNodeBounds(SceneNode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rect SceneNodeBounds(SceneNode root)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>root</code> <a class="xref" href="Unity.VectorGraphics.SceneNode.html">SceneNode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Rect</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_SceneNodes_" data-uid="Unity.VectorGraphics.VectorUtils.SceneNodes*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_SceneNodes_Unity_VectorGraphics_SceneNode_" data-uid="Unity.VectorGraphics.VectorUtils.SceneNodes(Unity.VectorGraphics.SceneNode)">
+  SceneNodes(SceneNode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;SceneNode&gt; SceneNodes(SceneNode root)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>root</code> <a class="xref" href="Unity.VectorGraphics.SceneNode.html">SceneNode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Unity.VectorGraphics.SceneNode.html">SceneNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_SegmentLength_" data-uid="Unity.VectorGraphics.VectorUtils.SegmentLength*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_SegmentLength_Unity_VectorGraphics_BezierSegment_System_Single_" data-uid="Unity.VectorGraphics.VectorUtils.SegmentLength(Unity.VectorGraphics.BezierSegment,System.Single)">
+  SegmentLength(BezierSegment, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SegmentLength(BezierSegment segment, float precision = 0.001)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>precision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_SegmentsInPath_" data-uid="Unity.VectorGraphics.VectorUtils.SegmentsInPath*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_SegmentsInPath_System_Collections_Generic_IEnumerable_Unity_VectorGraphics_BezierPathSegment__System_Boolean_" data-uid="Unity.VectorGraphics.VectorUtils.SegmentsInPath(System.Collections.Generic.IEnumerable{Unity.VectorGraphics.BezierPathSegment},System.Boolean)">
+  SegmentsInPath(IEnumerable&lt;BezierPathSegment&gt;, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;BezierSegment&gt; SegmentsInPath(IEnumerable&lt;BezierPathSegment&gt; segments, bool closed = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>closed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_SegmentsLength_" data-uid="Unity.VectorGraphics.VectorUtils.SegmentsLength*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_SegmentsLength_System_Collections_Generic_IList_Unity_VectorGraphics_BezierPathSegment__System_Boolean_System_Single_" data-uid="Unity.VectorGraphics.VectorUtils.SegmentsLength(System.Collections.Generic.IList{Unity.VectorGraphics.BezierPathSegment},System.Boolean,System.Single)">
+  SegmentsLength(IList&lt;BezierPathSegment&gt;, bool, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SegmentsLength(IList&lt;BezierPathSegment&gt; segments, bool closed, float precision = 0.001)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>closed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>precision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_SegmentsLengths_" data-uid="Unity.VectorGraphics.VectorUtils.SegmentsLengths*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_SegmentsLengths_System_Collections_Generic_IList_Unity_VectorGraphics_BezierPathSegment__System_Boolean_System_Single_" data-uid="Unity.VectorGraphics.VectorUtils.SegmentsLengths(System.Collections.Generic.IList{Unity.VectorGraphics.BezierPathSegment},System.Boolean,System.Single)">
+  SegmentsLengths(IList&lt;BezierPathSegment&gt;, bool, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float[] SegmentsLengths(IList&lt;BezierPathSegment&gt; segments, bool closed, float precision = 0.001)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>closed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>precision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_SplitSegment_" data-uid="Unity.VectorGraphics.VectorUtils.SplitSegment*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_SplitSegment_Unity_VectorGraphics_BezierSegment_System_Single_Unity_VectorGraphics_BezierSegment__Unity_VectorGraphics_BezierSegment__" data-uid="Unity.VectorGraphics.VectorUtils.SplitSegment(Unity.VectorGraphics.BezierSegment,System.Single,Unity.VectorGraphics.BezierSegment@,Unity.VectorGraphics.BezierSegment@)">
+  SplitSegment(BezierSegment, float, out BezierSegment, out BezierSegment)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SplitSegment(BezierSegment segment, float t, out BezierSegment b1, out BezierSegment b2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>b1</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>b2</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_TessellatePath_" data-uid="Unity.VectorGraphics.VectorUtils.TessellatePath*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_TessellatePath_Unity_VectorGraphics_BezierContour_Unity_VectorGraphics_PathProperties_Unity_VectorGraphics_VectorUtils_TessellationOptions_UnityEngine_Vector2____System_UInt16____" data-uid="Unity.VectorGraphics.VectorUtils.TessellatePath(Unity.VectorGraphics.BezierContour,Unity.VectorGraphics.PathProperties,Unity.VectorGraphics.VectorUtils.TessellationOptions,UnityEngine.Vector2[]@,System.UInt16[]@)">
+  TessellatePath(BezierContour, PathProperties, TessellationOptions, out Vector2[], out ushort[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void TessellatePath(BezierContour contour, PathProperties pathProps, VectorUtils.TessellationOptions tessellateOptions, out Vector2[] vertices, out ushort[] indices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contour</code> <a class="xref" href="Unity.VectorGraphics.BezierContour.html">BezierContour</a></dt>
+    <dd></dd>
+    <dt><code>pathProps</code> <a class="xref" href="Unity.VectorGraphics.PathProperties.html">PathProperties</a></dt>
+    <dd></dd>
+    <dt><code>tessellateOptions</code> <a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.TessellationOptions.html">TessellationOptions</a></dt>
+    <dd></dd>
+    <dt><code>vertices</code> <span class="xref">Vector2</span>[]</dt>
+    <dd></dd>
+    <dt><code>indices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_TessellateRect_" data-uid="Unity.VectorGraphics.VectorUtils.TessellateRect*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_TessellateRect_UnityEngine_Rect_UnityEngine_Vector2____System_UInt16____" data-uid="Unity.VectorGraphics.VectorUtils.TessellateRect(UnityEngine.Rect,UnityEngine.Vector2[]@,System.UInt16[]@)">
+  TessellateRect(Rect, out Vector2[], out ushort[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void TessellateRect(Rect rect, out Vector2[] vertices, out ushort[] indices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>vertices</code> <span class="xref">Vector2</span>[]</dt>
+    <dd></dd>
+    <dt><code>indices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_TessellateRectBorder_" data-uid="Unity.VectorGraphics.VectorUtils.TessellateRectBorder*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_TessellateRectBorder_UnityEngine_Rect_System_Single_UnityEngine_Vector2____System_UInt16____" data-uid="Unity.VectorGraphics.VectorUtils.TessellateRectBorder(UnityEngine.Rect,System.Single,UnityEngine.Vector2[]@,System.UInt16[]@)">
+  TessellateRectBorder(Rect, float, out Vector2[], out ushort[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void TessellateRectBorder(Rect rect, float halfThickness, out Vector2[] vertices, out ushort[] indices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>halfThickness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>vertices</code> <span class="xref">Vector2</span>[]</dt>
+    <dd></dd>
+    <dt><code>indices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_TessellateScene_" data-uid="Unity.VectorGraphics.VectorUtils.TessellateScene*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_TessellateScene_Unity_VectorGraphics_Scene_Unity_VectorGraphics_VectorUtils_TessellationOptions_System_Collections_Generic_Dictionary_Unity_VectorGraphics_SceneNode_System_Single__" data-uid="Unity.VectorGraphics.VectorUtils.TessellateScene(Unity.VectorGraphics.Scene,Unity.VectorGraphics.VectorUtils.TessellationOptions,System.Collections.Generic.Dictionary{Unity.VectorGraphics.SceneNode,System.Single})">
+  TessellateScene(Scene, TessellationOptions, Dictionary&lt;SceneNode, float&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;VectorUtils.Geometry&gt; TessellateScene(Scene scene, VectorUtils.TessellationOptions tessellationOptions, Dictionary&lt;SceneNode, float&gt; nodeOpacities = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="Unity.VectorGraphics.Scene.html">Scene</a></dt>
+    <dd></dd>
+    <dt><code>tessellationOptions</code> <a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.TessellationOptions.html">TessellationOptions</a></dt>
+    <dd></dd>
+    <dt><code>nodeOpacities</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="Unity.VectorGraphics.SceneNode.html">SceneNode</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.Geometry.html">Geometry</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_TransformBezierPath_" data-uid="Unity.VectorGraphics.VectorUtils.TransformBezierPath*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_TransformBezierPath_Unity_VectorGraphics_BezierPathSegment___Unity_VectorGraphics_Matrix2D_" data-uid="Unity.VectorGraphics.VectorUtils.TransformBezierPath(Unity.VectorGraphics.BezierPathSegment[],Unity.VectorGraphics.Matrix2D)">
+  TransformBezierPath(BezierPathSegment[], Matrix2D)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierPathSegment[] TransformBezierPath(BezierPathSegment[] path, Matrix2D matrix)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>[]</dt>
+    <dd></dd>
+    <dt><code>matrix</code> <a class="xref" href="Unity.VectorGraphics.Matrix2D.html">Matrix2D</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_TransformBezierPath_" data-uid="Unity.VectorGraphics.VectorUtils.TransformBezierPath*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_TransformBezierPath_Unity_VectorGraphics_BezierPathSegment___UnityEngine_Vector2_System_Single_UnityEngine_Vector2_" data-uid="Unity.VectorGraphics.VectorUtils.TransformBezierPath(Unity.VectorGraphics.BezierPathSegment[],UnityEngine.Vector2,System.Single,UnityEngine.Vector2)">
+  TransformBezierPath(BezierPathSegment[], Vector2, float, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierPathSegment[] TransformBezierPath(BezierPathSegment[] path, Vector2 translation, float rotation, Vector2 scaling)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>[]</dt>
+    <dd></dd>
+    <dt><code>translation</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>scaling</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierPathSegment.html">BezierPathSegment</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_TransformSegment_" data-uid="Unity.VectorGraphics.VectorUtils.TransformSegment*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_TransformSegment_Unity_VectorGraphics_BezierSegment_Unity_VectorGraphics_Matrix2D_" data-uid="Unity.VectorGraphics.VectorUtils.TransformSegment(Unity.VectorGraphics.BezierSegment,Unity.VectorGraphics.Matrix2D)">
+  TransformSegment(BezierSegment, Matrix2D)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierSegment TransformSegment(BezierSegment segment, Matrix2D matrix)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>matrix</code> <a class="xref" href="Unity.VectorGraphics.Matrix2D.html">Matrix2D</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_TransformSegment_" data-uid="Unity.VectorGraphics.VectorUtils.TransformSegment*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_TransformSegment_Unity_VectorGraphics_BezierSegment_UnityEngine_Vector2_System_Single_UnityEngine_Vector2_" data-uid="Unity.VectorGraphics.VectorUtils.TransformSegment(Unity.VectorGraphics.BezierSegment,UnityEngine.Vector2,System.Single,UnityEngine.Vector2)">
+  TransformSegment(BezierSegment, Vector2, float, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BezierSegment TransformSegment(BezierSegment segment, Vector2 translation, float rotation, Vector2 scaling)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>segment</code> <a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+    <dt><code>translation</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>scaling</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Unity.VectorGraphics.BezierSegment.html">BezierSegment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_VectorGraphics_VectorUtils_WorldTransformedSceneNodes_" data-uid="Unity.VectorGraphics.VectorUtils.WorldTransformedSceneNodes*"></a>
+
+  <h3 id="Unity_VectorGraphics_VectorUtils_WorldTransformedSceneNodes_Unity_VectorGraphics_SceneNode_System_Collections_Generic_Dictionary_Unity_VectorGraphics_SceneNode_System_Single__" data-uid="Unity.VectorGraphics.VectorUtils.WorldTransformedSceneNodes(Unity.VectorGraphics.SceneNode,System.Collections.Generic.Dictionary{Unity.VectorGraphics.SceneNode,System.Single})">
+  WorldTransformedSceneNodes(SceneNode, Dictionary&lt;SceneNode, float&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;VectorUtils.SceneNodeWorldTransform&gt; WorldTransformedSceneNodes(SceneNode root, Dictionary&lt;SceneNode, float&gt; nodeOpacities)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>root</code> <a class="xref" href="Unity.VectorGraphics.SceneNode.html">SceneNode</a></dt>
+    <dd></dd>
+    <dt><code>nodeOpacities</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="Unity.VectorGraphics.SceneNode.html">SceneNode</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Unity.VectorGraphics.VectorUtils.html">VectorUtils</a>.<a class="xref" href="Unity.VectorGraphics.VectorUtils.SceneNodeWorldTransform.html">SceneNodeWorldTransform</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RenderingUtils | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RenderingUtils | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.Universal.RenderingUtils">
+
+
+
+  <h1 id="UnityEngine_Rendering_Universal_RenderingUtils" data-uid="UnityEngine.Rendering.Universal.RenderingUtils" class="text-break">
+Class RenderingUtils  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.Universal.html">Universal</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Universal.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class RenderingUtils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RenderingUtils</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_fullscreenMesh_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.fullscreenMesh*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_fullscreenMesh" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.fullscreenMesh">
+  fullscreenMesh
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Blitter.BlitCameraTexture instead of CommandBuffer.DrawMesh(fullscreenMesh, ...)&quot;)]
+public static Mesh fullscreenMesh { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Mesh</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_CreateDrawingSettings_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.CreateDrawingSettings*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_CreateDrawingSettings_System_Collections_Generic_List_UnityEngine_Rendering_ShaderTagId__UnityEngine_Rendering_Universal_RenderingData__UnityEngine_Rendering_SortingCriteria_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.CreateDrawingSettings(System.Collections.Generic.List{UnityEngine.Rendering.ShaderTagId},UnityEngine.Rendering.Universal.RenderingData@,UnityEngine.Rendering.SortingCriteria)">
+  CreateDrawingSettings(List&lt;ShaderTagId&gt;, ref RenderingData, SortingCriteria)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DrawingSettings CreateDrawingSettings(List&lt;ShaderTagId&gt; shaderTagIdList, ref RenderingData renderingData, SortingCriteria sortingCriteria)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shaderTagIdList</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">ShaderTagId</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>renderingData</code> <a class="xref" href="UnityEngine.Rendering.Universal.RenderingData.html">RenderingData</a></dt>
+    <dd></dd>
+    <dt><code>sortingCriteria</code> <span class="xref">SortingCriteria</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DrawingSettings</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_CreateDrawingSettings_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.CreateDrawingSettings*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_CreateDrawingSettings_System_Collections_Generic_List_UnityEngine_Rendering_ShaderTagId__UnityEngine_Rendering_Universal_UniversalRenderingData_UnityEngine_Rendering_Universal_UniversalCameraData_UnityEngine_Rendering_Universal_UniversalLightData_UnityEngine_Rendering_SortingCriteria_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.CreateDrawingSettings(System.Collections.Generic.List{UnityEngine.Rendering.ShaderTagId},UnityEngine.Rendering.Universal.UniversalRenderingData,UnityEngine.Rendering.Universal.UniversalCameraData,UnityEngine.Rendering.Universal.UniversalLightData,UnityEngine.Rendering.SortingCriteria)">
+  CreateDrawingSettings(List&lt;ShaderTagId&gt;, UniversalRenderingData, UniversalCameraData, UniversalLightData, SortingCriteria)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DrawingSettings CreateDrawingSettings(List&lt;ShaderTagId&gt; shaderTagIdList, UniversalRenderingData renderingData, UniversalCameraData cameraData, UniversalLightData lightData, SortingCriteria sortingCriteria)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shaderTagIdList</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">ShaderTagId</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>renderingData</code> <a class="xref" href="UnityEngine.Rendering.Universal.UniversalRenderingData.html">UniversalRenderingData</a></dt>
+    <dd></dd>
+    <dt><code>cameraData</code> <a class="xref" href="UnityEngine.Rendering.Universal.UniversalCameraData.html">UniversalCameraData</a></dt>
+    <dd></dd>
+    <dt><code>lightData</code> <a class="xref" href="UnityEngine.Rendering.Universal.UniversalLightData.html">UniversalLightData</a></dt>
+    <dd></dd>
+    <dt><code>sortingCriteria</code> <span class="xref">SortingCriteria</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DrawingSettings</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_CreateDrawingSettings_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.CreateDrawingSettings*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_CreateDrawingSettings_UnityEngine_Rendering_ShaderTagId_UnityEngine_Rendering_Universal_RenderingData__UnityEngine_Rendering_SortingCriteria_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.CreateDrawingSettings(UnityEngine.Rendering.ShaderTagId,UnityEngine.Rendering.Universal.RenderingData@,UnityEngine.Rendering.SortingCriteria)">
+  CreateDrawingSettings(ShaderTagId, ref RenderingData, SortingCriteria)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DrawingSettings CreateDrawingSettings(ShaderTagId shaderTagId, ref RenderingData renderingData, SortingCriteria sortingCriteria)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shaderTagId</code> <span class="xref">ShaderTagId</span></dt>
+    <dd></dd>
+    <dt><code>renderingData</code> <a class="xref" href="UnityEngine.Rendering.Universal.RenderingData.html">RenderingData</a></dt>
+    <dd></dd>
+    <dt><code>sortingCriteria</code> <span class="xref">SortingCriteria</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DrawingSettings</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_CreateDrawingSettings_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.CreateDrawingSettings*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_CreateDrawingSettings_UnityEngine_Rendering_ShaderTagId_UnityEngine_Rendering_Universal_UniversalRenderingData_UnityEngine_Rendering_Universal_UniversalCameraData_UnityEngine_Rendering_Universal_UniversalLightData_UnityEngine_Rendering_SortingCriteria_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.CreateDrawingSettings(UnityEngine.Rendering.ShaderTagId,UnityEngine.Rendering.Universal.UniversalRenderingData,UnityEngine.Rendering.Universal.UniversalCameraData,UnityEngine.Rendering.Universal.UniversalLightData,UnityEngine.Rendering.SortingCriteria)">
+  CreateDrawingSettings(ShaderTagId, UniversalRenderingData, UniversalCameraData, UniversalLightData, SortingCriteria)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DrawingSettings CreateDrawingSettings(ShaderTagId shaderTagId, UniversalRenderingData renderingData, UniversalCameraData cameraData, UniversalLightData lightData, SortingCriteria sortingCriteria)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shaderTagId</code> <span class="xref">ShaderTagId</span></dt>
+    <dd></dd>
+    <dt><code>renderingData</code> <a class="xref" href="UnityEngine.Rendering.Universal.UniversalRenderingData.html">UniversalRenderingData</a></dt>
+    <dd></dd>
+    <dt><code>cameraData</code> <a class="xref" href="UnityEngine.Rendering.Universal.UniversalCameraData.html">UniversalCameraData</a></dt>
+    <dd></dd>
+    <dt><code>lightData</code> <a class="xref" href="UnityEngine.Rendering.Universal.UniversalLightData.html">UniversalLightData</a></dt>
+    <dd></dd>
+    <dt><code>sortingCriteria</code> <span class="xref">SortingCriteria</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">DrawingSettings</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateHandleIfNeeded_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateHandleIfNeeded*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateHandleIfNeeded_UnityEngine_Rendering_RTHandle__UnityEngine_RenderTextureDescriptor__UnityEngine_FilterMode_UnityEngine_TextureWrapMode_System_Int32_System_Single_System_String_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateHandleIfNeeded(UnityEngine.Rendering.RTHandle@,UnityEngine.RenderTextureDescriptor@,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,System.Int32,System.Single,System.String)">
+  ReAllocateHandleIfNeeded(ref RTHandle, in RenderTextureDescriptor, FilterMode, TextureWrapMode, int, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ReAllocateHandleIfNeeded(ref RTHandle handle, in RenderTextureDescriptor descriptor, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, int anisoLevel = 1, float mipMapBias = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>descriptor</code> <span class="xref">RenderTextureDescriptor</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateHandleIfNeeded_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateHandleIfNeeded*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateHandleIfNeeded_UnityEngine_Rendering_RTHandle__UnityEngine_Rendering_ScaleFunc_UnityEngine_RenderTextureDescriptor__UnityEngine_FilterMode_UnityEngine_TextureWrapMode_System_Int32_System_Single_System_String_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateHandleIfNeeded(UnityEngine.Rendering.RTHandle@,UnityEngine.Rendering.ScaleFunc,UnityEngine.RenderTextureDescriptor@,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,System.Int32,System.Single,System.String)">
+  ReAllocateHandleIfNeeded(ref RTHandle, ScaleFunc, in RenderTextureDescriptor, FilterMode, TextureWrapMode, int, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ReAllocateHandleIfNeeded(ref RTHandle handle, ScaleFunc scaleFunc, in RenderTextureDescriptor descriptor, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, int anisoLevel = 1, float mipMapBias = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleFunc</code> <a class="xref" href="UnityEngine.Rendering.ScaleFunc.html">ScaleFunc</a></dt>
+    <dd></dd>
+    <dt><code>descriptor</code> <span class="xref">RenderTextureDescriptor</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateHandleIfNeeded_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateHandleIfNeeded*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateHandleIfNeeded_UnityEngine_Rendering_RTHandle__UnityEngine_Vector2_UnityEngine_RenderTextureDescriptor__UnityEngine_FilterMode_UnityEngine_TextureWrapMode_System_Int32_System_Single_System_String_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateHandleIfNeeded(UnityEngine.Rendering.RTHandle@,UnityEngine.Vector2,UnityEngine.RenderTextureDescriptor@,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,System.Int32,System.Single,System.String)">
+  ReAllocateHandleIfNeeded(ref RTHandle, Vector2, in RenderTextureDescriptor, FilterMode, TextureWrapMode, int, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ReAllocateHandleIfNeeded(ref RTHandle handle, Vector2 scaleFactor, in RenderTextureDescriptor descriptor, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, int anisoLevel = 1, float mipMapBias = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleFactor</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>descriptor</code> <span class="xref">RenderTextureDescriptor</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateIfNeeded_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateIfNeeded*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateIfNeeded_UnityEngine_Rendering_RTHandle__UnityEngine_RenderTextureDescriptor__UnityEngine_FilterMode_UnityEngine_TextureWrapMode_System_Boolean_System_Int32_System_Single_System_String_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateIfNeeded(UnityEngine.Rendering.RTHandle@,UnityEngine.RenderTextureDescriptor@,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,System.Boolean,System.Int32,System.Single,System.String)">
+  ReAllocateIfNeeded(ref RTHandle, in RenderTextureDescriptor, FilterMode, TextureWrapMode, bool, int, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed in a future release. Please use ReAllocateHandleIfNeeded instead. #from(2023.3)&quot;)]
+public static bool ReAllocateIfNeeded(ref RTHandle handle, in RenderTextureDescriptor descriptor, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>descriptor</code> <span class="xref">RenderTextureDescriptor</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateIfNeeded_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateIfNeeded*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateIfNeeded_UnityEngine_Rendering_RTHandle__UnityEngine_Rendering_ScaleFunc_UnityEngine_RenderTextureDescriptor__UnityEngine_FilterMode_UnityEngine_TextureWrapMode_System_Boolean_System_Int32_System_Single_System_String_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateIfNeeded(UnityEngine.Rendering.RTHandle@,UnityEngine.Rendering.ScaleFunc,UnityEngine.RenderTextureDescriptor@,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,System.Boolean,System.Int32,System.Single,System.String)">
+  ReAllocateIfNeeded(ref RTHandle, ScaleFunc, in RenderTextureDescriptor, FilterMode, TextureWrapMode, bool, int, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed in a future release. Please use ReAllocateHandleIfNeeded instead. #from(2023.3)&quot;)]
+public static bool ReAllocateIfNeeded(ref RTHandle handle, ScaleFunc scaleFunc, in RenderTextureDescriptor descriptor, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleFunc</code> <a class="xref" href="UnityEngine.Rendering.ScaleFunc.html">ScaleFunc</a></dt>
+    <dd></dd>
+    <dt><code>descriptor</code> <span class="xref">RenderTextureDescriptor</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateIfNeeded_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateIfNeeded*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_ReAllocateIfNeeded_UnityEngine_Rendering_RTHandle__UnityEngine_Vector2_UnityEngine_RenderTextureDescriptor__UnityEngine_FilterMode_UnityEngine_TextureWrapMode_System_Boolean_System_Int32_System_Single_System_String_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.ReAllocateIfNeeded(UnityEngine.Rendering.RTHandle@,UnityEngine.Vector2,UnityEngine.RenderTextureDescriptor@,UnityEngine.FilterMode,UnityEngine.TextureWrapMode,System.Boolean,System.Int32,System.Single,System.String)">
+  ReAllocateIfNeeded(ref RTHandle, Vector2, in RenderTextureDescriptor, FilterMode, TextureWrapMode, bool, int, float, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed in a future release. Please use ReAllocateHandleIfNeeded instead. #from(2023.3)&quot;)]
+public static bool ReAllocateIfNeeded(ref RTHandle handle, Vector2 scaleFactor, in RenderTextureDescriptor descriptor, FilterMode filterMode = 0, TextureWrapMode wrapMode = 0, bool isShadowMap = false, int anisoLevel = 1, float mipMapBias = 0, string name = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handle</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleFactor</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>descriptor</code> <span class="xref">RenderTextureDescriptor</span></dt>
+    <dd></dd>
+    <dt><code>filterMode</code> <span class="xref">FilterMode</span></dt>
+    <dd></dd>
+    <dt><code>wrapMode</code> <span class="xref">TextureWrapMode</span></dt>
+    <dd></dd>
+    <dt><code>isShadowMap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>anisoLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipMapBias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_SetMaxRTHandlePoolCapacity_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.SetMaxRTHandlePoolCapacity*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_SetMaxRTHandlePoolCapacity_System_Int32_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.SetMaxRTHandlePoolCapacity(System.Int32)">
+  SetMaxRTHandlePoolCapacity(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SetMaxRTHandlePoolCapacity(int capacity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_SetViewAndProjectionMatrices_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.SetViewAndProjectionMatrices*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_SetViewAndProjectionMatrices_UnityEngine_Rendering_CommandBuffer_UnityEngine_Matrix4x4_UnityEngine_Matrix4x4_System_Boolean_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.SetViewAndProjectionMatrices(UnityEngine.Rendering.CommandBuffer,UnityEngine.Matrix4x4,UnityEngine.Matrix4x4,System.Boolean)">
+  SetViewAndProjectionMatrices(CommandBuffer, Matrix4x4, Matrix4x4, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetViewAndProjectionMatrices(CommandBuffer cmd, Matrix4x4 viewMatrix, Matrix4x4 projectionMatrix, bool setInverseMatrices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>viewMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>projectionMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>setInverseMatrices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_SetViewAndProjectionMatrices_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.SetViewAndProjectionMatrices*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_SetViewAndProjectionMatrices_UnityEngine_Rendering_RasterCommandBuffer_UnityEngine_Matrix4x4_UnityEngine_Matrix4x4_System_Boolean_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.SetViewAndProjectionMatrices(UnityEngine.Rendering.RasterCommandBuffer,UnityEngine.Matrix4x4,UnityEngine.Matrix4x4,System.Boolean)">
+  SetViewAndProjectionMatrices(RasterCommandBuffer, Matrix4x4, Matrix4x4, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetViewAndProjectionMatrices(RasterCommandBuffer cmd, Matrix4x4 viewMatrix, Matrix4x4 projectionMatrix, bool setInverseMatrices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.RasterCommandBuffer.html">RasterCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>viewMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>projectionMatrix</code> <span class="xref">Matrix4x4</span></dt>
+    <dd></dd>
+    <dt><code>setInverseMatrices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_SupportsGraphicsFormat_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.SupportsGraphicsFormat*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_SupportsGraphicsFormat_UnityEngine_Experimental_Rendering_GraphicsFormat_UnityEngine_Experimental_Rendering_FormatUsage_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.SupportsGraphicsFormat(UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Experimental.Rendering.FormatUsage)">
+  SupportsGraphicsFormat(GraphicsFormat, FormatUsage)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use SystemInfo.IsFormatSupported instead.&quot;, false)]
+public static bool SupportsGraphicsFormat(GraphicsFormat format, FormatUsage usage)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <span class="xref">GraphicsFormat</span></dt>
+    <dd></dd>
+    <dt><code>usage</code> <span class="xref">FormatUsage</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderingUtils_SupportsRenderTextureFormat_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.SupportsRenderTextureFormat*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderingUtils_SupportsRenderTextureFormat_UnityEngine_RenderTextureFormat_" data-uid="UnityEngine.Rendering.Universal.RenderingUtils.SupportsRenderTextureFormat(UnityEngine.RenderTextureFormat)">
+  SupportsRenderTextureFormat(RenderTextureFormat)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SupportsRenderTextureFormat(RenderTextureFormat format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <span class="xref">RenderTextureFormat</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

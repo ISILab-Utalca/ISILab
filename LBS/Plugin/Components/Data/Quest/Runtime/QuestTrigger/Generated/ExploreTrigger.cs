@@ -1,25 +1,28 @@
 using UnityEngine;
 using System.Collections.Generic;
 using ISILab.LBS.Components;
-using ISILab.AI.Grammar;
 using ISILab.LBS.Plugin.MapTools.Generators;
+
 namespace ISILab.AI.Grammar
 {
-    public class ExploreTrigger : QuestTrigger 
+    public class ExploreTrigger : QuestTriggerNode
     {
-        [Commons.Attributes.ReadOnly]
-        [SerializeField] private GrammarTerminal _terminal;
-
         [Header("Grammar Fields")]
-    [SerializeField, InspectorName("Subareas to enter")] private GrammarAreaList _Subareastoenter;
+        [SerializeField, InspectorName("Subareas to enter")]
+        private GrammarAreaList _Subareastoenter;
 
-        protected override void SetData(QuestNodeData data) 
+        protected override void BindFields(List<GrammarField> fields) 
         {
-            _terminal = data.Terminal;
-            _Subareastoenter = data.Fields.Find(f => f.name == "Subareas to enter") as GrammarAreaList;
+            // Ensure the target field is instantiated so it isn't null
+            if (_Subareastoenter == null) _Subareastoenter = new GrammarAreaList();
 
+            var sourceSubareastoenter = fields.Find(f => f.name == "Subareas to enter") as GrammarAreaList;
+            if (sourceSubareastoenter != null)
+            {
+                _Subareastoenter.SetValue(sourceSubareastoenter.value);
+            }
         }
 
-        protected override bool CanComplete() => false;
+        protected override bool CanComplete() => true;
     }
 }

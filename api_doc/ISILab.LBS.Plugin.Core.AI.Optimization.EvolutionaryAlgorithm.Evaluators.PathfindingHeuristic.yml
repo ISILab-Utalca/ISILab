@@ -1,0 +1,188 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+  id: PathfindingHeuristic
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  children:
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Chebyshev
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Manhattan
+  - ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Octile
+  langs:
+  - csharp
+  - vb
+  name: PathfindingHeuristic
+  nameWithType: PathfindingHeuristic
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+  type: Enum
+  source:
+    id: PathfindingHeuristic
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\IDistanceEvaluator.cs
+    startLine: 15
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  syntax:
+    content: >-
+      [Serializable]
+
+      public enum PathfindingHeuristic
+    content.vb: >-
+      <Serializable>
+
+      Public Enum PathfindingHeuristic
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Manhattan
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Manhattan
+  id: Manhattan
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+  langs:
+  - csharp
+  - vb
+  name: Manhattan
+  nameWithType: PathfindingHeuristic.Manhattan
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Manhattan
+  type: Field
+  source:
+    id: Manhattan
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\IDistanceEvaluator.cs
+    startLine: 21
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  summary: No diagonals
+  example: []
+  syntax:
+    content: Manhattan = 0
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Octile
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Octile
+  id: Octile
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+  langs:
+  - csharp
+  - vb
+  name: Octile
+  nameWithType: PathfindingHeuristic.Octile
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Octile
+  type: Field
+  source:
+    id: Octile
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\IDistanceEvaluator.cs
+    startLine: 25
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  summary: Diagonals = x sqrt(2)
+  example: []
+  syntax:
+    content: Octile = 1
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Chebyshev
+  commentId: F:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Chebyshev
+  id: Chebyshev
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+  langs:
+  - csharp
+  - vb
+  name: Chebyshev
+  nameWithType: PathfindingHeuristic.Chebyshev
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.Chebyshev
+  type: Field
+  source:
+    id: Chebyshev
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\IDistanceEvaluator.cs
+    startLine: 29
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  summary: Diagonals = x
+  example: []
+  syntax:
+    content: Chebyshev = 2
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+references:
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic.html
+  name: PathfindingHeuristic
+  nameWithType: PathfindingHeuristic
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+shouldSkipMarkup: true

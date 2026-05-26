@@ -1,0 +1,686 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.Extensions.Texture2DExtensions
+  commentId: T:ISILab.Extensions.Texture2DExtensions
+  id: Texture2DExtensions
+  parent: ISILab.Extensions
+  children:
+  - ISILab.Extensions.Texture2DExtensions.FitSquare(UnityEngine.Texture2D)
+  - ISILab.Extensions.Texture2DExtensions.InsertTexture(UnityEngine.Texture2D,UnityEngine.Texture2D,System.Int32,System.Int32)
+  - ISILab.Extensions.Texture2DExtensions.InsertTextureInRect(UnityEngine.Texture2D,UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  - ISILab.Extensions.Texture2DExtensions.MergeTextures(UnityEngine.Texture2D,UnityEngine.Texture2D)
+  - ISILab.Extensions.Texture2DExtensions.MirrorY(UnityEngine.Texture2D)
+  - ISILab.Extensions.Texture2DExtensions.MirrorY(UnityEngine.Texture2D,System.Int32)
+  - ISILab.Extensions.Texture2DExtensions.SetAllPixels(UnityEngine.Texture2D,UnityEngine.Color32)
+  - ISILab.Extensions.Texture2DExtensions.SubTexture(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: Texture2DExtensions
+  nameWithType: Texture2DExtensions
+  fullName: ISILab.Extensions.Texture2DExtensions
+  type: Class
+  source:
+    id: Texture2DExtensions
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\Texture2DExtensions.cs
+    startLine: 10
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static class Texture2DExtensions
+    content.vb: Public Module Texture2DExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ISILab.Extensions.Texture2DExtensions.InsertTexture(UnityEngine.Texture2D,UnityEngine.Texture2D,System.Int32,System.Int32)
+  commentId: M:ISILab.Extensions.Texture2DExtensions.InsertTexture(UnityEngine.Texture2D,UnityEngine.Texture2D,System.Int32,System.Int32)
+  id: InsertTexture(UnityEngine.Texture2D,UnityEngine.Texture2D,System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Texture2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: InsertTexture(Texture2D, Texture2D, int, int)
+  nameWithType: Texture2DExtensions.InsertTexture(Texture2D, Texture2D, int, int)
+  fullName: ISILab.Extensions.Texture2DExtensions.InsertTexture(UnityEngine.Texture2D, UnityEngine.Texture2D, int, int)
+  type: Method
+  source:
+    id: InsertTexture
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\Texture2DExtensions.cs
+    startLine: 19
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: Insert a texture in the other texture.
+  example: []
+  syntax:
+    content: public static void InsertTexture(this Texture2D origin, Texture2D other, int x, int y)
+    parameters:
+    - id: origin
+      type: UnityEngine.Texture2D
+      description: ''
+    - id: other
+      type: UnityEngine.Texture2D
+      description: ''
+    - id: x
+      type: System.Int32
+      description: ''
+    - id: y
+      type: System.Int32
+      description: ''
+    content.vb: Public Shared Sub InsertTexture(origin As Texture2D, other As Texture2D, x As Integer, y As Integer)
+  overload: ISILab.Extensions.Texture2DExtensions.InsertTexture*
+  nameWithType.vb: Texture2DExtensions.InsertTexture(Texture2D, Texture2D, Integer, Integer)
+  fullName.vb: ISILab.Extensions.Texture2DExtensions.InsertTexture(UnityEngine.Texture2D, UnityEngine.Texture2D, Integer, Integer)
+  name.vb: InsertTexture(Texture2D, Texture2D, Integer, Integer)
+- uid: ISILab.Extensions.Texture2DExtensions.InsertTextureInRect(UnityEngine.Texture2D,UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:ISILab.Extensions.Texture2DExtensions.InsertTextureInRect(UnityEngine.Texture2D,UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: InsertTextureInRect(UnityEngine.Texture2D,UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Texture2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: InsertTextureInRect(Texture2D, Texture2D, int, int, int, int)
+  nameWithType: Texture2DExtensions.InsertTextureInRect(Texture2D, Texture2D, int, int, int, int)
+  fullName: ISILab.Extensions.Texture2DExtensions.InsertTextureInRect(UnityEngine.Texture2D, UnityEngine.Texture2D, int, int, int, int)
+  type: Method
+  source:
+    id: InsertTextureInRect
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\Texture2DExtensions.cs
+    startLine: 34
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: Insert a texture in a rect of the other texture.
+  example: []
+  syntax:
+    content: public static void InsertTextureInRect(this Texture2D origin, Texture2D other, int x, int y, int width, int height)
+    parameters:
+    - id: origin
+      type: UnityEngine.Texture2D
+      description: ''
+    - id: other
+      type: UnityEngine.Texture2D
+      description: ''
+    - id: x
+      type: System.Int32
+      description: ''
+    - id: y
+      type: System.Int32
+      description: ''
+    - id: width
+      type: System.Int32
+      description: ''
+    - id: height
+      type: System.Int32
+      description: ''
+    content.vb: Public Shared Sub InsertTextureInRect(origin As Texture2D, other As Texture2D, x As Integer, y As Integer, width As Integer, height As Integer)
+  overload: ISILab.Extensions.Texture2DExtensions.InsertTextureInRect*
+  nameWithType.vb: Texture2DExtensions.InsertTextureInRect(Texture2D, Texture2D, Integer, Integer, Integer, Integer)
+  fullName.vb: ISILab.Extensions.Texture2DExtensions.InsertTextureInRect(UnityEngine.Texture2D, UnityEngine.Texture2D, Integer, Integer, Integer, Integer)
+  name.vb: InsertTextureInRect(Texture2D, Texture2D, Integer, Integer, Integer, Integer)
+- uid: ISILab.Extensions.Texture2DExtensions.MirrorY(UnityEngine.Texture2D)
+  commentId: M:ISILab.Extensions.Texture2DExtensions.MirrorY(UnityEngine.Texture2D)
+  id: MirrorY(UnityEngine.Texture2D)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Texture2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: MirrorY(Texture2D)
+  nameWithType: Texture2DExtensions.MirrorY(Texture2D)
+  fullName: ISILab.Extensions.Texture2DExtensions.MirrorY(UnityEngine.Texture2D)
+  type: Method
+  source:
+    id: MirrorY
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\Texture2DExtensions.cs
+    startLine: 54
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: Mirror the texture in the X axis.
+  example: []
+  syntax:
+    content: public static void MirrorY(this Texture2D origin)
+    parameters:
+    - id: origin
+      type: UnityEngine.Texture2D
+      description: ''
+    content.vb: Public Shared Sub MirrorY(origin As Texture2D)
+  overload: ISILab.Extensions.Texture2DExtensions.MirrorY*
+- uid: ISILab.Extensions.Texture2DExtensions.MirrorY(UnityEngine.Texture2D,System.Int32)
+  commentId: M:ISILab.Extensions.Texture2DExtensions.MirrorY(UnityEngine.Texture2D,System.Int32)
+  id: MirrorY(UnityEngine.Texture2D,System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Texture2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: MirrorY(Texture2D, int)
+  nameWithType: Texture2DExtensions.MirrorY(Texture2D, int)
+  fullName: ISILab.Extensions.Texture2DExtensions.MirrorY(UnityEngine.Texture2D, int)
+  type: Method
+  source:
+    id: MirrorY
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\Texture2DExtensions.cs
+    startLine: 72
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: Mirror the texture in the Y axis.
+  example: []
+  syntax:
+    content: public static void MirrorY(this Texture2D origin, int stride)
+    parameters:
+    - id: origin
+      type: UnityEngine.Texture2D
+      description: ''
+    - id: stride
+      type: System.Int32
+      description: ''
+    content.vb: Public Shared Sub MirrorY(origin As Texture2D, stride As Integer)
+  overload: ISILab.Extensions.Texture2DExtensions.MirrorY*
+  nameWithType.vb: Texture2DExtensions.MirrorY(Texture2D, Integer)
+  fullName.vb: ISILab.Extensions.Texture2DExtensions.MirrorY(UnityEngine.Texture2D, Integer)
+  name.vb: MirrorY(Texture2D, Integer)
+- uid: ISILab.Extensions.Texture2DExtensions.MergeTextures(UnityEngine.Texture2D,UnityEngine.Texture2D)
+  commentId: M:ISILab.Extensions.Texture2DExtensions.MergeTextures(UnityEngine.Texture2D,UnityEngine.Texture2D)
+  id: MergeTextures(UnityEngine.Texture2D,UnityEngine.Texture2D)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Texture2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: MergeTextures(Texture2D, Texture2D)
+  nameWithType: Texture2DExtensions.MergeTextures(Texture2D, Texture2D)
+  fullName: ISILab.Extensions.Texture2DExtensions.MergeTextures(UnityEngine.Texture2D, UnityEngine.Texture2D)
+  type: Method
+  source:
+    id: MergeTextures
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\Texture2DExtensions.cs
+    startLine: 92
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: Merge two textures, the second one will be the mask.
+  example: []
+  syntax:
+    content: public static Texture2D MergeTextures(this Texture2D origin, Texture2D other)
+    parameters:
+    - id: origin
+      type: UnityEngine.Texture2D
+      description: ''
+    - id: other
+      type: UnityEngine.Texture2D
+      description: ''
+    return:
+      type: UnityEngine.Texture2D
+      description: ''
+    content.vb: Public Shared Function MergeTextures(origin As Texture2D, other As Texture2D) As Texture2D
+  overload: ISILab.Extensions.Texture2DExtensions.MergeTextures*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: ''
+- uid: ISILab.Extensions.Texture2DExtensions.FitSquare(UnityEngine.Texture2D)
+  commentId: M:ISILab.Extensions.Texture2DExtensions.FitSquare(UnityEngine.Texture2D)
+  id: FitSquare(UnityEngine.Texture2D)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Texture2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: FitSquare(Texture2D)
+  nameWithType: Texture2DExtensions.FitSquare(Texture2D)
+  fullName: ISILab.Extensions.Texture2DExtensions.FitSquare(UnityEngine.Texture2D)
+  type: Method
+  source:
+    id: FitSquare
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\Texture2DExtensions.cs
+    startLine: 126
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: Fit the texture in a square.
+  example: []
+  syntax:
+    content: public static Texture2D FitSquare(this Texture2D origin)
+    parameters:
+    - id: origin
+      type: UnityEngine.Texture2D
+      description: ''
+    return:
+      type: UnityEngine.Texture2D
+      description: ''
+    content.vb: Public Shared Function FitSquare(origin As Texture2D) As Texture2D
+  overload: ISILab.Extensions.Texture2DExtensions.FitSquare*
+- uid: ISILab.Extensions.Texture2DExtensions.SubTexture(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:ISILab.Extensions.Texture2DExtensions.SubTexture(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: SubTexture(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Texture2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: SubTexture(Texture2D, int, int, int, int)
+  nameWithType: Texture2DExtensions.SubTexture(Texture2D, int, int, int, int)
+  fullName: ISILab.Extensions.Texture2DExtensions.SubTexture(UnityEngine.Texture2D, int, int, int, int)
+  type: Method
+  source:
+    id: SubTexture
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\Texture2DExtensions.cs
+    startLine: 154
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: Return a subtexture from the original texture.
+  example: []
+  syntax:
+    content: public static Texture2D SubTexture(this Texture2D origin, int x, int y, int width, int height)
+    parameters:
+    - id: origin
+      type: UnityEngine.Texture2D
+      description: ''
+    - id: x
+      type: System.Int32
+      description: ''
+    - id: y
+      type: System.Int32
+      description: ''
+    - id: width
+      type: System.Int32
+      description: ''
+    - id: height
+      type: System.Int32
+      description: ''
+    return:
+      type: UnityEngine.Texture2D
+      description: ''
+    content.vb: Public Shared Function SubTexture(origin As Texture2D, x As Integer, y As Integer, width As Integer, height As Integer) As Texture2D
+  overload: ISILab.Extensions.Texture2DExtensions.SubTexture*
+  nameWithType.vb: Texture2DExtensions.SubTexture(Texture2D, Integer, Integer, Integer, Integer)
+  fullName.vb: ISILab.Extensions.Texture2DExtensions.SubTexture(UnityEngine.Texture2D, Integer, Integer, Integer, Integer)
+  name.vb: SubTexture(Texture2D, Integer, Integer, Integer, Integer)
+- uid: ISILab.Extensions.Texture2DExtensions.SetAllPixels(UnityEngine.Texture2D,UnityEngine.Color32)
+  commentId: M:ISILab.Extensions.Texture2DExtensions.SetAllPixels(UnityEngine.Texture2D,UnityEngine.Color32)
+  id: SetAllPixels(UnityEngine.Texture2D,UnityEngine.Color32)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Texture2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: SetAllPixels(Texture2D, Color32)
+  nameWithType: Texture2DExtensions.SetAllPixels(Texture2D, Color32)
+  fullName: ISILab.Extensions.Texture2DExtensions.SetAllPixels(UnityEngine.Texture2D, UnityEngine.Color32)
+  type: Method
+  source:
+    id: SetAllPixels
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\Texture2DExtensions.cs
+    startLine: 176
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: Set all pixels of the texture to a color.
+  example: []
+  syntax:
+    content: public static void SetAllPixels(this Texture2D texture, Color32 color)
+    parameters:
+    - id: texture
+      type: UnityEngine.Texture2D
+      description: ''
+    - id: color
+      type: UnityEngine.Color32
+      description: ''
+    content.vb: Public Shared Sub SetAllPixels(texture As Texture2D, color As Color32)
+  overload: ISILab.Extensions.Texture2DExtensions.SetAllPixels*
+references:
+- uid: ISILab.Extensions
+  commentId: N:ISILab.Extensions
+  href: ISILab.html
+  name: ISILab.Extensions
+  nameWithType: ISILab.Extensions
+  fullName: ISILab.Extensions
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    href: ISILab.Extensions.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.Extensions
+    name: Extensions
+    href: ISILab.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.Extensions.Texture2DExtensions.InsertTexture*
+  commentId: Overload:ISILab.Extensions.Texture2DExtensions.InsertTexture
+  href: ISILab.Extensions.Texture2DExtensions.html#ISILab_Extensions_Texture2DExtensions_InsertTexture_UnityEngine_Texture2D_UnityEngine_Texture2D_System_Int32_System_Int32_
+  name: InsertTexture
+  nameWithType: Texture2DExtensions.InsertTexture
+  fullName: ISILab.Extensions.Texture2DExtensions.InsertTexture
+- uid: UnityEngine.Texture2D
+  commentId: T:UnityEngine.Texture2D
+  parent: UnityEngine
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.Extensions.Texture2DExtensions.InsertTextureInRect*
+  commentId: Overload:ISILab.Extensions.Texture2DExtensions.InsertTextureInRect
+  href: ISILab.Extensions.Texture2DExtensions.html#ISILab_Extensions_Texture2DExtensions_InsertTextureInRect_UnityEngine_Texture2D_UnityEngine_Texture2D_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: InsertTextureInRect
+  nameWithType: Texture2DExtensions.InsertTextureInRect
+  fullName: ISILab.Extensions.Texture2DExtensions.InsertTextureInRect
+- uid: ISILab.Extensions.Texture2DExtensions.MirrorY*
+  commentId: Overload:ISILab.Extensions.Texture2DExtensions.MirrorY
+  href: ISILab.Extensions.Texture2DExtensions.html#ISILab_Extensions_Texture2DExtensions_MirrorY_UnityEngine_Texture2D_
+  name: MirrorY
+  nameWithType: Texture2DExtensions.MirrorY
+  fullName: ISILab.Extensions.Texture2DExtensions.MirrorY
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: ISILab.Extensions.Texture2DExtensions.MergeTextures*
+  commentId: Overload:ISILab.Extensions.Texture2DExtensions.MergeTextures
+  href: ISILab.Extensions.Texture2DExtensions.html#ISILab_Extensions_Texture2DExtensions_MergeTextures_UnityEngine_Texture2D_UnityEngine_Texture2D_
+  name: MergeTextures
+  nameWithType: Texture2DExtensions.MergeTextures
+  fullName: ISILab.Extensions.Texture2DExtensions.MergeTextures
+- uid: ISILab.Extensions.Texture2DExtensions.FitSquare*
+  commentId: Overload:ISILab.Extensions.Texture2DExtensions.FitSquare
+  href: ISILab.Extensions.Texture2DExtensions.html#ISILab_Extensions_Texture2DExtensions_FitSquare_UnityEngine_Texture2D_
+  name: FitSquare
+  nameWithType: Texture2DExtensions.FitSquare
+  fullName: ISILab.Extensions.Texture2DExtensions.FitSquare
+- uid: ISILab.Extensions.Texture2DExtensions.SubTexture*
+  commentId: Overload:ISILab.Extensions.Texture2DExtensions.SubTexture
+  href: ISILab.Extensions.Texture2DExtensions.html#ISILab_Extensions_Texture2DExtensions_SubTexture_UnityEngine_Texture2D_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: SubTexture
+  nameWithType: Texture2DExtensions.SubTexture
+  fullName: ISILab.Extensions.Texture2DExtensions.SubTexture
+- uid: ISILab.Extensions.Texture2DExtensions.SetAllPixels*
+  commentId: Overload:ISILab.Extensions.Texture2DExtensions.SetAllPixels
+  href: ISILab.Extensions.Texture2DExtensions.html#ISILab_Extensions_Texture2DExtensions_SetAllPixels_UnityEngine_Texture2D_UnityEngine_Color32_
+  name: SetAllPixels
+  nameWithType: Texture2DExtensions.SetAllPixels
+  fullName: ISILab.Extensions.Texture2DExtensions.SetAllPixels
+- uid: UnityEngine.Color32
+  commentId: T:UnityEngine.Color32
+  parent: UnityEngine
+  isExternal: true
+  name: Color32
+  nameWithType: Color32
+  fullName: UnityEngine.Color32
+shouldSkipMarkup: true

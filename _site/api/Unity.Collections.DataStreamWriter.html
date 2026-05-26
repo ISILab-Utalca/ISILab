@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct DataStreamWriter | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct DataStreamWriter | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Unity.Collections.DataStreamWriter">
+
+
+
+  <h1 id="Unity_Collections_DataStreamWriter" data-uid="Unity.Collections.DataStreamWriter" class="text-break">
+Struct DataStreamWriter  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Unity.html">Unity</a>.<a class="xref" href="Unity.Collections.html">Collections</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.Collections.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GenerateTestsForBurstCompatibility]
+public struct DataStreamWriter</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Unity.Collections.LowLevel.Unsafe.DataStreamExtensions.html#Unity_Collections_LowLevel_Unsafe_DataStreamExtensions_WriteBytesUnsafe_Unity_Collections_DataStreamWriter__System_Byte__System_Int32_">DataStreamExtensions.WriteBytesUnsafe(ref DataStreamWriter, byte*, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Unity_Collections_DataStreamWriter__ctor_" data-uid="Unity.Collections.DataStreamWriter.#ctor*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter__ctor_System_Byte__System_Int32_" data-uid="Unity.Collections.DataStreamWriter.#ctor(System.Byte*,System.Int32)">
+  DataStreamWriter(byte*, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataStreamWriter(byte* data, int length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter__ctor_" data-uid="Unity.Collections.DataStreamWriter.#ctor*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter__ctor_System_Int32_Unity_Collections_AllocatorManager_AllocatorHandle_" data-uid="Unity.Collections.DataStreamWriter.#ctor(System.Int32,Unity.Collections.AllocatorManager.AllocatorHandle)">
+  DataStreamWriter(int, AllocatorHandle)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataStreamWriter(int length, AllocatorManager.AllocatorHandle allocator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>allocator</code> <a class="xref" href="Unity.Collections.AllocatorManager.html">AllocatorManager</a>.<a class="xref" href="Unity.Collections.AllocatorManager.AllocatorHandle.html">AllocatorHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter__ctor_" data-uid="Unity.Collections.DataStreamWriter.#ctor*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter__ctor_Unity_Collections_NativeArray_System_Byte__" data-uid="Unity.Collections.DataStreamWriter.#ctor(Unity.Collections.NativeArray{System.Byte})">
+  DataStreamWriter(NativeArray&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataStreamWriter(NativeArray&lt;byte&gt; data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <span class="xref">NativeArray</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Unity_Collections_DataStreamWriter_m_SendHandleData" data-uid="Unity.Collections.DataStreamWriter.m_SendHandleData">
+  m_SendHandleData
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public nint m_SendHandleData</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Unity_Collections_DataStreamWriter_Capacity_" data-uid="Unity.Collections.DataStreamWriter.Capacity*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_Capacity" data-uid="Unity.Collections.DataStreamWriter.Capacity">
+  Capacity
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int Capacity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_HasFailedWrites_" data-uid="Unity.Collections.DataStreamWriter.HasFailedWrites*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_HasFailedWrites" data-uid="Unity.Collections.DataStreamWriter.HasFailedWrites">
+  HasFailedWrites
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool HasFailedWrites { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_IsCreated_" data-uid="Unity.Collections.DataStreamWriter.IsCreated*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_IsCreated" data-uid="Unity.Collections.DataStreamWriter.IsCreated">
+  IsCreated
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsCreated { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_IsLittleEndian_" data-uid="Unity.Collections.DataStreamWriter.IsLittleEndian*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_IsLittleEndian" data-uid="Unity.Collections.DataStreamWriter.IsLittleEndian">
+  IsLittleEndian
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsLittleEndian { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_Length_" data-uid="Unity.Collections.DataStreamWriter.Length*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_Length" data-uid="Unity.Collections.DataStreamWriter.Length">
+  Length
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Length { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_LengthInBits_" data-uid="Unity.Collections.DataStreamWriter.LengthInBits*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_LengthInBits" data-uid="Unity.Collections.DataStreamWriter.LengthInBits">
+  LengthInBits
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LengthInBits { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Unity_Collections_DataStreamWriter_AsNativeArray_" data-uid="Unity.Collections.DataStreamWriter.AsNativeArray*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_AsNativeArray" data-uid="Unity.Collections.DataStreamWriter.AsNativeArray">
+  AsNativeArray()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NativeArray&lt;byte&gt; AsNativeArray()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">NativeArray</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_Clear_" data-uid="Unity.Collections.DataStreamWriter.Clear*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_Clear" data-uid="Unity.Collections.DataStreamWriter.Clear">
+  Clear()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_Flush_" data-uid="Unity.Collections.DataStreamWriter.Flush*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_Flush" data-uid="Unity.Collections.DataStreamWriter.Flush">
+  Flush()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Flush()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteByte_" data-uid="Unity.Collections.DataStreamWriter.WriteByte*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteByte_System_Byte_" data-uid="Unity.Collections.DataStreamWriter.WriteByte(System.Byte)">
+  WriteByte(byte)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteByte(byte value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteBytes_" data-uid="Unity.Collections.DataStreamWriter.WriteBytes*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteBytes_System_Span_System_Byte__" data-uid="Unity.Collections.DataStreamWriter.WriteBytes(System.Span{System.Byte})">
+  WriteBytes(Span&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteBytes(Span&lt;byte&gt; value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteBytes_" data-uid="Unity.Collections.DataStreamWriter.WriteBytes*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteBytes_Unity_Collections_NativeArray_System_Byte__" data-uid="Unity.Collections.DataStreamWriter.WriteBytes(Unity.Collections.NativeArray{System.Byte})">
+  WriteBytes(NativeArray&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteBytes(NativeArray&lt;byte&gt; value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">NativeArray</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteDouble_" data-uid="Unity.Collections.DataStreamWriter.WriteDouble*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteDouble_System_Double_" data-uid="Unity.Collections.DataStreamWriter.WriteDouble(System.Double)">
+  WriteDouble(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteDouble(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteFixedString128_" data-uid="Unity.Collections.DataStreamWriter.WriteFixedString128*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteFixedString128_Unity_Collections_FixedString128Bytes_" data-uid="Unity.Collections.DataStreamWriter.WriteFixedString128(Unity.Collections.FixedString128Bytes)">
+  WriteFixedString128(FixedString128Bytes)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteFixedString128(FixedString128Bytes str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="Unity.Collections.FixedString128Bytes.html">FixedString128Bytes</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteFixedString32_" data-uid="Unity.Collections.DataStreamWriter.WriteFixedString32*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteFixedString32_Unity_Collections_FixedString32Bytes_" data-uid="Unity.Collections.DataStreamWriter.WriteFixedString32(Unity.Collections.FixedString32Bytes)">
+  WriteFixedString32(FixedString32Bytes)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteFixedString32(FixedString32Bytes str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="Unity.Collections.FixedString32Bytes.html">FixedString32Bytes</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteFixedString4096_" data-uid="Unity.Collections.DataStreamWriter.WriteFixedString4096*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteFixedString4096_Unity_Collections_FixedString4096Bytes_" data-uid="Unity.Collections.DataStreamWriter.WriteFixedString4096(Unity.Collections.FixedString4096Bytes)">
+  WriteFixedString4096(FixedString4096Bytes)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteFixedString4096(FixedString4096Bytes str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="Unity.Collections.FixedString4096Bytes.html">FixedString4096Bytes</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteFixedString512_" data-uid="Unity.Collections.DataStreamWriter.WriteFixedString512*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteFixedString512_Unity_Collections_FixedString512Bytes_" data-uid="Unity.Collections.DataStreamWriter.WriteFixedString512(Unity.Collections.FixedString512Bytes)">
+  WriteFixedString512(FixedString512Bytes)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteFixedString512(FixedString512Bytes str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="Unity.Collections.FixedString512Bytes.html">FixedString512Bytes</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteFixedString64_" data-uid="Unity.Collections.DataStreamWriter.WriteFixedString64*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteFixedString64_Unity_Collections_FixedString64Bytes_" data-uid="Unity.Collections.DataStreamWriter.WriteFixedString64(Unity.Collections.FixedString64Bytes)">
+  WriteFixedString64(FixedString64Bytes)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteFixedString64(FixedString64Bytes str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="Unity.Collections.FixedString64Bytes.html">FixedString64Bytes</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteFloat_" data-uid="Unity.Collections.DataStreamWriter.WriteFloat*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteFloat_System_Single_" data-uid="Unity.Collections.DataStreamWriter.WriteFloat(System.Single)">
+  WriteFloat(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteFloat(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteInt_" data-uid="Unity.Collections.DataStreamWriter.WriteInt*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteInt_System_Int32_" data-uid="Unity.Collections.DataStreamWriter.WriteInt(System.Int32)">
+  WriteInt(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteInt(int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteIntNetworkByteOrder_" data-uid="Unity.Collections.DataStreamWriter.WriteIntNetworkByteOrder*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteIntNetworkByteOrder_System_Int32_" data-uid="Unity.Collections.DataStreamWriter.WriteIntNetworkByteOrder(System.Int32)">
+  WriteIntNetworkByteOrder(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteIntNetworkByteOrder(int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteLong_" data-uid="Unity.Collections.DataStreamWriter.WriteLong*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteLong_System_Int64_" data-uid="Unity.Collections.DataStreamWriter.WriteLong(System.Int64)">
+  WriteLong(long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteLong(long value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedDouble_" data-uid="Unity.Collections.DataStreamWriter.WritePackedDouble*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedDouble_System_Double_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedDouble(System.Double,Unity.Collections.StreamCompressionModel@)">
+  WritePackedDouble(double, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedDouble(double value, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedDoubleDelta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedDoubleDelta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedDoubleDelta_System_Double_System_Double_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedDoubleDelta(System.Double,System.Double,Unity.Collections.StreamCompressionModel@)">
+  WritePackedDoubleDelta(double, double, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedDoubleDelta(double value, double baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedFixedString128Delta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedFixedString128Delta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedFixedString128Delta_Unity_Collections_FixedString128Bytes_Unity_Collections_FixedString128Bytes_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedFixedString128Delta(Unity.Collections.FixedString128Bytes,Unity.Collections.FixedString128Bytes,Unity.Collections.StreamCompressionModel@)">
+  WritePackedFixedString128Delta(FixedString128Bytes, FixedString128Bytes, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedFixedString128Delta(FixedString128Bytes str, FixedString128Bytes baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="Unity.Collections.FixedString128Bytes.html">FixedString128Bytes</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="Unity.Collections.FixedString128Bytes.html">FixedString128Bytes</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedFixedString32Delta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedFixedString32Delta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedFixedString32Delta_Unity_Collections_FixedString32Bytes_Unity_Collections_FixedString32Bytes_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedFixedString32Delta(Unity.Collections.FixedString32Bytes,Unity.Collections.FixedString32Bytes,Unity.Collections.StreamCompressionModel@)">
+  WritePackedFixedString32Delta(FixedString32Bytes, FixedString32Bytes, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedFixedString32Delta(FixedString32Bytes str, FixedString32Bytes baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="Unity.Collections.FixedString32Bytes.html">FixedString32Bytes</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="Unity.Collections.FixedString32Bytes.html">FixedString32Bytes</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedFixedString4096Delta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedFixedString4096Delta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedFixedString4096Delta_Unity_Collections_FixedString4096Bytes_Unity_Collections_FixedString4096Bytes_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedFixedString4096Delta(Unity.Collections.FixedString4096Bytes,Unity.Collections.FixedString4096Bytes,Unity.Collections.StreamCompressionModel@)">
+  WritePackedFixedString4096Delta(FixedString4096Bytes, FixedString4096Bytes, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedFixedString4096Delta(FixedString4096Bytes str, FixedString4096Bytes baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="Unity.Collections.FixedString4096Bytes.html">FixedString4096Bytes</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="Unity.Collections.FixedString4096Bytes.html">FixedString4096Bytes</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedFixedString512Delta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedFixedString512Delta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedFixedString512Delta_Unity_Collections_FixedString512Bytes_Unity_Collections_FixedString512Bytes_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedFixedString512Delta(Unity.Collections.FixedString512Bytes,Unity.Collections.FixedString512Bytes,Unity.Collections.StreamCompressionModel@)">
+  WritePackedFixedString512Delta(FixedString512Bytes, FixedString512Bytes, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedFixedString512Delta(FixedString512Bytes str, FixedString512Bytes baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="Unity.Collections.FixedString512Bytes.html">FixedString512Bytes</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="Unity.Collections.FixedString512Bytes.html">FixedString512Bytes</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedFixedString64Delta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedFixedString64Delta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedFixedString64Delta_Unity_Collections_FixedString64Bytes_Unity_Collections_FixedString64Bytes_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedFixedString64Delta(Unity.Collections.FixedString64Bytes,Unity.Collections.FixedString64Bytes,Unity.Collections.StreamCompressionModel@)">
+  WritePackedFixedString64Delta(FixedString64Bytes, FixedString64Bytes, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedFixedString64Delta(FixedString64Bytes str, FixedString64Bytes baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="Unity.Collections.FixedString64Bytes.html">FixedString64Bytes</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="Unity.Collections.FixedString64Bytes.html">FixedString64Bytes</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedFloat_" data-uid="Unity.Collections.DataStreamWriter.WritePackedFloat*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedFloat_System_Single_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedFloat(System.Single,Unity.Collections.StreamCompressionModel@)">
+  WritePackedFloat(float, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedFloat(float value, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedFloatDelta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedFloatDelta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedFloatDelta_System_Single_System_Single_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedFloatDelta(System.Single,System.Single,Unity.Collections.StreamCompressionModel@)">
+  WritePackedFloatDelta(float, float, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedFloatDelta(float value, float baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedInt_" data-uid="Unity.Collections.DataStreamWriter.WritePackedInt*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedInt_System_Int32_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedInt(System.Int32,Unity.Collections.StreamCompressionModel@)">
+  WritePackedInt(int, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedInt(int value, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedIntDelta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedIntDelta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedIntDelta_System_Int32_System_Int32_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedIntDelta(System.Int32,System.Int32,Unity.Collections.StreamCompressionModel@)">
+  WritePackedIntDelta(int, int, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedIntDelta(int value, int baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedLong_" data-uid="Unity.Collections.DataStreamWriter.WritePackedLong*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedLong_System_Int64_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedLong(System.Int64,Unity.Collections.StreamCompressionModel@)">
+  WritePackedLong(long, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedLong(long value, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedLongDelta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedLongDelta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedLongDelta_System_Int64_System_Int64_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedLongDelta(System.Int64,System.Int64,Unity.Collections.StreamCompressionModel@)">
+  WritePackedLongDelta(long, long, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedLongDelta(long value, long baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedUInt_" data-uid="Unity.Collections.DataStreamWriter.WritePackedUInt*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedUInt_System_UInt32_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedUInt(System.UInt32,Unity.Collections.StreamCompressionModel@)">
+  WritePackedUInt(uint, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedUInt(uint value, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedUIntDelta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedUIntDelta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedUIntDelta_System_UInt32_System_UInt32_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedUIntDelta(System.UInt32,System.UInt32,Unity.Collections.StreamCompressionModel@)">
+  WritePackedUIntDelta(uint, uint, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedUIntDelta(uint value, uint baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedULong_" data-uid="Unity.Collections.DataStreamWriter.WritePackedULong*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedULong_System_UInt64_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedULong(System.UInt64,Unity.Collections.StreamCompressionModel@)">
+  WritePackedULong(ulong, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedULong(ulong value, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WritePackedULongDelta_" data-uid="Unity.Collections.DataStreamWriter.WritePackedULongDelta*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WritePackedULongDelta_System_UInt64_System_UInt64_Unity_Collections_StreamCompressionModel__" data-uid="Unity.Collections.DataStreamWriter.WritePackedULongDelta(System.UInt64,System.UInt64,Unity.Collections.StreamCompressionModel@)">
+  WritePackedULongDelta(ulong, ulong, in StreamCompressionModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WritePackedULongDelta(ulong value, ulong baseline, in StreamCompressionModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>baseline</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>model</code> <a class="xref" href="Unity.Collections.StreamCompressionModel.html">StreamCompressionModel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteRawBits_" data-uid="Unity.Collections.DataStreamWriter.WriteRawBits*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteRawBits_System_UInt32_System_Int32_" data-uid="Unity.Collections.DataStreamWriter.WriteRawBits(System.UInt32,System.Int32)">
+  WriteRawBits(uint, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteRawBits(uint value, int numbits)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>numbits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteShort_" data-uid="Unity.Collections.DataStreamWriter.WriteShort*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteShort_System_Int16_" data-uid="Unity.Collections.DataStreamWriter.WriteShort(System.Int16)">
+  WriteShort(short)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteShort(short value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteShortNetworkByteOrder_" data-uid="Unity.Collections.DataStreamWriter.WriteShortNetworkByteOrder*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteShortNetworkByteOrder_System_Int16_" data-uid="Unity.Collections.DataStreamWriter.WriteShortNetworkByteOrder(System.Int16)">
+  WriteShortNetworkByteOrder(short)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteShortNetworkByteOrder(short value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteUInt_" data-uid="Unity.Collections.DataStreamWriter.WriteUInt*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteUInt_System_UInt32_" data-uid="Unity.Collections.DataStreamWriter.WriteUInt(System.UInt32)">
+  WriteUInt(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteUInt(uint value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteUIntNetworkByteOrder_" data-uid="Unity.Collections.DataStreamWriter.WriteUIntNetworkByteOrder*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteUIntNetworkByteOrder_System_UInt32_" data-uid="Unity.Collections.DataStreamWriter.WriteUIntNetworkByteOrder(System.UInt32)">
+  WriteUIntNetworkByteOrder(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteUIntNetworkByteOrder(uint value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteULong_" data-uid="Unity.Collections.DataStreamWriter.WriteULong*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteULong_System_UInt64_" data-uid="Unity.Collections.DataStreamWriter.WriteULong(System.UInt64)">
+  WriteULong(ulong)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteULong(ulong value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteUShort_" data-uid="Unity.Collections.DataStreamWriter.WriteUShort*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteUShort_System_UInt16_" data-uid="Unity.Collections.DataStreamWriter.WriteUShort(System.UInt16)">
+  WriteUShort(ushort)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteUShort(ushort value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Unity_Collections_DataStreamWriter_WriteUShortNetworkByteOrder_" data-uid="Unity.Collections.DataStreamWriter.WriteUShortNetworkByteOrder*"></a>
+
+  <h3 id="Unity_Collections_DataStreamWriter_WriteUShortNetworkByteOrder_System_UInt16_" data-uid="Unity.Collections.DataStreamWriter.WriteUShortNetworkByteOrder(System.UInt16)">
+  WriteUShortNetworkByteOrder(ushort)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WriteUShortNetworkByteOrder(ushort value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

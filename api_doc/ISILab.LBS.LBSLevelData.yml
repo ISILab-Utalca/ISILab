@@ -1,0 +1,1633 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.LBSLevelData
+  commentId: T:ISILab.LBS.LBSLevelData
+  id: LBSLevelData
+  parent: ISILab.LBS
+  children:
+  - ISILab.LBS.LBSLevelData.AddLayer(LBS.Components.LBSLayer)
+  - ISILab.LBS.LBSLevelData.AddLayerToContext(LBS.Components.LBSLayer)
+  - ISILab.LBS.LBSLevelData.ContextLayers
+  - ISILab.LBS.LBSLevelData.Equals(System.Object)
+  - ISILab.LBS.LBSLevelData.GetExteriorLayer
+  - ISILab.LBS.LBSLevelData.GetHashCode
+  - ISILab.LBS.LBSLevelData.GetInteriorLayer
+  - ISILab.LBS.LBSLevelData.GetLayer(System.Int32)
+  - ISILab.LBS.LBSLevelData.GetLayer(System.String)
+  - ISILab.LBS.LBSLevelData.GetPopulationLayer
+  - ISILab.LBS.LBSLevelData.GetSavedMaps(LBS.Components.LBSLayer)
+  - ISILab.LBS.LBSLevelData.GetSimulationLayer
+  - ISILab.LBS.LBSLevelData.LayerCount
+  - ISILab.LBS.LBSLevelData.Layers
+  - ISILab.LBS.LBSLevelData.OnChanged
+  - ISILab.LBS.LBSLevelData.OnContextChanged
+  - ISILab.LBS.LBSLevelData.OnReload
+  - ISILab.LBS.LBSLevelData.Quests
+  - ISILab.LBS.LBSLevelData.Reload
+  - ISILab.LBS.LBSLevelData.RemoveAt(System.Int32)
+  - ISILab.LBS.LBSLevelData.RemoveLayer(LBS.Components.LBSLayer)
+  - ISILab.LBS.LBSLevelData.RemoveLayerFromContext(LBS.Components.LBSLayer)
+  - ISILab.LBS.LBSLevelData.ReplaceLayer(LBS.Components.LBSLayer,LBS.Components.LBSLayer)
+  - ISILab.LBS.LBSLevelData.SaveMapInLayer(ISILab.LBS.SavedMap,LBS.Components.LBSLayer)
+  - ISILab.LBS.LBSLevelData.SavedLayerMaps
+  - ISILab.LBS.LBSLevelData.ToString
+  - ISILab.LBS.LBSLevelData.contextLayers
+  - ISILab.LBS.LBSLevelData.savedLayerMaps
+  langs:
+  - csharp
+  - vb
+  name: LBSLevelData
+  nameWithType: LBSLevelData
+  fullName: ISILab.LBS.LBSLevelData
+  type: Class
+  source:
+    id: LBSLevelData
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 8
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [Serializable]
+
+      public class LBSLevelData
+    content.vb: >-
+      <Serializable>
+
+      Public Class LBSLevelData
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.LBSLevelData.savedLayerMaps
+  commentId: F:ISILab.LBS.LBSLevelData.savedLayerMaps
+  id: savedLayerMaps
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: savedLayerMaps
+  nameWithType: LBSLevelData.savedLayerMaps
+  fullName: ISILab.LBS.LBSLevelData.savedLayerMaps
+  type: Field
+  source:
+    id: savedLayerMaps
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 19
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [SerializeField]
+
+      [JsonRequired]
+
+      [SerializeReference]
+
+      public List<SavedMapList> savedLayerMaps
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.SavedMapList}
+    content.vb: >-
+      <SerializeField>
+
+      <JsonRequired>
+
+      <SerializeReference>
+
+      Public savedLayerMaps As List(Of SavedMapList)
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonRequiredAttribute
+    ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
+    arguments: []
+  - type: UnityEngine.SerializeReference
+    ctor: UnityEngine.SerializeReference.#ctor
+    arguments: []
+- uid: ISILab.LBS.LBSLevelData.contextLayers
+  commentId: F:ISILab.LBS.LBSLevelData.contextLayers
+  id: contextLayers
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: contextLayers
+  nameWithType: LBSLevelData.contextLayers
+  fullName: ISILab.LBS.LBSLevelData.contextLayers
+  type: Field
+  source:
+    id: contextLayers
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 22
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [SerializeField]
+
+      [JsonRequired]
+
+      [SerializeReference]
+
+      public List<LBSLayer> contextLayers
+    return:
+      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
+    content.vb: >-
+      <SerializeField>
+
+      <JsonRequired>
+
+      <SerializeReference>
+
+      Public contextLayers As List(Of LBSLayer)
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonRequiredAttribute
+    ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
+    arguments: []
+  - type: UnityEngine.SerializeReference
+    ctor: UnityEngine.SerializeReference.#ctor
+    arguments: []
+- uid: ISILab.LBS.LBSLevelData.Layers
+  commentId: P:ISILab.LBS.LBSLevelData.Layers
+  id: Layers
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: Layers
+  nameWithType: LBSLevelData.Layers
+  fullName: ISILab.LBS.LBSLevelData.Layers
+  type: Property
+  source:
+    id: Layers
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 26
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public List<LBSLayer> Layers { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Layers As List(Of LBSLayer)
+  overload: ISILab.LBS.LBSLevelData.Layers*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.LBSLevelData.Quests
+  commentId: P:ISILab.LBS.LBSLevelData.Quests
+  id: Quests
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: Quests
+  nameWithType: LBSLevelData.Quests
+  fullName: ISILab.LBS.LBSLevelData.Quests
+  type: Property
+  source:
+    id: Quests
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 29
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public List<LBSLayer> Quests { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Quests As List(Of LBSLayer)
+  overload: ISILab.LBS.LBSLevelData.Quests*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.LBSLevelData.SavedLayerMaps
+  commentId: P:ISILab.LBS.LBSLevelData.SavedLayerMaps
+  id: SavedLayerMaps
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: SavedLayerMaps
+  nameWithType: LBSLevelData.SavedLayerMaps
+  fullName: ISILab.LBS.LBSLevelData.SavedLayerMaps
+  type: Property
+  source:
+    id: SavedLayerMaps
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 32
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public List<SavedMapList> SavedLayerMaps { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.SavedMapList}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property SavedLayerMaps As List(Of SavedMapList)
+  overload: ISILab.LBS.LBSLevelData.SavedLayerMaps*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.LBSLevelData.ContextLayers
+  commentId: P:ISILab.LBS.LBSLevelData.ContextLayers
+  id: ContextLayers
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: ContextLayers
+  nameWithType: LBSLevelData.ContextLayers
+  fullName: ISILab.LBS.LBSLevelData.ContextLayers
+  type: Property
+  source:
+    id: ContextLayers
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 35
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public List<LBSLayer> ContextLayers { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{LBS.Components.LBSLayer}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property ContextLayers As List(Of LBSLayer)
+  overload: ISILab.LBS.LBSLevelData.ContextLayers*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.LBSLevelData.LayerCount
+  commentId: P:ISILab.LBS.LBSLevelData.LayerCount
+  id: LayerCount
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: LayerCount
+  nameWithType: LBSLevelData.LayerCount
+  fullName: ISILab.LBS.LBSLevelData.LayerCount
+  type: Property
+  source:
+    id: LayerCount
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 38
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public int LayerCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property LayerCount As Integer
+  overload: ISILab.LBS.LBSLevelData.LayerCount*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.LBSLevelData.OnChanged
+  commentId: E:ISILab.LBS.LBSLevelData.OnChanged
+  id: OnChanged
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: OnChanged
+  nameWithType: LBSLevelData.OnChanged
+  fullName: ISILab.LBS.LBSLevelData.OnChanged
+  type: Event
+  source:
+    id: OnChanged
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 43
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public event Action<LBSLevelData> OnChanged
+    return:
+      type: System.Action{ISILab.LBS.LBSLevelData}
+    content.vb: Public Event OnChanged As Action(Of LBSLevelData)
+- uid: ISILab.LBS.LBSLevelData.OnContextChanged
+  commentId: F:ISILab.LBS.LBSLevelData.OnContextChanged
+  id: OnContextChanged
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: OnContextChanged
+  nameWithType: LBSLevelData.OnContextChanged
+  fullName: ISILab.LBS.LBSLevelData.OnContextChanged
+  type: Field
+  source:
+    id: OnContextChanged
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 46
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Action<LBSLayer> OnContextChanged
+    return:
+      type: System.Action{LBS.Components.LBSLayer}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public OnContextChanged As Action(Of LBSLayer)
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.LBSLevelData.OnReload
+  commentId: F:ISILab.LBS.LBSLevelData.OnReload
+  id: OnReload
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: OnReload
+  nameWithType: LBSLevelData.OnReload
+  fullName: ISILab.LBS.LBSLevelData.OnReload
+  type: Field
+  source:
+    id: OnReload
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 49
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Action OnReload
+    return:
+      type: System.Action
+    content.vb: >-
+      <JsonIgnore>
+
+      Public OnReload As Action
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.LBSLevelData.Reload
+  commentId: M:ISILab.LBS.LBSLevelData.Reload
+  id: Reload
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: Reload()
+  nameWithType: LBSLevelData.Reload()
+  fullName: ISILab.LBS.LBSLevelData.Reload()
+  type: Method
+  source:
+    id: Reload
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 54
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public void Reload()
+    content.vb: Public Sub Reload()
+  overload: ISILab.LBS.LBSLevelData.Reload*
+- uid: ISILab.LBS.LBSLevelData.GetLayer(System.Int32)
+  commentId: M:ISILab.LBS.LBSLevelData.GetLayer(System.Int32)
+  id: GetLayer(System.Int32)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: GetLayer(int)
+  nameWithType: LBSLevelData.GetLayer(int)
+  fullName: ISILab.LBS.LBSLevelData.GetLayer(int)
+  type: Method
+  source:
+    id: GetLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 78
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public LBSLayer GetLayer(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public Function GetLayer(index As Integer) As LBSLayer
+  overload: ISILab.LBS.LBSLevelData.GetLayer*
+  nameWithType.vb: LBSLevelData.GetLayer(Integer)
+  fullName.vb: ISILab.LBS.LBSLevelData.GetLayer(Integer)
+  name.vb: GetLayer(Integer)
+- uid: ISILab.LBS.LBSLevelData.GetLayer(System.String)
+  commentId: M:ISILab.LBS.LBSLevelData.GetLayer(System.String)
+  id: GetLayer(System.String)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: GetLayer(string)
+  nameWithType: LBSLevelData.GetLayer(string)
+  fullName: ISILab.LBS.LBSLevelData.GetLayer(string)
+  type: Method
+  source:
+    id: GetLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 90
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  summary: >-
+    Retrieves a representation from the list of layers by its ID
+
+    and returns it. If the representation is not found or an exception
+
+    is thrown, returns null.
+  example: []
+  syntax:
+    content: public LBSLayer GetLayer(string id)
+    parameters:
+    - id: id
+      type: System.String
+      description: The ID of the representation to retrieve
+    return:
+      type: LBS.Components.LBSLayer
+      description: The representation with the specified ID or null
+    content.vb: Public Function GetLayer(id As String) As LBSLayer
+  overload: ISILab.LBS.LBSLevelData.GetLayer*
+  nameWithType.vb: LBSLevelData.GetLayer(String)
+  fullName.vb: ISILab.LBS.LBSLevelData.GetLayer(String)
+  name.vb: GetLayer(String)
+- uid: ISILab.LBS.LBSLevelData.AddLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.LBSLevelData.AddLayer(LBS.Components.LBSLayer)
+  id: AddLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: AddLayer(LBSLayer)
+  nameWithType: LBSLevelData.AddLayer(LBSLayer)
+  fullName: ISILab.LBS.LBSLevelData.AddLayer(LBS.Components.LBSLayer)
+  type: Method
+  source:
+    id: AddLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 109
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  summary: >-
+    Add a new representation, if a representation of
+
+    the type delivered already exists, it overwrites it.
+  example: []
+  syntax:
+    content: public void AddLayer(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+      description: ''
+    content.vb: Public Sub AddLayer(layer As LBSLayer)
+  overload: ISILab.LBS.LBSLevelData.AddLayer*
+- uid: ISILab.LBS.LBSLevelData.RemoveLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.LBSLevelData.RemoveLayer(LBS.Components.LBSLayer)
+  id: RemoveLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: RemoveLayer(LBSLayer)
+  nameWithType: LBSLevelData.RemoveLayer(LBSLayer)
+  fullName: ISILab.LBS.LBSLevelData.RemoveLayer(LBS.Components.LBSLayer)
+  type: Method
+  source:
+    id: RemoveLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 125
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  summary: >-
+    Removes a layer from the list of layers and unsubscribes
+
+    the OnChanged event of the removed layer.
+  example: []
+  syntax:
+    content: public void RemoveLayer(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+      description: The layer to remove
+    content.vb: Public Sub RemoveLayer(layer As LBSLayer)
+  overload: ISILab.LBS.LBSLevelData.RemoveLayer*
+- uid: ISILab.LBS.LBSLevelData.ReplaceLayer(LBS.Components.LBSLayer,LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.LBSLevelData.ReplaceLayer(LBS.Components.LBSLayer,LBS.Components.LBSLayer)
+  id: ReplaceLayer(LBS.Components.LBSLayer,LBS.Components.LBSLayer)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: ReplaceLayer(LBSLayer, LBSLayer)
+  nameWithType: LBSLevelData.ReplaceLayer(LBSLayer, LBSLayer)
+  fullName: ISILab.LBS.LBSLevelData.ReplaceLayer(LBS.Components.LBSLayer, LBS.Components.LBSLayer)
+  type: Method
+  source:
+    id: ReplaceLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 138
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  summary: ''
+  example: []
+  syntax:
+    content: public void ReplaceLayer(LBSLayer oldLayer, LBSLayer newLayer)
+    parameters:
+    - id: oldLayer
+      type: LBS.Components.LBSLayer
+      description: ''
+    - id: newLayer
+      type: LBS.Components.LBSLayer
+      description: ''
+    content.vb: Public Sub ReplaceLayer(oldLayer As LBSLayer, newLayer As LBSLayer)
+  overload: ISILab.LBS.LBSLevelData.ReplaceLayer*
+- uid: ISILab.LBS.LBSLevelData.RemoveAt(System.Int32)
+  commentId: M:ISILab.LBS.LBSLevelData.RemoveAt(System.Int32)
+  id: RemoveAt(System.Int32)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: RemoveAt(int)
+  nameWithType: LBSLevelData.RemoveAt(int)
+  fullName: ISILab.LBS.LBSLevelData.RemoveAt(int)
+  type: Method
+  source:
+    id: RemoveAt
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 151
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  summary: ''
+  example: []
+  syntax:
+    content: public LBSLayer RemoveAt(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: ''
+    return:
+      type: LBS.Components.LBSLayer
+      description: ''
+    content.vb: Public Function RemoveAt(index As Integer) As LBSLayer
+  overload: ISILab.LBS.LBSLevelData.RemoveAt*
+  nameWithType.vb: LBSLevelData.RemoveAt(Integer)
+  fullName.vb: ISILab.LBS.LBSLevelData.RemoveAt(Integer)
+  name.vb: RemoveAt(Integer)
+- uid: ISILab.LBS.LBSLevelData.AddLayerToContext(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.LBSLevelData.AddLayerToContext(LBS.Components.LBSLayer)
+  id: AddLayerToContext(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: AddLayerToContext(LBSLayer)
+  nameWithType: LBSLevelData.AddLayerToContext(LBSLayer)
+  fullName: ISILab.LBS.LBSLevelData.AddLayerToContext(LBS.Components.LBSLayer)
+  type: Method
+  source:
+    id: AddLayerToContext
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 162
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public void AddLayerToContext(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Sub AddLayerToContext(layer As LBSLayer)
+  overload: ISILab.LBS.LBSLevelData.AddLayerToContext*
+- uid: ISILab.LBS.LBSLevelData.RemoveLayerFromContext(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.LBSLevelData.RemoveLayerFromContext(LBS.Components.LBSLayer)
+  id: RemoveLayerFromContext(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: RemoveLayerFromContext(LBSLayer)
+  nameWithType: LBSLevelData.RemoveLayerFromContext(LBSLayer)
+  fullName: ISILab.LBS.LBSLevelData.RemoveLayerFromContext(LBS.Components.LBSLayer)
+  type: Method
+  source:
+    id: RemoveLayerFromContext
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 168
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public bool RemoveLayerFromContext(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    return:
+      type: System.Boolean
+    content.vb: Public Function RemoveLayerFromContext(layer As LBSLayer) As Boolean
+  overload: ISILab.LBS.LBSLevelData.RemoveLayerFromContext*
+- uid: ISILab.LBS.LBSLevelData.SaveMapInLayer(ISILab.LBS.SavedMap,LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.LBSLevelData.SaveMapInLayer(ISILab.LBS.SavedMap,LBS.Components.LBSLayer)
+  id: SaveMapInLayer(ISILab.LBS.SavedMap,LBS.Components.LBSLayer)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: SaveMapInLayer(SavedMap, LBSLayer)
+  nameWithType: LBSLevelData.SaveMapInLayer(SavedMap, LBSLayer)
+  fullName: ISILab.LBS.LBSLevelData.SaveMapInLayer(ISILab.LBS.SavedMap, LBS.Components.LBSLayer)
+  type: Method
+  source:
+    id: SaveMapInLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 181
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public void SaveMapInLayer(SavedMap newSavedMap, LBSLayer layer)
+    parameters:
+    - id: newSavedMap
+      type: ISILab.LBS.SavedMap
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Sub SaveMapInLayer(newSavedMap As SavedMap, layer As LBSLayer)
+  overload: ISILab.LBS.LBSLevelData.SaveMapInLayer*
+- uid: ISILab.LBS.LBSLevelData.GetSavedMaps(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.LBSLevelData.GetSavedMaps(LBS.Components.LBSLayer)
+  id: GetSavedMaps(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: GetSavedMaps(LBSLayer)
+  nameWithType: LBSLevelData.GetSavedMaps(LBSLayer)
+  fullName: ISILab.LBS.LBSLevelData.GetSavedMaps(LBS.Components.LBSLayer)
+  type: Method
+  source:
+    id: GetSavedMaps
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 208
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public SavedMapList GetSavedMaps(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    return:
+      type: ISILab.LBS.SavedMapList
+    content.vb: Public Function GetSavedMaps(layer As LBSLayer) As SavedMapList
+  overload: ISILab.LBS.LBSLevelData.GetSavedMaps*
+- uid: ISILab.LBS.LBSLevelData.Equals(System.Object)
+  commentId: M:ISILab.LBS.LBSLevelData.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: LBSLevelData.Equals(object)
+  fullName: ISILab.LBS.LBSLevelData.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 218
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ISILab.LBS.LBSLevelData.Equals*
+  nameWithType.vb: LBSLevelData.Equals(Object)
+  fullName.vb: ISILab.LBS.LBSLevelData.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ISILab.LBS.LBSLevelData.GetHashCode
+  commentId: M:ISILab.LBS.LBSLevelData.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: LBSLevelData.GetHashCode()
+  fullName: ISILab.LBS.LBSLevelData.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 244
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ISILab.LBS.LBSLevelData.GetHashCode*
+- uid: ISILab.LBS.LBSLevelData.ToString
+  commentId: M:ISILab.LBS.LBSLevelData.ToString
+  id: ToString
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: LBSLevelData.ToString()
+  fullName: ISILab.LBS.LBSLevelData.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 249
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ISILab.LBS.LBSLevelData.ToString*
+- uid: ISILab.LBS.LBSLevelData.GetInteriorLayer
+  commentId: M:ISILab.LBS.LBSLevelData.GetInteriorLayer
+  id: GetInteriorLayer
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: GetInteriorLayer()
+  nameWithType: LBSLevelData.GetInteriorLayer()
+  fullName: ISILab.LBS.LBSLevelData.GetInteriorLayer()
+  type: Method
+  source:
+    id: GetInteriorLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 254
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public LBSLayer GetInteriorLayer()
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public Function GetInteriorLayer() As LBSLayer
+  overload: ISILab.LBS.LBSLevelData.GetInteriorLayer*
+- uid: ISILab.LBS.LBSLevelData.GetExteriorLayer
+  commentId: M:ISILab.LBS.LBSLevelData.GetExteriorLayer
+  id: GetExteriorLayer
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: GetExteriorLayer()
+  nameWithType: LBSLevelData.GetExteriorLayer()
+  fullName: ISILab.LBS.LBSLevelData.GetExteriorLayer()
+  type: Method
+  source:
+    id: GetExteriorLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 259
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public LBSLayer GetExteriorLayer()
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public Function GetExteriorLayer() As LBSLayer
+  overload: ISILab.LBS.LBSLevelData.GetExteriorLayer*
+- uid: ISILab.LBS.LBSLevelData.GetPopulationLayer
+  commentId: M:ISILab.LBS.LBSLevelData.GetPopulationLayer
+  id: GetPopulationLayer
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: GetPopulationLayer()
+  nameWithType: LBSLevelData.GetPopulationLayer()
+  fullName: ISILab.LBS.LBSLevelData.GetPopulationLayer()
+  type: Method
+  source:
+    id: GetPopulationLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 264
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public LBSLayer GetPopulationLayer()
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public Function GetPopulationLayer() As LBSLayer
+  overload: ISILab.LBS.LBSLevelData.GetPopulationLayer*
+- uid: ISILab.LBS.LBSLevelData.GetSimulationLayer
+  commentId: M:ISILab.LBS.LBSLevelData.GetSimulationLayer
+  id: GetSimulationLayer
+  parent: ISILab.LBS.LBSLevelData
+  langs:
+  - csharp
+  - vb
+  name: GetSimulationLayer()
+  nameWithType: LBSLevelData.GetSimulationLayer()
+  fullName: ISILab.LBS.LBSLevelData.GetSimulationLayer()
+  type: Method
+  source:
+    id: GetSimulationLayer
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLevelData.cs
+    startLine: 268
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: public LBSLayer GetSimulationLayer()
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: Public Function GetSimulationLayer() As LBSLayer
+  overload: ISILab.LBS.LBSLevelData.GetSimulationLayer*
+references:
+- uid: ISILab.LBS
+  commentId: N:ISILab.LBS
+  href: ISILab.html
+  name: ISILab.LBS
+  nameWithType: ISILab.LBS
+  fullName: ISILab.LBS
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{ISILab.LBS.SavedMapList}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.SavedMapList}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<SavedMapList>
+  nameWithType: List<SavedMapList>
+  fullName: System.Collections.Generic.List<ISILab.LBS.SavedMapList>
+  nameWithType.vb: List(Of SavedMapList)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.SavedMapList)
+  name.vb: List(Of SavedMapList)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.SavedMapList
+    name: SavedMapList
+    href: ISILab.LBS.SavedMapList.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.SavedMapList
+    name: SavedMapList
+    href: ISILab.LBS.SavedMapList.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{LBS.Components.LBSLayer}
+  commentId: T:System.Collections.Generic.List{LBS.Components.LBSLayer}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSLayer>
+  nameWithType: List<LBSLayer>
+  fullName: System.Collections.Generic.List<LBS.Components.LBSLayer>
+  nameWithType.vb: List(Of LBSLayer)
+  fullName.vb: System.Collections.Generic.List(Of LBS.Components.LBSLayer)
+  name.vb: List(Of LBSLayer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: ISILab.LBS.LBSLevelData.Layers*
+  commentId: Overload:ISILab.LBS.LBSLevelData.Layers
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_Layers
+  name: Layers
+  nameWithType: LBSLevelData.Layers
+  fullName: ISILab.LBS.LBSLevelData.Layers
+- uid: ISILab.LBS.LBSLevelData.Quests*
+  commentId: Overload:ISILab.LBS.LBSLevelData.Quests
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_Quests
+  name: Quests
+  nameWithType: LBSLevelData.Quests
+  fullName: ISILab.LBS.LBSLevelData.Quests
+- uid: ISILab.LBS.LBSLevelData.SavedLayerMaps*
+  commentId: Overload:ISILab.LBS.LBSLevelData.SavedLayerMaps
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_SavedLayerMaps
+  name: SavedLayerMaps
+  nameWithType: LBSLevelData.SavedLayerMaps
+  fullName: ISILab.LBS.LBSLevelData.SavedLayerMaps
+- uid: ISILab.LBS.LBSLevelData.ContextLayers*
+  commentId: Overload:ISILab.LBS.LBSLevelData.ContextLayers
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_ContextLayers
+  name: ContextLayers
+  nameWithType: LBSLevelData.ContextLayers
+  fullName: ISILab.LBS.LBSLevelData.ContextLayers
+- uid: ISILab.LBS.LBSLevelData.LayerCount*
+  commentId: Overload:ISILab.LBS.LBSLevelData.LayerCount
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_LayerCount
+  name: LayerCount
+  nameWithType: LBSLevelData.LayerCount
+  fullName: ISILab.LBS.LBSLevelData.LayerCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Action{ISILab.LBS.LBSLevelData}
+  commentId: T:System.Action{ISILab.LBS.LBSLevelData}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<LBSLevelData>
+  nameWithType: Action<LBSLevelData>
+  fullName: System.Action<ISILab.LBS.LBSLevelData>
+  nameWithType.vb: Action(Of LBSLevelData)
+  fullName.vb: System.Action(Of ISILab.LBS.LBSLevelData)
+  name.vb: Action(Of LBSLevelData)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: ISILab.LBS.LBSLevelData
+    name: LBSLevelData
+    href: ISILab.LBS.LBSLevelData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.LBSLevelData
+    name: LBSLevelData
+    href: ISILab.LBS.LBSLevelData.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action{LBS.Components.LBSLayer}
+  commentId: T:System.Action{LBS.Components.LBSLayer}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<LBSLayer>
+  nameWithType: Action<LBSLayer>
+  fullName: System.Action<LBS.Components.LBSLayer>
+  nameWithType.vb: Action(Of LBSLayer)
+  fullName.vb: System.Action(Of LBS.Components.LBSLayer)
+  name.vb: Action(Of LBSLayer)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LBS.Components.LBSLayer
+    name: LBSLayer
+    href: LBS.Components.LBSLayer.html
+  - name: )
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.LBSLevelData.Reload*
+  commentId: Overload:ISILab.LBS.LBSLevelData.Reload
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_Reload
+  name: Reload
+  nameWithType: LBSLevelData.Reload
+  fullName: ISILab.LBS.LBSLevelData.Reload
+- uid: ISILab.LBS.LBSLevelData.GetLayer*
+  commentId: Overload:ISILab.LBS.LBSLevelData.GetLayer
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_GetLayer_System_Int32_
+  name: GetLayer
+  nameWithType: LBSLevelData.GetLayer
+  fullName: ISILab.LBS.LBSLevelData.GetLayer
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.LBSLevelData.AddLayer*
+  commentId: Overload:ISILab.LBS.LBSLevelData.AddLayer
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_AddLayer_LBS_Components_LBSLayer_
+  name: AddLayer
+  nameWithType: LBSLevelData.AddLayer
+  fullName: ISILab.LBS.LBSLevelData.AddLayer
+- uid: ISILab.LBS.LBSLevelData.RemoveLayer*
+  commentId: Overload:ISILab.LBS.LBSLevelData.RemoveLayer
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_RemoveLayer_LBS_Components_LBSLayer_
+  name: RemoveLayer
+  nameWithType: LBSLevelData.RemoveLayer
+  fullName: ISILab.LBS.LBSLevelData.RemoveLayer
+- uid: ISILab.LBS.LBSLevelData.ReplaceLayer*
+  commentId: Overload:ISILab.LBS.LBSLevelData.ReplaceLayer
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_ReplaceLayer_LBS_Components_LBSLayer_LBS_Components_LBSLayer_
+  name: ReplaceLayer
+  nameWithType: LBSLevelData.ReplaceLayer
+  fullName: ISILab.LBS.LBSLevelData.ReplaceLayer
+- uid: ISILab.LBS.LBSLevelData.RemoveAt*
+  commentId: Overload:ISILab.LBS.LBSLevelData.RemoveAt
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_RemoveAt_System_Int32_
+  name: RemoveAt
+  nameWithType: LBSLevelData.RemoveAt
+  fullName: ISILab.LBS.LBSLevelData.RemoveAt
+- uid: ISILab.LBS.LBSLevelData.AddLayerToContext*
+  commentId: Overload:ISILab.LBS.LBSLevelData.AddLayerToContext
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_AddLayerToContext_LBS_Components_LBSLayer_
+  name: AddLayerToContext
+  nameWithType: LBSLevelData.AddLayerToContext
+  fullName: ISILab.LBS.LBSLevelData.AddLayerToContext
+- uid: ISILab.LBS.LBSLevelData.RemoveLayerFromContext*
+  commentId: Overload:ISILab.LBS.LBSLevelData.RemoveLayerFromContext
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_RemoveLayerFromContext_LBS_Components_LBSLayer_
+  name: RemoveLayerFromContext
+  nameWithType: LBSLevelData.RemoveLayerFromContext
+  fullName: ISILab.LBS.LBSLevelData.RemoveLayerFromContext
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.LBSLevelData.SaveMapInLayer*
+  commentId: Overload:ISILab.LBS.LBSLevelData.SaveMapInLayer
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_SaveMapInLayer_ISILab_LBS_SavedMap_LBS_Components_LBSLayer_
+  name: SaveMapInLayer
+  nameWithType: LBSLevelData.SaveMapInLayer
+  fullName: ISILab.LBS.LBSLevelData.SaveMapInLayer
+- uid: ISILab.LBS.SavedMap
+  commentId: T:ISILab.LBS.SavedMap
+  parent: ISILab.LBS
+  href: ISILab.LBS.SavedMap.html
+  name: SavedMap
+  nameWithType: SavedMap
+  fullName: ISILab.LBS.SavedMap
+- uid: ISILab.LBS.LBSLevelData.GetSavedMaps*
+  commentId: Overload:ISILab.LBS.LBSLevelData.GetSavedMaps
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_GetSavedMaps_LBS_Components_LBSLayer_
+  name: GetSavedMaps
+  nameWithType: LBSLevelData.GetSavedMaps
+  fullName: ISILab.LBS.LBSLevelData.GetSavedMaps
+- uid: ISILab.LBS.SavedMapList
+  commentId: T:ISILab.LBS.SavedMapList
+  parent: ISILab.LBS
+  href: ISILab.LBS.SavedMapList.html
+  name: SavedMapList
+  nameWithType: SavedMapList
+  fullName: ISILab.LBS.SavedMapList
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.LBSLevelData.Equals*
+  commentId: Overload:ISILab.LBS.LBSLevelData.Equals
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_Equals_System_Object_
+  name: Equals
+  nameWithType: LBSLevelData.Equals
+  fullName: ISILab.LBS.LBSLevelData.Equals
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.LBSLevelData.GetHashCode*
+  commentId: Overload:ISILab.LBS.LBSLevelData.GetHashCode
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_GetHashCode
+  name: GetHashCode
+  nameWithType: LBSLevelData.GetHashCode
+  fullName: ISILab.LBS.LBSLevelData.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ISILab.LBS.LBSLevelData.ToString*
+  commentId: Overload:ISILab.LBS.LBSLevelData.ToString
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_ToString
+  name: ToString
+  nameWithType: LBSLevelData.ToString
+  fullName: ISILab.LBS.LBSLevelData.ToString
+- uid: ISILab.LBS.LBSLevelData.GetInteriorLayer*
+  commentId: Overload:ISILab.LBS.LBSLevelData.GetInteriorLayer
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_GetInteriorLayer
+  name: GetInteriorLayer
+  nameWithType: LBSLevelData.GetInteriorLayer
+  fullName: ISILab.LBS.LBSLevelData.GetInteriorLayer
+- uid: ISILab.LBS.LBSLevelData.GetExteriorLayer*
+  commentId: Overload:ISILab.LBS.LBSLevelData.GetExteriorLayer
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_GetExteriorLayer
+  name: GetExteriorLayer
+  nameWithType: LBSLevelData.GetExteriorLayer
+  fullName: ISILab.LBS.LBSLevelData.GetExteriorLayer
+- uid: ISILab.LBS.LBSLevelData.GetPopulationLayer*
+  commentId: Overload:ISILab.LBS.LBSLevelData.GetPopulationLayer
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_GetPopulationLayer
+  name: GetPopulationLayer
+  nameWithType: LBSLevelData.GetPopulationLayer
+  fullName: ISILab.LBS.LBSLevelData.GetPopulationLayer
+- uid: ISILab.LBS.LBSLevelData.GetSimulationLayer*
+  commentId: Overload:ISILab.LBS.LBSLevelData.GetSimulationLayer
+  href: ISILab.LBS.LBSLevelData.html#ISILab_LBS_LBSLevelData_GetSimulationLayer
+  name: GetSimulationLayer
+  nameWithType: LBSLevelData.GetSimulationLayer
+  fullName: ISILab.LBS.LBSLevelData.GetSimulationLayer
+shouldSkipMarkup: true

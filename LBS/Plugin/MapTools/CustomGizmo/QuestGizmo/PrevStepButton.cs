@@ -1,4 +1,3 @@
-using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.LBS.VisualElements;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -40,9 +39,11 @@ namespace ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo
             };
 
             // Copy USS style classes
-            foreach (string className in buttonTemplate.GetClasses()) ButtonElement.AddToClassList(className);
+            foreach (string className in buttonTemplate.GetClasses()) 
+                ButtonElement.AddToClassList(className);
             
-            ButtonElement.clicked += () => questBarView.OnPrevStepClicked(trigger);
+            ButtonElement.clicked += () 
+                => QuestBarView.SelectTriggerGameObject(trigger);
             
             // Add button to this GraphElement
             Add(ButtonElement);

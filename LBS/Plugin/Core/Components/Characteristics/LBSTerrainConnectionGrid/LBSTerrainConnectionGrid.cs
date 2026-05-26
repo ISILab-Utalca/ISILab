@@ -9,42 +9,72 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Characteristics
 {
+    /// <summary>
+    /// The main class handling the 'Terrain Connection Grid' sorting characteristic. <br/> 
+    /// A Connection Grid allows its respective bundle to flag their assets' 
+    /// possible connections individually, allowing consistent pattern generation.
+    /// </summary>
     [System.Serializable]
-    //[LBSCharacteristic("Connection Grid", "")]
     public class LBSTerrainConnectionGrid : LBSCharacteristic, ICloneable
     {
-        //Dictionary<Asset, AssetConnectionGrid> gridList = new Dictionary<Asset, AssetConnectionGrid>();
+        /// <summary>
+        /// A list of all 'Asset-Connection Grids' stored in this characteristic.
+        /// </summary>
         [SerializeField, JsonRequired]
         List<AssetConnectionGrid> gridList = new List<AssetConnectionGrid>();
-
-        //Dictionary<int, UnityEngine.Color> flagColorPalette = new Dictionary<int, UnityEngine.Color>();
+        /// <summary>
+        /// A list of every color handled in this characteristic's color palette.
+        /// </summary>
         [SerializeField, JsonRequired]
-        //List<KeyValuePair<int, Color>> colorPalette = new List<KeyValuePair<int, UnityEngine.Color>>();
         List<UnityEngine.Color> colorPalette = new List<UnityEngine.Color>();
+        /// <summary>
+        /// A list storing the ID of every color handled in this characteristic's color palette. 
+        /// </summary>
         [SerializeField, JsonRequired]
         List<int> colorPaletteID = new List<int>();
-        //List<UnityEngine.Color> colorPalette = new List<UnityEngine.Color>();
-
+        /// <summary>
+        /// The size of the 'Asset-Connection Grid' handled for each asset in the bundle. <br/>
+        /// <b>NOTE</b>: Currently, grids have a locked size of 9, which cannot be manually modified. It currently does not work with different sizes.
+        /// </summary>
         [SerializeField, JsonRequired]
         int gridSize = 9;
-
+        /// <summary>
+        /// The ID of the characteristic's default asset. This asset will be generated when no legal connections are found in a particular tile.
+        /// </summary>
         [SerializeField, JsonRequired]
         int defaultAsset = 0;
 
         #region PROPERTIES
+        /// <summary>
+        /// Points to the current assets stored in this characteristic's bundle. This list is used to assign each asset a corresponding blank 'Asset-Connection Grid'
+        /// on generation of the characteristic.
+        /// </summary>
         [JsonIgnore]
         public List<Asset> Assets
         {
             get => Owner.Assets;
         }
-
+        /// <summary>
+        /// Pointer to the 'Asset-Connection Grid' list.
+        /// </summary>
         [JsonIgnore]
         public List<AssetConnectionGrid> GridList => gridList;
+        /// <summary>
+        /// Pointer to the 'Asset-Connection Grid' size variable.
+        /// </summary>
         public int GridSize => gridSize;
+        /// <summary>
+        /// Pointer to the characteristic's color palette.
+        /// </summary>
         [JsonIgnore]
         public List<UnityEngine.Color> ColorPalette => colorPalette;
+        /// <summary>
+        /// Pointer to the characteristic's color palette ID list.
+        /// </summary>
         public List<int> ColorPaletteID => colorPaletteID;
-
+        /// <summary>
+        /// Pointer to the characteristic's default asset to generate.
+        /// </summary>
         public int DefaultAsset
         {
             get => defaultAsset;
@@ -53,36 +83,58 @@ namespace ISILab.LBS.Characteristics
         #endregion
 
         #region CONSTRUCTOR
-        public LBSTerrainConnectionGrid(int gSize = 9) {
-            gridSize = gSize;
-        }
-
+        /// <summary>
+        /// Empty constructor. Necessary for the manipulation of the characteristic in Visual Elements.
+        /// </summary>
         public LBSTerrainConnectionGrid() : base()
         {
         }
+        /// <summary>
+        /// Alternative constructor with modifiable grid size.
+        /// <b>NOTE</b>: Unused. Only the empty constructor is used.
+        /// </summary>
+        public LBSTerrainConnectionGrid(int gSize = 9)
+        {
+            gridSize = gSize;
+        }
         #endregion
-
+        
         #region METHODS - COLORS
-    
+        /// <summary>
+        /// Adds a new color ID to the grid's color palette. It is simultaneously added to both the color palette and the color ID palette.
+        /// </summary>
+        /// <param name="id">The ID of the new color.</param>
+        /// <param name="color">The new color assigned.</param>
         public void AddColor(int id, UnityEngine.Color color)
         {
             if (ColorExists(id)) return;
             colorPalette.Add(color);
             colorPaletteID.Add(id);
         }
-
+        /// <summary>
+        /// Removes a color ID. It uses the provided ID to simultaneously remove it from the color ID palette and the color palette.
+        /// </summary>
+        /// <param name="id">The ID of the color to remove.</param>
         public void RemoveColor(int id)
         {
             if (!ColorExists(id)) return;
             colorPalette.Remove(FindColor(id));
             colorPaletteID.Remove(id);
         }
-
+        /// <summary>
+        /// Checks if a color exists on the provided ID.
+        /// </summary>
+        /// <param name="id">The ID to search.</param>
+        /// <returns><c>true</c> if the the ID succesfully returns a color in the color ID palette. <c>false</c> otherwise.</returns>
         public bool ColorExists(int id)
         {
             return colorPaletteID.Any(c => c == id);
         }
-
+        /// <summary>
+        /// Returns a color in the color palette as per a provided ID.
+        /// </summary>
+        /// <param name="id">The ID to search.</param>
+        /// <returns>The color in the same slot as the searched color ID. Returns <c>null</c> if it doesn't exist.</returns>
         public UnityEngine.Color FindColor(int id)
         {
             return ColorPalette[colorPaletteID.IndexOf(id)];
@@ -91,6 +143,10 @@ namespace ISILab.LBS.Characteristics
         #endregion
 
         #region METHODS - GRIDS
+        /// <summary>
+        /// Sets the individual ID of every asset in the bundle if it doesn't exist. This allows the 'Terrain Connection Grid' Editor to properly differentiate
+        /// between different iterations of the exact same asset within the bundle without modifications required.
+        /// </summary>
         public void Init()
         {
             foreach (Asset asset in Assets)
@@ -98,18 +154,30 @@ namespace ISILab.LBS.Characteristics
                 if (asset.id == null) asset.SetID();
             }
         }
-
+        /// <summary>
+        /// Obtains a particular 'Asset-Connection Grid' by looking for its asset reference.
+        /// </summary>
+        /// <param name="asset">The asset to be searched.</param>
+        /// <returns>Returns the first Asset-Connection Grid that contains the given asset. Returns <c>null</c> otherwise.</returns>
         public AssetConnectionGrid GetGrid(Asset asset)
         {
             var match = gridList.Find(c => c.AssetReference.Equals(asset));
             return match;
         }
-
+        /// <summary>
+        /// Obtains multiple 'Asset-Connection Grids' by looking for a particular asset reference.
+        /// </summary>
+        /// <param name="asset">The asset to be searched.</param>
+        /// <returns>Returns a list of every Asset-Connection Grid that contains the given asset. The list may be empty.</returns>
         public List<AssetConnectionGrid> GetGrids(Asset asset)
         {
             return gridList.FindAll(c => c.AssetReference.Equals(asset));
         }
-
+        /// <summary>
+        /// Obtains a particular 'Asset-Connection Grid' by looking for a GameObject. The object is initially searched on the bundle's asset list.
+        /// </summary>
+        /// <param name="obj">The GameObject to find.</param>
+        /// <returns>Returns the first Asset-Connection Grid that contains the given GameObject (inside of an asset). Returns <c>null</c> otherwise.</returns>
         public AssetConnectionGrid GetGrid(GameObject obj) => GetGrid(Assets.Find(c => c.obj == obj));
 
         public void SetGridSize(int gSize)
@@ -120,7 +188,12 @@ namespace ISILab.LBS.Characteristics
                 grid.TerrainFlag = new int[gSize];
             }
         }
-
+        /// <summary>
+        /// Creates a new Grid List for the characteristic, then automatically populates it according to the bundle's Asset list. <br/>
+        /// To populate the Grid List, it individally checks every available Asset, then checks if an 'Asset-Connection Grid' exists for it. If multiple
+        /// grids exist for the same asset, these are chequed in sequence and added accordingly. If no grid is found for a particular asset, 
+        /// a blank grid is created.
+        /// </summary>
         public void UpdateGridList()
         {
             if (gridList == null) gridList = new List<AssetConnectionGrid>();
@@ -155,12 +228,20 @@ namespace ISILab.LBS.Characteristics
         #endregion
 
         #region METHODS - OTHER
-
+        /// <summary>
+        /// Unimplemented.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public override object Clone()
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Compares two 'Terrain Connection Grids'.
+        /// </summary>
+        /// <param name="obj">The object to compare to this.</param>
+        /// <returns><c>true</c> if the objects equal each other. <c>false</c> otherwise.</returns>
         public override bool Equals(object obj)
         {
             var other = obj as LBSTerrainConnectionGrid;
@@ -188,12 +269,19 @@ namespace ISILab.LBS.Characteristics
             }
             return true;
         }
-
+        /// <summary>
+        /// Obtains the hash code of the object.
+        /// </summary>
+        /// <returns>Returns hash code.</returns>
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
 
+        /// <summary>
+        /// Validates the object and checks if it was correctly created and initialized.
+        /// </summary>
+        /// <returns>Returns a list of warnings if any discrepances are found.</returns>
         public override List<string> Validate()
         {
             List<string> warnings = new List<string>();

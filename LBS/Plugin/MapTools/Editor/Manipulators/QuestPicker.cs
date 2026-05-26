@@ -1,13 +1,15 @@
-using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.UI.Editor;
+using ISILab.LBS.VisualElements;
 using LBS.Components;
+using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using System;
-using ISILab.LBS.Macros;
-using UnityEditor;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -79,6 +81,12 @@ namespace ISILab.LBS.Manipulators
                     if (foundTile is not null)
                     {
                         OnBundlePicked?.Invoke(foundTile.Item1, foundTile.Item2);
+
+                        var TileGraphElements = MainView.Instance.GetElementsFromLayer(foundTile.Item1, foundTile.Item2.LocationKey);
+                        if(TileGraphElements != null && TileGraphElements.Count > 0)
+                        {
+                            LBSFocusHighlight.Highlight(TileGraphElements[0]);
+                        }
                         // If a new bundle is added try to resize (only implement if using bundleGraph field)
                         ActiveData.Resize();
                     }

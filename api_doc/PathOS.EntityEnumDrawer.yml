@@ -1,0 +1,130 @@
+### YamlMime:ManagedReference
+items:
+- uid: PathOS.EntityEnumDrawer
+  commentId: T:PathOS.EntityEnumDrawer
+  id: EntityEnumDrawer
+  parent: PathOS
+  children:
+  - PathOS.EntityEnumDrawer.#ctor
+  - PathOS.EntityEnumDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  langs:
+  - csharp
+  - vb
+  name: EntityEnumDrawer
+  nameWithType: EntityEnumDrawer
+  fullName: PathOS.EntityEnumDrawer
+  type: Class
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: 'public class EntityEnumDrawer : PropertyDrawer'
+    content.vb: Public Class EntityEnumDrawer Inherits PropertyDrawer
+  inheritance:
+  - System.Object
+- uid: PathOS.EntityEnumDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  commentId: M:PathOS.EntityEnumDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  id: OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)
+  parent: PathOS.EntityEnumDrawer
+  langs:
+  - csharp
+  - vb
+  name: OnGUI(Rect, SerializedProperty, GUIContent)
+  nameWithType: EntityEnumDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+  fullName: PathOS.EntityEnumDrawer.OnGUI(UnityEngine.Rect, UnityEditor.SerializedProperty, UnityEngine.GUIContent)
+  type: Method
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  example: []
+  syntax:
+    content: public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    parameters:
+    - id: position
+      type: UnityEngine.Rect
+    - id: property
+      type: UnityEditor.SerializedProperty
+    - id: label
+      type: UnityEngine.GUIContent
+    content.vb: Public Overrides Sub OnGUI(position As Rect, [property] As SerializedProperty, label As GUIContent)
+  overload: PathOS.EntityEnumDrawer.OnGUI*
+- uid: PathOS.EntityEnumDrawer.#ctor
+  commentId: M:PathOS.EntityEnumDrawer.#ctor
+  id: '#ctor'
+  parent: PathOS.EntityEnumDrawer
+  langs:
+  - csharp
+  - vb
+  name: EntityEnumDrawer()
+  nameWithType: EntityEnumDrawer.EntityEnumDrawer()
+  fullName: PathOS.EntityEnumDrawer.EntityEnumDrawer()
+  type: Constructor
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public EntityEnumDrawer()
+    content.vb: Public Sub New()
+  overload: PathOS.EntityEnumDrawer.#ctor*
+  nameWithType.vb: EntityEnumDrawer.New()
+  fullName.vb: PathOS.EntityEnumDrawer.New()
+  name.vb: New()
+references:
+- uid: PathOS
+  commentId: N:PathOS
+  isExternal: true
+  href: PathOS.html
+  name: PathOS
+  nameWithType: PathOS
+  fullName: PathOS
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PathOS.EntityEnumDrawer.OnGUI*
+  commentId: Overload:PathOS.EntityEnumDrawer.OnGUI
+  isExternal: true
+  href: PathOS.EntityEnumDrawer.html#PathOS_EntityEnumDrawer_OnGUI_UnityEngine_Rect_UnityEditor_SerializedProperty_UnityEngine_GUIContent_
+  name: OnGUI
+  nameWithType: EntityEnumDrawer.OnGUI
+  fullName: PathOS.EntityEnumDrawer.OnGUI
+- uid: UnityEngine.Rect
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: UnityEditor.SerializedProperty
+  isExternal: true
+  name: SerializedProperty
+  nameWithType: SerializedProperty
+  fullName: UnityEditor.SerializedProperty
+- uid: UnityEngine.GUIContent
+  isExternal: true
+  name: GUIContent
+  nameWithType: GUIContent
+  fullName: UnityEngine.GUIContent
+- uid: PathOS.EntityEnumDrawer.#ctor*
+  commentId: Overload:PathOS.EntityEnumDrawer.#ctor
+  isExternal: true
+  href: PathOS.EntityEnumDrawer.html#PathOS_EntityEnumDrawer__ctor
+  name: EntityEnumDrawer
+  nameWithType: EntityEnumDrawer.EntityEnumDrawer
+  fullName: PathOS.EntityEnumDrawer.EntityEnumDrawer
+  nameWithType.vb: EntityEnumDrawer.New
+  fullName.vb: PathOS.EntityEnumDrawer.New
+  name.vb: New
+shouldSkipMarkup: true

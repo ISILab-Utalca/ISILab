@@ -1,0 +1,264 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
+  id: IAssistantThreaded
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant
+  children:
+  - ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.CheckPendingCancel(System.Object,System.Threading.CancellationToken)
+  - ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled
+  langs:
+  - csharp
+  - vb
+  name: IAssistantThreaded
+  nameWithType: IAssistantThreaded
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
+  type: Interface
+  source:
+    id: IAssistantThreaded
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\IAssistantThreaded.cs
+    startLine: 5
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  syntax:
+    content: public interface IAssistantThreaded
+    content.vb: Public Interface IAssistantThreaded
+  derivedClasses:
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantWFC
+  - ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant
+  - ISILab.LBS.Plugin.Core.AI.Optimization.GeneticAlgorithm
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled
+  id: OnTaskCancelled
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
+  langs:
+  - csharp
+  - vb
+  name: OnTaskCancelled()
+  nameWithType: IAssistantThreaded.OnTaskCancelled()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled()
+  type: Method
+  source:
+    id: OnTaskCancelled
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\IAssistantThreaded.cs
+    startLine: 10
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  summary: Call whenever the cancel token is requesting the cancellation
+  example: []
+  syntax:
+    content: void OnTaskCancelled()
+    content.vb: Sub OnTaskCancelled()
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled*
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.CheckPendingCancel(System.Object,System.Threading.CancellationToken)
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.CheckPendingCancel(System.Object,System.Threading.CancellationToken)
+  id: CheckPendingCancel(System.Object,System.Threading.CancellationToken)
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
+  langs:
+  - csharp
+  - vb
+  name: CheckPendingCancel(object, CancellationToken)
+  nameWithType: IAssistantThreaded.CheckPendingCancel(object, CancellationToken)
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.CheckPendingCancel(object, System.Threading.CancellationToken)
+  type: Method
+  source:
+    id: CheckPendingCancel
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\IAssistantThreaded.cs
+    startLine: 31
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
+  summary: >-
+    Checks if the provided cancellation token has been triggered, and if so,
+
+    automatically calls the <xref href="ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled" data-throw-if-not-resolved="false"></xref> implementation.
+  remarks: >-
+    Use this method like:
+
+    <pre><code class="lang-csharp">if(((IAssistantThreaded)this).CheckPendingCancel(this, token))
+
+    {
+      return;
+    }</code></pre>
+
+    All logic for handling cancellation should reside within the 
+
+    <xref href="ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled" data-throw-if-not-resolved="false"></xref> implementation.
+  example: []
+  syntax:
+    content: bool CheckPendingCancel(object InterfaceOwner, CancellationToken cancellationToken)
+    parameters:
+    - id: InterfaceOwner
+      type: System.Object
+      description: The class instance implementing <xref href="ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded" data-throw-if-not-resolved="false"></xref> where the token check is performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> associated with the current task.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the token was cancelled and <xref href="ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled" data-throw-if-not-resolved="false"></xref> was invoked; otherwise <code>false</code>.
+    content.vb: Function CheckPendingCancel(InterfaceOwner As Object, cancellationToken As CancellationToken) As Boolean
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.CheckPendingCancel*
+  nameWithType.vb: IAssistantThreaded.CheckPendingCancel(Object, CancellationToken)
+  fullName.vb: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.CheckPendingCancel(Object, System.Threading.CancellationToken)
+  name.vb: CheckPendingCancel(Object, CancellationToken)
+references:
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Assistant
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Assistant
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Assistant
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.html#ISILab_LBS_Plugin_Core_AI_Assistant_IAssistantThreaded_OnTaskCancelled
+  name: OnTaskCancelled
+  nameWithType: IAssistantThreaded.OnTaskCancelled
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.html#ISILab_LBS_Plugin_Core_AI_Assistant_IAssistantThreaded_OnTaskCancelled
+  name: OnTaskCancelled()
+  nameWithType: IAssistantThreaded.OnTaskCancelled()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled()
+  spec.csharp:
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled
+    name: OnTaskCancelled
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.html#ISILab_LBS_Plugin_Core_AI_Assistant_IAssistantThreaded_OnTaskCancelled
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.OnTaskCancelled
+    name: OnTaskCancelled
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.html#ISILab_LBS_Plugin_Core_AI_Assistant_IAssistantThreaded_OnTaskCancelled
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.html
+  name: IAssistantThreaded
+  nameWithType: IAssistantThreaded
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.CheckPendingCancel*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.CheckPendingCancel
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.html#ISILab_LBS_Plugin_Core_AI_Assistant_IAssistantThreaded_CheckPendingCancel_System_Object_System_Threading_CancellationToken_
+  name: CheckPendingCancel
+  nameWithType: IAssistantThreaded.CheckPendingCancel
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded.CheckPendingCancel
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+shouldSkipMarkup: true

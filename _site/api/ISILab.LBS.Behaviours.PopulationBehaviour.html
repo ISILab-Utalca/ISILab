@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PopulationBehaviour | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PopulationBehaviour | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ISILab.LBS.Behaviours.PopulationBehaviour">
+
+
+
+  <h1 id="ISILab_LBS_Behaviours_PopulationBehaviour" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour" class="text-break">
+Class PopulationBehaviour  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ISILab.html">ISILab</a>.<a class="xref" href="ISILab.LBS.html">LBS</a>.<a class="xref" href="ISILab.LBS.Behaviours.html">Behaviours</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[RequieredModule(new Type[] { typeof(TileMapModule), typeof(BundleTileMap) })]
+public class PopulationBehaviour : LBSBehaviour, ICloneable, IBlueprintable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html">LBSBehaviour</a></div>
+      <div><span class="xref">PopulationBehaviour</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
+      <div><a class="xref" href="ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint.IBlueprintable.html">IBlueprintable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_visible">LBSBehaviour.visible</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_GetRequiredModules">LBSBehaviour.GetRequiredModules()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTilePaint_System_Object_">LBSBehaviour.RequestTilePaint(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestTileRemove_System_Object_">LBSBehaviour.RequestTileRemove(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveNewTiles">LBSBehaviour.RetrieveNewTiles()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_UpdateKeys_System_Collections_Generic_List_System_Object__">LBSBehaviour.UpdateKeys(List&lt;object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnOnBehaviourUpdated_System_Object_">LBSBehaviour.OnOnBehaviourUpdated(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RequestFullRepaint__1_System_Collections_Generic_List___0__System_Collections_Generic_List___0__">LBSBehaviour.RequestFullRepaint&lt;T&gt;(List&lt;T&gt;, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_ColorTint">LBSBehaviour.ColorTint</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OwnerLayer">LBSBehaviour.OwnerLayer</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Icon">LBSBehaviour.Icon</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_IconGuid">LBSBehaviour.IconGuid</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Name">LBSBehaviour.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_Keys">LBSBehaviour.Keys</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback">LBSBehaviour.LevelChangedCallback</a>
+    </div>
+    <div>
+      <a class="xref" href="ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_OnBehaviourUpdated">LBSBehaviour.OnBehaviourUpdated</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour__ctor_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.#ctor*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour__ctor_System_String_System_String_UnityEngine_Color_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.#ctor(System.String,System.String,UnityEngine.Color)">
+  PopulationBehaviour(string, string, Color)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PopulationBehaviour(string IconGuid, string name, Color colorTint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>IconGuid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>colorTint</code> <span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_allFilter" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.allFilter">
+  allFilter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string allFilter = &quot;All&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_bundleElement" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.bundleElement">
+  bundleElement
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Bundle bundleElement</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_selectedTypeFilter" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.selectedTypeFilter">
+  selectedTypeFilter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string selectedTypeFilter</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_ActiveRotationDirection_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_ActiveRotationDirection" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.ActiveRotationDirection">
+  ActiveRotationDirection
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ActiveRotationDirection { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_Bundle_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.Bundle*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_Bundle" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.Bundle">
+  Bundle
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Bundle Bundle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Bundle.html">Bundle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_BundleTilemap_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_BundleTilemap" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap">
+  BundleTilemap
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BundleTileMap BundleTilemap { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.BundleTileMap.html">BundleTileMap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_DirectionWeights_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_DirectionWeights" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.DirectionWeights">
+  DirectionWeights
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;WeightedDirection&gt; DirectionWeights { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Behaviours.WeightedDirection.html">WeightedDirection</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_SelectedFilter_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_SelectedFilter" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter">
+  SelectedFilter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SelectedFilter { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_TileBundleGroup_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_TileBundleGroup" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.TileBundleGroup">
+  TileBundleGroup
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;TileBundleGroup&gt; TileBundleGroup { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Modules.TileBundleGroup.html">TileBundleGroup</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_TileMap_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.TileMap*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_TileMap" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.TileMap">
+  TileMap
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileMapModule TileMap { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.TileMapModule.html">TileMapModule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_TileRotationMode_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_TileRotationMode" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.TileRotationMode">
+  TileRotationMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileMakeRot TileRotationMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Behaviours.TileMakeRot.html">TileMakeRot</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_AddTileGroup_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.AddTileGroup*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_AddTileGroup_UnityEngine_Vector2Int_LBS_Components_TileMap_BundleData_UnityEngine_Vector2_System_Collections_Generic_List_ISILab_LBS_Components_BundleTileMapAddons__" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.AddTileGroup(UnityEngine.Vector2Int,LBS.Components.TileMap.BundleData,UnityEngine.Vector2,System.Collections.Generic.List{ISILab.LBS.Components.BundleTileMapAddons})">
+  AddTileGroup(Vector2Int, BundleData, Vector2, List&lt;BundleTileMapAddons&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileBundleGroup AddTileGroup(Vector2Int position, BundleData bundleData, Vector2 rotation, List&lt;BundleTileMapAddons&gt; addons)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+    <dt><code>bundleData</code> <a class="xref" href="LBS.Components.TileMap.BundleData.html">BundleData</a></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>addons</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ISILab.LBS.Components.BundleTileMapAddons.html">BundleTileMapAddons</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.TileBundleGroup.html">TileBundleGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_CaptureAreaData_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.CaptureAreaData*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_CaptureAreaData_UnityEngine_Vector2Int_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+  CaptureAreaData(Vector2Int, Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CaptureAreaData(Vector2Int StartPosition, Vector2Int EndPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>StartPosition</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+    <dt><code>EndPosition</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_ChangeLevelRender_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.ChangeLevelRender*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_ChangeLevelRender_System_Int32_System_Int32_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.ChangeLevelRender(System.Int32,System.Int32)">
+  ChangeLevelRender(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ChangeLevelRender(int prevLevelIndex, int nextLevelIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prevLevelIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>nextLevelIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_CheckKeys_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.CheckKeys*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_CheckKeys" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.CheckKeys">
+  CheckKeys()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void CheckKeys()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_Clear_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.Clear*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_Clear" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.Clear">
+  Clear()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_Clone_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.Clone*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_Clone" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_Equals_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.Equals*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_Equals_System_Object_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.Equals(System.Object)">
+  Equals(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_GetActiveRotation_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetActiveRotation*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_GetActiveRotation" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetActiveRotation">
+  GetActiveRotation()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 GetActiveRotation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_GetAnchor_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetAnchor*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_GetAnchor" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetAnchor">
+  GetAnchor()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2Int GetAnchor()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_GetBundleData_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_GetBundleData_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)">
+  GetBundleData(LBSTile)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BundleData GetBundleData(LBSTile tile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tile</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LBS.Components.TileMap.BundleData.html">BundleData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_GetBundleData_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_GetBundleData_UnityEngine_Vector2_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetBundleData(UnityEngine.Vector2)">
+  GetBundleData(Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BundleData GetBundleData(Vector2 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LBS.Components.TileMap.BundleData.html">BundleData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_GetDirectionWeight_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetDirectionWeight*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_GetDirectionWeight_System_String_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetDirectionWeight(System.String)">
+  GetDirectionWeight(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetDirectionWeight(string direction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>direction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_GetHashCode_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetHashCode*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_GetHashCode" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_GetTile_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetTile*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_GetTile_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetTile(UnityEngine.Vector2Int)">
+  GetTile(Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LBSTile GetTile(Vector2Int position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html">LBSTile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_GetTileGroup_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetTileGroup*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_GetTileGroup_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetTileGroup(UnityEngine.Vector2Int)">
+  GetTileGroup(Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileBundleGroup GetTileGroup(Vector2Int position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.TileBundleGroup.html">TileBundleGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_GetTileRotation_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetTileRotation*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_GetTileRotation_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.GetTileRotation(UnityEngine.Vector2Int)">
+  GetTileRotation(Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 GetTileRotation(Vector2Int pos)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_MergeLayerData_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.MergeLayerData*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_MergeLayerData_System_Object_System_Boolean_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.MergeLayerData(System.Object,System.Boolean)">
+  MergeLayerData(object, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool MergeLayerData(object incoming, bool overwrite)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>incoming</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>overwrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_MoveGroup_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.MoveGroup*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_MoveGroup_ISILab_LBS_Modules_TileBundleGroup_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.MoveGroup(ISILab.LBS.Modules.TileBundleGroup,UnityEngine.Vector2Int)">
+  MoveGroup(TileBundleGroup, Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileBundleGroup MoveGroup(TileBundleGroup group, Vector2Int offset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>group</code> <a class="xref" href="ISILab.LBS.Modules.TileBundleGroup.html">TileBundleGroup</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.TileBundleGroup.html">TileBundleGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_OnAttachLayer_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.OnAttachLayer*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_OnAttachLayer_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.OnAttachLayer(LBS.Components.LBSLayer)">
+  OnAttachLayer(LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnAttachLayer(LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_OnDetachLayer_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.OnDetachLayer*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_OnDetachLayer_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.OnDetachLayer(LBS.Components.LBSLayer)">
+  OnDetachLayer(LBSLayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnDetachLayer(LBSLayer layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="LBS.Components.LBSLayer.html">LBSLayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_OnGUI_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.OnGUI*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_OnGUI" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.OnGUI">
+  OnGUI()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override sealed void OnGUI()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_RemoveTileGroup_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.RemoveTileGroup*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_RemoveTileGroup_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.RemoveTileGroup(UnityEngine.Vector2Int)">
+  RemoveTileGroup(Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileBundleGroup RemoveTileGroup(Vector2Int position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.TileBundleGroup.html">TileBundleGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_ReplaceTileMap_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_ReplaceTileMap_ISILab_LBS_Modules_BundleTileMap_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap(ISILab.LBS.Modules.BundleTileMap)">
+  ReplaceTileMap(BundleTileMap)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReplaceTileMap(BundleTileMap map)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>map</code> <a class="xref" href="ISILab.LBS.Modules.BundleTileMap.html">BundleTileMap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_RetrieveExpiredTiles_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveExpiredTiles*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_RetrieveExpiredTiles" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveExpiredTiles">
+  RetrieveExpiredTiles()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object[] RetrieveExpiredTiles()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_RetrieveNewRotations_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveNewRotations*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_RetrieveNewRotations" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveNewRotations">
+  RetrieveNewRotations()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileBundleGroup[] RetrieveNewRotations()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ISILab.LBS.Modules.TileBundleGroup.html">TileBundleGroup</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_RotateTile_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.RotateTile*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_RotateTile_UnityEngine_Vector2Int_UnityEngine_Vector2_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.RotateTile(UnityEngine.Vector2Int,UnityEngine.Vector2)">
+  RotateTile(Vector2Int, Vector2)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RotateTile(Vector2Int pos, Vector2 rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_SetDirectionWeight_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.SetDirectionWeight*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_SetDirectionWeight_System_String_System_Single_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.SetDirectionWeight(System.String,System.Single)">
+  SetDirectionWeight(string, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDirectionWeight(string direction, float newWeight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>direction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>newWeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_SetPosition_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.SetPosition*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_SetPosition_UnityEngine_Vector2Int_UnityEngine_Vector2Int_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)">
+  SetPosition(Vector2Int, Vector2Int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPosition(Vector2Int parentAnchor, Vector2Int delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parentAnchor</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+    <dt><code>delta</code> <span class="xref">Vector2Int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_LBS_Behaviours_PopulationBehaviour_UpdateKeys_" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.UpdateKeys*"></a>
+
+  <h3 id="ISILab_LBS_Behaviours_PopulationBehaviour_UpdateKeys" data-uid="ISILab.LBS.Behaviours.PopulationBehaviour.UpdateKeys">
+  UpdateKeys()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateKeys()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

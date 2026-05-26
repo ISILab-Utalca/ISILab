@@ -13,7 +13,7 @@ namespace ISILab.LBS.Modules
         #region FIELDS
         
         [SerializeField, SerializeReference, JsonRequired]
-        private List<GraphNode> from = new();
+        private GraphNode from;
 
         [SerializeField, SerializeReference, JsonRequired]
         private GraphNode to;
@@ -22,7 +22,7 @@ namespace ISILab.LBS.Modules
         #region PROPERTIES
         
         [JsonIgnore]
-        public List<GraphNode> From
+        public GraphNode From
         {
             get => from;
             set => from = value;
@@ -43,7 +43,7 @@ namespace ISILab.LBS.Modules
 
         public QuestEdge(GraphNode from, GraphNode to)
         {
-            this.from.Add(from);
+            this.from = from;
             this.to = to;
         }
 
@@ -52,10 +52,7 @@ namespace ISILab.LBS.Modules
         #region METHODS
         public object Clone()
         {
-            var clonedFrom = from
-                .Select(f => CloneRefs.Get(f) as GraphNode)
-                .ToList();
-
+            var clonedFrom = CloneRefs.Get(from) as GraphNode;
             var clonedTo = CloneRefs.Get(to) as GraphNode;
 
             return new QuestEdge
@@ -65,21 +62,6 @@ namespace ISILab.LBS.Modules
             };
         }
 
-
-
-        public void AddFrom(GraphNode node)
-        {
-            if(from.Contains(node)) return;
-            from.Add(node);
-        }
-
-
-        public void RemoveFrom(GraphNode node)
-        {
-            if(!from.Contains(node)) return;
-            from.Remove(node);
-        }
-        
         #endregion
     }
 }

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UniversalResourceData | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UniversalResourceData | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.Universal.UniversalResourceData">
+
+
+
+  <h1 id="UnityEngine_Rendering_Universal_UniversalResourceData" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData" class="text-break">
+Class UniversalResourceData  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.Universal.html">Universal</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Universal.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class UniversalResourceData : UniversalResourceDataBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.ContextItem.html">ContextItem</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.UniversalResourceDataBase.html">UniversalResourceDataBase</a></div>
+      <div><span class="xref">UniversalResourceData</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.UniversalResourceDataBase.html#UnityEngine_Rendering_Universal_UniversalResourceDataBase_CheckAndSetTextureHandle_UnityEngine_Rendering_RenderGraphModule_TextureHandle__UnityEngine_Rendering_RenderGraphModule_TextureHandle_">UniversalResourceDataBase.CheckAndSetTextureHandle(ref TextureHandle, TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.UniversalResourceDataBase.html#UnityEngine_Rendering_Universal_UniversalResourceDataBase_CheckAndGetTextureHandle_UnityEngine_Rendering_RenderGraphModule_TextureHandle__">UniversalResourceDataBase.CheckAndGetTextureHandle(ref TextureHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.UniversalResourceDataBase.html#UnityEngine_Rendering_Universal_UniversalResourceDataBase_CheckAndSetTextureHandle_UnityEngine_Rendering_RenderGraphModule_TextureHandle____UnityEngine_Rendering_RenderGraphModule_TextureHandle___">UniversalResourceDataBase.CheckAndSetTextureHandle(ref TextureHandle[], TextureHandle[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.UniversalResourceDataBase.html#UnityEngine_Rendering_Universal_UniversalResourceDataBase_CheckAndGetTextureHandle_UnityEngine_Rendering_RenderGraphModule_TextureHandle____">UniversalResourceDataBase.CheckAndGetTextureHandle(ref TextureHandle[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.UniversalResourceDataBase.html#UnityEngine_Rendering_Universal_UniversalResourceDataBase_CheckAndWarnAboutAccessibility">UniversalResourceDataBase.CheckAndWarnAboutAccessibility()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0_System_Boolean_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData__ctor_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData__ctor" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.#ctor">
+  UniversalResourceData()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniversalResourceData()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_activeColorTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.activeColorTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_activeColorTexture" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.activeColorTexture">
+  activeColorTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle activeColorTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_activeDepthTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.activeDepthTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_activeDepthTexture" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.activeDepthTexture">
+  activeDepthTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle activeDepthTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_additionalShadowsTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.additionalShadowsTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_additionalShadowsTexture" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.additionalShadowsTexture">
+  additionalShadowsTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle additionalShadowsTexture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_afterPostProcessColor_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.afterPostProcessColor*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_afterPostProcessColor" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.afterPostProcessColor">
+  afterPostProcessColor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle afterPostProcessColor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_backBufferColor_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.backBufferColor*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_backBufferColor" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.backBufferColor">
+  backBufferColor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle backBufferColor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_backBufferDepth_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.backBufferDepth*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_backBufferDepth" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.backBufferDepth">
+  backBufferDepth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle backBufferDepth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_cameraColor_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.cameraColor*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_cameraColor" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.cameraColor">
+  cameraColor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle cameraColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_cameraDepth_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.cameraDepth*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_cameraDepth" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.cameraDepth">
+  cameraDepth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle cameraDepth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_cameraDepthTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.cameraDepthTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_cameraDepthTexture" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.cameraDepthTexture">
+  cameraDepthTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle cameraDepthTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_cameraNormalsTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.cameraNormalsTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_cameraNormalsTexture" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.cameraNormalsTexture">
+  cameraNormalsTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle cameraNormalsTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_cameraOpaqueTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.cameraOpaqueTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_cameraOpaqueTexture" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.cameraOpaqueTexture">
+  cameraOpaqueTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle cameraOpaqueTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_dBuffer_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.dBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_dBuffer" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.dBuffer">
+  dBuffer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle[] dBuffer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_dBufferDepth_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.dBufferDepth*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_dBufferDepth" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.dBufferDepth">
+  dBufferDepth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle dBufferDepth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_gBuffer_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.gBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_gBuffer" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.gBuffer">
+  gBuffer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle[] gBuffer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_internalColorLut_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.internalColorLut*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_internalColorLut" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.internalColorLut">
+  internalColorLut
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle internalColorLut { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_isActiveTargetBackBuffer_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.isActiveTargetBackBuffer*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_isActiveTargetBackBuffer" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.isActiveTargetBackBuffer">
+  isActiveTargetBackBuffer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isActiveTargetBackBuffer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_mainShadowsTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.mainShadowsTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_mainShadowsTexture" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.mainShadowsTexture">
+  mainShadowsTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle mainShadowsTexture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_motionVectorColor_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.motionVectorColor*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_motionVectorColor" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.motionVectorColor">
+  motionVectorColor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle motionVectorColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_motionVectorDepth_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.motionVectorDepth*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_motionVectorDepth" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.motionVectorDepth">
+  motionVectorDepth
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle motionVectorDepth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_overlayUITexture_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.overlayUITexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_overlayUITexture" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.overlayUITexture">
+  overlayUITexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle overlayUITexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_renderingLayersTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.renderingLayersTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_renderingLayersTexture" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.renderingLayersTexture">
+  renderingLayersTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle renderingLayersTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_ssaoTexture_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.ssaoTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_ssaoTexture" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.ssaoTexture">
+  ssaoTexture
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureHandle ssaoTexture { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.TextureHandle.html">TextureHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_UniversalResourceData_Reset_" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.Reset*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_UniversalResourceData_Reset" data-uid="UnityEngine.Rendering.Universal.UniversalResourceData.Reset">
+  Reset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

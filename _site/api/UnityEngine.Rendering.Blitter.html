@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Blitter | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Blitter | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.Blitter">
+
+
+
+  <h1 id="UnityEngine_Rendering_Blitter" data-uid="UnityEngine.Rendering.Blitter" class="text-break">
+Class Blitter  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Core.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Blitter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Blitter</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitCameraTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitCameraTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_System_Single_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RTHandle,System.Single,System.Boolean)">
+  BlitCameraTexture(CommandBuffer, RTHandle, RTHandle, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitCameraTexture(CommandBuffer cmd, RTHandle source, RTHandle destination, float mipLevel = 0, bool bilinear = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>destination</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitCameraTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitCameraTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RTHandle,UnityEngine.Material,System.Int32)">
+  BlitCameraTexture(CommandBuffer, RTHandle, RTHandle, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitCameraTexture(CommandBuffer cmd, RTHandle source, RTHandle destination, Material material, int pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>destination</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitCameraTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitCameraTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_UnityEngine_Rect_System_Single_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RTHandle,UnityEngine.Rect,System.Single,System.Boolean)">
+  BlitCameraTexture(CommandBuffer, RTHandle, RTHandle, Rect, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitCameraTexture(CommandBuffer cmd, RTHandle source, RTHandle destination, Rect destViewport, float mipLevel = 0, bool bilinear = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>destination</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>destViewport</code> <span class="xref">Rect</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitCameraTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitCameraTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Material,System.Int32)">
+  BlitCameraTexture(CommandBuffer, RTHandle, RTHandle, RenderBufferLoadAction, RenderBufferStoreAction, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitCameraTexture(CommandBuffer cmd, RTHandle source, RTHandle destination, RenderBufferLoadAction loadAction, RenderBufferStoreAction storeAction, Material material, int pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>destination</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>storeAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitCameraTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitCameraTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_UnityEngine_Vector4_System_Single_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RTHandle,UnityEngine.Vector4,System.Single,System.Boolean)">
+  BlitCameraTexture(CommandBuffer, RTHandle, RTHandle, Vector4, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitCameraTexture(CommandBuffer cmd, RTHandle source, RTHandle destination, Vector4 scaleBias, float mipLevel = 0, bool bilinear = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>destination</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitCameraTexture2D_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture2D*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitCameraTexture2D_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_System_Single_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitCameraTexture2D(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Rendering.RTHandle,System.Single,System.Boolean)">
+  BlitCameraTexture2D(CommandBuffer, RTHandle, RTHandle, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitCameraTexture2D(CommandBuffer cmd, RTHandle source, RTHandle destination, float mipLevel = 0, bool bilinear = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>destination</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitColorAndDepth_" data-uid="UnityEngine.Rendering.Blitter.BlitColorAndDepth*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitColorAndDepth_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_RenderTexture_UnityEngine_Vector4_System_Single_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitColorAndDepth(UnityEngine.Rendering.CommandBuffer,UnityEngine.Texture,UnityEngine.RenderTexture,UnityEngine.Vector4,System.Single,System.Boolean)">
+  BlitColorAndDepth(CommandBuffer, Texture, RenderTexture, Vector4, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitColorAndDepth(CommandBuffer cmd, Texture sourceColor, RenderTexture sourceDepth, Vector4 scaleBias, float mipLevel, bool blitDepth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>sourceColor</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sourceDepth</code> <span class="xref">RenderTexture</span></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>blitDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitColorAndDepth_" data-uid="UnityEngine.Rendering.Blitter.BlitColorAndDepth*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitColorAndDepth_UnityEngine_Rendering_RasterCommandBuffer_UnityEngine_Texture_UnityEngine_RenderTexture_UnityEngine_Vector4_System_Single_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitColorAndDepth(UnityEngine.Rendering.RasterCommandBuffer,UnityEngine.Texture,UnityEngine.RenderTexture,UnityEngine.Vector4,System.Single,System.Boolean)">
+  BlitColorAndDepth(RasterCommandBuffer, Texture, RenderTexture, Vector4, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitColorAndDepth(RasterCommandBuffer cmd, Texture sourceColor, RenderTexture sourceDepth, Vector4 scaleBias, float mipLevel, bool blitDepth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.RasterCommandBuffer.html">RasterCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>sourceColor</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>sourceDepth</code> <span class="xref">RenderTexture</span></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>blitDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitCubeToOctahedral2DQuad_" data-uid="UnityEngine.Rendering.Blitter.BlitCubeToOctahedral2DQuad*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitCubeToOctahedral2DQuad_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Vector4_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitCubeToOctahedral2DQuad(UnityEngine.Rendering.CommandBuffer,UnityEngine.Texture,UnityEngine.Vector4,System.Int32)">
+  BlitCubeToOctahedral2DQuad(CommandBuffer, Texture, Vector4, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitCubeToOctahedral2DQuad(CommandBuffer cmd, Texture source, Vector4 scaleBiasRT, int mipLevelTex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasRT</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevelTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitCubeToOctahedral2DQuadSingleChannel_" data-uid="UnityEngine.Rendering.Blitter.BlitCubeToOctahedral2DQuadSingleChannel*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitCubeToOctahedral2DQuadSingleChannel_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Vector4_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitCubeToOctahedral2DQuadSingleChannel(UnityEngine.Rendering.CommandBuffer,UnityEngine.Texture,UnityEngine.Vector4,System.Int32)">
+  BlitCubeToOctahedral2DQuadSingleChannel(CommandBuffer, Texture, Vector4, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitCubeToOctahedral2DQuadSingleChannel(CommandBuffer cmd, Texture source, Vector4 scaleBiasRT, int mipLevelTex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasRT</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevelTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitCubeToOctahedral2DQuadWithPadding_" data-uid="UnityEngine.Rendering.Blitter.BlitCubeToOctahedral2DQuadWithPadding*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitCubeToOctahedral2DQuadWithPadding_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Vector2_UnityEngine_Vector4_System_Int32_System_Boolean_System_Int32_System_Nullable_UnityEngine_Vector4__" data-uid="UnityEngine.Rendering.Blitter.BlitCubeToOctahedral2DQuadWithPadding(UnityEngine.Rendering.CommandBuffer,UnityEngine.Texture,UnityEngine.Vector2,UnityEngine.Vector4,System.Int32,System.Boolean,System.Int32,System.Nullable{UnityEngine.Vector4})">
+  BlitCubeToOctahedral2DQuadWithPadding(CommandBuffer, Texture, Vector2, Vector4, int, bool, int, Vector4?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitCubeToOctahedral2DQuadWithPadding(CommandBuffer cmd, Texture source, Vector2 textureSize, Vector4 scaleBiasRT, int mipLevelTex, bool bilinear, int paddingInPixels, Vector4? decodeInstructions = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>textureSize</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasRT</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevelTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paddingInPixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>decodeInstructions</code> <span class="xref">Vector4</span>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitOctahedralWithPadding_" data-uid="UnityEngine.Rendering.Blitter.BlitOctahedralWithPadding*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitOctahedralWithPadding_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Vector2_UnityEngine_Vector4_UnityEngine_Vector4_System_Int32_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitOctahedralWithPadding(UnityEngine.Rendering.CommandBuffer,UnityEngine.Texture,UnityEngine.Vector2,UnityEngine.Vector4,UnityEngine.Vector4,System.Int32,System.Boolean,System.Int32)">
+  BlitOctahedralWithPadding(CommandBuffer, Texture, Vector2, Vector4, Vector4, int, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitOctahedralWithPadding(CommandBuffer cmd, Texture source, Vector2 textureSize, Vector4 scaleBiasTex, Vector4 scaleBiasRT, int mipLevelTex, bool bilinear, int paddingInPixels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>textureSize</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasTex</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasRT</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevelTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paddingInPixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitOctahedralWithPaddingMultiply_" data-uid="UnityEngine.Rendering.Blitter.BlitOctahedralWithPaddingMultiply*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitOctahedralWithPaddingMultiply_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Vector2_UnityEngine_Vector4_UnityEngine_Vector4_System_Int32_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitOctahedralWithPaddingMultiply(UnityEngine.Rendering.CommandBuffer,UnityEngine.Texture,UnityEngine.Vector2,UnityEngine.Vector4,UnityEngine.Vector4,System.Int32,System.Boolean,System.Int32)">
+  BlitOctahedralWithPaddingMultiply(CommandBuffer, Texture, Vector2, Vector4, Vector4, int, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitOctahedralWithPaddingMultiply(CommandBuffer cmd, Texture source, Vector2 textureSize, Vector4 scaleBiasTex, Vector4 scaleBiasRT, int mipLevelTex, bool bilinear, int paddingInPixels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>textureSize</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasTex</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasRT</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevelTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paddingInPixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitQuad_" data-uid="UnityEngine.Rendering.Blitter.BlitQuad*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitQuad_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Vector4_UnityEngine_Vector4_System_Int32_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitQuad(UnityEngine.Rendering.CommandBuffer,UnityEngine.Texture,UnityEngine.Vector4,UnityEngine.Vector4,System.Int32,System.Boolean)">
+  BlitQuad(CommandBuffer, Texture, Vector4, Vector4, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitQuad(CommandBuffer cmd, Texture source, Vector4 scaleBiasTex, Vector4 scaleBiasRT, int mipLevelTex, bool bilinear)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasTex</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasRT</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevelTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitQuadSingleChannel_" data-uid="UnityEngine.Rendering.Blitter.BlitQuadSingleChannel*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitQuadSingleChannel_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Vector4_UnityEngine_Vector4_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitQuadSingleChannel(UnityEngine.Rendering.CommandBuffer,UnityEngine.Texture,UnityEngine.Vector4,UnityEngine.Vector4,System.Int32)">
+  BlitQuadSingleChannel(CommandBuffer, Texture, Vector4, Vector4, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitQuadSingleChannel(CommandBuffer cmd, Texture source, Vector4 scaleBiasTex, Vector4 scaleBiasRT, int mipLevelTex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasTex</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasRT</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevelTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitQuadWithPadding_" data-uid="UnityEngine.Rendering.Blitter.BlitQuadWithPadding*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitQuadWithPadding_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Vector2_UnityEngine_Vector4_UnityEngine_Vector4_System_Int32_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitQuadWithPadding(UnityEngine.Rendering.CommandBuffer,UnityEngine.Texture,UnityEngine.Vector2,UnityEngine.Vector4,UnityEngine.Vector4,System.Int32,System.Boolean,System.Int32)">
+  BlitQuadWithPadding(CommandBuffer, Texture, Vector2, Vector4, Vector4, int, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitQuadWithPadding(CommandBuffer cmd, Texture source, Vector2 textureSize, Vector4 scaleBiasTex, Vector4 scaleBiasRT, int mipLevelTex, bool bilinear, int paddingInPixels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>textureSize</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasTex</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasRT</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevelTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paddingInPixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitQuadWithPaddingMultiply_" data-uid="UnityEngine.Rendering.Blitter.BlitQuadWithPaddingMultiply*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitQuadWithPaddingMultiply_UnityEngine_Rendering_CommandBuffer_UnityEngine_Texture_UnityEngine_Vector2_UnityEngine_Vector4_UnityEngine_Vector4_System_Int32_System_Boolean_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitQuadWithPaddingMultiply(UnityEngine.Rendering.CommandBuffer,UnityEngine.Texture,UnityEngine.Vector2,UnityEngine.Vector4,UnityEngine.Vector4,System.Int32,System.Boolean,System.Int32)">
+  BlitQuadWithPaddingMultiply(CommandBuffer, Texture, Vector2, Vector4, Vector4, int, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitQuadWithPaddingMultiply(CommandBuffer cmd, Texture source, Vector2 textureSize, Vector4 scaleBiasTex, Vector4 scaleBiasRT, int mipLevelTex, bool bilinear, int paddingInPixels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">Texture</span></dt>
+    <dd></dd>
+    <dt><code>textureSize</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasTex</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>scaleBiasRT</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevelTex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>paddingInPixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Vector4_System_Single_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Vector4,System.Single,System.Boolean)">
+  BlitTexture(CommandBuffer, RTHandle, Vector4, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture(CommandBuffer cmd, RTHandle source, Vector4 scaleBias, float mipLevel, bool bilinear)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Vector4_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Vector4,UnityEngine.Material,System.Int32)">
+  BlitTexture(CommandBuffer, RTHandle, Vector4, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture(CommandBuffer cmd, RTHandle source, Vector4 scaleBias, Material material, int pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Material,System.Int32)">
+  BlitTexture(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture(CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, Material material, int pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderBufferLoadAction_UnityEngine_Rendering_RenderBufferStoreAction_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Rendering.RenderBufferLoadAction,UnityEngine.Rendering.RenderBufferStoreAction,UnityEngine.Material,System.Int32)">
+  BlitTexture(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, RenderBufferLoadAction, RenderBufferStoreAction, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture(CommandBuffer cmd, RenderTargetIdentifier source, RenderTargetIdentifier destination, RenderBufferLoadAction loadAction, RenderBufferStoreAction storeAction, Material material, int pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>destination</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>loadAction</code> <span class="xref">RenderBufferLoadAction</span></dt>
+    <dd></dd>
+    <dt><code>storeAction</code> <span class="xref">RenderBufferStoreAction</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Vector4_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Vector4,UnityEngine.Material,System.Int32)">
+  BlitTexture(CommandBuffer, RenderTargetIdentifier, Vector4, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture(CommandBuffer cmd, RenderTargetIdentifier source, Vector4 scaleBias, Material material, int pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture_UnityEngine_Rendering_CommandBuffer_UnityEngine_Vector4_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture(UnityEngine.Rendering.CommandBuffer,UnityEngine.Vector4,UnityEngine.Material,System.Int32)">
+  BlitTexture(CommandBuffer, Vector4, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture(CommandBuffer cmd, Vector4 scaleBias, Material material, int pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture_UnityEngine_Rendering_RasterCommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Vector4_System_Single_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture(UnityEngine.Rendering.RasterCommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Vector4,System.Single,System.Boolean)">
+  BlitTexture(RasterCommandBuffer, RTHandle, Vector4, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture(RasterCommandBuffer cmd, RTHandle source, Vector4 scaleBias, float mipLevel, bool bilinear)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.RasterCommandBuffer.html">RasterCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture_UnityEngine_Rendering_RasterCommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Vector4_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture(UnityEngine.Rendering.RasterCommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Vector4,UnityEngine.Material,System.Int32)">
+  BlitTexture(RasterCommandBuffer, RTHandle, Vector4, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture(RasterCommandBuffer cmd, RTHandle source, Vector4 scaleBias, Material material, int pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.RasterCommandBuffer.html">RasterCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture_UnityEngine_Rendering_RasterCommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Vector4_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture(UnityEngine.Rendering.RasterCommandBuffer,UnityEngine.Rendering.RenderTargetIdentifier,UnityEngine.Vector4,UnityEngine.Material,System.Int32)">
+  BlitTexture(RasterCommandBuffer, RenderTargetIdentifier, Vector4, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture(RasterCommandBuffer cmd, RenderTargetIdentifier source, Vector4 scaleBias, Material material, int pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.RasterCommandBuffer.html">RasterCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <span class="xref">RenderTargetIdentifier</span></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture_UnityEngine_Rendering_RasterCommandBuffer_UnityEngine_Vector4_UnityEngine_Material_System_Int32_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture(UnityEngine.Rendering.RasterCommandBuffer,UnityEngine.Vector4,UnityEngine.Material,System.Int32)">
+  BlitTexture(RasterCommandBuffer, Vector4, Material, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture(RasterCommandBuffer cmd, Vector4 scaleBias, Material material, int pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.RasterCommandBuffer.html">RasterCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>material</code> <span class="xref">Material</span></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture2D_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture2D*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture2D_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Vector4_System_Single_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture2D(UnityEngine.Rendering.CommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Vector4,System.Single,System.Boolean)">
+  BlitTexture2D(CommandBuffer, RTHandle, Vector4, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture2D(CommandBuffer cmd, RTHandle source, Vector4 scaleBias, float mipLevel, bool bilinear)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <span class="xref">CommandBuffer</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_BlitTexture2D_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture2D*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_BlitTexture2D_UnityEngine_Rendering_RasterCommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Vector4_System_Single_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.BlitTexture2D(UnityEngine.Rendering.RasterCommandBuffer,UnityEngine.Rendering.RTHandle,UnityEngine.Vector4,System.Single,System.Boolean)">
+  BlitTexture2D(RasterCommandBuffer, RTHandle, Vector4, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BlitTexture2D(RasterCommandBuffer cmd, RTHandle source, Vector4 scaleBias, float mipLevel, bool bilinear)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cmd</code> <a class="xref" href="UnityEngine.Rendering.RasterCommandBuffer.html">RasterCommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="UnityEngine.Rendering.RTHandle.html">RTHandle</a></dt>
+    <dd></dd>
+    <dt><code>scaleBias</code> <span class="xref">Vector4</span></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>bilinear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_Cleanup_" data-uid="UnityEngine.Rendering.Blitter.Cleanup*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_Cleanup" data-uid="UnityEngine.Rendering.Blitter.Cleanup">
+  Cleanup()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Cleanup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_GetBlitMaterial_" data-uid="UnityEngine.Rendering.Blitter.GetBlitMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_GetBlitMaterial_UnityEngine_Rendering_TextureDimension_System_Boolean_" data-uid="UnityEngine.Rendering.Blitter.GetBlitMaterial(UnityEngine.Rendering.TextureDimension,System.Boolean)">
+  GetBlitMaterial(TextureDimension, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Material GetBlitMaterial(TextureDimension dimension, bool singleSlice = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dimension</code> <span class="xref">TextureDimension</span></dt>
+    <dd></dd>
+    <dt><code>singleSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Blitter_Initialize_" data-uid="UnityEngine.Rendering.Blitter.Initialize*"></a>
+
+  <h3 id="UnityEngine_Rendering_Blitter_Initialize_UnityEngine_Shader_UnityEngine_Shader_" data-uid="UnityEngine.Rendering.Blitter.Initialize(UnityEngine.Shader,UnityEngine.Shader)">
+  Initialize(Shader, Shader)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Initialize(Shader blitPS, Shader blitColorAndDepthPS)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>blitPS</code> <span class="xref">Shader</span></dt>
+    <dd></dd>
+    <dt><code>blitColorAndDepthPS</code> <span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

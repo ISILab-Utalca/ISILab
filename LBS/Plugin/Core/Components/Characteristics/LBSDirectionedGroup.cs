@@ -22,6 +22,8 @@ namespace ISILab.LBS.Characteristics
 
             [Range(0f, 1f)]
             public float weight;
+
+            public override string ToString() => weight + " | " + target.Name;
         };
         #endregion
         

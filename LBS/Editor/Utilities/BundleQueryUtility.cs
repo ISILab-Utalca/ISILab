@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEngine;
 using ISILab.LBS.Plugin.Core.Settings;
 
-namespace LBS.Components
+namespace ISILab.LBS.Editor.Utilities
 {
     /// <summary>
     /// A static class that finds bundles with a certain characteristic within their children or themselves.

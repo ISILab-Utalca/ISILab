@@ -1,0 +1,778 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor
+  commentId: T:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor
+  id: LBS_AssetsPostProcessor
+  parent: ISILab.LBS.Plugin.Internal.Editor
+  children:
+  - ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.InitializeLBSPackage
+  - ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostDeleteProcess(System.String[])
+  - ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostImportProcess(System.String[])
+  - ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess(System.String[])
+  - ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveProcess(System.String[])
+  - ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostprocessAllAssets(System.String[],System.String[],System.String[],System.String[])
+  langs:
+  - csharp
+  - vb
+  name: LBS_AssetsPostProcessor
+  nameWithType: LBS_AssetsPostProcessor
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor
+  type: Class
+  source:
+    id: LBS_AssetsPostProcessor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Editor\LBS_AssetsPostProcessor.cs
+    startLine: 8
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal.Editor
+  syntax:
+    content: 'public class LBS_AssetsPostProcessor : AssetPostprocessor'
+    content.vb: Public Class LBS_AssetsPostProcessor Inherits AssetPostprocessor
+  inheritance:
+  - System.Object
+  - UnityEditor.AssetPostprocessor
+  inheritedMembers:
+  - UnityEditor.AssetPostprocessor.LogWarning(System.String)
+  - UnityEditor.AssetPostprocessor.LogWarning(System.String,UnityEngine.Object)
+  - UnityEditor.AssetPostprocessor.LogError(System.String)
+  - UnityEditor.AssetPostprocessor.LogError(System.String,UnityEngine.Object)
+  - UnityEditor.AssetPostprocessor.GetVersion
+  - UnityEditor.AssetPostprocessor.GetPostprocessOrder
+  - UnityEditor.AssetPostprocessor.assetPath
+  - UnityEditor.AssetPostprocessor.context
+  - UnityEditor.AssetPostprocessor.assetImporter
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostprocessAllAssets(System.String[],System.String[],System.String[],System.String[])
+  commentId: M:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostprocessAllAssets(System.String[],System.String[],System.String[],System.String[])
+  id: OnPostprocessAllAssets(System.String[],System.String[],System.String[],System.String[])
+  parent: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor
+  langs:
+  - csharp
+  - vb
+  name: OnPostprocessAllAssets(string[], string[], string[], string[])
+  nameWithType: LBS_AssetsPostProcessor.OnPostprocessAllAssets(string[], string[], string[], string[])
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostprocessAllAssets(string[], string[], string[], string[])
+  type: Method
+  source:
+    id: OnPostprocessAllAssets
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Editor\LBS_AssetsPostProcessor.cs
+    startLine: 14
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal.Editor
+  syntax:
+    content: public static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
+    parameters:
+    - id: importedAssets
+      type: System.String[]
+    - id: deletedAssets
+      type: System.String[]
+    - id: movedAssets
+      type: System.String[]
+    - id: movedFromAssetPaths
+      type: System.String[]
+    content.vb: Public Shared Sub OnPostprocessAllAssets(importedAssets As String(), deletedAssets As String(), movedAssets As String(), movedFromAssetPaths As String())
+  overload: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostprocessAllAssets*
+  nameWithType.vb: LBS_AssetsPostProcessor.OnPostprocessAllAssets(String(), String(), String(), String())
+  fullName.vb: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostprocessAllAssets(String(), String(), String(), String())
+  name.vb: OnPostprocessAllAssets(String(), String(), String(), String())
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostImportProcess(System.String[])
+  commentId: M:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostImportProcess(System.String[])
+  id: OnPostImportProcess(System.String[])
+  parent: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor
+  langs:
+  - csharp
+  - vb
+  name: OnPostImportProcess(string[])
+  nameWithType: LBS_AssetsPostProcessor.OnPostImportProcess(string[])
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostImportProcess(string[])
+  type: Method
+  source:
+    id: OnPostImportProcess
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Editor\LBS_AssetsPostProcessor.cs
+    startLine: 32
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal.Editor
+  syntax:
+    content: public static void OnPostImportProcess(string[] importedAssets)
+    parameters:
+    - id: importedAssets
+      type: System.String[]
+    content.vb: Public Shared Sub OnPostImportProcess(importedAssets As String())
+  overload: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostImportProcess*
+  nameWithType.vb: LBS_AssetsPostProcessor.OnPostImportProcess(String())
+  fullName.vb: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostImportProcess(String())
+  name.vb: OnPostImportProcess(String())
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostDeleteProcess(System.String[])
+  commentId: M:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostDeleteProcess(System.String[])
+  id: OnPostDeleteProcess(System.String[])
+  parent: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor
+  langs:
+  - csharp
+  - vb
+  name: OnPostDeleteProcess(string[])
+  nameWithType: LBS_AssetsPostProcessor.OnPostDeleteProcess(string[])
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostDeleteProcess(string[])
+  type: Method
+  source:
+    id: OnPostDeleteProcess
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Editor\LBS_AssetsPostProcessor.cs
+    startLine: 56
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal.Editor
+  syntax:
+    content: public static void OnPostDeleteProcess(string[] deletedAssets)
+    parameters:
+    - id: deletedAssets
+      type: System.String[]
+    content.vb: Public Shared Sub OnPostDeleteProcess(deletedAssets As String())
+  overload: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostDeleteProcess*
+  nameWithType.vb: LBS_AssetsPostProcessor.OnPostDeleteProcess(String())
+  fullName.vb: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostDeleteProcess(String())
+  name.vb: OnPostDeleteProcess(String())
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveProcess(System.String[])
+  commentId: M:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveProcess(System.String[])
+  id: OnPostMoveProcess(System.String[])
+  parent: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor
+  langs:
+  - csharp
+  - vb
+  name: OnPostMoveProcess(string[])
+  nameWithType: LBS_AssetsPostProcessor.OnPostMoveProcess(string[])
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveProcess(string[])
+  type: Method
+  source:
+    id: OnPostMoveProcess
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Editor\LBS_AssetsPostProcessor.cs
+    startLine: 74
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal.Editor
+  syntax:
+    content: public static void OnPostMoveProcess(string[] movedAssets)
+    parameters:
+    - id: movedAssets
+      type: System.String[]
+    content.vb: Public Shared Sub OnPostMoveProcess(movedAssets As String())
+  overload: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveProcess*
+  nameWithType.vb: LBS_AssetsPostProcessor.OnPostMoveProcess(String())
+  fullName.vb: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveProcess(String())
+  name.vb: OnPostMoveProcess(String())
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess(System.String[])
+  commentId: M:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess(System.String[])
+  id: OnPostMoveFromPathsProcess(System.String[])
+  parent: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor
+  langs:
+  - csharp
+  - vb
+  name: OnPostMoveFromPathsProcess(string[])
+  nameWithType: LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess(string[])
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess(string[])
+  type: Method
+  source:
+    id: OnPostMoveFromPathsProcess
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Editor\LBS_AssetsPostProcessor.cs
+    startLine: 79
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal.Editor
+  syntax:
+    content: public static void OnPostMoveFromPathsProcess(string[] movedFromAssetPaths)
+    parameters:
+    - id: movedFromAssetPaths
+      type: System.String[]
+    content.vb: Public Shared Sub OnPostMoveFromPathsProcess(movedFromAssetPaths As String())
+  overload: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess*
+  nameWithType.vb: LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess(String())
+  fullName.vb: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess(String())
+  name.vb: OnPostMoveFromPathsProcess(String())
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.InitializeLBSPackage
+  commentId: M:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.InitializeLBSPackage
+  id: InitializeLBSPackage
+  parent: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor
+  langs:
+  - csharp
+  - vb
+  name: InitializeLBSPackage()
+  nameWithType: LBS_AssetsPostProcessor.InitializeLBSPackage()
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.InitializeLBSPackage()
+  type: Method
+  source:
+    id: InitializeLBSPackage
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Internal\Editor\LBS_AssetsPostProcessor.cs
+    startLine: 84
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.LBS.Plugin.Internal.Editor
+  syntax:
+    content: public static void InitializeLBSPackage()
+    content.vb: Public Shared Sub InitializeLBSPackage()
+  overload: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.InitializeLBSPackage*
+references:
+- uid: ISILab.LBS.Plugin.Internal.Editor
+  commentId: N:ISILab.LBS.Plugin.Internal.Editor
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Internal.Editor
+  nameWithType: ISILab.LBS.Plugin.Internal.Editor
+  fullName: ISILab.LBS.Plugin.Internal.Editor
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Internal
+    name: Internal
+    href: ISILab.LBS.Plugin.Internal.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Internal.Editor
+    name: Editor
+    href: ISILab.LBS.Plugin.Internal.Editor.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Internal
+    name: Internal
+    href: ISILab.LBS.Plugin.Internal.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Internal.Editor
+    name: Editor
+    href: ISILab.LBS.Plugin.Internal.Editor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEditor.AssetPostprocessor
+  commentId: T:UnityEditor.AssetPostprocessor
+  parent: UnityEditor
+  isExternal: true
+  name: AssetPostprocessor
+  nameWithType: AssetPostprocessor
+  fullName: UnityEditor.AssetPostprocessor
+- uid: UnityEditor.AssetPostprocessor.LogWarning(System.String)
+  commentId: M:UnityEditor.AssetPostprocessor.LogWarning(System.String)
+  parent: UnityEditor.AssetPostprocessor
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: LogWarning(string)
+  nameWithType: AssetPostprocessor.LogWarning(string)
+  fullName: UnityEditor.AssetPostprocessor.LogWarning(string)
+  nameWithType.vb: AssetPostprocessor.LogWarning(String)
+  fullName.vb: UnityEditor.AssetPostprocessor.LogWarning(String)
+  name.vb: LogWarning(String)
+  spec.csharp:
+  - uid: UnityEditor.AssetPostprocessor.LogWarning(System.String)
+    name: LogWarning
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: UnityEditor.AssetPostprocessor.LogWarning(System.String)
+    name: LogWarning
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: UnityEditor.AssetPostprocessor.LogWarning(System.String,UnityEngine.Object)
+  commentId: M:UnityEditor.AssetPostprocessor.LogWarning(System.String,UnityEngine.Object)
+  parent: UnityEditor.AssetPostprocessor
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: LogWarning(string, Object)
+  nameWithType: AssetPostprocessor.LogWarning(string, Object)
+  fullName: UnityEditor.AssetPostprocessor.LogWarning(string, UnityEngine.Object)
+  nameWithType.vb: AssetPostprocessor.LogWarning(String, Object)
+  fullName.vb: UnityEditor.AssetPostprocessor.LogWarning(String, UnityEngine.Object)
+  name.vb: LogWarning(String, Object)
+  spec.csharp:
+  - uid: UnityEditor.AssetPostprocessor.LogWarning(System.String,UnityEngine.Object)
+    name: LogWarning
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Object
+    name: Object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: UnityEditor.AssetPostprocessor.LogWarning(System.String,UnityEngine.Object)
+    name: LogWarning
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: UnityEditor.AssetPostprocessor.LogError(System.String)
+  commentId: M:UnityEditor.AssetPostprocessor.LogError(System.String)
+  parent: UnityEditor.AssetPostprocessor
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: LogError(string)
+  nameWithType: AssetPostprocessor.LogError(string)
+  fullName: UnityEditor.AssetPostprocessor.LogError(string)
+  nameWithType.vb: AssetPostprocessor.LogError(String)
+  fullName.vb: UnityEditor.AssetPostprocessor.LogError(String)
+  name.vb: LogError(String)
+  spec.csharp:
+  - uid: UnityEditor.AssetPostprocessor.LogError(System.String)
+    name: LogError
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: UnityEditor.AssetPostprocessor.LogError(System.String)
+    name: LogError
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: UnityEditor.AssetPostprocessor.LogError(System.String,UnityEngine.Object)
+  commentId: M:UnityEditor.AssetPostprocessor.LogError(System.String,UnityEngine.Object)
+  parent: UnityEditor.AssetPostprocessor
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: LogError(string, Object)
+  nameWithType: AssetPostprocessor.LogError(string, Object)
+  fullName: UnityEditor.AssetPostprocessor.LogError(string, UnityEngine.Object)
+  nameWithType.vb: AssetPostprocessor.LogError(String, Object)
+  fullName.vb: UnityEditor.AssetPostprocessor.LogError(String, UnityEngine.Object)
+  name.vb: LogError(String, Object)
+  spec.csharp:
+  - uid: UnityEditor.AssetPostprocessor.LogError(System.String,UnityEngine.Object)
+    name: LogError
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Object
+    name: Object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: UnityEditor.AssetPostprocessor.LogError(System.String,UnityEngine.Object)
+    name: LogError
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: UnityEditor.AssetPostprocessor.GetVersion
+  commentId: M:UnityEditor.AssetPostprocessor.GetVersion
+  parent: UnityEditor.AssetPostprocessor
+  isExternal: true
+  name: GetVersion()
+  nameWithType: AssetPostprocessor.GetVersion()
+  fullName: UnityEditor.AssetPostprocessor.GetVersion()
+  spec.csharp:
+  - uid: UnityEditor.AssetPostprocessor.GetVersion
+    name: GetVersion
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityEditor.AssetPostprocessor.GetVersion
+    name: GetVersion
+    isExternal: true
+  - name: (
+  - name: )
+- uid: UnityEditor.AssetPostprocessor.GetPostprocessOrder
+  commentId: M:UnityEditor.AssetPostprocessor.GetPostprocessOrder
+  parent: UnityEditor.AssetPostprocessor
+  isExternal: true
+  name: GetPostprocessOrder()
+  nameWithType: AssetPostprocessor.GetPostprocessOrder()
+  fullName: UnityEditor.AssetPostprocessor.GetPostprocessOrder()
+  spec.csharp:
+  - uid: UnityEditor.AssetPostprocessor.GetPostprocessOrder
+    name: GetPostprocessOrder
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityEditor.AssetPostprocessor.GetPostprocessOrder
+    name: GetPostprocessOrder
+    isExternal: true
+  - name: (
+  - name: )
+- uid: UnityEditor.AssetPostprocessor.assetPath
+  commentId: P:UnityEditor.AssetPostprocessor.assetPath
+  parent: UnityEditor.AssetPostprocessor
+  isExternal: true
+  name: assetPath
+  nameWithType: AssetPostprocessor.assetPath
+  fullName: UnityEditor.AssetPostprocessor.assetPath
+- uid: UnityEditor.AssetPostprocessor.context
+  commentId: P:UnityEditor.AssetPostprocessor.context
+  parent: UnityEditor.AssetPostprocessor
+  isExternal: true
+  name: context
+  nameWithType: AssetPostprocessor.context
+  fullName: UnityEditor.AssetPostprocessor.context
+- uid: UnityEditor.AssetPostprocessor.assetImporter
+  commentId: P:UnityEditor.AssetPostprocessor.assetImporter
+  parent: UnityEditor.AssetPostprocessor
+  isExternal: true
+  name: assetImporter
+  nameWithType: AssetPostprocessor.assetImporter
+  fullName: UnityEditor.AssetPostprocessor.assetImporter
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEditor
+  commentId: N:UnityEditor
+  isExternal: true
+  name: UnityEditor
+  nameWithType: UnityEditor
+  fullName: UnityEditor
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostprocessAllAssets*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostprocessAllAssets
+  href: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.html#ISILab_LBS_Plugin_Internal_Editor_LBS_AssetsPostProcessor_OnPostprocessAllAssets_System_String___System_String___System_String___System_String___
+  name: OnPostprocessAllAssets
+  nameWithType: LBS_AssetsPostProcessor.OnPostprocessAllAssets
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostprocessAllAssets
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostImportProcess*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostImportProcess
+  href: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.html#ISILab_LBS_Plugin_Internal_Editor_LBS_AssetsPostProcessor_OnPostImportProcess_System_String___
+  name: OnPostImportProcess
+  nameWithType: LBS_AssetsPostProcessor.OnPostImportProcess
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostImportProcess
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostDeleteProcess*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostDeleteProcess
+  href: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.html#ISILab_LBS_Plugin_Internal_Editor_LBS_AssetsPostProcessor_OnPostDeleteProcess_System_String___
+  name: OnPostDeleteProcess
+  nameWithType: LBS_AssetsPostProcessor.OnPostDeleteProcess
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostDeleteProcess
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveProcess*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveProcess
+  href: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.html#ISILab_LBS_Plugin_Internal_Editor_LBS_AssetsPostProcessor_OnPostMoveProcess_System_String___
+  name: OnPostMoveProcess
+  nameWithType: LBS_AssetsPostProcessor.OnPostMoveProcess
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveProcess
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess
+  href: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.html#ISILab_LBS_Plugin_Internal_Editor_LBS_AssetsPostProcessor_OnPostMoveFromPathsProcess_System_String___
+  name: OnPostMoveFromPathsProcess
+  nameWithType: LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.OnPostMoveFromPathsProcess
+- uid: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.InitializeLBSPackage*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.InitializeLBSPackage
+  href: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.html#ISILab_LBS_Plugin_Internal_Editor_LBS_AssetsPostProcessor_InitializeLBSPackage
+  name: InitializeLBSPackage
+  nameWithType: LBS_AssetsPostProcessor.InitializeLBSPackage
+  fullName: ISILab.LBS.Plugin.Internal.Editor.LBS_AssetsPostProcessor.InitializeLBSPackage
+shouldSkipMarkup: true

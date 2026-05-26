@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RenderObjectsPass | lbs-api_docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RenderObjectsPass | lbs-api_docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
+            lbs-api-docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass">
+
+
+
+  <h1 id="UnityEngine_Rendering_Universal_RenderObjectsPass" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass" class="text-break">
+Class RenderObjectsPass  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="UnityEngine.html">UnityEngine</a>.<a class="xref" href="UnityEngine.Rendering.html">Rendering</a>.<a class="xref" href="UnityEngine.Rendering.Universal.html">Universal</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Unity.RenderPipelines.Universal.Runtime.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RenderObjectsPass : ScriptableRenderPass, IRenderGraphRecorder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html">ScriptableRenderPass</a></div>
+      <div><span class="xref">RenderObjectsPass</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="UnityEngine.Rendering.RenderGraphModule.IRenderGraphRecorder.html">IRenderGraphRecorder</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_k_CameraTarget">ScriptableRenderPass.k_CameraTarget</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureInput_UnityEngine_Rendering_Universal_ScriptableRenderPassInput_">ScriptableRenderPass.ConfigureInput(ScriptableRenderPassInput)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureColorStoreAction_UnityEngine_Rendering_RenderBufferStoreAction_System_UInt32_">ScriptableRenderPass.ConfigureColorStoreAction(RenderBufferStoreAction, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureColorStoreActions_UnityEngine_Rendering_RenderBufferStoreAction___">ScriptableRenderPass.ConfigureColorStoreActions(RenderBufferStoreAction[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureDepthStoreAction_UnityEngine_Rendering_RenderBufferStoreAction_">ScriptableRenderPass.ConfigureDepthStoreAction(RenderBufferStoreAction)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ResetTarget">ScriptableRenderPass.ResetTarget()</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureTarget_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_">ScriptableRenderPass.ConfigureTarget(RenderTargetIdentifier, RenderTargetIdentifier)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureTarget_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_">ScriptableRenderPass.ConfigureTarget(RTHandle, RTHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureTarget_UnityEngine_Rendering_RenderTargetIdentifier___UnityEngine_Rendering_RenderTargetIdentifier_">ScriptableRenderPass.ConfigureTarget(RenderTargetIdentifier[], RenderTargetIdentifier)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureTarget_UnityEngine_Rendering_RTHandle___UnityEngine_Rendering_RTHandle_">ScriptableRenderPass.ConfigureTarget(RTHandle[], RTHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureTarget_UnityEngine_Rendering_RenderTargetIdentifier_">ScriptableRenderPass.ConfigureTarget(RenderTargetIdentifier)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureTarget_UnityEngine_Rendering_RTHandle_">ScriptableRenderPass.ConfigureTarget(RTHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureTarget_UnityEngine_Rendering_RenderTargetIdentifier___">ScriptableRenderPass.ConfigureTarget(RenderTargetIdentifier[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureTarget_UnityEngine_Rendering_RTHandle___">ScriptableRenderPass.ConfigureTarget(RTHandle[])</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_ConfigureClear_UnityEngine_Rendering_ClearFlag_UnityEngine_Color_">ScriptableRenderPass.ConfigureClear(ClearFlag, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_OnCameraSetup_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_Universal_RenderingData__">ScriptableRenderPass.OnCameraSetup(CommandBuffer, ref RenderingData)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_Configure_UnityEngine_Rendering_CommandBuffer_UnityEngine_RenderTextureDescriptor_">ScriptableRenderPass.Configure(CommandBuffer, RenderTextureDescriptor)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_OnCameraCleanup_UnityEngine_Rendering_CommandBuffer_">ScriptableRenderPass.OnCameraCleanup(CommandBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_OnFinishCameraStackRendering_UnityEngine_Rendering_CommandBuffer_">ScriptableRenderPass.OnFinishCameraStackRendering(CommandBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_Blit_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Rendering_RenderTargetIdentifier_UnityEngine_Material_System_Int32_">ScriptableRenderPass.Blit(CommandBuffer, RenderTargetIdentifier, RenderTargetIdentifier, Material, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_Blit_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_RTHandle_UnityEngine_Rendering_RTHandle_UnityEngine_Material_System_Int32_">ScriptableRenderPass.Blit(CommandBuffer, RTHandle, RTHandle, Material, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_Blit_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_Universal_RenderingData__UnityEngine_Material_System_Int32_">ScriptableRenderPass.Blit(CommandBuffer, ref RenderingData, Material, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_Blit_UnityEngine_Rendering_CommandBuffer_UnityEngine_Rendering_Universal_RenderingData__UnityEngine_Rendering_RTHandle_UnityEngine_Material_System_Int32_">ScriptableRenderPass.Blit(CommandBuffer, ref RenderingData, RTHandle, Material, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_CreateDrawingSettings_UnityEngine_Rendering_ShaderTagId_UnityEngine_Rendering_Universal_RenderingData__UnityEngine_Rendering_SortingCriteria_">ScriptableRenderPass.CreateDrawingSettings(ShaderTagId, ref RenderingData, SortingCriteria)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_CreateDrawingSettings_UnityEngine_Rendering_ShaderTagId_UnityEngine_Rendering_Universal_UniversalRenderingData_UnityEngine_Rendering_Universal_UniversalCameraData_UnityEngine_Rendering_Universal_UniversalLightData_UnityEngine_Rendering_SortingCriteria_">ScriptableRenderPass.CreateDrawingSettings(ShaderTagId, UniversalRenderingData, UniversalCameraData, UniversalLightData, SortingCriteria)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_CreateDrawingSettings_System_Collections_Generic_List_UnityEngine_Rendering_ShaderTagId__UnityEngine_Rendering_Universal_RenderingData__UnityEngine_Rendering_SortingCriteria_">ScriptableRenderPass.CreateDrawingSettings(List&lt;ShaderTagId&gt;, ref RenderingData, SortingCriteria)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_CreateDrawingSettings_System_Collections_Generic_List_UnityEngine_Rendering_ShaderTagId__UnityEngine_Rendering_Universal_UniversalRenderingData_UnityEngine_Rendering_Universal_UniversalCameraData_UnityEngine_Rendering_Universal_UniversalLightData_UnityEngine_Rendering_SortingCriteria_">ScriptableRenderPass.CreateDrawingSettings(List&lt;ShaderTagId&gt;, UniversalRenderingData, UniversalCameraData, UniversalLightData, SortingCriteria)</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_renderPassEvent">ScriptableRenderPass.renderPassEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_colorAttachments">ScriptableRenderPass.colorAttachments</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_colorAttachment">ScriptableRenderPass.colorAttachment</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_depthAttachment">ScriptableRenderPass.depthAttachment</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_colorAttachmentHandles">ScriptableRenderPass.colorAttachmentHandles</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_colorAttachmentHandle">ScriptableRenderPass.colorAttachmentHandle</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_depthAttachmentHandle">ScriptableRenderPass.depthAttachmentHandle</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_colorStoreActions">ScriptableRenderPass.colorStoreActions</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_depthStoreAction">ScriptableRenderPass.depthStoreAction</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_input">ScriptableRenderPass.input</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_clearFlag">ScriptableRenderPass.clearFlag</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_clearColor">ScriptableRenderPass.clearColor</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_requiresIntermediateTexture">ScriptableRenderPass.requiresIntermediateTexture</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_profilingSampler">ScriptableRenderPass.profilingSampler</a>
+    </div>
+    <div>
+      <a class="xref" href="UnityEngine.Rendering.Universal.ScriptableRenderPass.html#UnityEngine_Rendering_Universal_ScriptableRenderPass_passName">ScriptableRenderPass.passName</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumnWithDefault__1___0___0_System_Boolean_">AnalyticsUtils.ToNestedColumnWithDefault&lt;T&gt;(T, T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="UnityEditor.Rendering.AnalyticsUtils.html#UnityEditor_Rendering_AnalyticsUtils_ToNestedColumn__1___0___0_">AnalyticsUtils.ToNestedColumn&lt;T&gt;(T, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderObjectsPass__ctor_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.#ctor*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderObjectsPass__ctor_System_String_UnityEngine_Rendering_Universal_RenderPassEvent_System_String___UnityEngine_Rendering_Universal_RenderQueueType_System_Int32_UnityEngine_Rendering_Universal_RenderObjects_CustomCameraSettings_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.#ctor(System.String,UnityEngine.Rendering.Universal.RenderPassEvent,System.String[],UnityEngine.Rendering.Universal.RenderQueueType,System.Int32,UnityEngine.Rendering.Universal.RenderObjects.CustomCameraSettings)">
+  RenderObjectsPass(string, RenderPassEvent, string[], RenderQueueType, int, CustomCameraSettings)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderObjectsPass(string profilerTag, RenderPassEvent renderPassEvent, string[] shaderTags, RenderQueueType renderQueueType, int layerMask, RenderObjects.CustomCameraSettings cameraSettings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>profilerTag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>renderPassEvent</code> <a class="xref" href="UnityEngine.Rendering.Universal.RenderPassEvent.html">RenderPassEvent</a></dt>
+    <dd></dd>
+    <dt><code>shaderTags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+    <dt><code>renderQueueType</code> <a class="xref" href="UnityEngine.Rendering.Universal.RenderQueueType.html">RenderQueueType</a></dt>
+    <dd></dd>
+    <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cameraSettings</code> <a class="xref" href="UnityEngine.Rendering.Universal.RenderObjects.html">RenderObjects</a>.<a class="xref" href="UnityEngine.Rendering.Universal.RenderObjects.CustomCameraSettings.html">CustomCameraSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderObjectsPass_overrideMaterial_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.overrideMaterial*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderObjectsPass_overrideMaterial" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.overrideMaterial">
+  overrideMaterial
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Material overrideMaterial { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Material</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderObjectsPass_overrideMaterialPassIndex_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.overrideMaterialPassIndex*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderObjectsPass_overrideMaterialPassIndex" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.overrideMaterialPassIndex">
+  overrideMaterialPassIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int overrideMaterialPassIndex { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderObjectsPass_overrideShader_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.overrideShader*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderObjectsPass_overrideShader" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.overrideShader">
+  overrideShader
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Shader overrideShader { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Shader</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderObjectsPass_overrideShaderPassIndex_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.overrideShaderPassIndex*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderObjectsPass_overrideShaderPassIndex" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.overrideShaderPassIndex">
+  overrideShaderPassIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int overrideShaderPassIndex { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderObjectsPass_Execute_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.Execute*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderObjectsPass_Execute_UnityEngine_Rendering_ScriptableRenderContext_UnityEngine_Rendering_Universal_RenderingData__" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.Execute(UnityEngine.Rendering.ScriptableRenderContext,UnityEngine.Rendering.Universal.RenderingData@)">
+  Execute(ScriptableRenderContext, ref RenderingData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This rendering path is for compatibility mode only (when Render Graph is disabled). Use Render Graph API instead.&quot;, false)]
+public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <span class="xref">ScriptableRenderContext</span></dt>
+    <dd></dd>
+    <dt><code>renderingData</code> <a class="xref" href="UnityEngine.Rendering.Universal.RenderingData.html">RenderingData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderObjectsPass_RecordRenderGraph_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.RecordRenderGraph*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderObjectsPass_RecordRenderGraph_UnityEngine_Rendering_RenderGraphModule_RenderGraph_UnityEngine_Rendering_ContextContainer_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.RecordRenderGraph(UnityEngine.Rendering.RenderGraphModule.RenderGraph,UnityEngine.Rendering.ContextContainer)">
+  RecordRenderGraph(RenderGraph, ContextContainer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RecordRenderGraph(RenderGraph renderGraph, ContextContainer frameData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderGraph</code> <a class="xref" href="UnityEngine.Rendering.RenderGraphModule.RenderGraph.html">RenderGraph</a></dt>
+    <dd></dd>
+    <dt><code>frameData</code> <a class="xref" href="UnityEngine.Rendering.ContextContainer.html">ContextContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderObjectsPass_SetDepthState_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.SetDepthState*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderObjectsPass_SetDepthState_System_Boolean_UnityEngine_Rendering_CompareFunction_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.SetDepthState(System.Boolean,UnityEngine.Rendering.CompareFunction)">
+  SetDepthState(bool, CompareFunction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDepthState(bool writeEnabled, CompareFunction function = 2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writeEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>function</code> <span class="xref">CompareFunction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderObjectsPass_SetDetphState_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.SetDetphState*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderObjectsPass_SetDetphState_System_Boolean_UnityEngine_Rendering_CompareFunction_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.SetDetphState(System.Boolean,UnityEngine.Rendering.CompareFunction)">
+  SetDetphState(bool, CompareFunction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use SetDepthState instead&quot;, true)]
+public void SetDetphState(bool writeEnabled, CompareFunction function = 2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writeEnabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>function</code> <span class="xref">CompareFunction</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="UnityEngine_Rendering_Universal_RenderObjectsPass_SetStencilState_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.SetStencilState*"></a>
+
+  <h3 id="UnityEngine_Rendering_Universal_RenderObjectsPass_SetStencilState_System_Int32_UnityEngine_Rendering_CompareFunction_UnityEngine_Rendering_StencilOp_UnityEngine_Rendering_StencilOp_UnityEngine_Rendering_StencilOp_" data-uid="UnityEngine.Rendering.Universal.RenderObjectsPass.SetStencilState(System.Int32,UnityEngine.Rendering.CompareFunction,UnityEngine.Rendering.StencilOp,UnityEngine.Rendering.StencilOp,UnityEngine.Rendering.StencilOp)">
+  SetStencilState(int, CompareFunction, StencilOp, StencilOp, StencilOp)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetStencilState(int reference, CompareFunction compareFunction, StencilOp passOp, StencilOp failOp, StencilOp zFailOp)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>compareFunction</code> <span class="xref">CompareFunction</span></dt>
+    <dd></dd>
+    <dt><code>passOp</code> <span class="xref">StencilOp</span></dt>
+    <dd></dd>
+    <dt><code>failOp</code> <span class="xref">StencilOp</span></dt>
+    <dd></dd>
+    <dt><code>zFailOp</code> <span class="xref">StencilOp</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
