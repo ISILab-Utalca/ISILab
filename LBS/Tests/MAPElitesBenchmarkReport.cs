@@ -16,9 +16,9 @@ namespace ISILab.LBS.Tests
     public class MAPElitesBenchmarkReport : MAPElitesBaseBenchmark
     {
 
-        const string level9Rooms = "04acda0b4a6f7ca4da575ba34b30d554";
-        const string level21Rooms = "b93245dd9ffc3d84d9b6bb9e58d1d05e";
-        
+        const string level9Rooms = "f584add7bb7a37144a9ea0bca12db4ec";//"04acda0b4a6f7ca4da575ba34b30d554";
+        const string level21Rooms = "917eb1d1b0892ba4092b71f862fd69d2";//"b93245dd9ffc3d84d9b6bb9e58d1d05e";
+
 
         #region Full MAP-Elites Execution
 
