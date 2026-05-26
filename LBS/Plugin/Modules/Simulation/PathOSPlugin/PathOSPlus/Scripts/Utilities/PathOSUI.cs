@@ -87,8 +87,8 @@ namespace PathOS
                 { EntityType.ET_HAZARD_ENVIRONMENT,     "Environment Hazard" },
                 { EntityType.ET_POI,                    "POI" },
                 { EntityType.ET_POI_NPC,                "NPC" },
-                { EntityType.ET_STAIR_UP,               "Stair up" },
-                { EntityType.ET_STAIR_DOWN,             "Stair down" }
+                { EntityType.ET_STAIR_UP,               "Stair Up" },
+                { EntityType.ET_STAIR_DOWN,             "Stair Down" }
             };
 
         public static string[] entityPopupList =

@@ -224,20 +224,24 @@ namespace PathOS
             bool UpdateEntityVisibility(PerceivedEntity entity)
             {
                 Vector3 entityPos = entity.entityRef.objectRef.transform.position;
-                Vector3 entityVecXZ = entityPos - cam.transform.position;
+                Vector3 camToEntity = entityPos - cam.transform.position;
 
-                if (camType.Equals(CamType.FirstPerson)) entityVecXZ.y = 0.0f;
+                if (camType.Equals(CamType.FirstPerson)) camToEntity.y = 0.0f;
 
                 entity.entityRef.UpdateBounds();
 
                 bool invisible = invisibleEntities.Contains(entity.entityRef); // GABO: Check if entity is invisible (to be used for OPEN entities)
-                bool dotCheck = camType == CamType.FirstPerson ? Vector3.Dot(camForward, entityVecXZ) > 0 : true;
+                bool dotCheck = Vector3.Dot(camForward, camToEntity) > 0;
                 bool fustrumCheck = GeometryUtility.TestPlanesAABB(frustum, entity.entityRef.bounds);
                 bool sizeOnCameraCheck = entity.entityRef.SizeVisibilityCheck(cam, visSizeThreshold);
                 bool raycastCheck = RaycastVisibilityCheck(entity.entityRef.bounds, entityPos); // GABO: Modified to ignore invisible walls.
 
-                return
-                    !invisible && dotCheck && fustrumCheck && sizeOnCameraCheck && raycastCheck;
+                bool output = !invisible && dotCheck && fustrumCheck && sizeOnCameraCheck && raycastCheck;
+                if (entity.entityType == EntityType.ET_POI)
+                {
+                    return output;
+                }
+                return output;
             }
         }
 

@@ -481,7 +481,11 @@ namespace PathOS
             for (int i = 0; i < _agentMemory.entities.Count; ++i)
             {
                 if (!ReferenceEquals(currentGoalMemory, _agentMemory.entities[i]))
-                    ScoreEntity(_agentMemory.entities[i], ref maxScore);
+                {
+                    var entity = _agentMemory.entities[i];
+                    ScoreEntity(entity, ref maxScore);
+                    var sheesh = maxScore;
+                }
             }
 
             // Calculate score for paths' directions in memory
@@ -694,6 +698,22 @@ namespace PathOS
 
             if (entityBias > 0.0f && score > 0.0f)
                 score += Constants.Behaviour.INTERACTIVITY_BIAS;
+
+            // Bias for preferring stair objects, affected by curiosity
+            // (if the unknown tiles in that floor are more than in the current floor)
+
+            if (entityMem.entity.entityType == EntityType.ET_STAIR_UP ||
+                entityMem.entity.entityType == EntityType.ET_STAIR_DOWN)
+            {
+                int currentFloorUnkown = _agentMemory.memoryMap.GetUnknownTileCount(agentFloor);
+                int adyacentFloorUnkown = _agentMemory.memoryMap.
+                    GetUnknownTileCount(agentFloor + entityMem.entity.entityRef.DirectionSign);
+
+                if(adyacentFloorUnkown > currentFloorUnkown)
+                {
+                    score += Constants.Behaviour.STAIR_BIAS * heuristics.heuristicScaleLookup[Heuristic.CURIOSITY];
+                }
+            }
 
             // Accumulate entity score for the exploration system,
             // which will be used to penalize the final goal if the agent

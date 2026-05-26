@@ -30,7 +30,10 @@ namespace PathOS
             heuristicScaleLookup.Clear();
             entityScoringLookup.Clear();
 
-            float baseValue = 0f;
+            // ROD: idk what's up with this baseValue float, like,
+            // if the agent settings are gonna get re-written arbitrarily,
+            // why even put settings on the inspector to begin with?
+            float baseValue = 1;
 
             foreach (var h in DefaultHeuristics)
             {
@@ -39,7 +42,7 @@ namespace PathOS
                 modifiableHeuristicScales.Add(scale);
                 heuristicScaleLookup[h] = scale.scale;
 
-                baseValue += 5f;
+                //baseValue += 5f;
             }
         }
 

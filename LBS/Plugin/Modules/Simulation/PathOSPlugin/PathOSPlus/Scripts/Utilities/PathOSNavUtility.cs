@@ -749,6 +749,23 @@ namespace PathOS
                     visualGridDirty[j] = true;
                 }
             }
+
+            public int GetUnknownTileCount(int floorIndex)
+            {
+                if (floorIndex < 0 || floorIndex > visitedGrid.GetLength(1))
+                    return -1;
+
+                int count = 0;
+                for(int i = 0; i < visitedGrid.GetLength(0); i++)
+                {
+                    for(int k = 0; k < visitedGrid.GetLength(2); k++)
+                    {
+                        if (visitedGrid[i, floorIndex, k] == NavmeshMapCode.NM_UNKNOWN)
+                            count++;
+                    }
+                }
+                return count;
+            }
         }
 
         public static bool GetClosestPointWalkable(Vector3 p, float margin, ref Vector3 result)
