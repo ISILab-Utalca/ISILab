@@ -7,6 +7,8 @@ namespace ISILab.AI.Grammar
 {
     public class ReportTrigger : QuestTriggerNode
     {
+        bool reported; 
+
         [Header("Grammar Fields")]
         [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("POI to report to")]
         private GrammarBundleGraph _POItoreportto;
@@ -23,6 +25,16 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete() => reported;
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            // here replace on trigger enter with some sort of interaction/dialogue system binding
+            if (IsPlayer(other))
+            {
+                reported = true;
+                TryComplete();
+            }
+        }
     }
 }

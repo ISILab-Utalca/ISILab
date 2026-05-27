@@ -7,6 +7,8 @@ namespace ISILab.AI.Grammar
 {
     public class SpyTrigger : QuestTriggerNode
     {
+        bool spied;
+
         [Header("Grammar Fields")]
         [SerializeField, InspectorName("Min distance")]
         private GrammarInt _Mindistance;
@@ -34,6 +36,29 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete() => spied;
+        protected override void OnTriggerEnter(Collider other)
+        {
+            SpyCheck(other);
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            SpyCheck(other);
+        }
+        private void SpyCheck(Collider other)
+        {
+            // no spy objective found
+            if (Gos.Count == 0) spied = true;
+
+            if (IsPlayer(other))
+            {
+                if ((other.gameObject.transform.position - Gos[0].gameObject.transform.position).magnitude <= _Mindistance.value)
+                {
+                    spied = true;
+                    TryComplete();
+                }
+            }
+        }
     }
 }

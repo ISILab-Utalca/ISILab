@@ -7,6 +7,7 @@ namespace ISILab.AI.Grammar
     public class GrammarFloat : GrammarField<float>
     {
         public override Type PrimitiveType => typeof(GrammarFloat);
+        public override bool IsValid() => true;
     }
 
 

@@ -80,12 +80,10 @@ namespace ISILab.LBS.Editor
         {
             target = paramTarget;
 
-            if (assistant != null) return;
-
             assistant = target as GrammarAssistant;
-
             assistant.OnCallAssistant = null;
-            ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
+            assistant.Graph.OnNodeSelected += assistant.OnCallAssistant;
+            assistant.OnCallAssistant += UpdatePanel;
             grammarField.value = Graph?.Grammar;
 
         }
@@ -117,7 +115,8 @@ namespace ISILab.LBS.Editor
 
         private void UpdatePanel(GraphNode selectedGraphNode = null)
         {
-            if (assistant.Disabled) return;
+            if (assistant.Disabled) 
+                return;
 
             if (selectedGraphNode == lastSelectedGraphNode) 
             {
@@ -135,7 +134,6 @@ namespace ISILab.LBS.Editor
                 return;
             }
 
-            //Debug.Log($"last [{lastSelectedGraphNode}] | new [{selectedGraphNode}]");
             lastSelectedGraphNode = selectedGraphNode;
             grammarField.value = Graph.Grammar;
             paramActionLabel.text = "none";
@@ -172,7 +170,7 @@ namespace ISILab.LBS.Editor
                 UpdatePrevSuggestions(prevArray, Graph.SelectedQuestNode);
                 UpdateExpandSuggestions(expandArray, Graph.SelectedQuestNode);
                 TaskBar.EnableProcess(false);
-                
+               
                 LBSMainWindow.MessageNotify(new LBSLog(log, type, 5));
             };
         }
@@ -181,6 +179,8 @@ namespace ISILab.LBS.Editor
         
         void RunTask(string selectedAction)
         {
+            NotifierViewer.ClearNotifications();
+
             var currentAssistant = assistant;
             var currentGrammar = assistant.Graph.Grammar;
 

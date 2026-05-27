@@ -1,5 +1,6 @@
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Bundles;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 
 namespace ISILab.AI.Grammar
@@ -18,6 +19,9 @@ namespace ISILab.AI.Grammar
             }
         }
 
+        public override bool IsValid() => value != null && value.IsValid();
+        public override LBSLog GetValidStateLog() =>
+            IsValid() ? base.GetValidStateLog() : new LBSLog($"{name}: Bundle target not assigned!", UnityEngine.LogType.Error);
         public override void SetObjectBundle(object[] objs)
         {
             base.SetObjectBundle(objs);

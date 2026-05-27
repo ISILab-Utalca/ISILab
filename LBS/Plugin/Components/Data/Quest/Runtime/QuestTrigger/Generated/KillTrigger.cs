@@ -7,6 +7,8 @@ namespace ISILab.AI.Grammar
 {
     public class KillTrigger : QuestTriggerNode
     {
+        bool Killed;
+
         [Header("Grammar Fields")]
         [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Type to kill")]
         private GrammarBundleType _Typetokill;
@@ -34,6 +36,23 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete() => Killed;
+
+
+        private void OnTriggerStay(Collider other)
+        {
+            KillCheck();
+        }
+
+        private void KillCheck()
+        {
+            foreach (var go in Gos)
+            {
+                if (go.activeSelf) return;
+            }
+
+            Killed = true;
+            TryComplete();
+        }
     }
 }

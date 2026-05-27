@@ -7,6 +7,8 @@ namespace ISILab.AI.Grammar
 {
     public class ListenTrigger : QuestTriggerNode
     {
+        bool listened;
+
         [Header("Grammar Fields")]
         [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Object to listen")]
         private GrammarBundleGraph _Objecttolisten;
@@ -23,6 +25,16 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete() => listened;
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            // here replace on trigger enter with some sort of interaction/dialogue system binding
+            if (IsPlayer(other))
+            {
+                listened = true;
+                TryComplete();
+            }
+        }
     }
 }

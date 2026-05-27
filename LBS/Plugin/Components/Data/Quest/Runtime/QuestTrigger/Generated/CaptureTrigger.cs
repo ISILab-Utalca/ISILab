@@ -7,6 +7,9 @@ namespace ISILab.AI.Grammar
 {
     public class CaptureTrigger : QuestTriggerNode
     {
+        float stayTime;
+        bool isPlayerInside;
+
         [Header("Grammar Fields")]
         [SerializeField, InspectorName("Time to capture")]
         private GrammarFloat _Timetocapture;
@@ -34,6 +37,37 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete() => stayTime >= _Timetocapture.value;
+
+        private void Update()
+        {
+            if (isPlayerInside)
+            {
+                stayTime += Time.deltaTime;
+                stayTime = Mathf.Clamp(stayTime, 0f, _Timetocapture.value);
+            }
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (IsPlayer(other))
+            {
+                isPlayerInside = true;
+                TryComplete();
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (IsPlayer(other))
+            {
+                isPlayerInside = false;
+
+                if (_Resetonexitduringcapture != null && _Resetonexitduringcapture.value)
+                {
+                    stayTime = 0f;
+                }
+            }
+        }
     }
 }

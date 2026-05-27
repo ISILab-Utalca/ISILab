@@ -1,5 +1,6 @@
 using ISILab.Commons.Attributes;
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace ISILab.AI.Grammar
         private static readonly Dictionary<string, Type> fieldMap = new();
 
         [SerializeField, HideInInspector]
-        public QuestNodeData data;
+        private QuestNodeData data;
 
         [SerializeField, Commons.Attributes.ReadOnly]
         public string name;
@@ -26,10 +27,16 @@ namespace ISILab.AI.Grammar
 
         #region ACTIONS
         // used main to broadcast unto visual elements whenever the value changes.
-        public Action Refresh;
+        public Action<GrammarField> Refresh;
         #endregion
 
         #region PROPERTIES
+        public virtual QuestNodeData Data
+        {
+            get => data;
+            set => data = value;
+        }
+
         /// Primitive type used by this field
         /// GrammarIntList -> GrammarInt
         /// GrammarInt     -> GrammarInt
@@ -78,10 +85,19 @@ namespace ISILab.AI.Grammar
         }
 
         public abstract object Clone();
-        public virtual void SetValue(object newValue) { }
+        public virtual void SetValue(object newValue) 
+        {
+            Refresh?.Invoke(this);
+        }
         public virtual object GetValue() => null;
         public override int GetHashCode() => base.GetHashCode() + name.GetHashCode() + data.GetHashCode();
         public override string ToString() => data.Node.ID + ": " + name;
+        public abstract bool IsValid();
+        public virtual LBSLog GetValidStateLog()
+        {
+            return new LBSLog("Valid Node Data", LogType.Log);
+        }
+        
         #endregion
     }
 }

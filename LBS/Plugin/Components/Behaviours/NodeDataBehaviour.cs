@@ -110,7 +110,7 @@ namespace ISILab.LBS.Behaviours
             List<object> allKeys = new List<object>();
 
             // Add Node as keys
-            foreach (var node in Graph.GetQuestNodes())
+            foreach (var node in Graph.QuestNodes)
             {
                 allKeys.AddRange(node.Data.GetFields<GrammarField>());
             }

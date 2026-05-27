@@ -7,6 +7,8 @@ namespace ISILab.AI.Grammar
 {
     public class GatherTrigger : QuestTriggerNode
     {
+        bool Gathered;
+
         [Header("Grammar Fields")]
         [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Item Type")]
         private GrammarBundleType _ItemType;
@@ -34,6 +36,18 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete() => Gathered;
+
+        protected void OnTriggerStay(Collider other)
+        {
+            if (IsPlayer(other))
+            {
+                if(HasItem(other, _ItemType.value, _Requiredamount.value))
+                {
+                    Gathered = true;
+                    TryComplete();
+                }
+            }
+        }
     }
 }
