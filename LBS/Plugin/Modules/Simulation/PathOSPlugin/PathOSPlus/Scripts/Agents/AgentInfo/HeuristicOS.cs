@@ -30,7 +30,10 @@ namespace PathOS
             heuristicScaleLookup.Clear();
             entityScoringLookup.Clear();
 
-            float baseValue = 0f;
+            // ROD: idk what's up with this baseValue float, like,
+            // if the agent settings are gonna get re-written arbitrarily,
+            // why even put settings on the inspector to begin with?
+            float baseValue = 1;
 
             foreach (var h in DefaultHeuristics)
             {
@@ -39,7 +42,7 @@ namespace PathOS
                 modifiableHeuristicScales.Add(scale);
                 heuristicScaleLookup[h] = scale.scale;
 
-                baseValue += 5f;
+                //baseValue += 5f;
             }
         }
 
@@ -123,12 +126,12 @@ namespace PathOS
 
             agent.visitThresholdSqr = agent.tuning.visitThreshold * agent.tuning.visitThreshold;
 
-            agent.STMemoryState.forgetTime = Mathf.Lerp(
+            agent.memoryState.forgetTime = Mathf.Lerp(
                 Constants.Memory.FORGET_TIME_MIN,
                 Constants.Memory.FORGET_TIME_MAX,
                 exp);
 
-            agent.STMemoryState.stmSize = Mathf.RoundToInt(Mathf.Lerp(
+            agent.memoryState.stmSize = Mathf.RoundToInt(Mathf.Lerp(
                 Constants.Memory.MEM_CAPACITY_MIN,
                 Constants.Memory.MEM_CAPACITY_MAX,
                 exp));
@@ -142,7 +145,7 @@ namespace PathOS
                 (GetHeuristicValue(Heuristic.CAUTION) +
                  1f - GetHeuristicValue(Heuristic.CURIOSITY)) * 0.5f;
 
-            agent.STMemoryState.memPathChance = Mathf.Lerp(
+            agent.memoryState.memPathChance = Mathf.Lerp(
                 Constants.Behaviour.MEMORY_NAV_CHANCE_MIN,
                 Constants.Behaviour.MEMORY_NAV_CHANCE_MAX,
                 memPathScale);

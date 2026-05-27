@@ -56,8 +56,10 @@ namespace PathOS
                 manager = PathOSManager.instance;
 
             //Initialize the (blank) model of the agent's internal "map".
-            memoryMap = new PathOSNavUtility.NavmeshMemoryMapper(gridSampleSize, manager.floorCount);
-            memoryMap.memory = this;
+            memoryMap = new PathOSNavUtility.NavmeshMemoryMapper(gridSampleSize, manager.floorCount)
+            {
+                memory = this
+            };
 
             //Commit any "always-known" entities to memory.
             foreach (PerceivedEntity entity in agent.eyes.perceptionInfo)
@@ -128,7 +130,7 @@ namespace PathOS
                 //Additionally, the *current* target cannot be forgotten.
                 if (!entity.entity.visible
                     && entity.forgettable
-                    && entity.impressionTime >= agent.STMemoryState.forgetTime
+                    && entity.impressionTime >= agent.memoryState.forgetTime
                     && !PerceivedEntity.SameEntity(targetEntity, entity))
                 {
                     entities.RemoveAt(i);
@@ -143,11 +145,11 @@ namespace PathOS
 
             //Forget any non-visible entities that aren't in long-term memory 
             //over the STM size cap.
-            if (stm.Count > agent.STMemoryState.stmSize)
+            if (stm.Count > agent.memoryState.stmSize)
             {
                 stm.Sort((m1, m2) => m1.impressionTime.CompareTo(m2.impressionTime));
 
-                while (stm.Count > agent.STMemoryState.stmSize)
+                while (stm.Count > agent.memoryState.stmSize)
                 {
                     entities.Remove(stm[stm.Count - 1]);
                     stm.RemoveAt(stm.Count - 1);
@@ -187,7 +189,7 @@ namespace PathOS
 
                 //Paths are ejected from memory if they are forgotten,
                 //or if back-end navmesh logic has determined they cannot be reached.
-                if (paths[i].impressionTime >= agent.STMemoryState.forgetTime
+                if (paths[i].impressionTime >= agent.memoryState.forgetTime
                     || agent.explorationState.IsUnreachable(paths[i].estimatedDest))
                     paths.RemoveAt(i);
             }
@@ -293,6 +295,10 @@ namespace PathOS
         }
 
         //Has a visible entity been visited?
+        public bool Visited(LevelEntity entity)
+        {
+            return Visited(new PerceivedEntity(entity));
+        }
         public bool Visited(PerceivedEntity entity)
         {
             for (int i = 0; i < entities.Count; ++i)
@@ -325,7 +331,7 @@ namespace PathOS
                 }
             }
 
-            if (paths.Count >= agent.STMemoryState.stmSize)
+            if (paths.Count >= agent.memoryState.stmSize)
             {
                 if (path.score < minScore)
                     return;
@@ -493,6 +499,8 @@ namespace PathOS
             
             EntityMemory closestStair = null;
             float closestDistanceSqr = Mathf.Infinity;
+
+            // TODO: Probably an A* search would be better.
             foreach (var stairMemory in stairMemories)
             {
                 float distanceSqr = (stairMemory.entity.perceivedPos - position).sqrMagnitude;
@@ -535,10 +543,14 @@ namespace PathOS
             return otherMemory;
         }
 
-        private int CalculateAproximatedFloor(float yPosition)
+        /// <summary>
+        /// Calculates the approximated floor number based on the Y position
+        /// and the defined grid sample size for floors.
+        /// </summary>
+        /// <param name="yPosition"></param>
+        /// <returns></returns>
+        public int CalculateAproximatedFloor(float yPosition)
         {
-            // Calcula el piso aproximado dividiendo la posición Y entre la altura de piso (gridSampleSize.y)
-            // y redondeando al entero más cercano.
             if (gridSampleSize.y <= 0f)
                 return 0; // Evita división por cero
 

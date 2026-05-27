@@ -131,7 +131,7 @@ namespace PathOS
                     }
                 }
 
-                public void InsertByScore(ref List<AStarTile> list)
+                public void InsertByScore(List<AStarTile> list)
                 {
                     for (int i = 0; i < list.Count; ++i)
                     {
@@ -346,24 +346,20 @@ namespace PathOS
                 gridX = (int)(diff.x / sampleGridSize.x);
                 gridY = (int)(diff.y / sampleGridSize.y);
                 gridZ = (int)(diff.z / sampleGridSize.z);
-                //Debug.Log($"({point.y}) - ({diff.y}) - ({gridY})");
-                //Debug.Log($"({sampleGridSize.x} {sampleGridSize.y} {sampleGridSize.z})");
-                //Debug.Log($"({gridX} {gridY} {gridZ})");
-                //Debug.Log($"({point.x} {point.y} {point.z})");
                 return;
             }
 
-            private Vector3 GetPoint(int gridX, int gridZ)
+            private Vector3 GetPoint(int gridX, int gridY, int gridZ)
             {
                 Vector3 diff = Vector3.zero;
 
                 //Calculate difference between grid origin and sample tile in world units.
                 diff.x = gridX * sampleGridSize.x;
+                diff.y = gridY * sampleGridSize.y;
                 diff.z = gridZ * sampleGridSize.z;
 
                 //Compute point based on grid origin.
                 Vector3 point = gridOrigin + diff;
-                point.y = bounds.altitudeSampleHeight;
 
                 return point;
             }
@@ -398,12 +394,12 @@ namespace PathOS
             /// tiles, the total distance traversed, and the proportion of unexplored tiles encountered.</param>
             /// <param name="fillSeen">If set to <see langword="true"/>, marks all sampled tiles along the ray as seen. The default is <see
             /// langword="false"/>.</param>
-            /// <param name="point">If set to <see langword="true"/>, considers the raycast as a point sample. The default is <see langword="false"/>.</param>
-            public void RaycastMemoryMap(Vector3 origin, Vector3 dir, float maxDistance, out NavmeshMemoryMapperCastHit hit,
-                bool fillSeen = false, bool point = false)
+            /// <param name="pointSample">If set to <see langword="true"/>, considers the raycast as a point sample. The default is <see langword="false"/>.</param>
+            public void XZRaycastMemoryMap(Vector3 origin, Vector3 dir, float maxDistance, out NavmeshMemoryMapperCastHit hit,
+                bool fillSeen = false, bool pointSample = false)
             {
                 Vector3 samplePoint = origin;
-                Vector3 d = new Vector3(dir.x, dir.y, dir.z);
+                Vector3 d = new Vector3(dir.x, 0, dir.z);
                 d.Normalize();
 
                 // What is our sampling distance?
@@ -419,6 +415,10 @@ namespace PathOS
                 if (theta > 45.0f)
                     theta = 90.0f - theta;
 
+                // ROD: might as well use sampleGridSize.x for this calculation,
+                // idk how to incorporate X and Z to make this a fiable measurement and
+                // this implementation will only work fine when both scales are the same.
+                // (but who would make a level with different X and Z anyways?)
                 float sampleDistance = sampleGridSize.z / Mathf.Cos(Mathf.Deg2Rad * theta);
                 d = sampleDistance * d;
 
@@ -432,7 +432,8 @@ namespace PathOS
                 for (int i = 1; (i * sampleDistance) < maxDistance && i < maxCastSamples; ++i)
                 {
                     // If we're doing a point sample, we only want to sample at the end of the ray.
-                    if (!point || (i + 1) * sampleDistance > maxDistance)
+                    bool lastPoint = (i + 1) * sampleDistance > maxDistance;
+                    if (!pointSample || lastPoint)
                     {
                         sample = SampleMap(samplePoint);
 
@@ -451,8 +452,8 @@ namespace PathOS
 
                         totalSampled++;
                     }
-                    samplePoint += d;
 
+                    samplePoint += d;
                     totalDistance += sampleDistance;
                 }
 
@@ -484,7 +485,7 @@ namespace PathOS
 
                 visitedGrid[gridX, gridY, gridZ] = code;
 
-                Color fillColor = PathOS.UI.mapUnknown;
+                UnityEngine.Color fillColor = PathOS.UI.mapUnknown;
 
                 switch (code)
                 {
@@ -517,8 +518,7 @@ namespace PathOS
                 }
             }
 
-            private void GetAdjacentWalkable(ref List<AStarTile> adjacent,
-                ref AStarTile parent, ref AStarTile dest)
+            private void GetXZAdjacentWalkable(ref List<AStarTile> adjacent, AStarTile parent, AStarTile dest)
             {
                 adjacent.Clear();
 
@@ -528,12 +528,6 @@ namespace PathOS
                 AStarTile right = new AStarTile(parent);
                 ++right.xCoord;
 
-                AStarTile up = new AStarTile(parent);
-                ++up.yCoord;
-
-                AStarTile down = new AStarTile(parent);
-                --down.yCoord;
-
                 AStarTile front = new AStarTile(parent);
                 --front.zCoord;
 
@@ -542,7 +536,7 @@ namespace PathOS
 
                 if (Walkable(left.xCoord, left.yCoord, left.zCoord))
                 {
-                    left.point = GetPoint(left.xCoord, left.zCoord);
+                    left.point = GetPoint(left.xCoord, left.yCoord, left.zCoord);
                     left.UpdateScores(dest);
                     left.AddPenalty(memory.MovementHazardPenalty(left.point));
                     adjacent.Add(left);
@@ -550,15 +544,15 @@ namespace PathOS
 
                 if (Walkable(right.xCoord, right.yCoord, right.zCoord))
                 {
-                    right.point = GetPoint(right.xCoord, right.zCoord);
+                    right.point = GetPoint(right.xCoord, right.yCoord, right.zCoord);
                     right.UpdateScores(dest);
                     right.AddPenalty(memory.MovementHazardPenalty(right.point));
                     adjacent.Add(right);
                 }
-
+                /*
                 if (Walkable(up.xCoord, up.yCoord, up.zCoord))
                 {
-                    up.point = GetPoint(up.xCoord, up.zCoord);
+                    up.point = GetPoint(up.xCoord, up.yCoord, up.zCoord);
                     up.UpdateScores(dest);
                     up.AddPenalty(memory.MovementHazardPenalty(up.point));
                     adjacent.Add(up);
@@ -566,15 +560,15 @@ namespace PathOS
 
                 if (Walkable(down.xCoord, down.yCoord, down.zCoord))
                 {
-                    down.point = GetPoint(down.xCoord, down.zCoord);
+                    down.point = GetPoint(down.xCoord, down.yCoord, down.zCoord);
                     down.UpdateScores(dest);
                     down.AddPenalty(memory.MovementHazardPenalty(down.point));
                     adjacent.Add(down);
-                }
+                }//*/
 
                 if (Walkable(front.xCoord, front.yCoord, front.zCoord))
                 {
-                    front.point = GetPoint(front.xCoord, front.zCoord);
+                    front.point = GetPoint(front.xCoord, front.yCoord, front.zCoord);
                     front.UpdateScores(dest);
                     front.AddPenalty(memory.MovementHazardPenalty(front.point));
                     adjacent.Add(front);
@@ -582,7 +576,7 @@ namespace PathOS
 
                 if (Walkable(back.xCoord, back.yCoord, back.zCoord))
                 {
-                    back.point = GetPoint(back.xCoord, back.zCoord);
+                    back.point = GetPoint(back.xCoord, back.yCoord, back.zCoord);
                     back.UpdateScores(dest);
                     back.AddPenalty(memory.MovementHazardPenalty(back.point));
                     adjacent.Add(back);
@@ -596,16 +590,22 @@ namespace PathOS
 
                 //Define tiles for the start and destination.
                 GetGridCoords(start, ref gridX, ref gridY, ref gridZ);
-                AStarTile startTile = new AStarTile();
-                startTile.xCoord = gridX;
-                startTile.zCoord = gridZ;
-                startTile.point = GetPoint(startTile.xCoord, startTile.zCoord);
+                AStarTile startTile = new AStarTile()
+                {
+                    xCoord = gridX,
+                    yCoord = gridY,
+                    zCoord = gridZ,
+                    point = GetPoint(gridX, gridY, gridZ)
+                };
 
                 GetGridCoords(dest, ref gridX, ref gridY, ref gridZ);
-                AStarTile destTile = new AStarTile();
-                destTile.xCoord = gridX;
-                destTile.zCoord = gridZ;
-                destTile.point = GetPoint(destTile.xCoord, destTile.zCoord);
+                AStarTile destTile = new AStarTile()
+                {
+                    xCoord = gridX,
+                    yCoord = gridY,
+                    zCoord = gridZ,
+                    point = GetPoint(gridX, gridY, gridZ)
+                };
 
                 startTile.gScore = Mathf.Abs(startTile.xCoord - destTile.xCoord)
                     + Mathf.Abs(startTile.zCoord - destTile.zCoord);
@@ -633,7 +633,7 @@ namespace PathOS
                         break;
                     }
 
-                    GetAdjacentWalkable(ref adjacent, ref curTile, ref destTile);
+                    GetXZAdjacentWalkable(ref adjacent, curTile, destTile);
 
                     for (int i = 0; i < adjacent.Count; ++i)
                     {
@@ -647,7 +647,7 @@ namespace PathOS
                             continue;
                         }
 
-                        adjacent[i].InsertByScore(ref open);
+                        adjacent[i].InsertByScore(open);
                     }
 
                     if (open.Count == 0)
@@ -707,9 +707,7 @@ namespace PathOS
                     < PathOS.Constants.Navigation.WAYPOINT_DIST_MIN_SQR);
                 }
 
-                //Skip targeting of the destination tile.
-                //(This will happen automatically when the agent reaches
-                //the last waypoint before the target.)
+                // Create waypoint path
                 for (int i = 0; i < path.Count - 1; ++i)
                 {
                     waypoints.Add(path[i].point);
@@ -750,6 +748,23 @@ namespace PathOS
                     }
                     visualGridDirty[j] = true;
                 }
+            }
+
+            public int GetUnknownTileCount(int floorIndex)
+            {
+                if (floorIndex < 0 || floorIndex > visitedGrid.GetLength(1))
+                    return -1;
+
+                int count = 0;
+                for(int i = 0; i < visitedGrid.GetLength(0); i++)
+                {
+                    for(int k = 0; k < visitedGrid.GetLength(2); k++)
+                    {
+                        if (visitedGrid[i, floorIndex, k] == NavmeshMapCode.NM_UNKNOWN)
+                            count++;
+                    }
+                }
+                return count;
             }
         }
 

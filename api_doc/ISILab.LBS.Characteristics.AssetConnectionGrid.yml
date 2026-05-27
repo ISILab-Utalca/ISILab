@@ -26,10 +26,15 @@ items:
   source:
     id: AssetConnectionGrid
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 307
+    startLine: 299
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: >-
+    A connection grid for a particular asset. Its main purpose consists of holding a number of flags, each assigned to a different directional slot in
+
+    the asset, in order to allow easy comparisons between generated objects for the creation of consistent patterns.
+  example: []
   syntax:
     content: >-
       [Serializable]
@@ -65,10 +70,12 @@ items:
   source:
     id: TerrainFlag
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 315
+    startLine: 309
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: 'An array holding every flag held by the Asset Grid. <b>NOTE</b>: This array currently has a set size of 9.'
+  example: []
   syntax:
     content: public int[] TerrainFlag { get; set; }
     parameters: []
@@ -90,10 +97,12 @@ items:
   source:
     id: AssetReference
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 320
+    startLine: 317
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: References the asset linked to the connection grid for 3D generation..
+  example: []
   syntax:
     content: public Asset AssetReference { get; }
     parameters: []
@@ -119,6 +128,8 @@ items:
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: The size of the grid. It simply points to the length of the terrain flag array.
+  example: []
   syntax:
     content: public int GridSize { get; }
     parameters: []
@@ -140,10 +151,15 @@ items:
   source:
     id: BorderSize
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 322
+    startLine: 326
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: >-
+    The size of the terrain grid's square borders. It currently points to the square root of the terrain flag array's length. <br />
+
+    <b>NOTE</b>: It may be personalizable to allow for non-square terrain grid sizes, but it currently depends on it being a perfect square.
+  example: []
   syntax:
     content: public int BorderSize { get; }
     parameters: []
@@ -165,17 +181,24 @@ items:
   source:
     id: .ctor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 324
+    startLine: 334
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: >-
+    A basic constructor for asset connection grids. Meant for copying already existing grids (or fully configurating one beforehand) 
+
+    as it requires an existing terrain flag array.
+  example: []
   syntax:
     content: public AssetConnectionGrid(int[] terrainFlag, Asset assetReference)
     parameters:
     - id: terrainFlag
       type: System.Int32[]
+      description: A terrain flag array.
     - id: assetReference
       type: ISILab.LBS.Plugin.Components.Bundles.Asset
+      description: The asset to reference for 3D generation and previews.
     content.vb: Public Sub New(terrainFlag As Integer(), assetReference As Asset)
   overload: ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor*
   nameWithType.vb: AssetConnectionGrid.New(Integer(), Asset)
@@ -195,17 +218,21 @@ items:
   source:
     id: .ctor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 329
+    startLine: 344
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: Alternative constructor. Initializes a basic terrain flag array, so it's used for asset grid initialization purposes.
+  example: []
   syntax:
     content: public AssetConnectionGrid(int q, Asset assetReference)
     parameters:
     - id: q
       type: System.Int32
+      description: The size of the terrain flag array (normally 9).
     - id: assetReference
       type: ISILab.LBS.Plugin.Components.Bundles.Asset
+      description: The asset to reference for 3D generation and previews.
     content.vb: Public Sub New(q As Integer, assetReference As Asset)
   overload: ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor*
   nameWithType.vb: AssetConnectionGrid.New(Integer, Asset)
@@ -225,19 +252,29 @@ items:
   source:
     id: VectorToInt
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 339
+    startLine: 361
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: Converts a Vector2 into an int value. Used to translate 2D coordinates into the 1D nature of the terrain flag array.
+  example: []
   syntax:
     content: public int VectorToInt(Vector2 vector)
     parameters:
     - id: vector
       type: UnityEngine.Vector2
+      description: The vector to convert into an int value.
     return:
       type: System.Int32
+      description: ''
     content.vb: Public Function VectorToInt(vector As Vector2) As Integer
   overload: ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: >-
+      The method will throw an exception if the array length doesn't have a square root.<br />
+          This is a failsafe to prevent issues with currently unimplemented non-square terrain grids.
 - uid: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(UnityEngine.Vector2)
   commentId: M:ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(UnityEngine.Vector2)
   id: FlagFromVector(UnityEngine.Vector2)
@@ -252,17 +289,21 @@ items:
   source:
     id: FlagFromVector
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 357
+    startLine: 384
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: Obtains the terrain flag of a particular coordinate from a Vector2. Works on similar logic to the vector-to-int conversor.
+  example: []
   syntax:
     content: public int FlagFromVector(Vector2 vec)
     parameters:
     - id: vec
       type: UnityEngine.Vector2
+      description: The coordinate in vectors.
     return:
       type: System.Int32
+      description: The flag in the array coordinate.
     content.vb: Public Function FlagFromVector(vec As Vector2) As Integer
   overload: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector*
 - uid: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(System.Int32,System.Int32)
@@ -279,7 +320,7 @@ items:
   source:
     id: FlagFromVector
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 363
+    startLine: 390
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -311,15 +352,17 @@ items:
   source:
     id: GetHashCode
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 365
+    startLine: 396
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: Obtains the hash code of the object.
   example: []
   syntax:
     content: public override int GetHashCode()
     return:
       type: System.Int32
+      description: Returns hash code.
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.Object.GetHashCode
   overload: ISILab.LBS.Characteristics.AssetConnectionGrid.GetHashCode*
@@ -337,18 +380,21 @@ items:
   source:
     id: Equals
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 370
+    startLine: 406
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
+  summary: Compares two 'Asset Connection Grids'.
   example: []
   syntax:
     content: public override bool Equals(object obj)
     parameters:
     - id: obj
       type: System.Object
+      description: The object to compare to this.
     return:
       type: System.Boolean
+      description: <code>true</code> if the objects equal each other. <code>false</code> otherwise.
     content.vb: Public Overrides Function Equals(obj As Object) As Boolean
   overridden: System.Object.Equals(System.Object)
   overload: ISILab.LBS.Characteristics.AssetConnectionGrid.Equals*
@@ -686,6 +732,14 @@ references:
   nameWithType.vb: AssetConnectionGrid.New
   fullName.vb: ISILab.LBS.Characteristics.AssetConnectionGrid.New
   name.vb: New
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
 - uid: ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt*
   commentId: Overload:ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt
   href: ISILab.LBS.Characteristics.AssetConnectionGrid.html#ISILab_LBS_Characteristics_AssetConnectionGrid_VectorToInt_UnityEngine_Vector2_

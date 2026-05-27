@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace PathOS
 {
@@ -16,5 +17,21 @@ namespace PathOS
         //This is for testing right now, basically just a flat value.
         public float forgetTime { get; set; }
         public int stmSize { get; set; }
+
+        public void GoNextWaypoint(NavMeshAgent navAgent, NavigationState navigationState)
+        {
+            memPathWaypoints.RemoveAt(0);
+
+            if (memPathWaypoints.Count == 0)
+            {
+                onMemPath = false;
+                navigationState.RouteDestination(navAgent);
+            }
+            else
+            {
+                navAgent.SetDestination(memPathWaypoints[0]);
+                navigationState.pathResolved = false;
+            }
+        }
     }
 }

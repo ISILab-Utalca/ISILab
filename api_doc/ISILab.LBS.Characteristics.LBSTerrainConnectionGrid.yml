@@ -97,7 +97,7 @@ items:
   source:
     id: Assets
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 51
+    startLine: 39
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -137,11 +137,11 @@ items:
   source:
     id: GridList
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 59
+    startLine: 47
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
-  summary: Pointer to the 'Asset-Connection Grid' list.
+  summary: A list of all 'Asset-Connection Grids' stored in this characteristic.
   example: []
   syntax:
     content: >-
@@ -174,11 +174,14 @@ items:
   source:
     id: GridSize
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 64
+    startLine: 53
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
-  summary: Pointer to the 'Asset-Connection Grid' size variable.
+  summary: >-
+    The size of the 'Asset-Connection Grid' handled for each asset in the bundle. <br />
+
+    <b>NOTE</b>: Currently, grids have a locked size of 9, which cannot be manually modified. It currently does not work with different sizes.
   example: []
   syntax:
     content: public int GridSize { get; }
@@ -201,11 +204,11 @@ items:
   source:
     id: ColorPalette
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 68
+    startLine: 57
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
-  summary: Pointer to the characteristic's color palette.
+  summary: A list of every color handled in this characteristic's color palette.
   example: []
   syntax:
     content: >-
@@ -238,11 +241,11 @@ items:
   source:
     id: ColorPaletteID
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 73
+    startLine: 62
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
-  summary: Pointer to the characteristic's color palette ID list.
+  summary: A list storing the ID of every color handled in this characteristic's color palette.
   example: []
   syntax:
     content: public List<int> ColorPaletteID { get; }
@@ -265,11 +268,11 @@ items:
   source:
     id: DefaultAsset
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 77
+    startLine: 66
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
-  summary: Pointer to the characteristic's default asset to generate.
+  summary: The ID of the characteristic's default asset. This asset will be generated when no legal connections are found in a particular tile.
   example: []
   syntax:
     content: public int DefaultAsset { get; set; }
@@ -292,7 +295,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 88
+    startLine: 77
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -319,7 +322,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 95
+    startLine: 84
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -352,7 +355,7 @@ items:
   source:
     id: AddColor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 107
+    startLine: 96
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -386,7 +389,7 @@ items:
   source:
     id: RemoveColor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 117
+    startLine: 106
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -417,7 +420,7 @@ items:
   source:
     id: ColorExists
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 128
+    startLine: 117
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -451,7 +454,7 @@ items:
   source:
     id: FindColor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 137
+    startLine: 126
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -485,7 +488,7 @@ items:
   source:
     id: Init
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 149
+    startLine: 138
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -512,7 +515,7 @@ items:
   source:
     id: GetGrid
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 161
+    startLine: 150
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -543,7 +546,7 @@ items:
   source:
     id: GetGrids
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 171
+    startLine: 160
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -574,7 +577,7 @@ items:
   source:
     id: GetGrid
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 180
+    startLine: 169
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -605,7 +608,7 @@ items:
   source:
     id: SetGridSize
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 182
+    startLine: 171
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -633,7 +636,7 @@ items:
   source:
     id: UpdateGridList
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 196
+    startLine: 185
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -664,7 +667,7 @@ items:
   source:
     id: Clone
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 235
+    startLine: 224
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -698,7 +701,7 @@ items:
   source:
     id: Equals
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 244
+    startLine: 233
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -733,7 +736,7 @@ items:
   source:
     id: GetHashCode
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 275
+    startLine: 264
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics
@@ -761,7 +764,7 @@ items:
   source:
     id: Validate
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
-    startLine: 284
+    startLine: 273
   assemblies:
   - LBS
   namespace: ISILab.LBS.Characteristics

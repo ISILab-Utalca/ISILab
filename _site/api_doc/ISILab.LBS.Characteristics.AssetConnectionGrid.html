@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class AssetConnectionGrid | lbs-api_docs ">
       
-      
+      <meta name="description" content="A connection grid for a particular asset. Its main purpose consists of holding a number of flags, each assigned to a different directional slot in the asset, in order to allow easy comparisons between generated objects for the creation of consistent patterns.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Class AssetConnectionGrid
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">A connection grid for a particular asset. Its main purpose consists of holding a number of flags, each assigned to a different directional slot in
+the asset, in order to allow easy comparisons between generated objects for the creation of consistent patterns.</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -154,7 +155,7 @@ public class AssetConnectionGrid</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Alternative constructor. Initializes a basic terrain flag array, so it's used for asset grid initialization purposes.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -164,9 +165,9 @@ public class AssetConnectionGrid</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>q</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The size of the terrain flag array (normally 9).</dd>
     <dt><code>assetReference</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Asset.html">Asset</a></dt>
-    <dd></dd>
+    <dd>The asset to reference for 3D generation and previews.</dd>
   </dl>
 
 
@@ -187,7 +188,8 @@ public class AssetConnectionGrid</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">A basic constructor for asset connection grids. Meant for copying already existing grids (or fully configurating one beforehand) 
+as it requires an existing terrain flag array.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -197,9 +199,9 @@ public class AssetConnectionGrid</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>terrainFlag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
-    <dd></dd>
+    <dd>A terrain flag array.</dd>
     <dt><code>assetReference</code> <a class="xref" href="ISILab.LBS.Plugin.Components.Bundles.Asset.html">Asset</a></dt>
-    <dd></dd>
+    <dd>The asset to reference for 3D generation and previews.</dd>
   </dl>
 
 
@@ -224,7 +226,7 @@ public class AssetConnectionGrid</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">References the asset linked to the connection grid for 3D generation..</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -255,7 +257,8 @@ public class AssetConnectionGrid</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">The size of the terrain grid's square borders. It currently points to the square root of the terrain flag array's length. <br>
+<b>NOTE</b>: It may be personalizable to allow for non-square terrain grid sizes, but it currently depends on it being a perfect square.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -286,7 +289,7 @@ public class AssetConnectionGrid</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">The size of the grid. It simply points to the length of the terrain flag array.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -317,7 +320,7 @@ public class AssetConnectionGrid</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">An array holding every flag held by the Asset Grid. <b>NOTE</b>: This array currently has a set size of 9.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -352,7 +355,7 @@ public class AssetConnectionGrid</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Compares two 'Asset Connection Grids'.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -362,13 +365,13 @@ public class AssetConnectionGrid</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd>The object to compare to this.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><code>true</code> if the objects equal each other. <code>false</code> otherwise.</dd>
   </dl>
 
 
@@ -426,7 +429,7 @@ public class AssetConnectionGrid</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Obtains the terrain flag of a particular coordinate from a Vector2. Works on similar logic to the vector-to-int conversor.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -436,13 +439,13 @@ public class AssetConnectionGrid</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>vec</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>The coordinate in vectors.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>The flag in the array coordinate.</dd>
   </dl>
 
 
@@ -462,7 +465,7 @@ public class AssetConnectionGrid</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Obtains the hash code of the object.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -473,7 +476,7 @@ public class AssetConnectionGrid</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>Returns hash code.</dd>
   </dl>
 
 
@@ -493,7 +496,7 @@ public class AssetConnectionGrid</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Converts a Vector2 into an int value. Used to translate 2D coordinates into the 1D nature of the terrain flag array.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -503,7 +506,7 @@ public class AssetConnectionGrid</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>vector</code> <span class="xref">Vector2</span></dt>
-    <dd></dd>
+    <dd>The vector to convert into an int value.</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -519,6 +522,12 @@ public class AssetConnectionGrid</code></pre>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd>The method will throw an exception if the array length doesn't have a square root.<br>
+    This is a failsafe to prevent issues with currently unimplemented non-square terrain grids.</dd>
+  </dl>
 
 
 

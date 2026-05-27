@@ -415,18 +415,18 @@ namespace PathOS
                 affectedAgent.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(currentSmallestUnassignedIdIndex).agentTypeID;
 
                 // Make "unreachable" entities and paths potentially reachable again
-                affectedAgent.GetMemory().SetAllMemoriesAndPathsAsReachable();
+                affectedAgent.AgentMemory.SetAllMemoriesAndPathsAsReachable();
                 // Clear obstacles in agent memory map (TEMP SOLUTION in order to prevent agent from getting stuck)
-                affectedAgent.GetMemory().memoryMap.ResetObstacles();
+                affectedAgent.AgentMemory.memoryMap.ResetObstacles();
             }
             else
             {
                 surface.BuildNavMesh();
 
                 // Make "unreachable" entities and paths potentially reachable again
-                affectedAgent.GetMemory().SetAllMemoriesAndPathsAsReachable();
+                affectedAgent.AgentMemory.SetAllMemoriesAndPathsAsReachable();
                 // Clear obstacles in agent memory (TEMP SOLUTION in order to prevent agent from getting stuck)
-                affectedAgent.GetMemory().memoryMap.ResetObstacles();
+                affectedAgent.AgentMemory.memoryMap.ResetObstacles();
             }
 
             // Remove temporary BoxColliders from objects that didn't have them.

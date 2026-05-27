@@ -292,7 +292,7 @@ public List&lt;Asset&gt; Assets { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary">Pointer to the characteristic's color palette.</div>
+  <div class="markdown level1 summary">A list of every color handled in this characteristic's color palette.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -324,7 +324,7 @@ public List&lt;Color&gt; ColorPalette { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary">Pointer to the characteristic's color palette ID list.</div>
+  <div class="markdown level1 summary">A list storing the ID of every color handled in this characteristic's color palette.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -355,7 +355,7 @@ public List&lt;Color&gt; ColorPalette { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary">Pointer to the characteristic's default asset to generate.</div>
+  <div class="markdown level1 summary">The ID of the characteristic's default asset. This asset will be generated when no legal connections are found in a particular tile.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -386,7 +386,7 @@ public List&lt;Color&gt; ColorPalette { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary">Pointer to the 'Asset-Connection Grid' list.</div>
+  <div class="markdown level1 summary">A list of all 'Asset-Connection Grids' stored in this characteristic.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -418,7 +418,8 @@ public List&lt;AssetConnectionGrid&gt; GridList { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary">Pointer to the 'Asset-Connection Grid' size variable.</div>
+  <div class="markdown level1 summary">The size of the 'Asset-Connection Grid' handled for each asset in the bundle. <br>
+<b>NOTE</b>: Currently, grids have a locked size of 9, which cannot be manually modified. It currently does not work with different sizes.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
