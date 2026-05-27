@@ -92,7 +92,8 @@ namespace ISILab.LBS.Modules
         }
 
         public QuestNodeData SelectedQuestData => SelectedQuestNode?.Data;
-
+        public List<QuestNode> QuestNodes =>
+            graphNodes.OfType<QuestNode>().ToList();
         public QuestNode SelectedQuestNode => SelectedGraphNode as QuestNode;
 
         #endregion
@@ -213,13 +214,24 @@ namespace ISILab.LBS.Modules
             {
                 node.ValidConnections = false;
                 node.ValidGrammar = false;
+                if (node is QuestNode qn)
+                    qn.validData = false;
             }
 
+            ValidateData();
             ValidateConnections();
             ValidateGrammar();
             RootValidation();
 
             OnUpdateGraph?.Invoke();
+        }
+
+        private void ValidateData()
+        {
+            foreach(var qn in QuestNodes)
+            {
+                qn.validData = qn.Data.IsValid();
+            }
         }
 
         #endregion
@@ -236,9 +248,7 @@ namespace ISILab.LBS.Modules
             return null;
         }
 
-        public List<QuestNode> GetQuestNodes() =>
-            graphNodes.OfType<QuestNode>().ToList();
-
+        
         public GraphNode AddNewNode(QuestBehaviour behaviour, Vector2 pos)
         {
             if (behaviour.activeGraphNodeType is null) return null;
@@ -260,7 +270,7 @@ namespace ISILab.LBS.Modules
         
         public QuestNode AddNewQuestNode(string action, Vector2 pos)
         {
-            string uniqueId = GenerateUniqueId(action, GetQuestNodes().Select(n => n.ID));
+            string uniqueId = GenerateUniqueId(action, QuestNodes.Select(n => n.ID));
             QuestNode node = new QuestNode(uniqueId, pos, action, this);
             AddNodeToGraph(node);
             return node;
@@ -656,6 +666,34 @@ namespace ISILab.LBS.Modules
         public override void Clear() => throw new NotImplementedException();
         public override Rect GetBounds() => throw new NotImplementedException();
         public override void Rewrite(LBSModule other) => throw new NotImplementedException();
+
+        internal bool HasValidConnections()
+        {
+            foreach (var node in GraphNodes)
+            {
+                if (!node.ValidConnections) return false;
+            }
+            return true;
+        }
+
+        internal bool HasValidGrammar()
+        {
+            foreach (var node in GraphNodes)
+            {
+                if (!node.ValidGrammar) return false;
+            }
+            return true;
+
+        }
+
+        internal bool HasValidData()
+        {
+            foreach (var node in QuestNodes)
+            {
+                if (!node.Data.IsValid()) return false;
+            }
+            return true;
+        }
 
         #endregion
 

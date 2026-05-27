@@ -8,6 +8,7 @@ namespace ISILab.AI.Grammar
     public class GrammarColor : GrammarField<Color>
     {
         public override Type PrimitiveType => typeof(GrammarColor);
+        public override bool IsValid() => true;
     }
 
     [Serializable]

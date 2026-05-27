@@ -30,7 +30,7 @@ namespace ISILab.LBS.VisualElements
             CreateVisualElement();
 
             // update values
-            (target as GrammarField).Refresh?.Invoke();
+            (target as GrammarField).Refresh?.Invoke(target as GrammarField);
         }
 
         protected override VisualElement CreateVisualElement()

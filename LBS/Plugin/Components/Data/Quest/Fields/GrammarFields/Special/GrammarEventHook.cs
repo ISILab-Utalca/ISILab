@@ -9,6 +9,7 @@ namespace ISILab.AI.Grammar
     public class GrammarEventHook : GrammarField<LBSEventHooker>
     {
         public override Type PrimitiveType => typeof(LBSEventHooker);
+        public override bool IsValid() => true;
     }
     [Serializable]
     [GrammarField("List.hook")]

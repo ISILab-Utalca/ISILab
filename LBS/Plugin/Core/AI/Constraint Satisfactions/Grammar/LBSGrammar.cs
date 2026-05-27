@@ -1,12 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
-using UnityEditor.Graphs;
 using UnityEngine;
 
 namespace ISILab.AI.Grammar
 {
-
     [CreateAssetMenu(menuName = "ISILab/LBSGrammar")]
     public class LBSGrammar : ScriptableObject
     {
@@ -18,7 +15,7 @@ namespace ISILab.AI.Grammar
 
         [SerializeField]
         private List<string> terminals = new List<string>();
-        [SerializeField]        
+        [SerializeField]
         private List<string> rules = new List<string>();
 
         [SerializeField]
@@ -32,7 +29,6 @@ namespace ISILab.AI.Grammar
         {
             get
             {
-                // Only rebuild if it's empty or null, don't clear every time
                 if (terminals == null || terminals.Count == 0)
                 {
                     terminals = lbsTerminals.Select(t => t.id).ToList();
@@ -45,25 +41,22 @@ namespace ISILab.AI.Grammar
         {
             get
             {
-                if (rules.Count == 0)
+                if (rules == null || rules.Count == 0)
                 {
+                    rules = new List<string>();
                     foreach (var rule in LBSRules)
                     {
                         rules.Add(rule.id);
                     }
                 }
-
                 return rules;
-
             }
         }
         public string PathGUID { get => pathGuid; set => pathGuid = value; }
         #endregion
 
-
         #region METHODS
 
-        // Ensure initialization of serialized fields
         private void OnEnable()
         {
             terminals ??= new List<string>();
@@ -84,6 +77,7 @@ namespace ISILab.AI.Grammar
 
         public GrammarTerminal GetTerminal(string id) => LBSTerminals.FirstOrDefault(t => t.id.Equals(id));
         public GrammarRule GetRule(string id) => LBSRules.FirstOrDefault(r => r.id.Equals(id));
+
         public object GetGrammarElement(string id)
         {
             if (IsRule(id)) return GetRule(id);
@@ -91,65 +85,239 @@ namespace ISILab.AI.Grammar
             return null;
         }
 
-        /// <summary>
-        /// returns any rule that contains a grammar element.
-        /// </summary>
-        /// <param name="element">a grammar element. Rule or Terminal</param>
-        /// <returns></returns>
         public List<string> GetOwningRules(string element)
         {
             HashSet<string> owningRules = new HashSet<string>();
-
             foreach (GrammarRule rule in LBSRules)
             {
                 foreach (var expansion in rule.Expansions)
                 {
-                    if (expansion.sequence.Contains(element)) owningRules.Add(rule.id);
+                    if (expansion.sequence.Contains(element) || IsElementInRuleDerivation(rule.id, element, new HashSet<string>()))
+                        owningRules.Add(rule.id);
                 }
             }
-
             return owningRules.ToList();
         }
+
+        private bool IsElementInRuleDerivation(string ruleId, string targetElement, HashSet<string> visited)
+        {
+            if (!visited.Add(ruleId)) return false;
+            var rule = GetRule(ruleId);
+            if (rule == null) return false;
+
+            foreach (var exp in rule.Expansions)
+            {
+                foreach (var item in exp.sequence)
+                {
+                    if (item == targetElement) return true;
+                    if (IsRule(item) && IsElementInRuleDerivation(item, targetElement, visited)) return true;
+                }
+            }
+            return false;
+        }
+
+        #endregion
 
         #region Terminal Retrieve
 
         public List<string> GetFirstTerminals(string element)
         {
             var result = new HashSet<string>();
-            GetNextTerminals(element, result, new HashSet<string>());
+            GetFirstTerminals(element, result, new HashSet<string>());
+            return result.ToList();
+        }
 
+        public List<string> GetLastTerminals(string element)
+        {
+            var result = new HashSet<string>();
+            GetLastTerminals(element, result, new HashSet<string>());
             return result.ToList();
         }
 
         public List<string> GetNextTerminals(string element)
         {
             var result = new HashSet<string>();
-            GetNextTerminals(element, result, new HashSet<string>());
-
-            return result.ToList();
-        }
-
-
-        public List<string> GetLastTerminals(string element)
-        {
-            var result = new HashSet<string>();
-            GetLastTerminals(element, result, new HashSet<string>());
-
+            GetNextTerminalsInternal(element, result, new HashSet<string>());
             return result.ToList();
         }
 
         public List<string> GetPreviousTerminals(string element)
         {
             var result = new HashSet<string>();
-            GetPreviousTerminals(element, result, new HashSet<string>());
-
+            GetPreviousTerminalsInternal(element, result, new HashSet<string>());
             return result.ToList();
+        }
+
+        /// <summary>
+        /// Validates if a target terminal can be placed between a current element and a known following element.
+        /// </summary>
+        public bool IsValidNextTerminal(string currentElement, string terminalToInsert, string expectedNextElement)
+        {
+            if (!IsTerminal(terminalToInsert)) return false;
+
+            // make sure the insert is a valid next
+            var validNexts = GetNextTerminals(currentElement);
+            if (!validNexts.Contains(terminalToInsert)) return false;
+
+            // If there is a trailing neighbor, that neighbor must be a valid follow-up to our candidate terminal
+            if (!string.IsNullOrEmpty(expectedNextElement))
+            {
+                var downstreamNexts = GetNextTerminals(terminalToInsert);
+
+                if (IsTerminal(expectedNextElement))
+                    return downstreamNexts.Contains(expectedNextElement);
+
+                var expectedFirsts = GetFirstTerminals(expectedNextElement);
+
+                // Match using Linq .Any() to check if any first-terminal matches what's next
+                return expectedFirsts.Any(firstTerminal => downstreamNexts.Contains(firstTerminal));
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Validates if a target terminal can be placed between a current element and a known preceding element.
+        /// </summary>
+        public bool IsValidPreviousTerminal(string currentElement, string terminalToInsert, string expectedPrevElement)
+        {
+            if (!IsTerminal(terminalToInsert)) return false;
+
+            var validPrevs = GetPreviousTerminals(currentElement);
+            if (!validPrevs.Contains(terminalToInsert)) return false;
+
+            if (!string.IsNullOrEmpty(expectedPrevElement))
+            {
+                var upstreamPrevs = GetPreviousTerminals(terminalToInsert);
+                if (IsTerminal(expectedPrevElement))
+                    return upstreamPrevs.Contains(expectedPrevElement);
+
+                var expectedLasts = GetLastTerminals(expectedPrevElement);
+
+                // Match using Linq .Any() to check if any last-terminal matches what's previous
+                return expectedLasts.Any(lastTerminal => upstreamPrevs.Contains(lastTerminal));
+            }
+
+            return true;
+        }
+
+        private void GetNextTerminalsInternal(string element, HashSet<string> result, HashSet<string> visited)
+        {
+            if (!visited.Add(element)) return;
+
+            foreach (var rule in LBSRules)
+            {
+                foreach (var expansion in rule.Expansions)
+                {
+                    var seq = expansion.sequence;
+                    for (int i = 0; i < seq.Count; i++)
+                    {
+                        if (IsTargetMatch(seq[i], element))
+                        {
+                            // If there's a subsequent item in the sequence
+                            if (i < seq.Count - 1)
+                            {
+                                var next = seq[i + 1];
+                                if (IsTerminal(next)) result.Add(next);
+                                else GetFirstTerminals(next, result, new HashSet<string>());
+                            }
+                            else
+                            {
+                                // End of sequence reached: bubble up to parent rules
+                                GetNextTerminalsInternal(rule.id, result, visited);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void GetPreviousTerminalsInternal(string element, HashSet<string> result, HashSet<string> visited)
+        {
+            if (!visited.Add(element)) return;
+
+            foreach (var rule in LBSRules)
+            {
+                foreach (var expansion in rule.Expansions)
+                {
+                    var seq = expansion.sequence;
+                    for (int i = 0; i < seq.Count; i++)
+                    {
+                        if (IsTargetMatch(seq[i], element))
+                        {
+                            // If there's an item preceding this one
+                            if (i > 0)
+                            {
+                                var prev = seq[i - 1];
+                                if (IsTerminal(prev)) result.Add(prev);
+                                else GetLastTerminals(prev, result, new HashSet<string>());
+                            }
+                            else
+                            {
+                                // Beginning of sequence reached: bubble down from parent rules
+                                GetPreviousTerminalsInternal(rule.id, result, visited);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private bool IsTargetMatch(string currentSequenceItem, string searchTarget)
+        {
+            if (currentSequenceItem == searchTarget) return true;
+
+            // Recursively verify if the item derives the target structural string
+            if (IsRule(currentSequenceItem))
+            {
+                return IsElementInRuleDerivation(currentSequenceItem, searchTarget, new HashSet<string>());
+            }
+            return false;
+        }
+
+        private void GetFirstTerminals(string element, HashSet<string> result, HashSet<string> visited)
+        {
+            if (!visited.Add(element)) return;
+
+            if (IsTerminal(element))
+            {
+                result.Add(element);
+                return;
+            }
+
+            var rule = GetRule(element);
+            if (rule == null) return;
+
+            foreach (var expansion in rule.Expansions)
+            {
+                if (expansion.sequence.Count == 0) continue;
+                GetFirstTerminals(expansion.sequence[0], result, visited);
+            }
+        }
+
+        private void GetLastTerminals(string element, HashSet<string> result, HashSet<string> visited)
+        {
+            if (!visited.Add(element)) return;
+
+            if (IsTerminal(element))
+            {
+                result.Add(element);
+                return;
+            }
+
+            var rule = GetRule(element);
+            if (rule == null) return;
+
+            foreach (var expansion in rule.Expansions)
+            {
+                if (expansion.sequence.Count == 0) continue;
+                GetLastTerminals(expansion.sequence[^1], result, visited);
+            }
         }
 
         public List<List<string>> GetExpansions(string element)
         {
             var result = new List<List<string>>();
-
             var owningRules = GetOwningRules(element);
 
             foreach (var ruleId in owningRules)
@@ -160,7 +328,6 @@ namespace ISILab.AI.Grammar
                 foreach (var expansion in rule.Expansions)
                 {
                     var sequence = new List<string>();
-
                     foreach (var item in expansion.sequence)
                     {
                         if (IsTerminal(item))
@@ -169,191 +336,25 @@ namespace ISILab.AI.Grammar
                         }
                         else
                         {
-                            var terminals = new HashSet<string>();
-                            GetFirstTerminals(item, terminals, new HashSet<string>());
-
-                            // pick ALL, not just first (fixes your previous bug)
-                            sequence.AddRange(terminals);
+                            var terms = new HashSet<string>();
+                            GetFirstTerminals(item, terms, new HashSet<string>());
+                            sequence.AddRange(terms);
                         }
                     }
-
                     result.Add(sequence);
                 }
             }
-
             return result;
-        }
-
-        private void GetPreviousTerminals(
-        string element,
-        HashSet<string> result,
-        HashSet<string> visited)
-        {
-            if (!visited.Add(element)) return;
-
-            foreach (var rule in LBSRules)
-            {
-                foreach (var expansion in rule.Expansions)
-                {
-                    var seq = expansion.sequence;
-
-                    for (int i = 0; i < seq.Count - 1; i++)
-                    {
-                        var next = seq[i + 1];
-
-                        // match rule OR terminal
-                        if (Matches(next, element))
-                        {
-                            var prev = seq[i];
-
-                            if (IsRule(prev))
-                            {
-                                GetLastTerminals(prev, result, new HashSet<string>());
-                            }
-                            if (IsTerminal(prev))
-                            {
-                                result.Add(prev);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Recursively collects first terminal(s) from a rule.
-        /// </summary>
-        private void GetFirstTerminals(
-          string element,
-          HashSet<string> result,
-          HashSet<string> visited)
-        {
-            if (!visited.Add(element)) return;
-
-            if (IsTerminal(element))
-            {
-                result.Add(element);
-                return;
-            }
-
-            var rule = GetRule(element);
-            if (rule == null) return;
-
-            foreach (var expansion in rule.Expansions)
-            {
-                if (expansion.sequence.Count == 0) continue;
-
-                var first = expansion.sequence[0];
-                GetFirstTerminals(first, result, visited);
-            }
-        }
-
-        private void GetLastTerminals(
-     string element,
-     HashSet<string> result,
-     HashSet<string> visited)
-        {
-            if (!visited.Add(element)) return;
-
-            if (IsTerminal(element))
-            {
-                result.Add(element);
-                return;
-            }
-
-            var rule = GetRule(element);
-            if (rule == null) return;
-
-            foreach (var expansion in rule.Expansions)
-            {
-                if (expansion.sequence.Count == 0) continue;
-
-                var last = expansion.sequence[^1];
-                GetLastTerminals(last, result, visited);
-            }
-        }
-
-        private void GetNextTerminals(
-     string element,
-     HashSet<string> result,
-     HashSet<string> visited)
-        {
-            if (!visited.Add(element)) return;
-
-            foreach (var rule in LBSRules)
-            {
-                foreach (var expansion in rule.Expansions)
-                {
-                    var seq = expansion.sequence;
-
-                    for (int i = 0; i < seq.Count - 1; i++)
-                    {
-                        var current = seq[i];
-
-                        // ✅ match rule OR terminal
-                        if (Matches(current, element))
-                        {
-                            var next = seq[i + 1];
-
-                            if (IsRule(next))
-                            {
-                                GetFirstTerminals(next, result, new HashSet<string>());
-                            }
-                            else
-                            {
-                                result.Add(next);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private bool Matches(string element, string target)
-        {
-            if (element == target) return true;
-
-            if (IsRule(element))
-            {
-                var temp = new HashSet<string>();
-                GetFirstTerminals(element, temp, new HashSet<string>());
-                return temp.Contains(target);
-            }
-
-            return false;
         }
 
         #endregion
 
         #region Debug
-        /// <summary>
-        /// Debug method to inspect serialized data.
-        /// </summary>
         [ContextMenu("Debug Grammar")]
         private void DebugGrammar()
         {
             Debug.Log($"[LBSGrammar] Terminal Actions Count: {terminals?.Count ?? 0}");
-            foreach (var action in terminals ?? new List<string>())
-            {
-                Debug.Log($"[LBSGrammar] Terminal: {action}");
-            }
-
             Debug.Log($"[LBSGrammar] Rule Entries Count: {LBSRules?.Count ?? 0}");
-            foreach (var rule in LBSRules ?? new List<GrammarRule>())
-            {
-                Debug.Log($"[LBSGrammar] Rule: {rule.id}, Expansions: {rule.Expansions?.Count ?? 0}");
-                for (int j = 0; j < rule.Expansions.Count; j++)
-                {
-                    List<string> expansion = rule.Expansions[j].sequence;
-                    Debug.Log($"Expansion {j}: ");
-                    for (int i = 0; i < expansion.Count; i++)
-                    {
-                        string item = expansion[i];
-                        if (i == 0) Debug.Log(item);
-                        else Debug.Log(" -> " + item);
-                    }
-                }
-            }
         }
 
         internal void Clear()
@@ -363,12 +364,6 @@ namespace ISILab.AI.Grammar
             lbsTerminals.Clear();
             lbsRules.Clear();
         }
-
-        #endregion
-
-
         #endregion
     }
-
-
 }

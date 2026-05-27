@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
 using UnityEditor.UIElements;
+using ISILab.LBS.Editor.Windows;
+using ISILab.AI.Grammar;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -14,6 +16,8 @@ namespace ISILab.LBS.VisualElements
         const float iconSize = 24f;
         const float padding = 40f;
         const float minWidth = 160;
+
+        bool bBound = false;
         #endregion
 
         #region FIELDS
@@ -56,24 +60,23 @@ namespace ISILab.LBS.VisualElements
             _toolbar           = this.Q<ToolbarMenu>("ToolBar");
             _questActionDetails = this.Q<QuestActionDetailsView>("TooltipWindow");
             
-            
             VisualElement coloredVe = this.Q<VisualElement>("Capsule");
             coloredVe.style.backgroundColor = DefaultBackgroundColor;
             
-            SetupToolbar();
-            SetupCallbacks();
-
             style.marginBottom = style.marginLeft = style.marginRight = style.marginTop = 0;
 
             InvalidConnectionIcon.style.unityBackgroundImageTintColor = InvalidGrammarColor;
             _iconNodeDataInvalid.style.unityBackgroundImageTintColor = InvalidGrammarColor;
             _iconGrammarInvalid.style.unityBackgroundImageTintColor = InvalidGrammarColor;
             _questActionDetails.style.display = DisplayStyle.None;
-            _questActionDetails.Node = graphNode as QuestNode;
 
             Node = graphNode;
+            _questActionDetails.Node = Node as QuestNode;
+
             SetPosition(new Rect(Node.NodePosition.position, Vector2.one));
 
+            SetupToolbar();
+            SetupCallbacks();
             Refresh();
         }
 
@@ -87,7 +90,10 @@ namespace ISILab.LBS.VisualElements
 
         public override void Refresh()
         {
+
             if (Node == null) throw new ArgumentNullException("null node");
+
+            UpdateRefresh();
 
             UpdateNodeID();
 
@@ -96,7 +102,7 @@ namespace ISILab.LBS.VisualElements
             UpdateGrammarState();
 
             UpdatePosition();
-
+            
         }
 
         private void UpdateNodeType()
@@ -127,6 +133,22 @@ namespace ISILab.LBS.VisualElements
             RegisterCallback<MouseUpEvent>(OnMouseUp);
             RegisterCallback<GeometryChangedEvent>(_ => UpdatePosition());
         }
+
+        private void UpdateRefresh()
+        {
+            if (bBound) return;
+
+            if (Node is QuestNode qn)
+            {
+                foreach (var field in qn.Data.Fields)
+                {
+                    ActionExtensions.AddUnique(ref field.Refresh, NotifyValidData);
+                }
+            }
+
+            bBound = true;
+        }
+
 
         #endregion
 
@@ -218,6 +240,29 @@ namespace ISILab.LBS.VisualElements
                 _toolbar.style.display = DisplayStyle.Flex;
                 _toolbar.ShowMenu();
             }
+        }
+
+        private void NotifyValidData(GrammarField field)
+        {
+            if (field.IsList)
+            {
+                foreach (var item in field.ItemsSource)
+                {
+                    if (item is GrammarField gf && !gf.IsValid())
+                    {
+                        LBSMainWindow.MessageNotify(gf.GetValidStateLog());
+                    }
+                }
+            }
+            else
+            {
+                if (!field.IsValid())
+                    LBSMainWindow.MessageNotify(field.GetValidStateLog());
+            }
+
+
+            UpdateGrammarState();
+
         }
 
         protected override void OnMouseEnter(MouseEnterEvent evt)

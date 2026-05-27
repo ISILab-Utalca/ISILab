@@ -7,6 +7,8 @@ namespace ISILab.AI.Grammar
 {
     public class GiveTrigger : QuestTriggerNode
     {
+        bool given;
+
         [Header("Grammar Fields")]
         [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Object to give")]
         private GrammarBundleGraph _Objecttogive;
@@ -34,6 +36,18 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete() => given;
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            if (IsPlayer(other))
+            {
+                if(HasItem(other, _Objecttogive.value.GUID))
+                {
+                    GetInventory(other).RemoveItems(_Objecttogive.value.GUID);
+                    GetInventory(other).AddItems(_Objecttoreceive.value);
+                }
+            }
+        }
     }
 }

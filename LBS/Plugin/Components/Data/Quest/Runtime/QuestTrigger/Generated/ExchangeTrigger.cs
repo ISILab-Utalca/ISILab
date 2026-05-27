@@ -7,6 +7,8 @@ namespace ISILab.AI.Grammar
 {
     public class ExchangeTrigger : QuestTriggerNode
     {
+        bool ExchangeComplete;
+
         [Header("Grammar Fields")]
         [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Type to give")]
         private GrammarBundleType _Typetogive;
@@ -56,6 +58,20 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete() => ExchangeComplete;
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            if (IsPlayer(other))
+            {
+                if(HasItem(other, _Typetogive.value, _Amounttogive.value))
+                {
+                    GetInventory(other).RemoveItems(_Typetogive.value, _Amounttogive.value);
+                    GetInventory(other).AddItems(_Typetoreceive.value, _Amounttoreceive.value);
+                    ExchangeComplete = true;
+                    TryComplete();
+                }
+            }
+        }
     }
 }

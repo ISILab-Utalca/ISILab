@@ -33,7 +33,7 @@ namespace ISILab.LBS.VisualElements
                 (target as GrammarBundleGraph).SetValue(btg);
             };
 
-            (target as GrammarField).Refresh = () =>
+            (target as GrammarField).Refresh += (target) =>
             {
                 BundleTarget btg = (target as GrammarBundleGraph).GetValue() as BundleTargetGraph;
                 if (btg.IsValid())

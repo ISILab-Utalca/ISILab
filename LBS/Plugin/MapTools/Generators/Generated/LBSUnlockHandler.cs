@@ -79,7 +79,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             if (inventory == null) return false;
             if (!inventory.HasType(key)) return false;
 
-            inventory.RemoveItem(key);
+            inventory.RemoveItems(key);
 
             LBSUnlockHandler[] locks = FindObjectsByType<LBSUnlockHandler>(FindObjectsSortMode.None);
             foreach (var locked in locks)

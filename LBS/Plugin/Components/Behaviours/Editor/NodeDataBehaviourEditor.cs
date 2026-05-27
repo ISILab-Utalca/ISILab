@@ -52,6 +52,8 @@ namespace ISILab.LBS.VisualElements
 
         private static VisualTreeAsset visualTree;
 
+        private static QuestNode lastUpdated;
+
         #endregion
 
         #region CONSTRUCTORS
@@ -165,6 +167,8 @@ namespace ISILab.LBS.VisualElements
         {
             DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
 
+            if (graphNode == lastUpdated) return;
+
             QuestNode node = graphNode as QuestNode;
             bool validNode = node != null;
 
@@ -240,16 +244,36 @@ namespace ISILab.LBS.VisualElements
                 headerTitle = ""
             };
 
+            if (listField.ItemsSource != null)
+            {
+                for (int i = 0; i < listField.ItemsSource.Count; i++)
+                {
+                    if (listField.ItemsSource[i] is GrammarField existingField)
+                    {
+                        // must manually call refresh as UItoolkit does not made items from itemadded unless they are opened directly by click
+                        existingField.Refresh?.Invoke(existingField);
+                    }
+                }
+            }
+
             listView.itemsAdded += (indices) => {
                 foreach (var i in indices)
                 {
                     // Create force declare the grammar field list entry
                     var field = (GrammarField)Activator.CreateInstance(listField.PrimitiveType);
-                    field.data = listField.data;
-                    field.name = $"{listField.name}  {i}";
+                    field.Data = listField.Data;
+                    field.name = $"{listField.name} {i}";
                     listField.ItemsSource[i] = field;
 
                     behaviour.OnAddField?.Invoke(field);
+
+    
+                    // updating item updates back the list
+                    field.Refresh += (field) => listField.Refresh?.Invoke(listField);
+
+                    listField.Refresh?.Invoke(listField);
+
+
                     Debug.Log("adding:" + field.ToString());
                     // might to redraw
                     //behaviour.CheckKeys();
@@ -282,7 +306,7 @@ namespace ISILab.LBS.VisualElements
                 if (element is GrammarFieldEditor editor)
                 {
                     var item = (GrammarField)listView.itemsSource[index];
-                    item.data = listField.data;
+                    item.Data = listField.Data;
                     editor.SetNewInfo(item);
                 }
             };
@@ -311,6 +335,8 @@ namespace ISILab.LBS.VisualElements
             _actionColor.SetBorder(terminalColor, ActionBorderThickness);
 
             SetFields(node);
+
+            lastUpdated = node;
         }
         
 

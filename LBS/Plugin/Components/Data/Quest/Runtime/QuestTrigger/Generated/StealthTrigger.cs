@@ -7,6 +7,8 @@ namespace ISILab.AI.Grammar
 {
     public class StealthTrigger : QuestTriggerNode
     {
+        bool reachedUndetected;
+
         [Header("Grammar Fields")]
         [SerializeField, InspectorName("Area to reach")]
         private GrammarArea _Areatoreach;
@@ -45,6 +47,15 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete() => reachedUndetected;
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            if (IsPlayer(other))
+            {
+                reachedUndetected = true;
+                TryComplete();
+            }
+        }
     }
 }

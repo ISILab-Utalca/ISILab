@@ -70,8 +70,8 @@ namespace ISILab.LBS.VisualElements
 
             _isCenter = centerTarget;
             _areaField = grammarArea;
-            _nodeData = _areaField.data;
-            ActionExtensions.AddUnique(ref _areaField.data.OnDataChanged, UpdateData);
+            _nodeData = _areaField.Data;
+            ActionExtensions.AddUnique(ref _areaField.Data.OnDataChanged, UpdateData);
 
             var terminal = _nodeData.Terminal;
 

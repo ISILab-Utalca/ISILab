@@ -7,6 +7,7 @@ namespace ISILab.AI.Grammar
 {
     public class TakeTrigger : QuestTriggerNode
     {
+        bool objectTaken;
         [Header("Grammar Fields")]
         [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Object to take")]
         private GrammarBundleGraph _Objecttotake;
@@ -23,6 +24,18 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        protected override bool CanComplete() => true;
+        protected override bool CanComplete() => objectTaken;
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (IsPlayer(other))
+            {
+                if(GetInventory(other).HasType(_Objecttotake.value.GUID))
+                {
+                    objectTaken = true;
+                    TryComplete();
+                }
+            }    
+        }
     }
 }

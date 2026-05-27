@@ -38,26 +38,26 @@ namespace ISILab.AI.Grammar
             if (newValue is T typedValue)
             {
                 // call back to ctrz support. mark dirty in NodeDataBehaviorEditor
-                data?.OnBeginChange?.Invoke();
+                Data?.OnBeginChange?.Invoke();
                 value = typedValue;
-                data?.OnEndChange?.Invoke();
+                Data?.OnEndChange?.Invoke();
 
                 // to update behavior editors
-                data?.OnDataChanged?.Invoke(data);
+                Data?.OnDataChanged?.Invoke(Data);
 
                 // to update field editor
-                Refresh?.Invoke();
+                Refresh?.Invoke(this);
             }
             else
             {
                 try
                 {
-                    data?.OnBeginChange?.Invoke();
+                    Data?.OnBeginChange?.Invoke();
                     value = (T)Convert.ChangeType(newValue, typeof(T));
-                    data?.OnEndChange?.Invoke();
+                    Data?.OnEndChange?.Invoke();
 
 
-                    data?.OnDataChanged?.Invoke(data);
+                    Data?.OnDataChanged?.Invoke(Data);
                 }
                 catch
                 {
