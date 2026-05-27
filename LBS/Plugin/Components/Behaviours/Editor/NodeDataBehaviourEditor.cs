@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -97,6 +98,13 @@ namespace ISILab.LBS.VisualElements
         {
             behaviour = paramTarget as NodeDataBehaviour;
             if (behaviour == null) return;
+
+            lastUpdated = null;
+
+            ActionExtensions.RemoveMethod(ref behaviour.OnNodeDataChanged, nameof(OnSelectNode));
+            ActionExtensions.RemoveMethod(ref behaviour.OnNodeDataChangedBegin, nameof(DataChangeValueBegin));
+            ActionExtensions.RemoveMethod(ref behaviour.OnNodeDataChangedEnd, nameof(DataChangeValueEnd));
+            ActionExtensions.RemoveMethod(ref behaviour.Graph.OnNodeSelected, nameof(OnSelectNode));
 
             ActionExtensions.AddUnique(ref behaviour.OnNodeDataChanged, OnSelectNode);
             ActionExtensions.AddUnique(ref behaviour.OnNodeDataChangedBegin, DataChangeValueBegin);
@@ -333,6 +341,7 @@ namespace ISILab.LBS.VisualElements
             _actionColor.SetBorder(terminalColor, ActionBorderThickness);
 
             SetFields(node);
+
         }
         
 
