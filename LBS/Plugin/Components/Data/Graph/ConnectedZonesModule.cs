@@ -1,20 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
-using LBS.Components;
-using ISILab.LBS.Plugin.Core.Settings;
 using Newtonsoft.Json;
 using UnityEngine;
 
 namespace ISILab.LBS.Modules
 {
 
-    [System.Serializable]
+    [Serializable]
     public class ConnectedZonesModule : LBSModule
     {
         #region FIELDS

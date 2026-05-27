@@ -1,17 +1,10 @@
 using ISILab.AI.Categorization;
-using ISILab.Commons.JsonNet;   
-using ISILab.LBS.AI.Categorization;
-using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
-using LBS.Components;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
-using UnityEditor;
-
 
 namespace ISILab.LBS.Tests
 {
-
     [TestFixture]
     public class MAPElitesBenchmarkReport : MAPElitesBaseBenchmark
     {

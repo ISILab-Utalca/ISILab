@@ -2,7 +2,6 @@ using ISILab.AI.Categorization;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
-using UnityEngine;
 
 namespace ISILab.LBS.Tests
 {

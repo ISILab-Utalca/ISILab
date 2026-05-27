@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ISILab.LBS.Behaviours
+namespace ISILab.LBS.Plugin.Components.Behaviours
 {
 
     // the rotation type with which a new tile is created

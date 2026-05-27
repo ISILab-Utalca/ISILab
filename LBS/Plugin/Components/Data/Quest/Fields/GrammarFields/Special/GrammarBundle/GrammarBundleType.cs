@@ -4,7 +4,6 @@ using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Linq;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace ISILab.AI.Grammar
 {

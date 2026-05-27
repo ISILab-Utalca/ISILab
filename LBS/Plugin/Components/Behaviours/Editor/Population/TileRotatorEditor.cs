@@ -3,10 +3,9 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UIElements;
-using static ISILab.LBS.Behaviours.PopulationBehaviour;
 
 namespace ISILab.LBS.VisualElements
 {

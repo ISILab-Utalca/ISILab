@@ -1,6 +1,4 @@
-
 using ISILab.Commons.Extensions;
-using ISILab.Extensions;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Bundles;

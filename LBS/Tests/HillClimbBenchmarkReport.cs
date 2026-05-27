@@ -5,7 +5,6 @@ using NUnit.Framework;
 using Unity.PerformanceTesting;
 using UnityEngine;
 
-
 namespace ISILab.LBS.Tests
 {
     [TestFixture]

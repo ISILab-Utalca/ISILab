@@ -2,9 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using ISILab.AI.Optimization.Terminations;
-using ISILab.DevTools.Macros;
-using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using UnityEngine;
