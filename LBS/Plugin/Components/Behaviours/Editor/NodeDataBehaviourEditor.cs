@@ -167,7 +167,7 @@ namespace ISILab.LBS.VisualElements
         {
             DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
 
-            if (graphNode == lastUpdated) return;
+            if (graphNode != null && graphNode == lastUpdated) return;
 
             QuestNode node = graphNode as QuestNode;
             bool validNode = node != null;
