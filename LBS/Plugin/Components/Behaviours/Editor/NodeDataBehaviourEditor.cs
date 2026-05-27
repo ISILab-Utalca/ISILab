@@ -52,7 +52,7 @@ namespace ISILab.LBS.VisualElements
 
         private static VisualTreeAsset visualTree;
 
-        private static QuestNode lastUpdated;
+        private static GraphNode lastUpdated;
 
         #endregion
 
@@ -167,8 +167,10 @@ namespace ISILab.LBS.VisualElements
         {
             DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
 
-            if (graphNode != null && graphNode == lastUpdated) return;
+            if (graphNode != null && graphNode == lastUpdated) 
+                return;
 
+            lastUpdated = graphNode;
             QuestNode node = graphNode as QuestNode;
             bool validNode = node != null;
 
@@ -176,27 +178,23 @@ namespace ISILab.LBS.VisualElements
             {
                 style.display = DisplayStyle.None;
                 return;
-            }
-            else
-            {
-                style.display = DisplayStyle.Flex;
+
             }
 
-            fieldsVisualElements.Clear();
+            style.display = DisplayStyle.Flex;
 
             _terminalField.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _noNodeSelectedPanel.style.display = validNode ? DisplayStyle.None : DisplayStyle.Flex;  
             _nodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _actionPanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
 
-            if (!validNode) return;
-
             SetNode(node);
         }
 
         private void SetFields(QuestNode node)
         {
-            if(node?.Data?.Fields == null) return;
+            if(node?.Data?.Fields == null) 
+                return;
 
             fieldsVisualElements.Clear();
 
@@ -317,9 +315,9 @@ namespace ISILab.LBS.VisualElements
 
         private void SetNode(QuestNode node)
         {
-            if (node == null) return;
             var data = node.Data;
-            if (data == null) return;
+            if (data == null) 
+                return;
 
             _paramActionLabel.text = node.TerminalID;
             _nodeIDLabel.text = node.ID;
@@ -335,8 +333,6 @@ namespace ISILab.LBS.VisualElements
             _actionColor.SetBorder(terminalColor, ActionBorderThickness);
 
             SetFields(node);
-
-            lastUpdated = node;
         }
         
 

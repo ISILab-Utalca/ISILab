@@ -77,11 +77,9 @@ namespace ISILab.LBS.Editor
         #region METHODS
         public sealed override void SetInfo(object paramTarget)
         {
-
             target = paramTarget;
             assistant = target as GrammarAssistant;
 
-            // ActionExtensions.AddUnique(ref assistant.OnCallAssistant, UpdatePanel);
             ActionExtensions.RemoveMethod(ref Graph.OnNodeSelected, nameof(UpdatePanel));
             Graph.OnNodeSelected -= UpdatePanel;
             Graph.OnNodeSelected += UpdatePanel;
