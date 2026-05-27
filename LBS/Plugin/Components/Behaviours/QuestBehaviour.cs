@@ -149,7 +149,7 @@ namespace ISILab.LBS.Behaviours
                 }
             }
 
-            foreach (var node in nodesToRemove) Graph.RemoveQuestNode(node);
+            foreach (var node in nodesToRemove) Graph.RemoveNode(node);
             foreach (var edge in edgesToRemove) Graph.RemoveEdge(edge);
 
             return Graph.GraphNodes.Count > 0 || Graph.GraphEdges.Count > 0;
@@ -219,7 +219,7 @@ namespace ISILab.LBS.Behaviours
 
                 if (existingNode == null)
                 {
-                    Graph.AddNodeToGraph(incomingNode.Clone() as GraphNode);
+                    Graph.AddNode(incomingNode.Clone() as GraphNode);
                 }
                 else if (overwrite)
                 {
