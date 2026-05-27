@@ -7,8 +7,6 @@ namespace ISILab.AI.Grammar
 {
     public class StealthTrigger : QuestTriggerNode
     {
-        bool reachedUndetected;
-
         [Header("Grammar Fields")]
         [SerializeField, InspectorName("Area to reach")]
         private GrammarArea _Areatoreach;
@@ -21,41 +19,33 @@ namespace ISILab.AI.Grammar
 
         protected override void BindFields(List<GrammarField> fields) 
         {
-            // Ensure the target field is instantiated so it isn't null
-            if (_Areatoreach == null) _Areatoreach = new GrammarArea();
+            _Areatoreach ??= new GrammarArea();
 
             var sourceAreatoreach = fields.Find(f => f.name == "Area to reach") as GrammarArea;
             if (sourceAreatoreach != null)
             {
                 _Areatoreach.SetValue(sourceAreatoreach.value);
             }
-            // Ensure the target field is instantiated so it isn't null
-            if (_Detectablearea == null) _Detectablearea = new GrammarArea();
+            _Detectablearea ??= new GrammarArea();
 
             var sourceDetectablearea = fields.Find(f => f.name == "Detectable area") as GrammarArea;
             if (sourceDetectablearea != null)
             {
                 _Detectablearea.SetValue(sourceDetectablearea.value);
             }
-            // Ensure the target field is instantiated so it isn't null
-            if (_Areacolor == null) _Areacolor = new GrammarColor();
+            _Areacolor ??= new GrammarColor();
 
             var sourceAreacolor = fields.Find(f => f.name == "Area color") as GrammarColor;
             if (sourceAreacolor != null)
             {
                 _Areacolor.SetValue(sourceAreacolor.value);
             }
+
+            this.fields.Add(_Areatoreach);
+            this.fields.Add(_Detectablearea);
+            this.fields.Add(_Areacolor);
         }
 
-        protected override bool CanComplete() => reachedUndetected;
-
-        protected override void OnTriggerEnter(Collider other)
-        {
-            if (IsPlayer(other))
-            {
-                reachedUndetected = true;
-                TryComplete();
-            }
-        }
+        protected override bool CanComplete() => true;
     }
 }

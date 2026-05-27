@@ -2,6 +2,8 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 using UnityEditor;
+using ISILab.LBS.Components;
+using System.Collections.Generic;
 
 namespace ISILab.AI.Grammar
 {
@@ -38,12 +40,13 @@ namespace ISILab.AI.Grammar
         {
             StringBuilder fieldDefs = new StringBuilder();
             StringBuilder fieldMaps = new StringBuilder();
-
+            List<string> grammarFields = new List<string>();
             if (terminal.fields != null && terminal.fields.Count > 0)
             {
                 fieldDefs.AppendLine($"{Tab2}[Header(\"Grammar Fields\")]");
-                foreach (var field in terminal.fields)
+                for (int i = 0; i < terminal.fields.Count; i++)
                 {
+                    GrammarField field = terminal.fields[i];
                     string protectedAttr = field is IBundleStored ? Protection : string.Empty;
                     string typeName = field.GetType().Name;
                     string cleanName = field.name.Replace(" ", "");
@@ -56,14 +59,25 @@ namespace ISILab.AI.Grammar
 
                     // 2. Map and Instantiate Logic: 
                     // Instantiates the object if it is null, finds its source metadata, and sets values safely.
-                    fieldMaps.AppendLine($"{Tab3}// Ensure the target field is instantiated so it isn't null");
-                    fieldMaps.AppendLine($"{Tab3}if (_{cleanName} == null) _{cleanName} = new {typeName}();");
+                    fieldMaps.AppendLine($"{Tab3}_{cleanName} ??= new {typeName}();");
                     fieldMaps.AppendLine();
                     fieldMaps.AppendLine($"{Tab3}var source{cleanName} = fields.Find(f => f.name == \"{field.name}\") as {typeName};");
                     fieldMaps.AppendLine($"{Tab3}if (source{cleanName} != null)");
                     fieldMaps.AppendLine($"{Tab3}{{");
                     fieldMaps.AppendLine($"{Tab3}{Tab1}_{cleanName}.SetValue(source{cleanName}.value);");
                     fieldMaps.AppendLine($"{Tab3}}}");
+
+                    grammarFields.Add($"_{cleanName}");
+                }
+            }
+
+            if(grammarFields.Count > 0)
+            {
+                fieldMaps.AppendLine();
+                for (int i = 0; i < grammarFields.Count; i++)
+                {
+                    string grammarField = grammarFields[i];
+                    fieldMaps.AppendLine($"{Tab3}this.fields.Add({grammarField});");
                 }
             }
 

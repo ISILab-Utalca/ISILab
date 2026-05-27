@@ -7,8 +7,6 @@ namespace ISILab.AI.Grammar
 {
     public class GiveTrigger : QuestTriggerNode
     {
-        bool given;
-
         [Header("Grammar Fields")]
         [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Object to give")]
         private GrammarBundleGraph _Objecttogive;
@@ -18,36 +16,25 @@ namespace ISILab.AI.Grammar
 
         protected override void BindFields(List<GrammarField> fields) 
         {
-            // Ensure the target field is instantiated so it isn't null
-            if (_Objecttogive == null) _Objecttogive = new GrammarBundleGraph();
+            _Objecttogive ??= new GrammarBundleGraph();
 
             var sourceObjecttogive = fields.Find(f => f.name == "Object to give") as GrammarBundleGraph;
             if (sourceObjecttogive != null)
             {
                 _Objecttogive.SetValue(sourceObjecttogive.value);
             }
-            // Ensure the target field is instantiated so it isn't null
-            if (_Objecttoreceive == null) _Objecttoreceive = new GrammarBundleType();
+            _Objecttoreceive ??= new GrammarBundleType();
 
             var sourceObjecttoreceive = fields.Find(f => f.name == "Object to receive") as GrammarBundleType;
             if (sourceObjecttoreceive != null)
             {
                 _Objecttoreceive.SetValue(sourceObjecttoreceive.value);
             }
+
+            this.fields.Add(_Objecttogive);
+            this.fields.Add(_Objecttoreceive);
         }
 
-        protected override bool CanComplete() => given;
-
-        protected override void OnTriggerEnter(Collider other)
-        {
-            if (IsPlayer(other))
-            {
-                if(HasItem(other, _Objecttogive.value.GUID))
-                {
-                    GetInventory(other).RemoveItems(_Objecttogive.value.GUID);
-                    GetInventory(other).AddItems(_Objecttoreceive.value);
-                }
-            }
-        }
+        protected override bool CanComplete() => true;
     }
 }
