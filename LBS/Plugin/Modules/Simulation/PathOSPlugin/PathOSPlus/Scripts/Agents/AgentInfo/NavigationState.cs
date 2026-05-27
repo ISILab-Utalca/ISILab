@@ -20,15 +20,53 @@ namespace PathOS
         public bool lookingAround;
 
         public TargetDest currentDest;
-        public List<TargetDest> destList = new();
+        public List<TargetDest> potentialDests = new();
         public bool pathResolved = true;
 
         public int changeTargetCount;
 
-        public bool DestinationIsInaccurate()
-            => currentDest.entity != null &&
-            !currentDest.accurate &&
-            currentDest.entity.visible;
+        /// <summary>
+        /// An entity destination could be marked as inaccurate due to a recall
+        /// from memory. If now it's visible, then the agent can be reasonably sure 
+        /// of its position and route to it.
+        /// </summary>
+        /// <returns></returns>
+        public void FixInaccurateDestination(PathOSAgent agent)
+        {
+            if (currentDest.entity != null && !currentDest.accurate && currentDest.entity.visible)
+            {
+                MakeEntityDestinationAccurate(agent);
+            }
+        }
+
+        public void MakeEntityDestinationAccurate(PathOSAgent agent)
+        {
+            var navAgent = agent.navAgent;
+            var agentMemory = agent.AgentMemory;
+
+            // NavMesh reachability check.
+            bool reachable = PathOSNavUtility.CanAgentReachTarget(
+                    navAgent,
+                    currentDest.entity.ActualPosition(),
+                    navAgent.height * Constants.Navigation.NAV_SEARCH_RADIUS_FAC,
+                    ref currentDest.pos);
+
+            if (reachable)
+                reachable = Vector3.SqrMagnitude(
+                    PathOSNavUtility.XZPos(currentDest.pos) -
+                    PathOSNavUtility.XZPos(currentDest.entity.ActualPosition()))
+                    < agent.visitThresholdSqr;
+
+            if (!reachable)
+            {
+                agentMemory.MakeUnreachable(currentDest.entity);
+                ResetDestinationSelf(agent);
+            }
+
+            currentDest.accurate = true;
+            RouteDestination(navAgent);
+        }
+
 
         public bool ShouldLookAround() => lookTimer >= lookTime;
 
@@ -39,7 +77,7 @@ namespace PathOS
 
             //Actual look time can fluctuate based on the agent's caution and the 
             //danger in the current area.
-            float lookTimeScale = agent.GetMemory().ScoreHazards(agent.GetPosition()) *
+            float lookTimeScale = agent.AgentMemory.ScoreHazards(agent.GetPosition()) *
                 agent.heuristics.heuristicScaleLookup[Heuristic.CAUTION];
 
             float a = baseLookTime;
@@ -52,11 +90,11 @@ namespace PathOS
             lookTime = Mathf.Min(a, b);
         }
 
-        internal bool NavmeshPathIncomplete(PathOSAgent agent) => 
-                    !agent.navAgent.pathPending &&
-                    !agent.navAgent.hasPath &&
-                    agent.navAgent.pathStatus == NavMeshPathStatus.PathPartial &&
-                    !agent.navAgent.isPathStale &&
+        internal bool NavmeshPathIncomplete(NavMeshAgent navAgent) => 
+                    !navAgent.pathPending &&
+                    !navAgent.hasPath &&
+                    navAgent.pathStatus == NavMeshPathStatus.PathPartial &&
+                    !navAgent.isPathStale &&
                     !pathResolved;
 
         internal void ResetDestinationSelf(PathOSAgent agent)
@@ -69,7 +107,6 @@ namespace PathOS
         internal IEnumerator LookAround(PathOSAgent agent)
         {
             var navAgent = agent.navAgent;
-
             navAgent.isStopped = true;
             navAgent.updateRotation = false;
 
@@ -124,14 +161,15 @@ namespace PathOS
 
             lookingTimer = 0.0f;
             lookingAround = false;
+
             navAgent.updateRotation = true;
             navAgent.isStopped = false;
         }
 
-        internal void RouteDestination(PathOSAgent agent)
+        internal void RouteDestination(NavMeshAgent navAgent)
         {
             pathResolved = false;
-            agent.navAgent.SetDestination(currentDest.pos);
+            navAgent.SetDestination(currentDest.pos);
         }
 
     }

@@ -1014,7 +1014,7 @@ namespace PathOS
                 var agentComp = newAgent.GetComponent<PathOSAgent>();
                 if(agentComp != null && agent != null)
                 {
-                    agentComp.GetMemory().gridSampleSize = agent.gridSampleSize;
+                    agentComp.AgentMemory.gridSampleSize = agent.gridSampleSize;
                 }
 
                 // Set new eyes

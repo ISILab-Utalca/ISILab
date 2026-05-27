@@ -1,7 +1,11 @@
 ﻿
+using Codice.Client.Common.GameUI;
 using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
 using NinePenguins;
+using PlasticGui.WorkspaceWindow.BranchExplorer;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -32,7 +36,7 @@ namespace PathOS
 
         [HideInInspector] public NavigationState navigationState = new();
         [HideInInspector] public ExplorationState explorationState = new();
-        [HideInInspector] public MemoryState STMemoryState = new();
+        [HideInInspector] public MemoryState memoryState = new();
         [HideInInspector] public HealthState healthState = new();
 
 
@@ -55,7 +59,10 @@ namespace PathOS
         internal static PathOSManager manager;
         public static OGLogManager logger { get; set; }
 
-        private PathOSAgentMemory agentMemory;
+        private PathOSAgentMemory _agentMemory;
+        public PathOSAgentMemory AgentMemory
+        { get => _agentMemory is null ? _agentMemory = GetComponent<PathOSAgentMemory>() : _agentMemory; }
+
         public PathOSAgentEyes eyes { get; private set; }
 
         public float visitThresholdSqr { get; set; }
@@ -63,11 +70,12 @@ namespace PathOS
         public bool completed { get; set; }
 
         public float hazardPenalty { get; set; }
+        public int ApproximatedFloor => _agentMemory.CalculateAproximatedFloor(GetPosition().y);
 
         public float MemPathChance
         {
-            get => STMemoryState.memPathChance;
-            set => STMemoryState.memPathChance = value;
+            get => memoryState.memPathChance;
+            set => memoryState.memPathChance = value;
         }
 
         [SerializeField]
@@ -80,7 +88,7 @@ namespace PathOS
         {
             // Get components
             eyes = GetComponent<PathOSAgentEyes>();
-            agentMemory = GetComponent<PathOSAgentMemory>();
+            _agentMemory = GetComponent<PathOSAgentMemory>();
             navAgent = GetComponent<NavMeshAgent>();
             heuristics = GetComponent<HeuristicOS>();
             cameraObject = GameObject.FindWithTag("PathOSCamera");
@@ -90,8 +98,10 @@ namespace PathOS
             logger ??= OGLogManager.instance;
 
             // Set starting position as current destination 
-            navigationState.currentDest = new TargetDest();
-            navigationState.currentDest.pos = GetPosition();
+            navigationState.currentDest = new TargetDest() 
+            { 
+                pos = GetPosition() 
+            };
 
             // Set initial state
             completed = false;
@@ -100,14 +110,14 @@ namespace PathOS
             healthState.Init();
             Debug.Log(healthState.health);
 
-            STMemoryState.memPathWaypoints = new List<Vector3>();
+            memoryState.memPathWaypoints = new List<Vector3>();
             explorationState.unreachableReference = new List<Vector3>();
         }
 
         private void Start()
         {
-            LogAgentData();
-            PerceptionUpdate();
+            LogAgentData(); 
+            navigationState.UpdateLookTime(this);
 
             //Stochastic initialization of look time.
             navigationState.lookTimer = Random.Range(0.0f, navigationState.lookTime);
@@ -122,61 +132,177 @@ namespace PathOS
                 Time.timeScale = 1.0f;
             }
         }
-        
+
         private void Update()
         {
-            //Inactive state toggle for debugging purposes (or if the agent is finished).
+            // Inactive state toggle for debugging purposes (or if the agent is finished).
             if (freezeAgent || completed)
                 return;
 
+            ////////////////////// TIME STUFF //////////////////////
+
             if (timeScale <= 0.0f) timeScale = 1.0f;
 
-            // GABO: Ignoring this line for temporary batch agents, since you're not supposed
-            // to control their timeScale in the inspector or when batching ends, while also
-            // allowing use of PathOSBatchingWindow's time scale slider which doesn't work
-            // properly when this line is set since entering Game Mode calls this object
-            // default timeScale for some reason.
+            /* GABO: Ignoring this line for temporary batch agents, since you're not supposed
+             to control their timeScale in the inspector or when batching ends, while also
+             allowing use of PathOSBatchingWindow's time scale slider which doesn't work
+             properly when this line is set since entering Game Mode calls this object
+             default timeScale for some reason.*/
             if (!name.Contains("Temporary Batch Agent"))
             {
                 Time.timeScale = timeScale;
             }
 
-            healthState.UpdateDeadState();
+            // Updates timers for periodic updates (rerouting, perception, look-around).
+            UpdateTimers();
 
-            //If we've reached our destination, reset the number of times
-            //we've "changed our mind" without doing anything.
-            var radius = Constants.Navigation.GOAL_EPSILON_SQR;
-            var distanceToDest = Vector3.SqrMagnitude(GetPosition() - navigationState.currentDest.pos);
-            var isDestVisited = navigationState.currentDest.entity != null && agentMemory.Visited(navigationState.currentDest.entity);
+            ////////////// DESTINATION REACHED CHECKS //////////////
 
-            if (navigationState.changeTargetCount > 0 && (distanceToDest < radius || isDestVisited))
+            // Agent arrived to goal destination.
+            if (DestinationReached(Constants.Navigation.GOAL_EPSILON_SQR, out bool isEntity))
             {
-                navigationState.changeTargetCount = 0;
+                // Updates dead condition and interaction with health or enemy entities.
+                HealthStateUpdate();
 
-                if (navigationState.currentDest.entity != null)
+                if(isEntity && 
+                    (navigationState.currentDest.entity.entityType == EntityType.ET_STAIR_UP ||
+                    navigationState.currentDest.entity.entityType == EntityType.ET_STAIR_DOWN))
                 {
-                    healthTuning.CalculateHealth(
-                        tuning,
-                        healthState,
-                        navigationState.currentDest.entity.entityType);
-
-                    //Updates weights based on the player's health
-                    heuristics.UpdateWeightsBasedOnHealth(this);
+                    var otherStair = new PerceivedEntity(navigationState.currentDest.entity.entityRef.OtherStairRef);
+                    if(!_agentMemory.Visited(otherStair.entityRef))
+                    {
+                        navigationState.currentDest = new TargetDest()
+                        {
+                            entity = otherStair,
+                            pos = navigationState.currentDest.entity.entityRef.OtherStairRef.Position,
+                            accurate = true
+                        };
+                        navigationState.RouteDestination(navAgent);
+                    }
+                }
+                else
+                {
+                    // Computes new destionation.
+                    ComputeNewDestination();
                 }
             }
 
-            //Update spatial memory.
-            agentMemory.memoryMap.Fill(navAgent.transform.position);
+            // Agent arrived to a memory path waypoint.
+            if(memoryState.onMemPath && 
+                DestinationReached(Constants.Navigation.WAYPOINT_EPSILON_SQR, out isEntity, memoryState.memWaypoint))
+            {
+                memoryState.GoNextWaypoint(navAgent, navigationState);
+            }
 
-            //Update of periodic actions.
-            navigationState.routeTimer += Time.deltaTime;
-            navigationState.perceptionTimer += Time.deltaTime;
+            // Update visited spatial memory.
+            _agentMemory.memoryMap.Fill(navAgent.transform.position);
 
-            if (!navigationState.lookingAround)
-                navigationState.lookTimer += Time.deltaTime;
+            /////////////////// REROUTING CHANCE ///////////////////
 
-            //Rerouting update.
-            if (navigationState.routeTimer >= RouteComputeTimeCalculated())
+            // Rerouting update.
+            var rerouteTime = 
+                Constants.Navigation.ROUTE_COMPUTE_BASE + 
+                Constants.Memory.RETRIEVAL_TIME * _agentMemory.entities.Count;
+
+            if (navigationState.routeTimer >= rerouteTime)
+            {
+                ChanceReroute();
+            }
+
+            //////////////// PATH AND ACCURACY FIX /////////////////
+
+            // If destination is an inaccurate entity,
+            // make it accurate if it's visible now
+            navigationState.FixInaccurateDestination(this);
+
+            // Navmesh targeting update.
+            // This prevents the agent from getting stuck.
+            if (navigationState.NavmeshPathIncomplete(navAgent))
+            {
+                FixNavmeshPath();
+            }
+
+            ////////////////// PERCEPTION STUFF ///////////////////
+
+            //Perception update.
+            //This will allow the agent's eyes to "process" nearby entities
+            //and also update the time threshold for looking around based 
+            //on nearby hazards.
+            if (navigationState.perceptionTimer >= Constants.Perception.PERCEPTION_COMPUTE_TIME)
+            {
+                navigationState.perceptionTimer = 0.0f;
+                navigationState.UpdateLookTime(this);
+            }
+
+            //Look-around update.
+            if (navigationState.ShouldLookAround())
+            {
+                navigationState.lookTimer = 0.0f;
+                navigationState.lookingAround = true;
+                StartCoroutine(navigationState.LookAround(this));
+            }
+
+            //Camera follow update
+            if (cameraFollow)
+            {
+                if (cameraObject != null) cameraObject.transform.position = new Vector3(transform.position.x, 15.0f, transform.position.z);
+            }
+
+            ///////////////// FINALIZATION CHECK //////////////////
+
+            //Set the agent's completion flag.
+            if (manager.endOnCompletionGoal
+                && _agentMemory.FinalGoalCompleted())
+            {
+                completed = true;
+                gameObject.SetActive(false);
+            }
+
+            #region UPDATE METHODS
+            void HealthStateUpdate()
+            {
+                if (navigationState.changeTargetCount > 0) return;
+                navigationState.changeTargetCount = 0;
+
+                if (navigationState.currentDest.entity == null) return;
+
+                healthTuning.CalculateHealth(
+                    tuning,
+                    healthState,
+                    navigationState.currentDest.entity.entityType);
+                healthState.UpdateDeadState();
+
+                //Updates weights based on the player's health
+                heuristics.UpdateWeightsBasedOnHealth(this);
+            }
+
+            bool DestinationReached(float radius, out bool isEntity, Vector3? overrideDestination = null)
+            {
+                var destination = overrideDestination != null ? 
+                    new TargetDest() { pos = overrideDestination.Value } :
+                    navigationState.currentDest;
+
+                isEntity = destination.entity != null && destination.entity.entityRef != null;
+
+                //If we've reached our destination, reset the number of times
+                //we've "changed our mind" without doing anything.
+                var distanceToDest = Vector3.SqrMagnitude(GetPosition() - destination.pos);
+                var isDestVisited = isEntity && _agentMemory.Visited(destination.entity);
+
+                return radius >= distanceToDest || isDestVisited;
+            }
+
+            void UpdateTimers()
+            {
+                //Update of periodic actions.
+                navigationState.routeTimer += Time.deltaTime;
+                navigationState.perceptionTimer += Time.deltaTime;
+
+                if (!navigationState.lookingAround)
+                    navigationState.lookTimer += Time.deltaTime;
+            }
+
+            void ChanceReroute()
             {
                 navigationState.routeTimer = 0.0f;
 
@@ -191,41 +317,14 @@ namespace PathOS
                 }
             }
 
-            //Memory path update.
-            if (STMemoryState.onMemPath)
-            {
-                Vector3 pos = GetPosition();
-                if (Vector3.SqrMagnitude(pos - STMemoryState.memWaypoint)
-                    < Constants.Navigation.WAYPOINT_EPSILON_SQR)
-                {
-                    STMemoryState.memPathWaypoints.RemoveAt(0);
-
-                    if (STMemoryState.memPathWaypoints.Count == 0)
-                    {
-                        STMemoryState.onMemPath = false;
-                        navigationState.RouteDestination(this);
-                    }
-                    else
-                    {
-                        navAgent.SetDestination(STMemoryState.memPathWaypoints[0]);
-                        navigationState.pathResolved = false;
-                    }
-                }
-            }
-            else if (navigationState.DestinationIsInaccurate())
-                MakeEntityDestinationAccurate();
-
-
-            //Debug.LogWarning(!pathResolved + " && " + NavmeshPathIncomplete());
-            //Targeting update. This prevents the agent from getting stuck.
-            if (navigationState.NavmeshPathIncomplete(this))
+            void FixNavmeshPath()
             {
                 //If we're following a memory path,
                 //abort and route to the final target on the Navmesh.
-                if (STMemoryState.onMemPath)
+                if (memoryState.onMemPath)
                 {
-                    STMemoryState.onMemPath = false;
-                    navigationState.RouteDestination(this);
+                    memoryState.onMemPath = false;
+                    navigationState.RouteDestination(navAgent);
                 }
                 //If we're dealing with an entity...
                 else if (navigationState.currentDest.entity != null)
@@ -234,19 +333,32 @@ namespace PathOS
 
                     if (!navigationState.currentDest.accurate)
                     {
-                        MakeEntityDestinationAccurate();
+                        navigationState.MakeEntityDestinationAccurate(this);
                     }
                     else
                     {
-                        float adjVisitSqr = (entity.entityRef.overrideVisitRadius) ?
-                            entity.entityRef.visitRadiusSqr : visitThresholdSqr;
+                        var sameFloor = 
+                            _agentMemory.CalculateAproximatedFloor(entity.perceivedPos.y) ==
+                            _agentMemory.CalculateAproximatedFloor(GetPosition().y);
+
+                        Vector3 agentPos = Vector3.zero;
+                        Vector3 targetPos = Vector3.zero;
+                        float adjVisitSqr = 0;
 
                         //Compress unreachability check to XZ plane.
-                        Vector3 agentPos = PathOSNavUtility.XZPos(GetPosition());
-                        Vector3 targetPos = PathOSNavUtility.XZPos(entity.perceivedPos);
+                        if (sameFloor)
+                        {
+                            adjVisitSqr = (entity.entityRef.overrideVisitRadius) ?
+                                entity.entityRef.visitRadiusSqr : visitThresholdSqr;
 
-                        if (Vector3.SqrMagnitude(agentPos - targetPos) >= adjVisitSqr)
-                            agentMemory.MakeUnreachable(entity);
+                            agentPos = PathOSNavUtility.XZPos(GetPosition());
+                            targetPos = PathOSNavUtility.XZPos(entity.perceivedPos);
+                        }
+
+                        // Make unreachable if it's not on the same floor,
+                        // or if it's far away on the same floor.
+                        if (!sameFloor || Vector3.SqrMagnitude(agentPos - targetPos) >= adjVisitSqr)
+                            _agentMemory.MakeUnreachable(entity);
 
                         //Reset the number of times we've changed our mind
                         //without doing anything (since we tried to get here).
@@ -263,38 +375,7 @@ namespace PathOS
 
                 navigationState.pathResolved = true;
             }
-
-            //Perception update.
-            //This will allow the agent's eyes to "process" nearby entities
-            //and also update the time threshold for looking around based 
-            //on nearby hazards.
-            if (navigationState.perceptionTimer >= Constants.Perception.PERCEPTION_COMPUTE_TIME)
-            {
-                navigationState.perceptionTimer = 0.0f;
-                PerceptionUpdate();
-            }
-
-            //Look-around update.
-            if (navigationState.ShouldLookAround())
-            {
-                navigationState.lookTimer = 0.0f;
-                navigationState.lookingAround = true;
-                StartCoroutine(navigationState.LookAround(this));
-            }
-
-            //Set the agent's completion flag.
-            if (manager.endOnCompletionGoal
-                && agentMemory.FinalGoalCompleted())
-            {
-                completed = true;
-                gameObject.SetActive(false);
-            }
-
-            //Camera follow update
-            if (cameraFollow)
-            {
-                if (cameraObject != null) cameraObject.transform.position = new Vector3(transform.position.x, 15.0f, transform.position.z);
-            }
+            #endregion
         }
         #endregion
 
@@ -335,7 +416,7 @@ namespace PathOS
             // Clear potential destination list,
             // which will be re-populated with scored options.
 
-            navigationState.destList.Clear();
+            navigationState.potentialDests.Clear();
 
             // Reset scores
 
@@ -343,24 +424,9 @@ namespace PathOS
             explorationState.pastCumulativeEntityScore = explorationState.cumulativeEntityScore;
             explorationState.cumulativeEntityScore = 0.0f;
 
-            // Get eyes' forward, up and right vectors
-            // Used in the calculation of exploration directions.
+            // Get eyes' forward, up and right vectors.
 
-            Vector3 eyesForward = default;
-            switch (eyes.camType)
-            {
-                case PathOSAgentEyes.CamType.FreeMode:
-                    eyesForward = eyes.cam.transform.forward;
-                    break;
-
-                case PathOSAgentEyes.CamType.FirstPerson:
-                    eyesForward = transform.forward;
-                    eyesForward.y = 0.0f;
-                    eyesForward.Normalize();
-                    break;
-            }
-            Vector3 yRotationAxis = eyes.cam.transform.up;
-            Vector3 xRotationAxis = eyes.cam.transform.right;
+            GetEyesAxes(out Vector3 eyesForward, out Vector3 yRotationAxis, out Vector3 xRotationAxis, eyes.camType);
 
             // Calculate score for the current goal (if it's entity).
             // (else) Calculate goal distance and visibility for exploration direction scoring.
@@ -368,7 +434,7 @@ namespace PathOS
             EntityMemory currentGoalMemory = null;
             if (navigationState.currentDest.entity != null)
             {
-                currentGoalMemory = agentMemory.GetMemory(navigationState.currentDest.entity);
+                currentGoalMemory = _agentMemory.GetMemory(navigationState.currentDest.entity);
 
                 if (null == currentGoalMemory)
                 {
@@ -379,10 +445,14 @@ namespace PathOS
                 }
                 else ScoreEntity(currentGoalMemory, ref maxScore);
             }
-            else
+            else if (_agentMemory.CalculateAproximatedFloor(navigationState.currentDest.pos.y) == ApproximatedFloor)
             {
+                // ROD: I can't really imagine a way to calculate the score for an exploration direction
+                // in a floor the agent isn't on, so let's not calculate it at all! (genius, ik).
+
                 Vector3 goalForward = default;
                 Vector3 goalDistance = navigationState.currentDest.pos - GetPosition();
+
                 switch (eyes.camType)
                 {
                     case PathOSAgentEyes.CamType.FreeMode:
@@ -408,22 +478,26 @@ namespace PathOS
 
             // Calculate score for each entity in memory that isn't the current goal.
 
-            for (int i = 0; i < agentMemory.entities.Count; ++i)
+            for (int i = 0; i < _agentMemory.entities.Count; ++i)
             {
-                if (!ReferenceEquals(currentGoalMemory, agentMemory.entities[i]))
-                    ScoreEntity(agentMemory.entities[i], ref maxScore);
+                if (!ReferenceEquals(currentGoalMemory, _agentMemory.entities[i]))
+                {
+                    var entity = _agentMemory.entities[i];
+                    ScoreEntity(entity, ref maxScore);
+                    var sheesh = maxScore;
+                }
             }
 
             // Calculate score for paths' directions in memory
             // Treated as not visible since they are based on the player's "idea" of the space.
 
-            for (int i = 0; i < agentMemory.paths.Count; ++i)
+            for (int i = 0; i < _agentMemory.paths.Count; ++i)
             {
-                ScoreExploreDirection(agentMemory.paths[i].originPoint,
-                    agentMemory.paths[i].direction,
+                ScoreExploreDirection(_agentMemory.paths[i].originPoint,
+                    _agentMemory.paths[i].direction,
                     false, ref maxScore);
             }
-
+            int estupidoFlanders = _agentMemory.paths.Count;
             // Explore and score many directions in view, step by step.
 
             float halfX = eyes.XFOV() * 0.5f;
@@ -471,8 +545,8 @@ namespace PathOS
             // Pick a destination from the list, weighted by score.
             // If no destinations were added to the list, the old target will be used.
 
-            if (navigationState.destList.Count != 0)
-                dest = ScoringUtility.PickTarget(navigationState.destList, maxScore);
+            if (navigationState.potentialDests.Count != 0)
+                dest = ScoringUtility.PickTarget(navigationState.potentialDests, maxScore);
 
             // Recompute goal if new destination is different from the current one.
 
@@ -485,58 +559,161 @@ namespace PathOS
                 navigationState.currentDest = dest;
 
                 float memChanceRoll = Random.Range(0.0f, 1.0f);
-                STMemoryState.onMemPath = false;
+                memoryState.onMemPath = false;
 
-                if (memChanceRoll <= STMemoryState.memPathChance)
-                    STMemoryState.onMemPath = agentMemory.memoryMap.NavigateAStar(
-                        GetPosition(), navigationState.currentDest.pos, ref STMemoryState.memPathWaypoints);
+                if (memChanceRoll <= memoryState.memPathChance)
+                    memoryState.onMemPath = _agentMemory.memoryMap.NavigateAStar(
+                        GetPosition(), navigationState.currentDest.pos, ref memoryState.memPathWaypoints);
 
-                if (STMemoryState.onMemPath)
+                if (memoryState.onMemPath)
                 {
-                    navAgent.SetDestination(STMemoryState.memPathWaypoints[0]);
+                    navAgent.SetDestination(memoryState.memPathWaypoints[0]);
                     navigationState.pathResolved = false;
                 }
-                else navigationState.RouteDestination(this);
+                else navigationState.RouteDestination(navAgent);
 
                 // Once an entity has been selected as a destination,
                 // commit it to long-term memory.
                 if (null != navigationState.currentDest.entity)
-                    agentMemory.CommitLTM(navigationState.currentDest.entity);
+                    _agentMemory.CommitLTM(navigationState.currentDest.entity);
             }
 
             explorationState.assessedGoalsInit = true;
 
             //if (verboseDebugging)
-                NPDebug.LogMessage("Position: " + navAgent.transform.position +
-                    ", Destination: " + navigationState.currentDest);
+            {
+                string destName =
+                    navigationState.currentDest.entity == null ? "Null" : navigationState.currentDest.entity.entityType.ToString();
+
+                var destPos = navigationState.currentDest.pos;
+                NPDebug.LogMessage($"Position: {navAgent.transform.position}, Destination: {destName}, Destination Position: ({destPos.x:F2}, {destPos.y:F2}, {destPos.z:F2})");
+            }
+
+            // Get eyes' forward, up and right vectors
+            // Used in the calculation of exploration directions.
+            void GetEyesAxes(out Vector3 eyesForward, out Vector3 yRotationAxis, out Vector3 xRotationAxis, PathOSAgentEyes.CamType eyesType)
+            {
+                eyesForward = default;
+                yRotationAxis = default;
+                xRotationAxis = default;
+
+                switch (eyesType)
+                {
+                    case PathOSAgentEyes.CamType.FreeMode:
+                        eyesForward = eyes.cam.transform.forward;
+                        yRotationAxis = eyes.cam.transform.up;
+                        xRotationAxis = eyes.cam.transform.right;
+                        break;
+
+                    case PathOSAgentEyes.CamType.FirstPerson:
+                        eyesForward = transform.forward;
+                        eyesForward.y = 0.0f;
+                        eyesForward.Normalize();
+                        yRotationAxis = Vector3.up;
+                        xRotationAxis = Quaternion.AngleAxis(90.0f, Vector3.up) * eyesForward;
+                        break;
+                }
+            }
         }
 
         /// <summary>
         /// Scores an entity based on various biases and updates the maximum score if necessary.
         /// </summary>
-        /// <param name="memory">The memory of the entity to be scored.</param>
+        /// <param name="entityMem">The memory of the entity to be scored.</param>
         /// <param name="maxScore">The current maximum score, which may be updated.</param>
-        private void ScoreEntity(EntityMemory memory, ref float maxScore)
+        private void ScoreEntity(EntityMemory entityMem, ref float maxScore)
         {
             // Don't proceed if the entity has already been visited or deemed unreachable.
 
-            if (memory.visited || memory.unreachable)
+            if (entityMem.visited || entityMem.unreachable)
                 return;
+
+            // Calculate if entity is on the same floor, and distance to the entity.
+
+            float distanceToEntity = 0;
+            Vector3 entityPosition = entityMem.RecallPos();
+
+            int agentFloor = ApproximatedFloor;
+            int entityFloor = _agentMemory.CalculateAproximatedFloor(entityPosition.y);
+            int deltaFloor = Mathf.Abs(entityFloor - agentFloor);
+            bool sameFloor = entityFloor == agentFloor;
+
+            EntityMemory[] closestStair = new EntityMemory[deltaFloor];
+            Vector3?[] stairPos = new Vector3?[deltaFloor];
+            Vector3?[] otherStairPos = new Vector3?[deltaFloor];
+            bool validStairPath = true;
+
+            // If destination entity is not on the same floor,
+            // we must find a path to it using the stairs stored in memory.
+            if (!sameFloor)
+            {
+                validStairPath = CalculateStairPath(
+                    ref closestStair, ref stairPos, ref otherStairPos, 
+                    agentFloor, entityFloor, out distanceToEntity);
+
+                // If the stair path couldn't be completed, score = 0
+                // entity isn't marked as unreachable because the agent might find a stair later.
+                if (!validStairPath) return;
+            }
+            else
+            {
+                distanceToEntity += Vector3.Distance(GetPosition(), entityPosition);
+            }
 
             // Calculate final goal and entity biases.
 
-            float finalGoalBias = FinalGoalBias(memory.entity, out bool isFinalGoal);
-            float entityBias = EntityBias(memory, out Vector3 toEntity);
+            float finalGoalBias = FinalGoalBias(entityMem.entity, out bool isFinalGoal);
+            float entityBias = EntityBias(entityMem, distanceToEntity);
             float bias = finalGoalBias + entityBias;
 
             // Calculate entity direction's score.
 
-            float score = ScoreDirection(GetPosition(), toEntity, bias, toEntity.magnitude);
+            float score = 0;
+
+            // If the entity isn't on the same floor, the total score will be the sum of the scores
+            // for each direction between stairs until reaching the entity.
+            if (!sameFloor)
+            {
+                Vector3 auxOrigin = GetPosition();
+
+                for (int i = 0; i < deltaFloor; i++)
+                {
+                    Vector3 auxDirection = stairPos[i].Value - auxOrigin;
+
+                    score += ScoreDirectionXZ(auxOrigin, auxDirection, 0, auxDirection.magnitude, agentFloor + 0);
+
+                    auxOrigin = otherStairPos[i].Value;
+                }
+
+                // Bias is added out of the looop to prevent over-scoring.
+                score += bias;
+            }
+            else
+            {
+                Vector3 toEntity = entityPosition - GetPosition();
+                score += ScoreDirectionXZ(GetPosition(), toEntity, bias, toEntity.magnitude, agentFloor);
+            }
 
             // Bias for preferring interactive objects (if they are favourable).
 
             if (entityBias > 0.0f && score > 0.0f)
                 score += Constants.Behaviour.INTERACTIVITY_BIAS;
+
+            // Bias for preferring stair objects, affected by curiosity
+            // (if the unknown tiles in that floor are more than in the current floor)
+
+            if (entityMem.entity.entityType == EntityType.ET_STAIR_UP ||
+                entityMem.entity.entityType == EntityType.ET_STAIR_DOWN)
+            {
+                int currentFloorUnkown = _agentMemory.memoryMap.GetUnknownTileCount(agentFloor);
+                int adyacentFloorUnkown = _agentMemory.memoryMap.
+                    GetUnknownTileCount(agentFloor + entityMem.entity.entityRef.DirectionSign);
+
+                if(adyacentFloorUnkown > currentFloorUnkown)
+                {
+                    score += Constants.Behaviour.STAIR_BIAS * heuristics.heuristicScaleLookup[Heuristic.CURIOSITY];
+                }
+            }
 
             // Accumulate entity score for the exploration system,
             // which will be used to penalize the final goal if the agent
@@ -548,7 +725,7 @@ namespace PathOS
             // Bias for preferring the goal we have already set
             // (If we haven't already reached it).
 
-            if (memory.entity == navigationState.currentDest.entity
+            if (entityMem.entity == navigationState.currentDest.entity
                 && Vector3.SqrMagnitude(GetPosition() - navigationState.currentDest.pos)
                 > Constants.Navigation.GOAL_EPSILON_SQR)
             {
@@ -565,7 +742,7 @@ namespace PathOS
                 // We only need to update the destination position
                 // if we're targeting an entity other than the current target.
 
-                if (memory.entity == navigationState.currentDest.entity)
+                if (entityMem.entity == navigationState.currentDest.entity)
                 {
                     newDest.pos = navigationState.currentDest.pos;
                     newDest.accurate = navigationState.currentDest.accurate;
@@ -574,33 +751,32 @@ namespace PathOS
                 {
                     // Calculate real reachability.
 
-                    Vector3 realPos = Vector3.zero;
+                    Vector3 closestPos = Vector3.zero;
 
                     bool reachable = PathOSNavUtility.CanAgentReachTarget(
-                        navAgent,
-                        memory.entity.ActualPosition(),
+                        navAgent, entityMem.entity.ActualPosition(),
                         navAgent.height * Constants.Navigation.NAV_SEARCH_RADIUS_FAC,
-                        ref realPos);
+                        ref closestPos);
 
                     if (reachable)
                     {
                         reachable = 
-                            Vector3.SqrMagnitude(realPos - memory.entity.ActualPosition()) 
+                            Vector3.SqrMagnitude(closestPos - entityMem.entity.ActualPosition()) 
                             < visitThresholdSqr;
                     }
 
                     if (!reachable)
                     {
-                        memory.MakeUnreachable();
+                        entityMem.MakeUnreachable();
                         return;
                     }
 
-                    //If the entity is visible/always known to the player, ensure 
-                    //its position is set to the actual position of the entity.
+                    // If the entity is visible/always known to the player, ensure 
+                    // its position is set to the actual position of the entity.
 
-                    if (memory.entity.visible || memory.entity.entityRef.alwaysKnown)
+                    if (entityMem.entity.visible || entityMem.entity.entityRef.alwaysKnown)
                     {
-                        newDest.pos = realPos;
+                        newDest.pos = closestPos;
                         newDest.accurate = true;
                     }
 
@@ -615,11 +791,11 @@ namespace PathOS
 
                         reachable = PathOSNavUtility.CanAgentReachTarget(
                             navAgent,
-                            memory.RecallPos(),
+                            entityMem.RecallPos(),
                             navAgent.height * Constants.Navigation.NAV_SEARCH_RADIUS_FAC,
                             ref guessPos);
 
-                        newDest.pos = (reachable) ? guessPos : realPos;
+                        newDest.pos = (reachable) ? guessPos : closestPos;
                         newDest.accurate = !reachable;
                     }
                 }
@@ -634,11 +810,60 @@ namespace PathOS
                 // Set entity reference and score for the destination and add it to the candidate list.
 
                 newDest.score = score;
-                newDest.entity = memory.entity;
-                navigationState.destList.Add(newDest);
+                newDest.entity = entityMem.entity;
+                navigationState.potentialDests.Add(newDest);
+            }
+
+        }
+
+        private bool CalculateStairPath(
+            ref EntityMemory[] closestStair, ref Vector3?[] stairPos, ref Vector3?[] otherStairPos,
+            int agentFloor, int entityFloor, out float distanceToEntity)
+        {
+            distanceToEntity = 0;
+            bool validStairPath = true;
+            int deltaFloor = Mathf.Abs(entityFloor - agentFloor);
+
+            FillWith(ref closestStair, null);
+            FillWith(ref stairPos, null);
+            FillWith(ref otherStairPos, null);
+
+            Vector3 auxOrigin = GetPosition();
+            int auxFloor = agentFloor;
+
+            for (int i = 0; i < deltaFloor; i++)
+            {
+                // find next stair
+                closestStair[i] = _agentMemory.GetClosestStair(auxOrigin, entityFloor > auxFloor ? 1 : -1);
+                if (closestStair[i] == null || closestStair[i].entity.entityRef.OtherStairRef == null)
+                {
+                    validStairPath = false;
+                    break;
+                }
+
+                // save stair positions
+                stairPos[i] = closestStair[i].entity.perceivedPos;
+                otherStairPos[i] = closestStair[i].entity.entityRef.OtherStairRef.Position;
+
+                // add new distance
+                distanceToEntity += Vector3.Distance(auxOrigin, stairPos[i].Value);
+
+                // update aux values
+                auxOrigin = otherStairPos[i].Value;
+                auxFloor += closestStair[i].entity.entityRef.DirectionSign;
+            }
+
+            return validStairPath;
+        }
+        private void FillWith<T>(ref T[] array, T value)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = value;
             }
         }
 
+        uint estupidoFlanders = 0;
         /// <summary>
         /// Scores and explores a direction based on its potential information gain and various biases, 
         /// and updates the maximum score if necessary.
@@ -656,7 +881,7 @@ namespace PathOS
 
             // SEBA: Commenting this prevents the agent from getting stuck on an unreachable target. 
             // Or maybe not...
-            if (overrideDest != null)
+            if (overrideDest != default)
             {
                 newTarget = overrideDest;
             }
@@ -666,11 +891,11 @@ namespace PathOS
 
             else
             {
-
+                //Debug.Log("Hola hola vecinillo " + estupidoFlanders++);
+                
                 // If direction is visibile, explore and map tiles along the direction.
                 // Stores the distance to the "extent" of the direction on the navmesh,
                 // and the position of that "extent" (or the original position if not reachable).
-
                 if (visible)
                 {
                     NavMeshHit hit = new NavMeshHit();
@@ -698,7 +923,7 @@ namespace PathOS
                 {
                     // Grab the "extent" of the direction on our memory model of the navmesh.
                     PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit hit;
-                    agentMemory.memoryMap.RaycastMemoryMap(origin, dir, eyes.navmeshCastDistance, out hit);
+                    _agentMemory.memoryMap.XZRaycastMemoryMap(origin, dir, eyes.navmeshCastDistance, out hit);
                     distance = hit.distance;
 
                     bool reachable = PathOSNavUtility.CanAgentReachTarget(
@@ -712,6 +937,10 @@ namespace PathOS
                         return;
                 }
             }
+
+            // If for any reason, the new target isn't on the same floor as the agent, disqualify it.
+            if (_agentMemory.CalculateAproximatedFloor(newTarget.y) != ApproximatedFloor)
+                return;
 
             //Bias for preferring the goal we have already set.
             //(If we haven't reached it already.)
@@ -729,7 +958,7 @@ namespace PathOS
             // Calculate the score for this direction based on the bias
             // and the potential information gain of exploring in this direction.
 
-            float score = ScoreDirection(origin, dir, bias, distance);
+            float score = ScoreDirectionXZ(origin, dir, bias, distance, ApproximatedFloor);
 
             //Same inclusion logic as for entity goals.
 
@@ -742,13 +971,17 @@ namespace PathOS
                 if (score > maxScore)
                     maxScore = score;
 
-                TargetDest newDest = new TargetDest();
-                newDest.score = score;
+                TargetDest newDest = new TargetDest()
+                {
+                    score = score,
+                    accurate = true,
+                    entity = null
+                };
 
                 // If we're originating from where we stand, target the "end" point.
                 // Else, target the "start" point, and the agent will re-assess its 
                 // options when it gets there.
-                
+
                 if (Vector3.SqrMagnitude(origin - GetOriginPos())
                     < Constants.Navigation.EXPLORE_PATH_POS_THRESHOLD_FAC
                     * tuning.exploreThreshold)
@@ -767,15 +1000,13 @@ namespace PathOS
                     }
                 }
 
-                newDest.accurate = true;
-                newDest.entity = null;
-                navigationState.destList.Add(newDest);
+                navigationState.potentialDests.Add(newDest);
             }
 
             // Add this direction to memory as a potential path,
             // with its score as the "impression" of the path.
 
-            agentMemory.AddPath(new ExploreMemory(origin, dir, newTarget, score));
+            _agentMemory.AddPath(new ExploreMemory(origin, dir, newTarget, score));
         }
 
         /// <summary>
@@ -787,10 +1018,10 @@ namespace PathOS
         /// <param name="bias">The bias to apply to the score.</param>
         /// <param name="maxDistance">The maximum distance to consider for exploration.</param>
         /// <returns></returns>
-        private float ScoreDirection(Vector3 origin, Vector3 dir, float bias, float maxDistance)
+        private float ScoreDirectionXZ(Vector3 origin, Vector3 dir, float bias, float maxDistance, int floorIndex)
         {
             // Normalize direction and set bias as base score.
-
+            dir.y = 0;
             dir.Normalize();
             float score = bias;
 
@@ -799,7 +1030,7 @@ namespace PathOS
             // This is similar to the scaling created by assessing an exploration direction.
 
             PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit hit;
-            agentMemory.memoryMap.RaycastMemoryMap(origin, dir, maxDistance, out hit);
+            _agentMemory.memoryMap.XZRaycastMemoryMap(origin, dir, maxDistance, out hit);
 
             score += (heuristics.heuristicScaleLookup[Heuristic.CURIOSITY])
                 * hit.numUnexplored / PathOSNavUtility.NavmeshMemoryMapper.maxCastSamples
@@ -808,18 +1039,20 @@ namespace PathOS
             // Enumerate over all entities the agent knows about, and use them
             // to affect our assessment of the potential target.
 
-            for (int i = 0; i < agentMemory.entities.Count; ++i)
+            for (int i = 0; i < _agentMemory.entities.Count; ++i)
             {
-                if (agentMemory.entities[i].visited || agentMemory.entities[i].unreachable)
+                if (_agentMemory.entities[i].visited || _agentMemory.entities[i].unreachable ||
+                    _agentMemory.CalculateAproximatedFloor(_agentMemory.entities[i].RecallPos().y) != floorIndex)
                     continue;
 
                 //Vector to the entity.
-                Vector3 entityVec = agentMemory.entities[i].RecallPos() - origin;
+                Vector3 entityVec = _agentMemory.entities[i].RecallPos() - origin;
 
                 //Scale our factor by inverse square of distance.
                 float distFactor = (entityVec.sqrMagnitude < Constants.Behaviour.DIST_SCORE_FACTOR_SQR) ?
                 1.0f : Constants.Behaviour.DIST_SCORE_FACTOR_SQR / entityVec.sqrMagnitude;
 
+                entityVec.y = 0;
                 Vector3 dir2entity = entityVec.normalized;
 
                 float dot = Vector3.Dot(dir, dir2entity);
@@ -829,7 +1062,7 @@ namespace PathOS
                 foreach (HeuristicScale heuristicScale in heuristics.modifiableHeuristicScales)
                 {
                     (Heuristic, EntityType) key = (heuristicScale.heuristic,
-                        agentMemory.entities[i].entity.entityType);
+                        _agentMemory.entities[i].entity.entityType);
 
                     if (!heuristics.entityScoringLookup.ContainsKey(key))
                     {
@@ -844,43 +1077,6 @@ namespace PathOS
             return score;
         }
         
-        private float RouteComputeTimeCalculated()
-        {
-            return Constants.Navigation.ROUTE_COMPUTE_BASE
-                + Constants.Memory.RETRIEVAL_TIME * agentMemory.entities.Count;
-        }
-        
-        private void MakeEntityDestinationAccurate()
-        {
-            // GABO TODO DEBUG: Reachability
-            //bool reachable = PathOSNavUtility.GetClosestPointWalkable(
-            //            currentDest.entity.ActualPosition(),
-            //            navAgent.height * PathOS.Constants.Navigation.NAV_SEARCH_RADIUS_FAC,
-            //            ref currentDest.pos);
-            bool reachable = PathOSNavUtility.CanAgentReachTarget(
-                    navAgent,
-                    navigationState.currentDest.entity.ActualPosition(),
-                    navAgent.height * Constants.Navigation.NAV_SEARCH_RADIUS_FAC,
-                    ref navigationState.currentDest.pos);
-            // FIN DEBUG
-
-            if (reachable)
-                reachable = Vector3.SqrMagnitude(
-                    PathOSNavUtility.XZPos(navigationState.currentDest.pos) -
-                    PathOSNavUtility.XZPos(navigationState.currentDest.entity.ActualPosition()))
-                    < visitThresholdSqr;
-
-            if (!reachable)
-            {
-                agentMemory.MakeUnreachable(navigationState.currentDest.entity);
-                navigationState.ResetDestinationSelf(this);
-            }
-
-            navigationState.currentDest.accurate = true;
-            navigationState.RouteDestination(this);
-        }
-        
-        private void PerceptionUpdate() => navigationState.UpdateLookTime(this);
 
         /// <summary>
         /// Calculates the bias for a given entity if it's the final goal.
@@ -895,7 +1091,7 @@ namespace PathOS
             if (isFinalGoal)
             {
                 //If mandatory goals remain, the final goal can't be targeted.
-                if (this.agentMemory.MandatoryGoalsLeft() || !explorationState.assessedGoalsInit)
+                if (this._agentMemory.MandatoryGoalsLeft() || !explorationState.assessedGoalsInit)
                     return bias;
 
                 bias += Mathf.Lerp(Constants.Behaviour.FINAL_GOAL_BONUS_MIN,
@@ -915,13 +1111,15 @@ namespace PathOS
         /// <param name="memory">The memory of the entity.</param>
         /// <param name="toEntity">The vector from the agent to the entity.</param>
         /// <returns>The calculated bias for the entity.</returns>
-        private float EntityBias(EntityMemory memory, out Vector3 toEntity)
+        private float EntityBias(EntityMemory memory, float distance)
         {
             // Calculate distance to entity and distance factor for scoring function.
 
-            toEntity = memory.RecallPos() - GetPosition();
-            float distFactor = (toEntity.sqrMagnitude < Constants.Behaviour.DIST_SCORE_FACTOR_SQR) ?
-                1.0f : Constants.Behaviour.DIST_SCORE_FACTOR_SQR / toEntity.sqrMagnitude;
+            float distFactor = 0.1f;
+            float sqrDistance = distance * distance;
+
+            distFactor = sqrDistance < Constants.Behaviour.DIST_SCORE_FACTOR_SQR ?
+                1.0f : Constants.Behaviour.DIST_SCORE_FACTOR_SQR / sqrDistance;
 
             // Calculate bias for entity type and heuristics, scaled by distance.
 
@@ -1012,7 +1210,6 @@ namespace PathOS
         // GABO: Set all unreachable positions (memory entities not included) as possibly reachable again
         public void ResetUnreachablePositionReferences() => explorationState.TryReset();
 
-        public PathOSAgentMemory GetMemory() => agentMemory is null ? agentMemory = GetComponent<PathOSAgentMemory>() : agentMemory;
         #endregion
 
     }

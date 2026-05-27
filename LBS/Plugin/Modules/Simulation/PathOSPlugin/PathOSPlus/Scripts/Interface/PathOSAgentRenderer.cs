@@ -141,7 +141,7 @@ namespace PathOS
 
             //We want to draw the memory "map" in the lower-left corner of the screen.
             //Grab a persistent reference to the texture.
-            navmeshMemoryMap = agent.GetMemory().memoryMap.GetVisualGrid(0);
+            navmeshMemoryMap = agent.AgentMemory.memoryMap.GetVisualGrid(0);
 
             //Map legend.
             mapLegendIcons = new List<Rect>();
@@ -209,7 +209,7 @@ namespace PathOS
         {
             //Little bit of simple math to constrain the map's size and ensure
             //it is drawn in the correct location.
-            float navmeshMapAsp = agent.GetMemory().memoryMap.GetAspect();
+            float navmeshMapAsp = agent.AgentMemory.memoryMap.GetAspect();
             float navmeshMapX = 0.0f, navmeshMapY = 0.0f;
 
             if (navmeshMapAsp > 1.0f)
@@ -274,12 +274,12 @@ namespace PathOS
             }
 
             // Set memory texture visualization according to floor height
-            int currentFloor = (int)(transform.position.y / agent.GetMemory().gridSampleSize.y);
-            if (currentFloor != agent.GetMemory().memoryMap.ActiveFloor)
+            int currentFloor = (int)(transform.position.y / agent.AgentMemory.gridSampleSize.y);
+            if (currentFloor != agent.AgentMemory.memoryMap.ActiveFloor)
             {
                 Debug.Log($"Changing memory texture to {currentFloor} index");
-                agent.GetMemory().memoryMap.ActiveFloor = currentFloor;
-                navmeshMemoryMap = agent.GetMemory().memoryMap.GetVisualGrid(currentFloor);
+                agent.AgentMemory.memoryMap.ActiveFloor = currentFloor;
+                navmeshMemoryMap = agent.AgentMemory.memoryMap.GetVisualGrid(currentFloor);
             }
         }
 
@@ -390,7 +390,7 @@ namespace PathOS
 
             Vector3 targetPos = agent.GetTargetPosition();
 
-            List<PathOS.EntityMemory> memory = agent.GetMemory().entities;
+            List<PathOS.EntityMemory> memory = agent.AgentMemory.entities;
             PathOS.PerceivedEntity agentTargetEntity = agent.GetDestinationEntity();
 
             //Memorized objects.

@@ -114,6 +114,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                 GameObject stairContainer = new GameObject("Stairs");
                 stairContainer.transform.SetParent(floorParent.transform);
 
+                // Create gameObject for each simulation tile
                 foreach (SimulationTile tile in tiles)
                 {
                     var instance = GenerateSimulationTile(parent.transform, settings, tile, i);
@@ -134,23 +135,33 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     // Stair settings
                     else if(tile.Tag != null && tile.Tag == simBehaviour.upStairTag)
                     {
+                        // Set instance properties
                         instance.transform.SetParent(stairContainer.transform);
                         instance.gameObject.name += " (Up)";
                         instance.transform.localPosition += (tile.Tag == simBehaviour.downStairTag) ? Vector3.up * settings.scale.y : Vector3.zero;
+                        
+                        // Create level entity
                         LevelEntity levelEntity = manager.AddLevelEntity(instance.gameObject, tile.EntityType);
                         instance.levelEntity = levelEntity;
 
+                        // Create entity for the opposite stair object
                         var otherStairPosition = tile.StairRef.Positions[tile.StairRef.Positions.Count - 1];
-                        var otherStairTile = new SimulationTile(simBehaviour, otherStairPosition.x, otherStairPosition.y, EntityType.ET_STAIR_DOWN, simBehaviour.downStairTag)
+                        var otherStairTile = 
+                            new SimulationTile(simBehaviour, otherStairPosition.x, otherStairPosition.y,
+                            EntityType.ET_STAIR_DOWN, simBehaviour.downStairTag)
                         {
                             StairRef = tile.StairRef
                         };
                         var otherStair = GenerateSimulationTile(parent.transform, settings, otherStairTile, i+1);
+
+                        // Set other instance properties
                         otherStair.gameObject.name += " (Down)";
                         otherStair.transform.SetParent(stairContainer.transform);
+                        SetGeneratedName(otherStairTile, otherStair);
+
+                        // Create other entity
                         LevelEntity otherLevelEntity = manager.AddLevelEntity(otherStair.gameObject, otherStairTile.EntityType);
                         otherStair.levelEntity = otherLevelEntity;
-                        SetGeneratedName(otherStairTile, otherStair);
 
                         instance.levelEntity.OtherStairRef = otherLevelEntity;
                         otherStair.levelEntity.OtherStairRef = levelEntity;
@@ -203,7 +214,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
 
             // Apply agent reference to all generated components
             PathOSAgent agentComp = agentGO.GetComponent<PathOSAgent>();
-            agentComp.GetMemory().gridSampleSize = settings.scale;
+            agentComp.AgentMemory.gridSampleSize = settings.scale;
             foreach (LBSGeneratedSimulation generated in allGeneratedComponents)
             {
                 generated.agent = agentComp;
