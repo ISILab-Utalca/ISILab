@@ -30,7 +30,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         #endregion
 
         #region PROPERTIES
-        public Action<GraphNode> OnCallAssistant;
         public bool Disabled => disabled;
         [JsonIgnore]
         public QuestGraph Graph => graph ??= OwnerLayer.GetModule<QuestGraph>();
@@ -320,14 +319,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public override void OnAttachLayer(LBSLayer layer)
         {
             base.OnAttachLayer(layer);
-            ActionExtensions.AddUnique(ref Graph.OnNodeSelected, CallAssistant);
-        }
-
-        private void CallAssistant(GraphNode node)
-        {
-         //   Debug.Log($"<color=yellow>[Assistant Debug]</color> Graph triggered CallAssistant for {node?.ID}");
-         //   DebugOnCallAssistant(); // Check the list right before invoking
-            OnCallAssistant?.Invoke(node);
         }
 
         public override void OnGUI() { }
