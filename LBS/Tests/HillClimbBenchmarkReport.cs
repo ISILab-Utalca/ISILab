@@ -13,7 +13,9 @@ namespace ISILab.LBS.Tests
     {
         LBSLevelData levelData ;
         HillClimbingAssistant HCassistant;
+        
         const string Map25Rooms = "4da6ebb0aca35d64b88743e3dadf267d";
+        const string Map36Rooms = "8286634c6361b7a4083426c16a767f66";
         const string Map16Rooms = "427ab32f305e74e41bad23bf41f74b05";
         const string Map16Rooms_Simpler = "69981e3f2a94f1849a8008ba46c915cf";
         const string Map9Rooms = "5751d55fd72bb1945b789e0ff542c4f5";
@@ -24,6 +26,24 @@ namespace ISILab.LBS.Tests
 
         // These functions measure the execution time of the Hill Climbing Assistant on different map sizes.
 
+        
+        [Test, Performance]
+        [Timeout(3600000)]
+        public void MeasureHillClimbing_36_Rooms()
+        {
+            Measure.Method(() =>
+                {
+                    Assert.AreEqual(HCassistant.TryExecute(out string log, out LogType type), true);
+                })
+                .WarmupCount(0)
+                .MeasurementCount(10)
+                .IterationsPerMeasurement(1)
+                .SetUp(() => SetupHillClimbTest(Map36Rooms))
+                .CleanUp(CleanUpHillClimbTest)
+                .Run();
+        }
+        
+        
         [Test, Performance]
         [Timeout(3600000)]
         public void MeasureHillClimbing_25_Rooms()
