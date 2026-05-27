@@ -208,7 +208,11 @@ namespace PathOS
 
         // Stuff only used for stairs, to link the up and down stair entities together.
         [SerializeField]
+        private string _otherStairName;
+        
+        [SerializeField, SerializeReference, HideInInspector]
         private LevelEntity otherStairRef;
+        [SerializeField]
         private int directionSign = 0; // 1 for up, -1 for down, 0 for none
 
         public LevelEntity OtherStairRef
@@ -222,6 +226,7 @@ namespace PathOS
                     return;
                 }
                 otherStairRef = value;
+                _otherStairName = value != null ? value.name : "";
             }
         }
         public int DirectionSign
