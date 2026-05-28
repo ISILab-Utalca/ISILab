@@ -1,13 +1,14 @@
-﻿using ISILab.LBS.Behaviours;
-using LBS.Components;
-using LBS.Components.TileMap;
-using System.Collections.Generic;
+﻿using LBS.Components;
+using ISILab.Commons.Extensions;
+using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.Extensions;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 
 namespace ISILab.LBS.Manipulators
 {
@@ -21,7 +22,7 @@ namespace ISILab.LBS.Manipulators
         public AddVertexExteriorTile()
         {
             Name = "Add Tile";
-            Description = "Add an Exterior Tile. Hold CTRL to paint neighbors as well.";
+            Description = "Add an Exterior Tile. Hold CTRL to keep neighbors intact.";
         }
 
         public override void Init(LBSLayer layer, object provider)
@@ -92,18 +93,40 @@ namespace ISILab.LBS.Manipulators
             {
                 Vector2Int edgeNeighbour = NeighbourDirections[i * 2];
                 Vector2Int vertexNeighbour = NeighbourDirections[i * 2 + 1];
+
+                Vector2Int lowNeighbour = edgeNeighbour;
+                Vector2Int midNeighbour = vertexNeighbour;
+                Vector2Int highNeighbour = NeighbourDirections[(i + 1) * 2 % 8];
+
                 LBSTile neighbour = _exterior.GetTile(pos + edgeNeighbour);
-                if (neighbour != null && !paintNeighbors)
+
+                LBSTile lowNeigh = neighbour;
+                LBSTile midNeigh = _exterior.GetTile(pos + midNeighbour);
+                LBSTile highNeigh = _exterior.GetTile(pos + highNeighbour);
+                List<LBSTile> neighs = new() { lowNeigh, midNeigh, highNeigh };
+
+                if (!paintNeighbors && neighs.RemoveEmpties().Count > 0)
                 {
                     // Conservar conexiones de los vecinos
-                    string conn = _exterior.GetConnections(neighbour)[(i + 1) % 4];
-                    if (conn.Equals(""))
+                    //string conn = _exterior.GetConnections(neighbour)[(i + 1) % 4];
+                    List<string> conns = new();
+                    for(int j = 0; j < 3; j++)
+                    {
+                        List<string> neighConns = _exterior.GetConnections(neighs[j]);
+                        conns.Add(neighConns.Count > 0 ? neighConns[(i + j + 1) % 4] : "");
+                    }
+                    //{
+                    //    _exterior.GetConnections(lowNeigh)[(i + 1) % 4],
+                    //    _exterior.GetConnections(midNeigh)[(i + 2) % 4],
+                    //    _exterior.GetConnections(highNeigh)[(i + 3) % 4]
+                    //};
+                    if (conns.ContainsOnly(""))
                     {
                         _exterior.SetConnection(tile, i, _exterior.identifierToSet.Label, true);
                     }
                     else
                     {
-                        _exterior.SetConnection(tile, i, conn, true);
+                        _exterior.SetConnection(tile, i, conns.FirstOrDefault(c => c != ""), true);
                     }
                     continue;
                 }
