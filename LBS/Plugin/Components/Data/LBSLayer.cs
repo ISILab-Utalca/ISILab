@@ -338,7 +338,7 @@ namespace LBS.Components
         #region Utility
         public void Reload()
         {
-            foreach (var level in floors) { foreach (LBSModule module in level.Modules) module.OnAttach(this); }
+            foreach (var floor in floors) { foreach (LBSModule module in floor.Modules) module.OnAttach(this); }
             foreach (LBSAssistant assistant in assistants) assistant.OnAttachLayer(this);
             // generator rules intentionally not auto-attached here
             foreach (LBSBehaviour behaviour in behaviours) behaviour.OnAttachLayer(this);

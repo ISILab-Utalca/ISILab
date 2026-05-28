@@ -1,4 +1,5 @@
 using ISILab.LBS.Plugin.Core.Settings;
+using log4net.Core;
 using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
