@@ -115,39 +115,37 @@ namespace ISILab.LBS.Behaviours
         {
             (Vector2Int min, Vector2Int max) corners = OwnerLayer.ToFixedPosition(StartPosition, EndPosition);
 
-            List<GraphNode> nodesToRemove = new List<GraphNode>(Graph.GraphNodes);
-            List<QuestEdge> edgesToRemove = new List<QuestEdge>(Graph.GraphEdges);
+            // Start with empty lists of what we actually want to delete
+            List<GraphNode> nodesToRemove = new List<GraphNode>();
+            List<QuestEdge> edgesToRemove = new List<QuestEdge>();
 
             foreach (GraphNode node in Graph.GraphNodes)
             {
-                Vector2Int nodePos = Vector2Int.zero;
-                if (node is QuestNode qn)
-                {
-                    nodePos = qn.Data.Area.value.position.ToInt();
-                }
+                Vector2Int nodePos = OwnerLayer.ToFixedPosition(node.NodePosition.center);
                 bool inside =
                     nodePos.x >= corners.min.x &&
                     nodePos.x <= corners.max.x &&
                     nodePos.y >= corners.min.y &&
                     nodePos.y <= corners.max.y;
 
-                if (inside)
+
+                if (!inside)
                 {
-                    nodesToRemove.Remove(node);
+                    nodesToRemove.Add(node);
                 }
-            
             }
 
             foreach (QuestEdge edge in Graph.GraphEdges)
             {
-                bool fromInside = nodesToRemove.Exists(n => edge.From == n);
-                bool toInside = nodesToRemove.Exists(n => edge.To == n);
+                bool fromIsDeleted = nodesToRemove.Contains(edge.From);
+                bool toIsDeleted = nodesToRemove.Contains(edge.To);
 
-                if (fromInside && toInside)
+                if (fromIsDeleted || toIsDeleted)
                 {
-                    edgesToRemove.Remove(edge);
+                    edgesToRemove.Add(edge);
                 }
             }
+
 
             foreach (var node in nodesToRemove) Graph.RemoveNode(node);
             foreach (var edge in edgesToRemove) Graph.RemoveEdge(edge);
