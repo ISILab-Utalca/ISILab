@@ -14,10 +14,44 @@ namespace ISILab.LBS.CustomComponents
         private Rect _visElementRect = Rect.zero;
         
         private Color _bgColor = Color.white;
+        private float angle_deg = 45;
+        private float _height = 30;
         
         [UxmlAttribute] 
-        public Color BGcolor { get => _bgColor; set => _bgColor = value; }
+        public Color BGcolor
+        {
+            get => _bgColor;
+            set
+            {
+                _bgColor = value;
+                MarkDirtyRepaint();
+            }
+        }
+
+        [UxmlAttribute]
+        public float AngleDeg
+        {
+            set
+            {
+                value = Mathf.Clamp(value, 0f, 90f);
+                angle_deg = value;
+                MarkDirtyRepaint();
+            }
+            get => angle_deg;
+        }
         
+        [UxmlAttribute]
+        public float Height
+        {
+            set
+            {
+                _height = value;
+                MarkDirtyRepaint();
+            }
+            get => _height;
+        }
+
+
         public LBSPainterVisualElement(): base()
         {
             generateVisualContent += OnGenerateVisualContent;
@@ -31,6 +65,13 @@ namespace ISILab.LBS.CustomComponents
             
             Painter2D painter = _ctx.painter2D;
             painter.DrawSquare(r.position, r.size.y, r.size.x, _bgColor);
+            painter.DrawTrapezoid(
+                r.position,
+                r.size.x,
+                _height,
+                angle_deg,
+                Color.white
+                );
         }
 
         void OnGeometryChanged(GeometryChangedEvent _evt)
