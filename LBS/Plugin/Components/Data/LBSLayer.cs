@@ -29,18 +29,17 @@ namespace LBS.Components
 
         [SerializeField, JsonRequired] private string id = "Default ID";
         [SerializeField, JsonRequired] private string name = "Layer name";
+        [SerializeField] private Vector2Int tileSize = new Vector2Int(2, 2);
 
-        [JsonIgnore] private LBSLevelData _parent;
-
-        [SerializeField, SerializeReference] private int activeFloor = 0;
         [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[10];
         [SerializeField, SerializeReference] private List<LBSBehaviour> behaviours = new();
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
         [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
 
-        [SerializeField] private LBSGenerator3DSettings settings = new();
+        [JsonIgnore] private LBSLevelData _parent;
+        [JsonIgnore] private int activeFloor = 0;
+        [HideInInspector, SerializeField, JsonRequired] public int index;
 
-        [SerializeField, JsonRequired] public int index;
         #endregion
 
         #region Properties
@@ -59,16 +58,15 @@ namespace LBS.Components
         [JsonIgnore] public List<LBSAssistant> Assistants => new(assistants);
         [JsonIgnore] public List<LBSGeneratorRule> GeneratorRules => new(generatorRules);
 
-        [JsonIgnore] public LBSGenerator3DSettings Settings { get => settings; set => settings = value; }
+        //[JsonIgnore] public LBSGenerator3DSettings Settings { get => settings; set => settings = value; }
 
         [JsonIgnore]
         public Vector2Int TileSize
         {
-            get => new Vector2Int((int)settings.scale.x, (int)settings.scale.y);
+            get => tileSize;
             set
             {
-                settings.scale.x = value.x;
-                settings.scale.y = value.y;
+                tileSize = value;
                 OnTileSizeChange?.Invoke(value);
             }
         }
@@ -429,7 +427,7 @@ namespace LBS.Components
             if (!behaviours.SequenceEqual(other.behaviours)) return false;
             if (!assistants.SequenceEqual(other.assistants)) return false;
             if (!generatorRules.SequenceEqual(other.generatorRules)) return false;
-            if (!settings.Equals(other.settings)) return false;
+            if (!tileSize.Equals(other.tileSize)) return false;
             return true;
         }
 
