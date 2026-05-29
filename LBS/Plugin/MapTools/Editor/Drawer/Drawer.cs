@@ -1,9 +1,8 @@
-using ISILab.LBS.VisualElements.Editor;
+
 using ISILab.LBS.Editor.Windows;
 using LBS.Components;
 using ISILab.LBS.Plugin.Core.Settings;
 using System;
-using System.Collections.Generic;
 using ISILab.LBS.Behaviours;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;

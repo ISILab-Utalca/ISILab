@@ -1,8 +1,6 @@
 ﻿
-using Codice.Client.Common.GameUI;
 using ISILab.LBS.Plugin.Modules.Simulation.PathOSPlus.OGVis.Scripts;
 using NinePenguins;
-using PlasticGui.WorkspaceWindow.BranchExplorer;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;

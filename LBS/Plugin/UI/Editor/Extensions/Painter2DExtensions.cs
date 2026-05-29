@@ -59,6 +59,22 @@ namespace ISILab.Extensions
         }
 
         /// <summary>
+        /// Draws a simple square on a 2D canvas with the given position vector, height and width.
+        /// </summary>
+
+        public static void DrawSquare(this Painter2D paint2D, Vector2 pos, float height, float width, Color color)
+        {
+            paint2D.fillColor = color;
+            paint2D.BeginPath();
+            paint2D.MoveTo(pos);
+            paint2D.LineTo(pos + new Vector2(0, height));
+            paint2D.LineTo(pos + new Vector2(width, height));
+            paint2D.LineTo(pos + new Vector2(width, 0));
+            paint2D.ClosePath();
+            paint2D.Fill();
+        }
+
+        /// <summary>
         /// Draws a circle on a 2D canvas with the given position vector, radius and color.
         /// </summary>
         /// <param name="paint2D">The 2D canvas to draw on.</param>
