@@ -8,13 +8,11 @@ using UnityEngine;
 
 namespace ISILab.AI.Grammar
 {
-
-
     /// <summary>
-    /// The action that gest added into the graph for example:
-    ///     go to
-    ///     explore
-    ///     kill
+    /// The action that gets added into the graph for example:
+    ///     "go to",
+    ///     "explore",
+    ///     "kill"
     /// </summary>
     [Serializable]
     public class GrammarTerminal : GrammarElement
@@ -32,9 +30,9 @@ namespace ISILab.AI.Grammar
 
         // the monobehvior that gets instanced and added into a gameobject in the scene
         [SerializeField]
-        private UnityEditor.MonoScript script;
+        private MonoScript script;
 
-        public UnityEditor.MonoScript Script
+        public MonoScript Script
         {
             get
             {

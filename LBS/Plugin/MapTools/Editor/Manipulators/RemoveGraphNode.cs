@@ -41,7 +41,7 @@ namespace ISILab.LBS.Manipulators
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(level, "Remove Quest Node");
 
-            _questGraph.RemoveQuestNode(node);
+            _questGraph.RemoveNode(node);
 
             OnManipulationEnd?.Invoke();
 
