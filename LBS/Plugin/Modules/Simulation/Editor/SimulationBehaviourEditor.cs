@@ -121,8 +121,7 @@ namespace ISILab.LBS.VisualElements
             var clearButton = this.Q<Button>("Clear");
             clearButton.clicked += () => ClearMapping();
 
-
-
+            // -----------------------------------------------
             // Low Stair Tag field
             upStairTagField = new LBSCustomObjectField
             {
@@ -131,19 +130,21 @@ namespace ISILab.LBS.VisualElements
                 objectType = typeof(LBSTag)
             };
             upStairTagField.style.marginTop = 4;
+
             // Initialize with current value if available
             if (behaviour != null)
                 upStairTagField.SetValueWithoutNotify(behaviour.upStairTag);
+
             // Register callback for value changes
             upStairTagField.RegisterValueChangedCallback(evt =>
             {
                 behaviour.upStairTag = evt.newValue as LBSTag;
-                var level = LBSController.CurrentLevel;
-                if (level != null)
-                    EditorUtility.SetDirty(level);
+                MapToPopulation();
             });
+
             // Add to mapping content container
             mappingContent.Add(upStairTagField);
+
             // -----------------------------------------------
             // High Stair Tag field
             downStairTagField = new LBSCustomObjectField
@@ -153,22 +154,22 @@ namespace ISILab.LBS.VisualElements
                 objectType = typeof(LBSTag)
             };
             downStairTagField.style.marginTop = 4;
+
             // Initialize with current value if available
             if (behaviour != null)
                 downStairTagField.SetValueWithoutNotify(behaviour.downStairTag);
+
             // Register callback for value changes
             downStairTagField.RegisterValueChangedCallback(evt =>
             {
                 behaviour.downStairTag = evt.newValue as LBSTag;
-                var level = LBSController.CurrentLevel;
-                if (level != null)
-                    EditorUtility.SetDirty(level);
+                MapToPopulation();
             });
+
             // Add to mapping content container
             mappingContent.Add(downStairTagField);
 
-
-
+            // -----------------------------------------------
             // Add and set Tag Pallete
             bundlePallete = new SimulationTagPallete();
             Add(bundlePallete);

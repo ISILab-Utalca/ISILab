@@ -48,7 +48,7 @@ namespace PathOS
         [Range(1.0f, 8.0f)]
         public float timeScale = 1.0f;
         public bool freezeAgent;
-        private bool verboseDebugging = false;
+        private bool verboseDebugging = true;
 
         #endregion
 
@@ -167,6 +167,8 @@ namespace PathOS
                     navigationState.currentDest.entity.entityType == EntityType.ET_STAIR_DOWN))
                 {
                     var otherStair = new PerceivedEntity(navigationState.currentDest.entity.entityRef.OtherStairRef);
+
+                    // if other stair hasn't been visited, set as next destination inmediately
                     if(!_agentMemory.Visited(otherStair.entityRef))
                     {
                         navigationState.currentDest = new TargetDest()
@@ -176,6 +178,17 @@ namespace PathOS
                             accurate = true
                         };
                         navigationState.RouteDestination(navAgent);
+                    }
+                    // else, execute look around coroutine
+                    else if(!navAgent.isStopped && !_agentMemory.Visited(navigationState.currentDest.entity))
+                    {
+                        navigationState.lookTimer = 0.0f;
+                        navigationState.lookingAround = true;
+                        StartCoroutine(navigationState.LookAround(this));
+                    }
+                    else
+                    {
+                        ComputeNewDestination();
                     }
                 }
                 else
@@ -277,8 +290,7 @@ namespace PathOS
             bool DestinationReached(float radius, out bool isEntity, Vector3? overrideDestination = null)
             {
                 var destination = overrideDestination != null ? 
-                    new TargetDest() { pos = overrideDestination.Value } :
-                    navigationState.currentDest;
+                    new TargetDest() { pos = overrideDestination.Value } : navigationState.currentDest;
 
                 isEntity = destination.entity != null && destination.entity.entityRef != null;
 
@@ -482,7 +494,6 @@ namespace PathOS
                 {
                     var entity = _agentMemory.entities[i];
                     ScoreEntity(entity, ref maxScore);
-                    var sheesh = maxScore;
                 }
             }
 
@@ -526,18 +537,20 @@ namespace PathOS
             }
 
             // Explore and score directions behind the agent (from memory).
-
-            Vector3 XZBack = -eyesForward;
-            ScoreExploreDirection(GetOriginPos(), XZBack, false, ref maxScore);
-            halfX = (360.0f - eyes.XFOV()) * 0.5f;
-            steps = eyes.camType == PathOSAgentEyes.CamType.FirstPerson ? (int)(halfX / tuning.invisibleExploreDegrees) : 0;
-
-            for (int i = 1; i <= steps; ++i)
+            if (eyes.camType == PathOSAgentEyes.CamType.FirstPerson)
             {
-                ScoreExploreDirection(GetOriginPos(), Quaternion.AngleAxis(i * tuning.invisibleExploreDegrees, yRotationAxis) * XZBack,
-                    false, ref maxScore);
-                ScoreExploreDirection(GetOriginPos(), Quaternion.AngleAxis(i * -tuning.invisibleExploreDegrees, yRotationAxis) * XZBack,
-                    false, ref maxScore);
+                Vector3 XZBack = -eyesForward;
+                ScoreExploreDirection(GetOriginPos(), XZBack, false, ref maxScore);
+                halfX = (360.0f - eyes.XFOV()) * 0.5f;
+                steps = (int)(halfX / tuning.invisibleExploreDegrees);
+
+                for (int i = 1; i <= steps; ++i)
+                {
+                    ScoreExploreDirection(GetOriginPos(), Quaternion.AngleAxis(i * tuning.invisibleExploreDegrees, yRotationAxis) * XZBack,
+                        false, ref maxScore);
+                    ScoreExploreDirection(GetOriginPos(), Quaternion.AngleAxis(i * -tuning.invisibleExploreDegrees, yRotationAxis) * XZBack,
+                        false, ref maxScore);
+                }
             }
 
             // Pick a destination from the list, weighted by score.
@@ -555,6 +568,10 @@ namespace PathOS
                 ++navigationState.changeTargetCount;
 
                 navigationState.currentDest = dest;
+                if (navigationState.currentDest.entity != null)
+                {
+                    var destCheck = navigationState.currentDest.entity;
+                }
 
                 float memChanceRoll = Random.Range(0.0f, 1.0f);
                 memoryState.onMemPath = false;
@@ -578,13 +595,17 @@ namespace PathOS
 
             explorationState.assessedGoalsInit = true;
 
-            //if (verboseDebugging)
+            if (verboseDebugging)
             {
                 string destName =
                     navigationState.currentDest.entity == null ? "Null" : navigationState.currentDest.entity.entityType.ToString();
 
                 var destPos = navigationState.currentDest.pos;
-                NPDebug.LogMessage($"Position: {navAgent.transform.position}, Destination: {destName}, Destination Position: ({destPos.x:F2}, {destPos.y:F2}, {destPos.z:F2})");
+                NPDebug.LogMessage
+                    //($"Position: {navAgent.transform.position}, " +
+                    ($"Destination: {destName}, " +
+                    $"Destination Position: {destPos}, " +
+                    $"Score: {navigationState.currentDest.score}");
             }
 
             // Get eyes' forward, up and right vectors

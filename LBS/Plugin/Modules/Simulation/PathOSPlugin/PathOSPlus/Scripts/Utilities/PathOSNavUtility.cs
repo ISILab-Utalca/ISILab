@@ -752,7 +752,7 @@ namespace PathOS
 
             public int GetUnknownTileCount(int floorIndex)
             {
-                if (floorIndex < 0 || floorIndex > visitedGrid.GetLength(1))
+                if (floorIndex < 0 || floorIndex >= visitedGrid.GetLength(1))
                     return -1;
 
                 int count = 0;
@@ -760,8 +760,7 @@ namespace PathOS
                 {
                     for(int k = 0; k < visitedGrid.GetLength(2); k++)
                     {
-                        if (visitedGrid[i, floorIndex, k] == NavmeshMapCode.NM_UNKNOWN)
-                            count++;
+                        if (visitedGrid[i, floorIndex, k] == NavmeshMapCode.NM_UNKNOWN) { count++; }
                     }
                 }
                 return count;

@@ -87,7 +87,7 @@ namespace PathOS
         //Combat/health variables
         public bool endSimulationOnDeath = false;
 
-        private void Awake()
+        private void CustomAwake()
         {
             bool warned = false;
 
@@ -124,6 +124,7 @@ namespace PathOS
         private void Start()
         {
             agents.AddRange(FindObjectsByType<PathOSAgent>(FindObjectsSortMode.None));
+            CustomAwake();
         }
 
         private void Update()
@@ -669,6 +670,18 @@ namespace PathOS
         public LevelEntity GetEntity(GameObject obj)
         {
             return levelEntities.Find(ent => ent.objectRef == obj);
+        }
+
+        public void SetLevelEntityStairSettings(GameObject obj, LevelEntity otherStair, int direction)
+        {
+            foreach(var entity in levelEntities)
+            {
+                if (entity.objectRef != obj) continue;
+
+                entity.OtherStairRef = otherStair;
+                entity.DirectionSign = direction;
+                return;
+            }
         }
     }
 }

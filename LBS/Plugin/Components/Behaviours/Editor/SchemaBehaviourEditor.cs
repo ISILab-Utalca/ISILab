@@ -42,7 +42,6 @@ namespace ISILab.LBS.Behaviours.Editor
 
         #region VIEW FIELDS
         private VectorImage icon = Macros.LBSAssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
-        private LBSCustomUnsignedIntegerField levelField;
         private SimplePallete areaPallete;
         private SimplePallete connectionPallete;
         private string zoneIconGuid = "76bf813a38668ce439887addd209058c";
