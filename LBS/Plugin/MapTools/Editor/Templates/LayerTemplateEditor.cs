@@ -90,6 +90,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         {
             // Draw default inspector using serializedObject (keeps undo/redo & prefab workflows)
             serializedObject.Update();
+
             DrawDefaultInspectorExcludingInternalFields();
 
             EditorGUILayout.Space(12);
@@ -264,7 +265,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         {
             ApplyPreset(layer =>
             {
-                layer.ID = "Interior";
+                layer.SetID("Interior");
                 layer.Name = "Layer Interior";
                 layer.iconGuid = "8c78cf0f5376fd846a188536ff3497ae";
 
@@ -282,7 +283,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         {
             ApplyPreset(layer =>
             {
-                layer.ID = "Exterior";
+                layer.SetID("Exterior");
                 layer.Name = "Layer Exterior";
                 layer.iconGuid = "02a644759487ae249bc3a20d019c8745";
 
@@ -298,7 +299,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         {
             ApplyPreset(layer =>
             {
-                layer.ID = "Population";
+                layer.SetID("Population");
                 layer.Name = "Layer Population";
                 layer.iconGuid = "48f2011efc0f7b2449db9f824c895d9d";
 
@@ -314,7 +315,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         {
             ApplyPreset(layer =>
             {
-                layer.ID = "Quest";
+                layer.SetID("Quest");
                 layer.Name = "Layer Quest";
                 layer.iconGuid = "9fc8ac6f82a8b39458c73185d378ffbf";
 
@@ -331,7 +332,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         {
             ApplyPreset(layer =>
             {
-                layer.ID = "Simulation";
+                layer.SetID("Simulation");
                 layer.Name = "Layer Simulation";
                 layer.iconGuid = "13f64883312513a41adeb7dec75a3a5f";
 

@@ -97,17 +97,17 @@ namespace ISILab.LBS.VisualElements
                 _containerList = new();
 
                 // Exterior container
-                var extContainer = new ExteriorContainer(_templates.FindAll(lt => lt.templateName.Contains("Exterior")));
+                var extContainer = new ExteriorContainer(_templates.FindAll(lt => lt.Name.Contains("Exterior")));
                 _containerList.Add(extContainer);
                 _foldoutSettings.AddContent(extContainer);
 
                 // Interior container
-                var intContainer = new InteriorContainer(_templates.FindAll(lt => lt.templateName.Contains("Interior")));
+                var intContainer = new InteriorContainer(_templates.FindAll(lt => lt.Name.Contains("Interior")));
                 _containerList.Add(intContainer);
                 _foldoutSettings.AddContent(intContainer);
                 
                 // Exterior container
-                var popContainer = new PopulationContainer(_templates.FindAll(lt => lt.templateName.Contains("Population")));
+                var popContainer = new PopulationContainer(_templates.FindAll(lt => lt.Name.Contains("Population")));
                 _containerList.Add(popContainer);
                 _foldoutSettings.AddContent(popContainer);
             }
@@ -165,7 +165,7 @@ namespace ISILab.LBS.VisualElements
                 return null;
             }
 
-            var candidates = _templates.Where(t => t.templateName.Contains(primaryKeyword)).ToList();
+            var candidates = _templates.Where(t => t.Name.Contains(primaryKeyword)).ToList();
             if (candidates.Count == 0)
             {
                 Debug.LogWarning($"[QuickAssistantPanle]: Couldn't find a template Layer with {primaryKeyword} in its name.");
@@ -174,12 +174,12 @@ namespace ISILab.LBS.VisualElements
 
             LayerTemplate targetTemplate = null;
             if (!string.IsNullOrEmpty(secondaryKeyword))
-                targetTemplate = candidates.FirstOrDefault(t => t.templateName.Contains(secondaryKeyword));
+                targetTemplate = candidates.FirstOrDefault(t => t.Name.Contains(secondaryKeyword));
             if (targetTemplate == null) targetTemplate = candidates[0];
 
             if (targetTemplate.layer.Clone() is LBSLayer newLayer)
             {
-                string safeName = targetTemplate.templateName.Replace("/", " ").Replace("\\", " ");
+                string safeName = targetTemplate.Name.Replace("/", " ").Replace("\\", " ");
                 newLayer.Name = safeName;
                 LBSMainWindow.Instance.layerPanel.AddLayer(newLayer);
                 return newLayer;

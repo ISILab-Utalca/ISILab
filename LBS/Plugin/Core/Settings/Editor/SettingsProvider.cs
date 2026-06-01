@@ -24,7 +24,6 @@ namespace ISILab.LBS.Plugin.Core.Settings.Editor
 
                     //layer
                     EditorGUILayout.LabelField("Layers", EditorStyles.boldLabel);
-                    settings.general.baseLayerName = EditorGUILayout.TextField("Default Layer Name", settings.general.baseLayerName);
                     EditorGUILayout.Separator();
 
                     // Header Camera

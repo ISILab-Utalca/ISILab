@@ -139,7 +139,7 @@ namespace ISILab.LBS.VisualElements
 
         public override void InitialSetup()
         {
-            var match = _templates.FirstOrDefault(t => t.templateName.Contains("Population"));
+            var match = _templates.FirstOrDefault(t => t.Name.Contains("Population"));
             if (match != null)
             {
                 var populationBehaviour = match.layer.Behaviours.FirstOrDefault(b => b is PopulationBehaviour) as PopulationBehaviour;
