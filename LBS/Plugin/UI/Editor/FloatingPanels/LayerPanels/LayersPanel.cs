@@ -347,6 +347,7 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 DrawManager.Instance.ChangeOpacityAll(1f);
             }
+
             OnSelectLayer?.Invoke(GetSelectedLayer());
         }
 
@@ -442,6 +443,7 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 layerView.UpdateSelect(layer, IsFocusToggleOn());
             }
+            NotifierViewer.ClearNotifications();
             CheckOpacity();
         }
 

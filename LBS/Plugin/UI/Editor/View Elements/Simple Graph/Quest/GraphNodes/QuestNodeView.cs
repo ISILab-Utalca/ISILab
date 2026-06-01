@@ -142,6 +142,7 @@ namespace ISILab.LBS.VisualElements
             {
                 foreach (var field in qn.Data.Fields)
                 {
+                    ActionExtensions.RemoveMethod(ref field.Refresh, nameof(NotifyValidData));
                     ActionExtensions.AddUnique(ref field.Refresh, NotifyValidData);
                 }
             }
