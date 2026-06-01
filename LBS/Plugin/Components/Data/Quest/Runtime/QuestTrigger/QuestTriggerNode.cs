@@ -28,16 +28,12 @@ public abstract class QuestTriggerNode : QuestTrigger
 
     protected BoxCollider boxCillider;
 
-    // store game objects that can be used by fields
-    [SerializeField]
-    private List<GameObject> gos = new();
     #endregion
 
     #region PROPERTIES
     public GrammarTerminal Terminal { get => terminal; set => terminal = value; }
     public QuestNode.ENodeType NodeType => nodeType;
     public List<GrammarField> Fields { get => fields; }
-    public List<GameObject> Gos { get => gos; set => gos = value; }
     #endregion
 
     #region INIT

@@ -3,7 +3,6 @@ using System.Linq;
 using ISILab.AI.Grammar;
 using ISILab.Commons.JsonNet;
 using ISILab.DevTools.Macros;
-using ISILab.LBS;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
@@ -11,10 +10,8 @@ using LBS.Components;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
 
-
 namespace ISILab.LBS.Tests
 {
-
     [TestFixture]
     public class QuestBenchmarkReport
     {

@@ -4,7 +4,6 @@ using LBS.Components;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Threading;
 using Unity.PerformanceTesting;
 using UnityEngine;

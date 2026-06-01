@@ -196,17 +196,15 @@ namespace ISILab.LBS.VisualElements
             _nodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _actionPanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
 
-            SetNode(node);
+            SetQuestNodeData(node);
         }
 
-        private void SetFields(QuestNode node)
+        private void SetFields(List<GrammarField> fields)
         {
-            if(node?.Data?.Fields == null) 
-                return;
-
+            
             fieldsVisualElements.Clear();
 
-            foreach (var field in node.Data.Fields)
+            foreach (var field in fields)
             {
                 if (field.IsList)
                 {
@@ -321,7 +319,7 @@ namespace ISILab.LBS.VisualElements
             fieldsVisualElements.Add(foldout);
         }
 
-        private void SetNode(QuestNode node)
+        private void SetQuestNodeData(QuestNode node)
         {
             var data = node.Data;
             if (data == null) 
@@ -340,7 +338,7 @@ namespace ISILab.LBS.VisualElements
             _actionColor.SetBackgroundColor(backgroundColor);
             _actionColor.SetBorder(terminalColor, ActionBorderThickness);
 
-            SetFields(node);
+            SetFields(data.Fields);
 
         }
         

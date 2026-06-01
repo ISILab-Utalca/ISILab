@@ -125,7 +125,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         public object Clone()
         {
             ConnectionData clone = new ConnectionData();
-            clone.tile = tile.Clone() as LBSTile;
+            clone.tile = tile?.Clone() as LBSTile;
             clone.layer = layer;
             clone.connections = connections;
             return clone;

@@ -173,8 +173,7 @@ namespace ISILab.LBS.Editor
         
         void RunTask(string selectedAction)
         {
-            NotifierViewer.ClearNotifications();
-
+            
             var currentAssistant = assistant;
             var currentGrammar = assistant.Graph.Grammar;
 

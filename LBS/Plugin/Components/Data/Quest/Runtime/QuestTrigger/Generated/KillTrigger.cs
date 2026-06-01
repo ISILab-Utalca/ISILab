@@ -7,8 +7,6 @@ namespace ISILab.AI.Grammar
 {
     public class KillTrigger : QuestTriggerNode
     {
-        bool Killed;
-
         [Header("Grammar Fields")]
         [SerializeField, Commons.Attributes.ReadOnlyIncludeChildren, InspectorName("Type to kill")]
         private GrammarBundleType _Typetokill;
@@ -18,41 +16,25 @@ namespace ISILab.AI.Grammar
 
         protected override void BindFields(List<GrammarField> fields) 
         {
-            // Ensure the target field is instantiated so it isn't null
-            if (_Typetokill == null) _Typetokill = new GrammarBundleType();
+            _Typetokill ??= new GrammarBundleType();
 
             var sourceTypetokill = fields.Find(f => f.name == "Type to kill") as GrammarBundleType;
             if (sourceTypetokill != null)
             {
                 _Typetokill.SetValue(sourceTypetokill.value);
             }
-            // Ensure the target field is instantiated so it isn't null
-            if (_Requiredkills == null) _Requiredkills = new GrammarInt();
+            _Requiredkills ??= new GrammarInt();
 
             var sourceRequiredkills = fields.Find(f => f.name == "Required kills") as GrammarInt;
             if (sourceRequiredkills != null)
             {
                 _Requiredkills.SetValue(sourceRequiredkills.value);
             }
+
+            this.fields.Add(_Typetokill);
+            this.fields.Add(_Requiredkills);
         }
 
-        protected override bool CanComplete() => Killed;
-
-
-        private void OnTriggerStay(Collider other)
-        {
-            KillCheck();
-        }
-
-        private void KillCheck()
-        {
-            foreach (var go in Gos)
-            {
-                if (go.activeSelf) return;
-            }
-
-            Killed = true;
-            TryComplete();
-        }
+        protected override bool CanComplete() => true;
     }
 }

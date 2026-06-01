@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using ISILab.AI.Grammar;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
@@ -9,8 +5,14 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static System.Collections.Specialized.BitVector32;
+using static UnityEditor.PlayerSettings;
 using Random = UnityEngine.Random;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
@@ -143,7 +145,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             // Set random root node
             var randomIndex = Random.Range(0, QuestGraph.Grammar.TerminalActions.Count);
-            var currentNode = QuestGraph.AddNewQuestNode(QuestGraph.Grammar.TerminalActions[randomIndex], Vector2.zero);
+            var currentNode = QuestGraph.AddQuestNode(QuestGraph.Grammar.TerminalActions[randomIndex], Vector2.zero);
             QuestGraph.SetRoot(currentNode);
 
             // Add subsequent nodes
@@ -154,7 +156,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     break;
 
                 var newAction = nextActions[Random.Range(0, nextActions.Count)];
-                currentNode = QuestGraph.AddNewQuestNode(newAction, Vector2.zero);
+                currentNode = QuestGraph.AddQuestNode(newAction, Vector2.zero);
             }
 
             
@@ -217,7 +219,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 if (token.IsCancellationRequested) break;
 
                 var candidate = candidates[i];
-                var newNode = Graph.GetNodeSuggestion(candidate.Terminal.id, realizedNodes);
+                string newID = "s_" + QuestGraph.GenerateUniqueId(candidate.Terminal.id, realizedNodes.Select(n => n.ID));
+                var newNode = new QuestNode(newID, Vector2.zero, candidate.Terminal.id, Graph);
 
                 // Map the world data to the quest fields
                 newNode.Data.ApplyTilesToData(candidate);

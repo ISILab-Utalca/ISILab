@@ -91,7 +91,7 @@ namespace ISILab.LBS.Drawers.Editor
                 
 
                 var questNodeView = view.GetElementsFromLayer(bh.OwnerLayer, field.Data.Node);
-                if (questNodeView == null && questNodeView.Count == 0) 
+                if (questNodeView == null || questNodeView.Count == 0) 
                     continue;
 
                 // make graph element if its required

@@ -1,17 +1,10 @@
 using ISILab.AI.Categorization;
-using ISILab.Commons.JsonNet;   
-using ISILab.LBS.AI.Categorization;
-using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
-using LBS.Components;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
-using UnityEditor;
-
 
 namespace ISILab.LBS.Tests
 {
-
     [TestFixture]
     public class MAPElitesBenchmarkReport : MAPElitesBaseBenchmark
     {
@@ -33,18 +26,18 @@ namespace ISILab.LBS.Tests
             Measure.Method(() =>
             {
                 assistant.Execute(true);
-                var matrix = assistant.Samples;
+                //var matrix = assistant.Samples;
 
-                if (matrix != null)
-                {
-                    foreach (var individual in matrix)
-                    {
-                        if (individual != null)
-                        {
-                            Measure.Custom(fitnessGroup, individual.Fitness);
-                        }
-                    }
-                }
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
             })
             .WarmupCount(0)
             .MeasurementCount(10)
@@ -59,7 +52,7 @@ namespace ISILab.LBS.Tests
                 SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, exploration, resourceSafety, safeArea);
             })
             .CleanUp(CleanUpMAPElitesTest)
-            .GC()
+            //.GC()
             .Run();
         }
 
@@ -72,18 +65,18 @@ namespace ISILab.LBS.Tests
             Measure.Method(() =>
             {
                 assistant.Execute(true);
-                var matrix = assistant.Samples;
+                //var matrix = assistant.Samples;
 
-                if (matrix != null)
-                {
-                    foreach (var individual in matrix)
-                    {
-                        if (individual != null)
-                        {
-                            Measure.Custom(fitnessGroup, individual.Fitness);
-                        }
-                    }
-                }
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
             })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -109,18 +102,18 @@ namespace ISILab.LBS.Tests
             Measure.Method(() =>
             {
                 assistant.Execute(true);
-                var matrix = assistant.Samples;
+                //var matrix = assistant.Samples;
 
-                if (matrix != null)
-                {
-                    foreach (var individual in matrix)
-                    {
-                        if (individual != null)
-                        {
-                            Measure.Custom(fitnessGroup, individual.Fitness);
-                        }
-                    }
-                }
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
             })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -146,18 +139,18 @@ namespace ISILab.LBS.Tests
             Measure.Method(() =>
             {
                 assistant.Execute(true);
-                var matrix = assistant.Samples;
+                //var matrix = assistant.Samples;
 
-                if (matrix != null)
-                {
-                    foreach (var individual in matrix)
-                    {
-                        if (individual != null)
-                        {
-                            Measure.Custom(fitnessGroup, individual.Fitness);
-                        }
-                    }
-                }
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
             })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -189,18 +182,18 @@ namespace ISILab.LBS.Tests
             Measure.Method(() =>
             {
                 assistant.Execute(true);
-                var matrix = assistant.Samples;
+                //var matrix = assistant.Samples;
 
-                if (matrix != null)
-                {
-                    foreach (var individual in matrix)
-                    {
-                        if (individual != null)
-                        {
-                            Measure.Custom(fitnessGroup, individual.Fitness);
-                        }
-                    }
-                }
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
             })
             .WarmupCount(0)
             .MeasurementCount(10)
@@ -211,12 +204,12 @@ namespace ISILab.LBS.Tests
                 Colonies colonies = new();
                 SingleRatio singleRatio = new();
                 PairRatio pairRatio = new();
-                colonies.searchType = PathfindingAlgorithm.JPS_Plus;
-                colonies.searchHeuristic = PathfindingHeuristic.Octile;
+                colonies.searchType = PathfindingAlgorithm.JPS_Plus;// Flood_Fill;
+                colonies.searchHeuristic = PathfindingHeuristic.Octile;// Manhattan;
                 SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, colonies, singleRatio, pairRatio);
             })
             .CleanUp(CleanUpMAPElitesTest)
-            .GC()
+            //.GC()
             .Run();
         }
 
@@ -229,18 +222,18 @@ namespace ISILab.LBS.Tests
             Measure.Method(() =>
             {
                 assistant.Execute(true);
-                var matrix = assistant.Samples;
+                //var matrix = assistant.Samples;
 
-                if (matrix != null)
-                {
-                    foreach (var individual in matrix)
-                    {
-                        if (individual != null)
-                        {
-                            Measure.Custom(fitnessGroup, individual.Fitness);
-                        }
-                    }
-                }
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
             })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -267,18 +260,18 @@ namespace ISILab.LBS.Tests
             Measure.Method(() =>
             {
                 assistant.Execute(true);
-                var matrix = assistant.Samples;
+                //var matrix = assistant.Samples;
 
-                if (matrix != null)
-                {
-                    foreach (var individual in matrix)
-                    {
-                        if (individual != null)
-                        {
-                            Measure.Custom(fitnessGroup, individual.Fitness);
-                        }
-                    }
-                }
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
             })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -305,18 +298,18 @@ namespace ISILab.LBS.Tests
             Measure.Method(() =>
             {
                 assistant.Execute(true);
-                var matrix = assistant.Samples;
+                //var matrix = assistant.Samples;
 
-                if (matrix != null)
-                {
-                    foreach (var individual in matrix)
-                    {
-                        if (individual != null)
-                        {
-                            Measure.Custom(fitnessGroup, individual.Fitness);
-                        }
-                    }
-                }
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
             })
                 .WarmupCount(0)
                 .MeasurementCount(10)
@@ -326,8 +319,8 @@ namespace ISILab.LBS.Tests
                     Colonies colonies = new();
                     SingleRatio singleRatio = new();
                     PairRatio pairRatio = new();
-                    colonies.searchType = PathfindingAlgorithm.JPS_Plus;
-                    colonies.searchHeuristic = PathfindingHeuristic.Octile;
+                    colonies.searchType = PathfindingAlgorithm.JPS_Plus;// Flood_Fill;
+                    colonies.searchHeuristic = PathfindingHeuristic.Octile;// Manhattan;
                     SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, colonies, singleRatio, pairRatio);
                 })
                 .CleanUp(CleanUpMAPElitesTest)

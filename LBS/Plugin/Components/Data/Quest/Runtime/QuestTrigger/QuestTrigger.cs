@@ -1,11 +1,8 @@
-using ISILab.AI.Grammar;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static TreeEditor.TreeEditorHelper;
 
 
 [DisallowMultipleComponent]

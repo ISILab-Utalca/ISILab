@@ -3,11 +3,9 @@ using ISILab.AI.Grammar;
 using ISILab.Commons.Extensions;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
-using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
 using ISILab.LBS.VisualElements;
@@ -16,10 +14,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.EventSystems.EventTrigger;
 using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
@@ -275,21 +271,22 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // try to find the lbsgens by bundle type
             foreach (var field in trigger.Fields)
             {
-                var bundleStored = field as GrammarBundleGraph;
-                if (bundleStored == null) continue;
-                var bundle = bundleStored.GetBundle();
+                var gbg = field as GrammarBundleGraph;
+                if (gbg == null) continue;
+                var bundle = gbg.GetBundle();
 
                 if (field.IsList)
                     foreach(var entry in field.ItemsSource)                 
-                        FindGoWithBundle(trigger, bundle, lbsgens);
+                        FindGoWithBundle(gbg, trigger, bundle, lbsgens);
 
                 else
-                    FindGoWithBundle(trigger, bundle, lbsgens);
+                    FindGoWithBundle(gbg, trigger, bundle, lbsgens);
             }
 
         }
 
         private static void FindGoWithBundle(
+            GrammarBundleGraph gbg, 
             QuestTriggerNode trigger,
             Bundle bundle,
             List<LBSGenerated> lbsgens)
@@ -304,7 +301,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 if (lbsgen.BundleRef == bundle)
                 {
-                    trigger.Gos.Add(lbsgen.gameObject);
+                    gbg.objectRef = lbsgen.gameObject;
                     return;
                 }
             }
