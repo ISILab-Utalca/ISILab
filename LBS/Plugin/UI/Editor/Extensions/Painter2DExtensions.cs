@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -56,6 +57,47 @@ namespace ISILab.Extensions
             new Vector2(pos2.x, pos2.y),
         };
             paint2D.DrawPolygon(points, color, fillColor, 4);
+        }
+
+        /// <summary>
+        /// Draws a simple square on a 2D canvas with the given position vector, height and width.
+        /// </summary>
+
+        public static void DrawSquare(this Painter2D paint2D, Vector2 pos, float height, float width, Color color)
+        {
+            paint2D.fillColor = color;
+            paint2D.BeginPath();
+            paint2D.MoveTo(pos);
+            paint2D.LineTo(pos + new Vector2(0, height));
+            paint2D.LineTo(pos + new Vector2(width, height));
+            paint2D.LineTo(pos + new Vector2(width, 0));
+            paint2D.ClosePath();
+            paint2D.Fill();
+        }
+        
+        
+        public static void DrawTrapezoid(this Painter2D paint2D, 
+            Vector2 origin,
+            float t_base,
+            float t_height,
+            float angle_deg,
+            Color color,
+            bool is_vertical = false)
+        {
+            
+            angle_deg = Mathf.Clamp(angle_deg, 0.0f, Mathf.Atan(t_base - 2 *  t_height) * Mathf.Rad2Deg);
+            float t_a = t_base - 2* t_height / Mathf.Tan(angle_deg * Mathf.Deg2Rad);
+            
+            
+            paint2D.fillColor = color;
+            paint2D.BeginPath();
+            paint2D.MoveTo(origin);
+            paint2D.LineTo(origin + new Vector2(t_base, 0));
+            paint2D.LineTo(origin + new Vector2((t_base + t_a) * 0.5f, t_height));
+            paint2D.LineTo(origin + new Vector2((t_base - t_a) * 0.5f, t_height));
+            paint2D.LineTo(origin);
+            paint2D.ClosePath(); ;
+            paint2D.Fill();
         }
 
         /// <summary>
