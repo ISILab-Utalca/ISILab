@@ -16,7 +16,7 @@ namespace ISILab.LBS.Tests
     public class QuestBenchmarkReport
     {
         private const int MeasureCount = 100;
-        private const string Guid = "c40f4d1b2605a1f47a5743d50d142db3";
+        private const string Guid = "b7937caae958ded45a71b6292dba0b0e";
 
         private LBSLevelData _levelData;
         private GrammarAssistant _grammarAssistant;
