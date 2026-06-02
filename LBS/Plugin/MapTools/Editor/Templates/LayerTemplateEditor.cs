@@ -13,6 +13,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
+using ISILab.LBS.CustomComponents;
 
 namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 {
@@ -20,8 +21,9 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
     [CustomEditor(typeof(LayerTemplate))]
     public class LayerTemplateEditor : UnityEditor.Editor
     {
-
         #region Fields
+        public VisualTreeAsset _layerTemplateInspector;
+
         private int _behaviourIndex;
         private int _assistantIndex;
         private int _ruleIndex;
@@ -49,6 +51,33 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         private void OnEnable()
         {
             EnsureCaches();
+        }
+
+        public override VisualElement CreateInspectorGUI()
+        {
+            if (Template._debugView)
+            {
+                Template._debugView = false; // reset debug view when opening inspector
+                return default;
+            }
+
+            var container = new VisualElement();
+
+            if(_layerTemplateInspector != null)
+            {
+                var templateUI = _layerTemplateInspector.CloneTree();
+                container.Add(templateUI);
+            }
+
+            var debugToggle = container.Q<LBSCustomToggle>("DebugViewToggle");
+            debugToggle.value = Template._debugView;
+            debugToggle.RegisterValueChangedCallback(evt =>
+            {
+                Template._debugView = evt.newValue;
+                Debug.Log(Template._debugView);
+            });
+
+            return container;
         }
 
         private static void EnsureCaches()
@@ -90,6 +119,14 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         {
             // Draw default inspector using serializedObject (keeps undo/redo & prefab workflows)
             serializedObject.Update();
+            
+            // Debug View
+            if (!Template._debugView)
+            {
+                return;
+            }
+
+            var debugToggle = EditorGUILayout.Toggle(Template._debugView);
 
             DrawDefaultInspectorExcludingInternalFields();
 
@@ -108,7 +145,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 ApplyChanges();
             }
 
-            serializedObject.ApplyModifiedProperties();
+            serializedObject.ApplyModifiedProperties();//*/
         }
 
         private void DrawDefaultInspectorExcludingInternalFields()

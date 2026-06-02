@@ -10,7 +10,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
     public class LayerTemplate : ScriptableObject
     {
         [JsonRequired, SerializeField]
-        private string templateName;
+        private string _templateName;
 
         [JsonRequired, SerializeField]
         public int order;
@@ -19,7 +19,12 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         public LBSLayer layer;
 
         [JsonIgnore]
-        public string Name => templateName;
+        public string Name => _templateName;
+
+
+        // Editor stuff
+        [HideInInspector, NonSerialized]
+        public bool _debugView;
 
         public void Clear()
         {

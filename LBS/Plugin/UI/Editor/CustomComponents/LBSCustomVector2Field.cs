@@ -10,7 +10,7 @@ namespace ISILab.LBS.CustomComponents
         
         public static readonly string LBSClassName = "lbs-field";
         public static readonly string LBSFieldClassName = "lbs-vector2-field";
-        
+
         public LBSCustomVector2Field() : base()
         {
             RemoveFromClassList(ussClassName);
@@ -20,8 +20,6 @@ namespace ISILab.LBS.CustomComponents
             //VisualElement inputSpace = this.Q<VisualElement>(classes: inputUssClassName);
             VisualElement spacer = this.Q<VisualElement>(classes: spacerUssClassName);
             spacer.SendToBack();
-            
-
         }
     }
 }
