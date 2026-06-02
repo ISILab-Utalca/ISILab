@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: Malee.Editor.ReorderableList.DrawHeaderDelegate
+  commentId: T:Malee.Editor.ReorderableList.DrawHeaderDelegate
+  id: ReorderableList.DrawHeaderDelegate
+  parent: Malee.Editor
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.DrawHeaderDelegate
+  nameWithType: ReorderableList.DrawHeaderDelegate
+  fullName: Malee.Editor.ReorderableList.DrawHeaderDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: DrawHeaderDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 27
+  assemblies:
+  - ReorderableList
+  namespace: Malee.Editor
+  syntax:
+    content: public delegate void ReorderableList.DrawHeaderDelegate(Rect rect, GUIContent label)
+    parameters:
+    - id: rect
+      type: UnityEngine.Rect
+    - id: label
+      type: UnityEngine.GUIContent
+    content.vb: Public Delegate Sub ReorderableList.DrawHeaderDelegate(rect As Rect, label As GUIContent)
+references:
+- uid: Malee.Editor
+  commentId: N:Malee.Editor
+  href: Malee.html
+  name: Malee.Editor
+  nameWithType: Malee.Editor
+  fullName: Malee.Editor
+  spec.csharp:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+  spec.vb:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: UnityEngine.GUIContent
+  commentId: T:UnityEngine.GUIContent
+  parent: UnityEngine
+  isExternal: true
+  name: GUIContent
+  nameWithType: GUIContent
+  fullName: UnityEngine.GUIContent
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+shouldSkipMarkup: true

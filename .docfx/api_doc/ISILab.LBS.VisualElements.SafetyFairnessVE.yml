@@ -30,9 +30,13 @@ items:
     content: >-
       [LBSCustomEditor("SecurityFairness", typeof(SafetyFairness))]
 
+      [Obsolete]
+
       public class SafetyFairnessVE : LBSCustomEditor, IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler
     content.vb: >-
       <LBSCustomEditor("SecurityFairness", GetType(SafetyFairness))>
+
+      <Obsolete>
 
       Public Class SafetyFairnessVE Inherits LBSCustomEditor Implements IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler
   inheritance:
@@ -173,6 +177,9 @@ items:
       value: SecurityFairness
     - type: System.Type
       value: ISILab.AI.Categorization.SafetyFairness
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.VisualElements.SafetyFairnessVE.#ctor(System.Object)
   commentId: M:ISILab.LBS.VisualElements.SafetyFairnessVE.#ctor(System.Object)
   id: '#ctor(System.Object)'
@@ -191,7 +198,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/SafetyFairnessVE.cs
-    startLine: 16
+    startLine: 17
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -223,7 +230,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetInfo
     path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/SafetyFairnessVE.cs
-    startLine: 22
+    startLine: 23
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -257,7 +264,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateVisualElement
     path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/SafetyFairnessVE.cs
-    startLine: 36
+    startLine: 37
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements

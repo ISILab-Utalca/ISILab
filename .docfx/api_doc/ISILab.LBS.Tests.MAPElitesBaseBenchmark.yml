@@ -1,0 +1,1000 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  commentId: T:ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  id: MAPElitesBaseBenchmark
+  parent: ISILab.LBS.Tests
+  children:
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+  langs:
+  - csharp
+  - vb
+  name: MAPElitesBaseBenchmark
+  nameWithType: MAPElitesBaseBenchmark
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  type: Class
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MAPElitesBaseBenchmark
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 12
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [TestFixture]
+
+      public abstract class MAPElitesBaseBenchmark
+    content.vb: >-
+      <TestFixture>
+
+      Public MustInherit Class MAPElitesBaseBenchmark
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.Tests.EvaluatorBenchmarkReport
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: NUnit.Framework.TestFixtureAttribute
+    ctor: NUnit.Framework.TestFixtureAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+  id: levelData
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: levelData
+  nameWithType: MAPElitesBaseBenchmark.levelData
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+  type: Field
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: levelData
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 15
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected LBSLevelData levelData
+    return:
+      type: ISILab.LBS.LBSLevelData
+    content.vb: Protected levelData As LBSLevelData
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+  id: assistant
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: assistant
+  nameWithType: MAPElitesBaseBenchmark.assistant
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+  type: Field
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: assistant
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 16
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected AssistantMapElite assistant
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+    content.vb: Protected assistant As AssistantMapElite
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+  id: preset
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: preset
+  nameWithType: MAPElitesBaseBenchmark.preset
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+  type: Field
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: preset
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 17
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected MAPElitesPreset preset
+    return:
+      type: ISILab.LBS.AI.Categorization.MAPElitesPreset
+    content.vb: Protected preset As MAPElitesPreset
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+  id: og_optimizer
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: og_optimizer
+  nameWithType: MAPElitesBaseBenchmark.og_optimizer
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+  type: Field
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: og_optimizer
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 18
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected IRangedEvaluator og_optimizer
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    content.vb: Protected og_optimizer As IRangedEvaluator
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+  id: og_xEvaluator
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: og_xEvaluator
+  nameWithType: MAPElitesBaseBenchmark.og_xEvaluator
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+  type: Field
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: og_xEvaluator
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 19
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected IRangedEvaluator og_xEvaluator
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    content.vb: Protected og_xEvaluator As IRangedEvaluator
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+  id: og_yEvaluator
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: og_yEvaluator
+  nameWithType: MAPElitesBaseBenchmark.og_yEvaluator
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+  type: Field
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: og_yEvaluator
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 20
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected IRangedEvaluator og_yEvaluator
+    return:
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    content.vb: Protected og_yEvaluator As IRangedEvaluator
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+  id: dungeonPresetPath
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: dungeonPresetPath
+  nameWithType: MAPElitesBaseBenchmark.dungeonPresetPath
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+  type: Field
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: dungeonPresetPath
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 22
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected const string dungeonPresetPath = "Assets/ISILab/LBS/Presets/Assistants/DungeonPreset.asset"
+    return:
+      type: System.String
+    content.vb: Protected Const dungeonPresetPath As String = "Assets/ISILab/LBS/Presets/Assistants/DungeonPreset.asset"
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+  id: timeout
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: timeout
+  nameWithType: MAPElitesBaseBenchmark.timeout
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+  type: Field
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: timeout
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 23
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected const int timeout = 600000
+    return:
+      type: System.Int32
+    content.vb: Protected Const timeout As Integer = 600000
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+  id: GetLevel(System.String)
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: GetLevel(string)
+  nameWithType: MAPElitesBaseBenchmark.GetLevel(string)
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(string)
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetLevel
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 27
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected bool GetLevel(string guid)
+    parameters:
+    - id: guid
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Protected Function GetLevel(guid As String) As Boolean
+  overload: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel*
+  nameWithType.vb: MAPElitesBaseBenchmark.GetLevel(String)
+  fullName.vb: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(String)
+  name.vb: GetLevel(String)
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+  id: SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: SetUpMAPElitesTest(string, string, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, string, Rect)
+  nameWithType: MAPElitesBaseBenchmark.SetUpMAPElitesTest(string, string, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, string, Rect)
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(string, string, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, string, UnityEngine.Rect)
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SetUpMAPElitesTest
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 34
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected void SetUpMAPElitesTest(string _guid, string presetPath, IRangedEvaluator optimizer, IRangedEvaluator xEvaluator, IRangedEvaluator yEvaluator, string baseLayer = "", Rect area = default)
+    parameters:
+    - id: _guid
+      type: System.String
+    - id: presetPath
+      type: System.String
+    - id: optimizer
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    - id: xEvaluator
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    - id: yEvaluator
+      type: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    - id: baseLayer
+      type: System.String
+    - id: area
+      type: UnityEngine.Rect
+    content.vb: Protected Sub SetUpMAPElitesTest(_guid As String, presetPath As String, optimizer As IRangedEvaluator, xEvaluator As IRangedEvaluator, yEvaluator As IRangedEvaluator, baseLayer As String = "", area As Rect = Nothing)
+  overload: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest*
+  nameWithType.vb: MAPElitesBaseBenchmark.SetUpMAPElitesTest(String, String, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, String, Rect)
+  fullName.vb: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(String, String, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, String, UnityEngine.Rect)
+  name.vb: SetUpMAPElitesTest(String, String, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, String, Rect)
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  id: CleanUpMAPElitesTest
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: CleanUpMAPElitesTest()
+  nameWithType: MAPElitesBaseBenchmark.CleanUpMAPElitesTest()
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: CleanUpMAPElitesTest
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 87
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected void CleanUpMAPElitesTest()
+    content.vb: Protected Sub CleanUpMAPElitesTest()
+  overload: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest*
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  id: GetChromosomeFromAssistant
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  langs:
+  - csharp
+  - vb
+  name: GetChromosomeFromAssistant()
+  nameWithType: MAPElitesBaseBenchmark.GetChromosomeFromAssistant()
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBaseBenchmark.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetChromosomeFromAssistant
+    path: ../LBS/Tests/MAPElitesBaseBenchmark.cs
+    startLine: 103
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: protected BundleTilemapChromosome GetChromosomeFromAssistant()
+    return:
+      type: ISILab.AI.Categorization.BundleTilemapChromosome
+    content.vb: Protected Function GetChromosomeFromAssistant() As BundleTilemapChromosome
+  overload: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant*
+references:
+- uid: ISILab.LBS.Tests
+  commentId: N:ISILab.LBS.Tests
+  href: ISILab.html
+  name: ISILab.LBS.Tests
+  nameWithType: ISILab.LBS.Tests
+  fullName: ISILab.LBS.Tests
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Tests
+    name: Tests
+    href: ISILab.LBS.Tests.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Tests
+    name: Tests
+    href: ISILab.LBS.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.LBSLevelData
+  commentId: T:ISILab.LBS.LBSLevelData
+  parent: ISILab.LBS
+  href: ISILab.LBS.LBSLevelData.html
+  name: LBSLevelData
+  nameWithType: LBSLevelData
+  fullName: ISILab.LBS.LBSLevelData
+- uid: ISILab.LBS
+  commentId: N:ISILab.LBS
+  href: ISILab.html
+  name: ISILab.LBS
+  nameWithType: ISILab.LBS
+  fullName: ISILab.LBS
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  parent: ISILab.LBS.Plugin.Core.AI.Assistant
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite.html
+  name: AssistantMapElite
+  nameWithType: AssistantMapElite
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Assistant
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Assistant
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Assistant
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Assistant
+    name: Assistant
+    href: ISILab.LBS.Plugin.Core.AI.Assistant.html
+- uid: ISILab.LBS.AI.Categorization.MAPElitesPreset
+  commentId: T:ISILab.LBS.AI.Categorization.MAPElitesPreset
+  parent: ISILab.LBS.AI.Categorization
+  href: ISILab.LBS.AI.Categorization.MAPElitesPreset.html
+  name: MAPElitesPreset
+  nameWithType: MAPElitesPreset
+  fullName: ISILab.LBS.AI.Categorization.MAPElitesPreset
+- uid: ISILab.LBS.AI.Categorization
+  commentId: N:ISILab.LBS.AI.Categorization
+  href: ISILab.html
+  name: ISILab.LBS.AI.Categorization
+  nameWithType: ISILab.LBS.AI.Categorization
+  fullName: ISILab.LBS.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    href: ISILab.LBS.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.AI
+    name: AI
+    href: ISILab.LBS.AI.html
+  - name: .
+  - uid: ISILab.LBS.AI.Categorization
+    name: Categorization
+    href: ISILab.LBS.AI.Categorization.html
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  commentId: T:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+  parent: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator.html
+  name: IRangedEvaluator
+  nameWithType: IRangedEvaluator
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+- uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  commentId: N:ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  nameWithType: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  fullName: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI
+    name: AI
+    href: ISILab.LBS.Plugin.Core.AI.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization
+    name: Optimization
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm
+    name: EvolutionaryAlgorithm
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators
+    name: Evaluators
+    href: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetLevel_System_String_
+  name: GetLevel
+  nameWithType: MAPElitesBaseBenchmark.GetLevel
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_SetUpMAPElitesTest_System_String_System_String_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_System_String_UnityEngine_Rect_
+  name: SetUpMAPElitesTest
+  nameWithType: MAPElitesBaseBenchmark.SetUpMAPElitesTest
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_CleanUpMAPElitesTest
+  name: CleanUpMAPElitesTest
+  nameWithType: MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetChromosomeFromAssistant
+  name: GetChromosomeFromAssistant
+  nameWithType: MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome
+  commentId: T:ISILab.AI.Categorization.BundleTilemapChromosome
+  parent: ISILab.AI.Categorization
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html
+  name: BundleTilemapChromosome
+  nameWithType: BundleTilemapChromosome
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome
+- uid: ISILab.AI.Categorization
+  commentId: N:ISILab.AI.Categorization
+  href: ISILab.html
+  name: ISILab.AI.Categorization
+  nameWithType: ISILab.AI.Categorization
+  fullName: ISILab.AI.Categorization
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Categorization
+    name: Categorization
+    href: ISILab.AI.Categorization.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Categorization
+    name: Categorization
+    href: ISILab.AI.Categorization.html
+shouldSkipMarkup: true

@@ -11,10 +11,11 @@ items:
   - PathOS.PathOSNavUtility.NavmeshMemoryMapper.Fill(UnityEngine.Vector3,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode)
   - PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetAspect
   - PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetBoundsSize
+  - PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount(System.Int32)
   - PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetVisualGrid(System.Int32)
   - PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavigateAStar(UnityEngine.Vector3,UnityEngine.Vector3,System.Collections.Generic.List{UnityEngine.Vector3}@)
-  - PathOS.PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit@,System.Boolean,System.Boolean)
   - PathOS.PathOSNavUtility.NavmeshMemoryMapper.ResetObstacles
+  - PathOS.PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit@,System.Boolean,System.Boolean)
   - PathOS.PathOSNavUtility.NavmeshMemoryMapper.maxCastSamples
   - PathOS.PathOSNavUtility.NavmeshMemoryMapper.memory
   langs:
@@ -24,6 +25,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper
   type: Class
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: NavmeshMemoryMapper
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 69
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -33,13 +42,13 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.memory
   commentId: F:PathOS.PathOSNavUtility.NavmeshMemoryMapper.memory
   id: memory
@@ -51,6 +60,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.memory
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.memory
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: memory
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 198
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -70,6 +87,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.maxCastSamples
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.maxCastSamples
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: maxCastSamples
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 202
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -78,6 +103,35 @@ items:
     return:
       type: System.Int32
     content.vb: Public Const maxCastSamples As Integer = 128
+- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
+  commentId: P:PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
+  id: ActiveFloor
+  parent: PathOS.PathOSNavUtility.NavmeshMemoryMapper
+  langs:
+  - csharp
+  - vb
+  name: ActiveFloor
+  nameWithType: PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
+  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ActiveFloor
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 208
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public int ActiveFloor { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ActiveFloor As Integer
+  overload: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor*
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.#ctor(UnityEngine.Vector3,System.Int32)
   commentId: M:PathOS.PathOSNavUtility.NavmeshMemoryMapper.#ctor(UnityEngine.Vector3,System.Int32)
   id: '#ctor(UnityEngine.Vector3,System.Int32)'
@@ -89,6 +143,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapper(Vector3, int)
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapper(UnityEngine.Vector3, int)
   type: Constructor
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: .ctor
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 217
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -115,6 +177,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.GetBoundsSize()
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetBoundsSize()
   type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetBoundsSize
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 319
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -135,6 +205,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.GetAspect()
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetAspect()
   type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetAspect
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 324
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -155,6 +233,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.GetVisualGrid(int)
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetVisualGrid(int)
   type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetVisualGrid
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 329
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -170,40 +256,66 @@ items:
   nameWithType.vb: PathOSNavUtility.NavmeshMemoryMapper.GetVisualGrid(Integer)
   fullName.vb: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetVisualGrid(Integer)
   name.vb: GetVisualGrid(Integer)
-- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit@,System.Boolean,System.Boolean)
-  commentId: M:PathOS.PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit@,System.Boolean,System.Boolean)
-  id: RaycastMemoryMap(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit@,System.Boolean,System.Boolean)
+- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit@,System.Boolean,System.Boolean)
+  commentId: M:PathOS.PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit@,System.Boolean,System.Boolean)
+  id: XZRaycastMemoryMap(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit@,System.Boolean,System.Boolean)
   parent: PathOS.PathOSNavUtility.NavmeshMemoryMapper
   langs:
   - csharp
   - vb
-  name: RaycastMemoryMap(Vector3, Vector3, float, out NavmeshMemoryMapperCastHit, bool, bool)
-  nameWithType: PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap(Vector3, Vector3, float, out PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit, bool, bool)
-  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap(UnityEngine.Vector3, UnityEngine.Vector3, float, out PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit, bool, bool)
+  name: XZRaycastMemoryMap(Vector3, Vector3, float, out NavmeshMemoryMapperCastHit, bool, bool)
+  nameWithType: PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap(Vector3, Vector3, float, out PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit, bool, bool)
+  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap(UnityEngine.Vector3, UnityEngine.Vector3, float, out PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit, bool, bool)
   type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: XZRaycastMemoryMap
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 397
   assemblies:
   - PathOSPlus
   namespace: PathOS
+  summary: >-
+    Performs a raycast through the memory-mapped navigation mesh, sampling along a specified direction and
+
+    distance, and returns information about the encountered tiles and obstacles.
+  remarks: >-
+    The raycast samples the navigation mesh at regular intervals, stopping when
+        it reaches the edge of the grid, encounters more than one obstacle tile, or exceeds the specified
+        maximum distance. This method can be used to determine visibility or path obstruction in grid-based
+        navigation systems.
+  example: []
   syntax:
-    content: public void RaycastMemoryMap(Vector3 origin, Vector3 dir, float maxDistance, out PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit hit, bool fillSeen = false, bool point = false)
+    content: public void XZRaycastMemoryMap(Vector3 origin, Vector3 dir, float maxDistance, out PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit hit, bool fillSeen = false, bool pointSample = false)
     parameters:
     - id: origin
       type: UnityEngine.Vector3
+      description: The starting point of the ray in world coordinates.
     - id: dir
       type: UnityEngine.Vector3
+      description: The normalized direction vector along which to cast the ray.
     - id: maxDistance
       type: System.Single
+      description: The maximum distance, in world units, to cast the ray from the origin.
     - id: hit
       type: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit
+      description: >-
+        When this method returns, contains information about the raycast, including the number of unexplored
+            tiles, the total distance traversed, and the proportion of unexplored tiles encountered.
     - id: fillSeen
       type: System.Boolean
-    - id: point
+      description: If set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, marks all sampled tiles along the ray as seen. The default is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    - id: pointSample
       type: System.Boolean
-    content.vb: Public Sub RaycastMemoryMap(origin As Vector3, dir As Vector3, maxDistance As Single, hit As PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit, fillSeen As Boolean = False, point As Boolean = False)
-  overload: PathOS.PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap*
-  nameWithType.vb: PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap(Vector3, Vector3, Single, PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit, Boolean, Boolean)
-  fullName.vb: PathOS.PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap(UnityEngine.Vector3, UnityEngine.Vector3, Single, PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit, Boolean, Boolean)
-  name.vb: RaycastMemoryMap(Vector3, Vector3, Single, NavmeshMemoryMapperCastHit, Boolean, Boolean)
+      description: If set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, considers the raycast as a point sample. The default is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Sub XZRaycastMemoryMap(origin As Vector3, dir As Vector3, maxDistance As Single, hit As PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit, fillSeen As Boolean = False, pointSample As Boolean = False)
+  overload: PathOS.PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap*
+  nameWithType.vb: PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap(Vector3, Vector3, Single, PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit, Boolean, Boolean)
+  fullName.vb: PathOS.PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap(UnityEngine.Vector3, UnityEngine.Vector3, Single, PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit, Boolean, Boolean)
+  name.vb: XZRaycastMemoryMap(Vector3, Vector3, Single, NavmeshMemoryMapperCastHit, Boolean, Boolean)
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.Fill(UnityEngine.Vector3,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode)
   commentId: M:PathOS.PathOSNavUtility.NavmeshMemoryMapper.Fill(UnityEngine.Vector3,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode)
   id: Fill(UnityEngine.Vector3,PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode)
@@ -215,6 +327,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.Fill(Vector3, PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode)
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.Fill(UnityEngine.Vector3, PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode)
   type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Fill
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 466
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -238,6 +358,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.BakeVisualGrid()
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.BakeVisualGrid()
   type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: BakeVisualGrid
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 508
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -256,6 +384,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.NavigateAStar(Vector3, Vector3, ref List<Vector3>)
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavigateAStar(UnityEngine.Vector3, UnityEngine.Vector3, ref System.Collections.Generic.List<UnityEngine.Vector3>)
   type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: NavigateAStar
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 585
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -286,6 +422,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.ResetObstacles()
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ResetObstacles()
   type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ResetObstacles
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 733
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -293,31 +437,43 @@ items:
     content: public void ResetObstacles()
     content.vb: Public Sub ResetObstacles()
   overload: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ResetObstacles*
-- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
-  commentId: P:PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
-  id: ActiveFloor
+- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount(System.Int32)
+  commentId: M:PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount(System.Int32)
+  id: GetUnknownTileCount(System.Int32)
   parent: PathOS.PathOSNavUtility.NavmeshMemoryMapper
   langs:
   - csharp
   - vb
-  name: ActiveFloor
-  nameWithType: PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
-  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
-  type: Property
+  name: GetUnknownTileCount(int)
+  nameWithType: PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount(int)
+  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount(int)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetUnknownTileCount
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 752
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public int ActiveFloor { get; set; }
-    parameters: []
+    content: public int GetUnknownTileCount(int floorIndex)
+    parameters:
+    - id: floorIndex
+      type: System.Int32
     return:
       type: System.Int32
-    content.vb: Public Property ActiveFloor As Integer
-  overload: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor*
+    content.vb: Public Function GetUnknownTileCount(floorIndex As Integer) As Integer
+  overload: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount*
+  nameWithType.vb: PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount(Integer)
+  fullName.vb: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount(Integer)
+  name.vb: GetUnknownTileCount(Integer)
 references:
 - uid: PathOS
   commentId: N:PathOS
-  isExternal: true
   href: PathOS.html
   name: PathOS
   nameWithType: PathOS
@@ -333,78 +489,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -483,6 +567,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -528,28 +684,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -562,7 +718,6 @@ references:
 - uid: PathOS.PathOSAgentMemory
   commentId: T:PathOS.PathOSAgentMemory
   parent: PathOS
-  isExternal: true
   href: PathOS.PathOSAgentMemory.html
   name: PathOSAgentMemory
   nameWithType: PathOSAgentMemory
@@ -578,9 +733,14 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor*
+  commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
+  href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_ActiveFloor
+  name: ActiveFloor
+  nameWithType: PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
+  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.#ctor*
   commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.#ctor
-  isExternal: true
   href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper__ctor_UnityEngine_Vector3_System_Int32_
   name: NavmeshMemoryMapper
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapper
@@ -589,20 +749,26 @@ references:
   fullName.vb: PathOS.PathOSNavUtility.NavmeshMemoryMapper.New
   name.vb: New
 - uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
   isExternal: true
   name: Vector3
   nameWithType: Vector3
   fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetBoundsSize*
   commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetBoundsSize
-  isExternal: true
   href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_GetBoundsSize
   name: GetBoundsSize
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.GetBoundsSize
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetBoundsSize
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetAspect*
   commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetAspect
-  isExternal: true
   href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_GetAspect
   name: GetAspect
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.GetAspect
@@ -620,27 +786,26 @@ references:
   name.vb: Single
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetVisualGrid*
   commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetVisualGrid
-  isExternal: true
   href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_GetVisualGrid_System_Int32_
   name: GetVisualGrid
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.GetVisualGrid
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetVisualGrid
 - uid: UnityEngine.Texture2D
+  commentId: T:UnityEngine.Texture2D
+  parent: UnityEngine
   isExternal: true
   name: Texture2D
   nameWithType: Texture2D
   fullName: UnityEngine.Texture2D
-- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap*
-  commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap
-  isExternal: true
-  href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_RaycastMemoryMap_UnityEngine_Vector3_UnityEngine_Vector3_System_Single_PathOS_PathOSNavUtility_NavmeshMemoryMapper_NavmeshMemoryMapperCastHit__System_Boolean_System_Boolean_
-  name: RaycastMemoryMap
-  nameWithType: PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap
-  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.RaycastMemoryMap
+- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap*
+  commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap
+  href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_XZRaycastMemoryMap_UnityEngine_Vector3_UnityEngine_Vector3_System_Single_PathOS_PathOSNavUtility_NavmeshMemoryMapper_NavmeshMemoryMapperCastHit__System_Boolean_System_Boolean_
+  name: XZRaycastMemoryMap
+  nameWithType: PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap
+  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.XZRaycastMemoryMap
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit
   commentId: T:PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit
   parent: PathOS
-  isExternal: true
   href: PathOS.PathOSNavUtility.html
   name: PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit
@@ -648,32 +813,26 @@ references:
   spec.csharp:
   - uid: PathOS.PathOSNavUtility
     name: PathOSNavUtility
-    isExternal: true
     href: PathOS.PathOSNavUtility.html
   - name: .
   - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper
     name: NavmeshMemoryMapper
-    isExternal: true
     href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html
   - name: .
   - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit
     name: NavmeshMemoryMapperCastHit
-    isExternal: true
     href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit.html
   spec.vb:
   - uid: PathOS.PathOSNavUtility
     name: PathOSNavUtility
-    isExternal: true
     href: PathOS.PathOSNavUtility.html
   - name: .
   - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper
     name: NavmeshMemoryMapper
-    isExternal: true
     href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html
   - name: .
   - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit
     name: NavmeshMemoryMapperCastHit
-    isExternal: true
     href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit.html
 - uid: System.Boolean
   commentId: T:System.Boolean
@@ -688,7 +847,6 @@ references:
   name.vb: Boolean
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.Fill*
   commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.Fill
-  isExternal: true
   href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_Fill_UnityEngine_Vector3_PathOS_PathOSNavUtility_NavmeshMemoryMapper_NavmeshMapCode_
   name: Fill
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.Fill
@@ -696,7 +854,6 @@ references:
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode
   commentId: T:PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode
   parent: PathOS
-  isExternal: true
   href: PathOS.PathOSNavUtility.html
   name: PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode
@@ -704,43 +861,35 @@ references:
   spec.csharp:
   - uid: PathOS.PathOSNavUtility
     name: PathOSNavUtility
-    isExternal: true
     href: PathOS.PathOSNavUtility.html
   - name: .
   - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper
     name: NavmeshMemoryMapper
-    isExternal: true
     href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html
   - name: .
   - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode
     name: NavmeshMapCode
-    isExternal: true
     href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.html
   spec.vb:
   - uid: PathOS.PathOSNavUtility
     name: PathOSNavUtility
-    isExternal: true
     href: PathOS.PathOSNavUtility.html
   - name: .
   - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper
     name: NavmeshMemoryMapper
-    isExternal: true
     href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html
   - name: .
   - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode
     name: NavmeshMapCode
-    isExternal: true
     href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMapCode.html
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.BakeVisualGrid*
   commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.BakeVisualGrid
-  isExternal: true
   href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_BakeVisualGrid
   name: BakeVisualGrid
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.BakeVisualGrid
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.BakeVisualGrid
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavigateAStar*
   commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavigateAStar
-  isExternal: true
   href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_NavigateAStar_UnityEngine_Vector3_UnityEngine_Vector3_System_Collections_Generic_List_UnityEngine_Vector3___
   name: NavigateAStar
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.NavigateAStar
@@ -845,16 +994,14 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ResetObstacles*
   commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.ResetObstacles
-  isExternal: true
   href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_ResetObstacles
   name: ResetObstacles
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.ResetObstacles
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ResetObstacles
-- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor*
-  commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
-  isExternal: true
-  href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_ActiveFloor
-  name: ActiveFloor
-  nameWithType: PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
-  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.ActiveFloor
+- uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount*
+  commentId: Overload:PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount
+  href: PathOS.PathOSNavUtility.NavmeshMemoryMapper.html#PathOS_PathOSNavUtility_NavmeshMemoryMapper_GetUnknownTileCount_System_Int32_
+  name: GetUnknownTileCount
+  nameWithType: PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount
+  fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.GetUnknownTileCount
 shouldSkipMarkup: true

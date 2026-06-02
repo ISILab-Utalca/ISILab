@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: Malee.Editor.ReorderableList.DragDropReferenceDelegate
+  commentId: T:Malee.Editor.ReorderableList.DragDropReferenceDelegate
+  id: ReorderableList.DragDropReferenceDelegate
+  parent: Malee.Editor
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.DragDropReferenceDelegate
+  nameWithType: ReorderableList.DragDropReferenceDelegate
+  fullName: Malee.Editor.ReorderableList.DragDropReferenceDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: DragDropReferenceDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 33
+  assemblies:
+  - ReorderableList
+  namespace: Malee.Editor
+  syntax:
+    content: public delegate Object ReorderableList.DragDropReferenceDelegate(Object[] references, ReorderableList list)
+    parameters:
+    - id: references
+      type: UnityEngine.Object[]
+    - id: list
+      type: Malee.Editor.ReorderableList
+    return:
+      type: UnityEngine.Object
+    content.vb: Public Delegate Function ReorderableList.DragDropReferenceDelegate(references As [Object](), list As ReorderableList) As [Object]
+references:
+- uid: Malee.Editor
+  commentId: N:Malee.Editor
+  href: Malee.html
+  name: Malee.Editor
+  nameWithType: Malee.Editor
+  fullName: Malee.Editor
+  spec.csharp:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+  spec.vb:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+- uid: UnityEngine.Object[]
+  isExternal: true
+  name: Object[]
+  nameWithType: Object[]
+  fullName: UnityEngine.Object[]
+  nameWithType.vb: Object()
+  fullName.vb: UnityEngine.Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: UnityEngine.Object
+    name: Object
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: UnityEngine.Object
+    name: Object
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Malee.Editor.ReorderableList
+  commentId: T:Malee.Editor.ReorderableList
+  parent: Malee.Editor
+  href: Malee.Editor.ReorderableList.html
+  name: ReorderableList
+  nameWithType: ReorderableList
+  fullName: Malee.Editor.ReorderableList
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+shouldSkipMarkup: true

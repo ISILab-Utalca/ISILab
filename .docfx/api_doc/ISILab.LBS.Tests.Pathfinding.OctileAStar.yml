@@ -1,0 +1,1625 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  commentId: T:ISILab.LBS.Tests.Pathfinding.OctileAStar
+  id: OctileAStar
+  parent: ISILab.LBS.Tests.Pathfinding
+  children:
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_A_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_B_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_C_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_D_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_E_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_F_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_G_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_H_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_I_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_J_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_K_Octile_AStar
+  - ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_L_Octile_AStar
+  langs:
+  - csharp
+  - vb
+  name: OctileAStar
+  nameWithType: OctileAStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  type: Class
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OctileAStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 509
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [TestFixture]
+
+      public class OctileAStar : PathfindingBenchmarkReport
+    content.vb: >-
+      <TestFixture>
+
+      Public Class OctileAStar Inherits PathfindingBenchmarkReport
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  inheritedMembers:
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.FF
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.JPS
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.AStar
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Manhattan
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Octile
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Chebyshev
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.ColoniesPathfind(System.Int32,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinthPathfind(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.CheesePathfind(System.Int32,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.PathfindExample1(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_FloodFill
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_JPS
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_FloodFill
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_JPS
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_FloodFill
+  - ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_JPS
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: NUnit.Framework.TestFixtureAttribute
+    ctor: NUnit.Framework.TestFixtureAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_A_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_A_Octile_AStar
+  id: Level_A_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_A_Octile_AStar()
+  nameWithType: OctileAStar.Level_A_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_A_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_A_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 512
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_A_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_A_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_A_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_B_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_B_Octile_AStar
+  id: Level_B_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_B_Octile_AStar()
+  nameWithType: OctileAStar.Level_B_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_B_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_B_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 513
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_B_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_B_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_B_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_C_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_C_Octile_AStar
+  id: Level_C_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_C_Octile_AStar()
+  nameWithType: OctileAStar.Level_C_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_C_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_C_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 514
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_C_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_C_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_C_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_D_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_D_Octile_AStar
+  id: Level_D_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_D_Octile_AStar()
+  nameWithType: OctileAStar.Level_D_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_D_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_D_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 515
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_D_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_D_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_D_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_E_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_E_Octile_AStar
+  id: Level_E_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_E_Octile_AStar()
+  nameWithType: OctileAStar.Level_E_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_E_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_E_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 516
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_E_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_E_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_E_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_F_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_F_Octile_AStar
+  id: Level_F_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_F_Octile_AStar()
+  nameWithType: OctileAStar.Level_F_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_F_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_F_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 517
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_F_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_F_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_F_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_G_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_G_Octile_AStar
+  id: Level_G_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_G_Octile_AStar()
+  nameWithType: OctileAStar.Level_G_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_G_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_G_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 518
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_G_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_G_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_G_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_H_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_H_Octile_AStar
+  id: Level_H_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_H_Octile_AStar()
+  nameWithType: OctileAStar.Level_H_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_H_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_H_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 519
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_H_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_H_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_H_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_I_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_I_Octile_AStar
+  id: Level_I_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_I_Octile_AStar()
+  nameWithType: OctileAStar.Level_I_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_I_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_I_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 520
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_I_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_I_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_I_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_J_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_J_Octile_AStar
+  id: Level_J_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_J_Octile_AStar()
+  nameWithType: OctileAStar.Level_J_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_J_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_J_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 521
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_J_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_J_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_J_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_K_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_K_Octile_AStar
+  id: Level_K_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_K_Octile_AStar()
+  nameWithType: OctileAStar.Level_K_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_K_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_K_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 522
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_K_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_K_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_K_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_L_Octile_AStar
+  commentId: M:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_L_Octile_AStar
+  id: Level_L_Octile_AStar
+  parent: ISILab.LBS.Tests.Pathfinding.OctileAStar
+  langs:
+  - csharp
+  - vb
+  name: Level_L_Octile_AStar()
+  nameWithType: OctileAStar.Level_L_Octile_AStar()
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_L_Octile_AStar()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/PathfindingBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Level_L_Octile_AStar
+    path: ../LBS/Tests/PathfindingBenchmarkReport.cs
+    startLine: 523
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests.Pathfinding
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void Level_L_Octile_AStar()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub Level_L_Octile_AStar()
+  overload: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_L_Octile_AStar*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+references:
+- uid: ISILab.LBS.Tests.Pathfinding
+  commentId: N:ISILab.LBS.Tests.Pathfinding
+  href: ISILab.html
+  name: ISILab.LBS.Tests.Pathfinding
+  nameWithType: ISILab.LBS.Tests.Pathfinding
+  fullName: ISILab.LBS.Tests.Pathfinding
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Tests
+    name: Tests
+    href: ISILab.LBS.Tests.html
+  - name: .
+  - uid: ISILab.LBS.Tests.Pathfinding
+    name: Pathfinding
+    href: ISILab.LBS.Tests.Pathfinding.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Tests
+    name: Tests
+    href: ISILab.LBS.Tests.html
+  - name: .
+  - uid: ISILab.LBS.Tests.Pathfinding
+    name: Pathfinding
+    href: ISILab.LBS.Tests.Pathfinding.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  commentId: T:ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  parent: ISILab.LBS.Tests
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html
+  name: MAPElitesBaseBenchmark
+  nameWithType: MAPElitesBaseBenchmark
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  commentId: T:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  parent: ISILab.LBS.Tests.Pathfinding
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html
+  name: PathfindingBenchmarkReport
+  nameWithType: PathfindingBenchmarkReport
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.FF
+  commentId: F:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.FF
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_FF
+  name: FF
+  nameWithType: PathfindingBenchmarkReport.FF
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.FF
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.JPS
+  commentId: F:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.JPS
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_JPS
+  name: JPS
+  nameWithType: PathfindingBenchmarkReport.JPS
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.JPS
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.AStar
+  commentId: F:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.AStar
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_AStar
+  name: AStar
+  nameWithType: PathfindingBenchmarkReport.AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.AStar
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Manhattan
+  commentId: F:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Manhattan
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Manhattan
+  name: Manhattan
+  nameWithType: PathfindingBenchmarkReport.Manhattan
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Manhattan
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Octile
+  commentId: F:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Octile
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Octile
+  name: Octile
+  nameWithType: PathfindingBenchmarkReport.Octile
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Octile
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Chebyshev
+  commentId: F:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Chebyshev
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Chebyshev
+  name: Chebyshev
+  nameWithType: PathfindingBenchmarkReport.Chebyshev
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Chebyshev
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.ColoniesPathfind(System.Int32,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  commentId: M:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.ColoniesPathfind(System.Int32,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  isExternal: true
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_ColoniesPathfind_System_Int32_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_
+  name: ColoniesPathfind(int, PathfindingAlgorithm, PathfindingHeuristic)
+  nameWithType: PathfindingBenchmarkReport.ColoniesPathfind(int, PathfindingAlgorithm, PathfindingHeuristic)
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.ColoniesPathfind(int, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  nameWithType.vb: PathfindingBenchmarkReport.ColoniesPathfind(Integer, PathfindingAlgorithm, PathfindingHeuristic)
+  fullName.vb: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.ColoniesPathfind(Integer, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  name.vb: ColoniesPathfind(Integer, PathfindingAlgorithm, PathfindingHeuristic)
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.ColoniesPathfind(System.Int32,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+    name: ColoniesPathfind
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_ColoniesPathfind_System_Int32_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+    name: PathfindingAlgorithm
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+    name: PathfindingHeuristic
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.ColoniesPathfind(System.Int32,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+    name: ColoniesPathfind
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_ColoniesPathfind_System_Int32_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+    name: PathfindingAlgorithm
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+    name: PathfindingHeuristic
+  - name: )
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinthPathfind(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  commentId: M:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinthPathfind(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_UltraLabyrinthPathfind_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_
+  name: UltraLabyrinthPathfind(PathfindingAlgorithm, PathfindingHeuristic)
+  nameWithType: PathfindingBenchmarkReport.UltraLabyrinthPathfind(PathfindingAlgorithm, PathfindingHeuristic)
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinthPathfind(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinthPathfind(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+    name: UltraLabyrinthPathfind
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_UltraLabyrinthPathfind_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_
+  - name: (
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+    name: PathfindingAlgorithm
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+    name: PathfindingHeuristic
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinthPathfind(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+    name: UltraLabyrinthPathfind
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_UltraLabyrinthPathfind_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_
+  - name: (
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+    name: PathfindingAlgorithm
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+    name: PathfindingHeuristic
+  - name: )
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.CheesePathfind(System.Int32,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  commentId: M:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.CheesePathfind(System.Int32,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  isExternal: true
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_CheesePathfind_System_Int32_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_
+  name: CheesePathfind(int, PathfindingAlgorithm, PathfindingHeuristic)
+  nameWithType: PathfindingBenchmarkReport.CheesePathfind(int, PathfindingAlgorithm, PathfindingHeuristic)
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.CheesePathfind(int, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  nameWithType.vb: PathfindingBenchmarkReport.CheesePathfind(Integer, PathfindingAlgorithm, PathfindingHeuristic)
+  fullName.vb: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.CheesePathfind(Integer, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+  name.vb: CheesePathfind(Integer, PathfindingAlgorithm, PathfindingHeuristic)
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.CheesePathfind(System.Int32,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+    name: CheesePathfind
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_CheesePathfind_System_Int32_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+    name: PathfindingAlgorithm
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+    name: PathfindingHeuristic
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.CheesePathfind(System.Int32,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic)
+    name: CheesePathfind
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_CheesePathfind_System_Int32_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingHeuristic_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+    name: PathfindingAlgorithm
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingHeuristic
+    name: PathfindingHeuristic
+  - name: )
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.PathfindExample1(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  commentId: M:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.PathfindExample1(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_PathfindExample1_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_
+  name: PathfindExample1(PathfindingAlgorithm)
+  nameWithType: PathfindingBenchmarkReport.PathfindExample1(PathfindingAlgorithm)
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.PathfindExample1(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.PathfindExample1(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+    name: PathfindExample1
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_PathfindExample1_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_
+  - name: (
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+    name: PathfindingAlgorithm
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.PathfindExample1(ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm)
+    name: PathfindExample1
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_PathfindExample1_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_PathfindingAlgorithm_
+  - name: (
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.PathfindingAlgorithm
+    name: PathfindingAlgorithm
+  - name: )
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_FloodFill
+  commentId: M:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_FloodFill
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_UltraLabyrinth_Chebyshev_FloodFill
+  name: UltraLabyrinth_Chebyshev_FloodFill()
+  nameWithType: PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_FloodFill()
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_FloodFill()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_FloodFill
+    name: UltraLabyrinth_Chebyshev_FloodFill
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_UltraLabyrinth_Chebyshev_FloodFill
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_FloodFill
+    name: UltraLabyrinth_Chebyshev_FloodFill
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_UltraLabyrinth_Chebyshev_FloodFill
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_JPS
+  commentId: M:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_JPS
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_UltraLabyrinth_Chebyshev_JPS
+  name: UltraLabyrinth_Chebyshev_JPS()
+  nameWithType: PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_JPS()
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_JPS()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_JPS
+    name: UltraLabyrinth_Chebyshev_JPS
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_UltraLabyrinth_Chebyshev_JPS
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.UltraLabyrinth_Chebyshev_JPS
+    name: UltraLabyrinth_Chebyshev_JPS
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_UltraLabyrinth_Chebyshev_JPS
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_FloodFill
+  commentId: M:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_FloodFill
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese1_Chebyshev_FloodFill
+  name: Cheese1_Chebyshev_FloodFill()
+  nameWithType: PathfindingBenchmarkReport.Cheese1_Chebyshev_FloodFill()
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_FloodFill()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_FloodFill
+    name: Cheese1_Chebyshev_FloodFill
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese1_Chebyshev_FloodFill
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_FloodFill
+    name: Cheese1_Chebyshev_FloodFill
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese1_Chebyshev_FloodFill
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_JPS
+  commentId: M:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_JPS
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese1_Chebyshev_JPS
+  name: Cheese1_Chebyshev_JPS()
+  nameWithType: PathfindingBenchmarkReport.Cheese1_Chebyshev_JPS()
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_JPS()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_JPS
+    name: Cheese1_Chebyshev_JPS
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese1_Chebyshev_JPS
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese1_Chebyshev_JPS
+    name: Cheese1_Chebyshev_JPS
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese1_Chebyshev_JPS
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_FloodFill
+  commentId: M:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_FloodFill
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese2_Chebyshev_FloodFill
+  name: Cheese2_Chebyshev_FloodFill()
+  nameWithType: PathfindingBenchmarkReport.Cheese2_Chebyshev_FloodFill()
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_FloodFill()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_FloodFill
+    name: Cheese2_Chebyshev_FloodFill
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese2_Chebyshev_FloodFill
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_FloodFill
+    name: Cheese2_Chebyshev_FloodFill
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese2_Chebyshev_FloodFill
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_JPS
+  commentId: M:ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_JPS
+  parent: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport
+  href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese2_Chebyshev_JPS
+  name: Cheese2_Chebyshev_JPS()
+  nameWithType: PathfindingBenchmarkReport.Cheese2_Chebyshev_JPS()
+  fullName: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_JPS()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_JPS
+    name: Cheese2_Chebyshev_JPS
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese2_Chebyshev_JPS
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.Cheese2_Chebyshev_JPS
+    name: Cheese2_Chebyshev_JPS
+    href: ISILab.LBS.Tests.Pathfinding.PathfindingBenchmarkReport.html#ISILab_LBS_Tests_Pathfinding_PathfindingBenchmarkReport_Cheese2_Chebyshev_JPS
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_levelData
+  name: levelData
+  nameWithType: MAPElitesBaseBenchmark.levelData
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_assistant
+  name: assistant
+  nameWithType: MAPElitesBaseBenchmark.assistant
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_preset
+  name: preset
+  nameWithType: MAPElitesBaseBenchmark.preset
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_og_optimizer
+  name: og_optimizer
+  nameWithType: MAPElitesBaseBenchmark.og_optimizer
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_og_xEvaluator
+  name: og_xEvaluator
+  nameWithType: MAPElitesBaseBenchmark.og_xEvaluator
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_og_yEvaluator
+  name: og_yEvaluator
+  nameWithType: MAPElitesBaseBenchmark.og_yEvaluator
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_dungeonPresetPath
+  name: dungeonPresetPath
+  nameWithType: MAPElitesBaseBenchmark.dungeonPresetPath
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_timeout
+  name: timeout
+  nameWithType: MAPElitesBaseBenchmark.timeout
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  isExternal: true
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetLevel_System_String_
+  name: GetLevel(string)
+  nameWithType: MAPElitesBaseBenchmark.GetLevel(string)
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(string)
+  nameWithType.vb: MAPElitesBaseBenchmark.GetLevel(String)
+  fullName.vb: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(String)
+  name.vb: GetLevel(String)
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+    name: GetLevel
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetLevel_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+    name: GetLevel
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetLevel_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  isExternal: true
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_SetUpMAPElitesTest_System_String_System_String_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_System_String_UnityEngine_Rect_
+  name: SetUpMAPElitesTest(string, string, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, string, Rect)
+  nameWithType: MAPElitesBaseBenchmark.SetUpMAPElitesTest(string, string, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, string, Rect)
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(string, string, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, string, UnityEngine.Rect)
+  nameWithType.vb: MAPElitesBaseBenchmark.SetUpMAPElitesTest(String, String, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, String, Rect)
+  fullName.vb: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(String, String, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, String, UnityEngine.Rect)
+  name.vb: SetUpMAPElitesTest(String, String, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, String, Rect)
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+    name: SetUpMAPElitesTest
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_SetUpMAPElitesTest_System_String_System_String_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_System_String_UnityEngine_Rect_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+    name: SetUpMAPElitesTest
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_SetUpMAPElitesTest_System_String_System_String_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_System_String_UnityEngine_Rect_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_CleanUpMAPElitesTest
+  name: CleanUpMAPElitesTest()
+  nameWithType: MAPElitesBaseBenchmark.CleanUpMAPElitesTest()
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+    name: CleanUpMAPElitesTest
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_CleanUpMAPElitesTest
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+    name: CleanUpMAPElitesTest
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_CleanUpMAPElitesTest
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetChromosomeFromAssistant
+  name: GetChromosomeFromAssistant()
+  nameWithType: MAPElitesBaseBenchmark.GetChromosomeFromAssistant()
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+    name: GetChromosomeFromAssistant
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetChromosomeFromAssistant
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+    name: GetChromosomeFromAssistant
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetChromosomeFromAssistant
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Tests
+  commentId: N:ISILab.LBS.Tests
+  href: ISILab.html
+  name: ISILab.LBS.Tests
+  nameWithType: ISILab.LBS.Tests
+  fullName: ISILab.LBS.Tests
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Tests
+    name: Tests
+    href: ISILab.LBS.Tests.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Tests
+    name: Tests
+    href: ISILab.LBS.Tests.html
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_A_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_A_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_A_Octile_AStar
+  name: Level_A_Octile_AStar
+  nameWithType: OctileAStar.Level_A_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_A_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_B_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_B_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_B_Octile_AStar
+  name: Level_B_Octile_AStar
+  nameWithType: OctileAStar.Level_B_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_B_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_C_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_C_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_C_Octile_AStar
+  name: Level_C_Octile_AStar
+  nameWithType: OctileAStar.Level_C_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_C_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_D_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_D_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_D_Octile_AStar
+  name: Level_D_Octile_AStar
+  nameWithType: OctileAStar.Level_D_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_D_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_E_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_E_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_E_Octile_AStar
+  name: Level_E_Octile_AStar
+  nameWithType: OctileAStar.Level_E_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_E_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_F_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_F_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_F_Octile_AStar
+  name: Level_F_Octile_AStar
+  nameWithType: OctileAStar.Level_F_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_F_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_G_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_G_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_G_Octile_AStar
+  name: Level_G_Octile_AStar
+  nameWithType: OctileAStar.Level_G_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_G_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_H_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_H_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_H_Octile_AStar
+  name: Level_H_Octile_AStar
+  nameWithType: OctileAStar.Level_H_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_H_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_I_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_I_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_I_Octile_AStar
+  name: Level_I_Octile_AStar
+  nameWithType: OctileAStar.Level_I_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_I_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_J_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_J_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_J_Octile_AStar
+  name: Level_J_Octile_AStar
+  nameWithType: OctileAStar.Level_J_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_J_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_K_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_K_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_K_Octile_AStar
+  name: Level_K_Octile_AStar
+  nameWithType: OctileAStar.Level_K_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_K_Octile_AStar
+- uid: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_L_Octile_AStar*
+  commentId: Overload:ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_L_Octile_AStar
+  href: ISILab.LBS.Tests.Pathfinding.OctileAStar.html#ISILab_LBS_Tests_Pathfinding_OctileAStar_Level_L_Octile_AStar
+  name: Level_L_Octile_AStar
+  nameWithType: OctileAStar.Level_L_Octile_AStar
+  fullName: ISILab.LBS.Tests.Pathfinding.OctileAStar.Level_L_Octile_AStar
+shouldSkipMarkup: true

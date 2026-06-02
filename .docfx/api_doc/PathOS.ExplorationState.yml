@@ -5,7 +5,6 @@ items:
   id: ExplorationState
   parent: PathOS
   children:
-  - PathOS.ExplorationState.#ctor
   - PathOS.ExplorationState.assessedGoalsInit
   - PathOS.ExplorationState.cumulativeEntityScore
   - PathOS.ExplorationState.pastCumulativeEntityScore
@@ -17,22 +16,40 @@ items:
   nameWithType: ExplorationState
   fullName: PathOS.ExplorationState
   type: Class
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/ExplorationState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ExplorationState
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/ExplorationState.cs
+    startLine: 5
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public class ExplorationState
-    content.vb: Public Class ExplorationState
+    content: >-
+      [Serializable]
+
+      public class ExplorationState
+    content.vb: >-
+      <Serializable>
+
+      Public Class ExplorationState
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: PathOS.ExplorationState.cumulativeEntityScore
   commentId: F:PathOS.ExplorationState.cumulativeEntityScore
   id: cumulativeEntityScore
@@ -44,6 +61,14 @@ items:
   nameWithType: ExplorationState.cumulativeEntityScore
   fullName: PathOS.ExplorationState.cumulativeEntityScore
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/ExplorationState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: cumulativeEntityScore
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/ExplorationState.cs
+    startLine: 8
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -63,6 +88,14 @@ items:
   nameWithType: ExplorationState.pastCumulativeEntityScore
   fullName: PathOS.ExplorationState.pastCumulativeEntityScore
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/ExplorationState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: pastCumulativeEntityScore
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/ExplorationState.cs
+    startLine: 9
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -82,6 +115,14 @@ items:
   nameWithType: ExplorationState.assessedGoalsInit
   fullName: PathOS.ExplorationState.assessedGoalsInit
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/ExplorationState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: assessedGoalsInit
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/ExplorationState.cs
+    startLine: 10
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -101,6 +142,14 @@ items:
   nameWithType: ExplorationState.unreachableReference
   fullName: PathOS.ExplorationState.unreachableReference
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/ExplorationState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: unreachableReference
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/ExplorationState.cs
+    startLine: 12
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -109,31 +158,9 @@ items:
     return:
       type: System.Collections.Generic.List{UnityEngine.Vector3}
     content.vb: Public unreachableReference As List(Of Vector3)
-- uid: PathOS.ExplorationState.#ctor
-  commentId: M:PathOS.ExplorationState.#ctor
-  id: '#ctor'
-  parent: PathOS.ExplorationState
-  langs:
-  - csharp
-  - vb
-  name: ExplorationState()
-  nameWithType: ExplorationState.ExplorationState()
-  fullName: PathOS.ExplorationState.ExplorationState()
-  type: Constructor
-  assemblies:
-  - PathOSPlus
-  namespace: PathOS
-  syntax:
-    content: public ExplorationState()
-    content.vb: Public Sub New()
-  overload: PathOS.ExplorationState.#ctor*
-  nameWithType.vb: ExplorationState.New()
-  fullName.vb: PathOS.ExplorationState.New()
-  name.vb: New()
 references:
 - uid: PathOS
   commentId: N:PathOS
-  isExternal: true
   href: PathOS.html
   name: PathOS
   nameWithType: PathOS
@@ -149,78 +176,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -299,6 +254,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -344,28 +371,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -495,14 +522,4 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: PathOS.ExplorationState.#ctor*
-  commentId: Overload:PathOS.ExplorationState.#ctor
-  isExternal: true
-  href: PathOS.ExplorationState.html#PathOS_ExplorationState__ctor
-  name: ExplorationState
-  nameWithType: ExplorationState.ExplorationState
-  fullName: PathOS.ExplorationState.ExplorationState
-  nameWithType.vb: ExplorationState.New
-  fullName.vb: PathOS.ExplorationState.New
-  name.vb: New
 shouldSkipMarkup: true

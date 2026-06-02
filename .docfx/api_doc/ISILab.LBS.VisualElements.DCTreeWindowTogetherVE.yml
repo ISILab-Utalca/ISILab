@@ -30,9 +30,13 @@ items:
     content: >-
       [LBSCustomEditor("DCTreeWindowTogether", typeof(DCTreeWindowTogether))]
 
+      [Obsolete]
+
       public class DCTreeWindowTogetherVE : LBSCustomEditor, IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler
     content.vb: >-
       <LBSCustomEditor("DCTreeWindowTogether", GetType(DCTreeWindowTogether))>
+
+      <Obsolete>
 
       Public Class DCTreeWindowTogetherVE Inherits LBSCustomEditor Implements IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler
   inheritance:
@@ -173,6 +177,9 @@ items:
       value: DCTreeWindowTogether
     - type: System.Type
       value: ISILab.AI.Categorization.DCTreeWindowTogether
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.VisualElements.DCTreeWindowTogetherVE.#ctor(System.Object)
   commentId: M:ISILab.LBS.VisualElements.DCTreeWindowTogetherVE.#ctor(System.Object)
   id: '#ctor(System.Object)'
@@ -191,7 +198,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
-    startLine: 13
+    startLine: 14
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -223,7 +230,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateVisualElement
     path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -253,7 +260,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetInfo
     path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
-    startLine: 33
+    startLine: 34
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements

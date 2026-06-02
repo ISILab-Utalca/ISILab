@@ -1,0 +1,768 @@
+### YamlMime:ManagedReference
+items:
+- uid: BgTools.PlayerPrefsEditor.MySearchField
+  commentId: T:BgTools.PlayerPrefsEditor.MySearchField
+  id: MySearchField
+  parent: BgTools.PlayerPrefsEditor
+  children:
+  - BgTools.PlayerPrefsEditor.MySearchField.DropdownSelectionDelegate
+  - BgTools.PlayerPrefsEditor.MySearchField.OnGUI(UnityEngine.Rect,System.String,UnityEngine.GUIStyle,UnityEngine.GUIStyle,UnityEngine.GUIStyle)
+  - BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI(System.String,UnityEngine.GUILayoutOption[])
+  - BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI(UnityEngine.Rect,System.String)
+  - BgTools.PlayerPrefsEditor.MySearchField.SearchMode
+  langs:
+  - csharp
+  - vb
+  name: MySearchField
+  nameWithType: MySearchField
+  fullName: BgTools.PlayerPrefsEditor.MySearchField
+  type: Class
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MySearchField
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+    startLine: 640
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: 'public class MySearchField : SearchField'
+    content.vb: Public Class MySearchField Inherits SearchField
+  inheritance:
+  - System.Object
+  - UnityEditor.IMGUI.Controls.SearchField
+  inheritedMembers:
+  - UnityEditor.IMGUI.Controls.SearchField.SetFocus
+  - UnityEditor.IMGUI.Controls.SearchField.HasFocus
+  - UnityEditor.IMGUI.Controls.SearchField.OnGUI(UnityEngine.Rect,System.String)
+  - UnityEditor.IMGUI.Controls.SearchField.OnGUI(System.String,UnityEngine.GUILayoutOption[])
+  - UnityEditor.IMGUI.Controls.SearchField.searchFieldControlID
+  - UnityEditor.IMGUI.Controls.SearchField.autoSetFocusOnFindCommand
+  - UnityEditor.IMGUI.Controls.SearchField.downOrUpArrowKeyPressed
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: BgTools.PlayerPrefsEditor.MySearchField.SearchMode
+  commentId: P:BgTools.PlayerPrefsEditor.MySearchField.SearchMode
+  id: SearchMode
+  parent: BgTools.PlayerPrefsEditor.MySearchField
+  langs:
+  - csharp
+  - vb
+  name: SearchMode
+  nameWithType: MySearchField.SearchMode
+  fullName: BgTools.PlayerPrefsEditor.MySearchField.SearchMode
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SearchMode
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+    startLine: 644
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public MySearchField.SearchModePreferencesEditorWindow SearchMode { get; }
+    parameters: []
+    return:
+      type: BgTools.PlayerPrefsEditor.MySearchField.SearchModePreferencesEditorWindow
+    content.vb: Public Property SearchMode As MySearchField.SearchModePreferencesEditorWindow
+  overload: BgTools.PlayerPrefsEditor.MySearchField.SearchMode*
+- uid: BgTools.PlayerPrefsEditor.MySearchField.DropdownSelectionDelegate
+  commentId: F:BgTools.PlayerPrefsEditor.MySearchField.DropdownSelectionDelegate
+  id: DropdownSelectionDelegate
+  parent: BgTools.PlayerPrefsEditor.MySearchField
+  langs:
+  - csharp
+  - vb
+  name: DropdownSelectionDelegate
+  nameWithType: MySearchField.DropdownSelectionDelegate
+  fullName: BgTools.PlayerPrefsEditor.MySearchField.DropdownSelectionDelegate
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: DropdownSelectionDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+    startLine: 646
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public Action DropdownSelectionDelegate
+    return:
+      type: System.Action
+    content.vb: Public DropdownSelectionDelegate As Action
+- uid: BgTools.PlayerPrefsEditor.MySearchField.OnGUI(UnityEngine.Rect,System.String,UnityEngine.GUIStyle,UnityEngine.GUIStyle,UnityEngine.GUIStyle)
+  commentId: M:BgTools.PlayerPrefsEditor.MySearchField.OnGUI(UnityEngine.Rect,System.String,UnityEngine.GUIStyle,UnityEngine.GUIStyle,UnityEngine.GUIStyle)
+  id: OnGUI(UnityEngine.Rect,System.String,UnityEngine.GUIStyle,UnityEngine.GUIStyle,UnityEngine.GUIStyle)
+  parent: BgTools.PlayerPrefsEditor.MySearchField
+  langs:
+  - csharp
+  - vb
+  name: OnGUI(Rect, string, GUIStyle, GUIStyle, GUIStyle)
+  nameWithType: MySearchField.OnGUI(Rect, string, GUIStyle, GUIStyle, GUIStyle)
+  fullName: BgTools.PlayerPrefsEditor.MySearchField.OnGUI(UnityEngine.Rect, string, UnityEngine.GUIStyle, UnityEngine.GUIStyle, UnityEngine.GUIStyle)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnGUI
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+    startLine: 648
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public string OnGUI(Rect rect, string text, GUIStyle style, GUIStyle cancelButtonStyle, GUIStyle emptyCancelButtonStyle)
+    parameters:
+    - id: rect
+      type: UnityEngine.Rect
+    - id: text
+      type: System.String
+    - id: style
+      type: UnityEngine.GUIStyle
+    - id: cancelButtonStyle
+      type: UnityEngine.GUIStyle
+    - id: emptyCancelButtonStyle
+      type: UnityEngine.GUIStyle
+    return:
+      type: System.String
+    content.vb: Public Function OnGUI(rect As Rect, text As String, style As GUIStyle, cancelButtonStyle As GUIStyle, emptyCancelButtonStyle As GUIStyle) As String
+  overload: BgTools.PlayerPrefsEditor.MySearchField.OnGUI*
+  nameWithType.vb: MySearchField.OnGUI(Rect, String, GUIStyle, GUIStyle, GUIStyle)
+  fullName.vb: BgTools.PlayerPrefsEditor.MySearchField.OnGUI(UnityEngine.Rect, String, UnityEngine.GUIStyle, UnityEngine.GUIStyle, UnityEngine.GUIStyle)
+  name.vb: OnGUI(Rect, String, GUIStyle, GUIStyle, GUIStyle)
+- uid: BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI(System.String,UnityEngine.GUILayoutOption[])
+  commentId: M:BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI(System.String,UnityEngine.GUILayoutOption[])
+  id: OnToolbarGUI(System.String,UnityEngine.GUILayoutOption[])
+  parent: BgTools.PlayerPrefsEditor.MySearchField
+  langs:
+  - csharp
+  - vb
+  name: OnToolbarGUI(string, params GUILayoutOption[])
+  nameWithType: MySearchField.OnToolbarGUI(string, params GUILayoutOption[])
+  fullName: BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI(string, params UnityEngine.GUILayoutOption[])
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnToolbarGUI
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+    startLine: 696
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public string OnToolbarGUI(string text, params GUILayoutOption[] options)
+    parameters:
+    - id: text
+      type: System.String
+    - id: options
+      type: UnityEngine.GUILayoutOption[]
+    return:
+      type: System.String
+    content.vb: Public Function OnToolbarGUI(text As String, ParamArray options As GUILayoutOption()) As String
+  overload: BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI*
+  nameWithType.vb: MySearchField.OnToolbarGUI(String, ParamArray GUILayoutOption())
+  fullName.vb: BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI(String, ParamArray UnityEngine.GUILayoutOption())
+  name.vb: OnToolbarGUI(String, ParamArray GUILayoutOption())
+- uid: BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI(UnityEngine.Rect,System.String)
+  commentId: M:BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI(UnityEngine.Rect,System.String)
+  id: OnToolbarGUI(UnityEngine.Rect,System.String)
+  parent: BgTools.PlayerPrefsEditor.MySearchField
+  langs:
+  - csharp
+  - vb
+  name: OnToolbarGUI(Rect, string)
+  nameWithType: MySearchField.OnToolbarGUI(Rect, string)
+  fullName: BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI(UnityEngine.Rect, string)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnToolbarGUI
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+    startLine: 697
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public string OnToolbarGUI(Rect rect, string text)
+    parameters:
+    - id: rect
+      type: UnityEngine.Rect
+    - id: text
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function OnToolbarGUI(rect As Rect, text As String) As String
+  overload: BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI*
+  nameWithType.vb: MySearchField.OnToolbarGUI(Rect, String)
+  fullName.vb: BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI(UnityEngine.Rect, String)
+  name.vb: OnToolbarGUI(Rect, String)
+references:
+- uid: BgTools.PlayerPrefsEditor
+  commentId: N:BgTools.PlayerPrefsEditor
+  href: BgTools.html
+  name: BgTools.PlayerPrefsEditor
+  nameWithType: BgTools.PlayerPrefsEditor
+  fullName: BgTools.PlayerPrefsEditor
+  spec.csharp:
+  - uid: BgTools
+    name: BgTools
+    href: BgTools.html
+  - name: .
+  - uid: BgTools.PlayerPrefsEditor
+    name: PlayerPrefsEditor
+    href: BgTools.PlayerPrefsEditor.html
+  spec.vb:
+  - uid: BgTools
+    name: BgTools
+    href: BgTools.html
+  - name: .
+  - uid: BgTools.PlayerPrefsEditor
+    name: PlayerPrefsEditor
+    href: BgTools.PlayerPrefsEditor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityEditor.IMGUI.Controls.SearchField
+  commentId: T:UnityEditor.IMGUI.Controls.SearchField
+  parent: UnityEditor.IMGUI.Controls
+  isExternal: true
+  name: SearchField
+  nameWithType: SearchField
+  fullName: UnityEditor.IMGUI.Controls.SearchField
+- uid: UnityEditor.IMGUI.Controls.SearchField.SetFocus
+  commentId: M:UnityEditor.IMGUI.Controls.SearchField.SetFocus
+  parent: UnityEditor.IMGUI.Controls.SearchField
+  isExternal: true
+  name: SetFocus()
+  nameWithType: SearchField.SetFocus()
+  fullName: UnityEditor.IMGUI.Controls.SearchField.SetFocus()
+  spec.csharp:
+  - uid: UnityEditor.IMGUI.Controls.SearchField.SetFocus
+    name: SetFocus
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityEditor.IMGUI.Controls.SearchField.SetFocus
+    name: SetFocus
+    isExternal: true
+  - name: (
+  - name: )
+- uid: UnityEditor.IMGUI.Controls.SearchField.HasFocus
+  commentId: M:UnityEditor.IMGUI.Controls.SearchField.HasFocus
+  parent: UnityEditor.IMGUI.Controls.SearchField
+  isExternal: true
+  name: HasFocus()
+  nameWithType: SearchField.HasFocus()
+  fullName: UnityEditor.IMGUI.Controls.SearchField.HasFocus()
+  spec.csharp:
+  - uid: UnityEditor.IMGUI.Controls.SearchField.HasFocus
+    name: HasFocus
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityEditor.IMGUI.Controls.SearchField.HasFocus
+    name: HasFocus
+    isExternal: true
+  - name: (
+  - name: )
+- uid: UnityEditor.IMGUI.Controls.SearchField.OnGUI(UnityEngine.Rect,System.String)
+  commentId: M:UnityEditor.IMGUI.Controls.SearchField.OnGUI(UnityEngine.Rect,System.String)
+  parent: UnityEditor.IMGUI.Controls.SearchField
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: OnGUI(Rect, string)
+  nameWithType: SearchField.OnGUI(Rect, string)
+  fullName: UnityEditor.IMGUI.Controls.SearchField.OnGUI(UnityEngine.Rect, string)
+  nameWithType.vb: SearchField.OnGUI(Rect, String)
+  fullName.vb: UnityEditor.IMGUI.Controls.SearchField.OnGUI(UnityEngine.Rect, String)
+  name.vb: OnGUI(Rect, String)
+  spec.csharp:
+  - uid: UnityEditor.IMGUI.Controls.SearchField.OnGUI(UnityEngine.Rect,System.String)
+    name: OnGUI
+    isExternal: true
+  - name: (
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: UnityEditor.IMGUI.Controls.SearchField.OnGUI(UnityEngine.Rect,System.String)
+    name: OnGUI
+    isExternal: true
+  - name: (
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: UnityEditor.IMGUI.Controls.SearchField.OnGUI(System.String,UnityEngine.GUILayoutOption[])
+  commentId: M:UnityEditor.IMGUI.Controls.SearchField.OnGUI(System.String,UnityEngine.GUILayoutOption[])
+  parent: UnityEditor.IMGUI.Controls.SearchField
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: OnGUI(string, params GUILayoutOption[])
+  nameWithType: SearchField.OnGUI(string, params GUILayoutOption[])
+  fullName: UnityEditor.IMGUI.Controls.SearchField.OnGUI(string, params UnityEngine.GUILayoutOption[])
+  nameWithType.vb: SearchField.OnGUI(String, ParamArray GUILayoutOption())
+  fullName.vb: UnityEditor.IMGUI.Controls.SearchField.OnGUI(String, ParamArray UnityEngine.GUILayoutOption())
+  name.vb: OnGUI(String, ParamArray GUILayoutOption())
+  spec.csharp:
+  - uid: UnityEditor.IMGUI.Controls.SearchField.OnGUI(System.String,UnityEngine.GUILayoutOption[])
+    name: OnGUI
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: UnityEngine.GUILayoutOption
+    name: GUILayoutOption
+    isExternal: true
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: UnityEditor.IMGUI.Controls.SearchField.OnGUI(System.String,UnityEngine.GUILayoutOption[])
+    name: OnGUI
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: UnityEngine.GUILayoutOption
+    name: GUILayoutOption
+    isExternal: true
+  - name: (
+  - name: )
+  - name: )
+- uid: UnityEditor.IMGUI.Controls.SearchField.searchFieldControlID
+  commentId: P:UnityEditor.IMGUI.Controls.SearchField.searchFieldControlID
+  parent: UnityEditor.IMGUI.Controls.SearchField
+  isExternal: true
+  name: searchFieldControlID
+  nameWithType: SearchField.searchFieldControlID
+  fullName: UnityEditor.IMGUI.Controls.SearchField.searchFieldControlID
+- uid: UnityEditor.IMGUI.Controls.SearchField.autoSetFocusOnFindCommand
+  commentId: P:UnityEditor.IMGUI.Controls.SearchField.autoSetFocusOnFindCommand
+  parent: UnityEditor.IMGUI.Controls.SearchField
+  isExternal: true
+  name: autoSetFocusOnFindCommand
+  nameWithType: SearchField.autoSetFocusOnFindCommand
+  fullName: UnityEditor.IMGUI.Controls.SearchField.autoSetFocusOnFindCommand
+- uid: UnityEditor.IMGUI.Controls.SearchField.downOrUpArrowKeyPressed
+  commentId: E:UnityEditor.IMGUI.Controls.SearchField.downOrUpArrowKeyPressed
+  parent: UnityEditor.IMGUI.Controls.SearchField
+  isExternal: true
+  name: downOrUpArrowKeyPressed
+  nameWithType: SearchField.downOrUpArrowKeyPressed
+  fullName: UnityEditor.IMGUI.Controls.SearchField.downOrUpArrowKeyPressed
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEditor.IMGUI.Controls
+  commentId: N:UnityEditor.IMGUI.Controls
+  isExternal: true
+  name: UnityEditor.IMGUI.Controls
+  nameWithType: UnityEditor.IMGUI.Controls
+  fullName: UnityEditor.IMGUI.Controls
+  spec.csharp:
+  - uid: UnityEditor
+    name: UnityEditor
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.IMGUI
+    name: IMGUI
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.IMGUI.Controls
+    name: Controls
+    isExternal: true
+  spec.vb:
+  - uid: UnityEditor
+    name: UnityEditor
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.IMGUI
+    name: IMGUI
+    isExternal: true
+  - name: .
+  - uid: UnityEditor.IMGUI.Controls
+    name: Controls
+    isExternal: true
+- uid: BgTools.PlayerPrefsEditor.MySearchField.SearchMode*
+  commentId: Overload:BgTools.PlayerPrefsEditor.MySearchField.SearchMode
+  href: BgTools.PlayerPrefsEditor.MySearchField.html#BgTools_PlayerPrefsEditor_MySearchField_SearchMode
+  name: SearchMode
+  nameWithType: MySearchField.SearchMode
+  fullName: BgTools.PlayerPrefsEditor.MySearchField.SearchMode
+- uid: BgTools.PlayerPrefsEditor.MySearchField.SearchModePreferencesEditorWindow
+  commentId: T:BgTools.PlayerPrefsEditor.MySearchField.SearchModePreferencesEditorWindow
+  parent: BgTools.PlayerPrefsEditor
+  href: BgTools.PlayerPrefsEditor.MySearchField.html
+  name: MySearchField.SearchModePreferencesEditorWindow
+  nameWithType: MySearchField.SearchModePreferencesEditorWindow
+  fullName: BgTools.PlayerPrefsEditor.MySearchField.SearchModePreferencesEditorWindow
+  spec.csharp:
+  - uid: BgTools.PlayerPrefsEditor.MySearchField
+    name: MySearchField
+    href: BgTools.PlayerPrefsEditor.MySearchField.html
+  - name: .
+  - uid: BgTools.PlayerPrefsEditor.MySearchField.SearchModePreferencesEditorWindow
+    name: SearchModePreferencesEditorWindow
+    href: BgTools.PlayerPrefsEditor.MySearchField.SearchModePreferencesEditorWindow.html
+  spec.vb:
+  - uid: BgTools.PlayerPrefsEditor.MySearchField
+    name: MySearchField
+    href: BgTools.PlayerPrefsEditor.MySearchField.html
+  - name: .
+  - uid: BgTools.PlayerPrefsEditor.MySearchField.SearchModePreferencesEditorWindow
+    name: SearchModePreferencesEditorWindow
+    href: BgTools.PlayerPrefsEditor.MySearchField.SearchModePreferencesEditorWindow.html
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: BgTools.PlayerPrefsEditor.MySearchField.OnGUI*
+  commentId: Overload:BgTools.PlayerPrefsEditor.MySearchField.OnGUI
+  href: BgTools.PlayerPrefsEditor.MySearchField.html#BgTools_PlayerPrefsEditor_MySearchField_OnGUI_UnityEngine_Rect_System_String_UnityEngine_GUIStyle_UnityEngine_GUIStyle_UnityEngine_GUIStyle_
+  name: OnGUI
+  nameWithType: MySearchField.OnGUI
+  fullName: BgTools.PlayerPrefsEditor.MySearchField.OnGUI
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityEngine.GUIStyle
+  commentId: T:UnityEngine.GUIStyle
+  parent: UnityEngine
+  isExternal: true
+  name: GUIStyle
+  nameWithType: GUIStyle
+  fullName: UnityEngine.GUIStyle
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI*
+  commentId: Overload:BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI
+  href: BgTools.PlayerPrefsEditor.MySearchField.html#BgTools_PlayerPrefsEditor_MySearchField_OnToolbarGUI_System_String_UnityEngine_GUILayoutOption___
+  name: OnToolbarGUI
+  nameWithType: MySearchField.OnToolbarGUI
+  fullName: BgTools.PlayerPrefsEditor.MySearchField.OnToolbarGUI
+- uid: UnityEngine.GUILayoutOption[]
+  isExternal: true
+  name: GUILayoutOption[]
+  nameWithType: GUILayoutOption[]
+  fullName: UnityEngine.GUILayoutOption[]
+  nameWithType.vb: GUILayoutOption()
+  fullName.vb: UnityEngine.GUILayoutOption()
+  name.vb: GUILayoutOption()
+  spec.csharp:
+  - uid: UnityEngine.GUILayoutOption
+    name: GUILayoutOption
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: UnityEngine.GUILayoutOption
+    name: GUILayoutOption
+    isExternal: true
+  - name: (
+  - name: )
+shouldSkipMarkup: true

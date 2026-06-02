@@ -29,7 +29,7 @@ namespace GeneticSharp.Domain.Crossovers
     /// </para>
     /// <para>
     /// The voting recombination produce one child of parents number (p) based on a threshold.
-    /// <see href="https://www.cs.vu.nl/~gusz/papers/Handbook-Multiparent-Eiben.pdf">Multiparent Recombination</see>
+    /// <see href="https://www.cs.vu.nl/~gusz/papers/Handbook-Multiparent-Eiben.pdf">Multi-parent Recombination</see>
     /// </para>
     /// </remarks>
     [DisplayName("Voting Recombination (VR)")]
@@ -42,11 +42,11 @@ namespace GeneticSharp.Domain.Crossovers
         /// </summary>
         /// <param name="parentsNumber">The number of parents need for cross.</param>
         /// <param name="threshold">An element occurs at least the threshold number of times, it is copied into the offspring</param>
-        public VotingRecombinationCrossover()
+        public VotingRecombinationCrossover(int parentsNumber=2,int threshold=2)
         {
-            ParentsNumber = 2;
+            ParentsNumber = parentsNumber;
             ChildrenNumber = 1;
-            _threshold = 2;
+            _threshold = threshold;
             IsOrdered = false;
         }
 

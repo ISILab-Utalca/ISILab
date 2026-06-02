@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: Malee.Editor.ReorderableList.SurrogateCallback
+  commentId: T:Malee.Editor.ReorderableList.SurrogateCallback
+  id: ReorderableList.SurrogateCallback
+  parent: Malee.Editor
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.SurrogateCallback
+  nameWithType: ReorderableList.SurrogateCallback
+  fullName: Malee.Editor.ReorderableList.SurrogateCallback
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SurrogateCallback
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 39
+  assemblies:
+  - ReorderableList
+  namespace: Malee.Editor
+  syntax:
+    content: public delegate void ReorderableList.SurrogateCallback(SerializedProperty element, Object objectReference, ReorderableList list)
+    parameters:
+    - id: element
+      type: UnityEditor.SerializedProperty
+    - id: objectReference
+      type: UnityEngine.Object
+    - id: list
+      type: Malee.Editor.ReorderableList
+    content.vb: Public Delegate Sub ReorderableList.SurrogateCallback(element As SerializedProperty, objectReference As [Object], list As ReorderableList)
+references:
+- uid: Malee.Editor
+  commentId: N:Malee.Editor
+  href: Malee.html
+  name: Malee.Editor
+  nameWithType: Malee.Editor
+  fullName: Malee.Editor
+  spec.csharp:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+  spec.vb:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+- uid: UnityEditor.SerializedProperty
+  commentId: T:UnityEditor.SerializedProperty
+  parent: UnityEditor
+  isExternal: true
+  name: SerializedProperty
+  nameWithType: SerializedProperty
+  fullName: UnityEditor.SerializedProperty
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: Malee.Editor.ReorderableList
+  commentId: T:Malee.Editor.ReorderableList
+  parent: Malee.Editor
+  href: Malee.Editor.ReorderableList.html
+  name: ReorderableList
+  nameWithType: ReorderableList
+  fullName: Malee.Editor.ReorderableList
+- uid: UnityEditor
+  commentId: N:UnityEditor
+  isExternal: true
+  name: UnityEditor
+  nameWithType: UnityEditor
+  fullName: UnityEditor
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+shouldSkipMarkup: true

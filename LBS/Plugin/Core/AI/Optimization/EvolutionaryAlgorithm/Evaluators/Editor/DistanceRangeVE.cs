@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("DistanceRange", typeof(DistanceRange))]
+    [System.Obsolete]
     public class DistanceRangeVE : LBSCustomEditor
     {
 		LBSCustomButton configurationButton;

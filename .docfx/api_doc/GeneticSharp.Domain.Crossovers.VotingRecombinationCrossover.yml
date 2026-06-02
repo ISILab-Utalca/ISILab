@@ -5,7 +5,7 @@ items:
   id: VotingRecombinationCrossover
   parent: GeneticSharp.Domain.Crossovers
   children:
-  - GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor
+  - GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor(System.Int32,System.Int32)
   - GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.PerformCross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
   langs:
   - csharp
@@ -25,6 +25,46 @@ items:
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
+  summary: Voting Recombination Crossover (VR).
+  remarks: >-
+    <p>
+
+    It can be seen as a P-sexual crossover operator, where p (parents number) is a natural number greater than, or equal to, 2.
+
+    </p>
+
+    <p>
+
+    It starts by defining a threshold, which is a natural number smaller than, or equal to p.
+
+    </p>
+
+    <p>
+
+    Next, for every; i E {l, 2, . . .N} the set of ith elements of all the parents is considered. 
+
+    If in this set an element occurs at least the threshold number of times, it is copied into the offspring. 
+
+    </p>
+
+    <p>
+
+    For example, if we consider the parents(p = 4) (1 4 3 5 2 6), (1 2 4 3 5 6), (3 2 1 5 4 6), (1 2 3 4 5 6) and we define the threshold to be equal to 3 we find(1 2 x x x 6). 
+
+    The remaining positions of the offspring are filled with mutations.
+
+    <a href="http://ictactjournals.in/paper/IJSC_V6_I1_paper_4_pp_1083_1092.pdf">Crossover operators in genetic algorithms: A review</a>
+
+    </p>
+
+    <p>
+
+    The voting recombination produce one child of parents number (p) based on a threshold.
+
+    <a href="https://www.cs.vu.nl/~gusz/papers/Handbook-Multiparent-Eiben.pdf">Multi-parent Recombination</a>
+
+    </p>
+  example: []
   syntax:
     content: 'public sealed class VotingRecombinationCrossover : CrossoverBase, ICrossover, IChromosomeOperator'
     content.vb: Public NotInheritable Class VotingRecombinationCrossover Inherits CrossoverBase Implements ICrossover, IChromosomeOperator
@@ -46,16 +86,16 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor
-  commentId: M:GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor
-  id: '#ctor'
+- uid: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor(System.Int32,System.Int32)
+  commentId: M:GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor(System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32)'
   parent: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover
   langs:
   - csharp
   - vb
-  name: VotingRecombinationCrossover()
-  nameWithType: VotingRecombinationCrossover.VotingRecombinationCrossover()
-  fullName: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.VotingRecombinationCrossover()
+  name: VotingRecombinationCrossover(int, int)
+  nameWithType: VotingRecombinationCrossover.VotingRecombinationCrossover(int, int)
+  fullName: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.VotingRecombinationCrossover(int, int)
   type: Constructor
   source:
     remote:
@@ -71,12 +111,19 @@ items:
   summary: Initializes a new instance of the <xref href="GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public VotingRecombinationCrossover()
-    content.vb: Public Sub New()
+    content: public VotingRecombinationCrossover(int parentsNumber = 2, int threshold = 2)
+    parameters:
+    - id: parentsNumber
+      type: System.Int32
+      description: The number of parents need for cross.
+    - id: threshold
+      type: System.Int32
+      description: An element occurs at least the threshold number of times, it is copied into the offspring
+    content.vb: Public Sub New(parentsNumber As Integer = 2, threshold As Integer = 2)
   overload: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor*
-  nameWithType.vb: VotingRecombinationCrossover.New()
-  fullName.vb: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.New()
-  name.vb: New()
+  nameWithType.vb: VotingRecombinationCrossover.New(Integer, Integer)
+  fullName.vb: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.New(Integer, Integer)
+  name.vb: New(Integer, Integer)
 - uid: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.PerformCross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
   commentId: M:GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.PerformCross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
   id: PerformCross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
@@ -490,13 +537,24 @@ references:
   fullName: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover
 - uid: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor*
   commentId: Overload:GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor
-  href: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.html#GeneticSharp_Domain_Crossovers_VotingRecombinationCrossover__ctor
+  href: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.html#GeneticSharp_Domain_Crossovers_VotingRecombinationCrossover__ctor_System_Int32_System_Int32_
   name: VotingRecombinationCrossover
   nameWithType: VotingRecombinationCrossover.VotingRecombinationCrossover
   fullName: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.VotingRecombinationCrossover
   nameWithType.vb: VotingRecombinationCrossover.New
   fullName.vb: GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.New
   name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: GeneticSharp.Domain.Crossovers.CrossoverBase.PerformCross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
   commentId: M:GeneticSharp.Domain.Crossovers.CrossoverBase.PerformCross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})
   parent: GeneticSharp.Domain.Crossovers.CrossoverBase

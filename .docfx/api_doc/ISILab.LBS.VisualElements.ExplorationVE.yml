@@ -30,9 +30,13 @@ items:
     content: >-
       [LBSCustomEditor("Exploration", typeof(Exploration))]
 
+      [Obsolete]
+
       public class ExplorationVE : LBSCustomEditor, IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler
     content.vb: >-
       <LBSCustomEditor("Exploration", GetType(Exploration))>
+
+      <Obsolete>
 
       Public Class ExplorationVE Inherits LBSCustomEditor Implements IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler
   inheritance:
@@ -173,6 +177,9 @@ items:
       value: Exploration
     - type: System.Type
       value: ISILab.AI.Categorization.Exploration
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.VisualElements.ExplorationVE.#ctor(System.Object)
   commentId: M:ISILab.LBS.VisualElements.ExplorationVE.#ctor(System.Object)
   id: '#ctor(System.Object)'
@@ -191,7 +198,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ExplorationVE.cs
-    startLine: 16
+    startLine: 17
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -223,7 +230,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetInfo
     path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ExplorationVE.cs
-    startLine: 22
+    startLine: 23
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -257,7 +264,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateVisualElement
     path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ExplorationVE.cs
-    startLine: 39
+    startLine: 40
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements

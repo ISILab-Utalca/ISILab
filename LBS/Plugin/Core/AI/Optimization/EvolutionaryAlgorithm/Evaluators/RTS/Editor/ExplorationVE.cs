@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("Exploration", typeof(Exploration))]
+    [System.Obsolete]
     public class ExplorationVE : LBSCustomEditor
     {
         [UxmlAttribute]

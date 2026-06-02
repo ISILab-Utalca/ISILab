@@ -5,7 +5,6 @@ items:
   id: AgentOS
   parent: PathOS
   children:
-  - PathOS.AgentOS.#ctor
   - PathOS.AgentOS.experienceScale
   - PathOS.AgentOS.exploreDegrees
   - PathOS.AgentOS.exploreTargetMargin
@@ -22,22 +21,40 @@ items:
   nameWithType: AgentOS
   fullName: PathOS.AgentOS
   type: Class
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: AgentOS
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+    startLine: 4
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public class AgentOS
-    content.vb: Public Class AgentOS
+    content: >-
+      [Serializable]
+
+      public class AgentOS
+    content.vb: >-
+      <Serializable>
+
+      Public Class AgentOS
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: PathOS.AgentOS.timeScale
   commentId: F:PathOS.AgentOS.timeScale
   id: timeScale
@@ -49,14 +66,36 @@ items:
   nameWithType: AgentOS.timeScale
   fullName: PathOS.AgentOS.timeScale
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: timeScale
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+    startLine: 7
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public float timeScale
+    content: >-
+      [Range(1, 8)]
+
+      public float timeScale
     return:
       type: System.Single
-    content.vb: Public timeScale As Single
+    content.vb: >-
+      <Range(1, 8)>
+
+      Public timeScale As Single
+  attributes:
+  - type: UnityEngine.RangeAttribute
+    ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
+    arguments:
+    - type: System.Single
+      value: 1
+    - type: System.Single
+      value: 8
 - uid: PathOS.AgentOS.freezeAgent
   commentId: F:PathOS.AgentOS.freezeAgent
   id: freezeAgent
@@ -68,6 +107,14 @@ items:
   nameWithType: AgentOS.freezeAgent
   fullName: PathOS.AgentOS.freezeAgent
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: freezeAgent
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+    startLine: 8
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -87,14 +134,36 @@ items:
   nameWithType: AgentOS.experienceScale
   fullName: PathOS.AgentOS.experienceScale
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: experienceScale
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+    startLine: 10
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public float experienceScale
+    content: >-
+      [Range(0, 1)]
+
+      public float experienceScale
     return:
       type: System.Single
-    content.vb: Public experienceScale As Single
+    content.vb: >-
+      <Range(0, 1)>
+
+      Public experienceScale As Single
+  attributes:
+  - type: UnityEngine.RangeAttribute
+    ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
+    arguments:
+    - type: System.Single
+      value: 0
+    - type: System.Single
+      value: 1
 - uid: PathOS.AgentOS.visitThreshold
   commentId: F:PathOS.AgentOS.visitThreshold
   id: visitThreshold
@@ -106,14 +175,34 @@ items:
   nameWithType: AgentOS.visitThreshold
   fullName: PathOS.AgentOS.visitThreshold
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: visitThreshold
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+    startLine: 13
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public float visitThreshold
+    content: >-
+      [Tooltip("How close (in units) does the agent have to get to a goal to mark it as visited?")]
+
+      public float visitThreshold
     return:
       type: System.Single
-    content.vb: Public visitThreshold As Single
+    content.vb: >-
+      <Tooltip("How close (in units) does the agent have to get to a goal to mark it as visited?")>
+
+      Public visitThreshold As Single
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: How close (in units) does the agent have to get to a goal to mark it as visited?
 - uid: PathOS.AgentOS.exploreDegrees
   commentId: F:PathOS.AgentOS.exploreDegrees
   id: exploreDegrees
@@ -125,14 +214,34 @@ items:
   nameWithType: AgentOS.exploreDegrees
   fullName: PathOS.AgentOS.exploreDegrees
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: exploreDegrees
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+    startLine: 16
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public float exploreDegrees
+    content: >-
+      [Tooltip("Degrees between LOS checks for explorability")]
+
+      public float exploreDegrees
     return:
       type: System.Single
-    content.vb: Public exploreDegrees As Single
+    content.vb: >-
+      <Tooltip("Degrees between LOS checks for explorability")>
+
+      Public exploreDegrees As Single
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Degrees between LOS checks for explorability
 - uid: PathOS.AgentOS.invisibleExploreDegrees
   commentId: F:PathOS.AgentOS.invisibleExploreDegrees
   id: invisibleExploreDegrees
@@ -144,14 +253,34 @@ items:
   nameWithType: AgentOS.invisibleExploreDegrees
   fullName: PathOS.AgentOS.invisibleExploreDegrees
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: invisibleExploreDegrees
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+    startLine: 19
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public float invisibleExploreDegrees
+    content: >-
+      [Tooltip("Degrees between behind-the-back explorability checks")]
+
+      public float invisibleExploreDegrees
     return:
       type: System.Single
-    content.vb: Public invisibleExploreDegrees As Single
+    content.vb: >-
+      <Tooltip("Degrees between behind-the-back explorability checks")>
+
+      Public invisibleExploreDegrees As Single
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Degrees between behind-the-back explorability checks
 - uid: PathOS.AgentOS.lookDegrees
   commentId: F:PathOS.AgentOS.lookDegrees
   id: lookDegrees
@@ -163,14 +292,34 @@ items:
   nameWithType: AgentOS.lookDegrees
   fullName: PathOS.AgentOS.lookDegrees
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: lookDegrees
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+    startLine: 22
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public float lookDegrees
+    content: >-
+      [Tooltip("Agent sway when looking around")]
+
+      public float lookDegrees
     return:
       type: System.Single
-    content.vb: Public lookDegrees As Single
+    content.vb: >-
+      <Tooltip("Agent sway when looking around")>
+
+      Public lookDegrees As Single
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Agent sway when looking around
 - uid: PathOS.AgentOS.exploreThreshold
   commentId: F:PathOS.AgentOS.exploreThreshold
   id: exploreThreshold
@@ -182,14 +331,34 @@ items:
   nameWithType: AgentOS.exploreThreshold
   fullName: PathOS.AgentOS.exploreThreshold
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: exploreThreshold
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+    startLine: 25
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public float exploreThreshold
+    content: >-
+      [Tooltip("Distance for considering two explore goals identical")]
+
+      public float exploreThreshold
     return:
       type: System.Single
-    content.vb: Public exploreThreshold As Single
+    content.vb: >-
+      <Tooltip("Distance for considering two explore goals identical")>
+
+      Public exploreThreshold As Single
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Distance for considering two explore goals identical
 - uid: PathOS.AgentOS.exploreTargetMargin
   commentId: F:PathOS.AgentOS.exploreTargetMargin
   id: exploreTargetMargin
@@ -201,39 +370,37 @@ items:
   nameWithType: AgentOS.exploreTargetMargin
   fullName: PathOS.AgentOS.exploreTargetMargin
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: exploreTargetMargin
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/AgentOS.cs
+    startLine: 28
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public float exploreTargetMargin
+    content: >-
+      [Tooltip("Search radius when picking explore targets")]
+
+      public float exploreTargetMargin
     return:
       type: System.Single
-    content.vb: Public exploreTargetMargin As Single
-- uid: PathOS.AgentOS.#ctor
-  commentId: M:PathOS.AgentOS.#ctor
-  id: '#ctor'
-  parent: PathOS.AgentOS
-  langs:
-  - csharp
-  - vb
-  name: AgentOS()
-  nameWithType: AgentOS.AgentOS()
-  fullName: PathOS.AgentOS.AgentOS()
-  type: Constructor
-  assemblies:
-  - PathOSPlus
-  namespace: PathOS
-  syntax:
-    content: public AgentOS()
-    content.vb: Public Sub New()
-  overload: PathOS.AgentOS.#ctor*
-  nameWithType.vb: AgentOS.New()
-  fullName.vb: PathOS.AgentOS.New()
-  name.vb: New()
+    content.vb: >-
+      <Tooltip("Search radius when picking explore targets")>
+
+      Public exploreTargetMargin As Single
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Search radius when picking explore targets
 references:
 - uid: PathOS
   commentId: N:PathOS
-  isExternal: true
   href: PathOS.html
   name: PathOS
   nameWithType: PathOS
@@ -249,78 +416,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -399,6 +494,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -444,28 +611,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -497,14 +664,4 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: PathOS.AgentOS.#ctor*
-  commentId: Overload:PathOS.AgentOS.#ctor
-  isExternal: true
-  href: PathOS.AgentOS.html#PathOS_AgentOS__ctor
-  name: AgentOS
-  nameWithType: AgentOS.AgentOS
-  fullName: PathOS.AgentOS.AgentOS
-  nameWithType.vb: AgentOS.New
-  fullName.vb: PathOS.AgentOS.New
-  name.vb: New
 shouldSkipMarkup: true

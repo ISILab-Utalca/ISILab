@@ -1,0 +1,450 @@
+### YamlMime:ManagedReference
+items:
+- uid: BgTools.Extensions.Extensions
+  commentId: T:BgTools.Extensions.Extensions
+  id: Extensions
+  parent: BgTools.Extensions
+  children:
+  - BgTools.Extensions.Extensions.CenterOnMainWindow(UnityEditor.EditorWindow)
+  - BgTools.Extensions.Extensions.CenterOnWindow(UnityEditor.EditorWindow,UnityEditor.EditorWindow)
+  - BgTools.Extensions.Extensions.GetEditorMainWindowPos(UnityEditor.EditorWindow)
+  langs:
+  - csharp
+  - vb
+  name: Extensions
+  nameWithType: Extensions
+  fullName: BgTools.Extensions.Extensions
+  type: Class
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/Extensions/CenterOnWindow.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Extensions
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/Extensions/CenterOnWindow.cs
+    startLine: 9
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.Extensions
+  syntax:
+    content: public static class Extensions
+    content.vb: Public Module Extensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: BgTools.Extensions.Extensions.GetEditorMainWindowPos(UnityEditor.EditorWindow)
+  commentId: M:BgTools.Extensions.Extensions.GetEditorMainWindowPos(UnityEditor.EditorWindow)
+  id: GetEditorMainWindowPos(UnityEditor.EditorWindow)
+  parent: BgTools.Extensions.Extensions
+  langs:
+  - csharp
+  - vb
+  name: GetEditorMainWindowPos(EditorWindow)
+  nameWithType: Extensions.GetEditorMainWindowPos(EditorWindow)
+  fullName: BgTools.Extensions.Extensions.GetEditorMainWindowPos(UnityEditor.EditorWindow)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/Extensions/CenterOnWindow.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetEditorMainWindowPos
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/Extensions/CenterOnWindow.cs
+    startLine: 28
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.Extensions
+  syntax:
+    content: public static Rect GetEditorMainWindowPos(EditorWindow relatedWin = null)
+    parameters:
+    - id: relatedWin
+      type: UnityEditor.EditorWindow
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public Shared Function GetEditorMainWindowPos(relatedWin As EditorWindow = Nothing) As Rect
+  overload: BgTools.Extensions.Extensions.GetEditorMainWindowPos*
+- uid: BgTools.Extensions.Extensions.CenterOnMainWindow(UnityEditor.EditorWindow)
+  commentId: M:BgTools.Extensions.Extensions.CenterOnMainWindow(UnityEditor.EditorWindow)
+  id: CenterOnMainWindow(UnityEditor.EditorWindow)
+  isExtensionMethod: true
+  parent: BgTools.Extensions.Extensions
+  langs:
+  - csharp
+  - vb
+  name: CenterOnMainWindow(EditorWindow)
+  nameWithType: Extensions.CenterOnMainWindow(EditorWindow)
+  fullName: BgTools.Extensions.Extensions.CenterOnMainWindow(UnityEditor.EditorWindow)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/Extensions/CenterOnWindow.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: CenterOnMainWindow
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/Extensions/CenterOnWindow.cs
+    startLine: 67
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.Extensions
+  summary: >-
+    Center the EditorWindow in front of the MainUnityWindow (support multi screens).
+
+    Kept the currend window sizes.
+  example: []
+  syntax:
+    content: public static void CenterOnMainWindow(this EditorWindow window)
+    parameters:
+    - id: window
+      type: UnityEditor.EditorWindow
+    content.vb: Public Shared Sub CenterOnMainWindow(window As EditorWindow)
+  overload: BgTools.Extensions.Extensions.CenterOnMainWindow*
+- uid: BgTools.Extensions.Extensions.CenterOnWindow(UnityEditor.EditorWindow,UnityEditor.EditorWindow)
+  commentId: M:BgTools.Extensions.Extensions.CenterOnWindow(UnityEditor.EditorWindow,UnityEditor.EditorWindow)
+  id: CenterOnWindow(UnityEditor.EditorWindow,UnityEditor.EditorWindow)
+  isExtensionMethod: true
+  parent: BgTools.Extensions.Extensions
+  langs:
+  - csharp
+  - vb
+  name: CenterOnWindow(EditorWindow, EditorWindow)
+  nameWithType: Extensions.CenterOnWindow(EditorWindow, EditorWindow)
+  fullName: BgTools.Extensions.Extensions.CenterOnWindow(UnityEditor.EditorWindow, UnityEditor.EditorWindow)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/Extensions/CenterOnWindow.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: CenterOnWindow
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/Extensions/CenterOnWindow.cs
+    startLine: 77
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.Extensions
+  summary: >-
+    Center the EditorWindow in front of the given EditorWindow (support multi screens).
+
+    Kept the currend window sizes.
+  example: []
+  syntax:
+    content: public static void CenterOnWindow(this EditorWindow window, EditorWindow relatedWin)
+    parameters:
+    - id: window
+      type: UnityEditor.EditorWindow
+    - id: relatedWin
+      type: UnityEditor.EditorWindow
+      description: Referance window for the positioning.
+    content.vb: Public Shared Sub CenterOnWindow(window As EditorWindow, relatedWin As EditorWindow)
+  overload: BgTools.Extensions.Extensions.CenterOnWindow*
+references:
+- uid: BgTools.Extensions
+  commentId: N:BgTools.Extensions
+  href: BgTools.html
+  name: BgTools.Extensions
+  nameWithType: BgTools.Extensions
+  fullName: BgTools.Extensions
+  spec.csharp:
+  - uid: BgTools
+    name: BgTools
+    href: BgTools.html
+  - name: .
+  - uid: BgTools.Extensions
+    name: Extensions
+    href: BgTools.Extensions.html
+  spec.vb:
+  - uid: BgTools
+    name: BgTools
+    href: BgTools.html
+  - name: .
+  - uid: BgTools.Extensions
+    name: Extensions
+    href: BgTools.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BgTools.Extensions.Extensions.GetEditorMainWindowPos*
+  commentId: Overload:BgTools.Extensions.Extensions.GetEditorMainWindowPos
+  href: BgTools.Extensions.Extensions.html#BgTools_Extensions_Extensions_GetEditorMainWindowPos_UnityEditor_EditorWindow_
+  name: GetEditorMainWindowPos
+  nameWithType: Extensions.GetEditorMainWindowPos
+  fullName: BgTools.Extensions.Extensions.GetEditorMainWindowPos
+- uid: UnityEditor.EditorWindow
+  commentId: T:UnityEditor.EditorWindow
+  parent: UnityEditor
+  isExternal: true
+  name: EditorWindow
+  nameWithType: EditorWindow
+  fullName: UnityEditor.EditorWindow
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: UnityEditor
+  commentId: N:UnityEditor
+  isExternal: true
+  name: UnityEditor
+  nameWithType: UnityEditor
+  fullName: UnityEditor
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: BgTools.Extensions.Extensions.CenterOnMainWindow*
+  commentId: Overload:BgTools.Extensions.Extensions.CenterOnMainWindow
+  href: BgTools.Extensions.Extensions.html#BgTools_Extensions_Extensions_CenterOnMainWindow_UnityEditor_EditorWindow_
+  name: CenterOnMainWindow
+  nameWithType: Extensions.CenterOnMainWindow
+  fullName: BgTools.Extensions.Extensions.CenterOnMainWindow
+- uid: BgTools.Extensions.Extensions.CenterOnWindow*
+  commentId: Overload:BgTools.Extensions.Extensions.CenterOnWindow
+  href: BgTools.Extensions.Extensions.html#BgTools_Extensions_Extensions_CenterOnWindow_UnityEditor_EditorWindow_UnityEditor_EditorWindow_
+  name: CenterOnWindow
+  nameWithType: Extensions.CenterOnWindow
+  fullName: BgTools.Extensions.Extensions.CenterOnWindow
+shouldSkipMarkup: true

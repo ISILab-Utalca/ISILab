@@ -25,11 +25,8 @@ items:
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Crossovers
-  summary: >-
-    Alternating-position (AP).
-
-    <remarks>
-
+  summary: Alternating-position (AP).
+  remarks: >-
     <p>
 
     The alternating position crossover operator (Larrañaga et al. 1996a) simply creates an offspring by selecting alternately the next 
@@ -53,8 +50,6 @@ items:
     <a href="../docs/Genetic Algorithms for the Travelling Salesman Problem - A Review of Representations and Operators.pdf">Genetic Algorithms for the Travelling Salesman Problem: A Review of Representations and Operators</a>
 
     </p>
-
-    </remarks>
   example: []
   syntax:
     content: 'public sealed class AlternatingPositionCrossover : CrossoverBase, ICrossover, IChromosomeOperator'

@@ -10,6 +10,7 @@ using ISILab.AI.Categorization;
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("ResourcesSafetyFairness", typeof(ResourcesSafetyFairness))]
+    [System.Obsolete]
     public class ResourceFairnessVE : LBSCustomEditor
     {
         DynamicFoldout playerCharacteristic;

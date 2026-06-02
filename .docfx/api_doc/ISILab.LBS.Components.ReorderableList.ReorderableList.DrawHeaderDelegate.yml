@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Components.ReorderableList.ReorderableList.DrawHeaderDelegate
+  commentId: T:ISILab.LBS.Components.ReorderableList.ReorderableList.DrawHeaderDelegate
+  id: ReorderableList.DrawHeaderDelegate
+  parent: ISILab.LBS.Components.ReorderableList
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.DrawHeaderDelegate
+  nameWithType: ReorderableList.DrawHeaderDelegate
+  fullName: ISILab.LBS.Components.ReorderableList.ReorderableList.DrawHeaderDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: DrawHeaderDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 27
+  assemblies:
+  - ReorderableList
+  namespace: ISILab.LBS.Components.ReorderableList
+  syntax:
+    content: public delegate void ReorderableList.DrawHeaderDelegate(Rect rect, GUIContent label)
+    parameters:
+    - id: rect
+      type: UnityEngine.Rect
+    - id: label
+      type: UnityEngine.GUIContent
+    content.vb: Public Delegate Sub ReorderableList.DrawHeaderDelegate(rect As Rect, label As GUIContent)
+references:
+- uid: ISILab.LBS.Components.ReorderableList
+  commentId: N:ISILab.LBS.Components.ReorderableList
+  href: ISILab.html
+  name: ISILab.LBS.Components.ReorderableList
+  nameWithType: ISILab.LBS.Components.ReorderableList
+  fullName: ISILab.LBS.Components.ReorderableList
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+  - name: .
+  - uid: ISILab.LBS.Components.ReorderableList
+    name: ReorderableList
+    href: ISILab.LBS.Components.ReorderableList.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+  - name: .
+  - uid: ISILab.LBS.Components.ReorderableList
+    name: ReorderableList
+    href: ISILab.LBS.Components.ReorderableList.html
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: UnityEngine.GUIContent
+  commentId: T:UnityEngine.GUIContent
+  parent: UnityEngine
+  isExternal: true
+  name: GUIContent
+  nameWithType: GUIContent
+  fullName: UnityEngine.GUIContent
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+shouldSkipMarkup: true

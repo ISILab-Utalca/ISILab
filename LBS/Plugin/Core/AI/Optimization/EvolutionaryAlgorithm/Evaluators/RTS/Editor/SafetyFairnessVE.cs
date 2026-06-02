@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("SecurityFairness", typeof(SafetyFairness))]
+    [System.Obsolete]
     public class SafetyFairnessVE : LBSCustomEditor
     {
         DynamicFoldout colliderCharacteristic;

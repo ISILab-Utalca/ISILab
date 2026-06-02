@@ -1,0 +1,130 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Components.ReorderableList.ReorderableList.DrawElementDelegate
+  commentId: T:ISILab.LBS.Components.ReorderableList.ReorderableList.DrawElementDelegate
+  id: ReorderableList.DrawElementDelegate
+  parent: ISILab.LBS.Components.ReorderableList
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.DrawElementDelegate
+  nameWithType: ReorderableList.DrawElementDelegate
+  fullName: ISILab.LBS.Components.ReorderableList.ReorderableList.DrawElementDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: DrawElementDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 29
+  assemblies:
+  - ReorderableList
+  namespace: ISILab.LBS.Components.ReorderableList
+  syntax:
+    content: public delegate void ReorderableList.DrawElementDelegate(Rect rect, SerializedProperty element, GUIContent label, bool selected, bool focused)
+    parameters:
+    - id: rect
+      type: UnityEngine.Rect
+    - id: element
+      type: UnityEditor.SerializedProperty
+    - id: label
+      type: UnityEngine.GUIContent
+    - id: selected
+      type: System.Boolean
+    - id: focused
+      type: System.Boolean
+    content.vb: Public Delegate Sub ReorderableList.DrawElementDelegate(rect As Rect, element As SerializedProperty, label As GUIContent, selected As Boolean, focused As Boolean)
+references:
+- uid: ISILab.LBS.Components.ReorderableList
+  commentId: N:ISILab.LBS.Components.ReorderableList
+  href: ISILab.html
+  name: ISILab.LBS.Components.ReorderableList
+  nameWithType: ISILab.LBS.Components.ReorderableList
+  fullName: ISILab.LBS.Components.ReorderableList
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+  - name: .
+  - uid: ISILab.LBS.Components.ReorderableList
+    name: ReorderableList
+    href: ISILab.LBS.Components.ReorderableList.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+  - name: .
+  - uid: ISILab.LBS.Components.ReorderableList
+    name: ReorderableList
+    href: ISILab.LBS.Components.ReorderableList.html
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: UnityEditor.SerializedProperty
+  commentId: T:UnityEditor.SerializedProperty
+  parent: UnityEditor
+  isExternal: true
+  name: SerializedProperty
+  nameWithType: SerializedProperty
+  fullName: UnityEditor.SerializedProperty
+- uid: UnityEngine.GUIContent
+  commentId: T:UnityEngine.GUIContent
+  parent: UnityEngine
+  isExternal: true
+  name: GUIContent
+  nameWithType: GUIContent
+  fullName: UnityEngine.GUIContent
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEditor
+  commentId: N:UnityEditor
+  isExternal: true
+  name: UnityEditor
+  nameWithType: UnityEditor
+  fullName: UnityEditor
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+shouldSkipMarkup: true

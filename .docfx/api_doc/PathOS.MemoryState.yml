@@ -5,7 +5,7 @@ items:
   id: MemoryState
   parent: PathOS
   children:
-  - PathOS.MemoryState.#ctor
+  - PathOS.MemoryState.GoNextWaypoint(UnityEngine.AI.NavMeshAgent,PathOS.NavigationState)
   - PathOS.MemoryState.forgetTime
   - PathOS.MemoryState.memPathChance
   - PathOS.MemoryState.memPathWaypoints
@@ -19,22 +19,40 @@ items:
   nameWithType: MemoryState
   fullName: PathOS.MemoryState
   type: Class
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MemoryState
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+    startLine: 6
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public class MemoryState
-    content.vb: Public Class MemoryState
+    content: >-
+      [Serializable]
+
+      public class MemoryState
+    content.vb: >-
+      <Serializable>
+
+      Public Class MemoryState
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: PathOS.MemoryState.memPathChance
   commentId: F:PathOS.MemoryState.memPathChance
   id: memPathChance
@@ -46,6 +64,14 @@ items:
   nameWithType: MemoryState.memPathChance
   fullName: PathOS.MemoryState.memPathChance
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: memPathChance
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+    startLine: 9
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -65,6 +91,14 @@ items:
   nameWithType: MemoryState.onMemPath
   fullName: PathOS.MemoryState.onMemPath
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: onMemPath
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+    startLine: 10
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -84,6 +118,14 @@ items:
   nameWithType: MemoryState.memPathWaypoints
   fullName: PathOS.MemoryState.memPathWaypoints
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: memPathWaypoints
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+    startLine: 12
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -92,27 +134,6 @@ items:
     return:
       type: System.Collections.Generic.List{UnityEngine.Vector3}
     content.vb: Public memPathWaypoints As List(Of Vector3)
-- uid: PathOS.MemoryState.#ctor
-  commentId: M:PathOS.MemoryState.#ctor
-  id: '#ctor'
-  parent: PathOS.MemoryState
-  langs:
-  - csharp
-  - vb
-  name: MemoryState()
-  nameWithType: MemoryState.MemoryState()
-  fullName: PathOS.MemoryState.MemoryState()
-  type: Constructor
-  assemblies:
-  - PathOSPlus
-  namespace: PathOS
-  syntax:
-    content: public MemoryState()
-    content.vb: Public Sub New()
-  overload: PathOS.MemoryState.#ctor*
-  nameWithType.vb: MemoryState.New()
-  fullName.vb: PathOS.MemoryState.New()
-  name.vb: New()
 - uid: PathOS.MemoryState.memWaypoint
   commentId: P:PathOS.MemoryState.memWaypoint
   id: memWaypoint
@@ -124,6 +145,14 @@ items:
   nameWithType: MemoryState.memWaypoint
   fullName: PathOS.MemoryState.memWaypoint
   type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: memWaypoint
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+    startLine: 13
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -145,6 +174,14 @@ items:
   nameWithType: MemoryState.forgetTime
   fullName: PathOS.MemoryState.forgetTime
   type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: forgetTime
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+    startLine: 17
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -166,6 +203,14 @@ items:
   nameWithType: MemoryState.stmSize
   fullName: PathOS.MemoryState.stmSize
   type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: stmSize
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+    startLine: 18
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -176,10 +221,40 @@ items:
       type: System.Int32
     content.vb: Public Property stmSize As Integer
   overload: PathOS.MemoryState.stmSize*
+- uid: PathOS.MemoryState.GoNextWaypoint(UnityEngine.AI.NavMeshAgent,PathOS.NavigationState)
+  commentId: M:PathOS.MemoryState.GoNextWaypoint(UnityEngine.AI.NavMeshAgent,PathOS.NavigationState)
+  id: GoNextWaypoint(UnityEngine.AI.NavMeshAgent,PathOS.NavigationState)
+  parent: PathOS.MemoryState
+  langs:
+  - csharp
+  - vb
+  name: GoNextWaypoint(NavMeshAgent, NavigationState)
+  nameWithType: MemoryState.GoNextWaypoint(NavMeshAgent, NavigationState)
+  fullName: PathOS.MemoryState.GoNextWaypoint(UnityEngine.AI.NavMeshAgent, PathOS.NavigationState)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GoNextWaypoint
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Agents/AgentInfo/MemoryState.cs
+    startLine: 20
+  assemblies:
+  - PathOSPlus
+  namespace: PathOS
+  syntax:
+    content: public void GoNextWaypoint(NavMeshAgent navAgent, NavigationState navigationState)
+    parameters:
+    - id: navAgent
+      type: UnityEngine.AI.NavMeshAgent
+    - id: navigationState
+      type: PathOS.NavigationState
+    content.vb: Public Sub GoNextWaypoint(navAgent As NavMeshAgent, navigationState As NavigationState)
+  overload: PathOS.MemoryState.GoNextWaypoint*
 references:
 - uid: PathOS
   commentId: N:PathOS
-  isExternal: true
   href: PathOS.html
   name: PathOS
   nameWithType: PathOS
@@ -195,78 +270,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -345,6 +348,78 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -390,28 +465,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
+  - uid: System.Object.ToString
+    name: ToString
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System
@@ -541,38 +616,33 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: PathOS.MemoryState.#ctor*
-  commentId: Overload:PathOS.MemoryState.#ctor
-  isExternal: true
-  href: PathOS.MemoryState.html#PathOS_MemoryState__ctor
-  name: MemoryState
-  nameWithType: MemoryState.MemoryState
-  fullName: PathOS.MemoryState.MemoryState
-  nameWithType.vb: MemoryState.New
-  fullName.vb: PathOS.MemoryState.New
-  name.vb: New
 - uid: PathOS.MemoryState.memWaypoint*
   commentId: Overload:PathOS.MemoryState.memWaypoint
-  isExternal: true
   href: PathOS.MemoryState.html#PathOS_MemoryState_memWaypoint
   name: memWaypoint
   nameWithType: MemoryState.memWaypoint
   fullName: PathOS.MemoryState.memWaypoint
 - uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
   isExternal: true
   name: Vector3
   nameWithType: Vector3
   fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: PathOS.MemoryState.forgetTime*
   commentId: Overload:PathOS.MemoryState.forgetTime
-  isExternal: true
   href: PathOS.MemoryState.html#PathOS_MemoryState_forgetTime
   name: forgetTime
   nameWithType: MemoryState.forgetTime
   fullName: PathOS.MemoryState.forgetTime
 - uid: PathOS.MemoryState.stmSize*
   commentId: Overload:PathOS.MemoryState.stmSize
-  isExternal: true
   href: PathOS.MemoryState.html#PathOS_MemoryState_stmSize
   name: stmSize
   nameWithType: MemoryState.stmSize
@@ -588,4 +658,46 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: PathOS.MemoryState.GoNextWaypoint*
+  commentId: Overload:PathOS.MemoryState.GoNextWaypoint
+  href: PathOS.MemoryState.html#PathOS_MemoryState_GoNextWaypoint_UnityEngine_AI_NavMeshAgent_PathOS_NavigationState_
+  name: GoNextWaypoint
+  nameWithType: MemoryState.GoNextWaypoint
+  fullName: PathOS.MemoryState.GoNextWaypoint
+- uid: UnityEngine.AI.NavMeshAgent
+  commentId: T:UnityEngine.AI.NavMeshAgent
+  parent: UnityEngine.AI
+  isExternal: true
+  name: NavMeshAgent
+  nameWithType: NavMeshAgent
+  fullName: UnityEngine.AI.NavMeshAgent
+- uid: PathOS.NavigationState
+  commentId: T:PathOS.NavigationState
+  parent: PathOS
+  href: PathOS.NavigationState.html
+  name: NavigationState
+  nameWithType: NavigationState
+  fullName: PathOS.NavigationState
+- uid: UnityEngine.AI
+  commentId: N:UnityEngine.AI
+  isExternal: true
+  name: UnityEngine.AI
+  nameWithType: UnityEngine.AI
+  fullName: UnityEngine.AI
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.AI
+    name: AI
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.AI
+    name: AI
+    isExternal: true
 shouldSkipMarkup: true
