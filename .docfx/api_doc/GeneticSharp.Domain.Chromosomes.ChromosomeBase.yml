@@ -6,7 +6,7 @@ items:
   parent: GeneticSharp.Domain.Chromosomes
   children:
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor
-  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Int32[],System.Int32[])
+  - GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
   - GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
@@ -51,9 +51,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ChromosomeBase
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 13
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 14
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -97,9 +101,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: genes
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 18
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 19
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -120,17 +128,21 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: immutableIndexes
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 19
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 20
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
   syntax:
-    content: protected int[] immutableIndexes
+    content: protected HashSet<int> immutableIndexes
     return:
-      type: System.Int32[]
-    content.vb: Protected immutableIndexes As Integer()
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Protected immutableIndexes As HashSet(Of Integer)
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
   commentId: F:GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
   id: invalidIndexes
@@ -143,52 +155,60 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: invalidIndexes
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 20
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 21
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
   syntax:
-    content: protected int[] invalidIndexes
+    content: protected HashSet<int> invalidIndexes
     return:
-      type: System.Int32[]
-    content.vb: Protected invalidIndexes As Integer()
-- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Int32[],System.Int32[])
-  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Int32[],System.Int32[])
-  id: '#ctor(System.Int32,System.Int32[],System.Int32[])'
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Protected invalidIndexes As HashSet(Of Integer)
+- uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  id: '#ctor(System.Int32,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})'
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase
   langs:
   - csharp
   - vb
-  name: ChromosomeBase(int, int[], int[])
-  nameWithType: ChromosomeBase.ChromosomeBase(int, int[], int[])
-  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ChromosomeBase(int, int[], int[])
+  name: ChromosomeBase(int, HashSet<int>, HashSet<int>)
+  nameWithType: ChromosomeBase.ChromosomeBase(int, HashSet<int>, HashSet<int>)
+  fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ChromosomeBase(int, System.Collections.Generic.HashSet<int>, System.Collections.Generic.HashSet<int>)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 28
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 29
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
   summary: Initializes a new instance of the <xref href="GeneticSharp.Domain.Chromosomes.ChromosomeBase" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: protected ChromosomeBase(int length, int[] immutables = null, int[] invalids = null)
+    content: protected ChromosomeBase(int length, HashSet<int> immutables = null, HashSet<int> invalids = null)
     parameters:
     - id: length
       type: System.Int32
       description: The length, in genes, of the chromosome.
     - id: immutables
-      type: System.Int32[]
+      type: System.Collections.Generic.HashSet{System.Int32}
     - id: invalids
-      type: System.Int32[]
-    content.vb: Protected Sub New(length As Integer, immutables As Integer() = Nothing, invalids As Integer() = Nothing)
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Protected Sub New(length As Integer, immutables As HashSet(Of Integer) = Nothing, invalids As HashSet(Of Integer) = Nothing)
   overload: GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor*
-  nameWithType.vb: ChromosomeBase.New(Integer, Integer(), Integer())
-  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.New(Integer, Integer(), Integer())
-  name.vb: New(Integer, Integer(), Integer())
+  nameWithType.vb: ChromosomeBase.New(Integer, HashSet(Of Integer), HashSet(Of Integer))
+  fullName.vb: GeneticSharp.Domain.Chromosomes.ChromosomeBase.New(Integer, System.Collections.Generic.HashSet(Of Integer), System.Collections.Generic.HashSet(Of Integer))
+  name.vb: New(Integer, HashSet(Of Integer), HashSet(Of Integer))
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor
   id: '#ctor'
@@ -201,9 +221,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ChromosomeBase()
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 41
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 42
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -226,9 +250,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Fitness
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 54
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 55
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -255,9 +283,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: xFitness
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 56
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 57
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -285,9 +317,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: yFitness
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 57
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -315,9 +351,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Length
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 63
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 64
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -342,9 +382,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ImmutablesCount
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 64
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 65
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -367,9 +411,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator ==(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
   type: Operator
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: op_Equality
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 76
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 77
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -404,9 +452,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator !=(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
   type: Operator
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: op_Inequality
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 99
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 100
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -441,9 +493,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator <(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
   type: Operator
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: op_LessThan
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 112
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 113
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -478,9 +534,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.operator >(GeneticSharp.Domain.Chromosomes.ChromosomeBase, GeneticSharp.Domain.Chromosomes.ChromosomeBase)
   type: Operator
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: op_GreaterThan
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 140
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 141
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -515,9 +575,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateNewChromosome
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 149
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 150
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -542,9 +606,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CloneChromosome
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 155
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 156
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -569,9 +637,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene<T>(int, T)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ReplaceGene
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 163
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 164
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -609,9 +681,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes<T>(int, T[])
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ReplaceGenes
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 188
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 189
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -646,9 +722,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Resize
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 220
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 221
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -677,9 +757,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene<T>(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetGene
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 234
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 235
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -713,9 +797,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes<T>()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetGenes
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 250
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 251
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -745,9 +833,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CompareTo
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 267
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 268
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -776,9 +868,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(object)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 290
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 291
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -813,9 +909,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 308
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 309
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -841,9 +941,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateGene
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 323
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 324
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -881,9 +985,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateGenes
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 340
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 341
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -918,9 +1026,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetGene
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 361
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 362
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -948,9 +1060,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetGenes
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 366
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 367
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -972,9 +1088,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GenerateGene
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 371
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 372
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -996,9 +1116,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 379
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 380
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -1023,9 +1147,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsValid
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 384
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 385
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -1047,9 +1175,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence<T>(T[])
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetDataSequence
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 386
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 387
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -1077,9 +1209,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData<T>()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetData
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 398
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 399
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -1106,9 +1242,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence<T>()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetDataSquence
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 407
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 408
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -1135,9 +1275,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData<T>(T)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetData
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 412
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 413
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -1165,9 +1309,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsImmutable
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 417
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 418
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -1195,9 +1343,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsInvalid
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 422
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 423
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -1225,9 +1377,13 @@ items:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetDeafult
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase.cs
-    startLine: 427
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs
+    startLine: 428
   assemblies:
   - LBS
   namespace: GeneticSharp.Domain.Chromosomes
@@ -1520,29 +1676,106 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: (
   - name: )
-- uid: System.Int32[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int[]
-  nameWithType: int[]
-  fullName: int[]
-  nameWithType.vb: Integer()
-  fullName.vb: Integer()
-  name.vb: Integer()
+- uid: System.Collections.Generic.HashSet{System.Int32}
+  commentId: T:System.Collections.Generic.HashSet{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<int>
+  nameWithType: HashSet<int>
+  fullName: System.Collections.Generic.HashSet<int>
+  nameWithType.vb: HashSet(Of Integer)
+  fullName.vb: System.Collections.Generic.HashSet(Of Integer)
+  name.vb: HashSet(Of Integer)
   spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
   - uid: System.Int32
     name: int
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '['
-  - name: ']'
+  - name: '>'
   spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
   - uid: System.Int32
     name: Integer
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: (
   - name: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase
   commentId: T:GeneticSharp.Domain.Chromosomes.ChromosomeBase
   parent: GeneticSharp.Domain.Chromosomes
@@ -1552,7 +1785,7 @@ references:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor*
   commentId: Overload:GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor
-  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor_System_Int32_System_Int32___System_Int32___
+  href: GeneticSharp.Domain.Chromosomes.ChromosomeBase.html#GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor_System_Int32_System_Collections_Generic_HashSet_System_Int32__System_Collections_Generic_HashSet_System_Int32__
   name: ChromosomeBase
   nameWithType: ChromosomeBase.ChromosomeBase
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeBase.ChromosomeBase

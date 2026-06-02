@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class RankSelection | lbs-api_docs ">
       
-      <meta name="description" content="Rank Selection  Is a kind of Fitness Proportionate Selection.  Rank Selection  The Rank selection method, is similar to the . However the size of the wheel and sectors are calculated differently.   In the Rank selection method, the first step is to sort the population by fitness and assign a new fitness value from 1 to n. The worst chromosome is given a fitness of 1, the best a fitness of n.   Then, an array is built containing cumulative probabilities of the individuals. So, n random numbers are generated in the range 0 to fitness sum. and for each random number an array element which can have higher value is searched for. Therefore, individuals are selected according to their  probabilities of selection.">
+      <meta name="description" content="Rank Selection">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=ISILab_AI_Optimization_Selections_RankSelection.md&amp;value=---%0Auid%3A%20ISILab.AI.Optimization.Selections.RankSelection%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="ISILab_AI_Optimization_Selections_RankSelection" data-uid="ISILab.AI.Optimization.Selections.RankSelection" class="text-break">
-Class RankSelection  
+Class RankSelection  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,24 +97,7 @@ Class RankSelection
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary">Rank Selection
-<remarks>
-Is a kind of Fitness Proportionate Selection. 
-<a href=" https://www.obitko.com/tutorials/genetic-algorithms/selection.php">Rank Selection</a>
-<p>
-The Rank selection method, is similar to the <a class="xref" href="ISILab.AI.Optimization.Selections.RouletteWheelSelection.html">RouletteWheelSelection</a>. However the size of the wheel and sectors are
-calculated differently.
-</p>
-<p>
-In the Rank selection method, the first step is to sort the population by fitness and assign a new fitness value from 1 to n.
-The worst chromosome is given a fitness of 1, the best a fitness of n.
-</p>
-<p>
-Then, an array is built containing cumulative probabilities of the individuals. So, n random numbers are generated in the range 0 to fitness sum.
-and for each random number an array element which can have higher value is searched for. Therefore, individuals are selected according to their 
-probabilities of selection. 
-</p>
-</remarks></div>
+  <div class="markdown summary">Rank Selection</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -179,6 +162,22 @@ probabilities of selection.
 
 
 
+  <h2 id="ISILab_AI_Optimization_Selections_RankSelection_remarks">Remarks</h2>
+  <div class="markdown level0 remarks">Is a kind of Fitness Proportionate Selection. 
+<a href=" https://www.obitko.com/tutorials/genetic-algorithms/selection.php">Rank Selection</a>
+<p>
+The Rank selection method, is similar to the <a class="xref" href="ISILab.AI.Optimization.Selections.RouletteWheelSelection.html">RouletteWheelSelection</a>. However the size of the wheel and sectors are
+calculated differently.
+</p>
+<p>
+In the Rank selection method, the first step is to sort the population by fitness and assign a new fitness value from 1 to n.
+The worst chromosome is given a fitness of 1, the best a fitness of n.
+</p>
+<p>
+Then, an array is built containing cumulative probabilities of the individuals. So, n random numbers are generated in the range 0 to fitness sum.
+and for each random number an array element which can have higher value is searched for. Therefore, individuals are selected according to their 
+probabilities of selection. 
+</p></div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -189,10 +188,10 @@ probabilities of selection.
 
   <h3 id="ISILab_AI_Optimization_Selections_RankSelection__ctor" data-uid="ISILab.AI.Optimization.Selections.RankSelection.#ctor">
   RankSelection()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary">Initializes a new instance of the GeneticSharp.Domain.Selections.RankSelection class.</div>
+  <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="ISILab.AI.Optimization.Selections.RankSelection.html">RankSelection</a> class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -219,7 +218,7 @@ probabilities of selection.
 
   <h3 id="ISILab_AI_Optimization_Selections_RankSelection_CalculateCumulativeFitnessRank_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Collections_Generic_IList_System_Double__" data-uid="ISILab.AI.Optimization.Selections.RankSelection.CalculateCumulativeFitnessRank(System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Collections.Generic.IList{System.Double})">
   CalculateCumulativeFitnessRank(IList&lt;IOptimizable&gt;, IList&lt;double&gt;)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Calculates the cumulative percent.</div>
@@ -252,7 +251,7 @@ probabilities of selection.
 
   <h3 id="ISILab_AI_Optimization_Selections_RankSelection_PerformSelectEvaluables_System_Int32_ISILab_AI_Optimization_Populations_Generation_" data-uid="ISILab.AI.Optimization.Selections.RankSelection.PerformSelectEvaluables(System.Int32,ISILab.AI.Optimization.Populations.Generation)">
   PerformSelectEvaluables(int, Generation)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Performs the selection of chromosomes from the generation specified.</div>
@@ -290,7 +289,7 @@ probabilities of selection.
 
   <h3 id="ISILab_AI_Optimization_Selections_RankSelection_SelectFromWheel_System_Int32_System_Collections_Generic_IList_ISILab_AI_Optimization_IOptimizable__System_Collections_Generic_IList_System_Double__System_Func_System_Double__" data-uid="ISILab.AI.Optimization.Selections.RankSelection.SelectFromWheel(System.Int32,System.Collections.Generic.IList{ISILab.AI.Optimization.IOptimizable},System.Collections.Generic.IList{System.Double},System.Func{System.Double})">
   SelectFromWheel(int, IList&lt;IOptimizable&gt;, IList&lt;double&gt;, Func&lt;double&gt;)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Selects from wheel.</div>
@@ -332,6 +331,7 @@ probabilities of selection.
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs/#L32" class="edit-link">Edit this page</a>
         </div>
 
 

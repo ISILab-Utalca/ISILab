@@ -133,8 +133,10 @@ items:
   - ISILab.LBS.VisualElements.QuestFlowBehaviourEditor
   - ISILab.LBS.VisualElements.QuestGraphNodeView
   - ISILab.LBS.VisualElements.QuestNodeView
+  - ISILab.LBS.VisualElements.QuestTriggerEditor
   - ISILab.LBS.VisualElements.QuestView
   - ISILab.LBS.VisualElements.QuestVisualTree
+  - ISILab.LBS.VisualElements.QuestVisualTreeEditor
   - ISILab.LBS.VisualElements.QuickAssistantContainer
   - ISILab.LBS.VisualElements.QuickAssistantContainer.UxmlSerializedData
   - ISILab.LBS.VisualElements.QuickAssistantPanel
@@ -193,10 +195,17 @@ items:
 references:
 - uid: ISILab.LBS.VisualElements.QuestVisualTree
   commentId: T:ISILab.LBS.VisualElements.QuestVisualTree
+  parent: ISILab.LBS.VisualElements
   href: ISILab.LBS.VisualElements.QuestVisualTree.html
   name: QuestVisualTree
   nameWithType: QuestVisualTree
   fullName: ISILab.LBS.VisualElements.QuestVisualTree
+- uid: ISILab.LBS.VisualElements.QuestVisualTreeEditor
+  commentId: T:ISILab.LBS.VisualElements.QuestVisualTreeEditor
+  href: ISILab.LBS.VisualElements.QuestVisualTreeEditor.html
+  name: QuestVisualTreeEditor
+  nameWithType: QuestVisualTreeEditor
+  fullName: ISILab.LBS.VisualElements.QuestVisualTreeEditor
 - uid: ISILab.LBS.VisualElements.WorldEditBarView
   commentId: T:ISILab.LBS.VisualElements.WorldEditBarView
   href: ISILab.LBS.VisualElements.WorldEditBarView.html
@@ -223,6 +232,12 @@ references:
   name: QuestBarView
   nameWithType: QuestBarView
   fullName: ISILab.LBS.VisualElements.QuestBarView
+- uid: ISILab.LBS.VisualElements.QuestTriggerEditor
+  commentId: T:ISILab.LBS.VisualElements.QuestTriggerEditor
+  href: ISILab.LBS.VisualElements.QuestTriggerEditor.html
+  name: QuestTriggerEditor
+  nameWithType: QuestTriggerEditor
+  fullName: ISILab.LBS.VisualElements.QuestTriggerEditor
 - uid: ISILab.LBS.VisualElements.SimulationOptionView
   commentId: T:ISILab.LBS.VisualElements.SimulationOptionView
   href: ISILab.LBS.VisualElements.SimulationOptionView.html
@@ -1681,12 +1696,6 @@ references:
   name: ResourceFairnessVE
   nameWithType: ResourceFairnessVE
   fullName: ISILab.LBS.VisualElements.ResourceFairnessVE
-- uid: ISILab.LBS.VisualElements.PopulationTileGroupView
-  commentId: T:ISILab.LBS.VisualElements.PopulationTileGroupView
-  href: ISILab.LBS.VisualElements.PopulationTileGroupView.html
-  name: PopulationTileGroupView
-  nameWithType: PopulationTileGroupView
-  fullName: ISILab.LBS.VisualElements.PopulationTileGroupView
 - uid: ISILab.LBS.VisualElements.SuggestionActionButton
   commentId: T:ISILab.LBS.VisualElements.SuggestionActionButton
   parent: ISILab.LBS.VisualElements
@@ -1716,6 +1725,12 @@ references:
   - uid: ISILab.LBS.VisualElements.SuggestionActionButton.UxmlSerializedData
     name: UxmlSerializedData
     href: ISILab.LBS.VisualElements.SuggestionActionButton.UxmlSerializedData.html
+- uid: ISILab.LBS.VisualElements.PopulationTileGroupView
+  commentId: T:ISILab.LBS.VisualElements.PopulationTileGroupView
+  href: ISILab.LBS.VisualElements.PopulationTileGroupView.html
+  name: PopulationTileGroupView
+  nameWithType: PopulationTileGroupView
+  fullName: ISILab.LBS.VisualElements.PopulationTileGroupView
 - uid: ISILab.LBS.VisualElements.GrammarBundleGraphEditor
   commentId: T:ISILab.LBS.VisualElements.GrammarBundleGraphEditor
   href: ISILab.LBS.VisualElements.GrammarBundleGraphEditor.html
@@ -1821,12 +1836,6 @@ references:
   - uid: ISILab.LBS.VisualElements.QuickAssistantContainer.UxmlSerializedData
     name: UxmlSerializedData
     href: ISILab.LBS.VisualElements.QuickAssistantContainer.UxmlSerializedData.html
-- uid: ISILab.LBS.VisualElements.TriggerElementArea
-  commentId: T:ISILab.LBS.VisualElements.TriggerElementArea
-  href: ISILab.LBS.VisualElements.TriggerElementArea.html
-  name: TriggerElementArea
-  nameWithType: TriggerElementArea
-  fullName: ISILab.LBS.VisualElements.TriggerElementArea
 - uid: ISILab.LBS.VisualElements.ButtonGroup
   commentId: T:ISILab.LBS.VisualElements.ButtonGroup
   href: ISILab.LBS.VisualElements.ButtonGroup.html
@@ -1855,6 +1864,12 @@ references:
   - uid: ISILab.LBS.VisualElements.ButtonGroup.UxmlSerializedData
     name: UxmlSerializedData
     href: ISILab.LBS.VisualElements.ButtonGroup.UxmlSerializedData.html
+- uid: ISILab.LBS.VisualElements.TriggerElementArea
+  commentId: T:ISILab.LBS.VisualElements.TriggerElementArea
+  href: ISILab.LBS.VisualElements.TriggerElementArea.html
+  name: TriggerElementArea
+  nameWithType: TriggerElementArea
+  fullName: ISILab.LBS.VisualElements.TriggerElementArea
 - uid: ISILab.LBS.VisualElements.DCResourceSafetyVE
   commentId: T:ISILab.LBS.VisualElements.DCResourceSafetyVE
   href: ISILab.LBS.VisualElements.DCResourceSafetyVE.html

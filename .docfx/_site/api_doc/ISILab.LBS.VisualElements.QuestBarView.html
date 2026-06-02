@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=ISILab_LBS_VisualElements_QuestBarView.md&amp;value=---%0Auid%3A%20ISILab.LBS.VisualElements.QuestBarView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="ISILab_LBS_VisualElements_QuestBarView" data-uid="ISILab.LBS.VisualElements.QuestBarView" class="text-break">
-Class QuestBarView  
+Class QuestBarView  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -588,24 +588,20 @@ Class QuestBarView
 
   <a id="ISILab_LBS_VisualElements_QuestBarView__ctor_" data-uid="ISILab.LBS.VisualElements.QuestBarView.#ctor*"></a>
 
-  <h3 id="ISILab_LBS_VisualElements_QuestBarView__ctor_ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_ISILab_LBS_Plugin_MapTools_CustomGizmo_QuestGizmo_Custom3dQuestGizmo_" data-uid="ISILab.LBS.VisualElements.QuestBarView.#ctor(ISILab.LBS.Plugin.MapTools.Generators.QuestTracker,ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger,ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)">
-  QuestBarView(QuestTracker, QuestTrigger, Custom3dQuestGizmo)
-  
+  <h3 id="ISILab_LBS_VisualElements_QuestBarView__ctor_ISILab_LBS_Plugin_MapTools_CustomGizmo_QuestGizmo_Custom3dQuestGizmo_" data-uid="ISILab.LBS.VisualElements.QuestBarView.#ctor(ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)">
+  QuestBarView(Custom3dQuestGizmo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QuestBarView(QuestTracker tracker, QuestTrigger trigger, Custom3dQuestGizmo questGizmo)</code></pre>
+    <pre><code class="lang-csharp hljs">public QuestBarView(Custom3dQuestGizmo questGizmo)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>tracker</code> <a class="xref" href="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html">QuestTracker</a></dt>
-    <dd></dd>
-    <dt><code>trigger</code> <a class="xref" href="ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html">QuestTrigger</a></dt>
-    <dd></dd>
     <dt><code>questGizmo</code> <a class="xref" href="ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo.html">Custom3dQuestGizmo</a></dt>
     <dd></dd>
   </dl>
@@ -625,18 +621,18 @@ Class QuestBarView
 </h2>
 
 
-  <a id="ISILab_LBS_VisualElements_QuestBarView_ClearPreviousButtons_" data-uid="ISILab.LBS.VisualElements.QuestBarView.ClearPreviousButtons*"></a>
+  <a id="ISILab_LBS_VisualElements_QuestBarView_ClearButtons_" data-uid="ISILab.LBS.VisualElements.QuestBarView.ClearButtons*"></a>
 
-  <h3 id="ISILab_LBS_VisualElements_QuestBarView_ClearPreviousButtons" data-uid="ISILab.LBS.VisualElements.QuestBarView.ClearPreviousButtons">
-  ClearPreviousButtons()
-  
+  <h3 id="ISILab_LBS_VisualElements_QuestBarView_ClearButtons" data-uid="ISILab.LBS.VisualElements.QuestBarView.ClearButtons">
+  ClearButtons()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs/#L206"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void ClearPreviousButtons()</code></pre>
+    <pre><code class="lang-csharp hljs">public static void ClearButtons()</code></pre>
   </div>
 
 
@@ -651,23 +647,23 @@ Class QuestBarView
 
 
 
-  <a id="ISILab_LBS_VisualElements_QuestBarView_OnPrevStepClicked_" data-uid="ISILab.LBS.VisualElements.QuestBarView.OnPrevStepClicked*"></a>
+  <a id="ISILab_LBS_VisualElements_QuestBarView_SelectTriggerGameObject_" data-uid="ISILab.LBS.VisualElements.QuestBarView.SelectTriggerGameObject*"></a>
 
-  <h3 id="ISILab_LBS_VisualElements_QuestBarView_OnPrevStepClicked_ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_" data-uid="ISILab.LBS.VisualElements.QuestBarView.OnPrevStepClicked(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)">
-  OnPrevStepClicked(QuestTrigger)
-  
+  <h3 id="ISILab_LBS_VisualElements_QuestBarView_SelectTriggerGameObject_QuestTrigger_" data-uid="ISILab.LBS.VisualElements.QuestBarView.SelectTriggerGameObject(QuestTrigger)">
+  SelectTriggerGameObject(QuestTrigger)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs/#L159"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void OnPrevStepClicked(QuestTrigger qt)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SelectTriggerGameObject(QuestTrigger qt)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>qt</code> <a class="xref" href="ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html">QuestTrigger</a></dt>
+    <dt><code>qt</code> <a class="xref" href="QuestTrigger.html">QuestTrigger</a></dt>
     <dd></dd>
   </dl>
 
@@ -682,18 +678,18 @@ Class QuestBarView
 
 
 
-  <a id="ISILab_LBS_VisualElements_QuestBarView_UpdatePreviousButtons_" data-uid="ISILab.LBS.VisualElements.QuestBarView.UpdatePreviousButtons*"></a>
+  <a id="ISILab_LBS_VisualElements_QuestBarView_UpdatePositions_" data-uid="ISILab.LBS.VisualElements.QuestBarView.UpdatePositions*"></a>
 
-  <h3 id="ISILab_LBS_VisualElements_QuestBarView_UpdatePreviousButtons" data-uid="ISILab.LBS.VisualElements.QuestBarView.UpdatePreviousButtons">
-  UpdatePreviousButtons()
-  
+  <h3 id="ISILab_LBS_VisualElements_QuestBarView_UpdatePositions" data-uid="ISILab.LBS.VisualElements.QuestBarView.UpdatePositions">
+  UpdatePositions()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs/#L170"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void UpdatePreviousButtons()</code></pre>
+    <pre><code class="lang-csharp hljs">public void UpdatePositions()</code></pre>
   </div>
 
 
@@ -712,6 +708,7 @@ Class QuestBarView
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs/#L26" class="edit-link">Edit this page</a>
         </div>
 
 

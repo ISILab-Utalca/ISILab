@@ -13,7 +13,7 @@ namespace ISILab.AI.Optimization.Selections
     {
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Selections.SelectionException"/> class.
+        /// Initializes a new instance of the <see cref="SelectionException"/> class.
         /// </summary>
         /// <param name="selection">The Selection where occurred the error.</param>
         /// <param name="message">The error message.</param>
@@ -24,7 +24,7 @@ namespace ISILab.AI.Optimization.Selections
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Selections.SelectionException"/> class.
+        /// Initializes a new instance of the <see cref="SelectionException"/> class.
         /// </summary>
         /// <param name="selection">The Selection where occurred the error.</param>
         /// <param name="message">The error message.</param>

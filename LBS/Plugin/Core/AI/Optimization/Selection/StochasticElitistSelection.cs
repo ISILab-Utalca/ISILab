@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GeneticSharp.Domain.Randomizations;
+using GeneticSharp.Domain.;
 using ISILab.AI.Optimization.Populations;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -14,7 +15,7 @@ namespace ISILab.AI.Optimization.Selections
         double last = 0;
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Selections.EliteSelection"/> class.
+        /// Initializes a new instance of the <see cref="StochasticElitistSelection"/> class.
         /// </summary>
         public StochasticElitistSelection() : base()
         {

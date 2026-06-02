@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=ISILab_LBS_Components_OrNode.md&amp;value=---%0Auid%3A%20ISILab.LBS.Components.OrNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="ISILab_LBS_Components_OrNode" data-uid="ISILab.LBS.Components.OrNode" class="text-break">
-Class OrNode  
+Class OrNode  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs/#L197"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,7 +102,7 @@ Class OrNode
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serializable]
-public class OrNode : GraphNode, ICloneable</code></pre>
+public class OrNode : BranchNode, ICloneable</code></pre>
   </div>
 
 
@@ -113,6 +113,7 @@ public class OrNode : GraphNode, ICloneable</code></pre>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="ISILab.LBS.Components.GraphNode.html">GraphNode</a></div>
+      <div><a class="xref" href="ISILab.LBS.Components.BranchNode.html">BranchNode</a></div>
       <div><span class="xref">OrNode</span></div>
     </dd>
   </dl>
@@ -128,6 +129,9 @@ public class OrNode : GraphNode, ICloneable</code></pre>
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_Area">BranchNode.Area</a>
+    </div>
     <div>
       <a class="xref" href="ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_Or">GraphNode.Or</a>
     </div>
@@ -206,9 +210,6 @@ public class OrNode : GraphNode, ICloneable</code></pre>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
   </dd></dl>
 
 
@@ -224,7 +225,7 @@ public class OrNode : GraphNode, ICloneable</code></pre>
 
   <h3 id="ISILab_LBS_Components_OrNode__ctor_System_String_UnityEngine_Vector2_ISILab_LBS_Modules_QuestGraph_" data-uid="ISILab.LBS.Components.OrNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraph)">
   OrNode(string, Vector2, QuestGraph)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs/#L200"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -263,7 +264,7 @@ public class OrNode : GraphNode, ICloneable</code></pre>
 
   <h3 id="ISILab_LBS_Components_OrNode_CreateCloneInstance" data-uid="ISILab.LBS.Components.OrNode.CreateCloneInstance">
   CreateCloneInstance()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs/#L202"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -294,7 +295,7 @@ public class OrNode : GraphNode, ICloneable</code></pre>
 
   <h3 id="ISILab_LBS_Components_OrNode_IsValid" data-uid="ISILab.LBS.Components.OrNode.IsValid">
   IsValid()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs/#L204"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -321,10 +322,42 @@ public class OrNode : GraphNode, ICloneable</code></pre>
 
 
 
+  <a id="ISILab_LBS_Components_OrNode_ToString_" data-uid="ISILab.LBS.Components.OrNode.ToString*"></a>
+
+  <h3 id="ISILab_LBS_Components_OrNode_ToString" data-uid="ISILab.LBS.Components.OrNode.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs/#L197" class="edit-link">Edit this page</a>
         </div>
 
 

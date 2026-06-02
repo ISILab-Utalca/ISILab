@@ -502,7 +502,7 @@ public class LBSLocalAssistants : LBSInspector, IEventHandler, IResolvedStyle, I
 
   <h3 id="ISILab_LBS_VisualElements_LBSLocalAssistants__ctor" data-uid="ISILab.LBS.VisualElements.LBSLocalAssistants.#ctor">
   LBSLocalAssistants()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalAssistants.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -532,10 +532,11 @@ public class LBSLocalAssistants : LBSInspector, IEventHandler, IResolvedStyle, I
 
   <h3 id="ISILab_LBS_VisualElements_LBSLocalAssistants_InitCustomEditors_System_Collections_Generic_List_LBS_Components_LBSLayer___" data-uid="ISILab.LBS.VisualElements.LBSLocalAssistants.InitCustomEditors(System.Collections.Generic.List{LBS.Components.LBSLayer}@)">
   InitCustomEditors(ref List&lt;LBSLayer&gt;)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalAssistants.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary">Gets the classes of editors per component, no avoid using reflection on each instance creation</div>
+  <div class="markdown level1 summary">Gets the classes of editors per component, no avoid using reflection on each instance creation
+Must be overridden in a derived class to implement custom repainting behavior.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -563,10 +564,11 @@ public class LBSLocalAssistants : LBSInspector, IEventHandler, IResolvedStyle, I
 
   <h3 id="ISILab_LBS_VisualElements_LBSLocalAssistants_Repaint" data-uid="ISILab.LBS.VisualElements.LBSLocalAssistants.Repaint">
   Repaint()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalAssistants.cs/#L121"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Marks the panel as dirty and requests a repaint. 
+Must be overridden in a derived class to implement custom repainting behavior.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -589,10 +591,11 @@ public class LBSLocalAssistants : LBSInspector, IEventHandler, IResolvedStyle, I
 
   <h3 id="ISILab_LBS_VisualElements_LBSLocalAssistants_SetTarget_LBS_Components_LBSLayer_" data-uid="ISILab.LBS.VisualElements.LBSLocalAssistants.SetTarget(LBS.Components.LBSLayer)">
   SetTarget(LBSLayer)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalAssistants.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary">Sets the active layer into the panel to update the different components of a layer, such as modules,
+behaviours, assistants and toolkit.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

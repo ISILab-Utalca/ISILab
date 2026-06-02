@@ -160,7 +160,12 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.Modules.QuestGraph.html">QuestGraph</a></dt>
-      <dd></dd>
+      <dd>The graph contains the quest nodes and edges, it also contains the grammar reference to validate the graph and the root node reference to easily access it.
+
+<p>
+Also contains multiple actions and delegates to update the graph and notify the changes to the editor and the following classes:
+<ul><li><a class="xref" href="ISILab.LBS.Behaviours.QuestBehaviour.html">QuestBehaviour</a>: Controls the adding, removal of graph nodes and edges.</li><li><a class="xref" href="ISILab.LBS.Behaviours.NodeDataBehaviour.html">NodeDataBehaviour</a>: Controls data assignment within a graph node of QuestNode type</li><li><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html">GrammarAssistant</a>: Controls the validity of the graph's structure and gives fixing recommendations.</li><li><a class="xref" href="ISILab.LBS.Plugin.Core.AI.Assistant.QuestAssistant.html">QuestAssistant</a>: Reads context from other layers (assigned by the user) and recommends new nodes based on the other layer's data.</li></ul>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="ISILab.LBS.Modules.StairsModule.html">StairsModule</a></dt>

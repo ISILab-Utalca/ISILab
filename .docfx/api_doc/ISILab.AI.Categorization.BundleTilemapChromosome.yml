@@ -5,8 +5,8 @@ items:
   id: BundleTilemapChromosome
   parent: ISILab.AI.Categorization
   children:
-  - ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Int32[],System.Int32[])
-  - ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
+  - ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  - ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
   - ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome
   - ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
   - ISILab.AI.Categorization.BundleTilemapChromosome.CreateNewChromosome
@@ -23,8 +23,12 @@ items:
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: BundleTilemapChromosome
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 16
   assemblies:
   - LBS
@@ -82,72 +86,80 @@ items:
   - System.Object.ToString
   extensionMethods:
   - GeneticSharp.Domain.Chromosomes.IChromosome.GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes
-- uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Int32[],System.Int32[])
-  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Int32[],System.Int32[])
-  id: '#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Int32[],System.Int32[])'
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  id: '#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})'
   parent: ISILab.AI.Categorization.BundleTilemapChromosome
   langs:
   - csharp
   - vb
-  name: BundleTilemapChromosome(BundleTileMap, Rect, int[], int[])
-  nameWithType: BundleTilemapChromosome.BundleTilemapChromosome(BundleTileMap, Rect, int[], int[])
-  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome(ISILab.LBS.Modules.BundleTileMap, UnityEngine.Rect, int[], int[])
+  name: BundleTilemapChromosome(BundleTileMap, Rect, HashSet<int>, HashSet<int>)
+  nameWithType: BundleTilemapChromosome.BundleTilemapChromosome(BundleTileMap, Rect, HashSet<int>, HashSet<int>)
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome(ISILab.LBS.Modules.BundleTileMap, UnityEngine.Rect, System.Collections.Generic.HashSet<int>, System.Collections.Generic.HashSet<int>)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 18
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
   syntax:
-    content: public BundleTilemapChromosome(BundleTileMap tileMap, Rect rect, int[] immutables = null, int[] invalids = null)
+    content: public BundleTilemapChromosome(BundleTileMap tileMap, Rect rect, HashSet<int> immutables = null, HashSet<int> invalids = null)
     parameters:
     - id: tileMap
       type: ISILab.LBS.Modules.BundleTileMap
     - id: rect
       type: UnityEngine.Rect
     - id: immutables
-      type: System.Int32[]
+      type: System.Collections.Generic.HashSet{System.Int32}
     - id: invalids
-      type: System.Int32[]
-    content.vb: Public Sub New(tileMap As BundleTileMap, rect As Rect, immutables As Integer() = Nothing, invalids As Integer() = Nothing)
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Public Sub New(tileMap As BundleTileMap, rect As Rect, immutables As HashSet(Of Integer) = Nothing, invalids As HashSet(Of Integer) = Nothing)
   overload: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor*
-  nameWithType.vb: BundleTilemapChromosome.New(BundleTileMap, Rect, Integer(), Integer())
-  fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.New(ISILab.LBS.Modules.BundleTileMap, UnityEngine.Rect, Integer(), Integer())
-  name.vb: New(BundleTileMap, Rect, Integer(), Integer())
-- uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
-  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
-  id: '#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])'
+  nameWithType.vb: BundleTilemapChromosome.New(BundleTileMap, Rect, HashSet(Of Integer), HashSet(Of Integer))
+  fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.New(ISILab.LBS.Modules.BundleTileMap, UnityEngine.Rect, System.Collections.Generic.HashSet(Of Integer), System.Collections.Generic.HashSet(Of Integer))
+  name.vb: New(BundleTileMap, Rect, HashSet(Of Integer), HashSet(Of Integer))
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  id: '#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})'
   parent: ISILab.AI.Categorization.BundleTilemapChromosome
   langs:
   - csharp
   - vb
-  name: BundleTilemapChromosome(Rect, int[], int[])
-  nameWithType: BundleTilemapChromosome.BundleTilemapChromosome(Rect, int[], int[])
-  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome(UnityEngine.Rect, int[], int[])
+  name: BundleTilemapChromosome(Rect, HashSet<int>, HashSet<int>)
+  nameWithType: BundleTilemapChromosome.BundleTilemapChromosome(Rect, HashSet<int>, HashSet<int>)
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome(UnityEngine.Rect, System.Collections.Generic.HashSet<int>, System.Collections.Generic.HashSet<int>)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 34
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
   syntax:
-    content: public BundleTilemapChromosome(Rect rect, int[] immutables = null, int[] invalids = null)
+    content: public BundleTilemapChromosome(Rect rect, HashSet<int> immutables = null, HashSet<int> invalids = null)
     parameters:
     - id: rect
       type: UnityEngine.Rect
     - id: immutables
-      type: System.Int32[]
+      type: System.Collections.Generic.HashSet{System.Int32}
     - id: invalids
-      type: System.Int32[]
-    content.vb: Public Sub New(rect As Rect, immutables As Integer() = Nothing, invalids As Integer() = Nothing)
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Public Sub New(rect As Rect, immutables As HashSet(Of Integer) = Nothing, invalids As HashSet(Of Integer) = Nothing)
   overload: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor*
-  nameWithType.vb: BundleTilemapChromosome.New(Rect, Integer(), Integer())
-  fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.New(UnityEngine.Rect, Integer(), Integer())
-  name.vb: New(Rect, Integer(), Integer())
+  nameWithType.vb: BundleTilemapChromosome.New(Rect, HashSet(Of Integer), HashSet(Of Integer))
+  fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.New(UnityEngine.Rect, System.Collections.Generic.HashSet(Of Integer), System.Collections.Generic.HashSet(Of Integer))
+  name.vb: New(Rect, HashSet(Of Integer), HashSet(Of Integer))
 - uid: ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome
   commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome
   id: CloneChromosome
@@ -160,8 +172,12 @@ items:
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CloneChromosome
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 36
   assemblies:
   - LBS
@@ -188,8 +204,12 @@ items:
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome.CreateNewChromosome()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateNewChromosome
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 46
   assemblies:
   - LBS
@@ -216,8 +236,12 @@ items:
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome.GenerateGene()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GenerateGene
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 59
   assemblies:
   - LBS
@@ -244,8 +268,12 @@ items:
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome.IsValid()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsValid
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 71
   assemblies:
   - LBS
@@ -272,8 +300,12 @@ items:
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome.IsEmpty()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsEmpty
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 76
   assemblies:
   - LBS
@@ -296,8 +328,12 @@ items:
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome.SetDeafult(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetDeafult
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 84
   assemblies:
   - LBS
@@ -328,8 +364,12 @@ items:
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome.ToTexture()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToTexture
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 89
   assemblies:
   - LBS
@@ -355,8 +395,12 @@ items:
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CompareTo
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\BundleTilemapChromosome.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/BundleTilemapChromosome.cs
     startLine: 211
   assemblies:
   - LBS
@@ -1752,7 +1796,7 @@ references:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions
 - uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor*
   commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor
-  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome__ctor_ISILab_LBS_Modules_BundleTileMap_UnityEngine_Rect_System_Int32___System_Int32___
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome__ctor_ISILab_LBS_Modules_BundleTileMap_UnityEngine_Rect_System_Collections_Generic_HashSet_System_Int32__System_Collections_Generic_HashSet_System_Int32__
   name: BundleTilemapChromosome
   nameWithType: BundleTilemapChromosome.BundleTilemapChromosome
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome
@@ -1773,28 +1817,40 @@ references:
   name: Rect
   nameWithType: Rect
   fullName: UnityEngine.Rect
-- uid: System.Int32[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int[]
-  nameWithType: int[]
-  fullName: int[]
-  nameWithType.vb: Integer()
-  fullName.vb: Integer()
-  name.vb: Integer()
+- uid: System.Collections.Generic.HashSet{System.Int32}
+  commentId: T:System.Collections.Generic.HashSet{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<int>
+  nameWithType: HashSet<int>
+  fullName: System.Collections.Generic.HashSet<int>
+  nameWithType.vb: HashSet(Of Integer)
+  fullName.vb: System.Collections.Generic.HashSet(Of Integer)
+  name.vb: HashSet(Of Integer)
   spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
   - uid: System.Int32
     name: int
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '['
-  - name: ']'
+  - name: '>'
   spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
   - uid: System.Int32
     name: Integer
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: (
   - name: )
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
@@ -1832,6 +1888,71 @@ references:
   name: UnityEngine
   nameWithType: UnityEngine
   fullName: UnityEngine
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
   commentId: M:GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome
   parent: GeneticSharp.Domain.Chromosomes.ChromosomeBase

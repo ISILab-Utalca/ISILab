@@ -17,20 +17,18 @@ items:
   fullName: ISILab.AI.Optimization.Terminations.TimeEvolvingTermination
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/Terminations/TimeEvolvingTermination.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TimeEvolvingTermination
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Terminations\TimeEvolvingTermination.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/Terminations/TimeEvolvingTermination.cs
     startLine: 13
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Terminations
-  summary: >-
-    Time Evolving Termination.
-
-    <remarks>
-
-    The genetic algorithm will be terminate when the evolving exceed the max time specified.
-
-    </remarks>
+  summary: Time Evolving Termination.
+  remarks: The genetic algorithm will be terminate when the evolving exceed the max time specified.
   example: []
   syntax:
     content: 'public class TimeEvolvingTermination : TerminationBase, ITermination'
@@ -61,13 +59,17 @@ items:
   fullName: ISILab.AI.Optimization.Terminations.TimeEvolvingTermination.TimeEvolvingTermination()
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/Terminations/TimeEvolvingTermination.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Terminations\TimeEvolvingTermination.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/Terminations/TimeEvolvingTermination.cs
     startLine: 23
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Terminations
-  summary: Initializes a new instance of the GeneticSharp.Domain.Terminations.TimeEvolvingTermination class.
+  summary: Initializes a new instance of the <xref href="ISILab.AI.Optimization.Terminations.TimeEvolvingTermination" data-throw-if-not-resolved="false"></xref> class.
   remarks: The default MaxTime is 1 minute.
   example: []
   syntax:
@@ -89,13 +91,17 @@ items:
   fullName: ISILab.AI.Optimization.Terminations.TimeEvolvingTermination.TimeEvolvingTermination(System.TimeSpan)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/Terminations/TimeEvolvingTermination.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Terminations\TimeEvolvingTermination.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/Terminations/TimeEvolvingTermination.cs
     startLine: 32
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Terminations
-  summary: Initializes a new instance of the GeneticSharp.Domain.Terminations.TimeEvolvingTermination class.
+  summary: Initializes a new instance of the <xref href="ISILab.AI.Optimization.Terminations.TimeEvolvingTermination" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
     content: public TimeEvolvingTermination(TimeSpan maxTime)
@@ -120,8 +126,12 @@ items:
   fullName: ISILab.AI.Optimization.Terminations.TimeEvolvingTermination.MaxTime
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/Terminations/TimeEvolvingTermination.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MaxTime
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Terminations\TimeEvolvingTermination.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/Terminations/TimeEvolvingTermination.cs
     startLine: 43
   assemblies:
   - LBS
@@ -148,8 +158,12 @@ items:
   fullName: ISILab.AI.Optimization.Terminations.TimeEvolvingTermination.PerformHasReached(ISILab.AI.Optimization.BaseOptimizer)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/Terminations/TimeEvolvingTermination.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: PerformHasReached
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Terminations\TimeEvolvingTermination.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/Terminations/TimeEvolvingTermination.cs
     startLine: 53
   assemblies:
   - LBS
@@ -478,6 +492,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: ISILab.AI.Optimization.Terminations.TimeEvolvingTermination
+  commentId: T:ISILab.AI.Optimization.Terminations.TimeEvolvingTermination
+  href: ISILab.AI.Optimization.Terminations.TimeEvolvingTermination.html
+  name: TimeEvolvingTermination
+  nameWithType: TimeEvolvingTermination
+  fullName: ISILab.AI.Optimization.Terminations.TimeEvolvingTermination
 - uid: ISILab.AI.Optimization.Terminations.TimeEvolvingTermination.#ctor*
   commentId: Overload:ISILab.AI.Optimization.Terminations.TimeEvolvingTermination.#ctor
   href: ISILab.AI.Optimization.Terminations.TimeEvolvingTermination.html#ISILab_AI_Optimization_Terminations_TimeEvolvingTermination__ctor

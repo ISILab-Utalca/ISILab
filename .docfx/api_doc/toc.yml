@@ -677,9 +677,6 @@ items:
   - uid: ISILab.DevTools.Editor.CopyResourceUID
     name: CopyResourceUID
     type: Class
-  - uid: ISILab.DevTools.Editor.TextureMapper
-    name: TextureMapper
-    type: Class
 - uid: ISILab.DevTools.Macros
   name: ISILab.DevTools.Macros
   type: Namespace
@@ -864,12 +861,6 @@ items:
   - uid: ISILab.LBS.Behaviours.TileGroupBehavior
     name: TileGroupBehavior
     type: Class
-  - uid: ISILab.LBS.Behaviours.TileMakeRot
-    name: TileMakeRot
-    type: Enum
-  - uid: ISILab.LBS.Behaviours.WeightedDirection
-    name: WeightedDirection
-    type: Class
 - uid: ISILab.LBS.Behaviours.Editor
   name: ISILab.LBS.Behaviours.Editor
   type: Namespace
@@ -972,6 +963,9 @@ items:
     type: Class
   - uid: ISILab.LBS.Components.Blueprint
     name: Blueprint
+    type: Class
+  - uid: ISILab.LBS.Components.BranchNode
+    name: BranchNode
     type: Class
   - uid: ISILab.LBS.Components.BundleTarget
     name: BundleTarget
@@ -1151,6 +1145,12 @@ items:
   - uid: ISILab.LBS.CustomComponents.LBSCustomObjectField.UxmlSerializedData
     name: LBSCustomObjectField.UxmlSerializedData
     type: Class
+  - uid: ISILab.LBS.CustomComponents.LBSCustomPainter
+    name: LBSCustomPainter
+    type: Class
+  - uid: ISILab.LBS.CustomComponents.LBSCustomPainter.UxmlSerializedData
+    name: LBSCustomPainter.UxmlSerializedData
+    type: Class
   - uid: ISILab.LBS.CustomComponents.LBSCustomProgressBar
     name: LBSCustomProgressBar
     type: Class
@@ -1207,6 +1207,12 @@ items:
     type: Class
   - uid: ISILab.LBS.CustomComponents.LBSCustomVector3Field.UxmlSerializedData
     name: LBSCustomVector3Field.UxmlSerializedData
+    type: Class
+  - uid: ISILab.LBS.CustomComponents.LBSPainterVisualElement
+    name: LBSPainterVisualElement
+    type: Class
+  - uid: ISILab.LBS.CustomComponents.LBSPainterVisualElement.UxmlSerializedData
+    name: LBSPainterVisualElement.UxmlSerializedData
     type: Class
   - uid: ISILab.LBS.CustomComponents.LBSToolbar
     name: LBSToolbar
@@ -1318,6 +1324,16 @@ items:
     type: Class
   - uid: ISILab.LBS.Editor.QuestAssistantEditor
     name: QuestAssistantEditor
+    type: Class
+- uid: ISILab.LBS.Editor.Utilities
+  name: ISILab.LBS.Editor.Utilities
+  type: Namespace
+  items:
+  - uid: ISILab.LBS.Editor.Utilities.BundleQueryUtility
+    name: BundleQueryUtility
+    type: Class
+  - uid: ISILab.LBS.Editor.Utilities.TextureMapper
+    name: TextureMapper
     type: Class
 - uid: ISILab.LBS.Editor.Windows
   name: ISILab.LBS.Editor.Windows
@@ -1578,6 +1594,12 @@ items:
     type: Class
   - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
     name: SchemaBehaviour
+    type: Class
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+    name: TileMakeRot
+    type: Enum
+  - uid: ISILab.LBS.Plugin.Components.Behaviours.WeightedDirection
+    name: WeightedDirection
     type: Class
 - uid: ISILab.LBS.Plugin.Components.Bundles
   name: ISILab.LBS.Plugin.Components.Bundles
@@ -2072,17 +2094,11 @@ items:
   - uid: ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
     name: PopulationRuleGenerator
     type: Class
-  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestObjective
-    name: QuestObjective
-    type: Class
   - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestRuleGenerator
     name: QuestRuleGenerator
     type: Class
   - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
     name: QuestTracker
-    type: Class
-  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-    name: QuestTrigger
     type: Class
   - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch
     name: QuestTriggerBranch
@@ -2892,11 +2908,17 @@ items:
   - uid: ISILab.LBS.VisualElements.QuestNodeView
     name: QuestNodeView
     type: Class
+  - uid: ISILab.LBS.VisualElements.QuestTriggerEditor
+    name: QuestTriggerEditor
+    type: Class
   - uid: ISILab.LBS.VisualElements.QuestView
     name: QuestView
     type: Class
   - uid: ISILab.LBS.VisualElements.QuestVisualTree
     name: QuestVisualTree
+    type: Class
+  - uid: ISILab.LBS.VisualElements.QuestVisualTreeEditor
+    name: QuestVisualTreeEditor
     type: Class
   - uid: ISILab.LBS.VisualElements.QuickAssistantContainer
     name: QuickAssistantContainer
@@ -3164,9 +3186,6 @@ items:
   name: LBS.Components
   type: Namespace
   items:
-  - uid: LBS.Components.BundleQueryUtility
-    name: BundleQueryUtility
-    type: Class
   - uid: LBS.Components.LBSFloor
     name: LBSFloor
     type: Class

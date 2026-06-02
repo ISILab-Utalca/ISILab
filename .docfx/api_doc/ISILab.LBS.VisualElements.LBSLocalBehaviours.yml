@@ -18,7 +18,7 @@ items:
   type: Class
   source:
     id: LBSLocalBehaviours
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\obj\Release\Unity.UIToolkit.SourceGenerator\Unity.UIToolkit.SourceGenerator.UxmlSerializedDataGenerator\ISILab.LBS.VisualElements.LBSLocalBehaviours.gen.cs
+    path: C:\Users\Ignacio Reyes\Documents\LBSProject\obj\Release\Unity.UIToolkit.SourceGenerator\Unity.UIToolkit.SourceGenerator.UxmlSerializedDataGenerator\ISILab.LBS.VisualElements.LBSLocalBehaviours.gen.cs
     startLine: 5
   assemblies:
   - LBS.Editor
@@ -179,8 +179,12 @@ items:
   fullName: ISILab.LBS.VisualElements.LBSLocalBehaviours.LBSLocalBehaviours()
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalBehaviours.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\InspectorElements\LBSInspector\LBSLocalBehaviours.cs
+    path: ../LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalBehaviours.cs
     startLine: 22
   assemblies:
   - LBS.Editor
@@ -204,13 +208,20 @@ items:
   fullName: ISILab.LBS.VisualElements.LBSLocalBehaviours.InitCustomEditors(ref System.Collections.Generic.List<LBS.Components.LBSLayer>)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalBehaviours.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InitCustomEditors
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\InspectorElements\LBSInspector\LBSLocalBehaviours.cs
+    path: ../LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalBehaviours.cs
     startLine: 37
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
-  summary: Gets the classes of editors per component, no avoid using reflection on each instance creation
+  summary: >-
+    Gets the classes of editors per component, no avoid using reflection on each instance creation
+
+    Must be overridden in a derived class to implement custom repainting behavior.
   example: []
   syntax:
     content: public override void InitCustomEditors(ref List<LBSLayer> layers)
@@ -235,18 +246,27 @@ items:
   fullName: ISILab.LBS.VisualElements.LBSLocalBehaviours.SetTarget(LBS.Components.LBSLayer)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalBehaviours.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetTarget
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\InspectorElements\LBSInspector\LBSLocalBehaviours.cs
+    path: ../LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalBehaviours.cs
     startLine: 69
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
+  summary: >-
+    Sets the active layer into the panel to update the different components of a layer, such as modules,
+
+    behaviours, assistants and toolkit.
   example: []
   syntax:
     content: public override void SetTarget(LBSLayer layer)
     parameters:
     - id: layer
       type: LBS.Components.LBSLayer
+      description: ''
     content.vb: Public Overrides Sub SetTarget(layer As LBSLayer)
   overridden: ISILab.LBS.VisualElements.LBSInspector.SetTarget(LBS.Components.LBSLayer)
   overload: ISILab.LBS.VisualElements.LBSLocalBehaviours.SetTarget*
@@ -262,12 +282,20 @@ items:
   fullName: ISILab.LBS.VisualElements.LBSLocalBehaviours.Repaint()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalBehaviours.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Repaint
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\InspectorElements\LBSInspector\LBSLocalBehaviours.cs
+    path: ../LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalBehaviours.cs
     startLine: 109
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
+  summary: >-
+    Marks the panel as dirty and requests a repaint. 
+
+    Must be overridden in a derived class to implement custom repainting behavior.
   example: []
   syntax:
     content: public override void Repaint()

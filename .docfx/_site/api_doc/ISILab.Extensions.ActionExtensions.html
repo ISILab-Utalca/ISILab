@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=ISILab_Extensions_ActionExtensions.md&amp;value=---%0Auid%3A%20ISILab.Extensions.ActionExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="ISILab_Extensions_ActionExtensions" data-uid="ISILab.Extensions.ActionExtensions" class="text-break">
-Class ActionExtensions  
+Class ActionExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/Commons/Extensions/ActionExtensions.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -156,7 +156,7 @@ Class ActionExtensions
 
   <h3 id="ISILab_Extensions_ActionExtensions_AddUnique_System_Action__System_Action_" data-uid="ISILab.Extensions.ActionExtensions.AddUnique(System.Action@,System.Action)">
   AddUnique(ref Action, Action)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/Commons/Extensions/ActionExtensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Adds a function from an action only if it does not exist in the invocation list.</div>
@@ -189,7 +189,7 @@ Class ActionExtensions
 
   <h3 id="ISILab_Extensions_ActionExtensions_AddUnique__1_System_Action___0___System_Action___0__" data-uid="ISILab.Extensions.ActionExtensions.AddUnique``1(System.Action{``0}@,System.Action{``0})">
   AddUnique&lt;T&gt;(ref Action&lt;T&gt;, Action&lt;T&gt;)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/Commons/Extensions/ActionExtensions.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Adds a function from an action only if it does not exist in the invocation list.</div>
@@ -223,11 +223,88 @@ Class ActionExtensions
 
 
 
+  <a id="ISILab_Extensions_ActionExtensions_RemoveAllByTargetType_" data-uid="ISILab.Extensions.ActionExtensions.RemoveAllByTargetType*"></a>
+
+  <h3 id="ISILab_Extensions_ActionExtensions_RemoveAllByTargetType__2_System_Action___0___" data-uid="ISILab.Extensions.ActionExtensions.RemoveAllByTargetType``2(System.Action{``0}@)">
+  RemoveAllByTargetType&lt;TDelegate, TTargetType&gt;(ref Action&lt;TDelegate&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/Commons/Extensions/ActionExtensions.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Cleans out any delegates whose target instance is an old or orphaned instance of a specific view type.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveAllByTargetType&lt;TDelegate, TTargetType&gt;(ref Action&lt;TDelegate&gt; del)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>del</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TDelegate&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDelegate</code></dt>
+    <dd></dd>
+    <dt><code>TTargetType</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="ISILab_Extensions_ActionExtensions_RemoveMethod_" data-uid="ISILab.Extensions.ActionExtensions.RemoveMethod*"></a>
+
+  <h3 id="ISILab_Extensions_ActionExtensions_RemoveMethod__1_System_Action___0___System_String_" data-uid="ISILab.Extensions.ActionExtensions.RemoveMethod``1(System.Action{``0}@,System.String)">
+  RemoveMethod&lt;T&gt;(ref Action&lt;T&gt;, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/Commons/Extensions/ActionExtensions.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Scours the invocation list and completely strips any delegate matching a specific method name,
+regardless of which object instance it targets.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveMethod&lt;T&gt;(ref Action&lt;T&gt; del, string methodName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>del</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>methodName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="ISILab_Extensions_ActionExtensions_RemoveUnique_" data-uid="ISILab.Extensions.ActionExtensions.RemoveUnique*"></a>
 
   <h3 id="ISILab_Extensions_ActionExtensions_RemoveUnique_System_Action__System_Action_" data-uid="ISILab.Extensions.ActionExtensions.RemoveUnique(System.Action@,System.Action)">
   RemoveUnique(ref Action, Action)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/Commons/Extensions/ActionExtensions.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Removes a function from an action only if it exists in the invocation list.</div>
@@ -260,7 +337,7 @@ Class ActionExtensions
 
   <h3 id="ISILab_Extensions_ActionExtensions_RemoveUnique__1_System_Action___0___System_Action___0__" data-uid="ISILab.Extensions.ActionExtensions.RemoveUnique``1(System.Action{``0}@,System.Action{``0})">
   RemoveUnique&lt;T&gt;(ref Action&lt;T&gt;, Action&lt;T&gt;)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/Commons/Extensions/ActionExtensions.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Removes a function from an action only if it exists in the invocation list.</div>
@@ -294,10 +371,49 @@ Class ActionExtensions
 
 
 
+  <a id="ISILab_Extensions_ActionExtensions_RemoveVisualElementMethods_" data-uid="ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods*"></a>
+
+  <h3 id="ISILab_Extensions_ActionExtensions_RemoveVisualElementMethods__1_System_Action___0___System_Object_" data-uid="ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods``1(System.Action{``0}@,System.Object)">
+  RemoveVisualElementMethods&lt;TDelegate&gt;(ref Action&lt;TDelegate&gt;, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/Commons/Extensions/ActionExtensions.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary">Purges any delegate that belongs to a QuestNodeView unless it matches the active view instance.</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveVisualElementMethods&lt;TDelegate&gt;(ref Action&lt;TDelegate&gt; del, object currentValidView)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>del</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TDelegate&gt;</dt>
+    <dd></dd>
+    <dt><code>currentValidView</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDelegate</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/Commons/Extensions/ActionExtensions.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
 

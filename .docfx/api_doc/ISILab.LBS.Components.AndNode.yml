@@ -8,6 +8,7 @@ items:
   - ISILab.LBS.Components.AndNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraph)
   - ISILab.LBS.Components.AndNode.CreateCloneInstance
   - ISILab.LBS.Components.AndNode.IsValid
+  - ISILab.LBS.Components.AndNode.ToString
   langs:
   - csharp
   - vb
@@ -16,9 +17,13 @@ items:
   fullName: ISILab.LBS.Components.AndNode
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AndNode
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 201
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 209
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -26,17 +31,19 @@ items:
     content: >-
       [Serializable]
 
-      public class AndNode : GraphNode, ICloneable
+      public class AndNode : BranchNode, ICloneable
     content.vb: >-
       <Serializable>
 
-      Public Class AndNode Inherits GraphNode Implements ICloneable
+      Public Class AndNode Inherits BranchNode Implements ICloneable
   inheritance:
   - System.Object
   - ISILab.LBS.Components.GraphNode
+  - ISILab.LBS.Components.BranchNode
   implements:
   - System.ICloneable
   inheritedMembers:
+  - ISILab.LBS.Components.BranchNode.Area
   - ISILab.LBS.Components.GraphNode.Or
   - ISILab.LBS.Components.GraphNode.And
   - ISILab.LBS.Components.GraphNode.validGrammar
@@ -63,7 +70,6 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
   attributes:
   - type: System.SerializableAttribute
     ctor: System.SerializableAttribute.#ctor
@@ -80,9 +86,13 @@ items:
   fullName: ISILab.LBS.Components.AndNode.AndNode(string, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraph)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 204
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 212
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -112,9 +122,13 @@ items:
   fullName: ISILab.LBS.Components.AndNode.CreateCloneInstance()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateCloneInstance
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 206
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 214
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -124,7 +138,7 @@ items:
     return:
       type: ISILab.LBS.Components.GraphNode
     content.vb: Protected Overrides Function CreateCloneInstance() As GraphNode
-  overridden: ISILab.LBS.Components.GraphNode.CreateCloneInstance
+  overridden: ISILab.LBS.Components.BranchNode.CreateCloneInstance
   overload: ISILab.LBS.Components.AndNode.CreateCloneInstance*
 - uid: ISILab.LBS.Components.AndNode.IsValid
   commentId: M:ISILab.LBS.Components.AndNode.IsValid
@@ -138,9 +152,13 @@ items:
   fullName: ISILab.LBS.Components.AndNode.IsValid()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsValid
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 211
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 216
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -150,8 +168,38 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Overrides Function IsValid() As Boolean
-  overridden: ISILab.LBS.Components.GraphNode.IsValid
+  overridden: ISILab.LBS.Components.BranchNode.IsValid
   overload: ISILab.LBS.Components.AndNode.IsValid*
+- uid: ISILab.LBS.Components.AndNode.ToString
+  commentId: M:ISILab.LBS.Components.AndNode.ToString
+  id: ToString
+  parent: ISILab.LBS.Components.AndNode
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: AndNode.ToString()
+  fullName: ISILab.LBS.Components.AndNode.ToString()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ToString
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 218
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: ISILab.LBS.Components.BranchNode.ToString
+  overload: ISILab.LBS.Components.AndNode.ToString*
 references:
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
@@ -201,6 +249,13 @@ references:
   name: GraphNode
   nameWithType: GraphNode
   fullName: ISILab.LBS.Components.GraphNode
+- uid: ISILab.LBS.Components.BranchNode
+  commentId: T:ISILab.LBS.Components.BranchNode
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.BranchNode.html
+  name: BranchNode
+  nameWithType: BranchNode
+  fullName: ISILab.LBS.Components.BranchNode
 - uid: System.ICloneable
   commentId: T:System.ICloneable
   parent: System
@@ -209,6 +264,13 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
+- uid: ISILab.LBS.Components.BranchNode.Area
+  commentId: P:ISILab.LBS.Components.BranchNode.Area
+  parent: ISILab.LBS.Components.BranchNode
+  href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_Area
+  name: Area
+  nameWithType: BranchNode.Area
+  fullName: ISILab.LBS.Components.BranchNode.Area
 - uid: ISILab.LBS.Components.GraphNode.Or
   commentId: F:ISILab.LBS.Components.GraphNode.Or
   parent: ISILab.LBS.Components.GraphNode
@@ -603,30 +665,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -704,23 +742,23 @@ references:
   - uid: ISILab.LBS.Modules
     name: Modules
     href: ISILab.LBS.Modules.html
-- uid: ISILab.LBS.Components.GraphNode.CreateCloneInstance
-  commentId: M:ISILab.LBS.Components.GraphNode.CreateCloneInstance
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_CreateCloneInstance
+- uid: ISILab.LBS.Components.BranchNode.CreateCloneInstance
+  commentId: M:ISILab.LBS.Components.BranchNode.CreateCloneInstance
+  parent: ISILab.LBS.Components.BranchNode
+  href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_CreateCloneInstance
   name: CreateCloneInstance()
-  nameWithType: GraphNode.CreateCloneInstance()
-  fullName: ISILab.LBS.Components.GraphNode.CreateCloneInstance()
+  nameWithType: BranchNode.CreateCloneInstance()
+  fullName: ISILab.LBS.Components.BranchNode.CreateCloneInstance()
   spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.CreateCloneInstance
+  - uid: ISILab.LBS.Components.BranchNode.CreateCloneInstance
     name: CreateCloneInstance
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_CreateCloneInstance
+    href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_CreateCloneInstance
   - name: (
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.CreateCloneInstance
+  - uid: ISILab.LBS.Components.BranchNode.CreateCloneInstance
     name: CreateCloneInstance
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_CreateCloneInstance
+    href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_CreateCloneInstance
   - name: (
   - name: )
 - uid: ISILab.LBS.Components.AndNode.CreateCloneInstance*
@@ -729,23 +767,23 @@ references:
   name: CreateCloneInstance
   nameWithType: AndNode.CreateCloneInstance
   fullName: ISILab.LBS.Components.AndNode.CreateCloneInstance
-- uid: ISILab.LBS.Components.GraphNode.IsValid
-  commentId: M:ISILab.LBS.Components.GraphNode.IsValid
-  parent: ISILab.LBS.Components.GraphNode
-  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsValid
+- uid: ISILab.LBS.Components.BranchNode.IsValid
+  commentId: M:ISILab.LBS.Components.BranchNode.IsValid
+  parent: ISILab.LBS.Components.BranchNode
+  href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_IsValid
   name: IsValid()
-  nameWithType: GraphNode.IsValid()
-  fullName: ISILab.LBS.Components.GraphNode.IsValid()
+  nameWithType: BranchNode.IsValid()
+  fullName: ISILab.LBS.Components.BranchNode.IsValid()
   spec.csharp:
-  - uid: ISILab.LBS.Components.GraphNode.IsValid
+  - uid: ISILab.LBS.Components.BranchNode.IsValid
     name: IsValid
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsValid
+    href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_IsValid
   - name: (
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Components.GraphNode.IsValid
+  - uid: ISILab.LBS.Components.BranchNode.IsValid
     name: IsValid
-    href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_IsValid
+    href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_IsValid
   - name: (
   - name: )
 - uid: ISILab.LBS.Components.AndNode.IsValid*
@@ -765,4 +803,29 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: ISILab.LBS.Components.BranchNode.ToString
+  commentId: M:ISILab.LBS.Components.BranchNode.ToString
+  parent: ISILab.LBS.Components.BranchNode
+  href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_ToString
+  name: ToString()
+  nameWithType: BranchNode.ToString()
+  fullName: ISILab.LBS.Components.BranchNode.ToString()
+  spec.csharp:
+  - uid: ISILab.LBS.Components.BranchNode.ToString
+    name: ToString
+    href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Components.BranchNode.ToString
+    name: ToString
+    href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode_ToString
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Components.AndNode.ToString*
+  commentId: Overload:ISILab.LBS.Components.AndNode.ToString
+  href: ISILab.LBS.Components.AndNode.html#ISILab_LBS_Components_AndNode_ToString
+  name: ToString
+  nameWithType: AndNode.ToString
+  fullName: ISILab.LBS.Components.AndNode.ToString
 shouldSkipMarkup: true

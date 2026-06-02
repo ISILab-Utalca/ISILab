@@ -5,10 +5,10 @@ items:
   id: QuestBarView
   parent: ISILab.LBS.VisualElements
   children:
-  - ISILab.LBS.VisualElements.QuestBarView.#ctor(ISILab.LBS.Plugin.MapTools.Generators.QuestTracker,ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger,ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)
-  - ISILab.LBS.VisualElements.QuestBarView.ClearPreviousButtons
-  - ISILab.LBS.VisualElements.QuestBarView.OnPrevStepClicked(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
-  - ISILab.LBS.VisualElements.QuestBarView.UpdatePreviousButtons
+  - ISILab.LBS.VisualElements.QuestBarView.#ctor(ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)
+  - ISILab.LBS.VisualElements.QuestBarView.ClearButtons
+  - ISILab.LBS.VisualElements.QuestBarView.SelectTriggerGameObject(QuestTrigger)
+  - ISILab.LBS.VisualElements.QuestBarView.UpdatePositions
   langs:
   - csharp
   - vb
@@ -17,9 +17,13 @@ items:
   fullName: ISILab.LBS.VisualElements.QuestBarView
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: QuestBarView
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\CustomGizmo\QuestGizmo\QuestBarView.cs
-    startLine: 30
+    path: ../LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs
+    startLine: 25
   assemblies:
   - LBS
   namespace: ISILab.LBS.VisualElements
@@ -187,107 +191,119 @@ items:
   - UnityEngine.UIElements.VisualElement.ISILab.Extensions.VisualElementExtensions.SetDisplay(System.Boolean)
   - UnityEngine.UIElements.VisualElement.ISILab.Extensions.VisualElementExtensions.SetMargins(System.Int32)
   - UnityEngine.UIElements.VisualElement.ISILab.Extensions.VisualElementExtensions.SetPaddings(System.Int32)
-- uid: ISILab.LBS.VisualElements.QuestBarView.#ctor(ISILab.LBS.Plugin.MapTools.Generators.QuestTracker,ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger,ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)
-  commentId: M:ISILab.LBS.VisualElements.QuestBarView.#ctor(ISILab.LBS.Plugin.MapTools.Generators.QuestTracker,ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger,ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)
-  id: '#ctor(ISILab.LBS.Plugin.MapTools.Generators.QuestTracker,ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger,ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)'
+- uid: ISILab.LBS.VisualElements.QuestBarView.#ctor(ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)
+  commentId: M:ISILab.LBS.VisualElements.QuestBarView.#ctor(ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)
+  id: '#ctor(ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)'
   parent: ISILab.LBS.VisualElements.QuestBarView
   langs:
   - csharp
   - vb
-  name: QuestBarView(QuestTracker, QuestTrigger, Custom3dQuestGizmo)
-  nameWithType: QuestBarView.QuestBarView(QuestTracker, QuestTrigger, Custom3dQuestGizmo)
-  fullName: ISILab.LBS.VisualElements.QuestBarView.QuestBarView(ISILab.LBS.Plugin.MapTools.Generators.QuestTracker, ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger, ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)
+  name: QuestBarView(Custom3dQuestGizmo)
+  nameWithType: QuestBarView.QuestBarView(Custom3dQuestGizmo)
+  fullName: ISILab.LBS.VisualElements.QuestBarView.QuestBarView(ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\CustomGizmo\QuestGizmo\QuestBarView.cs
-    startLine: 47
+    path: ../LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs
+    startLine: 51
   assemblies:
   - LBS
   namespace: ISILab.LBS.VisualElements
   syntax:
-    content: public QuestBarView(QuestTracker tracker, QuestTrigger trigger, Custom3dQuestGizmo questGizmo)
+    content: public QuestBarView(Custom3dQuestGizmo questGizmo)
     parameters:
-    - id: tracker
-      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
-    - id: trigger
-      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
     - id: questGizmo
       type: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
-    content.vb: Public Sub New(tracker As QuestTracker, trigger As QuestTrigger, questGizmo As Custom3dQuestGizmo)
+    content.vb: Public Sub New(questGizmo As Custom3dQuestGizmo)
   overload: ISILab.LBS.VisualElements.QuestBarView.#ctor*
-  nameWithType.vb: QuestBarView.New(QuestTracker, QuestTrigger, Custom3dQuestGizmo)
-  fullName.vb: ISILab.LBS.VisualElements.QuestBarView.New(ISILab.LBS.Plugin.MapTools.Generators.QuestTracker, ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger, ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)
-  name.vb: New(QuestTracker, QuestTrigger, Custom3dQuestGizmo)
-- uid: ISILab.LBS.VisualElements.QuestBarView.ClearPreviousButtons
-  commentId: M:ISILab.LBS.VisualElements.QuestBarView.ClearPreviousButtons
-  id: ClearPreviousButtons
+  nameWithType.vb: QuestBarView.New(Custom3dQuestGizmo)
+  fullName.vb: ISILab.LBS.VisualElements.QuestBarView.New(ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo)
+  name.vb: New(Custom3dQuestGizmo)
+- uid: ISILab.LBS.VisualElements.QuestBarView.SelectTriggerGameObject(QuestTrigger)
+  commentId: M:ISILab.LBS.VisualElements.QuestBarView.SelectTriggerGameObject(QuestTrigger)
+  id: SelectTriggerGameObject(QuestTrigger)
   parent: ISILab.LBS.VisualElements.QuestBarView
   langs:
   - csharp
   - vb
-  name: ClearPreviousButtons()
-  nameWithType: QuestBarView.ClearPreviousButtons()
-  fullName: ISILab.LBS.VisualElements.QuestBarView.ClearPreviousButtons()
+  name: SelectTriggerGameObject(QuestTrigger)
+  nameWithType: QuestBarView.SelectTriggerGameObject(QuestTrigger)
+  fullName: ISILab.LBS.VisualElements.QuestBarView.SelectTriggerGameObject(QuestTrigger)
   type: Method
   source:
-    id: ClearPreviousButtons
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\CustomGizmo\QuestGizmo\QuestBarView.cs
-    startLine: 123
+    remote:
+      path: LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SelectTriggerGameObject
+    path: ../LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs
+    startLine: 158
   assemblies:
   - LBS
   namespace: ISILab.LBS.VisualElements
   syntax:
-    content: public static void ClearPreviousButtons()
-    content.vb: Public Shared Sub ClearPreviousButtons()
-  overload: ISILab.LBS.VisualElements.QuestBarView.ClearPreviousButtons*
-- uid: ISILab.LBS.VisualElements.QuestBarView.UpdatePreviousButtons
-  commentId: M:ISILab.LBS.VisualElements.QuestBarView.UpdatePreviousButtons
-  id: UpdatePreviousButtons
-  parent: ISILab.LBS.VisualElements.QuestBarView
-  langs:
-  - csharp
-  - vb
-  name: UpdatePreviousButtons()
-  nameWithType: QuestBarView.UpdatePreviousButtons()
-  fullName: ISILab.LBS.VisualElements.QuestBarView.UpdatePreviousButtons()
-  type: Method
-  source:
-    id: UpdatePreviousButtons
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\CustomGizmo\QuestGizmo\QuestBarView.cs
-    startLine: 214
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.VisualElements
-  syntax:
-    content: public void UpdatePreviousButtons()
-    content.vb: Public Sub UpdatePreviousButtons()
-  overload: ISILab.LBS.VisualElements.QuestBarView.UpdatePreviousButtons*
-- uid: ISILab.LBS.VisualElements.QuestBarView.OnPrevStepClicked(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
-  commentId: M:ISILab.LBS.VisualElements.QuestBarView.OnPrevStepClicked(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
-  id: OnPrevStepClicked(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
-  parent: ISILab.LBS.VisualElements.QuestBarView
-  langs:
-  - csharp
-  - vb
-  name: OnPrevStepClicked(QuestTrigger)
-  nameWithType: QuestBarView.OnPrevStepClicked(QuestTrigger)
-  fullName: ISILab.LBS.VisualElements.QuestBarView.OnPrevStepClicked(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
-  type: Method
-  source:
-    id: OnPrevStepClicked
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\MapTools\CustomGizmo\QuestGizmo\QuestBarView.cs
-    startLine: 229
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.VisualElements
-  syntax:
-    content: public void OnPrevStepClicked(QuestTrigger qt)
+    content: public static void SelectTriggerGameObject(QuestTrigger qt)
     parameters:
     - id: qt
-      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-    content.vb: Public Sub OnPrevStepClicked(qt As QuestTrigger)
-  overload: ISILab.LBS.VisualElements.QuestBarView.OnPrevStepClicked*
+      type: QuestTrigger
+    content.vb: Public Shared Sub SelectTriggerGameObject(qt As QuestTrigger)
+  overload: ISILab.LBS.VisualElements.QuestBarView.SelectTriggerGameObject*
+- uid: ISILab.LBS.VisualElements.QuestBarView.UpdatePositions
+  commentId: M:ISILab.LBS.VisualElements.QuestBarView.UpdatePositions
+  id: UpdatePositions
+  parent: ISILab.LBS.VisualElements.QuestBarView
+  langs:
+  - csharp
+  - vb
+  name: UpdatePositions()
+  nameWithType: QuestBarView.UpdatePositions()
+  fullName: ISILab.LBS.VisualElements.QuestBarView.UpdatePositions()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: UpdatePositions
+    path: ../LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs
+    startLine: 169
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public void UpdatePositions()
+    content.vb: Public Sub UpdatePositions()
+  overload: ISILab.LBS.VisualElements.QuestBarView.UpdatePositions*
+- uid: ISILab.LBS.VisualElements.QuestBarView.ClearButtons
+  commentId: M:ISILab.LBS.VisualElements.QuestBarView.ClearButtons
+  id: ClearButtons
+  parent: ISILab.LBS.VisualElements.QuestBarView
+  langs:
+  - csharp
+  - vb
+  name: ClearButtons()
+  nameWithType: QuestBarView.ClearButtons()
+  fullName: ISILab.LBS.VisualElements.QuestBarView.ClearButtons()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ClearButtons
+    path: ../LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/QuestBarView.cs
+    startLine: 205
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.VisualElements
+  syntax:
+    content: public static void ClearButtons()
+    content.vb: Public Shared Sub ClearButtons()
+  overload: ISILab.LBS.VisualElements.QuestBarView.ClearButtons*
 references:
 - uid: ISILab.LBS.VisualElements
   commentId: N:ISILab.LBS.VisualElements
@@ -4342,27 +4358,13 @@ references:
     href: ISILab.Extensions.html
 - uid: ISILab.LBS.VisualElements.QuestBarView.#ctor*
   commentId: Overload:ISILab.LBS.VisualElements.QuestBarView.#ctor
-  href: ISILab.LBS.VisualElements.QuestBarView.html#ISILab_LBS_VisualElements_QuestBarView__ctor_ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_ISILab_LBS_Plugin_MapTools_CustomGizmo_QuestGizmo_Custom3dQuestGizmo_
+  href: ISILab.LBS.VisualElements.QuestBarView.html#ISILab_LBS_VisualElements_QuestBarView__ctor_ISILab_LBS_Plugin_MapTools_CustomGizmo_QuestGizmo_Custom3dQuestGizmo_
   name: QuestBarView
   nameWithType: QuestBarView.QuestBarView
   fullName: ISILab.LBS.VisualElements.QuestBarView.QuestBarView
   nameWithType.vb: QuestBarView.New
   fullName.vb: ISILab.LBS.VisualElements.QuestBarView.New
   name.vb: New
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
-  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
-  parent: ISILab.LBS.Plugin.MapTools.Generators
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html
-  name: QuestTracker
-  nameWithType: QuestTracker
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  parent: ISILab.LBS.Plugin.MapTools.Generators
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
-  name: QuestTrigger
-  nameWithType: QuestTrigger
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
 - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
   commentId: T:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
   parent: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
@@ -4370,52 +4372,6 @@ references:
   name: Custom3dQuestGizmo
   nameWithType: Custom3dQuestGizmo
   fullName: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.Custom3dQuestGizmo
-- uid: ISILab.LBS.Plugin.MapTools.Generators
-  commentId: N:ISILab.LBS.Plugin.MapTools.Generators
-  href: ISILab.html
-  name: ISILab.LBS.Plugin.MapTools.Generators
-  nameWithType: ISILab.LBS.Plugin.MapTools.Generators
-  fullName: ISILab.LBS.Plugin.MapTools.Generators
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Plugin
-    name: Plugin
-    href: ISILab.LBS.Plugin.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.MapTools
-    name: MapTools
-    href: ISILab.LBS.Plugin.MapTools.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.MapTools.Generators
-    name: Generators
-    href: ISILab.LBS.Plugin.MapTools.Generators.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Plugin
-    name: Plugin
-    href: ISILab.LBS.Plugin.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.MapTools
-    name: MapTools
-    href: ISILab.LBS.Plugin.MapTools.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.MapTools.Generators
-    name: Generators
-    href: ISILab.LBS.Plugin.MapTools.Generators.html
 - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
   commentId: N:ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
   href: ISILab.html
@@ -4470,22 +4426,28 @@ references:
   - uid: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo
     name: QuestGizmo
     href: ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo.html
-- uid: ISILab.LBS.VisualElements.QuestBarView.ClearPreviousButtons*
-  commentId: Overload:ISILab.LBS.VisualElements.QuestBarView.ClearPreviousButtons
-  href: ISILab.LBS.VisualElements.QuestBarView.html#ISILab_LBS_VisualElements_QuestBarView_ClearPreviousButtons
-  name: ClearPreviousButtons
-  nameWithType: QuestBarView.ClearPreviousButtons
-  fullName: ISILab.LBS.VisualElements.QuestBarView.ClearPreviousButtons
-- uid: ISILab.LBS.VisualElements.QuestBarView.UpdatePreviousButtons*
-  commentId: Overload:ISILab.LBS.VisualElements.QuestBarView.UpdatePreviousButtons
-  href: ISILab.LBS.VisualElements.QuestBarView.html#ISILab_LBS_VisualElements_QuestBarView_UpdatePreviousButtons
-  name: UpdatePreviousButtons
-  nameWithType: QuestBarView.UpdatePreviousButtons
-  fullName: ISILab.LBS.VisualElements.QuestBarView.UpdatePreviousButtons
-- uid: ISILab.LBS.VisualElements.QuestBarView.OnPrevStepClicked*
-  commentId: Overload:ISILab.LBS.VisualElements.QuestBarView.OnPrevStepClicked
-  href: ISILab.LBS.VisualElements.QuestBarView.html#ISILab_LBS_VisualElements_QuestBarView_OnPrevStepClicked_ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_
-  name: OnPrevStepClicked
-  nameWithType: QuestBarView.OnPrevStepClicked
-  fullName: ISILab.LBS.VisualElements.QuestBarView.OnPrevStepClicked
+- uid: ISILab.LBS.VisualElements.QuestBarView.SelectTriggerGameObject*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestBarView.SelectTriggerGameObject
+  href: ISILab.LBS.VisualElements.QuestBarView.html#ISILab_LBS_VisualElements_QuestBarView_SelectTriggerGameObject_QuestTrigger_
+  name: SelectTriggerGameObject
+  nameWithType: QuestBarView.SelectTriggerGameObject
+  fullName: ISILab.LBS.VisualElements.QuestBarView.SelectTriggerGameObject
+- uid: QuestTrigger
+  commentId: T:QuestTrigger
+  href: QuestTrigger.html
+  name: QuestTrigger
+  nameWithType: QuestTrigger
+  fullName: QuestTrigger
+- uid: ISILab.LBS.VisualElements.QuestBarView.UpdatePositions*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestBarView.UpdatePositions
+  href: ISILab.LBS.VisualElements.QuestBarView.html#ISILab_LBS_VisualElements_QuestBarView_UpdatePositions
+  name: UpdatePositions
+  nameWithType: QuestBarView.UpdatePositions
+  fullName: ISILab.LBS.VisualElements.QuestBarView.UpdatePositions
+- uid: ISILab.LBS.VisualElements.QuestBarView.ClearButtons*
+  commentId: Overload:ISILab.LBS.VisualElements.QuestBarView.ClearButtons
+  href: ISILab.LBS.VisualElements.QuestBarView.html#ISILab_LBS_VisualElements_QuestBarView_ClearButtons
+  name: ClearButtons
+  nameWithType: QuestBarView.ClearButtons
+  fullName: ISILab.LBS.VisualElements.QuestBarView.ClearButtons
 shouldSkipMarkup: true

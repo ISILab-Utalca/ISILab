@@ -16,7 +16,7 @@ namespace ISILab.AI.Optimization.Populations
     {
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Populations.Generation"/> class.
+        /// Initializes a new instance of the <see cref="Generation"/> class.
         /// </summary>
         /// <param name="number">The generation number.</param>
         /// <param name="evaluables">The chromosomes of the generation..</param>

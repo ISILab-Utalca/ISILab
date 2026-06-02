@@ -14,7 +14,7 @@ namespace ISILab.AI.Optimization.Terminations
     {
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Terminations.GenerationNumberTermination"/> class.
+        /// Initializes a new instance of the <see cref="GenerationNumberTermination"/> class.
         /// </summary>
         /// <remarks>
         /// The default expected generation number is 100.
@@ -25,7 +25,7 @@ namespace ISILab.AI.Optimization.Terminations
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Terminations.GenerationNumberTermination"/> class.
+        /// Initializes a new instance of the <see cref="GenerationNumberTermination"/> class.
         /// </summary>
         /// <param name="expectedGenerationNumber">The generation number to consider the termination has been reached.</param>
         public GenerationNumberTermination(int expectedGenerationNumber)

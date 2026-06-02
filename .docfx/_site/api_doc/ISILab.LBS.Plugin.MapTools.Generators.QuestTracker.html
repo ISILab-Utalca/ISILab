@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=ISILab_LBS_Plugin_MapTools_Generators_QuestTracker.md&amp;value=---%0Auid%3A%20ISILab.LBS.Plugin.MapTools.Generators.QuestTracker%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker" class="text-break">
-Class QuestTracker  
+Class QuestTracker  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -546,56 +546,22 @@ public class QuestTracker : MonoBehaviour</code></pre>
 
 
 
-  <h2 class="section" id="fields">Fields
-</h2>
-
-
-
-  <h3 id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_currentQuest" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.currentQuest">
-  currentQuest
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QuestTrigger currentQuest</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html">QuestTrigger</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
   <h2 class="section" id="properties">Properties
 </h2>
 
 
-  <a id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Objectives_" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives*"></a>
+  <a id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_ActiveTriggers_" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers*"></a>
 
-  <h3 id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Objectives" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives">
-  Objectives
-  
+  <h3 id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_ActiveTriggers" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers">
+  ActiveTriggers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary">Objectives(tracking the progress and node advancement)</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;QuestObjective&gt; Objectives { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;QuestTrigger&gt; ActiveTriggers { get; }</code></pre>
   </div>
 
 
@@ -604,7 +570,7 @@ public class QuestTracker : MonoBehaviour</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="ISILab.LBS.Plugin.MapTools.Generators.QuestObjective.html">QuestObjective</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="QuestTrigger.html">QuestTrigger</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -615,18 +581,18 @@ public class QuestTracker : MonoBehaviour</code></pre>
 
 
 
-  <a id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_QuestComplete_" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete*"></a>
+  <a id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_CurrentQuest_" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest*"></a>
 
-  <h3 id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_QuestComplete" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete">
-  QuestComplete
-  
+  <h3 id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_CurrentQuest" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest">
+  CurrentQuest
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool QuestComplete { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public QuestTrigger CurrentQuest { get; }</code></pre>
   </div>
 
 
@@ -635,7 +601,7 @@ public class QuestTracker : MonoBehaviour</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><a class="xref" href="QuestTrigger.html">QuestTrigger</a></dt>
     <dd></dd>
   </dl>
 
@@ -650,7 +616,7 @@ public class QuestTracker : MonoBehaviour</code></pre>
 
   <h3 id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_QuestGraph" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph">
   QuestGraph
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -677,6 +643,37 @@ public class QuestTracker : MonoBehaviour</code></pre>
 
 
 
+  <a id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Triggers_" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers*"></a>
+
+  <h3 id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Triggers" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers">
+  Triggers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;QuestTrigger&gt; Triggers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="QuestTrigger.html">QuestTrigger</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -685,7 +682,7 @@ public class QuestTracker : MonoBehaviour</code></pre>
 
   <h3 id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Init_ISILab_LBS_Modules_QuestGraph_" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraph)">
   Init(QuestGraph)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -719,10 +716,10 @@ public class QuestTracker : MonoBehaviour</code></pre>
 
   <h3 id="ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_OnQuestAdvance" data-uid="ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.OnQuestAdvance">
   OnQuestAdvance
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary">Effect called whenever a trigger(actionNode) is completed. Updates UI</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -750,6 +747,7 @@ public class QuestTracker : MonoBehaviour</code></pre>
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 

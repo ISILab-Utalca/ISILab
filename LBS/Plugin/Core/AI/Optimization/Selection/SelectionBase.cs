@@ -18,7 +18,7 @@ namespace ISILab.AI.Optimization.Selections
 
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Selections.SelectionBase"/> class.
+        /// Initializes a new instance of the <see cref="SelectionBase"/> class.
         /// </summary>
         /// <param name="minNumberChromosomes">Minimum number chromosomes support to be selected.</param>
         protected SelectionBase(int minNumberChromosomes)

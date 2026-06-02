@@ -7,10 +7,8 @@ items:
   children:
   - ISILab.LBS.Modules.QuestEdge.#ctor
   - ISILab.LBS.Modules.QuestEdge.#ctor(ISILab.LBS.Components.GraphNode,ISILab.LBS.Components.GraphNode)
-  - ISILab.LBS.Modules.QuestEdge.AddFrom(ISILab.LBS.Components.GraphNode)
   - ISILab.LBS.Modules.QuestEdge.Clone
   - ISILab.LBS.Modules.QuestEdge.From
-  - ISILab.LBS.Modules.QuestEdge.RemoveFrom(ISILab.LBS.Components.GraphNode)
   - ISILab.LBS.Modules.QuestEdge.To
   langs:
   - csharp
@@ -20,9 +18,13 @@ items:
   fullName: ISILab.LBS.Modules.QuestEdge
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: QuestEdge
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestEdge.cs
-    startLine: 9
+    path: ../LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+    startLine: 7
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -63,9 +65,13 @@ items:
   fullName: ISILab.LBS.Modules.QuestEdge.From
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: From
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestEdge.cs
-    startLine: 23
+    path: ../LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+    startLine: 21
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -73,14 +79,14 @@ items:
     content: >-
       [JsonIgnore]
 
-      public List<GraphNode> From { get; set; }
+      public GraphNode From { get; set; }
     parameters: []
     return:
-      type: System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
+      type: ISILab.LBS.Components.GraphNode
     content.vb: >-
       <JsonIgnore>
 
-      Public Property From As List(Of GraphNode)
+      Public Property From As GraphNode
   overload: ISILab.LBS.Modules.QuestEdge.From*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
@@ -98,9 +104,13 @@ items:
   fullName: ISILab.LBS.Modules.QuestEdge.To
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: To
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestEdge.cs
-    startLine: 30
+    path: ../LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+    startLine: 28
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -133,9 +143,13 @@ items:
   fullName: ISILab.LBS.Modules.QuestEdge.QuestEdge()
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestEdge.cs
-    startLine: 39
+    path: ../LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+    startLine: 37
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -158,9 +172,13 @@ items:
   fullName: ISILab.LBS.Modules.QuestEdge.QuestEdge(ISILab.LBS.Components.GraphNode, ISILab.LBS.Components.GraphNode)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestEdge.cs
-    startLine: 43
+    path: ../LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+    startLine: 41
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -188,9 +206,13 @@ items:
   fullName: ISILab.LBS.Modules.QuestEdge.Clone()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestEdge.cs
-    startLine: 52
+    path: ../LBS/Plugin/Components/Data/Quest/QuestEdge.cs
+    startLine: 50
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -203,56 +225,6 @@ items:
   overload: ISILab.LBS.Modules.QuestEdge.Clone*
   implements:
   - System.ICloneable.Clone
-- uid: ISILab.LBS.Modules.QuestEdge.AddFrom(ISILab.LBS.Components.GraphNode)
-  commentId: M:ISILab.LBS.Modules.QuestEdge.AddFrom(ISILab.LBS.Components.GraphNode)
-  id: AddFrom(ISILab.LBS.Components.GraphNode)
-  parent: ISILab.LBS.Modules.QuestEdge
-  langs:
-  - csharp
-  - vb
-  name: AddFrom(GraphNode)
-  nameWithType: QuestEdge.AddFrom(GraphNode)
-  fullName: ISILab.LBS.Modules.QuestEdge.AddFrom(ISILab.LBS.Components.GraphNode)
-  type: Method
-  source:
-    id: AddFrom
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestEdge.cs
-    startLine: 69
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public void AddFrom(GraphNode node)
-    parameters:
-    - id: node
-      type: ISILab.LBS.Components.GraphNode
-    content.vb: Public Sub AddFrom(node As GraphNode)
-  overload: ISILab.LBS.Modules.QuestEdge.AddFrom*
-- uid: ISILab.LBS.Modules.QuestEdge.RemoveFrom(ISILab.LBS.Components.GraphNode)
-  commentId: M:ISILab.LBS.Modules.QuestEdge.RemoveFrom(ISILab.LBS.Components.GraphNode)
-  id: RemoveFrom(ISILab.LBS.Components.GraphNode)
-  parent: ISILab.LBS.Modules.QuestEdge
-  langs:
-  - csharp
-  - vb
-  name: RemoveFrom(GraphNode)
-  nameWithType: QuestEdge.RemoveFrom(GraphNode)
-  fullName: ISILab.LBS.Modules.QuestEdge.RemoveFrom(ISILab.LBS.Components.GraphNode)
-  type: Method
-  source:
-    id: RemoveFrom
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestEdge.cs
-    startLine: 76
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: public void RemoveFrom(GraphNode node)
-    parameters:
-    - id: node
-      type: ISILab.LBS.Components.GraphNode
-    content.vb: Public Sub RemoveFrom(node As GraphNode)
-  overload: ISILab.LBS.Modules.QuestEdge.RemoveFrom*
 references:
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
@@ -535,110 +507,6 @@ references:
   name: From
   nameWithType: QuestEdge.From
   fullName: ISILab.LBS.Modules.QuestEdge.From
-- uid: System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
-  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<GraphNode>
-  nameWithType: List<GraphNode>
-  fullName: System.Collections.Generic.List<ISILab.LBS.Components.GraphNode>
-  nameWithType.vb: List(Of GraphNode)
-  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.GraphNode)
-  name.vb: List(Of GraphNode)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
-  - name: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: ISILab.LBS.Modules.QuestEdge.To*
-  commentId: Overload:ISILab.LBS.Modules.QuestEdge.To
-  href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge_To
-  name: To
-  nameWithType: QuestEdge.To
-  fullName: ISILab.LBS.Modules.QuestEdge.To
 - uid: ISILab.LBS.Components.GraphNode
   commentId: T:ISILab.LBS.Components.GraphNode
   parent: ISILab.LBS.Components
@@ -676,6 +544,12 @@ references:
   - uid: ISILab.LBS.Components
     name: Components
     href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.Modules.QuestEdge.To*
+  commentId: Overload:ISILab.LBS.Modules.QuestEdge.To
+  href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge_To
+  name: To
+  nameWithType: QuestEdge.To
+  fullName: ISILab.LBS.Modules.QuestEdge.To
 - uid: ISILab.LBS.Modules.QuestEdge.#ctor*
   commentId: Overload:ISILab.LBS.Modules.QuestEdge.#ctor
   href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge__ctor
@@ -713,16 +587,4 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
   - name: (
   - name: )
-- uid: ISILab.LBS.Modules.QuestEdge.AddFrom*
-  commentId: Overload:ISILab.LBS.Modules.QuestEdge.AddFrom
-  href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge_AddFrom_ISILab_LBS_Components_GraphNode_
-  name: AddFrom
-  nameWithType: QuestEdge.AddFrom
-  fullName: ISILab.LBS.Modules.QuestEdge.AddFrom
-- uid: ISILab.LBS.Modules.QuestEdge.RemoveFrom*
-  commentId: Overload:ISILab.LBS.Modules.QuestEdge.RemoveFrom
-  href: ISILab.LBS.Modules.QuestEdge.html#ISILab_LBS_Modules_QuestEdge_RemoveFrom_ISILab_LBS_Components_GraphNode_
-  name: RemoveFrom
-  nameWithType: QuestEdge.RemoveFrom
-  fullName: ISILab.LBS.Modules.QuestEdge.RemoveFrom
 shouldSkipMarkup: true

@@ -65,7 +65,6 @@ items:
   - LBS.Components.LBSLayer.RemoveModule(ISILab.LBS.Modules.LBSModule)
   - LBS.Components.LBSLayer.ReplaceModule(ISILab.LBS.Modules.LBSModule,ISILab.LBS.Modules.LBSModule)
   - LBS.Components.LBSLayer.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
-  - LBS.Components.LBSLayer.Settings
   - LBS.Components.LBSLayer.TileSize
   - LBS.Components.LBSLayer.ToFixedPosition(UnityEngine.Vector2)
   - LBS.Components.LBSLayer.ToFixedPosition(UnityEngine.Vector2,UnityEngine.Vector2)
@@ -81,8 +80,12 @@ items:
   fullName: LBS.Components.LBSLayer
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: LBSLayer
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
     startLine: 21
   assemblies:
   - LBS
@@ -123,8 +126,12 @@ items:
   fullName: LBS.Components.LBSLayer.iconGuid
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: iconGuid
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
     startLine: 27
   assemblies:
   - LBS
@@ -163,14 +170,20 @@ items:
   fullName: LBS.Components.LBSLayer.index
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: index
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 42
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 40
   assemblies:
   - LBS
   namespace: LBS.Components
   syntax:
     content: >-
+      [HideInInspector]
+
       [SerializeField]
 
       [JsonRequired]
@@ -179,12 +192,17 @@ items:
     return:
       type: System.Int32
     content.vb: >-
+      <HideInInspector>
+
       <SerializeField>
 
       <JsonRequired>
 
       Public index As Integer
   attributes:
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
     arguments: []
@@ -203,9 +221,13 @@ items:
   fullName: LBS.Components.LBSLayer.IsVisible
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsVisible
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 46
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 45
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -238,9 +260,13 @@ items:
   fullName: LBS.Components.LBSLayer.IsBlocked
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsBlocked
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 47
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 46
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -273,9 +299,13 @@ items:
   fullName: LBS.Components.LBSLayer.IsLocked
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsLocked
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 48
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 47
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -308,9 +338,13 @@ items:
   fullName: LBS.Components.LBSLayer.Parent
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Parent
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 50
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 49
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -343,9 +377,13 @@ items:
   fullName: LBS.Components.LBSLayer.ID
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ID
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 51
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 50
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -378,9 +416,13 @@ items:
   fullName: LBS.Components.LBSLayer.Name
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Name
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 52
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 51
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -413,9 +455,13 @@ items:
   fullName: LBS.Components.LBSLayer.ActiveFloor
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ActiveFloor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 53
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 52
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -448,9 +494,13 @@ items:
   fullName: LBS.Components.LBSLayer.FloorCount
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: FloorCount
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 54
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 53
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -483,9 +533,13 @@ items:
   fullName: LBS.Components.LBSLayer.Behaviours
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Behaviours
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 57
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 56
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -518,9 +572,13 @@ items:
   fullName: LBS.Components.LBSLayer.Assistants
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Assistants
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 58
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 57
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -553,9 +611,13 @@ items:
   fullName: LBS.Components.LBSLayer.GeneratorRules
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GeneratorRules
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 59
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -576,41 +638,6 @@ items:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
     arguments: []
-- uid: LBS.Components.LBSLayer.Settings
-  commentId: P:LBS.Components.LBSLayer.Settings
-  id: Settings
-  parent: LBS.Components.LBSLayer
-  langs:
-  - csharp
-  - vb
-  name: Settings
-  nameWithType: LBSLayer.Settings
-  fullName: LBS.Components.LBSLayer.Settings
-  type: Property
-  source:
-    id: Settings
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 61
-  assemblies:
-  - LBS
-  namespace: LBS.Components
-  syntax:
-    content: >-
-      [JsonIgnore]
-
-      public LBSGenerator3DSettings Settings { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
-    content.vb: >-
-      <JsonIgnore>
-
-      Public Property Settings As LBSGenerator3DSettings
-  overload: LBS.Components.LBSLayer.Settings*
-  attributes:
-  - type: Newtonsoft.Json.JsonIgnoreAttribute
-    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
-    arguments: []
 - uid: LBS.Components.LBSLayer.TileSize
   commentId: P:LBS.Components.LBSLayer.TileSize
   id: TileSize
@@ -623,9 +650,13 @@ items:
   fullName: LBS.Components.LBSLayer.TileSize
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TileSize
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 63
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 62
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -658,9 +689,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnChangeName
   type: Event
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChangeName
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 78
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 76
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -681,9 +716,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnChange
   type: Event
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChange
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 79
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 77
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -704,9 +743,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnTileSizeChange
   type: Event
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnTileSizeChange
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 80
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 78
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -727,9 +770,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnAddModule
   type: Event
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAddModule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 81
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 79
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -750,9 +797,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnReplaceModule
   type: Event
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnReplaceModule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 82
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 80
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -773,9 +824,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnRemoveModule
   type: Event
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnRemoveModule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 83
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 81
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -796,9 +851,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnContextAdd
   type: Event
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextAdd
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 84
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 82
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -819,9 +878,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnContextRemove
   type: Event
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextRemove
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 85
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 83
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -842,9 +905,13 @@ items:
   fullName: LBS.Components.LBSLayer.LBSLayer()
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 89
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 87
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -867,9 +934,13 @@ items:
   fullName: LBS.Components.LBSLayer.LBSLayer(LBS.Components.LBSFloor[], System.Collections.Generic.IEnumerable<ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant>, System.Collections.Generic.IEnumerable<ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule>, System.Collections.Generic.IEnumerable<ISILab.LBS.Behaviours.LBSBehaviour>, ISILab.LBS.LBSLevelData, string, bool, string, string, UnityEngine.Vector2Int)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 103
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 101
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -913,9 +984,13 @@ items:
   fullName: LBS.Components.LBSLayer.ChangeFloor(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ChangeFloor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 133
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 131
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -941,9 +1016,13 @@ items:
   fullName: LBS.Components.LBSLayer.Modules(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Modules
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 151
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 149
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -971,9 +1050,13 @@ items:
   fullName: LBS.Components.LBSLayer.AddModule(ISILab.LBS.Modules.LBSModule, int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddModule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 157
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 155
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1003,9 +1086,13 @@ items:
   fullName: LBS.Components.LBSLayer.RemoveModule(ISILab.LBS.Modules.LBSModule)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveModule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 169
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 167
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1030,9 +1117,13 @@ items:
   fullName: LBS.Components.LBSLayer.GetModule(int, int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetModule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 187
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 185
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1062,9 +1153,13 @@ items:
   fullName: LBS.Components.LBSLayer.GetModule(string)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetModule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 189
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 187
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1092,9 +1187,13 @@ items:
   fullName: LBS.Components.LBSLayer.GetModule<T>(string, int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetModule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 192
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 190
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1126,9 +1225,13 @@ items:
   fullName: LBS.Components.LBSLayer.GetRule<T>()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetRule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 202
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 200
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1155,9 +1258,13 @@ items:
   fullName: LBS.Components.LBSLayer.ReplaceModule(ISILab.LBS.Modules.LBSModule, ISILab.LBS.Modules.LBSModule)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ReplaceModule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 224
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 222
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1182,9 +1289,13 @@ items:
   fullName: LBS.Components.LBSLayer.AddBehaviour(ISILab.LBS.Behaviours.LBSBehaviour)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddBehaviour
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 237
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 235
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1207,9 +1318,13 @@ items:
   fullName: LBS.Components.LBSLayer.RemoveBehaviour(ISILab.LBS.Behaviours.LBSBehaviour)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveBehaviour
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 265
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 263
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1232,9 +1347,13 @@ items:
   fullName: LBS.Components.LBSLayer.GetBehaviour<T>(string)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetBehaviour
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 272
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 270
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1264,9 +1383,13 @@ items:
   fullName: LBS.Components.LBSLayer.AddAssistant(ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddAssistant
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 282
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 280
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1289,9 +1412,13 @@ items:
   fullName: LBS.Components.LBSLayer.RemoveAssistant(ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveAssistant
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 309
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 307
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1314,9 +1441,13 @@ items:
   fullName: LBS.Components.LBSLayer.GetAssistant(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAssistant
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 316
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 314
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1344,9 +1475,13 @@ items:
   fullName: LBS.Components.LBSLayer.GetAssistant<T>(string)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAssistant
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 318
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 316
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1376,9 +1511,13 @@ items:
   fullName: LBS.Components.LBSLayer.AddGeneratorRule(ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddGeneratorRule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 327
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 325
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1401,9 +1540,13 @@ items:
   fullName: LBS.Components.LBSLayer.RemoveGeneratorRule(ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveGeneratorRule
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 333
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 331
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1428,9 +1571,13 @@ items:
   fullName: LBS.Components.LBSLayer.Reload()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Reload
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 338
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 336
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1450,9 +1597,13 @@ items:
   fullName: LBS.Components.LBSLayer.RemoveAll()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveAll
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 348
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 346
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1472,9 +1623,13 @@ items:
   fullName: LBS.Components.LBSLayer.ToFixedPosition(UnityEngine.Vector2)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPosition
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 360
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 358
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1499,9 +1654,13 @@ items:
   fullName: LBS.Components.LBSLayer.ToFixedPositionOffset(UnityEngine.Vector2, UnityEngine.Vector2)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPositionOffset
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 371
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 369
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1528,9 +1687,13 @@ items:
   fullName: LBS.Components.LBSLayer.ToFixedPositionOffset(UnityEngine.Vector2, float)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPositionOffset
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 372
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 370
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1560,9 +1723,13 @@ items:
   fullName: LBS.Components.LBSLayer.FixedToPosition(UnityEngine.Vector2Int, bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: FixedToPosition
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 374
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 372
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1592,9 +1759,13 @@ items:
   fullName: LBS.Components.LBSLayer.ToFixedPosition(UnityEngine.Vector2, UnityEngine.Vector2)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPosition
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 382
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 380
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1621,9 +1792,13 @@ items:
   fullName: LBS.Components.LBSLayer.ClearEvents()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ClearEvents
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 392
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 390
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1643,9 +1818,13 @@ items:
   fullName: LBS.Components.LBSLayer.Clone()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 403
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 401
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1670,9 +1849,13 @@ items:
   fullName: LBS.Components.LBSLayer.CloneFloorArray(LBS.Components.LBSFloor[])
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CloneFloorArray
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 414
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 412
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1700,9 +1883,13 @@ items:
   fullName: LBS.Components.LBSLayer.Equals(object)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 423
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 421
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1732,9 +1919,13 @@ items:
   fullName: LBS.Components.LBSLayer.GetHashCode()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 435
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 433
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1758,9 +1949,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnChangeUpdate()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChangeUpdate
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 441
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 439
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1780,9 +1975,13 @@ items:
   fullName: LBS.Components.LBSLayer.InvokeNameChanged()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InvokeNameChanged
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 442
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 440
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1802,9 +2001,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnContextAddInvoke()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextAddInvoke
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 443
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 441
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1824,9 +2027,13 @@ items:
   fullName: LBS.Components.LBSLayer.OnContextRemoveInvoke()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextRemoveInvoke
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 444
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 442
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1846,9 +2053,13 @@ items:
   fullName: LBS.Components.LBSLayer.IsExteriorLayer(ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsExteriorLayer
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 498
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 496
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1873,9 +2084,13 @@ items:
   fullName: LBS.Components.LBSLayer.IsPopulationLayer()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsPopulationLayer
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 505
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 503
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1897,9 +2112,13 @@ items:
   fullName: LBS.Components.LBSLayer.IsQuestLayer()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsQuestLayer
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 511
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 509
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1921,9 +2140,13 @@ items:
   fullName: LBS.Components.LBSLayer.IsInteriorLayer()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsInteriorLayer
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 517
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 515
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1945,9 +2168,13 @@ items:
   fullName: LBS.Components.LBSLayer.GetAreaClone(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAreaClone
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 533
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 531
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1979,9 +2206,13 @@ items:
   fullName: LBS.Components.LBSLayer.GetAnchor()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAnchor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 556
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 554
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2008,9 +2239,13 @@ items:
   fullName: LBS.Components.LBSLayer.SetPosition(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetPosition
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 578
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 576
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2040,9 +2275,13 @@ items:
   fullName: LBS.Components.LBSLayer.CaptureAreaData(UnityEngine.Vector2Int, UnityEngine.Vector2Int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CaptureAreaData
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 596
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 594
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2079,9 +2318,13 @@ items:
   fullName: LBS.Components.LBSLayer.MergeLayerData(object, bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MergeLayerData
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\LBSLayer.cs
-    startLine: 601
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 599
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2678,65 +2921,6 @@ references:
     name: LBSGeneratorRule
     href: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule.html
   - name: )
-- uid: LBS.Components.LBSLayer.Settings*
-  commentId: Overload:LBS.Components.LBSLayer.Settings
-  href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_Settings
-  name: Settings
-  nameWithType: LBSLayer.Settings
-  fullName: LBS.Components.LBSLayer.Settings
-- uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
-  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
-  parent: ISILab.LBS.Plugin.Core.Settings
-  href: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.html
-  name: LBSGenerator3DSettings
-  nameWithType: LBSGenerator3DSettings
-  fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
-- uid: ISILab.LBS.Plugin.Core.Settings
-  commentId: N:ISILab.LBS.Plugin.Core.Settings
-  href: ISILab.html
-  name: ISILab.LBS.Plugin.Core.Settings
-  nameWithType: ISILab.LBS.Plugin.Core.Settings
-  fullName: ISILab.LBS.Plugin.Core.Settings
-  spec.csharp:
-  - uid: ISILab
-    name: ISILab
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Plugin
-    name: Plugin
-    href: ISILab.LBS.Plugin.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Core
-    name: Core
-    href: ISILab.LBS.Plugin.Core.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Core.Settings
-    name: Settings
-    href: ISILab.LBS.Plugin.Core.Settings.html
-  spec.vb:
-  - uid: ISILab
-    name: ISILab
-    href: ISILab.html
-  - name: .
-  - uid: ISILab.LBS
-    name: LBS
-    href: ISILab.LBS.html
-  - name: .
-  - uid: ISILab.LBS.Plugin
-    name: Plugin
-    href: ISILab.LBS.Plugin.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Core
-    name: Core
-    href: ISILab.LBS.Plugin.Core.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Core.Settings
-    name: Settings
-    href: ISILab.LBS.Plugin.Core.Settings.html
 - uid: LBS.Components.LBSLayer.TileSize*
   commentId: Overload:LBS.Components.LBSLayer.TileSize
   href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_TileSize

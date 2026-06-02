@@ -18,7 +18,7 @@ namespace ISILab.AI.Optimization.Selections
     {
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Selections.EliteSelection"/> class.
+        /// Initializes a new instance of the <see cref="EliteSelection"/> class.
         /// </summary>
         public EliteSelection() : base()
         {

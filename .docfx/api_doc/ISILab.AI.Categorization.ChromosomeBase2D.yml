@@ -6,7 +6,7 @@ items:
   parent: ISILab.AI.Categorization
   children:
   - ISILab.AI.Categorization.ChromosomeBase2D.#ctor
-  - ISILab.AI.Categorization.ChromosomeBase2D.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
+  - ISILab.AI.Categorization.ChromosomeBase2D.#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
   - ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex(UnityEngine.Vector2)
   - ISILab.AI.Categorization.ChromosomeBase2D.Rect
   - ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(System.Int32)
@@ -20,8 +20,12 @@ items:
   fullName: ISILab.AI.Categorization.ChromosomeBase2D
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ChromosomeBase2D
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
     startLine: 7
   assemblies:
   - LBS
@@ -87,8 +91,12 @@ items:
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.Rect
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Rect
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
     startLine: 9
   assemblies:
   - LBS
@@ -100,38 +108,42 @@ items:
       type: UnityEngine.Rect
     content.vb: Public Property Rect As Rect
   overload: ISILab.AI.Categorization.ChromosomeBase2D.Rect*
-- uid: ISILab.AI.Categorization.ChromosomeBase2D.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
-  commentId: M:ISILab.AI.Categorization.ChromosomeBase2D.#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])
-  id: '#ctor(UnityEngine.Rect,System.Int32[],System.Int32[])'
+- uid: ISILab.AI.Categorization.ChromosomeBase2D.#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  commentId: M:ISILab.AI.Categorization.ChromosomeBase2D.#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  id: '#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})'
   parent: ISILab.AI.Categorization.ChromosomeBase2D
   langs:
   - csharp
   - vb
-  name: ChromosomeBase2D(Rect, int[], int[])
-  nameWithType: ChromosomeBase2D.ChromosomeBase2D(Rect, int[], int[])
-  fullName: ISILab.AI.Categorization.ChromosomeBase2D.ChromosomeBase2D(UnityEngine.Rect, int[], int[])
+  name: ChromosomeBase2D(Rect, HashSet<int>, HashSet<int>)
+  nameWithType: ChromosomeBase2D.ChromosomeBase2D(Rect, HashSet<int>, HashSet<int>)
+  fullName: ISILab.AI.Categorization.ChromosomeBase2D.ChromosomeBase2D(UnityEngine.Rect, System.Collections.Generic.HashSet<int>, System.Collections.Generic.HashSet<int>)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
     startLine: 11
   assemblies:
   - LBS
   namespace: ISILab.AI.Categorization
   syntax:
-    content: protected ChromosomeBase2D(Rect rect, int[] immutables = null, int[] invalids = null)
+    content: protected ChromosomeBase2D(Rect rect, HashSet<int> immutables = null, HashSet<int> invalids = null)
     parameters:
     - id: rect
       type: UnityEngine.Rect
     - id: immutables
-      type: System.Int32[]
+      type: System.Collections.Generic.HashSet{System.Int32}
     - id: invalids
-      type: System.Int32[]
-    content.vb: Protected Sub New(rect As Rect, immutables As Integer() = Nothing, invalids As Integer() = Nothing)
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Protected Sub New(rect As Rect, immutables As HashSet(Of Integer) = Nothing, invalids As HashSet(Of Integer) = Nothing)
   overload: ISILab.AI.Categorization.ChromosomeBase2D.#ctor*
-  nameWithType.vb: ChromosomeBase2D.New(Rect, Integer(), Integer())
-  fullName.vb: ISILab.AI.Categorization.ChromosomeBase2D.New(UnityEngine.Rect, Integer(), Integer())
-  name.vb: New(Rect, Integer(), Integer())
+  nameWithType.vb: ChromosomeBase2D.New(Rect, HashSet(Of Integer), HashSet(Of Integer))
+  fullName.vb: ISILab.AI.Categorization.ChromosomeBase2D.New(UnityEngine.Rect, System.Collections.Generic.HashSet(Of Integer), System.Collections.Generic.HashSet(Of Integer))
+  name.vb: New(Rect, HashSet(Of Integer), HashSet(Of Integer))
 - uid: ISILab.AI.Categorization.ChromosomeBase2D.#ctor
   commentId: M:ISILab.AI.Categorization.ChromosomeBase2D.#ctor
   id: '#ctor'
@@ -144,8 +156,12 @@ items:
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ChromosomeBase2D()
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
     startLine: 16
   assemblies:
   - LBS
@@ -169,8 +185,12 @@ items:
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToIndex(UnityEngine.Vector2)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToIndex
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
     startLine: 27
   assemblies:
   - LBS
@@ -199,8 +219,12 @@ items:
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.GlobalToIndex(UnityEngine.Vector2)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GlobalToIndex
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
     startLine: 34
   assemblies:
   - LBS
@@ -226,8 +250,12 @@ items:
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToMatrixPosition(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToMatrixPosition
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
     startLine: 40
   assemblies:
   - LBS
@@ -259,8 +287,12 @@ items:
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ToGlobalPosition(int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToGlobalPosition
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Chromosomes\ChromosomeBase2D.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase2D.cs
     startLine: 45
   assemblies:
   - LBS
@@ -1492,36 +1524,113 @@ references:
   fullName: UnityEngine
 - uid: ISILab.AI.Categorization.ChromosomeBase2D.#ctor*
   commentId: Overload:ISILab.AI.Categorization.ChromosomeBase2D.#ctor
-  href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D__ctor_UnityEngine_Rect_System_Int32___System_Int32___
+  href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D__ctor_UnityEngine_Rect_System_Collections_Generic_HashSet_System_Int32__System_Collections_Generic_HashSet_System_Int32__
   name: ChromosomeBase2D
   nameWithType: ChromosomeBase2D.ChromosomeBase2D
   fullName: ISILab.AI.Categorization.ChromosomeBase2D.ChromosomeBase2D
   nameWithType.vb: ChromosomeBase2D.New
   fullName.vb: ISILab.AI.Categorization.ChromosomeBase2D.New
   name.vb: New
-- uid: System.Int32[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int[]
-  nameWithType: int[]
-  fullName: int[]
-  nameWithType.vb: Integer()
-  fullName.vb: Integer()
-  name.vb: Integer()
+- uid: System.Collections.Generic.HashSet{System.Int32}
+  commentId: T:System.Collections.Generic.HashSet{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<int>
+  nameWithType: HashSet<int>
+  fullName: System.Collections.Generic.HashSet<int>
+  nameWithType.vb: HashSet(Of Integer)
+  fullName.vb: System.Collections.Generic.HashSet(Of Integer)
+  name.vb: HashSet(Of Integer)
   spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
   - uid: System.Int32
     name: int
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '['
-  - name: ']'
+  - name: '>'
   spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
   - uid: System.Int32
     name: Integer
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: (
   - name: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.AI.Categorization.ChromosomeBase2D.ToIndex*
   commentId: Overload:ISILab.AI.Categorization.ChromosomeBase2D.ToIndex
   href: ISILab.AI.Categorization.ChromosomeBase2D.html#ISILab_AI_Categorization_ChromosomeBase2D_ToIndex_UnityEngine_Vector2_

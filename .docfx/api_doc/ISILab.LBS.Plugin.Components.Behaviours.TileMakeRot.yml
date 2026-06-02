@@ -1,0 +1,164 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+  commentId: T:ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+  id: TileMakeRot
+  parent: ISILab.LBS.Plugin.Components.Behaviours
+  children:
+  - ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Fixed
+  - ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Random
+  - ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Weighted
+  langs:
+  - csharp
+  - vb
+  name: TileMakeRot
+  nameWithType: TileMakeRot
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+  type: Enum
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/Components/WeightedDirection.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: TileMakeRot
+    path: ../LBS/Plugin/Components/Behaviours/Components/WeightedDirection.cs
+    startLine: 7
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public enum TileMakeRot
+    content.vb: Public Enum TileMakeRot
+- uid: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Fixed
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Fixed
+  id: Fixed
+  parent: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+  langs:
+  - csharp
+  - vb
+  name: Fixed
+  nameWithType: TileMakeRot.Fixed
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Fixed
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/Components/WeightedDirection.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Fixed
+    path: ../LBS/Plugin/Components/Behaviours/Components/WeightedDirection.cs
+    startLine: 9
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: Fixed = 0
+    return:
+      type: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+- uid: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Random
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Random
+  id: Random
+  parent: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+  langs:
+  - csharp
+  - vb
+  name: Random
+  nameWithType: TileMakeRot.Random
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Random
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/Components/WeightedDirection.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Random
+    path: ../LBS/Plugin/Components/Behaviours/Components/WeightedDirection.cs
+    startLine: 10
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: Random = 1
+    return:
+      type: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+- uid: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Weighted
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Weighted
+  id: Weighted
+  parent: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+  langs:
+  - csharp
+  - vb
+  name: Weighted
+  nameWithType: TileMakeRot.Weighted
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.Weighted
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/Components/WeightedDirection.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Weighted
+    path: ../LBS/Plugin/Components/Behaviours/Components/WeightedDirection.cs
+    startLine: 11
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: Weighted = 2
+    return:
+      type: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+references:
+- uid: ISILab.LBS.Plugin.Components.Behaviours
+  commentId: N:ISILab.LBS.Plugin.Components.Behaviours
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Behaviours
+  nameWithType: ISILab.LBS.Plugin.Components.Behaviours
+  fullName: ISILab.LBS.Plugin.Components.Behaviours
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Behaviours
+    name: Behaviours
+    href: ISILab.LBS.Plugin.Components.Behaviours.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Behaviours
+    name: Behaviours
+    href: ISILab.LBS.Plugin.Components.Behaviours.html
+- uid: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+  commentId: T:ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+  parent: ISILab.LBS.Plugin.Components.Behaviours
+  href: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot.html
+  name: TileMakeRot
+  nameWithType: TileMakeRot
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.TileMakeRot
+shouldSkipMarkup: true

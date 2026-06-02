@@ -7,8 +7,11 @@ items:
   children:
   - ISILab.Extensions.ActionExtensions.AddUnique(System.Action@,System.Action)
   - ISILab.Extensions.ActionExtensions.AddUnique``1(System.Action{``0}@,System.Action{``0})
+  - ISILab.Extensions.ActionExtensions.RemoveAllByTargetType``2(System.Action{``0}@)
+  - ISILab.Extensions.ActionExtensions.RemoveMethod``1(System.Action{``0}@,System.String)
   - ISILab.Extensions.ActionExtensions.RemoveUnique(System.Action@,System.Action)
   - ISILab.Extensions.ActionExtensions.RemoveUnique``1(System.Action{``0}@,System.Action{``0})
+  - ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods``1(System.Action{``0}@,System.Object)
   langs:
   - csharp
   - vb
@@ -17,8 +20,12 @@ items:
   fullName: ISILab.Extensions.ActionExtensions
   type: Class
   source:
+    remote:
+      path: Commons/Extensions/ActionExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ActionExtensions
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\ActionExtensions.cs
+    path: ../Commons/Extensions/ActionExtensions.cs
     startLine: 5
   assemblies:
   - Commons
@@ -48,8 +55,12 @@ items:
   fullName: ISILab.Extensions.ActionExtensions.AddUnique<T>(ref System.Action<T>, System.Action<T>)
   type: Method
   source:
+    remote:
+      path: Commons/Extensions/ActionExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddUnique
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\ActionExtensions.cs
+    path: ../Commons/Extensions/ActionExtensions.cs
     startLine: 10
   assemblies:
   - Commons
@@ -82,8 +93,12 @@ items:
   fullName: ISILab.Extensions.ActionExtensions.AddUnique(ref System.Action, System.Action)
   type: Method
   source:
+    remote:
+      path: Commons/Extensions/ActionExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddUnique
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\ActionExtensions.cs
+    path: ../Commons/Extensions/ActionExtensions.cs
     startLine: 22
   assemblies:
   - Commons
@@ -114,8 +129,12 @@ items:
   fullName: ISILab.Extensions.ActionExtensions.RemoveUnique<T>(ref System.Action<T>, System.Action<T>)
   type: Method
   source:
+    remote:
+      path: Commons/Extensions/ActionExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveUnique
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\ActionExtensions.cs
+    path: ../Commons/Extensions/ActionExtensions.cs
     startLine: 35
   assemblies:
   - Commons
@@ -148,8 +167,12 @@ items:
   fullName: ISILab.Extensions.ActionExtensions.RemoveUnique(ref System.Action, System.Action)
   type: Method
   source:
+    remote:
+      path: Commons/Extensions/ActionExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveUnique
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\Commons\Extensions\ActionExtensions.cs
+    path: ../Commons/Extensions/ActionExtensions.cs
     startLine: 48
   assemblies:
   - Commons
@@ -168,6 +191,122 @@ items:
   nameWithType.vb: ActionExtensions.RemoveUnique(Action, Action)
   fullName.vb: ISILab.Extensions.ActionExtensions.RemoveUnique(System.Action, System.Action)
   name.vb: RemoveUnique(Action, Action)
+- uid: ISILab.Extensions.ActionExtensions.RemoveMethod``1(System.Action{``0}@,System.String)
+  commentId: M:ISILab.Extensions.ActionExtensions.RemoveMethod``1(System.Action{``0}@,System.String)
+  id: RemoveMethod``1(System.Action{``0}@,System.String)
+  parent: ISILab.Extensions.ActionExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveMethod<T>(ref Action<T>, string)
+  nameWithType: ActionExtensions.RemoveMethod<T>(ref Action<T>, string)
+  fullName: ISILab.Extensions.ActionExtensions.RemoveMethod<T>(ref System.Action<T>, string)
+  type: Method
+  source:
+    remote:
+      path: Commons/Extensions/ActionExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: RemoveMethod
+    path: ../Commons/Extensions/ActionExtensions.cs
+    startLine: 62
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: >-
+    Scours the invocation list and completely strips any delegate matching a specific method name,
+
+    regardless of which object instance it targets.
+  example: []
+  syntax:
+    content: public static void RemoveMethod<T>(ref Action<T> del, string methodName)
+    parameters:
+    - id: del
+      type: System.Action{{T}}
+    - id: methodName
+      type: System.String
+    typeParameters:
+    - id: T
+    content.vb: Public Shared Sub RemoveMethod(Of T)(del As Action(Of T), methodName As String)
+  overload: ISILab.Extensions.ActionExtensions.RemoveMethod*
+  nameWithType.vb: ActionExtensions.RemoveMethod(Of T)(Action(Of T), String)
+  fullName.vb: ISILab.Extensions.ActionExtensions.RemoveMethod(Of T)(System.Action(Of T), String)
+  name.vb: RemoveMethod(Of T)(Action(Of T), String)
+- uid: ISILab.Extensions.ActionExtensions.RemoveAllByTargetType``2(System.Action{``0}@)
+  commentId: M:ISILab.Extensions.ActionExtensions.RemoveAllByTargetType``2(System.Action{``0}@)
+  id: RemoveAllByTargetType``2(System.Action{``0}@)
+  parent: ISILab.Extensions.ActionExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveAllByTargetType<TDelegate, TTargetType>(ref Action<TDelegate>)
+  nameWithType: ActionExtensions.RemoveAllByTargetType<TDelegate, TTargetType>(ref Action<TDelegate>)
+  fullName: ISILab.Extensions.ActionExtensions.RemoveAllByTargetType<TDelegate, TTargetType>(ref System.Action<TDelegate>)
+  type: Method
+  source:
+    remote:
+      path: Commons/Extensions/ActionExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: RemoveAllByTargetType
+    path: ../Commons/Extensions/ActionExtensions.cs
+    startLine: 80
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: Cleans out any delegates whose target instance is an old or orphaned instance of a specific view type.
+  example: []
+  syntax:
+    content: public static void RemoveAllByTargetType<TDelegate, TTargetType>(ref Action<TDelegate> del)
+    parameters:
+    - id: del
+      type: System.Action{{TDelegate}}
+    typeParameters:
+    - id: TDelegate
+    - id: TTargetType
+    content.vb: Public Shared Sub RemoveAllByTargetType(Of TDelegate, TTargetType)(del As Action(Of TDelegate))
+  overload: ISILab.Extensions.ActionExtensions.RemoveAllByTargetType*
+  nameWithType.vb: ActionExtensions.RemoveAllByTargetType(Of TDelegate, TTargetType)(Action(Of TDelegate))
+  fullName.vb: ISILab.Extensions.ActionExtensions.RemoveAllByTargetType(Of TDelegate, TTargetType)(System.Action(Of TDelegate))
+  name.vb: RemoveAllByTargetType(Of TDelegate, TTargetType)(Action(Of TDelegate))
+- uid: ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods``1(System.Action{``0}@,System.Object)
+  commentId: M:ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods``1(System.Action{``0}@,System.Object)
+  id: RemoveVisualElementMethods``1(System.Action{``0}@,System.Object)
+  parent: ISILab.Extensions.ActionExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveVisualElementMethods<TDelegate>(ref Action<TDelegate>, object)
+  nameWithType: ActionExtensions.RemoveVisualElementMethods<TDelegate>(ref Action<TDelegate>, object)
+  fullName: ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods<TDelegate>(ref System.Action<TDelegate>, object)
+  type: Method
+  source:
+    remote:
+      path: Commons/Extensions/ActionExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: RemoveVisualElementMethods
+    path: ../Commons/Extensions/ActionExtensions.cs
+    startLine: 106
+  assemblies:
+  - Commons
+  namespace: ISILab.Extensions
+  summary: Purges any delegate that belongs to a QuestNodeView unless it matches the active view instance.
+  example: []
+  syntax:
+    content: public static void RemoveVisualElementMethods<TDelegate>(ref Action<TDelegate> del, object currentValidView)
+    parameters:
+    - id: del
+      type: System.Action{{TDelegate}}
+    - id: currentValidView
+      type: System.Object
+    typeParameters:
+    - id: TDelegate
+    content.vb: Public Shared Sub RemoveVisualElementMethods(Of TDelegate)(del As Action(Of TDelegate), currentValidView As Object)
+  overload: ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods*
+  nameWithType.vb: ActionExtensions.RemoveVisualElementMethods(Of TDelegate)(Action(Of TDelegate), Object)
+  fullName.vb: ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods(Of TDelegate)(System.Action(Of TDelegate), Object)
+  name.vb: RemoveVisualElementMethods(Of TDelegate)(Action(Of TDelegate), Object)
 references:
 - uid: ISILab.Extensions
   commentId: N:ISILab.Extensions
@@ -505,4 +644,62 @@ references:
   name: RemoveUnique
   nameWithType: ActionExtensions.RemoveUnique
   fullName: ISILab.Extensions.ActionExtensions.RemoveUnique
+- uid: ISILab.Extensions.ActionExtensions.RemoveMethod*
+  commentId: Overload:ISILab.Extensions.ActionExtensions.RemoveMethod
+  href: ISILab.Extensions.ActionExtensions.html#ISILab_Extensions_ActionExtensions_RemoveMethod__1_System_Action___0___System_String_
+  name: RemoveMethod
+  nameWithType: ActionExtensions.RemoveMethod
+  fullName: ISILab.Extensions.ActionExtensions.RemoveMethod
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.Extensions.ActionExtensions.RemoveAllByTargetType*
+  commentId: Overload:ISILab.Extensions.ActionExtensions.RemoveAllByTargetType
+  href: ISILab.Extensions.ActionExtensions.html#ISILab_Extensions_ActionExtensions_RemoveAllByTargetType__2_System_Action___0___
+  name: RemoveAllByTargetType
+  nameWithType: ActionExtensions.RemoveAllByTargetType
+  fullName: ISILab.Extensions.ActionExtensions.RemoveAllByTargetType
+- uid: System.Action{{TDelegate}}
+  commentId: T:System.Action{``0}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<TDelegate>
+  nameWithType: Action<TDelegate>
+  fullName: System.Action<TDelegate>
+  nameWithType.vb: Action(Of TDelegate)
+  fullName.vb: System.Action(Of TDelegate)
+  name.vb: Action(Of TDelegate)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: TDelegate
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDelegate
+  - name: )
+- uid: ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods*
+  commentId: Overload:ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods
+  href: ISILab.Extensions.ActionExtensions.html#ISILab_Extensions_ActionExtensions_RemoveVisualElementMethods__1_System_Action___0___System_Object_
+  name: RemoveVisualElementMethods
+  nameWithType: ActionExtensions.RemoveVisualElementMethods
+  fullName: ISILab.Extensions.ActionExtensions.RemoveVisualElementMethods
 shouldSkipMarkup: true

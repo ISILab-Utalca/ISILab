@@ -27,7 +27,7 @@ namespace ISILab.AI.Optimization.Populations
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Populations.Population"/> class.
+        /// Initializes a new instance of the <see cref="Population"/> class.
         /// </summary>
         /// <param name="minSize">The minimum size (chromosomes).</param>
         /// <param name="maxSize">The maximum size (chromosomes).</param>

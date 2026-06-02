@@ -19,9 +19,13 @@ items:
   fullName: ISILab.LBS.Components.BundleTargetGraph
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: BundleTargetGraph
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
-    startLine: 40
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -64,9 +68,13 @@ items:
   fullName: ISILab.LBS.Components.BundleTargetGraph.Layer
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Layer
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
-    startLine: 49
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+    startLine: 52
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -89,9 +97,13 @@ items:
   fullName: ISILab.LBS.Components.BundleTargetGraph.TileBundleGroup
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TileBundleGroup
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
-    startLine: 50
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+    startLine: 53
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -102,6 +114,35 @@ items:
       type: ISILab.LBS.Modules.TileBundleGroup
     content.vb: Public ReadOnly Property TileBundleGroup As TileBundleGroup
   overload: ISILab.LBS.Components.BundleTargetGraph.TileBundleGroup*
+- uid: ISILab.LBS.Components.BundleTargetGraph.Area
+  commentId: P:ISILab.LBS.Components.BundleTargetGraph.Area
+  id: Area
+  parent: ISILab.LBS.Components.BundleTargetGraph
+  langs:
+  - csharp
+  - vb
+  name: Area
+  nameWithType: BundleTargetGraph.Area
+  fullName: ISILab.LBS.Components.BundleTargetGraph.Area
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Area
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+    startLine: 54
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public Rect Area { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Rect
+    content.vb: Public ReadOnly Property Area As Rect
+  overload: ISILab.LBS.Components.BundleTargetGraph.Area*
 - uid: ISILab.LBS.Components.BundleTargetGraph.#ctor(LBS.Components.LBSLayer,ISILab.LBS.Modules.TileBundleGroup)
   commentId: M:ISILab.LBS.Components.BundleTargetGraph.#ctor(LBS.Components.LBSLayer,ISILab.LBS.Modules.TileBundleGroup)
   id: '#ctor(LBS.Components.LBSLayer,ISILab.LBS.Modules.TileBundleGroup)'
@@ -114,9 +155,13 @@ items:
   fullName: ISILab.LBS.Components.BundleTargetGraph.BundleTargetGraph(LBS.Components.LBSLayer, ISILab.LBS.Modules.TileBundleGroup)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
-    startLine: 52
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+    startLine: 59
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -144,9 +189,13 @@ items:
   fullName: ISILab.LBS.Components.BundleTargetGraph.Position
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Position
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
-    startLine: 68
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+    startLine: 77
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -157,31 +206,6 @@ items:
       type: UnityEngine.Vector2Int
     content.vb: Public ReadOnly Property Position As Vector2Int
   overload: ISILab.LBS.Components.BundleTargetGraph.Position*
-- uid: ISILab.LBS.Components.BundleTargetGraph.Area
-  commentId: P:ISILab.LBS.Components.BundleTargetGraph.Area
-  id: Area
-  parent: ISILab.LBS.Components.BundleTargetGraph
-  langs:
-  - csharp
-  - vb
-  name: Area
-  nameWithType: BundleTargetGraph.Area
-  fullName: ISILab.LBS.Components.BundleTargetGraph.Area
-  type: Property
-  source:
-    id: Area
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
-    startLine: 72
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public Rect Area { get; }
-    parameters: []
-    return:
-      type: UnityEngine.Rect
-    content.vb: Public ReadOnly Property Area As Rect
-  overload: ISILab.LBS.Components.BundleTargetGraph.Area*
 - uid: ISILab.LBS.Components.BundleTargetGraph.IsValid
   commentId: M:ISILab.LBS.Components.BundleTargetGraph.IsValid
   id: IsValid
@@ -194,9 +218,13 @@ items:
   fullName: ISILab.LBS.Components.BundleTargetGraph.IsValid()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsValid
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\LayerTargets.cs
-    startLine: 73
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/LayerTargets.cs
+    startLine: 81
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -561,6 +589,25 @@ references:
   - uid: ISILab.LBS.Modules
     name: Modules
     href: ISILab.LBS.Modules.html
+- uid: ISILab.LBS.Components.BundleTargetGraph.Area*
+  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.Area
+  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_Area
+  name: Area
+  nameWithType: BundleTargetGraph.Area
+  fullName: ISILab.LBS.Components.BundleTargetGraph.Area
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: ISILab.LBS.Components.BundleTargetGraph.#ctor*
   commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.#ctor
   href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph__ctor_LBS_Components_LBSLayer_ISILab_LBS_Modules_TileBundleGroup_
@@ -583,25 +630,6 @@ references:
   name: Vector2Int
   nameWithType: Vector2Int
   fullName: UnityEngine.Vector2Int
-- uid: UnityEngine
-  commentId: N:UnityEngine
-  isExternal: true
-  name: UnityEngine
-  nameWithType: UnityEngine
-  fullName: UnityEngine
-- uid: ISILab.LBS.Components.BundleTargetGraph.Area*
-  commentId: Overload:ISILab.LBS.Components.BundleTargetGraph.Area
-  href: ISILab.LBS.Components.BundleTargetGraph.html#ISILab_LBS_Components_BundleTargetGraph_Area
-  name: Area
-  nameWithType: BundleTargetGraph.Area
-  fullName: ISILab.LBS.Components.BundleTargetGraph.Area
-- uid: UnityEngine.Rect
-  commentId: T:UnityEngine.Rect
-  parent: UnityEngine
-  isExternal: true
-  name: Rect
-  nameWithType: Rect
-  fullName: UnityEngine.Rect
 - uid: ISILab.LBS.Components.BundleTarget.IsValid
   commentId: M:ISILab.LBS.Components.BundleTarget.IsValid
   parent: ISILab.LBS.Components.BundleTarget
