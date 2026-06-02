@@ -1,10 +1,11 @@
-using System;
-using System.Collections;
-using System.Diagnostics;
-using System.Linq;
 using GeneticSharp.Infrastructure.Framework.Commons;
 using GeneticSharp.Infrastructure.Framework.Texts;
 using ISILab.AI.Optimization;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace GeneticSharp.Domain.Chromosomes
 {
@@ -17,8 +18,8 @@ namespace GeneticSharp.Domain.Chromosomes
     {
         #region Fields
         protected object[] genes;
-        protected int[] immutableIndexes;
-        protected int[] invalidIndexes;
+        protected HashSet<int> immutableIndexes;
+        protected HashSet<int> invalidIndexes;
         #endregion
 
         #region Constructors        
@@ -26,24 +27,24 @@ namespace GeneticSharp.Domain.Chromosomes
         /// Initializes a new instance of the <see cref="ChromosomeBase"/> class.
         /// </summary>
         /// <param name="length">The length, in genes, of the chromosome.</param>
-        protected ChromosomeBase(int length, int[] immutables = null, int[] invalids = null)
+        protected ChromosomeBase(int length, HashSet<int> immutables = null, HashSet<int> invalids = null)
         {
             ValidateLength(length);
             genes = new object[length];
 
             immutableIndexes = immutables;
             if (immutableIndexes == null)
-                immutableIndexes = new int[0];
+                immutableIndexes = new();
             invalidIndexes = invalids;
             if(invalidIndexes == null)
-                invalidIndexes = new int[0];
+                invalidIndexes = new();
         }
 
         protected ChromosomeBase()
         {
             genes = new object[0];
-            immutableIndexes = new int[0];
-            invalidIndexes = new int[0];
+            immutableIndexes = new();
+            invalidIndexes = new();
         }
 
         #endregion
@@ -62,7 +63,7 @@ namespace GeneticSharp.Domain.Chromosomes
         /// </summary>
 
         public int Length => genes.Length;
-        public int ImmutablesCount => immutableIndexes.Length;
+        public int ImmutablesCount => immutableIndexes.Count;
         #endregion
 
         #region Methods

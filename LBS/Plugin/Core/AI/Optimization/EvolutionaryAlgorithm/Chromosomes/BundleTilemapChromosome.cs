@@ -16,7 +16,7 @@ namespace ISILab.AI.Categorization
 {
     public class BundleTilemapChromosome : ChromosomeBase2D, IDrawable, IChromosome
     {
-        public BundleTilemapChromosome(BundleTileMap tileMap, Rect rect, int[] immutables = null, int[] invalids = null) : base(rect, immutables, invalids)
+        public BundleTilemapChromosome(BundleTileMap tileMap, Rect rect, HashSet<int> immutables = null, HashSet<int> invalids = null) : base(rect, immutables, invalids)
         {
             var groups = tileMap.Groups;
 
@@ -32,7 +32,7 @@ namespace ISILab.AI.Categorization
             }
         }
 
-        public BundleTilemapChromosome(Rect rect, int[] immutables = null, int[] invalids = null) : base(rect, immutables, invalids) { }
+        public BundleTilemapChromosome(Rect rect, HashSet<int> immutables = null, HashSet<int> invalids = null) : base(rect, immutables, invalids) { }
 
         public override ChromosomeBase CloneChromosome()
         {
@@ -78,7 +78,7 @@ namespace ISILab.AI.Categorization
         {
             var geneList = GetGenes().Cast<object>().ToList();
             var NonNullGenes = geneList.FindAll(b => b != null);
-            return NonNullGenes.Count() == immutableIndexes.Length;
+            return NonNullGenes.Count() == immutableIndexes.Count;
 
         }
 

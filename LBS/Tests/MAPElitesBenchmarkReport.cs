@@ -166,6 +166,80 @@ namespace ISILab.LBS.Tests
                 .CleanUp(CleanUpMAPElitesTest)
                 .Run();
         }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void MeasureMAPElites_21_Rooms_ResourceSafety()
+        {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                assistant.Execute(true);
+                //var matrix = assistant.Samples;
+
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
+            })
+                .WarmupCount(0)
+                .MeasurementCount(10)
+                .IterationsPerMeasurement(1)
+                .SetUp(() =>
+                {
+                    DCExploration exploration = new();
+                    DCResourceSafety resourceSafety = new();
+                    DCSafeArea safeArea = new();
+                    exploration.searchType = PathfindingAlgorithm.JPS_Plus;
+                    SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, resourceSafety, safeArea, exploration);
+                })
+                .CleanUp(CleanUpMAPElitesTest)
+                .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void MeasureMAPElites_21_Rooms_SafeArea()
+        {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                assistant.Execute(true);
+                //var matrix = assistant.Samples;
+
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
+            })
+                .WarmupCount(0)
+                .MeasurementCount(10)
+                .IterationsPerMeasurement(1)
+                .SetUp(() =>
+                {
+                    DCExploration exploration = new();
+                    DCResourceSafety resourceSafety = new();
+                    DCSafeArea safeArea = new();
+                    exploration.searchType = PathfindingAlgorithm.JPS_Plus;
+                    SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, safeArea, exploration, resourceSafety);
+                })
+                .CleanUp(CleanUpMAPElitesTest)
+                .Run();
+        }
         #endregion
 
 
@@ -179,8 +253,21 @@ namespace ISILab.LBS.Tests
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
 
+            SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
+            SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time", SampleUnit.Microsecond);
+
+            BundleTilemapChromosome chromosome = null;
+            Colonies colonies = new();
+            SingleRatio singleRatio = new();
+            PairRatio pairRatio = new();
+
             Measure.Method(() =>
             {
+                //(colonies as ITestingEvaluator).EvaluateWithInfo(chromosome, out EvaluationInfo info);
+
+                //Measure.Custom(visitedNodesGroup, info.visitedNodes);
+                //Measure.Custom(meanExecutionTime, info.Average() * 1000);
+
                 assistant.Execute(true);
                 //var matrix = assistant.Samples;
 
@@ -201,12 +288,10 @@ namespace ISILab.LBS.Tests
             .SetUp(() =>
             {
                 //Selection.activeObject = null;
-                Colonies colonies = new();
-                SingleRatio singleRatio = new();
-                PairRatio pairRatio = new();
                 colonies.searchType = PathfindingAlgorithm.JPS_Plus;// Flood_Fill;
                 colonies.searchHeuristic = PathfindingHeuristic.Octile;// Manhattan;
                 SetUpMAPElitesTest(level9Rooms, dungeonPresetPath, colonies, singleRatio, pairRatio);
+                chromosome = GetChromosomeFromAssistant();
             })
             .CleanUp(CleanUpMAPElitesTest)
             //.GC()
@@ -295,6 +380,53 @@ namespace ISILab.LBS.Tests
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
 
+            SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
+            SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time", SampleUnit.Microsecond);
+
+            BundleTilemapChromosome chromosome = null;
+            Colonies colonies = new();
+            SingleRatio singleRatio = new();
+            PairRatio pairRatio = new();
+            Measure.Method(() =>
+            {
+                //(colonies as ITestingEvaluator).EvaluateWithInfo(chromosome, out EvaluationInfo info);
+
+                //Measure.Custom(visitedNodesGroup, info.visitedNodes);
+                //Measure.Custom(meanExecutionTime, info.Average() * 1000);
+                assistant.Execute(true);
+                //var matrix = assistant.Samples;
+
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
+            })
+                .WarmupCount(0)
+                .MeasurementCount(10)
+                .IterationsPerMeasurement(1)
+                .SetUp(() =>
+                {
+                    colonies.searchType = PathfindingAlgorithm.JPS_Plus;// Flood_Fill;
+                    colonies.searchHeuristic = PathfindingHeuristic.Octile;// Manhattan;
+                    SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, colonies, singleRatio, pairRatio);
+                    chromosome = GetChromosomeFromAssistant();
+                })
+                .CleanUp(CleanUpMAPElitesTest)
+                .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void MeasureMAPElites_21_Rooms_SingleRatio()
+        {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
             Measure.Method(() =>
             {
                 assistant.Execute(true);
@@ -319,9 +451,47 @@ namespace ISILab.LBS.Tests
                     Colonies colonies = new();
                     SingleRatio singleRatio = new();
                     PairRatio pairRatio = new();
-                    colonies.searchType = PathfindingAlgorithm.JPS_Plus;// Flood_Fill;
-                    colonies.searchHeuristic = PathfindingHeuristic.Octile;// Manhattan;
-                    SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, colonies, singleRatio, pairRatio);
+                    colonies.searchType = PathfindingAlgorithm.JPS_Plus;
+                    colonies.searchHeuristic = PathfindingHeuristic.Octile;
+                    SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, singleRatio, pairRatio, colonies);
+                })
+                .CleanUp(CleanUpMAPElitesTest)
+                .Run();
+        }
+
+        [Test, Performance]
+        [Timeout(600000)]
+        public void MeasureMAPElites_21_Rooms_PairRatio()
+        {
+            SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
+
+            Measure.Method(() =>
+            {
+                assistant.Execute(true);
+                //var matrix = assistant.Samples;
+
+                //if (matrix != null)
+                //{
+                //    foreach (var individual in matrix)
+                //    {
+                //        if (individual != null)
+                //        {
+                //            Measure.Custom(fitnessGroup, individual.Fitness);
+                //        }
+                //    }
+                //}
+            })
+                .WarmupCount(0)
+                .MeasurementCount(10)
+                .IterationsPerMeasurement(1)
+                .SetUp(() =>
+                {
+                    Colonies colonies = new();
+                    SingleRatio singleRatio = new();
+                    PairRatio pairRatio = new();
+                    colonies.searchType = PathfindingAlgorithm.JPS_Plus;
+                    colonies.searchHeuristic = PathfindingHeuristic.Octile;
+                    SetUpMAPElitesTest(level21Rooms, dungeonPresetPath, pairRatio, colonies, singleRatio);
                 })
                 .CleanUp(CleanUpMAPElitesTest)
                 .Run();

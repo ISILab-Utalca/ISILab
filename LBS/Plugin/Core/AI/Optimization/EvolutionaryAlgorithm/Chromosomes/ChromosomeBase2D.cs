@@ -9,7 +9,7 @@ namespace ISILab.AI.Categorization
     {
         public Rect Rect { get; set; }
 
-        protected ChromosomeBase2D(Rect rect, int[] immutables = null, int[] invalids = null) : base((int)(rect.width * rect.height), immutables, invalids)
+        protected ChromosomeBase2D(Rect rect, HashSet<int> immutables = null, HashSet<int> invalids = null) : base((int)(rect.width * rect.height), immutables, invalids)
         {
             Rect = rect;
         }
@@ -17,8 +17,8 @@ namespace ISILab.AI.Categorization
         protected ChromosomeBase2D() : base()
         {
             Rect = Rect.zero;
-            immutableIndexes = new int[0];
-            invalidIndexes = new int[0];
+            immutableIndexes = new();
+            invalidIndexes = new();
         }
 
         /// <summary>
