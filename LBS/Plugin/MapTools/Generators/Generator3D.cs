@@ -222,7 +222,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 }
          
                 return Tuple.Create(false,
-                    new LBSLog($"Layer {layer.Name} could not be created correctly. {errorLogs}", LogType.Error));
+                    new LBSLog(generated.Gens[0].log.message, LogType.Error));
+                //new LBSLog($"Layer {layer.Name} could not be created correctly.", LogType.Error));
             }
 
             GameObject root = GetOrCreateRoot();

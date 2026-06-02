@@ -309,6 +309,17 @@ namespace PathOS
 
             return false;
         }
+        public void SetVisited(PerceivedEntity entity, bool visited)
+        {
+            for (int i = 0; i < entities.Count; ++i)
+            {
+                if (PerceivedEntity.SameEntity(entity, entities[i]))
+                {
+                    entities[i].visited = visited;
+                    return;
+                }
+            }
+        }
 
         //Adds a new path to memory.
         public void AddPath(ExploreMemory path)

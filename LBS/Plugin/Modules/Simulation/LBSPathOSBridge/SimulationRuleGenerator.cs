@@ -138,8 +138,8 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                         // Set instance properties
                         instance.transform.SetParent(stairContainer.transform);
                         instance.gameObject.name += " (Up)";
-                        instance.transform.localPosition += (tile.Tag == simBehaviour.downStairTag) ? Vector3.up * settings.scale.y : Vector3.zero;
-                        
+                        instance.transform.localPosition += Vector3.up;
+
                         // Create level entity
                         LevelEntity levelEntity = manager.AddLevelEntity(instance.gameObject, tile.EntityType);
                         instance.levelEntity = levelEntity;
@@ -157,16 +157,15 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                         // Set other instance properties
                         otherStair.gameObject.name += " (Down)";
                         otherStair.transform.SetParent(stairContainer.transform);
+                        otherStair.transform.localPosition -= Vector3.up;
                         SetGeneratedName(otherStairTile, otherStair);
 
                         // Create other entity
                         LevelEntity otherLevelEntity = manager.AddLevelEntity(otherStair.gameObject, otherStairTile.EntityType);
                         otherStair.levelEntity = otherLevelEntity;
 
-                        instance.levelEntity.OtherStairRef = otherLevelEntity;
-                        otherStair.levelEntity.OtherStairRef = levelEntity;
-                        instance.levelEntity.DirectionSign = 1;
-                        otherStair.levelEntity.DirectionSign = -1;
+                        manager.SetLevelEntityStairSettings(instance.gameObject, otherLevelEntity, 1);
+                        manager.SetLevelEntityStairSettings(otherStair.gameObject, levelEntity, -1);
                     }
                     // Entities settings
                     else
@@ -297,6 +296,7 @@ namespace ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge
                     GameObject camObj = player.GetComponentInChildren<Camera>().gameObject;
                     GameObject camClone = GameObject.Instantiate(camObj, eyesComp.transform);
                     eyesComp.cam = camClone.GetComponent<Camera>();
+                    camClone.GetComponent<AudioListener>().enabled = false;
                 }
 
                 // Add simulation component
