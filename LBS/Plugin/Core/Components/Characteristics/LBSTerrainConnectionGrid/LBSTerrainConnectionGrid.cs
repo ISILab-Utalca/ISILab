@@ -17,30 +17,18 @@ namespace ISILab.LBS.Characteristics
     [System.Serializable]
     public class LBSTerrainConnectionGrid : LBSCharacteristic, ICloneable
     {
-        /// <summary>
-        /// A list of all 'Asset-Connection Grids' stored in this characteristic.
-        /// </summary>
         [SerializeField, JsonRequired]
         List<AssetConnectionGrid> gridList = new List<AssetConnectionGrid>();
-        /// <summary>
-        /// A list of every color handled in this characteristic's color palette.
-        /// </summary>
+        
         [SerializeField, JsonRequired]
         List<UnityEngine.Color> colorPalette = new List<UnityEngine.Color>();
-        /// <summary>
-        /// A list storing the ID of every color handled in this characteristic's color palette. 
-        /// </summary>
+        
         [SerializeField, JsonRequired]
         List<int> colorPaletteID = new List<int>();
-        /// <summary>
-        /// The size of the 'Asset-Connection Grid' handled for each asset in the bundle. <br/>
-        /// <b>NOTE</b>: Currently, grids have a locked size of 9, which cannot be manually modified. It currently does not work with different sizes.
-        /// </summary>
+        
         [SerializeField, JsonRequired]
         int gridSize = 9;
-        /// <summary>
-        /// The ID of the characteristic's default asset. This asset will be generated when no legal connections are found in a particular tile.
-        /// </summary>
+        
         [SerializeField, JsonRequired]
         int defaultAsset = 0;
 
@@ -55,25 +43,26 @@ namespace ISILab.LBS.Characteristics
             get => Owner.Assets;
         }
         /// <summary>
-        /// Pointer to the 'Asset-Connection Grid' list.
+        /// A list of all 'Asset-Connection Grids' stored in this characteristic.
         /// </summary>
         [JsonIgnore]
         public List<AssetConnectionGrid> GridList => gridList;
         /// <summary>
-        /// Pointer to the 'Asset-Connection Grid' size variable.
+        /// The size of the 'Asset-Connection Grid' handled for each asset in the bundle. <br/>
+        /// <b>NOTE</b>: Currently, grids have a locked size of 9, which cannot be manually modified. It currently does not work with different sizes.
         /// </summary>
         public int GridSize => gridSize;
         /// <summary>
-        /// Pointer to the characteristic's color palette.
+        /// A list of every color handled in this characteristic's color palette.
         /// </summary>
         [JsonIgnore]
         public List<UnityEngine.Color> ColorPalette => colorPalette;
         /// <summary>
-        /// Pointer to the characteristic's color palette ID list.
+        /// A list storing the ID of every color handled in this characteristic's color palette. 
         /// </summary>
         public List<int> ColorPaletteID => colorPaletteID;
         /// <summary>
-        /// Pointer to the characteristic's default asset to generate.
+        /// The ID of the characteristic's default asset. This asset will be generated when no legal connections are found in a particular tile.
         /// </summary>
         public int DefaultAsset
         {
@@ -304,7 +293,10 @@ namespace ISILab.LBS.Characteristics
         
 
     }  
-
+    /// <summary>
+    /// A connection grid for a particular asset. Its main purpose consists of holding a number of flags, each assigned to a different directional slot in
+    /// the asset, in order to allow easy comparisons between generated objects for the creation of consistent patterns.
+    /// </summary>
     [System.Serializable]
     public class AssetConnectionGrid
     { 
@@ -312,21 +304,44 @@ namespace ISILab.LBS.Characteristics
         private int[] terrainFlag = new int[9];
         [SerializeField, JsonRequired]
         private Asset assetReference;
-
+        /// <summary>
+        /// An array holding every flag held by the Asset Grid. <b>NOTE</b>: This array currently has a set size of 9.
+        /// </summary>
         public int[] TerrainFlag
         {
             get => terrainFlag;
             set => terrainFlag = value;
         }
+        /// <summary>
+        /// References the asset linked to the connection grid for 3D generation..
+        /// </summary>
         public Asset AssetReference => assetReference;
+        /// <summary>
+        /// The size of the grid. It simply points to the length of the terrain flag array.
+        /// </summary>
         public int GridSize => terrainFlag.Length;
+        /// <summary>
+        /// The size of the terrain grid's square borders. It currently points to the square root of the terrain flag array's length. <br/>
+        /// <b>NOTE</b>: It may be personalizable to allow for non-square terrain grid sizes, but it currently depends on it being a perfect square.
+        /// </summary>
         public int BorderSize => Mathf.RoundToInt(Mathf.Sqrt(terrainFlag.Length));
 
+        /// <summary>
+        /// A basic constructor for asset connection grids. Meant for copying already existing grids (or fully configurating one beforehand) 
+        /// as it requires an existing terrain flag array.
+        /// </summary>
+        /// <param name="terrainFlag">A terrain flag array.</param>
+        /// <param name="assetReference">The asset to reference for 3D generation and previews.</param>
         public AssetConnectionGrid(int[] terrainFlag, Asset assetReference)
         {
             this.terrainFlag = terrainFlag;
             this.assetReference = assetReference;
         }
+        /// <summary>
+        /// Alternative constructor. Initializes a basic terrain flag array, so it's used for asset grid initialization purposes.
+        /// </summary>
+        /// <param name="q">The size of the terrain flag array (normally 9).</param>
+        /// <param name="assetReference">The asset to reference for 3D generation and previews.</param>
         public AssetConnectionGrid(int q, Asset assetReference)
         {
             terrainFlag = new int[q];
@@ -336,7 +351,14 @@ namespace ISILab.LBS.Characteristics
             }
             this.assetReference = assetReference;
         }
-
+        /// <summary>
+        /// Converts a Vector2 into an int value. Used to translate 2D coordinates into the 1D nature of the terrain flag array.
+        /// </summary>
+        /// <param name="vector">The vector to convert into an int value.</param>
+        /// <returns></returns>
+        /// <exception cref="Exception">The method will throw an exception if the array length doesn't have a square root.<br/>
+        /// This is a failsafe to prevent issues with currently unimplemented non-square terrain grids.
+        /// </exception>
         public int VectorToInt(Vector2 vector)
         {
             //If not a square, return
@@ -355,6 +377,11 @@ namespace ISILab.LBS.Characteristics
             return vecInt.x + (vecInt.y * Mathf.RoundToInt(lengthSqrt));
         }
 
+        /// <summary>
+        /// Obtains the terrain flag of a particular coordinate from a Vector2. Works on similar logic to the vector-to-int conversor.
+        /// </summary>
+        /// <param name="vec">The coordinate in vectors.</param>
+        /// <returns>The flag in the array coordinate.</returns>
         public int FlagFromVector(Vector2 vec)
         {
             var vecInt = vec.ToInt();
@@ -363,11 +390,20 @@ namespace ISILab.LBS.Characteristics
         }
         public int FlagFromVector(int x, int y) => FlagFromVector(new Vector2(x, y));
 
+        /// <summary>
+        /// Obtains the hash code of the object.
+        /// </summary>
+        /// <returns>Returns hash code.</returns>
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
 
+        /// <summary>
+        /// Compares two 'Asset Connection Grids'.
+        /// </summary>
+        /// <param name="obj">The object to compare to this.</param>
+        /// <returns><c>true</c> if the objects equal each other. <c>false</c> otherwise.</returns>
         public override bool Equals (object obj)
         {
             var other = obj as AssetConnectionGrid;
@@ -378,19 +414,6 @@ namespace ISILab.LBS.Characteristics
                 if (terrainFlag[i] != other.terrainFlag[i]) return false;
             }
             return true;
-        }
-    }
-
-    [System.Serializable]
-    public class IndividualAsset
-    {
-        Asset assetReference;
-        string id;
-
-        IndividualAsset(Asset refer, int index)
-        {
-            assetReference = refer;
-            id = refer.obj.name.GetHashCode().ToString() + index.ToString() + refer.probability.GetHashCode();
         }
     }
 }

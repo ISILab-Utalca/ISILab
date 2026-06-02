@@ -18,9 +18,9 @@ namespace ISILab.LBS.VisualElements
         private readonly LBSInteractiveTooltip dataItt;
         
         // Node assigned to the QuestActionView that uses this panel
-        private readonly QuestNode node;
+        private QuestNode node;
         
-        public QuestNode Node { get; set; }
+        public QuestNode Node { get => node; set => node = value; }
         
         public QuestActionDetailsView()
         {

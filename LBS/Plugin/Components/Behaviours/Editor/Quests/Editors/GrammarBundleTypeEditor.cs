@@ -28,14 +28,14 @@ namespace ISILab.LBS.VisualElements
 
             var pbg = this.Q<PickerBundleType>();
 
-            pbg.OnBundlePicked = (layer, tile) =>
+            pbg.OnBundlePicked += (layer, tile) =>
             {
                 var bt = new BundleTarget(tile);
                 pbg.SetLayerTarget(bt);
                 (target as GrammarBundleType).SetValue(bt);
             };
 
-            (target as GrammarField).Refresh = () =>
+            (target as GrammarField).Refresh += (target) =>
             {
                 string guid = (string)(target as GrammarBundleType).GetValue();
                 BundleTarget bundleTarget = new BundleTarget(LBSAssetMacro.LoadAssetByGuid<Bundle>(guid));

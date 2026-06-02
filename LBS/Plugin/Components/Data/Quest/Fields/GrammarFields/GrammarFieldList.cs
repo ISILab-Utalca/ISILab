@@ -1,3 +1,4 @@
+using ISILab.LBS.Plugin.Core.Settings;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,6 +28,36 @@ namespace ISILab.AI.Grammar
         {
             if (newValue is List<TField> list)
                 value = list;
+        }
+
+        public override bool IsValid()
+        {
+            foreach (var item in ItemsSource)
+            {
+                if (item is GrammarField gf)
+                    if (!gf.IsValid()) return false;
+            }
+
+            return true;
+        }
+        public override LBSLog GetValidStateLog()
+        {
+            if (IsValid())
+                return base.GetValidStateLog();
+
+            string invalidFields = string.Empty;
+            foreach (var item in ItemsSource)
+            {
+                if (item is GrammarField gf)
+                {
+                    if (!gf.IsValid())
+                    {
+                        invalidFields += $"{gf.name}\n";
+                    }
+                }
+            }
+
+            return new LBSLog($"{name}: Invalid fields: {invalidFields}", UnityEngine.LogType.Error);
         }
     }
 }

@@ -13,14 +13,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.MemoryProfiler;
-using UnityEditor.TerrainTools;
 using UnityEngine;
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     
 
-    [System.Serializable]
+    [Serializable]
     [RequieredModule(typeof(TileMapModule),
         typeof(ConnectedTileMapModule),
         typeof(SectorizedTileMapModule),

@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -51,6 +52,8 @@ namespace ISILab.LBS.VisualElements
         private VisualElement _actionIcon;
 
         private static VisualTreeAsset visualTree;
+
+        private static GraphNode lastUpdated;
 
         #endregion
 
@@ -95,6 +98,13 @@ namespace ISILab.LBS.VisualElements
         {
             behaviour = paramTarget as NodeDataBehaviour;
             if (behaviour == null) return;
+
+            lastUpdated = null;
+
+            ActionExtensions.RemoveMethod(ref behaviour.OnNodeDataChanged, nameof(OnSelectNode));
+            ActionExtensions.RemoveMethod(ref behaviour.OnNodeDataChangedBegin, nameof(DataChangeValueBegin));
+            ActionExtensions.RemoveMethod(ref behaviour.OnNodeDataChangedEnd, nameof(DataChangeValueEnd));
+            ActionExtensions.RemoveMethod(ref behaviour.Graph.OnNodeSelected, nameof(OnSelectNode));
 
             ActionExtensions.AddUnique(ref behaviour.OnNodeDataChanged, OnSelectNode);
             ActionExtensions.AddUnique(ref behaviour.OnNodeDataChangedBegin, DataChangeValueBegin);
@@ -165,6 +175,10 @@ namespace ISILab.LBS.VisualElements
         {
             DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
 
+            if (graphNode != null && graphNode == lastUpdated) 
+                return;
+
+            lastUpdated = graphNode;
             QuestNode node = graphNode as QuestNode;
             bool validNode = node != null;
 
@@ -172,31 +186,25 @@ namespace ISILab.LBS.VisualElements
             {
                 style.display = DisplayStyle.None;
                 return;
-            }
-            else
-            {
-                style.display = DisplayStyle.Flex;
+
             }
 
-            fieldsVisualElements.Clear();
+            style.display = DisplayStyle.Flex;
 
             _terminalField.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _noNodeSelectedPanel.style.display = validNode ? DisplayStyle.None : DisplayStyle.Flex;  
             _nodePanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
             _actionPanel.style.display = validNode ? DisplayStyle.Flex : DisplayStyle.None;
 
-            if (!validNode) return;
-
-            SetNode(node);
+            SetQuestNodeData(node);
         }
 
-        private void SetFields(QuestNode node)
+        private void SetFields(List<GrammarField> fields)
         {
-            if(node?.Data?.Fields == null) return;
-
+            
             fieldsVisualElements.Clear();
 
-            foreach (var field in node.Data.Fields)
+            foreach (var field in fields)
             {
                 if (field.IsList)
                 {
@@ -240,16 +248,36 @@ namespace ISILab.LBS.VisualElements
                 headerTitle = ""
             };
 
+            if (listField.ItemsSource != null)
+            {
+                for (int i = 0; i < listField.ItemsSource.Count; i++)
+                {
+                    if (listField.ItemsSource[i] is GrammarField existingField)
+                    {
+                        // must manually call refresh as UItoolkit does not made items from itemadded unless they are opened directly by click
+                        existingField.Refresh?.Invoke(existingField);
+                    }
+                }
+            }
+
             listView.itemsAdded += (indices) => {
                 foreach (var i in indices)
                 {
                     // Create force declare the grammar field list entry
                     var field = (GrammarField)Activator.CreateInstance(listField.PrimitiveType);
-                    field.data = listField.data;
-                    field.name = $"{listField.name}  {i}";
+                    field.Data = listField.Data;
+                    field.name = $"{listField.name} {i}";
                     listField.ItemsSource[i] = field;
 
                     behaviour.OnAddField?.Invoke(field);
+
+    
+                    // updating item updates back the list
+                    field.Refresh += (field) => listField.Refresh?.Invoke(listField);
+
+                    listField.Refresh?.Invoke(listField);
+
+
                     Debug.Log("adding:" + field.ToString());
                     // might to redraw
                     //behaviour.CheckKeys();
@@ -282,7 +310,7 @@ namespace ISILab.LBS.VisualElements
                 if (element is GrammarFieldEditor editor)
                 {
                     var item = (GrammarField)listView.itemsSource[index];
-                    item.data = listField.data;
+                    item.Data = listField.Data;
                     editor.SetNewInfo(item);
                 }
             };
@@ -291,11 +319,11 @@ namespace ISILab.LBS.VisualElements
             fieldsVisualElements.Add(foldout);
         }
 
-        private void SetNode(QuestNode node)
+        private void SetQuestNodeData(QuestNode node)
         {
-            if (node == null) return;
             var data = node.Data;
-            if (data == null) return;
+            if (data == null) 
+                return;
 
             _paramActionLabel.text = node.TerminalID;
             _nodeIDLabel.text = node.ID;
@@ -310,7 +338,8 @@ namespace ISILab.LBS.VisualElements
             _actionColor.SetBackgroundColor(backgroundColor);
             _actionColor.SetBorder(terminalColor, ActionBorderThickness);
 
-            SetFields(node);
+            SetFields(data.Fields);
+
         }
         
 

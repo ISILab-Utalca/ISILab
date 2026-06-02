@@ -9,6 +9,7 @@ using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.MapTools.Editor.Manipulators;
 using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
@@ -16,7 +17,7 @@ using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Plugin.MapTools.Editor.Manipulators;
+using System.Text.RegularExpressions;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -126,51 +127,64 @@ namespace LBS.VisualElements
 
         #region METHODS
 
+        private (LBSManipulator manipulator, LBSTool tool) CreateTool<T>(LBSLayer layer)
+                where T : LBSManipulator, new()
+        {
+            var manipulator = new T();
+            var tool = new LBSTool(manipulator);
+
+            ActivateTool(tool, layer);
+            tool.Init(layer, this);
+
+            return (manipulator, tool);
+        }
+
+
         public void InitGeneralTools(LBSLayer layer)
         {
-            // Manipulators & Tools setup
-            (LBSManipulator manipulator, LBSTool tool) CreateTool<T>()
-            where T : LBSManipulator, new()
-            {
-                var manipulator = new T();
-                var tool = new LBSTool(manipulator);
 
-                ActivateTool(tool, layer);
-                tool.Init(layer, this);
+            InitManipulatoTools(layer);
 
-                return (manipulator, tool);
-            }
+            InitBlueprintTools(layer);
 
-            (LBSManipulator mani, LBSTool tool) select = CreateTool<SelectManipulator>();
-            (LBSManipulator mani, LBSTool tool) add = CreateTool<AddNote>();
-            (LBSManipulator mani, LBSTool tool) remove = CreateTool<RemoveNote>();
-            (LBSManipulator mani, LBSTool tool) capture = CreateTool<CaptureInArea>();
-            (LBSManipulator mani, LBSTool tool) print = CreateTool<PrintInArea>();
+            InitFloorTools(layer);
+        }
+
+
+        private void InitManipulatoTools(LBSLayer layer)
+        {
+           
+            (LBSManipulator mani, LBSTool tool) select = CreateTool<SelectManipulator>(layer);
+            (LBSManipulator mani, LBSTool tool) add = CreateTool<AddNote>(layer);
+            (LBSManipulator mani, LBSTool tool) remove = CreateTool<RemoveNote>(layer);
 
             add.mani.SetRemover(remove.mani);
+        }
 
-
-            // blueprint set up
+        private void InitBlueprintTools(LBSLayer layer)
+        {
             BlueprintPanel bpPanel = LBSMainWindow.Instance.blueprintPanel;
-            if (bpPanel is not null)
-            {
-                bpPanel.Bind(this, capture, print);
-            }
+
+            (LBSManipulator mani, LBSTool tool) capture = CreateTool<CaptureInArea>(layer);
+            (LBSManipulator mani, LBSTool tool) print = CreateTool<PrintInArea>(layer);
+
+            bpPanel?.Bind(this, capture, print);
 
             var blueprintVisilibilty = bpPanel.style.display.value;
-            bpPanel.CaptureManipulator = (CaptureInArea) capture.mani;
+            bpPanel.CaptureManipulator = (CaptureInArea)capture.mani;
             bpPanel.PrintArea = (PrintInArea)print.mani;
             DisplayManipulator(typeof(CaptureInArea), blueprintVisilibilty);
             DisplayManipulator(typeof(PrintInArea), blueprintVisilibilty);
 
             capture.tool.OnSelect += () => bpPanel.CaptureManipulator.ClearArea();
-            capture.tool.OnDeselect += ()=> bpPanel.CaptureManipulator.ClearArea();
+            capture.tool.OnDeselect += () => bpPanel.CaptureManipulator.ClearArea();
             print.tool.OnSelect += () => bpPanel.PrintArea.ClearPreview();
             print.tool.OnDeselect += () => bpPanel.PrintArea.ClearPreview();
+        }
 
-
-            // Floor buttons set up
-            if(layer.FloorCount > 1)
+        private void InitFloorTools(LBSLayer layer)
+        {
+            if (layer.FloorCount > 1)
             {
                 nextFloorButton.style.display = DisplayStyle.Flex;
                 nextFloorButton.RegisterValueChangedCallback(evt =>
@@ -183,13 +197,6 @@ namespace LBS.VisualElements
                     // Set Label
                     int newFloor = layer.ActiveFloor + 1;
                     floorIndexField.value = (uint)newFloor;
-
-                    // Update Layers
-                    foreach (var l in LBSMainWindow.Instance.GetLayers())
-                    {
-                        l.ChangeFloor(newFloor);
-                        DrawManager.Instance.UpdateLayer(l);
-                    }
                 });
 
                 prevFloorButton.style.display = DisplayStyle.Flex;
@@ -204,15 +211,21 @@ namespace LBS.VisualElements
                     int newFloor = layer.ActiveFloor - 1;
                     floorIndexField.value = (uint)newFloor;
 
-                    // Update Layers
-                    foreach (var l in LBSMainWindow.Instance.GetLayers())
-                    {
-                        l.ChangeFloor(newFloor);
-                        DrawManager.Instance.UpdateLayer(l);
-                    }
                 });
 
                 floorIndexField.style.display = DisplayStyle.Flex;
+                floorIndexField.RegisterValueChangedCallback(evt =>
+                {
+                    // Update Layers
+                    foreach (var l in LBSMainWindow.Instance.GetLayers())
+                    {
+                        l.ChangeFloor((int)evt.newValue);
+                        DrawManager.Instance.UpdateLayer(l);
+
+                    }
+                });
+
+
                 floorIndexField.value = (uint)layer.ActiveFloor;
             }
         }
@@ -243,12 +256,23 @@ namespace LBS.VisualElements
 
         public KeyValuePair<Type, (LBSTool, ToolButton)> GetTool(Type manipulatorType)
         {
-            // Find the first matching tool in the dictionary with all null checks
-            KeyValuePair<Type, (LBSTool, ToolButton)> foundTool = tools.FirstOrDefault(kvp =>
-                kvp is { Key: not null, Value: { Item1: { Manipulator: not null } } } &&
-                kvp.Value.Item1.Manipulator.GetType() == manipulatorType);
+            if (tools == null || tools.Count == 0)
+                return default;
 
-            return foundTool;
+            foreach (KeyValuePair<Type, (LBSTool, ToolButton)> tool in tools)
+            {
+                if (tool.Key == null || tool.Value.Item1 == null)
+                    continue;
+
+                LBSTool lbsTool = tool.Value.Item1;
+                if (lbsTool.Manipulator == null)
+                    continue;
+
+                if (lbsTool.Manipulator.GetType() == manipulatorType)
+                    return tool;
+            }
+
+            return default;
         }
 
         public VisualElement GetToolButton(Type manipulatorType)
@@ -259,23 +283,16 @@ namespace LBS.VisualElements
         
         public void SetActive(Type manipulatorType)
         {
-            //Debug.Log("Manipulator changed to " +  manipulatorType);
             // Ensure manipulatorType is not null
             if (manipulatorType == null)
-            {
-                //Debug.LogWarning("Manipulator type is null.");
                 return;
-            }
-
+            
             // Find the first matching tool in the dictionary
             KeyValuePair<Type, (LBSTool, ToolButton)> foundTool = GetTool(manipulatorType);
 
             if (foundTool.Key == null)
-            {
-               // Debug.LogWarning($"Tool of type {manipulatorType.Name} not found.");
                 return;
-            }
-        
+
             // If another tool was active, blur it
             current.Item2?.OnBlur();
             
@@ -287,8 +304,8 @@ namespace LBS.VisualElements
                 if (btn is ToolButton b)
                     b.SetValueWithoutNotify(false);
             }
-            current.Item2.SetValueWithoutNotify(true);
 
+            current.Item2.SetValueWithoutNotify(true);
             current.Item2?.OnFocus();
 
             // Activate its manipulator
@@ -307,7 +324,6 @@ namespace LBS.VisualElements
         {
             foreach (VisualElement separator in separators)
             {
-                //separator.style.display = DisplayStyle.None;
                 separator.parent.Remove(separator);
             }
 
@@ -331,7 +347,6 @@ namespace LBS.VisualElements
             tools[tool.Manipulator.GetType()] = (tool, button);
 
             button.AddGroupEvent(() => SetActive(tool.Manipulator.GetType()));
-            //button.SetColorGroup(LBSSettings.Instance.view.toolkitNormal, LBSSettings.Instance.view.newToolkitSelected); // Not used 
             
             SetUpAdderRemover(tool);
 

@@ -13,14 +13,15 @@ namespace ISILab.AI.Grammar
 
         protected override void BindFields(List<GrammarField> fields) 
         {
-            // Ensure the target field is instantiated so it isn't null
-            if (_Subareastoenter == null) _Subareastoenter = new GrammarAreaList();
+            _Subareastoenter ??= new GrammarAreaList();
 
             var sourceSubareastoenter = fields.Find(f => f.name == "Subareas to enter") as GrammarAreaList;
             if (sourceSubareastoenter != null)
             {
                 _Subareastoenter.SetValue(sourceSubareastoenter.value);
             }
+
+            this.fields.Add(_Subareastoenter);
         }
 
         protected override bool CanComplete() => true;

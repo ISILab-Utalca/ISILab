@@ -73,7 +73,7 @@ namespace ISILab.LBS.Tests
 
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false, out string log), log);
             })
                 .WarmupCount(1)
                 .MeasurementCount(20)
@@ -89,7 +89,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false, out string log), log);
             })
                 .WarmupCount(1)
                 .MeasurementCount(20)
@@ -104,7 +104,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false, out string log), log);
             })
                 .WarmupCount(0)
                 .MeasurementCount(20)
@@ -120,7 +120,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false, out string log), log);
             })
                 .WarmupCount(0)
                 .MeasurementCount(20)
@@ -137,7 +137,7 @@ namespace ISILab.LBS.Tests
             SetupWFCTest(Edge_5x5_Map);
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true, out string log), log);
             })
                 .WarmupCount(1)
                 .MeasurementCount(20)
@@ -154,7 +154,7 @@ namespace ISILab.LBS.Tests
             SetupWFCTest(Edge_10x10_Map);
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true, out string log), log);
             })
                 .WarmupCount(1)
                 .MeasurementCount(20)
@@ -170,7 +170,7 @@ namespace ISILab.LBS.Tests
             SetupWFCTest(Edge_20x20_Map);
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true, out string log), log);
             })
                 .WarmupCount(0)
                 .MeasurementCount(20)
@@ -187,7 +187,7 @@ namespace ISILab.LBS.Tests
             SetupWFCTest(Edge_40x40_Map);
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true, out string log), log);
             })
                 .WarmupCount(0)
                 .MeasurementCount(20)
@@ -216,7 +216,7 @@ namespace ISILab.LBS.Tests
 
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false, out string log), log);
             })
                 .WarmupCount(1)
                 .MeasurementCount(20)
@@ -232,7 +232,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false, out string log), log);
             })
                 .WarmupCount(1)
                 .MeasurementCount(20)
@@ -247,7 +247,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false, out string log), log);
             })
                 .WarmupCount(0)
                 .MeasurementCount(20)
@@ -263,7 +263,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(false));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(false, out string log), log);
             })
                 .WarmupCount(0)
                 .MeasurementCount(20)
@@ -280,7 +280,7 @@ namespace ISILab.LBS.Tests
             SetupWFCTest(Vertex_5x5_Map);
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true, out string log), log);
             })
                 .WarmupCount(1)
                 .MeasurementCount(20)
@@ -297,7 +297,7 @@ namespace ISILab.LBS.Tests
             SetupWFCTest(Vertex_10x10_Map);
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true, out string log), log);
             })
                 .WarmupCount(1)
                 .MeasurementCount(20)
@@ -313,7 +313,7 @@ namespace ISILab.LBS.Tests
             SetupWFCTest(Vertex_20x20_Map);
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true, out string log), log);
             })
                 .WarmupCount(0)
                 .MeasurementCount(20)
@@ -330,7 +330,7 @@ namespace ISILab.LBS.Tests
             SetupWFCTest(Vertex_40x40_Map);
             Measure.Method(() =>
             {
-                Assert.AreEqual(true, WFCassistant.ExecuteTest(true));
+                Assert.AreEqual(true, WFCassistant.ExecuteTest(true, out string log), log);
             })
                 .WarmupCount(0)
                 .MeasurementCount(20)

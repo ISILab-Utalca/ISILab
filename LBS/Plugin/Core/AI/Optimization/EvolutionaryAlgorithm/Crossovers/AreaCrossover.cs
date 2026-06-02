@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using GeneticSharp.Domain.Chromosomes;
 using GeneticSharp.Domain.Crossovers;
 using GeneticSharp.Domain.Randomizations;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace ISILab.AI.Categorization
 {
@@ -21,6 +19,7 @@ namespace ISILab.AI.Categorization
 
         protected override IList<ChromosomeBase> PerformCross(IList<ChromosomeBase> parents)
         {
+
             var offsprings = new List<IChromosome>();
 
             var parent1 = parents[0] as ChromosomeBase2D;

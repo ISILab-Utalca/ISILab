@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -39,23 +40,70 @@ namespace ISILab.Extensions
         /// <summary>
         /// Draws a selection box on a 2D canvas with the given position vectors and color.
         /// </summary>
-        /// <param name="paint2D">The 2D canvas to draw on.</param>
+        /// <param name="painter2D">The 2D canvas to draw on.</param>
         /// <param name="pos1">The starting position vector of the selection box.</param>
         /// <param name="pos2">The ending position vector of the selection box.</param>
-        /// <param name="color">The color of the selection box.</param>
-        /// <param name="width">The width of the selection box border. Default value is 1.</param>
-        public static void DrawSelectionBox(this Painter2D paint2D, Vector2 pos1, Vector2 pos2, Color color, int width = 1)
+        /// <param name="fillColor">The color of the selection box.</param>
+        /// <param name="borderColor">color of the border stroke</param>
+        /// <param name="lineWidth">The width of the selection box border. Default value is 1.</param>
+        public static void DrawSelectionBox(this Painter2D painter2D, Vector2 pos1, Vector2 pos2, Color fillColor, Color borderColor, int lineWidth = 1)
         {
-            var fillColor = color * new Color(1, 1, 1, 0.2f);
+            painter2D.lineWidth = lineWidth;
+            painter2D.fillColor = fillColor;
+            painter2D.strokeColor = borderColor;
 
-            var points = new List<Vector2>()
+            painter2D.BeginPath();
+
+            painter2D.MoveTo(pos1);                                // Top-Left
+            painter2D.LineTo(new Vector2(pos2.x, pos1.y));        // Route to Top-Right
+            painter2D.LineTo(pos2);                                // Route to Bottom-Right
+            painter2D.LineTo(new Vector2(pos1.x, pos2.y));        // Route to Bottom-Left
+
+            painter2D.ClosePath();
+
+            painter2D.Fill();   
+            painter2D.Stroke(); 
+        }
+
+        /// <summary>
+        /// Draws a simple square on a 2D canvas with the given position vector, height and width.
+        /// </summary>
+
+        public static void DrawSquare(this Painter2D paint2D, Vector2 pos, float height, float width, Color color)
         {
-            new Vector2(pos1.x, pos1.y),
-            new Vector2(pos2.x, pos1.y),
-            new Vector2(pos1.x, pos2.y),
-            new Vector2(pos2.x, pos2.y),
-        };
-            paint2D.DrawPolygon(points, color, fillColor, 4);
+            paint2D.fillColor = color;
+            paint2D.BeginPath();
+            paint2D.MoveTo(pos);
+            paint2D.LineTo(pos + new Vector2(0, height));
+            paint2D.LineTo(pos + new Vector2(width, height));
+            paint2D.LineTo(pos + new Vector2(width, 0));
+            paint2D.ClosePath();
+            paint2D.Fill();
+        }
+        
+        
+        public static void DrawTrapezoid(this Painter2D paint2D, 
+            Vector2 origin,
+            float t_base,
+            float t_height,
+            float angle_deg,
+            Color color,
+            bool is_vertical = false)
+        {
+            
+            angle_deg = Mathf.Clamp(angle_deg, 0.0f, Mathf.Atan(t_base - 2 *  t_height) * Mathf.Rad2Deg);
+            float t_a = t_base - 2* t_height / Mathf.Tan(angle_deg * Mathf.Deg2Rad);
+            
+            
+            paint2D.fillColor = color;
+            paint2D.BeginPath();
+            paint2D.MoveTo(origin);
+            paint2D.LineTo(origin + new Vector2(t_base, 0));
+            paint2D.LineTo(origin + new Vector2((t_base + t_a) * 0.5f, t_height));
+            paint2D.LineTo(origin + new Vector2((t_base - t_a) * 0.5f, t_height));
+            paint2D.LineTo(origin);
+            paint2D.ClosePath(); ;
+            paint2D.Fill();
         }
 
         /// <summary>

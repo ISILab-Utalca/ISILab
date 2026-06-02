@@ -10,6 +10,7 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Categorization;
+using ISILab.LBS.Plugin.Core.AI.Optimization;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.Components;
@@ -293,10 +294,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
 
-        private int[] CalcImmutables(Rect rect)
+        private HashSet<int> CalcImmutables(Rect rect)
         {
             int[] immutables = null;
-            var im = new List<int>();
+            var im = new HashSet<int>();
             var x = (int)rect.min.x;
             var y = (int)rect.min.y;
 
@@ -360,14 +361,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             }
 
 
-            immutables = im.ToArray();
-            return immutables;
+            //immutables = im.ToArray();
+            return im;//mutables;
         }
 
-        private int[] CalcInvalids(Rect rect, List<LBSLayer> contextLayers)
+        private HashSet<int> CalcInvalids(Rect rect, List<LBSLayer> contextLayers)
         {
             if(contextLayers is null || contextLayers.Count == 0)
-                return new int[0];
+                return new();
 
             var invalids = new HashSet<int>();
             var layerInvalids = new List<HashSet<int>>();
@@ -432,7 +433,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             List<HashSet<int>> existingLayerInvalids = layerInvalids.Where(li => li.Count > 0).ToList();
 
             if (existingLayerInvalids.Count == 0)
-                return new int[0];
+                return new();
 
             var intersection = new HashSet<int>(existingLayerInvalids[0]);
             for(int i = 1; i < existingLayerInvalids.Count; i++)
@@ -442,7 +443,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             invalids = intersection;
 
-            return invalids.ToArray();
+            return invalids;//.ToArray();
         }
         
         public Texture2D GetBackgroundTexture(Rect rect)

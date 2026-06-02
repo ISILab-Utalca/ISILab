@@ -1,9 +1,12 @@
 using ISILab.AI.Grammar;
 using ISILab.LBS.Components;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Plugin.Components.Data;
+using ISILab.LBS.Plugin.Components.Data.Quest.Runtime;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(LBSGeneratedEventHook))]
@@ -25,16 +28,12 @@ public abstract class QuestTriggerNode : QuestTrigger
 
     protected BoxCollider boxCillider;
 
-    // store game objects that can be used by fields
-    [SerializeField]
-    private List<GameObject> gos = new();
     #endregion
 
     #region PROPERTIES
     public GrammarTerminal Terminal { get => terminal; set => terminal = value; }
     public QuestNode.ENodeType NodeType => nodeType;
     public List<GrammarField> Fields { get => fields; }
-    public List<GameObject> Gos { get => gos; set => gos = value; }
     #endregion
 
     #region INIT
@@ -115,6 +114,27 @@ public abstract class QuestTriggerNode : QuestTrigger
 
     #region STATIC UTILITIES
     public static bool IsPlayer(Collider other) => other.CompareTag("Player");
+
+
+    public static bool HasItem(Collider other, Object target, int amount = 1)
+    {
+        return HasItem(other, LBSAssetMacro.GetGuidFromAsset(target), amount);
+    }
+
+    public static bool HasItem(Collider other, string GUID, int amount = 1)
+    {
+        var inv = GetInventory(other);
+        if (inv != null)
+        {
+            return inv.GetTypeAmount(GUID) >= amount;
+        }
+        return false;
+    }
+
+    public static LBSInventory GetInventory(Collider other)
+    {
+        return other.GetComponent<LBSInventory>();
+    }
     #endregion
 
 

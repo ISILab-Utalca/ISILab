@@ -150,20 +150,20 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             return new AssistantWFC(IconGuid, Name, ColorTint, targetBundleRef);
         }
 
-        public bool ExecuteTest(bool overrideValues)
+        public bool ExecuteTest(bool overrideValues, out string log)
         {
             Positions = new List<Vector2Int>();
             this.overrideValues = overrideValues;
             Rect bounds = OwnerLayer.GetModule<TileMapModule>().GetBounds();
-            for(int i = (int)bounds.x; i < (int)(bounds.x + bounds.width); i++)
+            for (int i = (int)bounds.x; i < (int)(bounds.x + bounds.width); i++)
             {
-                for(int j = (int)bounds.y; j < (int)(bounds.y + bounds.height); j++)
+                for (int j = (int)bounds.y; j < (int)(bounds.y + bounds.height); j++)
                 {
                     Positions.Add(new Vector2Int(i, j));
                 }
             }
 
-            return TryExecute(out _, out _);
+            return TryExecute(out log, out _);
         }
 
         public bool TryExecute(out string log, out LogType logType, int limit = 5, Action<float> onProgress = null, CancellationToken token = default)

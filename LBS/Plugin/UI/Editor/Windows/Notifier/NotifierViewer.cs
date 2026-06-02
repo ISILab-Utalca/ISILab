@@ -15,7 +15,7 @@ namespace LBS.VisualElements
         private ListView messageContainer;
         
         private bool notificationOn = true;
-        private ScrollView scrollView;
+        private static ScrollView scrollView;
         private VectorImage iconNotificationsOn; 
         private VectorImage iconNotificationsOff;
         private static int fadeTime = 5;
@@ -141,7 +141,7 @@ namespace LBS.VisualElements
             if(scrollView.childCount >0 && scrollView.Contains(element)) scrollView.Remove(element);
         }
 
-        public void ClearNotifications()
+        public static void ClearNotifications()
         {
             scrollView?.Clear();
         }

@@ -3,7 +3,6 @@ using System.Linq;
 using ISILab.AI.Grammar;
 using ISILab.Commons.JsonNet;
 using ISILab.DevTools.Macros;
-using ISILab.LBS;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
@@ -11,15 +10,13 @@ using LBS.Components;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
 
-
 namespace ISILab.LBS.Tests
 {
-
     [TestFixture]
     public class QuestBenchmarkReport
     {
         private const int MeasureCount = 100;
-        private const string Guid = "e1080717efc4d004b984e0a668717fb8";
+        private const string Guid = "b7937caae958ded45a71b6292dba0b0e";
 
         private LBSLevelData _levelData;
         private GrammarAssistant _grammarAssistant;
@@ -65,13 +62,104 @@ namespace ISILab.LBS.Tests
 
         #endregion
 
+        #region NODE COUNT 40
+
+        [Test, Performance]
+        public void AddNextNode_40() => AddNextNodeBenchmark(40);
+
+        [Test, Performance]
+        public void AddPreviousNode_40() => AddPreviousNodeBenchmark(40);
+
+        [Test, Performance]
+        public void ExpandNode_40() => ExpandNodeBenchmark(40);
+
+        #endregion
+
+        #region NODE COUNT 50
+
+        [Test, Performance]
+        public void AddNextNode_50() => AddNextNodeBenchmark(50);
+
+        [Test, Performance]
+        public void AddPreviousNode_50() => AddPreviousNodeBenchmark(50);
+
+        [Test, Performance]
+        public void ExpandNode_50() => ExpandNodeBenchmark(50);
+
+        #endregion
+
+        #region NODE COUNT 60
+
+        [Test, Performance]
+        public void AddNextNode_60() => AddNextNodeBenchmark(60);
+
+        [Test, Performance]
+        public void AddPreviousNode_60() => AddPreviousNodeBenchmark(60);
+
+        [Test, Performance]
+        public void ExpandNode_60() => ExpandNodeBenchmark(60);
+
+        #endregion
+
+        #region NODE COUNT 70
+
+        [Test, Performance]
+        public void AddNextNode_70() => AddNextNodeBenchmark(70);
+
+        [Test, Performance]
+        public void AddPreviousNode_70() => AddPreviousNodeBenchmark(70);
+
+        [Test, Performance]
+        public void ExpandNode_70() => ExpandNodeBenchmark(70);
+
+        #endregion
+
+        #region NODE COUNT 80
+
+        [Test, Performance]
+        public void AddNextNode_80() => AddNextNodeBenchmark(80);
+
+        [Test, Performance]
+        public void AddPreviousNode_80() => AddPreviousNodeBenchmark(80);
+
+        [Test, Performance]
+        public void ExpandNode_80() => ExpandNodeBenchmark(80);
+
+        #endregion
+
+        #region NODE COUNT 90
+
+        [Test, Performance]
+        public void AddNextNode_90() => AddNextNodeBenchmark(90);
+
+        [Test, Performance]
+        public void AddPreviousNode_90() => AddPreviousNodeBenchmark(90);
+
+        [Test, Performance]
+        public void ExpandNode_90() => ExpandNodeBenchmark(90);
+
+        #endregion
+
+        #region NODE COUNT 100
+
+        [Test, Performance]
+        public void AddNextNode_100() => AddNextNodeBenchmark(100);
+
+        [Test, Performance]
+        public void AddPreviousNode_100() => AddPreviousNodeBenchmark(100);
+
+        [Test, Performance]
+        public void ExpandNode_100() => ExpandNodeBenchmark(100);
+
+        #endregion
+
         #region METHODS
 
         private void AddNextNodeBenchmark(int nodeCount)
         {
             Measure.Method(() =>
                 {
-                    var nodes = _questGraph.GetQuestNodes();
+                    var nodes = _questGraph.QuestNodes;
                     QuestNode chosenNode = null;
                     string nextAction = null;
                     int attempts = 0;
@@ -101,7 +189,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    var nodes = _questGraph.GetQuestNodes();
+                    var nodes = _questGraph.QuestNodes;
                     QuestNode chosenNode = null;
                     string prevAction = null;
                     int attempts = 0;
@@ -131,7 +219,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    var nodes = _questGraph.GetQuestNodes();
+                    var nodes = _questGraph.QuestNodes;
                     QuestNode chosenNode = null;
                     List<string> expansion = null;
                     int attempts = 0;

@@ -92,7 +92,11 @@ namespace ISILab.LBS.VisualElements
             {
                 LBSInspectorPanel.ActivateBehaviourTab();
 
-                Node.Select();
+                if (!Node.IsSelected())
+                {
+                    NotifierViewer.ClearNotifications();
+                    Node.Select();
+                }
                 _isDragging = true;
                 this.CaptureMouse();
             }

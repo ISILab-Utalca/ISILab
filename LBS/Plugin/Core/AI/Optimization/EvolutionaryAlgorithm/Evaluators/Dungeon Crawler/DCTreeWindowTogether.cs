@@ -17,7 +17,7 @@ using static ISILab.LBS.AI.Categorization.EvaluatorConfiguration;
 
 namespace ISILab.AI.Categorization
 {
-    [System.Serializable]
+    [System.Obsolete, System.Serializable]
     public class DCTreeWindowTogether : IContextualEvaluator, IConfigurableEvaluator, IRangedEvaluator
     {
         public float MaxValue => 1;

@@ -117,8 +117,11 @@ namespace ISILab.LBS.Components
             this.ownerNode = ownerNode;
             Terminal = terminal;
 
-            _areaField = new GrammarArea { data = this, name = "Area" };
-            _eventHookerField = new GrammarEventHook { data = this, name = "Events" };
+            _areaField = new GrammarArea { Data = this, name = "Area" };
+            Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
+            _areaField.SetValue(new Rect(pos.x, pos.y, 1, 1));
+
+            _eventHookerField = new GrammarEventHook { Data = this, name = "Events" };
 
             fields = new();
 
@@ -128,12 +131,8 @@ namespace ISILab.LBS.Components
             foreach (var field in Terminal.fields)
                 fields.Add((GrammarField)field.Clone());
 
-
             foreach (var field in fields)
-                field.data = this;
-
-            Vector2Int pos = ownerNode.Graph.OwnerLayer.ToFixedPosition(ownerNode.Position);
-            _areaField.SetValue(new Rect(pos.x, pos.y, 1, 1));
+                field.Data = this;
 
             // bind actions for Ctrl+Z
             var ndb = Graph.OwnerLayer.GetBehaviour<NodeDataBehaviour>();
@@ -164,7 +163,14 @@ namespace ISILab.LBS.Components
             var other = obj as QuestNodeData;
             return other != null && ID == other.ID;
         }
-        public bool IsValid() { return true; }
+        public bool IsValid() 
+        {
+            foreach(var field in GetFields<GrammarField>())
+            {
+                if (!field.IsValid()) return false;
+            }
+            return true;
+        }
 
         public override int GetHashCode()
         {

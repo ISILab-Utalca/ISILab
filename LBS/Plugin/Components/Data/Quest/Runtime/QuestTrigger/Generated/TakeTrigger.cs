@@ -13,14 +13,15 @@ namespace ISILab.AI.Grammar
 
         protected override void BindFields(List<GrammarField> fields) 
         {
-            // Ensure the target field is instantiated so it isn't null
-            if (_Objecttotake == null) _Objecttotake = new GrammarBundleGraph();
+            _Objecttotake ??= new GrammarBundleGraph();
 
             var sourceObjecttotake = fields.Find(f => f.name == "Object to take") as GrammarBundleGraph;
             if (sourceObjecttotake != null)
             {
                 _Objecttotake.SetValue(sourceObjecttotake.value);
             }
+
+            this.fields.Add(_Objecttotake);
         }
 
         protected override bool CanComplete() => true;

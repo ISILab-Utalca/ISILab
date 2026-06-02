@@ -1,0 +1,848 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid
+  commentId: T:ISILab.LBS.Characteristics.AssetConnectionGrid
+  id: AssetConnectionGrid
+  parent: ISILab.LBS.Characteristics
+  children:
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor(System.Int32,ISILab.LBS.Plugin.Components.Bundles.Asset)
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor(System.Int32[],ISILab.LBS.Plugin.Components.Bundles.Asset)
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.AssetReference
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.BorderSize
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.Equals(System.Object)
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(System.Int32,System.Int32)
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(UnityEngine.Vector2)
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.GetHashCode
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.GridSize
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.TerrainFlag
+  - ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt(UnityEngine.Vector2)
+  langs:
+  - csharp
+  - vb
+  name: AssetConnectionGrid
+  nameWithType: AssetConnectionGrid
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid
+  type: Class
+  source:
+    id: AssetConnectionGrid
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 299
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: >-
+    A connection grid for a particular asset. Its main purpose consists of holding a number of flags, each assigned to a different directional slot in
+
+    the asset, in order to allow easy comparisons between generated objects for the creation of consistent patterns.
+  example: []
+  syntax:
+    content: >-
+      [Serializable]
+
+      public class AssetConnectionGrid
+    content.vb: >-
+      <Serializable>
+
+      Public Class AssetConnectionGrid
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.TerrainFlag
+  commentId: P:ISILab.LBS.Characteristics.AssetConnectionGrid.TerrainFlag
+  id: TerrainFlag
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: TerrainFlag
+  nameWithType: AssetConnectionGrid.TerrainFlag
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.TerrainFlag
+  type: Property
+  source:
+    id: TerrainFlag
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 309
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: 'An array holding every flag held by the Asset Grid. <b>NOTE</b>: This array currently has a set size of 9.'
+  example: []
+  syntax:
+    content: public int[] TerrainFlag { get; set; }
+    parameters: []
+    return:
+      type: System.Int32[]
+    content.vb: Public Property TerrainFlag As Integer()
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.TerrainFlag*
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.AssetReference
+  commentId: P:ISILab.LBS.Characteristics.AssetConnectionGrid.AssetReference
+  id: AssetReference
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: AssetReference
+  nameWithType: AssetConnectionGrid.AssetReference
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.AssetReference
+  type: Property
+  source:
+    id: AssetReference
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 317
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: References the asset linked to the connection grid for 3D generation..
+  example: []
+  syntax:
+    content: public Asset AssetReference { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Asset
+    content.vb: Public ReadOnly Property AssetReference As Asset
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.AssetReference*
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.GridSize
+  commentId: P:ISILab.LBS.Characteristics.AssetConnectionGrid.GridSize
+  id: GridSize
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: GridSize
+  nameWithType: AssetConnectionGrid.GridSize
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.GridSize
+  type: Property
+  source:
+    id: GridSize
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 321
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: The size of the grid. It simply points to the length of the terrain flag array.
+  example: []
+  syntax:
+    content: public int GridSize { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property GridSize As Integer
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.GridSize*
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.BorderSize
+  commentId: P:ISILab.LBS.Characteristics.AssetConnectionGrid.BorderSize
+  id: BorderSize
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: BorderSize
+  nameWithType: AssetConnectionGrid.BorderSize
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.BorderSize
+  type: Property
+  source:
+    id: BorderSize
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 326
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: >-
+    The size of the terrain grid's square borders. It currently points to the square root of the terrain flag array's length. <br />
+
+    <b>NOTE</b>: It may be personalizable to allow for non-square terrain grid sizes, but it currently depends on it being a perfect square.
+  example: []
+  syntax:
+    content: public int BorderSize { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property BorderSize As Integer
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.BorderSize*
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor(System.Int32[],ISILab.LBS.Plugin.Components.Bundles.Asset)
+  commentId: M:ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor(System.Int32[],ISILab.LBS.Plugin.Components.Bundles.Asset)
+  id: '#ctor(System.Int32[],ISILab.LBS.Plugin.Components.Bundles.Asset)'
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: AssetConnectionGrid(int[], Asset)
+  nameWithType: AssetConnectionGrid.AssetConnectionGrid(int[], Asset)
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.AssetConnectionGrid(int[], ISILab.LBS.Plugin.Components.Bundles.Asset)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 334
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: >-
+    A basic constructor for asset connection grids. Meant for copying already existing grids (or fully configurating one beforehand) 
+
+    as it requires an existing terrain flag array.
+  example: []
+  syntax:
+    content: public AssetConnectionGrid(int[] terrainFlag, Asset assetReference)
+    parameters:
+    - id: terrainFlag
+      type: System.Int32[]
+      description: A terrain flag array.
+    - id: assetReference
+      type: ISILab.LBS.Plugin.Components.Bundles.Asset
+      description: The asset to reference for 3D generation and previews.
+    content.vb: Public Sub New(terrainFlag As Integer(), assetReference As Asset)
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor*
+  nameWithType.vb: AssetConnectionGrid.New(Integer(), Asset)
+  fullName.vb: ISILab.LBS.Characteristics.AssetConnectionGrid.New(Integer(), ISILab.LBS.Plugin.Components.Bundles.Asset)
+  name.vb: New(Integer(), Asset)
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor(System.Int32,ISILab.LBS.Plugin.Components.Bundles.Asset)
+  commentId: M:ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor(System.Int32,ISILab.LBS.Plugin.Components.Bundles.Asset)
+  id: '#ctor(System.Int32,ISILab.LBS.Plugin.Components.Bundles.Asset)'
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: AssetConnectionGrid(int, Asset)
+  nameWithType: AssetConnectionGrid.AssetConnectionGrid(int, Asset)
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.AssetConnectionGrid(int, ISILab.LBS.Plugin.Components.Bundles.Asset)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 344
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: Alternative constructor. Initializes a basic terrain flag array, so it's used for asset grid initialization purposes.
+  example: []
+  syntax:
+    content: public AssetConnectionGrid(int q, Asset assetReference)
+    parameters:
+    - id: q
+      type: System.Int32
+      description: The size of the terrain flag array (normally 9).
+    - id: assetReference
+      type: ISILab.LBS.Plugin.Components.Bundles.Asset
+      description: The asset to reference for 3D generation and previews.
+    content.vb: Public Sub New(q As Integer, assetReference As Asset)
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor*
+  nameWithType.vb: AssetConnectionGrid.New(Integer, Asset)
+  fullName.vb: ISILab.LBS.Characteristics.AssetConnectionGrid.New(Integer, ISILab.LBS.Plugin.Components.Bundles.Asset)
+  name.vb: New(Integer, Asset)
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt(UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt(UnityEngine.Vector2)
+  id: VectorToInt(UnityEngine.Vector2)
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: VectorToInt(Vector2)
+  nameWithType: AssetConnectionGrid.VectorToInt(Vector2)
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt(UnityEngine.Vector2)
+  type: Method
+  source:
+    id: VectorToInt
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 361
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: Converts a Vector2 into an int value. Used to translate 2D coordinates into the 1D nature of the terrain flag array.
+  example: []
+  syntax:
+    content: public int VectorToInt(Vector2 vector)
+    parameters:
+    - id: vector
+      type: UnityEngine.Vector2
+      description: The vector to convert into an int value.
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Function VectorToInt(vector As Vector2) As Integer
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: >-
+      The method will throw an exception if the array length doesn't have a square root.<br />
+          This is a failsafe to prevent issues with currently unimplemented non-square terrain grids.
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(UnityEngine.Vector2)
+  id: FlagFromVector(UnityEngine.Vector2)
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: FlagFromVector(Vector2)
+  nameWithType: AssetConnectionGrid.FlagFromVector(Vector2)
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(UnityEngine.Vector2)
+  type: Method
+  source:
+    id: FlagFromVector
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 384
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: Obtains the terrain flag of a particular coordinate from a Vector2. Works on similar logic to the vector-to-int conversor.
+  example: []
+  syntax:
+    content: public int FlagFromVector(Vector2 vec)
+    parameters:
+    - id: vec
+      type: UnityEngine.Vector2
+      description: The coordinate in vectors.
+    return:
+      type: System.Int32
+      description: The flag in the array coordinate.
+    content.vb: Public Function FlagFromVector(vec As Vector2) As Integer
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector*
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(System.Int32,System.Int32)
+  commentId: M:ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(System.Int32,System.Int32)
+  id: FlagFromVector(System.Int32,System.Int32)
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: FlagFromVector(int, int)
+  nameWithType: AssetConnectionGrid.FlagFromVector(int, int)
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(int, int)
+  type: Method
+  source:
+    id: FlagFromVector
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 390
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  syntax:
+    content: public int FlagFromVector(int x, int y)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function FlagFromVector(x As Integer, y As Integer) As Integer
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector*
+  nameWithType.vb: AssetConnectionGrid.FlagFromVector(Integer, Integer)
+  fullName.vb: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector(Integer, Integer)
+  name.vb: FlagFromVector(Integer, Integer)
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.GetHashCode
+  commentId: M:ISILab.LBS.Characteristics.AssetConnectionGrid.GetHashCode
+  id: GetHashCode
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: AssetConnectionGrid.GetHashCode()
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 396
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: Obtains the hash code of the object.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: Returns hash code.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.GetHashCode*
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.Equals(System.Object)
+  commentId: M:ISILab.LBS.Characteristics.AssetConnectionGrid.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ISILab.LBS.Characteristics.AssetConnectionGrid
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: AssetConnectionGrid.Equals(object)
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\Components\Characteristics\LBSTerrainConnectionGrid\LBSTerrainConnectionGrid.cs
+    startLine: 406
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Characteristics
+  summary: Compares two 'Asset Connection Grids'.
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare to this.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the objects equal each other. <code>false</code> otherwise.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ISILab.LBS.Characteristics.AssetConnectionGrid.Equals*
+  nameWithType.vb: AssetConnectionGrid.Equals(Object)
+  fullName.vb: ISILab.LBS.Characteristics.AssetConnectionGrid.Equals(Object)
+  name.vb: Equals(Object)
+references:
+- uid: ISILab.LBS.Characteristics
+  commentId: N:ISILab.LBS.Characteristics
+  href: ISILab.html
+  name: ISILab.LBS.Characteristics
+  nameWithType: ISILab.LBS.Characteristics
+  fullName: ISILab.LBS.Characteristics
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    href: ISILab.LBS.Characteristics.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    href: ISILab.LBS.Characteristics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.TerrainFlag*
+  commentId: Overload:ISILab.LBS.Characteristics.AssetConnectionGrid.TerrainFlag
+  href: ISILab.LBS.Characteristics.AssetConnectionGrid.html#ISILab_LBS_Characteristics_AssetConnectionGrid_TerrainFlag
+  name: TerrainFlag
+  nameWithType: AssetConnectionGrid.TerrainFlag
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.TerrainFlag
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.AssetReference*
+  commentId: Overload:ISILab.LBS.Characteristics.AssetConnectionGrid.AssetReference
+  href: ISILab.LBS.Characteristics.AssetConnectionGrid.html#ISILab_LBS_Characteristics_AssetConnectionGrid_AssetReference
+  name: AssetReference
+  nameWithType: AssetConnectionGrid.AssetReference
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.AssetReference
+- uid: ISILab.LBS.Plugin.Components.Bundles.Asset
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Asset
+  parent: ISILab.LBS.Plugin.Components.Bundles
+  href: ISILab.LBS.Plugin.Components.Bundles.Asset.html
+  name: Asset
+  nameWithType: Asset
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Asset
+- uid: ISILab.LBS.Plugin.Components.Bundles
+  commentId: N:ISILab.LBS.Plugin.Components.Bundles
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Bundles
+  nameWithType: ISILab.LBS.Plugin.Components.Bundles
+  fullName: ISILab.LBS.Plugin.Components.Bundles
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.GridSize*
+  commentId: Overload:ISILab.LBS.Characteristics.AssetConnectionGrid.GridSize
+  href: ISILab.LBS.Characteristics.AssetConnectionGrid.html#ISILab_LBS_Characteristics_AssetConnectionGrid_GridSize
+  name: GridSize
+  nameWithType: AssetConnectionGrid.GridSize
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.GridSize
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.BorderSize*
+  commentId: Overload:ISILab.LBS.Characteristics.AssetConnectionGrid.BorderSize
+  href: ISILab.LBS.Characteristics.AssetConnectionGrid.html#ISILab_LBS_Characteristics_AssetConnectionGrid_BorderSize
+  name: BorderSize
+  nameWithType: AssetConnectionGrid.BorderSize
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.BorderSize
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor*
+  commentId: Overload:ISILab.LBS.Characteristics.AssetConnectionGrid.#ctor
+  href: ISILab.LBS.Characteristics.AssetConnectionGrid.html#ISILab_LBS_Characteristics_AssetConnectionGrid__ctor_System_Int32___ISILab_LBS_Plugin_Components_Bundles_Asset_
+  name: AssetConnectionGrid
+  nameWithType: AssetConnectionGrid.AssetConnectionGrid
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.AssetConnectionGrid
+  nameWithType.vb: AssetConnectionGrid.New
+  fullName.vb: ISILab.LBS.Characteristics.AssetConnectionGrid.New
+  name.vb: New
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt*
+  commentId: Overload:ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt
+  href: ISILab.LBS.Characteristics.AssetConnectionGrid.html#ISILab_LBS_Characteristics_AssetConnectionGrid_VectorToInt_UnityEngine_Vector2_
+  name: VectorToInt
+  nameWithType: AssetConnectionGrid.VectorToInt
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.VectorToInt
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector*
+  commentId: Overload:ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector
+  href: ISILab.LBS.Characteristics.AssetConnectionGrid.html#ISILab_LBS_Characteristics_AssetConnectionGrid_FlagFromVector_UnityEngine_Vector2_
+  name: FlagFromVector
+  nameWithType: AssetConnectionGrid.FlagFromVector
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.FlagFromVector
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.GetHashCode*
+  commentId: Overload:ISILab.LBS.Characteristics.AssetConnectionGrid.GetHashCode
+  href: ISILab.LBS.Characteristics.AssetConnectionGrid.html#ISILab_LBS_Characteristics_AssetConnectionGrid_GetHashCode
+  name: GetHashCode
+  nameWithType: AssetConnectionGrid.GetHashCode
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.GetHashCode
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ISILab.LBS.Characteristics.AssetConnectionGrid.Equals*
+  commentId: Overload:ISILab.LBS.Characteristics.AssetConnectionGrid.Equals
+  href: ISILab.LBS.Characteristics.AssetConnectionGrid.html#ISILab_LBS_Characteristics_AssetConnectionGrid_Equals_System_Object_
+  name: Equals
+  nameWithType: AssetConnectionGrid.Equals
+  fullName: ISILab.LBS.Characteristics.AssetConnectionGrid.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+shouldSkipMarkup: true

@@ -212,6 +212,15 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             if (generated.ParentGO == null || HasErrors(generated))
             {
                 CleanupFailedGeneration(generated);
+                string errorLogs = string.Empty;
+                if(generated.Gens.Count != 0)
+                {
+                    foreach (var generatedFailure in generated.Gens)
+                    {
+                        errorLogs += $"\n{generatedFailure.log.message}";
+                    }
+                }
+         
                 return Tuple.Create(false,
                     new LBSLog(generated.Gens[0].log.message, LogType.Error));
                 //new LBSLog($"Layer {layer.Name} could not be created correctly.", LogType.Error));

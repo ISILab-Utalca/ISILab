@@ -6,7 +6,6 @@ using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
-using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
 using ISILab.LBS.VisualElements;
@@ -17,7 +16,6 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.EventSystems.EventTrigger;
 using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
@@ -89,22 +87,38 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     new LBSLog("There is no root in the graph. Assign a root to generate the quest", LogType.Error));
             }
 
-            if (quest.GetQuestNodes().All(n => n.NodeType != QuestNode.ENodeType.Goal))
+            if (quest.QuestNodes.All(n => n.NodeType != QuestNode.ENodeType.Goal))
             {
                 Object.DestroyImmediate(pivot);
                 return new GeneratedGO(null, 
                     new LBSLog("There must be at least one goal node. Make sure to have actions with roots but no branches", LogType.Error));
             }
-            
-            var assistant = layer.GetAssistant<GrammarAssistant>();
-            bool allValid = assistant.ValidateGraphGrammar();
-             if (!allValid)
+
+
+            bool validGrammar = quest.HasValidGrammar();
+            if (!validGrammar)
             {
                 Object.DestroyImmediate(pivot);
                 return new GeneratedGO(null, 
                     new LBSLog("At least one quest node is not grammatically valid. Fix or remove", LogType.Error));
-             }
-          
+            }
+
+            bool validConnections = quest.HasValidConnections();
+            if (!validConnections)
+            {
+                Object.DestroyImmediate(pivot);
+                return new GeneratedGO(null,
+                    new LBSLog("At least node has an invalid connection", LogType.Error));
+            }
+
+            bool validData = quest.HasValidData();
+            if (!validData)
+            {
+                Object.DestroyImmediate(pivot);
+                return new GeneratedGO(null,
+                    new LBSLog("At least node has an invalid connection", LogType.Error));
+            }
+
             observer.Init(quest);
             GenerateTriggers(settings, quest, observer, pivot);
             
@@ -121,7 +135,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         private void GenerateTriggers(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
         {
-            foreach (var node in quest.GetQuestNodes())
+            foreach (var node in quest.QuestNodes)
             {
                 // Find if it has a reference to another layer
                 GenerateRequiredLayers(node);
@@ -187,7 +201,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         {
             Dictionary<GraphNode, QuestTriggerNode> dict = new();
 
-            foreach (var node in quest.GetQuestNodes())
+            foreach (var node in quest.QuestNodes)
             {
                 Type triggerType = node.Data.Terminal.Script.GetClass();
                 if (triggerType == null)
@@ -257,21 +271,22 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // try to find the lbsgens by bundle type
             foreach (var field in trigger.Fields)
             {
-                var bundleStored = field as GrammarBundleGraph;
-                if (bundleStored == null) continue;
-                var bundle = bundleStored.GetBundle();
+                var gbg = field as GrammarBundleGraph;
+                if (gbg == null) continue;
+                var bundle = gbg.GetBundle();
 
                 if (field.IsList)
                     foreach(var entry in field.ItemsSource)                 
-                        FindGoWithBundle(trigger, bundle, lbsgens);
+                        FindGoWithBundle(gbg, trigger, bundle, lbsgens);
 
                 else
-                    FindGoWithBundle(trigger, bundle, lbsgens);
+                    FindGoWithBundle(gbg, trigger, bundle, lbsgens);
             }
 
         }
 
         private static void FindGoWithBundle(
+            GrammarBundleGraph gbg, 
             QuestTriggerNode trigger,
             Bundle bundle,
             List<LBSGenerated> lbsgens)
@@ -286,7 +301,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             {
                 if (lbsgen.BundleRef == bundle)
                 {
-                    trigger.Gos.Add(lbsgen.gameObject);
+                    gbg.objectRef = lbsgen.gameObject;
                     return;
                 }
             }

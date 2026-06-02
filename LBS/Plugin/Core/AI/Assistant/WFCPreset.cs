@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using ISILab.LBS.Characteristics;
 using UnityEngine;
 
@@ -33,7 +34,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public void SetWeights(List<LBSDirectionedGroup.WeightStruct> newWeights)
         {
-            weights = new List<LBSDirectionedGroup.WeightStruct>(newWeights);
+            weights = new List<LBSDirectionedGroup.WeightStruct>(newWeights.Select(w => new LBSDirectionedGroup.WeightStruct() { target = w.target, weight = w.weight }));
         }
 
         public void SetAssetGUID(string guid) => AssetGUID = guid;

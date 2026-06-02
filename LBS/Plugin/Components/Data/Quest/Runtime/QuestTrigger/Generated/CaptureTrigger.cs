@@ -16,22 +16,23 @@ namespace ISILab.AI.Grammar
 
         protected override void BindFields(List<GrammarField> fields) 
         {
-            // Ensure the target field is instantiated so it isn't null
-            if (_Timetocapture == null) _Timetocapture = new GrammarFloat();
+            _Timetocapture ??= new GrammarFloat();
 
             var sourceTimetocapture = fields.Find(f => f.name == "Time to capture") as GrammarFloat;
             if (sourceTimetocapture != null)
             {
                 _Timetocapture.SetValue(sourceTimetocapture.value);
             }
-            // Ensure the target field is instantiated so it isn't null
-            if (_Resetonexitduringcapture == null) _Resetonexitduringcapture = new GrammarBool();
+            _Resetonexitduringcapture ??= new GrammarBool();
 
             var sourceResetonexitduringcapture = fields.Find(f => f.name == "Reset on exit during capture") as GrammarBool;
             if (sourceResetonexitduringcapture != null)
             {
                 _Resetonexitduringcapture.SetValue(sourceResetonexitduringcapture.value);
             }
+
+            this.fields.Add(_Timetocapture);
+            this.fields.Add(_Resetonexitduringcapture);
         }
 
         protected override bool CanComplete() => true;

@@ -13,14 +13,15 @@ namespace ISILab.AI.Grammar
 
         protected override void BindFields(List<GrammarField> fields) 
         {
-            // Ensure the target field is instantiated so it isn't null
-            if (_POItoreportto == null) _POItoreportto = new GrammarBundleGraph();
+            _POItoreportto ??= new GrammarBundleGraph();
 
             var sourcePOItoreportto = fields.Find(f => f.name == "POI to report to") as GrammarBundleGraph;
             if (sourcePOItoreportto != null)
             {
                 _POItoreportto.SetValue(sourcePOItoreportto.value);
             }
+
+            this.fields.Add(_POItoreportto);
         }
 
         protected override bool CanComplete() => true;

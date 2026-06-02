@@ -1,9 +1,8 @@
-using ISILab.LBS.Behaviours;
 using LBS.Components;
-using LBS.Components.TileMap;
-using System.Collections.Generic;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -20,7 +19,7 @@ namespace ISILab.LBS.Manipulators
         public AddExteriorTile()
         {
             Name = "Add Tile";
-            Description = "Add an Exterior Tile. Hold CTRL to paint neighbors as well.";
+            Description = "Add an Exterior Tile. Hold CTRL to keep neighbors intact.";
         }
         
         public override void Init(LBSLayer layer, object provider)

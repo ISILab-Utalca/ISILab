@@ -16,22 +16,23 @@ namespace ISILab.AI.Grammar
 
         protected override void BindFields(List<GrammarField> fields) 
         {
-            // Ensure the target field is instantiated so it isn't null
-            if (_ItemType == null) _ItemType = new GrammarBundleType();
+            _ItemType ??= new GrammarBundleType();
 
             var sourceItemType = fields.Find(f => f.name == "Item Type") as GrammarBundleType;
             if (sourceItemType != null)
             {
                 _ItemType.SetValue(sourceItemType.value);
             }
-            // Ensure the target field is instantiated so it isn't null
-            if (_Requiredamount == null) _Requiredamount = new GrammarInt();
+            _Requiredamount ??= new GrammarInt();
 
             var sourceRequiredamount = fields.Find(f => f.name == "Required amount") as GrammarInt;
             if (sourceRequiredamount != null)
             {
                 _Requiredamount.SetValue(sourceRequiredamount.value);
             }
+
+            this.fields.Add(_ItemType);
+            this.fields.Add(_Requiredamount);
         }
 
         protected override bool CanComplete() => true;
