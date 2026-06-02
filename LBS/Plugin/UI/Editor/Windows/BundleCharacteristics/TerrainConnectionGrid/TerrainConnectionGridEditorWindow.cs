@@ -12,6 +12,9 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 {
+    /// <summary>
+    /// The main editing window for <b>LBS Terrain Connection Grids</b>. It possesses all the main functionalities necessary to ensure their proper functioning.
+    /// </summary>
     public class TerrainConnectionGridEditorWindow : EditorWindow
     {
         #region FIELDS
