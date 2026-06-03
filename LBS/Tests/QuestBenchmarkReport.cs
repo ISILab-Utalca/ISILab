@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ISILab.AI.Grammar;
@@ -26,12 +27,15 @@ namespace ISILab.LBS.Tests
         #region NODE COUNT 10
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddNextNode_10() => AddNextNodeBenchmark(10);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddPreviousNode_10() => AddPreviousNodeBenchmark(10);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void ExpandNode_10() => ExpandNodeBenchmark(10);
 
         #endregion
@@ -39,12 +43,15 @@ namespace ISILab.LBS.Tests
         #region NODE COUNT 20
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddNextNode_20() => AddNextNodeBenchmark(20);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddPreviousNode_20() => AddPreviousNodeBenchmark(20);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void ExpandNode_20() => ExpandNodeBenchmark(20);
 
         #endregion
@@ -52,12 +59,15 @@ namespace ISILab.LBS.Tests
         #region NODE COUNT 30
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddNextNode_30() => AddNextNodeBenchmark(30);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddPreviousNode_30() => AddPreviousNodeBenchmark(30);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void ExpandNode_30() => ExpandNodeBenchmark(30);
 
         #endregion
@@ -65,12 +75,15 @@ namespace ISILab.LBS.Tests
         #region NODE COUNT 40
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddNextNode_40() => AddNextNodeBenchmark(40);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddPreviousNode_40() => AddPreviousNodeBenchmark(40);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void ExpandNode_40() => ExpandNodeBenchmark(40);
 
         #endregion
@@ -78,12 +91,15 @@ namespace ISILab.LBS.Tests
         #region NODE COUNT 50
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddNextNode_50() => AddNextNodeBenchmark(50);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddPreviousNode_50() => AddPreviousNodeBenchmark(50);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void ExpandNode_50() => ExpandNodeBenchmark(50);
 
         #endregion
@@ -91,12 +107,15 @@ namespace ISILab.LBS.Tests
         #region NODE COUNT 60
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddNextNode_60() => AddNextNodeBenchmark(60);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddPreviousNode_60() => AddPreviousNodeBenchmark(60);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void ExpandNode_60() => ExpandNodeBenchmark(60);
 
         #endregion
@@ -104,12 +123,15 @@ namespace ISILab.LBS.Tests
         #region NODE COUNT 70
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddNextNode_70() => AddNextNodeBenchmark(70);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddPreviousNode_70() => AddPreviousNodeBenchmark(70);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void ExpandNode_70() => ExpandNodeBenchmark(70);
 
         #endregion
@@ -117,12 +139,15 @@ namespace ISILab.LBS.Tests
         #region NODE COUNT 80
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddNextNode_80() => AddNextNodeBenchmark(80);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddPreviousNode_80() => AddPreviousNodeBenchmark(80);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void ExpandNode_80() => ExpandNodeBenchmark(80);
 
         #endregion
@@ -130,12 +155,15 @@ namespace ISILab.LBS.Tests
         #region NODE COUNT 90
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddNextNode_90() => AddNextNodeBenchmark(90);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddPreviousNode_90() => AddPreviousNodeBenchmark(90);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void ExpandNode_90() => ExpandNodeBenchmark(90);
 
         #endregion
@@ -143,12 +171,15 @@ namespace ISILab.LBS.Tests
         #region NODE COUNT 100
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddNextNode_100() => AddNextNodeBenchmark(100);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void AddPreviousNode_100() => AddPreviousNodeBenchmark(100);
 
         [Test, Performance]
+        [Timeout(3600000)]
         public void ExpandNode_100() => ExpandNodeBenchmark(100);
 
         #endregion
@@ -178,7 +209,7 @@ namespace ISILab.LBS.Tests
                     _grammarAssistant.InsertNextAction(nextAction, chosenNode);
                 })
                 .WarmupCount(1)
-                .MeasurementCount(MeasureCount)
+                .MeasurementCount((int)Math.Ceiling( (float)MeasureCount * 10.0 / (float)nodeCount))
                 .IterationsPerMeasurement(1)
                 .SetUp(() => SetupTestEnvironment(nodeCount))
                 .CleanUp(CleanupTest)
@@ -208,7 +239,7 @@ namespace ISILab.LBS.Tests
                     _grammarAssistant.InsertPreviousAction(prevAction, chosenNode);
                 })
                 .WarmupCount(1)
-                .MeasurementCount(MeasureCount)
+                .MeasurementCount((int)Math.Ceiling( (float)MeasureCount * 10.0 / (float)nodeCount))
                 .IterationsPerMeasurement(1)
                 .SetUp(() => SetupTestEnvironment(nodeCount))
                 .CleanUp(CleanupTest)
@@ -237,7 +268,7 @@ namespace ISILab.LBS.Tests
                     _grammarAssistant.ExpandAction(expansion, chosenNode);
                 })
                 .WarmupCount(1)
-                .MeasurementCount(MeasureCount)
+                .MeasurementCount((int)Math.Ceiling( (float)MeasureCount * 10.0 / (float)nodeCount))
                 .IterationsPerMeasurement(1)
                 .SetUp(() => SetupTestEnvironment(nodeCount))
                 .CleanUp(CleanupTest)

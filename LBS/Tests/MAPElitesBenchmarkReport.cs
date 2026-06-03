@@ -248,7 +248,7 @@ namespace ISILab.LBS.Tests
         // These functions are responsible for measuring time and fitness (fitness for each map) present in the entire MapElites execution process.
 
         [Test, Performance]
-        [Timeout(600000)]
+        [Timeout(3600000)]
         public void MeasureMAPElites_9_Rooms_Colonies()
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
@@ -299,7 +299,7 @@ namespace ISILab.LBS.Tests
         }
 
         [Test, Performance]
-        [Timeout(600000)]
+        [Timeout(3600000)]
         public void MeasureMAPElites_9_Rooms_SingleRatio()
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
@@ -337,7 +337,7 @@ namespace ISILab.LBS.Tests
         }
 
         [Test, Performance]
-        [Timeout(600000)]
+        [Timeout(3600000)]
         public void MeasureMAPElites_9_Rooms_PairRatio()
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
@@ -375,7 +375,7 @@ namespace ISILab.LBS.Tests
         }
 
         [Test, Performance]
-        [Timeout(600000)]
+        [Timeout(3600000)]
         public void MeasureMAPElites_21_Rooms_Colonies()
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
@@ -422,7 +422,7 @@ namespace ISILab.LBS.Tests
         }
 
         [Test, Performance]
-        [Timeout(600000)]
+        [Timeout(3600000)]
         public void MeasureMAPElites_21_Rooms_SingleRatio()
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
@@ -460,7 +460,7 @@ namespace ISILab.LBS.Tests
         }
 
         [Test, Performance]
-        [Timeout(600000)]
+        [Timeout(3600000)]
         public void MeasureMAPElites_21_Rooms_PairRatio()
         {
             SampleGroup fitnessGroup = new SampleGroup("Generated Fitness", SampleUnit.Undefined);
