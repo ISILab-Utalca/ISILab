@@ -13,16 +13,31 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 {
     /// <summary>
-    /// The main editing window for <b>LBS Terrain Connection Grids</b>. It possesses all the main functionalities necessary to ensure their proper functioning.
+    /// The main editing window for <b>LBS Terrain Connection Grids</b>. It possesses all the main functionalities necessary to ensure their proper functioning.</br>
+    /// By accessing this window, every asset inside the characteristic's associated bundle can be modified independently. 
+    /// Additional tools include modifying the default generated asset under the characteristic's generatiion rule, as well as various painting tools for
+    /// each asset's individual grid and a personalizable color list.
     /// </summary>
     public class TerrainConnectionGridEditorWindow : EditorWindow
     {
         #region FIELDS
+        /// <summary>
+        /// The target <b>LBS Terrain Connection Grid</b> to be modified with this window.
+        /// </summary>
         public LBSTerrainConnectionGrid connectionGridTarget;
 
         //Tracking thingies
+        /// <summary>
+        /// The currently active terrain flag to be applied with the window's painting tools.
+        /// </summary>
         public int currentColor;
+        /// <summary>
+        /// An enumerator dividing the three tools usable in the window.
+        /// </summary>
         public enum GridTerrainTool { Brush, Fill, Eraser };
+        /// <summary>
+        /// Defines the currently active terrain tool out of the three available options: <b>Brush</b>, <b>Fill</b> and <b>Eraser</b>.
+        /// </summary>
         private GridTerrainTool activeTool;
 
         //Color Buttons

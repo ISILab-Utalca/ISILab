@@ -6,18 +6,20 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid
 {
+    
+    [LBSCustomEditor("Weights", typeof(LBSTerrainConnectionGrid))]
     /// <summary>
     /// The "entrance" interface class for the <b>Terrain Connection Grid Editor</b>. It ties a visual element to the characteristic to allow modification via
     /// the main <b>Terrain Connection Grid Editor Window</b>. </br>
     /// The <b>Terrain Connection Grid Editor</b> Visual Element contains two functionalities inside: Opening the <b>Terrain Connection Grid Editor Window</b>
     /// and running an internal information test for the <b>LBS Terrain Connection Grid</b>, if available.
     /// </summary>
-    [LBSCustomEditor("Weights", typeof(LBSTerrainConnectionGrid))]
     public class TerrainConnectionGridEditor : LBSCustomEditor
     {
         private Button testButton;
         private Button openGridEditorWindow;
         private static TerrainConnectionGridEditorWindow gridEditorWindow;
+
         /// <summary>
         /// Empty constructor. Unused.
         /// </summary>
@@ -25,17 +27,17 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConne
         {
 
         }
+
         /// <summary>
         /// Main constructor utilized. </br>
         /// It automatically creates this visual element on configuration.
         /// </summary>
-        /// <param name="target">The object to be manipulated by the Editor. </br>
-        /// In this case, it automatically picks up the <b>LBS Terrain Connection Grid</b> set up.</param>
         public TerrainConnectionGridEditor(object target) : base(target)
         {
             CreateVisualElement();
             SetInfo(target);
         }
+
         /// <summary>
         /// Connects the visual element to be created with its target object.
         /// </summary>

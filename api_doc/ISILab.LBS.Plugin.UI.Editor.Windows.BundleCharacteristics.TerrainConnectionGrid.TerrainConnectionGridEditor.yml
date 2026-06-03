@@ -19,7 +19,7 @@ items:
   source:
     id: TerrainConnectionGridEditor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditor.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid
@@ -184,10 +184,12 @@ items:
   source:
     id: .ctor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditor.cs
-    startLine: 15
+    startLine: 25
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid
+  summary: Empty constructor. Unused.
+  example: []
   syntax:
     content: public TerrainConnectionGridEditor()
     content.vb: Public Sub New()
@@ -209,7 +211,7 @@ items:
   source:
     id: .ctor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditor.cs
-    startLine: 19
+    startLine: 34
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid
@@ -237,16 +239,18 @@ items:
   source:
     id: SetInfo
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditor.cs
-    startLine: 26
+    startLine: 44
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid
+  summary: Connects the visual element to be created with its target object.
   example: []
   syntax:
     content: public override void SetInfo(object _paramTarget)
     parameters:
     - id: _paramTarget
       type: System.Object
+      description: The object picked up by the constructor. Always an <b>LBS Terrain Connection Grid</b> in this case.
     content.vb: Public Overrides Sub SetInfo(_paramTarget As Object)
   overridden: ISILab.LBS.Editor.LBSCustomEditor.SetInfo(System.Object)
   overload: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid.TerrainConnectionGridEditor.SetInfo*
@@ -267,7 +271,7 @@ items:
   source:
     id: CreateVisualElement
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditor.cs
-    startLine: 31
+    startLine: 49
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics.TerrainConnectionGrid
