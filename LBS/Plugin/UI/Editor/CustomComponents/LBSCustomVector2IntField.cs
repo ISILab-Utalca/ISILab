@@ -5,13 +5,13 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.CustomComponents
 {
     [UxmlElement]
-    public partial class LBSCustomVector2Field : Vector2Field
+    public partial class LBSCustomVector2IntField : Vector2IntField
     {
 
         public static readonly string LBSClassName = "lbs-field";
-        public static readonly string LBSFieldClassName = "lbs-vector2-field";
+        public static readonly string LBSFieldClassName = "lbs-vector2int-field";
 
-        public LBSCustomVector2Field() : base()
+        public LBSCustomVector2IntField() : base()
         {
             RemoveFromClassList(ussClassName);
             AddToClassList(LBSClassName);

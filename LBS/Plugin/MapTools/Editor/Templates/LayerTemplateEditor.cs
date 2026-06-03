@@ -1,19 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.DevTools.Macros;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
+using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.Editor.UI.CustomComponents;
 using ISILab.LBS.Plugin.MapTools.Generators;
+using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
 using LBS.Components;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Plugin.Core.Settings;
-using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
-using ISILab.LBS.CustomComponents;
 
 namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 {
@@ -51,33 +54,237 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         private void OnEnable()
         {
             EnsureCaches();
+            Undo.undoRedoPerformed += OnUndoRedo;
         }
+
+        private void OnDisable()
+        {
+            Undo.undoRedoPerformed -= OnUndoRedo;
+        }
+
+        private void OnUndoRedo()
+        {
+            //EditorUtility.SetDirty(Template);
+            Repaint();
+            ActiveEditorTracker.sharedTracker.ForceRebuild();
+        }
+
 
         public override VisualElement CreateInspectorGUI()
         {
-            if (Template._debugView)
+            var root = new VisualElement();
+
+            // ------------ DEBUG INSPECTOR ------------
+            if (Template.DebugView)
             {
-                Template._debugView = false; // reset debug view when opening inspector
-                return default;
+                root.Add(new IMGUIContainer(DrawDebugInspector));
+                return root;
             }
 
-            var container = new VisualElement();
-
-            if(_layerTemplateInspector != null)
+            // ---------- SIMPLIFIED INSPECTOR ---------
+            if (_layerTemplateInspector != null)
             {
-                var templateUI = _layerTemplateInspector.CloneTree();
-                container.Add(templateUI);
+                root.Add(_layerTemplateInspector.CloneTree());
             }
 
-            var debugToggle = container.Q<LBSCustomToggle>("DebugViewToggle");
-            debugToggle.value = Template._debugView;
-            debugToggle.RegisterValueChangedCallback(evt =>
+            // Debug view toggle
+            var debugToggle = root.Q<LBSCustomToggle>("DebugViewToggle");
+            DebugToggleSetup();
+
+            // Template name field
+            var nameField = root.Q<LBSCustomTextField>("TemplateNameField");
+            TextFieldSetup(nameField, Template.Name, Template.SetName, "Change Template Name");
+
+            // Sorting order field
+            var sortingField = root.Q<LBSCustomIntField>("SortingOrderField");
+            SortingFieldSetup();
+
+            // Icon field
+            var iconImage = root.Q<VisualElement>("IconImage");
+            var iconButton = root.Q<LBSCustomButton>("IconButton");
+            var iconPathLabel = root.Q<LBSCustomLabel>("IconPathLabel");
+            IconFieldSetup();
+
+            // Default name field
+            var defaultNameField = root.Q<LBSCustomTextField>("DefaultNameField");
+            TextFieldSetup(
+                defaultNameField, 
+                Template.layer.Name, 
+                (value) => { Template.layer.Name = value; }, 
+                "Change Layer's Default Name");
+
+            // ID field
+            var idField = root.Q<LBSCustomTextField>("IdField");
+            TextFieldSetup(idField, Template.layer.ID, Template.layer.SetID, "Change Layer ID");
+
+            // Tile size field
+            var tileSizeField = root.Q<LBSCustomVector2IntField>("TileSizeField");
+            TileSizeFieldSetup();
+
+            // Floor count field
+            var floorCountField = root.Q<LBSCustomUnsignedIntegerField>("FloorCountField");
+            if(floorCountField != null)
             {
-                Template._debugView = evt.newValue;
-                Debug.Log(Template._debugView);
+                // IN CONSTRUCTION...
+                Template.layer.ChangeFloorCount(1);
+            }
+
+            // Modules list
+            var modulesListGroup = root.Q<LBSBaseListGroup>("ModulesListGroup");
+            ListGroupSetup(modulesListGroup, Template.layer.Modules(), () => new LBSCustomLabelItem(), (_) => { }, (element, index) =>
+            {
+                element.Q<LBSCustomLabel>("textL").text = Template.layer.Modules()[index].ID;
             });
 
-            return container;
+            // Behaviours list
+            var behavioursListGroup = root.Q<LBSBaseListGroup>("BehavioursListGroup");
+            ListGroupSetup(behavioursListGroup, Template.layer.Behaviours, () => new LBSCustomLabelItem(), (_) => { }, (element, index) =>
+            {
+                var label = element.Q<LBSCustomLabel>("textL");
+                label.text = Template.layer.Behaviours[index].Name;
+                label.style.color = Template.layer.Behaviours[index].ColorTint;
+            });
+
+            // Assistants list
+            var assistantsListGroup = root.Q<LBSBaseListGroup>("AssistantsListGroup");
+            ListGroupSetup(assistantsListGroup, Template.layer.Assistants, () => new LBSCustomLabelItem(), (_) => { }, (element, index) =>
+            {
+                var label = element.Q<LBSCustomLabel>("textL");
+                label.text = Template.layer.Assistants[index].Name;
+                label.style.color = Template.layer.Assistants[index].ColorTint;
+            });
+
+            // Generator rules list
+            var rulesListGroup = root.Q<LBSBaseListGroup>("GeneratorRulesListGroup");
+            ListGroupSetup(rulesListGroup, Template.layer.GeneratorRules, () => new LBSCustomLabelItem(), (_) => { }, (element, index) =>
+            {
+                var label = element.Q<LBSCustomLabel>("textL");
+                label.text = Template.layer.GeneratorRules[index].GetType().Name;
+            });
+
+            return root;
+
+
+            void DebugToggleSetup()
+            {
+                if (debugToggle == null)
+                { NotFoundErrorLog("DebugViewToggle"); return; }
+                debugToggle.value = Template.DebugView;
+
+                debugToggle.RegisterValueChangedCallback(evt =>
+                {
+                    Undo.RecordObject(Template, "Toggle Debug View");
+                    Template.DebugView = evt.newValue;
+                    EditorUtility.SetDirty(Template);
+
+                    // Fuerza reconstrucción del inspector
+                    ActiveEditorTracker.sharedTracker.ForceRebuild();
+                });
+            }
+
+            void TextFieldSetup(LBSCustomTextField field, string value, Action<string> OnValueChanged, string changeName)
+            {
+                if (field == null) 
+                { NotFoundErrorLog("TemplateNameField"); return; }
+                field.value = value;
+
+                field.RegisterValueChangedCallback(evt =>
+                {
+                    Undo.RecordObject(Template, changeName);
+                    OnValueChanged.Invoke(evt.newValue);
+                    EditorUtility.SetDirty(Template);
+                });
+            }
+
+            void SortingFieldSetup()
+            {
+                if (sortingField == null) 
+                { NotFoundErrorLog("SortingOrderField"); return; }
+                sortingField.value = Template.Order;
+
+                sortingField.RegisterValueChangedCallback(evt =>
+                {
+                    Undo.RecordObject(Template, "Change Sorting Order");
+                    Template.Order = evt.newValue;
+                    EditorUtility.SetDirty(Template);
+                });
+            }
+
+            void IconFieldSetup()
+            {
+                if (iconImage == null || iconButton == null) 
+                { NotFoundErrorLog("IconImage"); return; }
+
+                // Set initial icon if it exists
+                if (!string.IsNullOrEmpty(Template.layer.iconGuid))
+                {
+                    string path = AssetDatabase.GUIDToAssetPath(Template.layer.iconGuid);
+                    VectorImage icon = AssetDatabase.LoadAssetAtPath<VectorImage>(path);
+                    if (icon != null)
+                        iconImage.style.backgroundImage = new StyleBackground(icon);
+                    iconPathLabel.text = path;
+                }
+
+                // Button behaviour
+                iconButton.clicked += () =>
+                {
+                    string filePath = EditorUtility.OpenFilePanel(
+                        "Select SVG Icon",
+                        Application.dataPath,
+                        "svg");
+                    if (string.IsNullOrEmpty(filePath))
+                        return;
+
+                    // Convert absolute path to Assets-relative path
+                    if (!filePath.StartsWith(Application.dataPath))
+                    {
+                        Debug.LogWarning("Selected file must be inside the project Assets folder.");
+                        return;
+                    }
+                    string assetPath = "Assets" + filePath.Substring(Application.dataPath.Length);
+
+                    // Load and set the icon
+                    VectorImage vectorImage = AssetDatabase.LoadAssetAtPath<VectorImage>(assetPath);
+                    if (vectorImage == null)
+                    {
+                        Debug.LogError($"Could not load SVG at: {assetPath}");
+                        return;
+                    }
+                    iconImage.style.backgroundImage = new StyleBackground(vectorImage);
+                    string guid = AssetDatabase.AssetPathToGUID(assetPath);
+                    Template.layer.iconGuid = guid;
+                    iconPathLabel.text = assetPath;
+                    EditorUtility.SetDirty(target);
+                };
+            }
+        
+            void TileSizeFieldSetup()
+            {
+                if (tileSizeField == null) 
+                { NotFoundErrorLog("TileSizeField"); return; }
+                tileSizeField.value = Template.layer.TileSize;
+
+                tileSizeField.RegisterValueChangedCallback(evt =>
+                {
+                    Undo.RecordObject(Template, "Change Tile Size");
+                    Template.layer.TileSize = evt.newValue;
+                    EditorUtility.SetDirty(Template);
+                });
+            }
+
+            void ListGroupSetup<T>(LBSBaseListGroup listGroup, List<T> items, 
+                Func<VisualElement> visual, Action<IEnumerable<object>> select, Action<VisualElement, int> bindItem)
+            {
+                if(listGroup == null)
+                { NotFoundErrorLog($"ListGroup<{typeof(T).Name}>"); return; }
+
+                listGroup.BindListView(items, select, visual, bindItem);
+            }
+        
+            void NotFoundErrorLog(string name)
+            {
+                Debug.LogError($"[LayerTemplateEditor]: {Template.layer.ID} couldn't find the {name} visual element.");
+            }
         }
 
         private static void EnsureCaches()
@@ -115,18 +322,22 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         #endregion
 
         #region Inspector GUI
-        public override void OnInspectorGUI()
+        private void DrawDebugInspector()
         {
-            // Draw default inspector using serializedObject (keeps undo/redo & prefab workflows)
             serializedObject.Update();
-            
-            // Debug View
-            if (!Template._debugView)
+
+            EditorGUI.BeginChangeCheck();
+
+            bool debugView = EditorGUILayout.Toggle("Debug View", Template.DebugView);
+
+            if (EditorGUI.EndChangeCheck())
             {
+                Template.DebugView = debugView;
+                EditorUtility.SetDirty(Template);
+
+                ActiveEditorTracker.sharedTracker.ForceRebuild();
                 return;
             }
-
-            var debugToggle = EditorGUILayout.Toggle(Template._debugView);
 
             DrawDefaultInspectorExcludingInternalFields();
 
@@ -145,7 +356,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 ApplyChanges();
             }
 
-            serializedObject.ApplyModifiedProperties();//*/
+            serializedObject.ApplyModifiedProperties();
         }
 
         private void DrawDefaultInspectorExcludingInternalFields()
@@ -393,270 +604,3 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         #endregion
     }
 }
-
-
-/* OLD
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.UIElements;
-using ISILab.Extensions;
-using ISILab.LBS.Generators;
-using ISILab.LBS.Behaviours;
-using ISILab.LBS.Assistants;
-using ISILab.Macros;
-
-namespace ISILab.LBS.Template.Editor
-{
-    [LBSCustomEditor("Layer template", typeof(LayerTemplate))]
-    [CustomEditor(typeof(LayerTemplate))]
-    public class LayerTemplateEditor : UnityEditor.Editor
-    {
-        private int behaviourIndex;
-        private int assistantIndex;
-        private int ruleIndex;
-
-        private List<Type> behaviourOptions;
-        private List<Type> assistantOptions;
-        private List<Type> ruleOptions;
-
-        private string[] behaviourNames;
-        private string[] assistantNames;
-        private string[] ruleNames;
-
-        private VectorImage behaviourIcon;
-        private VectorImage assistantIcon;
-
-        private const string DefaultBehaviorIcon = "e17eb0e02534666439fca8ea30b4d4e4";
-        private const string DefaultAssistantIcon = "ad8feef201665454ca79e31b7d798ac3";
-        
-        
-        private LayerTemplate Template => (LayerTemplate)target;
-
-        private void OnEnable()
-        {
-            // Cache derived types only once
-            behaviourOptions = typeof(LBSBehaviour).GetDerivedTypes().ToList();
-            assistantOptions = typeof(LBSAssistant).GetDerivedTypes().ToList();
-            ruleOptions = typeof(LBSGeneratorRule).GetDerivedTypes().ToList();
-
-            // Cache string arrays for popups
-            behaviourNames = behaviourOptions.Select(t => t.Name).ToArray();
-            assistantNames = assistantOptions.Select(t => t.Name).ToArray();
-            ruleNames = ruleOptions.Select(t => t.Name).ToArray();
-
-            // Load icons once
-            behaviourIcon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(DefaultBehaviorIcon);
-            assistantIcon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(DefaultAssistantIcon);
-        }
-
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-            
-            GUILayout.Space(15);
-            DrawAddSection("Behaviour", ref behaviourIndex, behaviourNames, behaviourOptions, AddBehaviour);
-            DrawAddSection("Assistant", ref assistantIndex, assistantNames, assistantOptions, AddAssistant);
-            DrawAddSection("Generator", ref ruleIndex, ruleNames, ruleOptions, AddGeneratorRule);
-
-            GUILayout.Space(20);
-
-            DrawPresetButtons();
-
-            if (GUILayout.Button("Apply Changes")) ApplyChanges();
-               
-        }
-
-        #region UI Helpers
-
-        private void DrawAddSection(string label, ref int index, string[] names, List<Type> types, Action<Type> onAdd)
-        {
-            GUILayout.BeginHorizontal();
-            index = EditorGUILayout.Popup($"{label} Type:", index, names);
-            if (GUILayout.Button($"Add {label}", GUILayout.Width(130)))
-                onAdd?.Invoke(types[index]);
-            GUILayout.EndHorizontal();
-        }
-
-        private void DrawPresetButtons()
-        {
-            GUILayout.Label("Presets", EditorStyles.boldLabel);
-            GUILayout.Space(5);
-
-            if (GUILayout.Button("Set as Interior")) InteriorConstruct();
-            if (GUILayout.Button("Set as Exterior")) ExteriorConstruct();
-            if (GUILayout.Button("Set as Population")) PopulationConstruct();
-            if (GUILayout.Button("Set as Quest")) QuestConstruct();
-            if (GUILayout.Button("Set as Simulation")) SimulationConstruct();
-        }
-
-        private void ApplyChanges()
-        {
-            EditorUtility.SetDirty(target);
-            AssetDatabase.SaveAssets();
-        }
-
-        #endregion
-
-        #region Add Methods
-
-        private void AddBehaviour(Type type)
-        {
-            var instance = Activator.CreateInstance(type, behaviourIcon, type.Name, Color.clear) as LBSBehaviour;
-            Template.layer.AddBehaviour(instance);
-        }
-
-        private void AddAssistant(Type type)
-        {
-            var instance = Activator.CreateInstance(type, assistantIcon, type.Name, Color.clear) as LBSAssistant;
-            Template.layer.AddAssistant(instance);
-        }
-
-        private void AddGeneratorRule(Type type)
-        {
-            var instance = Activator.CreateInstance(type) as LBSGeneratorRule;
-            Template.layer.AddGeneratorRule(instance);
-        }
-
-        #endregion
-
-        #region Presets
-
-        private void InteriorConstruct()
-        {
-            Template.Clear();
-            var layer = Template.layer;
-            layer.ID = "Interior";
-            layer.Name = "Layer Interior";
-            layer.iconGuid = "Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Icon=InteriorLayerIcon.png";
-
-            layer.AddBehaviour(new SchemaBehaviour(LBSAssetMacro.GetGuidFromAsset(behaviourIcon), "Schema behaviour", Settings.LBSSettings.Instance.view.behavioursColor));
-            layer.AddAssistant(new HillClimbingAssistant(LBSAssetMacro.GetGuidFromAsset(assistantIcon), "HillClimbing", Settings.LBSSettings.Instance.view.assistantColor));
-
-            layer.AddGeneratorRule(new SchemaRuleGenerator());
-            layer.AddGeneratorRule(new SchemaRuleGeneratorExterior());
-
-            layer.Settings = new Generator3D.Settings
-            {
-                scale = new Vector2Int(2, 2),
-                name = "Interior"
-            };
-
-            Debug.Log("Set Interior Default");
-            ApplyChanges();
-        }
-
-        private void ExteriorConstruct()
-        {
-            Template.Clear();
-            var layer = Template.layer;
-            layer.ID = "Exterior";
-            layer.Name = "Layer Exterior";
-            layer.iconGuid = "Assets/isi-lab-unity-module/LBS/Plugin/Assets2D/Resources/Icons/pine-tree.png";
-
-            var bh = new ExteriorBehaviour(LBSAssetMacro.GetGuidFromAsset(behaviourIcon), "Exterior behaviour", Settings.LBSSettings.Instance.view.behavioursColor);
-            bh.OnAttachLayer(layer);
-            layer.AddBehaviour(bh);
-
-            var ass = new AssistantWFC(LBSAssetMacro.GetGuidFromAsset(assistantIcon), "Assistant WFC", Settings.LBSSettings.Instance.view.assistantColor);
-            ass.OnAttachLayer(layer);
-            layer.AddAssistant(ass);
-
-            layer.AddGeneratorRule(new ExteriorRuleGenerator());
-
-            layer.Settings = new Generator3D.Settings
-            {
-                scale = new Vector2Int(2, 2),
-                name = "Exterior"
-            };
-
-            Debug.Log("Set Exterior Default");
-            ApplyChanges();
-        }
-
-        private void PopulationConstruct()
-        {
-            Template.Clear();
-            var layer = Template.layer;
-            layer.ID = "Population";
-            layer.Name = "Layer Population";
-            layer.iconGuid = "Assets/isi-lab-unity-module/LBS/Plugin/Assets2D/Resources/Icons/ghost.png";
-
-            layer.Settings = new Generator3D.Settings
-            {
-                scale = new Vector2Int(2, 2),
-                name = "Population"
-            };
-
-            layer.AddBehaviour(new PopulationBehaviour(LBSAssetMacro.GetGuidFromAsset(behaviourIcon), "Population Behavior", Settings.LBSSettings.Instance.view.behavioursColor));
-
-            var ass = new AssistantMapElite(LBSAssetMacro.GetGuidFromAsset(assistantIcon), "Map Elite - Genetic Algorithm", Settings.LBSSettings.Instance.view.assistantColor);
-            ass.OnAttachLayer(layer);
-            layer.AddAssistant(ass);
-
-            layer.AddGeneratorRule(new PopulationRuleGenerator());
-
-            Debug.Log("Set Population Default");
-            ApplyChanges();
-        }
-
-        private void QuestConstruct()
-        {
-            Template.Clear();
-            var layer = Template.layer;
-            layer.ID = "Quest";
-            layer.Name = "Layer Quest";
-            layer.iconGuid = "Assets/isi-lab-unity-module/LBS/Plugin/Assets2D/Resources/Icons/Stamp_Icon.png";
-
-            layer.Settings = new Generator3D.Settings
-            {
-                scale = new Vector2Int(2, 2),
-                name = "Quest"
-            };
-
-            var bh = new QuestBehaviour(LBSAssetMacro.GetGuidFromAsset(behaviourIcon), "Quest Behavior", Settings.LBSSettings.Instance.view.behavioursColor);
-            bh.OnAttachLayer(layer);
-            layer.AddBehaviour(bh);
-
-            var ass1 = new GrammarAssistant(LBSAssetMacro.GetGuidFromAsset(assistantIcon), "Grammar Assistant", Settings.LBSSettings.Instance.view.assistantColor);
-            ass1.OnAttachLayer(layer);
-            layer.AddAssistant(ass1);
-
-            var ass2 = new GrammarAssistant(LBSAssetMacro.GetGuidFromAsset(assistantIcon), "Quest Assistant", Settings.LBSSettings.Instance.view.assistantColor);
-            ass2.OnAttachLayer(layer);
-            layer.AddAssistant(ass2);
-
-            layer.AddGeneratorRule(new QuestRuleGenerator());
-
-            Debug.Log("Set Quest Default");
-            ApplyChanges();
-        }
-
-        private void SimulationConstruct()
-        {
-            Template.Clear();
-            var layer = Template.layer;
-            layer.ID = "Simulation";
-            layer.Name = "Layer Simulation";
-            layer.iconGuid = "Assets/isi-lab-unity-module/LBS/GABO/Resources/Icons/TinyIconPathOSModule16x16.png";
-
-            layer.Settings = new Generator3D.Settings
-            {
-                scale = new Vector2Int(2, 2),
-                name = "Simulation"
-            };
-
-            layer.AddBehaviour(new PathOSBehaviour(LBSAssetMacro.GetGuidFromAsset(behaviourIcon), "Simulation Behaviour", Settings.LBSSettings.Instance.view.behavioursColor));
-            layer.AddAssistant(new TestingAssistant(LBSAssetMacro.GetGuidFromAsset(assistantIcon), "Simulation Assistant", Settings.LBSSettings.Instance.view.assistantColor));
-            layer.AddGeneratorRule(new PathOSRuleGenerator());
-
-            Debug.Log("Set Simulation Default");
-            ApplyChanges();
-        }
-
-        #endregion
-    }
-}
-*/

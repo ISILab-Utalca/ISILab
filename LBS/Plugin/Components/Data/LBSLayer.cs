@@ -350,6 +350,11 @@ namespace LBS.Components
             id = newID;
         }
 
+        public void ChangeFloorCount(uint count)
+        {
+            // IN CONSTRUCTION...
+        }
+
         public void Reload()
         {
             foreach (var floor in floors) { foreach (LBSModule module in floor.Modules) module.OnAttach(this); }

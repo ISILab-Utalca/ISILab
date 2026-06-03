@@ -139,6 +139,18 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
 
             addButton = this.Q<LBSToolbarButton>("AddButton");
         }
+
+        public void BindListView<T>(
+            List<T> items, 
+            Action<IEnumerable<object>> onItemSelected, 
+            Func<VisualElement> makeItem, 
+            Action<VisualElement, int> bindItem)
+        {
+            listView.itemsSource = items;
+            listView.itemsChosen += onItemSelected;
+            listView.makeItem = makeItem;
+            listView.bindItem = bindItem;
+        }
     }
 }
 
