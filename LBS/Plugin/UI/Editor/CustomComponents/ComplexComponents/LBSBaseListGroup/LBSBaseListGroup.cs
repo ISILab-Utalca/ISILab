@@ -81,7 +81,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         }
 
         [UxmlAttribute]
-        public bool HideAddRemoveButtons
+        public bool HideAddButton
         {
             get
             {
@@ -94,6 +94,19 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 {
                     addButton.style.display = value ? DisplayStyle.None : DisplayStyle.Flex;
                 }
+            }
+        }
+
+        [UxmlAttribute]
+        public bool HideRemoveButton
+        {
+            get
+            {
+                if (removeButton != null) return removeButton.style.display == DisplayStyle.None;
+                else return false;
+            }
+            set
+            {
                 if (removeButton != null)
                 {
                     removeButton.style.display = value ? DisplayStyle.None : DisplayStyle.Flex;
@@ -151,6 +164,14 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             listView.makeItem = makeItem;
             listView.bindItem = bindItem;
         }
+
+        public void SetItemsSource<T>(List<T> items)
+        {
+            listView.itemsSource = items;
+        }
+
+        public int SelectedIndex => listView.selectedIndex;
+        public void Rebuild() { listView.Rebuild(); }
     }
 }
 

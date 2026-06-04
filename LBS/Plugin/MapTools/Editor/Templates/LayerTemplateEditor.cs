@@ -27,13 +27,17 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         #region Fields
         public VisualTreeAsset _layerTemplateInspector;
 
+        private int _moduleIndex;
         private int _behaviourIndex;
         private int _assistantIndex;
         private int _ruleIndex;
-        
+
+        private static List<Type> s_moduleOptions;
         private static List<Type> s_behaviourOptions;
         private static List<Type> s_assistantOptions;
         private static List<Type> s_ruleOptions;
+
+        private static string[] s_moduleNames;
         private static string[] s_behaviourNames;
         private static string[] s_assistantNames;
         private static string[] s_ruleNames;
@@ -131,14 +135,20 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
             // Modules list
             var modulesListGroup = root.Q<LBSBaseListGroup>("ModulesListGroup");
-            ListGroupSetup(modulesListGroup, Template.layer.Modules(), () => new LBSCustomLabelItem(), (_) => { }, (element, index) =>
+            ListGroupSetup(modulesListGroup, s_moduleOptions, Template.layer.Modules(), (element, index) =>
             {
+                /*var modules = Template.layer.Modules();
+                if (index < 0 || index >= modules.Count)
+                {
+                    element.RemoveFromHierarchy();
+                    return;
+                }//*/
                 element.Q<LBSCustomLabel>("textL").text = Template.layer.Modules()[index].ID;
             });
 
             // Behaviours list
             var behavioursListGroup = root.Q<LBSBaseListGroup>("BehavioursListGroup");
-            ListGroupSetup(behavioursListGroup, Template.layer.Behaviours, () => new LBSCustomLabelItem(), (_) => { }, (element, index) =>
+            ListGroupSetup(behavioursListGroup, s_behaviourOptions, Template.layer.Behaviours, (element, index) =>
             {
                 var label = element.Q<LBSCustomLabel>("textL");
                 label.text = Template.layer.Behaviours[index].Name;
@@ -147,7 +157,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
             // Assistants list
             var assistantsListGroup = root.Q<LBSBaseListGroup>("AssistantsListGroup");
-            ListGroupSetup(assistantsListGroup, Template.layer.Assistants, () => new LBSCustomLabelItem(), (_) => { }, (element, index) =>
+            ListGroupSetup(assistantsListGroup, s_assistantOptions, Template.layer.Assistants, (element, index) =>
             {
                 var label = element.Q<LBSCustomLabel>("textL");
                 label.text = Template.layer.Assistants[index].Name;
@@ -156,7 +166,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
             // Generator rules list
             var rulesListGroup = root.Q<LBSBaseListGroup>("GeneratorRulesListGroup");
-            ListGroupSetup(rulesListGroup, Template.layer.GeneratorRules, () => new LBSCustomLabelItem(), (_) => { }, (element, index) =>
+            ListGroupSetup(rulesListGroup, s_ruleOptions, Template.layer.GeneratorRules, (element, index) =>
             {
                 var label = element.Q<LBSCustomLabel>("textL");
                 label.text = Template.layer.GeneratorRules[index].GetType().Name;
@@ -272,13 +282,76 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 });
             }
 
-            void ListGroupSetup<T>(LBSBaseListGroup listGroup, List<T> items, 
-                Func<VisualElement> visual, Action<IEnumerable<object>> select, Action<VisualElement, int> bindItem)
+            void ListGroupSetup<T>(LBSBaseListGroup listGroup, List<Type> options, List<T> items, Action<VisualElement, int> bindItem)
             {
                 if(listGroup == null)
                 { NotFoundErrorLog($"ListGroup<{typeof(T).Name}>"); return; }
 
-                listGroup.BindListView(items, select, visual, bindItem);
+                listGroup.BindListView(items, (_) => { }, () => new LBSCustomLabelItem(), bindItem);
+
+                var addButton = listGroup.Q<LBSToolbarButton>("AddButton");
+                if(addButton == null)
+                { NotFoundErrorLog($"AddButton for {typeof(T).Name}"); return; }
+
+                addButton.clicked += () =>
+                {
+                    GenericMenu menu = new GenericMenu();
+                    for (int i = 0; i < options.Count; i++)
+                    {
+                        int index = i; // Capture index for closure
+                        menu.AddItem(new GUIContent(options[i].Name), false, () =>
+                        {
+                            try
+                            {
+                                if (typeof(T) == typeof(LBSModule))
+                                    AddModule(options[index]);
+                                else if (typeof(T) == typeof(LBSBehaviour))
+                                    AddBehaviour(options[index]);
+                                else if (typeof(T) == typeof(LBSAssistant))
+                                    AddAssistant(options[index]);
+                                else if (typeof(T) == typeof(LBSGeneratorRule))
+                                    AddGeneratorRule(options[index]);
+                                else
+                                    Debug.LogWarning($"Unsupported type for addition: {typeof(T).Name}");
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.LogException(ex);
+                            }
+
+                            EditorUtility.SetDirty(Template);
+                            listGroup.SetItemsSource(items);
+                            listGroup.Rebuild();
+                        });
+                    }
+                    menu.ShowAsContext();
+                };
+
+                var removeButton = listGroup.Q<LBSToolbarButton>("RemoveButton");
+                if(removeButton == null)
+                { NotFoundErrorLog($"RemoveButton for {typeof(T).Name}"); return; }
+
+                removeButton.clicked += () =>
+                {
+                    int selectedIndex = listGroup.SelectedIndex;
+                    if (selectedIndex < 0 || selectedIndex >= items.Count)
+                        return;
+                    Undo.RecordObject(Template, $"Remove {typeof(T).Name}");
+                    if (typeof(T) == typeof(LBSModule))
+                        Template.layer.RemoveModule(items[selectedIndex] as LBSModule);
+                    else if (typeof(T) == typeof(LBSBehaviour))
+                        Template.layer.RemoveBehaviour(items[selectedIndex] as LBSBehaviour);
+                    else if (typeof(T) == typeof(LBSAssistant))
+                        Template.layer.RemoveAssistant(items[selectedIndex] as LBSAssistant);
+                    else if (typeof(T) == typeof(LBSGeneratorRule))
+                        Template.layer.RemoveGeneratorRule(items[selectedIndex] as LBSGeneratorRule);
+                    else
+                        Debug.LogWarning($"Unsupported type for removal: {typeof(T).Name}");
+
+                    EditorUtility.SetDirty(Template);
+                    listGroup.SetItemsSource(items);
+                    listGroup.Rebuild();
+                };
             }
         
             void NotFoundErrorLog(string name)
@@ -292,10 +365,12 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             if (s_behaviourOptions != null) return; // already cached
 
             // Cache derived types safely
+            s_moduleOptions = typeof(LBSModule).GetDerivedTypes().ToList();
             s_behaviourOptions = typeof(LBSBehaviour).GetDerivedTypes().ToList();
             s_assistantOptions = typeof(LBSAssistant).GetDerivedTypes().ToList();
             s_ruleOptions = typeof(LBSGeneratorRule).GetDerivedTypes().ToList();
 
+            s_moduleNames = s_moduleOptions.Select(t => t.Name).ToArray();
             s_behaviourNames = s_behaviourOptions.Select(t => t.Name).ToArray();
             s_assistantNames = s_assistantOptions.Select(t => t.Name).ToArray();
             s_ruleNames = s_ruleOptions.Select(t => t.Name).ToArray();
@@ -369,6 +444,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         {
             EditorGUILayout.LabelField("Add to Template", EditorStyles.boldLabel);
 
+            DrawAddSection("Modules", ref _moduleIndex, s_moduleNames, s_moduleOptions, AddModule);
             DrawAddSection("Behaviour", ref _behaviourIndex, s_behaviourNames, s_behaviourOptions, AddBehaviour);
             DrawAddSection("Assistant", ref _assistantIndex, s_assistantNames, s_assistantOptions, AddAssistant);
             DrawAddSection("Generator", ref _ruleIndex, s_ruleNames, s_ruleOptions, AddGeneratorRule);
@@ -413,6 +489,20 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         #endregion
 
         #region Add Methods
+        private void AddModule(Type type)
+        {
+            /*
+            if (type == null) return;
+            if (Activator.CreateInstance(type, AssetMacro.GetGuidFromAsset(s_moduleIcon), type.Name, Color.clear) is LBSModule instance)
+            {
+                Template.layer.AddModule(instance);
+            }
+            else
+            {
+                Debug.LogError($"Failed to create instance of module type: {type.Name}");
+            }//*/
+        }
+
         private void AddBehaviour(Type type)
         {
             if (type == null) return;

@@ -21,10 +21,10 @@
             <ISILab.LBS.CustomComponents.LBSCustomLabel text="path/asset.svg" name="IconPathLabel" style="font-size: 10px; -unity-font-style: normal; flex-direction: row; justify-content: space-between; align-items: auto; align-content: auto; flex-wrap: wrap; flex-grow: 1; flex-shrink: 1; white-space: normal;" />
         </ui:VisualElement>
         <ISILab.LBS.CustomComponents.LBSCustomVector2IntField name="TileSizeField" label="Tile Size" value="2,2" style="-unity-font-style: bold;" />
-        <ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField label="Floor Count" name="FloorCountField" max-length="100" style="max-height: 35px; -unity-font-style: bold;" />
+        <ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField label="Floor Count" name="FloorCountField" max-length="100" min-value="1" value="10" style="max-height: 35px; -unity-font-style: bold;" />
         <ui:Instance template="LBSHorizontalDivider" enabled="false" name="TemplateContainer" style="display: none;" />
         <ISILab.LBS.CustomComponents.LBSCustomLabel text="Complements" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 20px;" />
-        <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="Modules" name="ModulesListGroup" style="flex-shrink: 0;" />
+        <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="Modules" name="ModulesListGroup" hide-add-button="false" hide-remove-button="false" style="flex-shrink: 0;" />
         <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="Behaviours" name="BehavioursListGroup" style="flex-shrink: 0;" />
         <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="AI Assistants" name="AssistantsListGroup" style="flex-shrink: 0;" />
         <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="Generator Rules" name="GeneratorRulesListGroup" style="flex-shrink: 0;" />
