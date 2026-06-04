@@ -15,16 +15,12 @@ namespace ISILab.LBS.VisualElements
     {
         private static VisualTreeAsset view;
 
-        private LBSCustomPainter upperRightFill;
-        private LBSCustomPainter upperLeftFill;
-        private LBSCustomPainter lowerLeftFill;
-        private LBSCustomPainter lowerRightFill;
-
-        //private VisualElement fill, center;
+        private LBSCustomPainterBox upperRightFill, upperLeftFill, lowerLeftFill, lowerRightFill;
         private LBSCustomPainter center;
 
         readonly Color invalidColor = Color.white;
         float boderWidth = 1f;
+
         public VertexExteriorTileView(List<string> connections = null) : base(connections, "ConnectedVertexBasedTile")
         {
             connections ??= new List<string>() { "", "", "", "" };
@@ -35,11 +31,11 @@ namespace ISILab.LBS.VisualElements
             }
             view.CloneTree(this);
 
-            upperLeftFill = new LBSCustomPainter();
-            upperRightFill = new LBSCustomPainter();
-            lowerLeftFill = new LBSCustomPainter();
-            lowerRightFill = new LBSCustomPainter();
-            center = new LBSCustomPainter();
+            upperLeftFill = new LBSCustomPainterBox();
+            upperRightFill = new LBSCustomPainterBox();
+            lowerLeftFill = new LBSCustomPainterBox();
+            lowerRightFill = new LBSCustomPainterBox();
+            center = new LBSCustomPainterBox();
             
             this.Add(upperRightFill);
             this.Add(upperLeftFill);
@@ -75,9 +71,13 @@ namespace ISILab.LBS.VisualElements
                 center.MarkDirtyRepaint();
 
                 SetConnections(connections.ToArray());
+
+                this.SetBorder(Color.black, 0);
+                style.display = DisplayStyle.Flex;
             };
 
-            
+            style.overflow = Overflow.Hidden;
+            style.display = DisplayStyle.None;
         }
 
 
@@ -92,7 +92,7 @@ namespace ISILab.LBS.VisualElements
             if (!string.IsNullOrEmpty(tags[0]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[0])).Color;
-                (upperRightFill as LBSCustomPainter).FillColor = BrightenColor(color);
+                upperRightFill.FillColor = BrightenColor(color);
 
                 if (!ConnectionColors.TryAdd(color, 1)) ConnectionColors[color]++;
             }
@@ -104,7 +104,7 @@ namespace ISILab.LBS.VisualElements
             if (!string.IsNullOrEmpty(tags[1]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[1])).Color;
-                (upperLeftFill as LBSCustomPainter).FillColor = BrightenColor(color);
+                upperLeftFill.FillColor = BrightenColor(color);
                 
                 if (!ConnectionColors.TryAdd(color, 1)) ConnectionColors[color]++;
             }
@@ -116,7 +116,7 @@ namespace ISILab.LBS.VisualElements
             if (!string.IsNullOrEmpty(tags[2]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[2])).Color;
-                (lowerLeftFill as LBSCustomPainter).FillColor = BrightenColor(color);
+                lowerLeftFill.FillColor = BrightenColor(color);
 
                 if (!ConnectionColors.TryAdd(color, 1)) ConnectionColors[color]++;
             }
@@ -128,7 +128,7 @@ namespace ISILab.LBS.VisualElements
             if (!string.IsNullOrEmpty(tags[3]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[3])).Color;
-                (lowerRightFill as LBSCustomPainter).FillColor = BrightenColor(color);
+                lowerRightFill.FillColor = BrightenColor(color);
 
                 if (!ConnectionColors.TryAdd(color, 1)) ConnectionColors[color]++;
             }
@@ -144,12 +144,27 @@ namespace ISILab.LBS.VisualElements
                     .OrderByDescending(kvp => kvp.Value)
                     .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
-                (center as LBSCustomPainter).FillColor = orderedConnectionColors.First().Key;
+                center.FillColor = orderedConnectionColors.First().Key;
             }
             else
             {
                 SetBackgroundColor(center, invalidColor);
             }
+        }
+
+        internal override void SetSelectionMode(bool layerSelected)
+        {
+            int lineWidth = layerSelected ? 1 : 0;
+            float alpha = layerSelected ? 1.0f : 8.0f;
+            lowerLeftFill.LineWidth = lineWidth;
+            lowerRightFill.LineWidth = lineWidth;
+            upperLeftFill.LineWidth = lineWidth;
+            upperRightFill.LineWidth = lineWidth;
+
+            var color = center.FillColor;
+            color.a = alpha;
+
+            //center.LineWidth = lineWidth;
         }
 
         //public override void SetTileCenter(LBSTag identifier)

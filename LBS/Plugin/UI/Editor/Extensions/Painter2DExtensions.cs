@@ -88,13 +88,19 @@ namespace ISILab.Extensions
             float t_height,
             float angle_deg,
             Color color,
-            bool is_vertical = false)
+            bool is_vertical = false, 
+            Color strokeColor = default, 
+            float lineWidth = 0)
         {
-            
+
+            if (strokeColor == default) strokeColor = color;
+
             angle_deg = Mathf.Clamp(angle_deg, 0.0f, Mathf.Atan(t_base - 2 *  t_height) * Mathf.Rad2Deg);
             float t_a = t_base - 2* t_height / Mathf.Tan(angle_deg * Mathf.Deg2Rad);
-            
-            
+
+
+            paint2D.strokeColor = strokeColor;
+            paint2D.lineWidth = lineWidth;
             paint2D.fillColor = color;
             paint2D.BeginPath();
             paint2D.MoveTo(origin);
@@ -102,8 +108,9 @@ namespace ISILab.Extensions
             paint2D.LineTo(origin + new Vector2((t_base + t_a) * 0.5f, t_height));
             paint2D.LineTo(origin + new Vector2((t_base - t_a) * 0.5f, t_height));
             paint2D.LineTo(origin);
-            paint2D.ClosePath(); ;
+            paint2D.ClosePath(); 
             paint2D.Fill();
+            paint2D.Stroke();
         }
 
         /// <summary>
@@ -113,12 +120,17 @@ namespace ISILab.Extensions
         /// <param name="pos">The position vector of the center of the circle.</param>
         /// <param name="radius">The radius of the circle.</param>
         /// <param name="color">The color of the circle.</param>
-        public static void DrawCircle(this Painter2D paint2D, Vector2 pos, float radius, Color color)
+        /// <param name="strokeColor">The color of the circle's stroke.</param>
+        public static void DrawCircle(this Painter2D paint2D, Vector2 pos, float radius, Color color, Color strokeColor = default, float lineWidth = 0)
         {
+            if(strokeColor == default) strokeColor = color;
             paint2D.fillColor = color;
             paint2D.BeginPath();
+            paint2D.strokeColor = strokeColor;
+            paint2D.lineWidth = lineWidth;
             paint2D.Arc(pos, radius, 0.0f, 360.0f);
             paint2D.Fill();
+            paint2D.Stroke();
         }
 
         public static void DrawDottedBox(this Painter2D painter2D, Vector2 pos1, Vector2 pos2, Color color, int width = 1)
