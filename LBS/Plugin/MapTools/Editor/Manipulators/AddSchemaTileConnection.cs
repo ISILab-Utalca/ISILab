@@ -125,8 +125,8 @@ namespace ISILab.LBS.Manipulators
                 {
                     foreach (SchemaBehaviour other in _others)
                     {
-                        LBSTile t3 = other.GetTile(t1.Position);
-                        LBSTile t4 = other.GetTile(t2.Position);
+                        LBSTile t3 = other.GetTile(_line.Positions[i - 1]);
+                        LBSTile t4 = other.GetTile(_line.Positions[i]);
                         if (IsOccupiedByStair(other, other.OwnerLayer.GetModule<StairsModule>(), t1, t2)) continue;
                         if (ValidWallReplace(other, t3, t4))
                         {

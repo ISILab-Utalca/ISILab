@@ -188,7 +188,7 @@ namespace ISILab.LBS.Manipulators
             var bottomRightCorner = topLeftCorner;
 
             // Set corner by tile size
-            if (ToSet.TileSize.x > 1 || ToSet.TileSize.y > 1)
+            if (ToSet != null && (ToSet.TileSize.x > 1 || ToSet.TileSize.y > 1))
             {
                 var offset = ToSet.TileSize - new Vector2Int(1, 1);
                 offset.x = -Mathf.Abs(offset.x);
