@@ -100,6 +100,7 @@ namespace ISILab.LBS.VisualElements
             {
                 case ConnectedTileMapModule.ConnectedTileType.EdgeBased:
                     t1 = new LBSTool(addExteriorTile);
+                    addExteriorTile.SetRemover(removeTile);
                     t3 = new LBSTool(setConnection);
                     break;
                 case ConnectedTileMapModule.ConnectedTileType.VertexBased:

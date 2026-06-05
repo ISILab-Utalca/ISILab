@@ -232,12 +232,12 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     }
                 }
                 
-                int totalSectors = limit * sectors.Count;
+                int totalSectors = /*limit * */sectors.Count;
                 
                 for (int i = 0; i < limit; i++)
                 {
                     int sectorSuccessCount = 0;
-
+                    onProgress?.Invoke(0);
                     for (int s = 0; s < sectors.Count; s++)
                     {
                         var sector = sectors[s];
@@ -1448,7 +1448,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 {
                     if (!a[i].Equals(b[i]))
                     {
-                        bool empties = string.IsNullOrEmpty(a[i]) || string.IsNullOrEmpty(b[i]);
+                        //bool empties = string.IsNullOrEmpty(a[i]) || string.IsNullOrEmpty(b[i]); // TODO: Vertex-based exterior layer empty connection is not "" but "Empty" for some reason. 
+                        bool empties = string.IsNullOrEmpty(a[i]) || string.IsNullOrEmpty(b[i])
+                            || a[i].Equals("Empty") || b[i].Equals("Empty");
                         if (ignoreEmpties && empties)
                             continue;
                         else return false;
