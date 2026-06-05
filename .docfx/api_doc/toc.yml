@@ -922,9 +922,6 @@ items:
   - uid: ISILab.LBS.Components.QuestState
     name: QuestState
     type: Enum
-  - uid: ISILab.LBS.Components.ReorderableAttribute
-    name: ReorderableAttribute
-    type: Class
   - uid: ISILab.LBS.Components.SimulationTag
     name: SimulationTag
     type: Class
@@ -952,64 +949,6 @@ items:
   - uid: ISILab.LBS.Components.ZoneEdge
     name: ZoneEdge
     type: Class
-- uid: ISILab.LBS.Components.ReorderableList
-  name: ISILab.LBS.Components.ReorderableList
-  type: Namespace
-  items:
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableArray`1
-    name: ReorderableArray<T>
-    type: Class
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableDrawer
-    name: ReorderableDrawer
-    type: Class
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList
-    name: ReorderableList
-    type: Class
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.ActionBoolDelegate
-    name: ReorderableList.ActionBoolDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.ActionDelegate
-    name: ReorderableList.ActionDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.AddDropdownDelegate
-    name: ReorderableList.AddDropdownDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.DragDropAppendDelegate
-    name: ReorderableList.DragDropAppendDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.DragDropReferenceDelegate
-    name: ReorderableList.DragDropReferenceDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.DrawElementDelegate
-    name: ReorderableList.DrawElementDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.DrawFooterDelegate
-    name: ReorderableList.DrawFooterDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.DrawHeaderDelegate
-    name: ReorderableList.DrawHeaderDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.ElementDisplayType
-    name: ReorderableList.ElementDisplayType
-    type: Enum
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.GetElementHeightDelegate
-    name: ReorderableList.GetElementHeightDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.GetElementLabelDelegate
-    name: ReorderableList.GetElementLabelDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.GetElementNameDelegate
-    name: ReorderableList.GetElementNameDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.GetElementsHeightDelegate
-    name: ReorderableList.GetElementsHeightDelegate
-    type: Delegate
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.Surrogate
-    name: ReorderableList.Surrogate
-    type: Struct
-  - uid: ISILab.LBS.Components.ReorderableList.ReorderableList.SurrogateCallback
-    name: ReorderableList.SurrogateCallback
-    type: Delegate
 - uid: ISILab.LBS.Macros
   name: ISILab.LBS.Macros
   type: Namespace
@@ -1677,6 +1616,71 @@ items:
   - uid: LBS.Components.TileMap.BundleData
     name: BundleData
     type: Class
+- uid: Malee
+  name: Malee
+  type: Namespace
+  items:
+  - uid: Malee.ReorderableArray`1
+    name: ReorderableArray<T>
+    type: Class
+  - uid: Malee.ReorderableAttribute
+    name: ReorderableAttribute
+    type: Class
+- uid: Malee.Editor
+  name: Malee.Editor
+  type: Namespace
+  items:
+  - uid: Malee.Editor.ReorderableDrawer
+    name: ReorderableDrawer
+    type: Class
+  - uid: Malee.Editor.ReorderableList
+    name: ReorderableList
+    type: Class
+  - uid: Malee.Editor.ReorderableList.ActionBoolDelegate
+    name: ReorderableList.ActionBoolDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.ActionDelegate
+    name: ReorderableList.ActionDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.AddDropdownDelegate
+    name: ReorderableList.AddDropdownDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.DragDropAppendDelegate
+    name: ReorderableList.DragDropAppendDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.DragDropReferenceDelegate
+    name: ReorderableList.DragDropReferenceDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.DrawElementDelegate
+    name: ReorderableList.DrawElementDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.DrawFooterDelegate
+    name: ReorderableList.DrawFooterDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.DrawHeaderDelegate
+    name: ReorderableList.DrawHeaderDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.ElementDisplayType
+    name: ReorderableList.ElementDisplayType
+    type: Enum
+  - uid: Malee.Editor.ReorderableList.GetElementHeightDelegate
+    name: ReorderableList.GetElementHeightDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.GetElementLabelDelegate
+    name: ReorderableList.GetElementLabelDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.GetElementNameDelegate
+    name: ReorderableList.GetElementNameDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.GetElementsHeightDelegate
+    name: ReorderableList.GetElementsHeightDelegate
+    type: Delegate
+  - uid: Malee.Editor.ReorderableList.Surrogate
+    name: ReorderableList.Surrogate
+    type: Struct
+  - uid: Malee.Editor.ReorderableList.SurrogateCallback
+    name: ReorderableList.SurrogateCallback
+    type: Delegate
 - uid: NinePenguins
   name: NinePenguins
   type: Namespace
