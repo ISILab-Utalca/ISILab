@@ -13,10 +13,8 @@ namespace ISILab.LBS
             Structural, // Ej: Door, Wall, Corner,Stair
             Element, // Ej: Furniture, Enemies, 
                      // Distinction, // (characteristics)Ej: Destroyed, Blooded, Dirty,
+            Simulation // Ej: Stair Up, Stair Down
         }
-        
-        
-        
         
         #region FIELDS
         [SerializeField]

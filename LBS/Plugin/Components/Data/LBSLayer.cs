@@ -43,6 +43,8 @@ namespace LBS.Components
         #endregion
 
         #region Properties
+        [JsonIgnore] public List<LBSModule> FirstModules => floors[0].Modules;
+
         [JsonIgnore] public bool IsVisible { get => visible; set => visible = value; }
         [JsonIgnore] public bool IsBlocked { get => blocked; set => blocked = value; }
         [JsonIgnore] public bool IsLocked { get => blocked; set => blocked = value; }
@@ -167,7 +169,7 @@ namespace LBS.Components
 
         public bool RemoveModule(LBSModule module)
         {
-            if (module == null) return false;
+            //if (module == null) return false;
 
             bool removed = false;
             for (int i = 0; i < floors.Length; i++)
@@ -350,9 +352,16 @@ namespace LBS.Components
             id = newID;
         }
 
-        public void ChangeFloorCount(uint count)
+        public void ChangeFloorCount(uint newCount)
         {
-            // IN CONSTRUCTION...
+            var prevCount = floors.Length;
+            if (newCount < 1 || newCount == prevCount) return;
+
+            floors = floors.Resize((int)newCount);
+            for (int i = 0; i < floors.Length; i++) 
+            { 
+                if (floors[i] == null) floors[i] = new LBSFloor(FirstModules); 
+            }
         }
 
         public void Reload()

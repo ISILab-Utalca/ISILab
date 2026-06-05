@@ -22,6 +22,7 @@ namespace ISILab.LBS.CustomComponents
 
         private bool _useCustomFilter = false;
         private bool _selectorHooked;
+        private bool _hideImage;
 
         public Action<Action<UnityEngine.Object>> CustomFilter { get; set; }
         public string InvalidSelectionMessage { get; set; }

@@ -27,6 +27,8 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         #region Fields
         public VisualTreeAsset _layerTemplateInspector;
 
+        private VisualElement _root;
+
         private int _moduleIndex;
         private int _behaviourIndex;
         private int _assistantIndex;
@@ -76,41 +78,40 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
         public override VisualElement CreateInspectorGUI()
         {
-            var root = new VisualElement();
+            _root = new VisualElement();
 
             // ------------ DEBUG INSPECTOR ------------
             if (Template.DebugView)
             {
-                root.Add(new IMGUIContainer(DrawDebugInspector));
-                return root;
+                _root.Add(new IMGUIContainer(DrawDebugInspector));
+                return _root;
             }
 
             // ---------- SIMPLIFIED INSPECTOR ---------
             if (_layerTemplateInspector != null)
             {
-                root.Add(_layerTemplateInspector.CloneTree());
+                _root.Add(_layerTemplateInspector.CloneTree());
             }
 
             // Debug view toggle
-            var debugToggle = root.Q<LBSCustomToggle>("DebugViewToggle");
+            var debugToggle = _root.Q<LBSCustomToggle>("DebugViewToggle");
             DebugToggleSetup();
 
             // Template name field
-            var nameField = root.Q<LBSCustomTextField>("TemplateNameField");
+            var nameField = _root.Q<LBSCustomTextField>("TemplateNameField");
             TextFieldSetup(nameField, Template.Name, Template.SetName, "Change Template Name");
 
             // Sorting order field
-            var sortingField = root.Q<LBSCustomIntField>("SortingOrderField");
+            var sortingField = _root.Q<LBSCustomIntField>("SortingOrderField");
             SortingFieldSetup();
 
             // Icon field
-            var iconImage = root.Q<VisualElement>("IconImage");
-            var iconButton = root.Q<LBSCustomButton>("IconButton");
-            var iconPathLabel = root.Q<LBSCustomLabel>("IconPathLabel");
+            var iconImage = _root.Q<VisualElement>("IconImage");
+            var iconField = _root.Q<LBSCustomObjectField>("IconObjectField");
             IconFieldSetup();
 
             // Default name field
-            var defaultNameField = root.Q<LBSCustomTextField>("DefaultNameField");
+            var defaultNameField = _root.Q<LBSCustomTextField>("DefaultNameField");
             TextFieldSetup(
                 defaultNameField, 
                 Template.layer.Name, 
@@ -118,36 +119,28 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 "Change Layer's Default Name");
 
             // ID field
-            var idField = root.Q<LBSCustomTextField>("IdField");
+            var idField = _root.Q<LBSCustomTextField>("IdField");
             TextFieldSetup(idField, Template.layer.ID, Template.layer.SetID, "Change Layer ID");
 
             // Tile size field
-            var tileSizeField = root.Q<LBSCustomVector2IntField>("TileSizeField");
+            var tileSizeField = _root.Q<LBSCustomVector2IntField>("TileSizeField");
             TileSizeFieldSetup();
 
             // Floor count field
-            var floorCountField = root.Q<LBSCustomUnsignedIntegerField>("FloorCountField");
-            if(floorCountField != null)
-            {
-                // IN CONSTRUCTION...
-                Template.layer.ChangeFloorCount(1);
-            }
+            var floorCountField = _root.Q<LBSCustomUnsignedIntegerField>("FloorCountField");
+            FloorCountFieldSetup();
 
             // Modules list
-            var modulesListGroup = root.Q<LBSBaseListGroup>("ModulesListGroup");
-            ListGroupSetup(modulesListGroup, s_moduleOptions, Template.layer.Modules(), (element, index) =>
+            var modulesListGroup = _root.Q<LBSBaseListGroup>("ModulesListGroup");
+            ListGroupSetup(modulesListGroup, s_moduleOptions, Template.layer.FirstModules, (element, index) =>
             {
-                /*var modules = Template.layer.Modules();
-                if (index < 0 || index >= modules.Count)
-                {
-                    element.RemoveFromHierarchy();
-                    return;
-                }//*/
-                element.Q<LBSCustomLabel>("textL").text = Template.layer.Modules()[index].ID;
+                var label = element.Q<LBSCustomLabel>("textL");
+                label.text = Template.layer.FirstModules[index]?.ID ?? "Null Module";
+                label.style.color = Template.layer.FirstModules[index] != null ? Color.white : Color.gray;
             });
 
             // Behaviours list
-            var behavioursListGroup = root.Q<LBSBaseListGroup>("BehavioursListGroup");
+            var behavioursListGroup = _root.Q<LBSBaseListGroup>("BehavioursListGroup");
             ListGroupSetup(behavioursListGroup, s_behaviourOptions, Template.layer.Behaviours, (element, index) =>
             {
                 var label = element.Q<LBSCustomLabel>("textL");
@@ -156,7 +149,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             });
 
             // Assistants list
-            var assistantsListGroup = root.Q<LBSBaseListGroup>("AssistantsListGroup");
+            var assistantsListGroup = _root.Q<LBSBaseListGroup>("AssistantsListGroup");
             ListGroupSetup(assistantsListGroup, s_assistantOptions, Template.layer.Assistants, (element, index) =>
             {
                 var label = element.Q<LBSCustomLabel>("textL");
@@ -165,14 +158,14 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             });
 
             // Generator rules list
-            var rulesListGroup = root.Q<LBSBaseListGroup>("GeneratorRulesListGroup");
+            var rulesListGroup = _root.Q<LBSBaseListGroup>("GeneratorRulesListGroup");
             ListGroupSetup(rulesListGroup, s_ruleOptions, Template.layer.GeneratorRules, (element, index) =>
             {
                 var label = element.Q<LBSCustomLabel>("textL");
                 label.text = Template.layer.GeneratorRules[index].GetType().Name;
             });
 
-            return root;
+            return _root;
 
 
             void DebugToggleSetup()
@@ -222,7 +215,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
             void IconFieldSetup()
             {
-                if (iconImage == null || iconButton == null) 
+                if (iconImage == null || iconField == null) 
                 { NotFoundErrorLog("IconImage"); return; }
 
                 // Set initial icon if it exists
@@ -231,41 +224,25 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                     string path = AssetDatabase.GUIDToAssetPath(Template.layer.iconGuid);
                     VectorImage icon = AssetDatabase.LoadAssetAtPath<VectorImage>(path);
                     if (icon != null)
+                    {
                         iconImage.style.backgroundImage = new StyleBackground(icon);
-                    iconPathLabel.text = path;
+                        iconField.value = icon;
+                    }
                 }
 
-                // Button behaviour
-                iconButton.clicked += () =>
+                // Field behaviour
+                iconField.RegisterValueChangedCallback(evt =>
                 {
-                    string filePath = EditorUtility.OpenFilePanel(
-                        "Select SVG Icon",
-                        Application.dataPath,
-                        "svg");
-                    if (string.IsNullOrEmpty(filePath))
-                        return;
-
-                    // Convert absolute path to Assets-relative path
-                    if (!filePath.StartsWith(Application.dataPath))
-                    {
-                        Debug.LogWarning("Selected file must be inside the project Assets folder.");
-                        return;
-                    }
-                    string assetPath = "Assets" + filePath.Substring(Application.dataPath.Length);
+                    if (evt.newValue == null || evt.newValue is not VectorImage) return;
+                    var newImage = evt.newValue as VectorImage;
 
                     // Load and set the icon
-                    VectorImage vectorImage = AssetDatabase.LoadAssetAtPath<VectorImage>(assetPath);
-                    if (vectorImage == null)
-                    {
-                        Debug.LogError($"Could not load SVG at: {assetPath}");
-                        return;
-                    }
-                    iconImage.style.backgroundImage = new StyleBackground(vectorImage);
-                    string guid = AssetDatabase.AssetPathToGUID(assetPath);
+                    Undo.RecordObject(Template, "Change Icon");
+                    iconImage.style.backgroundImage = new StyleBackground(newImage); 
+                    string guid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(evt.newValue));
                     Template.layer.iconGuid = guid;
-                    iconPathLabel.text = assetPath;
                     EditorUtility.SetDirty(target);
-                };
+                });
             }
         
             void TileSizeFieldSetup()
@@ -278,6 +255,19 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 {
                     Undo.RecordObject(Template, "Change Tile Size");
                     Template.layer.TileSize = evt.newValue;
+                    EditorUtility.SetDirty(Template);
+                });
+            }
+
+            void FloorCountFieldSetup()
+            {
+                if (floorCountField == null)
+                { NotFoundErrorLog("FloorCountField"); return; }
+                floorCountField.value = (uint) Template.layer.FloorCount;
+                floorCountField.RegisterValueChangedCallback(evt =>
+                {
+                    Undo.RecordObject(Template, "Change Floor Count");
+                    Template.layer.ChangeFloorCount(evt.newValue);
                     EditorUtility.SetDirty(Template);
                 });
             }
@@ -320,7 +310,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                             }
 
                             EditorUtility.SetDirty(Template);
-                            listGroup.SetItemsSource(items);
+                            //listGroup.SetItemsSource(items);
                             listGroup.Rebuild();
                         });
                     }
@@ -349,7 +339,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                         Debug.LogWarning($"Unsupported type for removal: {typeof(T).Name}");
 
                     EditorUtility.SetDirty(Template);
-                    listGroup.SetItemsSource(items);
+                    //listGroup.SetItemsSource(items);
                     listGroup.Rebuild();
                 };
             }
@@ -491,22 +481,21 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         #region Add Methods
         private void AddModule(Type type)
         {
-            /*
             if (type == null) return;
-            if (Activator.CreateInstance(type, AssetMacro.GetGuidFromAsset(s_moduleIcon), type.Name, Color.clear) is LBSModule instance)
+            if (Activator.CreateInstance(type) is LBSModule instance)
             {
                 Template.layer.AddModule(instance);
             }
             else
             {
                 Debug.LogError($"Failed to create instance of module type: {type.Name}");
-            }//*/
+            }
         }
 
         private void AddBehaviour(Type type)
         {
             if (type == null) return;
-            if (Activator.CreateInstance(type, AssetMacro.GetGuidFromAsset(s_behaviourIcon), type.Name, Color.clear) is LBSBehaviour instance)
+            if (Activator.CreateInstance(type, AssetMacro.GetGuidFromAsset(s_behaviourIcon), type.Name, LBSSettings.Instance.view.behavioursColor) is LBSBehaviour instance)
             {
                 Template.layer.AddBehaviour(instance);
             }
@@ -519,7 +508,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         private void AddAssistant(Type type)
         {
             if (type == null) return;
-            if (Activator.CreateInstance(type, AssetMacro.GetGuidFromAsset(s_assistantIcon), type.Name, Color.clear) is LBSAssistant instance)
+            if (Activator.CreateInstance(type, AssetMacro.GetGuidFromAsset(s_assistantIcon), type.Name, LBSSettings.Instance.view.assistantColor) is LBSAssistant instance)
             {
                 Template.layer.AddAssistant(instance);
             }

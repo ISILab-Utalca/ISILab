@@ -5,7 +5,10 @@
         <ISILab.LBS.CustomComponents.LBSCustomToggle label="Debug View" name="DebugViewToggle" />
         <ui:Instance template="LBSHorizontalDivider" enabled="false" style="display: none;" />
         <ISILab.LBS.CustomComponents.LBSCustomLabel text="Template Settings" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 10px;" />
-        <ISILab.LBS.CustomComponents.LBSCustomTextField label="Template Name" name="TemplateNameField" style="max-height: 35px; flex-shrink: 0; flex-grow: 1; -unity-font-style: bold; align-content: auto; align-self: stretch;" />
+        <ui:VisualElement style="flex-grow: 1; flex-direction: row; flex-shrink: 0; justify-content: space-between;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Template Name" style="-unity-font-style: bold; font-size: 14px; max-width: 50%;" />
+            <ISILab.LBS.CustomComponents.LBSCustomTextField name="TemplateNameField" style="max-height: 35px; flex-shrink: 0; flex-grow: 1; -unity-font-style: bold; align-content: auto; align-self: stretch; max-width: 50%;" />
+        </ui:VisualElement>
         <ISILab.LBS.CustomComponents.LBSCustomIntField name="SortingOrderField" label="Sorting Order" hide-mobile-input="false" style="max-height: 35px; -unity-font-style: bold;" />
         <ui:Instance template="LBSHorizontalDivider" enabled="false" style="display: none;" />
         <ISILab.LBS.CustomComponents.LBSCustomLabel text="Layer Settings" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 20px;" />
@@ -14,16 +17,14 @@
         <ui:VisualElement name="IconField" style="flex-grow: 0; flex-direction: column; align-items: stretch; justify-content: space-between; flex-shrink: 0; margin-top: 2px; margin-bottom: 2px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px;">
             <ui:VisualElement style="flex-grow: 0; flex-direction: row; align-self: stretch; align-items: auto; align-content: auto; justify-content: flex-start;">
                 <ISILab.LBS.CustomComponents.LBSCustomLabel text="Icon&#10;" style="font-size: 14px; -unity-font-style: bold; flex-direction: row; justify-content: space-between; align-items: auto; align-content: auto; align-self: flex-end; min-width: 25%; flex-grow: 1; flex-shrink: 1;" />
-                <ISILab.LBS.CustomComponents.LBSCustomButton name="IconButton" style="min-width: 50px; max-width: 50px; min-height: 50px; max-height: 50px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;">
-                    <ui:VisualElement name="IconImage" style="background-image: resource(&apos;Icons/Vectorial/Icon=LayerFixedPerspectiveSimple&apos;); flex-grow: 1; width: 100%; height: auto;" />
-                </ISILab.LBS.CustomComponents.LBSCustomButton>
+                <ISILab.LBS.CustomComponents.LBSCustomObjectField type="UnityEngine.UIElements.VectorImage, UnityEngine.UIElementsModule" icon-side="None" use-custom-filter="false" allow-scene-objects="false" name="IconObjectField" value="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=LayerFixedPerspectiveSimple.svg?fileID=7388822144124034973&amp;guid=6a77875a09116c74191cecf73e49111c&amp;type=3#Icon=LayerFixedPerspectiveSimple" style="font-size: 10px; flex-shrink: 1; flex-grow: 0; align-items: flex-end; max-height: 25px; padding-bottom: 0; margin-bottom: 0;" />
+                <ui:VisualElement name="IconImage" style="background-image: resource(&apos;Icons/Vectorial/Icon=LayerFixedPerspectiveSimple&apos;); flex-grow: 1; min-width: 50px; min-height: 50px; max-height: 50px; max-width: 50px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
             </ui:VisualElement>
-            <ISILab.LBS.CustomComponents.LBSCustomLabel text="path/asset.svg" name="IconPathLabel" style="font-size: 10px; -unity-font-style: normal; flex-direction: row; justify-content: space-between; align-items: auto; align-content: auto; flex-wrap: wrap; flex-grow: 1; flex-shrink: 1; white-space: normal;" />
         </ui:VisualElement>
         <ISILab.LBS.CustomComponents.LBSCustomVector2IntField name="TileSizeField" label="Tile Size" value="2,2" style="-unity-font-style: bold;" />
         <ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField label="Floor Count" name="FloorCountField" max-length="100" min-value="1" value="10" style="max-height: 35px; -unity-font-style: bold;" />
         <ui:Instance template="LBSHorizontalDivider" enabled="false" name="TemplateContainer" style="display: none;" />
-        <ISILab.LBS.CustomComponents.LBSCustomLabel text="Complements" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 20px;" />
+        <ISILab.LBS.CustomComponents.LBSCustomLabel text="Components" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 20px;" />
         <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="Modules" name="ModulesListGroup" hide-add-button="false" hide-remove-button="false" style="flex-shrink: 0;" />
         <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="Behaviours" name="BehavioursListGroup" style="flex-shrink: 0;" />
         <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="AI Assistants" name="AssistantsListGroup" style="flex-shrink: 0;" />
