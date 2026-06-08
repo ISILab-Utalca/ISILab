@@ -1,0 +1,867 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Tests.VertexBased_WFC
+  commentId: T:ISILab.LBS.Tests.VertexBased_WFC
+  id: VertexBased_WFC
+  parent: ISILab.LBS.Tests
+  children:
+  - ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_SameMap_Vertex
+  - ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_Vertex
+  - ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_SameMap_Vertex
+  - ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_Vertex
+  - ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_SameMap_Vertex
+  - ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_Vertex
+  - ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_SameMap_Vertex
+  - ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_Vertex
+  langs:
+  - csharp
+  - vb
+  name: VertexBased_WFC
+  nameWithType: VertexBased_WFC
+  fullName: ISILab.LBS.Tests.VertexBased_WFC
+  type: Class
+  source:
+    remote:
+      path: LBS/Tests/WFCBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: VertexBased_WFC
+    path: ../LBS/Tests/WFCBenchmarkReport.cs
+    startLine: 202
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [TestFixture]
+
+      public class VertexBased_WFC : WFCBenchmarkReport
+    content.vb: >-
+      <TestFixture>
+
+      Public Class VertexBased_WFC Inherits WFCBenchmarkReport
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Tests.WFCBenchmarkReport
+  inheritedMembers:
+  - ISILab.LBS.Tests.WFCBenchmarkReport.WFCassistant
+  - ISILab.LBS.Tests.WFCBenchmarkReport.Edge_5x5_Map
+  - ISILab.LBS.Tests.WFCBenchmarkReport.Edge_10x10_Map
+  - ISILab.LBS.Tests.WFCBenchmarkReport.Edge_20x20_Map
+  - ISILab.LBS.Tests.WFCBenchmarkReport.Edge_40x40_Map
+  - ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_5x5_Map
+  - ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_10x10_Map
+  - ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_20x20_Map
+  - ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_40x40_Map
+  - ISILab.LBS.Tests.WFCBenchmarkReport.SetupWFCTest(System.String)
+  - ISILab.LBS.Tests.WFCBenchmarkReport.CleanUpWFCTest
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: NUnit.Framework.TestFixtureAttribute
+    ctor: NUnit.Framework.TestFixtureAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_Vertex
+  commentId: M:ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_Vertex
+  id: TestMap_5x5_Vertex
+  parent: ISILab.LBS.Tests.VertexBased_WFC
+  langs:
+  - csharp
+  - vb
+  name: TestMap_5x5_Vertex()
+  nameWithType: VertexBased_WFC.TestMap_5x5_Vertex()
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_Vertex()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/WFCBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: TestMap_5x5_Vertex
+    path: ../LBS/Tests/WFCBenchmarkReport.cs
+    startLine: 210
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      public void TestMap_5x5_Vertex()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      Public Sub TestMap_5x5_Vertex()
+  overload: ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_Vertex*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_Vertex
+  commentId: M:ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_Vertex
+  id: TestMap_10x10_Vertex
+  parent: ISILab.LBS.Tests.VertexBased_WFC
+  langs:
+  - csharp
+  - vb
+  name: TestMap_10x10_Vertex()
+  nameWithType: VertexBased_WFC.TestMap_10x10_Vertex()
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_Vertex()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/WFCBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: TestMap_10x10_Vertex
+    path: ../LBS/Tests/WFCBenchmarkReport.cs
+    startLine: 229
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      public void TestMap_10x10_Vertex()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      Public Sub TestMap_10x10_Vertex()
+  overload: ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_Vertex*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_Vertex
+  commentId: M:ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_Vertex
+  id: TestMap_20x20_Vertex
+  parent: ISILab.LBS.Tests.VertexBased_WFC
+  langs:
+  - csharp
+  - vb
+  name: TestMap_20x20_Vertex()
+  nameWithType: VertexBased_WFC.TestMap_20x20_Vertex()
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_Vertex()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/WFCBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: TestMap_20x20_Vertex
+    path: ../LBS/Tests/WFCBenchmarkReport.cs
+    startLine: 244
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      public void TestMap_20x20_Vertex()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      Public Sub TestMap_20x20_Vertex()
+  overload: ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_Vertex*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_Vertex
+  commentId: M:ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_Vertex
+  id: TestMap_40x40_Vertex
+  parent: ISILab.LBS.Tests.VertexBased_WFC
+  langs:
+  - csharp
+  - vb
+  name: TestMap_40x40_Vertex()
+  nameWithType: VertexBased_WFC.TestMap_40x40_Vertex()
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_Vertex()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/WFCBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: TestMap_40x40_Vertex
+    path: ../LBS/Tests/WFCBenchmarkReport.cs
+    startLine: 259
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(3600000)]
+
+      public void TestMap_40x40_Vertex()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(3600000)>
+
+      Public Sub TestMap_40x40_Vertex()
+  overload: ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_Vertex*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 3600000
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_SameMap_Vertex
+  commentId: M:ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_SameMap_Vertex
+  id: TestMap_5x5_SameMap_Vertex
+  parent: ISILab.LBS.Tests.VertexBased_WFC
+  langs:
+  - csharp
+  - vb
+  name: TestMap_5x5_SameMap_Vertex()
+  nameWithType: VertexBased_WFC.TestMap_5x5_SameMap_Vertex()
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_SameMap_Vertex()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/WFCBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: TestMap_5x5_SameMap_Vertex
+    path: ../LBS/Tests/WFCBenchmarkReport.cs
+    startLine: 276
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      public void TestMap_5x5_SameMap_Vertex()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      Public Sub TestMap_5x5_SameMap_Vertex()
+  overload: ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_SameMap_Vertex*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_SameMap_Vertex
+  commentId: M:ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_SameMap_Vertex
+  id: TestMap_10x10_SameMap_Vertex
+  parent: ISILab.LBS.Tests.VertexBased_WFC
+  langs:
+  - csharp
+  - vb
+  name: TestMap_10x10_SameMap_Vertex()
+  nameWithType: VertexBased_WFC.TestMap_10x10_SameMap_Vertex()
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_SameMap_Vertex()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/WFCBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: TestMap_10x10_SameMap_Vertex
+    path: ../LBS/Tests/WFCBenchmarkReport.cs
+    startLine: 293
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      public void TestMap_10x10_SameMap_Vertex()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      Public Sub TestMap_10x10_SameMap_Vertex()
+  overload: ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_SameMap_Vertex*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_SameMap_Vertex
+  commentId: M:ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_SameMap_Vertex
+  id: TestMap_20x20_SameMap_Vertex
+  parent: ISILab.LBS.Tests.VertexBased_WFC
+  langs:
+  - csharp
+  - vb
+  name: TestMap_20x20_SameMap_Vertex()
+  nameWithType: VertexBased_WFC.TestMap_20x20_SameMap_Vertex()
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_SameMap_Vertex()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/WFCBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: TestMap_20x20_SameMap_Vertex
+    path: ../LBS/Tests/WFCBenchmarkReport.cs
+    startLine: 309
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      public void TestMap_20x20_SameMap_Vertex()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      Public Sub TestMap_20x20_SameMap_Vertex()
+  overload: ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_SameMap_Vertex*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_SameMap_Vertex
+  commentId: M:ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_SameMap_Vertex
+  id: TestMap_40x40_SameMap_Vertex
+  parent: ISILab.LBS.Tests.VertexBased_WFC
+  langs:
+  - csharp
+  - vb
+  name: TestMap_40x40_SameMap_Vertex()
+  nameWithType: VertexBased_WFC.TestMap_40x40_SameMap_Vertex()
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_SameMap_Vertex()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/WFCBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: TestMap_40x40_SameMap_Vertex
+    path: ../LBS/Tests/WFCBenchmarkReport.cs
+    startLine: 325
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void TestMap_40x40_SameMap_Vertex()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub TestMap_40x40_SameMap_Vertex()
+  overload: ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_SameMap_Vertex*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+references:
+- uid: ISILab.LBS.Tests
+  commentId: N:ISILab.LBS.Tests
+  href: ISILab.html
+  name: ISILab.LBS.Tests
+  nameWithType: ISILab.LBS.Tests
+  fullName: ISILab.LBS.Tests
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Tests
+    name: Tests
+    href: ISILab.LBS.Tests.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Tests
+    name: Tests
+    href: ISILab.LBS.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport
+  commentId: T:ISILab.LBS.Tests.WFCBenchmarkReport
+  parent: ISILab.LBS.Tests
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html
+  name: WFCBenchmarkReport
+  nameWithType: WFCBenchmarkReport
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.WFCassistant
+  commentId: F:ISILab.LBS.Tests.WFCBenchmarkReport.WFCassistant
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_WFCassistant
+  name: WFCassistant
+  nameWithType: WFCBenchmarkReport.WFCassistant
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.WFCassistant
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.Edge_5x5_Map
+  commentId: F:ISILab.LBS.Tests.WFCBenchmarkReport.Edge_5x5_Map
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_Edge_5x5_Map
+  name: Edge_5x5_Map
+  nameWithType: WFCBenchmarkReport.Edge_5x5_Map
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.Edge_5x5_Map
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.Edge_10x10_Map
+  commentId: F:ISILab.LBS.Tests.WFCBenchmarkReport.Edge_10x10_Map
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_Edge_10x10_Map
+  name: Edge_10x10_Map
+  nameWithType: WFCBenchmarkReport.Edge_10x10_Map
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.Edge_10x10_Map
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.Edge_20x20_Map
+  commentId: F:ISILab.LBS.Tests.WFCBenchmarkReport.Edge_20x20_Map
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_Edge_20x20_Map
+  name: Edge_20x20_Map
+  nameWithType: WFCBenchmarkReport.Edge_20x20_Map
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.Edge_20x20_Map
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.Edge_40x40_Map
+  commentId: F:ISILab.LBS.Tests.WFCBenchmarkReport.Edge_40x40_Map
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_Edge_40x40_Map
+  name: Edge_40x40_Map
+  nameWithType: WFCBenchmarkReport.Edge_40x40_Map
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.Edge_40x40_Map
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_5x5_Map
+  commentId: F:ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_5x5_Map
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_Vertex_5x5_Map
+  name: Vertex_5x5_Map
+  nameWithType: WFCBenchmarkReport.Vertex_5x5_Map
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_5x5_Map
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_10x10_Map
+  commentId: F:ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_10x10_Map
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_Vertex_10x10_Map
+  name: Vertex_10x10_Map
+  nameWithType: WFCBenchmarkReport.Vertex_10x10_Map
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_10x10_Map
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_20x20_Map
+  commentId: F:ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_20x20_Map
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_Vertex_20x20_Map
+  name: Vertex_20x20_Map
+  nameWithType: WFCBenchmarkReport.Vertex_20x20_Map
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_20x20_Map
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_40x40_Map
+  commentId: F:ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_40x40_Map
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_Vertex_40x40_Map
+  name: Vertex_40x40_Map
+  nameWithType: WFCBenchmarkReport.Vertex_40x40_Map
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.Vertex_40x40_Map
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.SetupWFCTest(System.String)
+  commentId: M:ISILab.LBS.Tests.WFCBenchmarkReport.SetupWFCTest(System.String)
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  isExternal: true
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_SetupWFCTest_System_String_
+  name: SetupWFCTest(string)
+  nameWithType: WFCBenchmarkReport.SetupWFCTest(string)
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.SetupWFCTest(string)
+  nameWithType.vb: WFCBenchmarkReport.SetupWFCTest(String)
+  fullName.vb: ISILab.LBS.Tests.WFCBenchmarkReport.SetupWFCTest(String)
+  name.vb: SetupWFCTest(String)
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.WFCBenchmarkReport.SetupWFCTest(System.String)
+    name: SetupWFCTest
+    href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_SetupWFCTest_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.WFCBenchmarkReport.SetupWFCTest(System.String)
+    name: SetupWFCTest
+    href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_SetupWFCTest_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ISILab.LBS.Tests.WFCBenchmarkReport.CleanUpWFCTest
+  commentId: M:ISILab.LBS.Tests.WFCBenchmarkReport.CleanUpWFCTest
+  parent: ISILab.LBS.Tests.WFCBenchmarkReport
+  href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_CleanUpWFCTest
+  name: CleanUpWFCTest()
+  nameWithType: WFCBenchmarkReport.CleanUpWFCTest()
+  fullName: ISILab.LBS.Tests.WFCBenchmarkReport.CleanUpWFCTest()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.WFCBenchmarkReport.CleanUpWFCTest
+    name: CleanUpWFCTest
+    href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_CleanUpWFCTest
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.WFCBenchmarkReport.CleanUpWFCTest
+    name: CleanUpWFCTest
+    href: ISILab.LBS.Tests.WFCBenchmarkReport.html#ISILab_LBS_Tests_WFCBenchmarkReport_CleanUpWFCTest
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_Vertex*
+  commentId: Overload:ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_Vertex
+  href: ISILab.LBS.Tests.VertexBased_WFC.html#ISILab_LBS_Tests_VertexBased_WFC_TestMap_5x5_Vertex
+  name: TestMap_5x5_Vertex
+  nameWithType: VertexBased_WFC.TestMap_5x5_Vertex
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_Vertex
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_Vertex*
+  commentId: Overload:ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_Vertex
+  href: ISILab.LBS.Tests.VertexBased_WFC.html#ISILab_LBS_Tests_VertexBased_WFC_TestMap_10x10_Vertex
+  name: TestMap_10x10_Vertex
+  nameWithType: VertexBased_WFC.TestMap_10x10_Vertex
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_Vertex
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_Vertex*
+  commentId: Overload:ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_Vertex
+  href: ISILab.LBS.Tests.VertexBased_WFC.html#ISILab_LBS_Tests_VertexBased_WFC_TestMap_20x20_Vertex
+  name: TestMap_20x20_Vertex
+  nameWithType: VertexBased_WFC.TestMap_20x20_Vertex
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_Vertex
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_Vertex*
+  commentId: Overload:ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_Vertex
+  href: ISILab.LBS.Tests.VertexBased_WFC.html#ISILab_LBS_Tests_VertexBased_WFC_TestMap_40x40_Vertex
+  name: TestMap_40x40_Vertex
+  nameWithType: VertexBased_WFC.TestMap_40x40_Vertex
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_Vertex
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_SameMap_Vertex*
+  commentId: Overload:ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_SameMap_Vertex
+  href: ISILab.LBS.Tests.VertexBased_WFC.html#ISILab_LBS_Tests_VertexBased_WFC_TestMap_5x5_SameMap_Vertex
+  name: TestMap_5x5_SameMap_Vertex
+  nameWithType: VertexBased_WFC.TestMap_5x5_SameMap_Vertex
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_5x5_SameMap_Vertex
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_SameMap_Vertex*
+  commentId: Overload:ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_SameMap_Vertex
+  href: ISILab.LBS.Tests.VertexBased_WFC.html#ISILab_LBS_Tests_VertexBased_WFC_TestMap_10x10_SameMap_Vertex
+  name: TestMap_10x10_SameMap_Vertex
+  nameWithType: VertexBased_WFC.TestMap_10x10_SameMap_Vertex
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_10x10_SameMap_Vertex
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_SameMap_Vertex*
+  commentId: Overload:ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_SameMap_Vertex
+  href: ISILab.LBS.Tests.VertexBased_WFC.html#ISILab_LBS_Tests_VertexBased_WFC_TestMap_20x20_SameMap_Vertex
+  name: TestMap_20x20_SameMap_Vertex
+  nameWithType: VertexBased_WFC.TestMap_20x20_SameMap_Vertex
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_20x20_SameMap_Vertex
+- uid: ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_SameMap_Vertex*
+  commentId: Overload:ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_SameMap_Vertex
+  href: ISILab.LBS.Tests.VertexBased_WFC.html#ISILab_LBS_Tests_VertexBased_WFC_TestMap_40x40_SameMap_Vertex
+  name: TestMap_40x40_SameMap_Vertex
+  nameWithType: VertexBased_WFC.TestMap_40x40_SameMap_Vertex
+  fullName: ISILab.LBS.Tests.VertexBased_WFC.TestMap_40x40_SameMap_Vertex
+shouldSkipMarkup: true

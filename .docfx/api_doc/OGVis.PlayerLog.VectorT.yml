@@ -14,6 +14,14 @@ items:
   nameWithType: PlayerLog.VectorT
   fullName: OGVis.PlayerLog.VectorT
   type: Struct
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: VectorT
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 43
   assemblies:
   - PathOSPlus
   namespace: OGVis
@@ -24,8 +32,8 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: OGVis.PlayerLog.VectorT.pos
   commentId: F:OGVis.PlayerLog.VectorT.pos
@@ -38,6 +46,14 @@ items:
   nameWithType: PlayerLog.VectorT.pos
   fullName: OGVis.PlayerLog.VectorT.pos
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: pos
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 45
   assemblies:
   - PathOSPlus
   namespace: OGVis
@@ -57,6 +73,14 @@ items:
   nameWithType: PlayerLog.VectorT.timestamp
   fullName: OGVis.PlayerLog.VectorT.timestamp
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: timestamp
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 46
   assemblies:
   - PathOSPlus
   namespace: OGVis
@@ -68,7 +92,6 @@ items:
 references:
 - uid: OGVis
   commentId: N:OGVis
-  isExternal: true
   href: OGVis.html
   name: OGVis
   nameWithType: OGVis
@@ -150,30 +173,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -218,6 +217,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -291,10 +314,18 @@ references:
   nameWithType: System
   fullName: System
 - uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
   isExternal: true
   name: Vector3
   nameWithType: Vector3
   fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: System.Single
   commentId: T:System.Single
   parent: System

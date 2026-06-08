@@ -1,0 +1,199 @@
+### YamlMime:ManagedReference
+items:
+- uid: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+  commentId: T:BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+  id: RegChangeNotifyFilter
+  parent: BgTools.PlayerPrefsEditor
+  children:
+  - BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Attribute
+  - BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Key
+  - BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Security
+  - BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Value
+  langs:
+  - csharp
+  - vb
+  name: RegChangeNotifyFilter
+  nameWithType: RegChangeNotifyFilter
+  fullName: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+  type: Enum
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: RegChangeNotifyFilter
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+    startLine: 348
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  summary: Filter for notifications reported by <xref href="BgTools.PlayerPrefsEditor.RegistryMonitor" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum RegChangeNotifyFilter
+    content.vb: >-
+      <Flags>
+
+      Public Enum RegChangeNotifyFilter
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Key
+  commentId: F:BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Key
+  id: Key
+  parent: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: RegChangeNotifyFilter.Key
+  fullName: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Key
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Key
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+    startLine: 352
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  summary: Notify the caller if a subkey is added or deleted.
+  example: []
+  syntax:
+    content: Key = 1
+    return:
+      type: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+- uid: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Attribute
+  commentId: F:BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Attribute
+  id: Attribute
+  parent: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+  langs:
+  - csharp
+  - vb
+  name: Attribute
+  nameWithType: RegChangeNotifyFilter.Attribute
+  fullName: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Attribute
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Attribute
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+    startLine: 355
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  summary: >-
+    Notify the caller of changes to the attributes of the key,
+        such as the security descriptor information.
+  example: []
+  syntax:
+    content: Attribute = 2
+    return:
+      type: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+- uid: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Value
+  commentId: F:BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Value
+  id: Value
+  parent: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: RegChangeNotifyFilter.Value
+  fullName: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Value
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Value
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+    startLine: 358
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  summary: >-
+    Notify the caller of changes to a value of the key. This can
+        include adding or deleting a value, or changing an existing value.
+  example: []
+  syntax:
+    content: Value = 4
+    return:
+      type: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+- uid: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Security
+  commentId: F:BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Security
+  id: Security
+  parent: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+  langs:
+  - csharp
+  - vb
+  name: Security
+  nameWithType: RegChangeNotifyFilter.Security
+  fullName: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.Security
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Security
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+    startLine: 361
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  summary: >-
+    Notify the caller of changes to the security descriptor
+        of the key.
+  example: []
+  syntax:
+    content: Security = 8
+    return:
+      type: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+references:
+- uid: BgTools.PlayerPrefsEditor.RegistryMonitor
+  commentId: T:BgTools.PlayerPrefsEditor.RegistryMonitor
+  href: BgTools.PlayerPrefsEditor.RegistryMonitor.html
+  name: RegistryMonitor
+  nameWithType: RegistryMonitor
+  fullName: BgTools.PlayerPrefsEditor.RegistryMonitor
+- uid: BgTools.PlayerPrefsEditor
+  commentId: N:BgTools.PlayerPrefsEditor
+  href: BgTools.html
+  name: BgTools.PlayerPrefsEditor
+  nameWithType: BgTools.PlayerPrefsEditor
+  fullName: BgTools.PlayerPrefsEditor
+  spec.csharp:
+  - uid: BgTools
+    name: BgTools
+    href: BgTools.html
+  - name: .
+  - uid: BgTools.PlayerPrefsEditor
+    name: PlayerPrefsEditor
+    href: BgTools.PlayerPrefsEditor.html
+  spec.vb:
+  - uid: BgTools
+    name: BgTools
+    href: BgTools.html
+  - name: .
+  - uid: BgTools.PlayerPrefsEditor
+    name: PlayerPrefsEditor
+    href: BgTools.PlayerPrefsEditor.html
+- uid: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+  commentId: T:BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+  parent: BgTools.PlayerPrefsEditor
+  href: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter.html
+  name: RegChangeNotifyFilter
+  nameWithType: RegChangeNotifyFilter
+  fullName: BgTools.PlayerPrefsEditor.RegChangeNotifyFilter
+shouldSkipMarkup: true

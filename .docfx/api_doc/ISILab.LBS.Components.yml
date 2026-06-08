@@ -14,6 +14,7 @@ items:
   - ISILab.LBS.Components.Addon_Unlock
   - ISILab.LBS.Components.AndNode
   - ISILab.LBS.Components.Blueprint
+  - ISILab.LBS.Components.BranchNode
   - ISILab.LBS.Components.BundleTarget
   - ISILab.LBS.Components.BundleTargetGraph
   - ISILab.LBS.Components.BundleTileMapAddons
@@ -126,7 +127,6 @@ references:
   fullName: ISILab.LBS.Components.TileTriggerType
 - uid: ISILab.LBS.Components.TileTrigger
   commentId: T:ISILab.LBS.Components.TileTrigger
-  parent: ISILab.LBS.Components
   href: ISILab.LBS.Components.TileTrigger.html
   name: TileTrigger
   nameWithType: TileTrigger
@@ -151,6 +151,13 @@ references:
   name: GraphNode
   nameWithType: GraphNode
   fullName: ISILab.LBS.Components.GraphNode
+- uid: ISILab.LBS.Components.BranchNode
+  commentId: T:ISILab.LBS.Components.BranchNode
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.BranchNode.html
+  name: BranchNode
+  nameWithType: BranchNode
+  fullName: ISILab.LBS.Components.BranchNode
 - uid: ISILab.LBS.Components.OrNode
   commentId: T:ISILab.LBS.Components.OrNode
   href: ISILab.LBS.Components.OrNode.html
@@ -289,21 +296,18 @@ references:
   fullName: ISILab.LBS.Components.Addon_TriggerUnlock
 - uid: ISILab.LBS.Components.TriggerUnlockEntry
   commentId: T:ISILab.LBS.Components.TriggerUnlockEntry
-  parent: ISILab.LBS.Components
   href: ISILab.LBS.Components.TriggerUnlockEntry.html
   name: TriggerUnlockEntry
   nameWithType: TriggerUnlockEntry
   fullName: ISILab.LBS.Components.TriggerUnlockEntry
 - uid: ISILab.LBS.Components.Addon_Unlock
   commentId: T:ISILab.LBS.Components.Addon_Unlock
-  parent: ISILab.LBS.Components
   href: ISILab.LBS.Components.Addon_Unlock.html
   name: Addon_Unlock
   nameWithType: Addon_Unlock
   fullName: ISILab.LBS.Components.Addon_Unlock
 - uid: ISILab.LBS.Components.Blueprint
   commentId: T:ISILab.LBS.Components.Blueprint
-  parent: ISILab.LBS.Components
   href: ISILab.LBS.Components.Blueprint.html
   name: Blueprint
   nameWithType: Blueprint

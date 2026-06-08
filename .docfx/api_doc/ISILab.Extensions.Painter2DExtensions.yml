@@ -16,8 +16,10 @@ items:
   - ISILab.Extensions.Painter2DExtensions.DrawHoleyShape(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}},UnityEngine.Color,UnityEngine.Color,System.Single)
   - ISILab.Extensions.Painter2DExtensions.DrawLine(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Single)
   - ISILab.Extensions.Painter2DExtensions.DrawPolygon(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{UnityEngine.Vector2},UnityEngine.Color,UnityEngine.Color,System.Single,System.Boolean)
-  - ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
+  - ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,UnityEngine.Color,System.Int32)
+  - ISILab.Extensions.Painter2DExtensions.DrawSquare(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,System.Single,UnityEngine.Color)
   - ISILab.Extensions.Painter2DExtensions.DrawSquareGrid(UnityEngine.UIElements.Painter2D,System.Collections.Generic.List{System.Collections.Generic.List{UnityEngine.Vector2}},UnityEngine.Color,UnityEngine.Color,System.Single,System.Single,System.Single)
+  - ISILab.Extensions.Painter2DExtensions.DrawTrapezoid(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,System.Single,System.Single,UnityEngine.Color,System.Boolean)
   langs:
   - csharp
   - vb
@@ -26,9 +28,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Painter2DExtensions
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 6
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 7
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -58,9 +64,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawHoleyShape(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List<System.Collections.Generic.List<UnityEngine.Vector2>>, UnityEngine.Color, UnityEngine.Color, float)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawHoleyShape
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 16
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 17
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -89,31 +99,35 @@ items:
   nameWithType.vb: Painter2DExtensions.DrawHoleyShape(Painter2D, List(Of List(Of Vector2)), Color, Color, Single)
   fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawHoleyShape(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List(Of System.Collections.Generic.List(Of UnityEngine.Vector2)), UnityEngine.Color, UnityEngine.Color, Single)
   name.vb: DrawHoleyShape(Painter2D, List(Of List(Of Vector2)), Color, Color, Single)
-- uid: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
-  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
-  id: DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,System.Int32)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,UnityEngine.Color,System.Int32)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,UnityEngine.Color,System.Int32)
+  id: DrawSelectionBox(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color,UnityEngine.Color,System.Int32)
   isExtensionMethod: true
   parent: ISILab.Extensions.Painter2DExtensions
   langs:
   - csharp
   - vb
-  name: DrawSelectionBox(Painter2D, Vector2, Vector2, Color, int)
-  nameWithType: Painter2DExtensions.DrawSelectionBox(Painter2D, Vector2, Vector2, Color, int)
-  fullName: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, int)
+  name: DrawSelectionBox(Painter2D, Vector2, Vector2, Color, Color, int)
+  nameWithType: Painter2DExtensions.DrawSelectionBox(Painter2D, Vector2, Vector2, Color, Color, int)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, UnityEngine.Color, int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawSelectionBox
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 46
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 48
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
   summary: Draws a selection box on a 2D canvas with the given position vectors and color.
   example: []
   syntax:
-    content: public static void DrawSelectionBox(this Painter2D paint2D, Vector2 pos1, Vector2 pos2, Color color, int width = 1)
+    content: public static void DrawSelectionBox(this Painter2D painter2D, Vector2 pos1, Vector2 pos2, Color fillColor, Color borderColor, int lineWidth = 1)
     parameters:
-    - id: paint2D
+    - id: painter2D
       type: UnityEngine.UIElements.Painter2D
       description: The 2D canvas to draw on.
     - id: pos1
@@ -122,17 +136,108 @@ items:
     - id: pos2
       type: UnityEngine.Vector2
       description: The ending position vector of the selection box.
-    - id: color
+    - id: fillColor
       type: UnityEngine.Color
       description: The color of the selection box.
-    - id: width
+    - id: borderColor
+      type: UnityEngine.Color
+      description: color of the border stroke
+    - id: lineWidth
       type: System.Int32
       description: The width of the selection box border. Default value is 1.
-    content.vb: Public Shared Sub DrawSelectionBox(paint2D As Painter2D, pos1 As Vector2, pos2 As Vector2, color As Color, width As Integer = 1)
+    content.vb: Public Shared Sub DrawSelectionBox(painter2D As Painter2D, pos1 As Vector2, pos2 As Vector2, fillColor As Color, borderColor As Color, lineWidth As Integer = 1)
   overload: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox*
-  nameWithType.vb: Painter2DExtensions.DrawSelectionBox(Painter2D, Vector2, Vector2, Color, Integer)
-  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, Integer)
-  name.vb: DrawSelectionBox(Painter2D, Vector2, Vector2, Color, Integer)
+  nameWithType.vb: Painter2DExtensions.DrawSelectionBox(Painter2D, Vector2, Vector2, Color, Color, Integer)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, UnityEngine.Color, Integer)
+  name.vb: DrawSelectionBox(Painter2D, Vector2, Vector2, Color, Color, Integer)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawSquare(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,System.Single,UnityEngine.Color)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawSquare(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,System.Single,UnityEngine.Color)
+  id: DrawSquare(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,System.Single,UnityEngine.Color)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawSquare(Painter2D, Vector2, float, float, Color)
+  nameWithType: Painter2DExtensions.DrawSquare(Painter2D, Vector2, float, float, Color)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawSquare(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, float, float, UnityEngine.Color)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: DrawSquare
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 71
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  summary: Draws a simple square on a 2D canvas with the given position vector, height and width.
+  example: []
+  syntax:
+    content: public static void DrawSquare(this Painter2D paint2D, Vector2 pos, float height, float width, Color color)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: pos
+      type: UnityEngine.Vector2
+    - id: height
+      type: System.Single
+    - id: width
+      type: System.Single
+    - id: color
+      type: UnityEngine.Color
+    content.vb: Public Shared Sub DrawSquare(paint2D As Painter2D, pos As Vector2, height As Single, width As Single, color As Color)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawSquare*
+  nameWithType.vb: Painter2DExtensions.DrawSquare(Painter2D, Vector2, Single, Single, Color)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawSquare(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, Single, Single, UnityEngine.Color)
+  name.vb: DrawSquare(Painter2D, Vector2, Single, Single, Color)
+- uid: ISILab.Extensions.Painter2DExtensions.DrawTrapezoid(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,System.Single,System.Single,UnityEngine.Color,System.Boolean)
+  commentId: M:ISILab.Extensions.Painter2DExtensions.DrawTrapezoid(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,System.Single,System.Single,UnityEngine.Color,System.Boolean)
+  id: DrawTrapezoid(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,System.Single,System.Single,UnityEngine.Color,System.Boolean)
+  isExtensionMethod: true
+  parent: ISILab.Extensions.Painter2DExtensions
+  langs:
+  - csharp
+  - vb
+  name: DrawTrapezoid(Painter2D, Vector2, float, float, float, Color, bool)
+  nameWithType: Painter2DExtensions.DrawTrapezoid(Painter2D, Vector2, float, float, float, Color, bool)
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawTrapezoid(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, float, float, float, UnityEngine.Color, bool)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: DrawTrapezoid
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 84
+  assemblies:
+  - LBS.Editor
+  namespace: ISILab.Extensions
+  syntax:
+    content: public static void DrawTrapezoid(this Painter2D paint2D, Vector2 origin, float t_base, float t_height, float angle_deg, Color color, bool is_vertical = false)
+    parameters:
+    - id: paint2D
+      type: UnityEngine.UIElements.Painter2D
+    - id: origin
+      type: UnityEngine.Vector2
+    - id: t_base
+      type: System.Single
+    - id: t_height
+      type: System.Single
+    - id: angle_deg
+      type: System.Single
+    - id: color
+      type: UnityEngine.Color
+    - id: is_vertical
+      type: System.Boolean
+    content.vb: Public Shared Sub DrawTrapezoid(paint2D As Painter2D, origin As Vector2, t_base As Single, t_height As Single, angle_deg As Single, color As Color, is_vertical As Boolean = False)
+  overload: ISILab.Extensions.Painter2DExtensions.DrawTrapezoid*
+  nameWithType.vb: Painter2DExtensions.DrawTrapezoid(Painter2D, Vector2, Single, Single, Single, Color, Boolean)
+  fullName.vb: ISILab.Extensions.Painter2DExtensions.DrawTrapezoid(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, Single, Single, Single, UnityEngine.Color, Boolean)
+  name.vb: DrawTrapezoid(Painter2D, Vector2, Single, Single, Single, Color, Boolean)
 - uid: ISILab.Extensions.Painter2DExtensions.DrawCircle(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,UnityEngine.Color)
   commentId: M:ISILab.Extensions.Painter2DExtensions.DrawCircle(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,UnityEngine.Color)
   id: DrawCircle(UnityEngine.UIElements.Painter2D,UnityEngine.Vector2,System.Single,UnityEngine.Color)
@@ -146,9 +251,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawCircle(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, float, UnityEngine.Color)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawCircle
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 67
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 115
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -187,9 +296,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawDottedBox(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, int)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawDottedBox
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 75
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 123
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -224,9 +337,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawDottedLine(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, float, float)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawDottedLine
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 94
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 142
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -271,9 +388,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawLine(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, float)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawLine
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 125
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 173
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -315,9 +436,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.BezierTangent(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: BezierTangent
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 130
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 178
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -351,9 +476,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawBezierLine(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, UnityEngine.Color)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawBezierLine
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 149
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 197
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -391,9 +520,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawDottedPolygon(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List<UnityEngine.Vector2>, UnityEngine.Color, float, bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawDottedPolygon
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 179
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 227
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -428,9 +561,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawPolygon(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List<UnityEngine.Vector2>, UnityEngine.Color, UnityEngine.Color, float, bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawPolygon
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 201
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 249
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -475,9 +612,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawSquareGrid(UnityEngine.UIElements.Painter2D, System.Collections.Generic.List<System.Collections.Generic.List<UnityEngine.Vector2>>, UnityEngine.Color, UnityEngine.Color, float, float, float)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawSquareGrid
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 231
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 279
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -525,9 +666,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawEquilateralArrow(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, float, UnityEngine.Color, bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawEquilateralArrow
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 277
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 325
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -571,9 +716,13 @@ items:
   fullName: ISILab.Extensions.Painter2DExtensions.DrawArrow(UnityEngine.UIElements.Painter2D, UnityEngine.Vector2, UnityEngine.Vector2, float, float, UnityEngine.Color, bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DrawArrow
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Extensions\Painter2DExtensions.cs
-    startLine: 307
+    path: ../LBS/Plugin/UI/Editor/Extensions/Painter2DExtensions.cs
+    startLine: 355
   assemblies:
   - LBS.Editor
   namespace: ISILab.Extensions
@@ -1040,7 +1189,7 @@ references:
   fullName: UnityEngine
 - uid: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox*
   commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawSelectionBox
-  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawSelectionBox_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Color_System_Int32_
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawSelectionBox_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_UnityEngine_Vector2_UnityEngine_Color_UnityEngine_Color_System_Int32_
   name: DrawSelectionBox
   nameWithType: Painter2DExtensions.DrawSelectionBox
   fullName: ISILab.Extensions.Painter2DExtensions.DrawSelectionBox
@@ -1062,6 +1211,29 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: ISILab.Extensions.Painter2DExtensions.DrawSquare*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawSquare
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawSquare_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_System_Single_System_Single_UnityEngine_Color_
+  name: DrawSquare
+  nameWithType: Painter2DExtensions.DrawSquare
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawSquare
+- uid: ISILab.Extensions.Painter2DExtensions.DrawTrapezoid*
+  commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawTrapezoid
+  href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawTrapezoid_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_System_Single_System_Single_System_Single_UnityEngine_Color_System_Boolean_
+  name: DrawTrapezoid
+  nameWithType: Painter2DExtensions.DrawTrapezoid
+  fullName: ISILab.Extensions.Painter2DExtensions.DrawTrapezoid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: ISILab.Extensions.Painter2DExtensions.DrawCircle*
   commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawCircle
   href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawCircle_UnityEngine_UIElements_Painter2D_UnityEngine_Vector2_System_Single_UnityEngine_Color_
@@ -1137,17 +1309,6 @@ references:
     name: Vector2
     isExternal: true
   - name: )
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: ISILab.Extensions.Painter2DExtensions.DrawPolygon*
   commentId: Overload:ISILab.Extensions.Painter2DExtensions.DrawPolygon
   href: ISILab.Extensions.Painter2DExtensions.html#ISILab_Extensions_Painter2DExtensions_DrawPolygon_UnityEngine_UIElements_Painter2D_System_Collections_Generic_List_UnityEngine_Vector2__UnityEngine_Color_UnityEngine_Color_System_Single_System_Boolean_

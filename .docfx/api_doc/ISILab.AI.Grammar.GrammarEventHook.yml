@@ -5,6 +5,7 @@ items:
   id: GrammarEventHook
   parent: ISILab.AI.Grammar
   children:
+  - ISILab.AI.Grammar.GrammarEventHook.IsValid
   - ISILab.AI.Grammar.GrammarEventHook.PrimitiveType
   langs:
   - csharp
@@ -14,8 +15,12 @@ items:
   fullName: ISILab.AI.Grammar.GrammarEventHook
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarEventHook.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GrammarEventHook
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\Special\GrammarEventHook.cs
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarEventHook.cs
     startLine: 6
   assemblies:
   - LBS
@@ -44,14 +49,15 @@ items:
   - ISILab.AI.Grammar.GrammarField{ISILab.LBS.Plugin.Components.Data.LBSEventHooker}.Clone
   - ISILab.AI.Grammar.GrammarField{ISILab.LBS.Plugin.Components.Data.LBSEventHooker}.SetValue(System.Object)
   - ISILab.AI.Grammar.GrammarField{ISILab.LBS.Plugin.Components.Data.LBSEventHooker}.GetValue
-  - ISILab.AI.Grammar.GrammarField.data
   - ISILab.AI.Grammar.GrammarField.name
   - ISILab.AI.Grammar.GrammarField.Refresh
+  - ISILab.AI.Grammar.GrammarField.Data
   - ISILab.AI.Grammar.GrammarField.IsList
   - ISILab.AI.Grammar.GrammarField.ItemsSource
   - ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
   - ISILab.AI.Grammar.GrammarField.GetHashCode
   - ISILab.AI.Grammar.GrammarField.ToString
+  - ISILab.AI.Grammar.GrammarField.GetValidStateLog
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -78,8 +84,12 @@ items:
   fullName: ISILab.AI.Grammar.GrammarEventHook.PrimitiveType
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarEventHook.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: PrimitiveType
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\Special\GrammarEventHook.cs
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarEventHook.cs
     startLine: 10
   assemblies:
   - LBS
@@ -99,6 +109,36 @@ items:
     content.vb: Public Overrides ReadOnly Property PrimitiveType As Type
   overridden: ISILab.AI.Grammar.GrammarField.PrimitiveType
   overload: ISILab.AI.Grammar.GrammarEventHook.PrimitiveType*
+- uid: ISILab.AI.Grammar.GrammarEventHook.IsValid
+  commentId: M:ISILab.AI.Grammar.GrammarEventHook.IsValid
+  id: IsValid
+  parent: ISILab.AI.Grammar.GrammarEventHook
+  langs:
+  - csharp
+  - vb
+  name: IsValid()
+  nameWithType: GrammarEventHook.IsValid()
+  fullName: ISILab.AI.Grammar.GrammarEventHook.IsValid()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarEventHook.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: IsValid
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarEventHook.cs
+    startLine: 11
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: public override bool IsValid()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function IsValid() As Boolean
+  overridden: ISILab.AI.Grammar.GrammarField.IsValid
+  overload: ISILab.AI.Grammar.GrammarEventHook.IsValid*
 references:
 - uid: ISILab.AI.Grammar
   commentId: N:ISILab.AI.Grammar
@@ -272,13 +312,6 @@ references:
     href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_GetValue
   - name: (
   - name: )
-- uid: ISILab.AI.Grammar.GrammarField.data
-  commentId: F:ISILab.AI.Grammar.GrammarField.data
-  parent: ISILab.AI.Grammar.GrammarField
-  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_data
-  name: data
-  nameWithType: GrammarField.data
-  fullName: ISILab.AI.Grammar.GrammarField.data
 - uid: ISILab.AI.Grammar.GrammarField.name
   commentId: F:ISILab.AI.Grammar.GrammarField.name
   parent: ISILab.AI.Grammar.GrammarField
@@ -293,6 +326,13 @@ references:
   name: Refresh
   nameWithType: GrammarField.Refresh
   fullName: ISILab.AI.Grammar.GrammarField.Refresh
+- uid: ISILab.AI.Grammar.GrammarField.Data
+  commentId: P:ISILab.AI.Grammar.GrammarField.Data
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Data
+  name: Data
+  nameWithType: GrammarField.Data
+  fullName: ISILab.AI.Grammar.GrammarField.Data
 - uid: ISILab.AI.Grammar.GrammarField.IsList
   commentId: P:ISILab.AI.Grammar.GrammarField.IsList
   parent: ISILab.AI.Grammar.GrammarField
@@ -386,6 +426,25 @@ references:
   - uid: ISILab.AI.Grammar.GrammarField.ToString
     name: ToString
     href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ToString
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarField.GetValidStateLog
+  commentId: M:ISILab.AI.Grammar.GrammarField.GetValidStateLog
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValidStateLog
+  name: GetValidStateLog()
+  nameWithType: GrammarField.GetValidStateLog()
+  fullName: ISILab.AI.Grammar.GrammarField.GetValidStateLog()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.GetValidStateLog
+    name: GetValidStateLog
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValidStateLog
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.GetValidStateLog
+    name: GetValidStateLog
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValidStateLog
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
@@ -690,4 +749,40 @@ references:
   name: Type
   nameWithType: Type
   fullName: System.Type
+- uid: ISILab.AI.Grammar.GrammarField.IsValid
+  commentId: M:ISILab.AI.Grammar.GrammarField.IsValid
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsValid
+  name: IsValid()
+  nameWithType: GrammarField.IsValid()
+  fullName: ISILab.AI.Grammar.GrammarField.IsValid()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.IsValid
+    name: IsValid
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsValid
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.IsValid
+    name: IsValid
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsValid
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarEventHook.IsValid*
+  commentId: Overload:ISILab.AI.Grammar.GrammarEventHook.IsValid
+  href: ISILab.AI.Grammar.GrammarEventHook.html#ISILab_AI_Grammar_GrammarEventHook_IsValid
+  name: IsValid
+  nameWithType: GrammarEventHook.IsValid
+  fullName: ISILab.AI.Grammar.GrammarEventHook.IsValid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 shouldSkipMarkup: true

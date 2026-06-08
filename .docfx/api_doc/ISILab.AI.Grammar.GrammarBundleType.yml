@@ -6,6 +6,8 @@ items:
   parent: ISILab.AI.Grammar
   children:
   - ISILab.AI.Grammar.GrammarBundleType.GetBundle
+  - ISILab.AI.Grammar.GrammarBundleType.GetValidStateLog
+  - ISILab.AI.Grammar.GrammarBundleType.IsValid
   - ISILab.AI.Grammar.GrammarBundleType.PrimitiveType
   - ISILab.AI.Grammar.GrammarBundleType.SetObjectBundle(System.Object[])
   - ISILab.AI.Grammar.GrammarBundleType.SetValue(System.Object)
@@ -17,8 +19,12 @@ items:
   fullName: ISILab.AI.Grammar.GrammarBundleType
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GrammarBundleType
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\Special\GrammarBundle\GrammarBundleType.cs
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
     startLine: 9
   assemblies:
   - LBS
@@ -50,9 +56,9 @@ items:
   - ISILab.AI.Grammar.GrammarField{System.String}.value
   - ISILab.AI.Grammar.GrammarField{System.String}.Clone
   - ISILab.AI.Grammar.GrammarField{System.String}.GetValue
-  - ISILab.AI.Grammar.GrammarField.data
   - ISILab.AI.Grammar.GrammarField.name
   - ISILab.AI.Grammar.GrammarField.Refresh
+  - ISILab.AI.Grammar.GrammarField.Data
   - ISILab.AI.Grammar.GrammarField.IsList
   - ISILab.AI.Grammar.GrammarField.ItemsSource
   - ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
@@ -84,8 +90,12 @@ items:
   fullName: ISILab.AI.Grammar.GrammarBundleType.PrimitiveType
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: PrimitiveType
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\Special\GrammarBundle\GrammarBundleType.cs
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
     startLine: 13
   assemblies:
   - LBS
@@ -117,8 +127,12 @@ items:
   fullName: ISILab.AI.Grammar.GrammarBundleType.SetValue(object)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetValue
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\Special\GrammarBundle\GrammarBundleType.cs
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
     startLine: 15
   assemblies:
   - LBS
@@ -135,6 +149,66 @@ items:
   nameWithType.vb: GrammarBundleType.SetValue(Object)
   fullName.vb: ISILab.AI.Grammar.GrammarBundleType.SetValue(Object)
   name.vb: SetValue(Object)
+- uid: ISILab.AI.Grammar.GrammarBundleType.IsValid
+  commentId: M:ISILab.AI.Grammar.GrammarBundleType.IsValid
+  id: IsValid
+  parent: ISILab.AI.Grammar.GrammarBundleType
+  langs:
+  - csharp
+  - vb
+  name: IsValid()
+  nameWithType: GrammarBundleType.IsValid()
+  fullName: ISILab.AI.Grammar.GrammarBundleType.IsValid()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: IsValid
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+    startLine: 23
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: public override bool IsValid()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function IsValid() As Boolean
+  overridden: ISILab.AI.Grammar.GrammarField.IsValid
+  overload: ISILab.AI.Grammar.GrammarBundleType.IsValid*
+- uid: ISILab.AI.Grammar.GrammarBundleType.GetValidStateLog
+  commentId: M:ISILab.AI.Grammar.GrammarBundleType.GetValidStateLog
+  id: GetValidStateLog
+  parent: ISILab.AI.Grammar.GrammarBundleType
+  langs:
+  - csharp
+  - vb
+  name: GetValidStateLog()
+  nameWithType: GrammarBundleType.GetValidStateLog()
+  fullName: ISILab.AI.Grammar.GrammarBundleType.GetValidStateLog()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetValidStateLog
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+    startLine: 24
+  assemblies:
+  - LBS
+  namespace: ISILab.AI.Grammar
+  example: []
+  syntax:
+    content: public override LBSLog GetValidStateLog()
+    return:
+      type: ISILab.LBS.Plugin.Core.Settings.LBSLog
+    content.vb: Public Overrides Function GetValidStateLog() As LBSLog
+  overridden: ISILab.AI.Grammar.GrammarField.GetValidStateLog
+  overload: ISILab.AI.Grammar.GrammarBundleType.GetValidStateLog*
 - uid: ISILab.AI.Grammar.GrammarBundleType.SetObjectBundle(System.Object[])
   commentId: M:ISILab.AI.Grammar.GrammarBundleType.SetObjectBundle(System.Object[])
   id: SetObjectBundle(System.Object[])
@@ -147,9 +221,13 @@ items:
   fullName: ISILab.AI.Grammar.GrammarBundleType.SetObjectBundle(object[])
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetObjectBundle
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\Special\GrammarBundle\GrammarBundleType.cs
-    startLine: 24
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+    startLine: 28
   assemblies:
   - LBS
   namespace: ISILab.AI.Grammar
@@ -177,9 +255,13 @@ items:
   fullName: ISILab.AI.Grammar.GrammarBundleType.GetBundle()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetBundle
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\Special\GrammarBundle\GrammarBundleType.cs
-    startLine: 32
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/Special/GrammarBundle/GrammarBundleType.cs
+    startLine: 36
   assemblies:
   - LBS
   namespace: ISILab.AI.Grammar
@@ -395,13 +477,6 @@ references:
     href: ISILab.AI.Grammar.GrammarField-1.html#ISILab_AI_Grammar_GrammarField_1_GetValue
   - name: (
   - name: )
-- uid: ISILab.AI.Grammar.GrammarField.data
-  commentId: F:ISILab.AI.Grammar.GrammarField.data
-  parent: ISILab.AI.Grammar.GrammarField
-  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_data
-  name: data
-  nameWithType: GrammarField.data
-  fullName: ISILab.AI.Grammar.GrammarField.data
 - uid: ISILab.AI.Grammar.GrammarField.name
   commentId: F:ISILab.AI.Grammar.GrammarField.name
   parent: ISILab.AI.Grammar.GrammarField
@@ -416,6 +491,13 @@ references:
   name: Refresh
   nameWithType: GrammarField.Refresh
   fullName: ISILab.AI.Grammar.GrammarField.Refresh
+- uid: ISILab.AI.Grammar.GrammarField.Data
+  commentId: P:ISILab.AI.Grammar.GrammarField.Data
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Data
+  name: Data
+  nameWithType: GrammarField.Data
+  fullName: ISILab.AI.Grammar.GrammarField.Data
 - uid: ISILab.AI.Grammar.GrammarField.IsList
   commentId: P:ISILab.AI.Grammar.GrammarField.IsList
   parent: ISILab.AI.Grammar.GrammarField
@@ -891,6 +973,120 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: ISILab.AI.Grammar.GrammarField.IsValid
+  commentId: M:ISILab.AI.Grammar.GrammarField.IsValid
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsValid
+  name: IsValid()
+  nameWithType: GrammarField.IsValid()
+  fullName: ISILab.AI.Grammar.GrammarField.IsValid()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.IsValid
+    name: IsValid
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsValid
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.IsValid
+    name: IsValid
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsValid
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleType.IsValid*
+  commentId: Overload:ISILab.AI.Grammar.GrammarBundleType.IsValid
+  href: ISILab.AI.Grammar.GrammarBundleType.html#ISILab_AI_Grammar_GrammarBundleType_IsValid
+  name: IsValid
+  nameWithType: GrammarBundleType.IsValid
+  fullName: ISILab.AI.Grammar.GrammarBundleType.IsValid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.AI.Grammar.GrammarField.GetValidStateLog
+  commentId: M:ISILab.AI.Grammar.GrammarField.GetValidStateLog
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValidStateLog
+  name: GetValidStateLog()
+  nameWithType: GrammarField.GetValidStateLog()
+  fullName: ISILab.AI.Grammar.GrammarField.GetValidStateLog()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.GetValidStateLog
+    name: GetValidStateLog
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValidStateLog
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.GetValidStateLog
+    name: GetValidStateLog
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValidStateLog
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarBundleType.GetValidStateLog*
+  commentId: Overload:ISILab.AI.Grammar.GrammarBundleType.GetValidStateLog
+  href: ISILab.AI.Grammar.GrammarBundleType.html#ISILab_AI_Grammar_GrammarBundleType_GetValidStateLog
+  name: GetValidStateLog
+  nameWithType: GrammarBundleType.GetValidStateLog
+  fullName: ISILab.AI.Grammar.GrammarBundleType.GetValidStateLog
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSLog
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSLog
+  parent: ISILab.LBS.Plugin.Core.Settings
+  href: ISILab.LBS.Plugin.Core.Settings.LBSLog.html
+  name: LBSLog
+  nameWithType: LBSLog
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSLog
+- uid: ISILab.LBS.Plugin.Core.Settings
+  commentId: N:ISILab.LBS.Plugin.Core.Settings
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.Settings
+  nameWithType: ISILab.LBS.Plugin.Core.Settings
+  fullName: ISILab.LBS.Plugin.Core.Settings
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    href: ISILab.LBS.Plugin.Core.Settings.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    href: ISILab.LBS.Plugin.Core.Settings.html
 - uid: ISILab.AI.Grammar.GrammarBundleField{System.String}.SetObjectBundle(System.Object[])
   commentId: M:ISILab.AI.Grammar.GrammarBundleField{System.String}.SetObjectBundle(System.Object[])
   parent: ISILab.AI.Grammar.GrammarBundleField{System.String}

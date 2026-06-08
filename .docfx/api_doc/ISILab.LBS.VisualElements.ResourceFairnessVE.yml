@@ -16,8 +16,12 @@ items:
   fullName: ISILab.LBS.VisualElements.ResourceFairnessVE
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ResourceFairnessVE.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ResourceFairnessVE
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\RTS\Editor\ResourceFairnessVE.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ResourceFairnessVE.cs
     startLine: 11
   assemblies:
   - LBS.Editor
@@ -26,9 +30,13 @@ items:
     content: >-
       [LBSCustomEditor("ResourcesSafetyFairness", typeof(ResourcesSafetyFairness))]
 
+      [Obsolete]
+
       public class ResourceFairnessVE : LBSCustomEditor, IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler
     content.vb: >-
       <LBSCustomEditor("ResourcesSafetyFairness", GetType(ResourcesSafetyFairness))>
+
+      <Obsolete>
 
       Public Class ResourceFairnessVE Inherits LBSCustomEditor Implements IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler
   inheritance:
@@ -169,6 +177,9 @@ items:
       value: ResourcesSafetyFairness
     - type: System.Type
       value: ISILab.AI.Categorization.ResourcesSafetyFairness
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.VisualElements.ResourceFairnessVE.#ctor(System.Object)
   commentId: M:ISILab.LBS.VisualElements.ResourceFairnessVE.#ctor(System.Object)
   id: '#ctor(System.Object)'
@@ -181,9 +192,13 @@ items:
   fullName: ISILab.LBS.VisualElements.ResourceFairnessVE.ResourceFairnessVE(object)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ResourceFairnessVE.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\RTS\Editor\ResourceFairnessVE.cs
-    startLine: 17
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ResourceFairnessVE.cs
+    startLine: 18
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -209,9 +224,13 @@ items:
   fullName: ISILab.LBS.VisualElements.ResourceFairnessVE.SetInfo(object)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ResourceFairnessVE.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetInfo
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\RTS\Editor\ResourceFairnessVE.cs
-    startLine: 23
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ResourceFairnessVE.cs
+    startLine: 24
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -239,9 +258,13 @@ items:
   fullName: ISILab.LBS.VisualElements.ResourceFairnessVE.CreateVisualElement()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ResourceFairnessVE.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateVisualElement
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\RTS\Editor\ResourceFairnessVE.cs
-    startLine: 34
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/RTS/Editor/ResourceFairnessVE.cs
+    startLine: 35
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements

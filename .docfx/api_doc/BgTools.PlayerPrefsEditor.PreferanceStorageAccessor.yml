@@ -1,0 +1,805 @@
+### YamlMime:ManagedReference
+items:
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  commentId: T:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  id: PreferanceStorageAccessor
+  parent: BgTools.PlayerPrefsEditor
+  children:
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.#ctor(System.String)
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.FetchKeysFromSystem
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.GetKeys(System.Boolean)
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IgnoreNextChange
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IsMonitoring
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.OnPrefEntryChanged
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.PrefEntryChangedDelegate
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartLoadingDelegate
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartMonitoring
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopLoadingDelegate
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopMonitoring
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.cachedData
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.ignoreNextChange
+  - BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.prefPath
+  langs:
+  - csharp
+  - vb
+  name: PreferanceStorageAccessor
+  nameWithType: PreferanceStorageAccessor
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  type: Class
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: PreferanceStorageAccessor
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 18
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public abstract class PreferanceStorageAccessor
+    content.vb: Public MustInherit Class PreferanceStorageAccessor
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - BgTools.PlayerPrefsEditor.WindowsPrefStorage
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.prefPath
+  commentId: F:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.prefPath
+  id: prefPath
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: prefPath
+  nameWithType: PreferanceStorageAccessor.prefPath
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.prefPath
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: prefPath
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 20
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: protected string prefPath
+    return:
+      type: System.String
+    content.vb: Protected prefPath As String
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.cachedData
+  commentId: F:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.cachedData
+  id: cachedData
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: cachedData
+  nameWithType: PreferanceStorageAccessor.cachedData
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.cachedData
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: cachedData
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 21
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: protected string[] cachedData
+    return:
+      type: System.String[]
+    content.vb: Protected cachedData As String()
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.FetchKeysFromSystem
+  commentId: M:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.FetchKeysFromSystem
+  id: FetchKeysFromSystem
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: FetchKeysFromSystem()
+  nameWithType: PreferanceStorageAccessor.FetchKeysFromSystem()
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.FetchKeysFromSystem()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: FetchKeysFromSystem
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 23
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: protected abstract void FetchKeysFromSystem()
+    content.vb: Protected MustOverride Sub FetchKeysFromSystem()
+  overload: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.FetchKeysFromSystem*
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.#ctor(System.String)
+  commentId: M:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: PreferanceStorageAccessor(string)
+  nameWithType: PreferanceStorageAccessor.PreferanceStorageAccessor(string)
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.PreferanceStorageAccessor(string)
+  type: Constructor
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: .ctor
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 25
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: protected PreferanceStorageAccessor(string pathToPrefs)
+    parameters:
+    - id: pathToPrefs
+      type: System.String
+    content.vb: Protected Sub New(pathToPrefs As String)
+  overload: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.#ctor*
+  nameWithType.vb: PreferanceStorageAccessor.New(String)
+  fullName.vb: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.New(String)
+  name.vb: New(String)
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.GetKeys(System.Boolean)
+  commentId: M:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.GetKeys(System.Boolean)
+  id: GetKeys(System.Boolean)
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetKeys(bool)
+  nameWithType: PreferanceStorageAccessor.GetKeys(bool)
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.GetKeys(bool)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetKeys
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 30
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public string[] GetKeys(bool reloadData = true)
+    parameters:
+    - id: reloadData
+      type: System.Boolean
+    return:
+      type: System.String[]
+    content.vb: Public Function GetKeys(reloadData As Boolean = True) As String()
+  overload: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.GetKeys*
+  nameWithType.vb: PreferanceStorageAccessor.GetKeys(Boolean)
+  fullName.vb: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.GetKeys(Boolean)
+  name.vb: GetKeys(Boolean)
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.PrefEntryChangedDelegate
+  commentId: F:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.PrefEntryChangedDelegate
+  id: PrefEntryChangedDelegate
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: PrefEntryChangedDelegate
+  nameWithType: PreferanceStorageAccessor.PrefEntryChangedDelegate
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.PrefEntryChangedDelegate
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: PrefEntryChangedDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 40
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public Action PrefEntryChangedDelegate
+    return:
+      type: System.Action
+    content.vb: Public PrefEntryChangedDelegate As Action
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.ignoreNextChange
+  commentId: F:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.ignoreNextChange
+  id: ignoreNextChange
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: ignoreNextChange
+  nameWithType: PreferanceStorageAccessor.ignoreNextChange
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.ignoreNextChange
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ignoreNextChange
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 41
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: protected bool ignoreNextChange
+    return:
+      type: System.Boolean
+    content.vb: Protected ignoreNextChange As Boolean
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IgnoreNextChange
+  commentId: M:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IgnoreNextChange
+  id: IgnoreNextChange
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: IgnoreNextChange()
+  nameWithType: PreferanceStorageAccessor.IgnoreNextChange()
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IgnoreNextChange()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: IgnoreNextChange
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 43
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public void IgnoreNextChange()
+    content.vb: Public Sub IgnoreNextChange()
+  overload: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IgnoreNextChange*
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.OnPrefEntryChanged
+  commentId: M:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.OnPrefEntryChanged
+  id: OnPrefEntryChanged
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: OnPrefEntryChanged()
+  nameWithType: PreferanceStorageAccessor.OnPrefEntryChanged()
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.OnPrefEntryChanged()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnPrefEntryChanged
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 48
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: protected virtual void OnPrefEntryChanged()
+    content.vb: Protected Overridable Sub OnPrefEntryChanged()
+  overload: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.OnPrefEntryChanged*
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartLoadingDelegate
+  commentId: F:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartLoadingDelegate
+  id: StartLoadingDelegate
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: StartLoadingDelegate
+  nameWithType: PreferanceStorageAccessor.StartLoadingDelegate
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartLoadingDelegate
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: StartLoadingDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 59
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public Action StartLoadingDelegate
+    return:
+      type: System.Action
+    content.vb: Public StartLoadingDelegate As Action
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopLoadingDelegate
+  commentId: F:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopLoadingDelegate
+  id: StopLoadingDelegate
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: StopLoadingDelegate
+  nameWithType: PreferanceStorageAccessor.StopLoadingDelegate
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopLoadingDelegate
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: StopLoadingDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 60
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public Action StopLoadingDelegate
+    return:
+      type: System.Action
+    content.vb: Public StopLoadingDelegate As Action
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartMonitoring
+  commentId: M:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartMonitoring
+  id: StartMonitoring
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: StartMonitoring()
+  nameWithType: PreferanceStorageAccessor.StartMonitoring()
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartMonitoring()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: StartMonitoring
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 62
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public abstract void StartMonitoring()
+    content.vb: Public MustOverride Sub StartMonitoring()
+  overload: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartMonitoring*
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopMonitoring
+  commentId: M:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopMonitoring
+  id: StopMonitoring
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: StopMonitoring()
+  nameWithType: PreferanceStorageAccessor.StopMonitoring()
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopMonitoring()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: StopMonitoring
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 63
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public abstract void StopMonitoring()
+    content.vb: Public MustOverride Sub StopMonitoring()
+  overload: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopMonitoring*
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IsMonitoring
+  commentId: M:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IsMonitoring
+  id: IsMonitoring
+  parent: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor
+  langs:
+  - csharp
+  - vb
+  name: IsMonitoring()
+  nameWithType: PreferanceStorageAccessor.IsMonitoring()
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IsMonitoring()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: IsMonitoring
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+    startLine: 64
+  assemblies:
+  - Unity.PlayerPrefsEditor.Editor
+  namespace: BgTools.PlayerPrefsEditor
+  syntax:
+    content: public abstract bool IsMonitoring()
+    return:
+      type: System.Boolean
+    content.vb: Public MustOverride Function IsMonitoring() As Boolean
+  overload: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IsMonitoring*
+references:
+- uid: BgTools.PlayerPrefsEditor
+  commentId: N:BgTools.PlayerPrefsEditor
+  href: BgTools.html
+  name: BgTools.PlayerPrefsEditor
+  nameWithType: BgTools.PlayerPrefsEditor
+  fullName: BgTools.PlayerPrefsEditor
+  spec.csharp:
+  - uid: BgTools
+    name: BgTools
+    href: BgTools.html
+  - name: .
+  - uid: BgTools.PlayerPrefsEditor
+    name: PlayerPrefsEditor
+    href: BgTools.PlayerPrefsEditor.html
+  spec.vb:
+  - uid: BgTools
+    name: BgTools
+    href: BgTools.html
+  - name: .
+  - uid: BgTools.PlayerPrefsEditor
+    name: PlayerPrefsEditor
+    href: BgTools.PlayerPrefsEditor.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.FetchKeysFromSystem*
+  commentId: Overload:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.FetchKeysFromSystem
+  href: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.html#BgTools_PlayerPrefsEditor_PreferanceStorageAccessor_FetchKeysFromSystem
+  name: FetchKeysFromSystem
+  nameWithType: PreferanceStorageAccessor.FetchKeysFromSystem
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.FetchKeysFromSystem
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.#ctor*
+  commentId: Overload:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.#ctor
+  href: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.html#BgTools_PlayerPrefsEditor_PreferanceStorageAccessor__ctor_System_String_
+  name: PreferanceStorageAccessor
+  nameWithType: PreferanceStorageAccessor.PreferanceStorageAccessor
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.PreferanceStorageAccessor
+  nameWithType.vb: PreferanceStorageAccessor.New
+  fullName.vb: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.New
+  name.vb: New
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.GetKeys*
+  commentId: Overload:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.GetKeys
+  href: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.html#BgTools_PlayerPrefsEditor_PreferanceStorageAccessor_GetKeys_System_Boolean_
+  name: GetKeys
+  nameWithType: PreferanceStorageAccessor.GetKeys
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.GetKeys
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IgnoreNextChange*
+  commentId: Overload:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IgnoreNextChange
+  href: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.html#BgTools_PlayerPrefsEditor_PreferanceStorageAccessor_IgnoreNextChange
+  name: IgnoreNextChange
+  nameWithType: PreferanceStorageAccessor.IgnoreNextChange
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IgnoreNextChange
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.OnPrefEntryChanged*
+  commentId: Overload:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.OnPrefEntryChanged
+  href: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.html#BgTools_PlayerPrefsEditor_PreferanceStorageAccessor_OnPrefEntryChanged
+  name: OnPrefEntryChanged
+  nameWithType: PreferanceStorageAccessor.OnPrefEntryChanged
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.OnPrefEntryChanged
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartMonitoring*
+  commentId: Overload:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartMonitoring
+  href: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.html#BgTools_PlayerPrefsEditor_PreferanceStorageAccessor_StartMonitoring
+  name: StartMonitoring
+  nameWithType: PreferanceStorageAccessor.StartMonitoring
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StartMonitoring
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopMonitoring*
+  commentId: Overload:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopMonitoring
+  href: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.html#BgTools_PlayerPrefsEditor_PreferanceStorageAccessor_StopMonitoring
+  name: StopMonitoring
+  nameWithType: PreferanceStorageAccessor.StopMonitoring
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.StopMonitoring
+- uid: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IsMonitoring*
+  commentId: Overload:BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IsMonitoring
+  href: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.html#BgTools_PlayerPrefsEditor_PreferanceStorageAccessor_IsMonitoring
+  name: IsMonitoring
+  nameWithType: PreferanceStorageAccessor.IsMonitoring
+  fullName: BgTools.PlayerPrefsEditor.PreferanceStorageAccessor.IsMonitoring
+shouldSkipMarkup: true

@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class PathOSAgentInspector | lbs-api_docs </title>
+      <title>Class PathOSAgentInspector | LBS API Docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class PathOSAgentInspector | lbs-api_docs ">
+      <meta name="title" content="Class PathOSAgentInspector | LBS API Docs ">
       
       
-      <link rel="icon" href="../favicon.ico">
+      <link rel="icon" href="..//images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=PathOS_PathOSAgentInspector.md&amp;value=---%0Auid%3A%20PathOS.PathOSAgentInspector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
-            lbs-api-docs
+            <img id="logo" class="svg" src="..//images/logo.svg" alt="LBS API Docs">
+            LBS API Docs
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -89,7 +89,7 @@
 
 
   <h1 id="PathOS_PathOSAgentInspector" data-uid="PathOS.PathOSAgentInspector" class="text-break">
-Class PathOSAgentInspector  
+Class PathOSAgentInspector  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Editor/PathOSAgentInspector.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -101,7 +101,8 @@ Class PathOSAgentInspector
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PathOSAgentInspector : Editor</code></pre>
+    <pre><code class="lang-csharp hljs">[CustomEditor(typeof(PathOSAgent))]
+public class PathOSAgentInspector : Editor</code></pre>
   </div>
 
 
@@ -111,42 +112,361 @@ Class PathOSAgentInspector
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Object</span></div>
+      <div><span class="xref">ScriptableObject</span></div>
+      <div><span class="xref">Editor</span></div>
       <div><span class="xref">PathOSAgentInspector</span></div>
     </dd>
   </dl>
 
 
 
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="PathOS_PathOSAgentInspector__ctor_" data-uid="PathOS.PathOSAgentInspector.#ctor*"></a>
-
-  <h3 id="PathOS_PathOSAgentInspector__ctor" data-uid="PathOS.PathOSAgentInspector.#ctor">
-  PathOSAgentInspector()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PathOSAgentInspector()</code></pre>
-  </div>
-
-
-
-
-
-
-
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">Editor.SaveChanges()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.DiscardChanges()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Editor.CreateEditorWithContext(Object[], Object, Type)</a>
+    </div>
+    <div>
+      <span class="xref">Editor.CreateEditorWithContext(Object[], Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Editor.CreateCachedEditorWithContext(Object, Object, Type, ref Editor)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Editor.CreateCachedEditorWithContext(Object[], Object, Type, ref Editor)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Editor.CreateCachedEditor(Object, Type, ref Editor)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Editor.CreateCachedEditor(Object[], Type, ref Editor)</a>
+    </div>
+    <div>
+      <span class="xref">Editor.CreateEditor(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Editor.CreateEditor(Object, Type)</a>
+    </div>
+    <div>
+      <span class="xref">Editor.CreateEditor(Object[])</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Editor.CreateEditor(Object[], Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Editor.DrawPropertiesExcluding(SerializedObject, params string[])</a>
+    </div>
+    <div>
+      <span class="xref">Editor.DrawDefaultInspector()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.Repaint()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.CreateInspectorGUI()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.RequiresConstantRepaint()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.DrawHeader()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.OnHeaderGUI()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.ShouldHideOpenButton()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.DrawFoldoutInspector(Object, ref Editor)</span>
+    </div>
+    <div>
+      <span class="xref">Editor.HasPreviewGUI()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.CreatePreview(VisualElement)</span>
+    </div>
+    <div>
+      <span class="xref">Editor.GetPreviewTitle()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Editor.RenderStaticPreview(string, Object[], int, int)</a>
+    </div>
+    <div>
+      <span class="xref">Editor.OnPreviewGUI(Rect, GUIStyle)</span>
+    </div>
+    <div>
+      <span class="xref">Editor.OnInteractivePreviewGUI(Rect, GUIStyle)</span>
+    </div>
+    <div>
+      <span class="xref">Editor.OnPreviewSettings()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.GetInfoString()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.DrawPreview(Rect)</span>
+    </div>
+    <div>
+      <span class="xref">Editor.ReloadPreviewInstances()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.UseDefaultMargins()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.MoveNextTarget()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.ResetTarget()</span>
+    </div>
+    <div>
+      <span class="xref">Editor.hasUnsavedChanges</span>
+    </div>
+    <div>
+      <span class="xref">Editor.saveChangesMessage</span>
+    </div>
+    <div>
+      <span class="xref">Editor.target</span>
+    </div>
+    <div>
+      <span class="xref">Editor.targets</span>
+    </div>
+    <div>
+      <span class="xref">Editor.serializedObject</span>
+    </div>
+    <div>
+      <span class="xref">Editor.finishedDefaultHeaderGUI</span>
+    </div>
+    <div>
+      <span class="xref">ScriptableObject.SetDirty()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">ScriptableObject.CreateInstance(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">ScriptableObject.CreateInstance(Type)</a>
+    </div>
+    <div>
+      <span class="xref">ScriptableObject.CreateInstance&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetInstanceID()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetHashCode()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.InstantiateAsync&lt;T&gt;(T, Transform, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, Vector3, Quaternion, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Transform, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">Object.InstantiateAsync&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, Vector3, Quaternion, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Object.InstantiateAsync&lt;T&gt;(T, int, ReadOnlySpan&lt;Vector3&gt;, ReadOnlySpan&lt;Quaternion&gt;, InstantiateParameters, CancellationToken)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Scene)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, InstantiateParameters)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate(Object, Transform, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate&lt;T&gt;(T, Transform, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.Destroy(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Destroy(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.DestroyImmediate(Object, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyImmediate(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DontDestroyOnLoad(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.DestroyObject(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyObject(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindSceneObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeIncludingAssets(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <span class="xref">Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Object.name</span>
+    </div>
+    <div>
+      <span class="xref">Object.hideFlags</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
 
 
 
@@ -161,10 +481,10 @@ Class PathOSAgentInspector
 
   <h3 id="PathOS_PathOSAgentInspector_OnInspectorGUI" data-uid="PathOS.PathOSAgentInspector.OnInspectorGUI">
   OnInspectorGUI()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Editor/PathOSAgentInspector.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Implement this function to make a custom inspector.</p></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -187,6 +507,7 @@ Class PathOSAgentInspector
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Editor/PathOSAgentInspector.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

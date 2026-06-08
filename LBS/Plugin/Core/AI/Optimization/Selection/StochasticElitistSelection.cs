@@ -14,7 +14,7 @@ namespace ISILab.AI.Optimization.Selections
         double last = 0;
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Selections.EliteSelection"/> class.
+        /// Initializes a new instance of the <see cref="StochasticElitistSelection"/> class.
         /// </summary>
         public StochasticElitistSelection() : base()
         {

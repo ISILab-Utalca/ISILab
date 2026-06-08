@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 namespace ISILab.LBS.VisualElements
 {
     [LBSCustomEditor("DCTreeWindowTogether", typeof(DCTreeWindowTogether))]
+    [System.Obsolete]
     public class DCTreeWindowTogetherVE : LBSCustomEditor
     {
         LBSCustomButton configurationButton;

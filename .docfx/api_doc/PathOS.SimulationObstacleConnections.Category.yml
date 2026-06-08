@@ -15,12 +15,30 @@ items:
   nameWithType: SimulationObstacleConnections.Category
   fullName: PathOS.SimulationObstacleConnections.Category
   type: Enum
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/SimulationObstacleConnections.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Category
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/SimulationObstacleConnections.cs
+    startLine: 14
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public enum SimulationObstacleConnections.Category
-    content.vb: Public Enum SimulationObstacleConnections.Category
+    content: >-
+      [Serializable]
+
+      public enum SimulationObstacleConnections.Category
+    content.vb: >-
+      <Serializable>
+
+      Public Enum SimulationObstacleConnections.Category
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: PathOS.SimulationObstacleConnections.Category.None
   commentId: F:PathOS.SimulationObstacleConnections.Category.None
   id: None
@@ -32,6 +50,14 @@ items:
   nameWithType: SimulationObstacleConnections.Category.None
   fullName: PathOS.SimulationObstacleConnections.Category.None
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/SimulationObstacleConnections.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: None
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/SimulationObstacleConnections.cs
+    startLine: 17
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -50,6 +76,14 @@ items:
   nameWithType: SimulationObstacleConnections.Category.OPEN
   fullName: PathOS.SimulationObstacleConnections.Category.OPEN
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/SimulationObstacleConnections.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OPEN
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/SimulationObstacleConnections.cs
+    startLine: 18
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -68,6 +102,14 @@ items:
   nameWithType: SimulationObstacleConnections.Category.CLOSE
   fullName: PathOS.SimulationObstacleConnections.Category.CLOSE
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/SimulationObstacleConnections.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: CLOSE
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/SimulationObstacleConnections.cs
+    startLine: 19
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -78,7 +120,6 @@ items:
 references:
 - uid: PathOS
   commentId: N:PathOS
-  isExternal: true
   href: PathOS.html
   name: PathOS
   nameWithType: PathOS
@@ -86,7 +127,6 @@ references:
 - uid: PathOS.SimulationObstacleConnections.Category
   commentId: T:PathOS.SimulationObstacleConnections.Category
   parent: PathOS
-  isExternal: true
   href: PathOS.SimulationObstacleConnections.html
   name: SimulationObstacleConnections.Category
   nameWithType: SimulationObstacleConnections.Category
@@ -94,21 +134,17 @@ references:
   spec.csharp:
   - uid: PathOS.SimulationObstacleConnections
     name: SimulationObstacleConnections
-    isExternal: true
     href: PathOS.SimulationObstacleConnections.html
   - name: .
   - uid: PathOS.SimulationObstacleConnections.Category
     name: Category
-    isExternal: true
     href: PathOS.SimulationObstacleConnections.Category.html
   spec.vb:
   - uid: PathOS.SimulationObstacleConnections
     name: SimulationObstacleConnections
-    isExternal: true
     href: PathOS.SimulationObstacleConnections.html
   - name: .
   - uid: PathOS.SimulationObstacleConnections.Category
     name: Category
-    isExternal: true
     href: PathOS.SimulationObstacleConnections.Category.html
 shouldSkipMarkup: true

@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ChromosomeBase | lbs-api_docs </title>
+      <title>Class ChromosomeBase | LBS API Docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ChromosomeBase | lbs-api_docs ">
+      <meta name="title" content="Class ChromosomeBase | LBS API Docs ">
       
       <meta name="description" content="A base class for chromosomes.">
-      <link rel="icon" href="../favicon.ico">
+      <link rel="icon" href="..//images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=GeneticSharp_Domain_Chromosomes_ChromosomeBase.md&amp;value=---%0Auid%3A%20GeneticSharp.Domain.Chromosomes.ChromosomeBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
-            lbs-api-docs
+            <img id="logo" class="svg" src="..//images/logo.svg" alt="LBS API Docs">
+            LBS API Docs
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -89,7 +89,7 @@
 
 
   <h1 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase" class="text-break">
-Class ChromosomeBase  
+Class ChromosomeBase  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -164,7 +164,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor">
   ChromosomeBase()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -188,25 +188,25 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <a id="GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor*"></a>
 
-  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor_System_Int32_System_Int32___System_Int32___" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Int32[],System.Int32[])">
-  ChromosomeBase(int, int[], int[])
-  
+  <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase__ctor_System_Int32_System_Collections_Generic_HashSet_System_Int32__System_Collections_Generic_HashSet_System_Int32__" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.#ctor(System.Int32,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})">
+  ChromosomeBase(int, HashSet&lt;int&gt;, HashSet&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a> class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ChromosomeBase(int length, int[] immutables = null, int[] invalids = null)</code></pre>
+    <pre><code class="lang-csharp hljs">protected ChromosomeBase(int length, HashSet&lt;int&gt; immutables = null, HashSet&lt;int&gt; invalids = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd>The length, in genes, of the chromosome.</dd>
-    <dt><code>immutables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dt><code>immutables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
     <dd></dd>
-    <dt><code>invalids</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dt><code>invalids</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -228,7 +228,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_genes" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.genes">
   genes
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -258,14 +258,14 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_immutableIndexes" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.immutableIndexes">
   immutableIndexes
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int[] immutableIndexes</code></pre>
+    <pre><code class="lang-csharp hljs">protected HashSet&lt;int&gt; immutableIndexes</code></pre>
   </div>
 
 
@@ -273,7 +273,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -288,14 +288,14 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_invalidIndexes" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.invalidIndexes">
   invalidIndexes
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int[] invalidIndexes</code></pre>
+    <pre><code class="lang-csharp hljs">protected HashSet&lt;int&gt; invalidIndexes</code></pre>
   </div>
 
 
@@ -303,7 +303,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -323,7 +323,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Fitness" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Fitness">
   Fitness
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Gets or sets the fitness of the chromosome in the current problem.</div>
@@ -354,7 +354,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ImmutablesCount" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.ImmutablesCount">
   ImmutablesCount
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -385,7 +385,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Length" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Length">
   Length
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Gets the length, in genes, of the chromosome.</div>
@@ -416,7 +416,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_xFitness" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.xFitness">
   xFitness
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Gets or sets the fitness.</div>
@@ -447,7 +447,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_yFitness" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.yFitness">
   yFitness
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Gets or sets the fitness.</div>
@@ -482,7 +482,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Clone" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Clone">
   Clone()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L381"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -513,7 +513,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CloneChromosome" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CloneChromosome">
   CloneChromosome()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Creates a clone.</div>
@@ -544,7 +544,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CompareTo_GeneticSharp_Domain_Chromosomes_ChromosomeBase_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CompareTo(GeneticSharp.Domain.Chromosomes.ChromosomeBase)">
   CompareTo(ChromosomeBase)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L269"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Compares the current object with another object of the same type.</div>
@@ -580,7 +580,7 @@ public abstract class ChromosomeBase : IOptimizable, ICloneable</code></pre>
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGene_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGene(System.Int32)">
   CreateGene(int)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L325"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Creates the gene on specified index.
@@ -615,7 +615,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateGenes" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateGenes">
   CreateGenes()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L342"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Creates all genes
@@ -648,7 +648,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_CreateNewChromosome" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.CreateNewChromosome">
   CreateNewChromosome()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L151"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Creates a new chromosome using the same structure of this.</div>
@@ -679,7 +679,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Equals_System_Object_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Equals(System.Object)">
   Equals(object)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L292"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Determines whether the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> is equal to the current <a class="xref" href="GeneticSharp.Domain.Chromosomes.ChromosomeBase.html">ChromosomeBase</a>.</div>
@@ -716,7 +716,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GenerateGene" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GenerateGene">
   GenerateGene()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L373"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -747,7 +747,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetDataSquence__1" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetDataSquence``1">
   GetDataSquence&lt;T&gt;()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L409"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -783,7 +783,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetData__1" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetData``1">
   GetData&lt;T&gt;()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L400"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -819,7 +819,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene(System.Int32)">
   GetGene(int)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L363"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -855,7 +855,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGene__1_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGene``1(System.Int32)">
   GetGene&lt;T&gt;(int)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L236"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Gets the gene in the specified index.</div>
@@ -896,7 +896,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes">
   GetGenes()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L368"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -927,7 +927,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetGenes__1" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetGenes``1">
   GetGenes&lt;T&gt;()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L252"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Gets the genes.</div>
@@ -963,7 +963,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_GetHashCode" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.GetHashCode">
   GetHashCode()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L310"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Returns a hash code for this instance.</div>
@@ -994,7 +994,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsImmutable_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsImmutable(System.Int32)">
   IsImmutable(int)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L419"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1030,7 +1030,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsInvalid_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsInvalid(System.Int32)">
   IsInvalid(int)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L424"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1066,7 +1066,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_IsValid" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.IsValid">
   IsValid()
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L386"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1097,7 +1097,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGene__1_System_Int32___0_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGene``1(System.Int32,``0)">
   ReplaceGene&lt;T&gt;(int, T)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L165"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Replaces the gene in the specified index.</div>
@@ -1140,7 +1140,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_ReplaceGenes__1_System_Int32___0___" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.ReplaceGenes``1(System.Int32,``0[])">
   ReplaceGenes&lt;T&gt;(int, T[])
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L190"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Replaces the genes starting in the specified index.</div>
@@ -1180,7 +1180,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_Resize_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.Resize(System.Int32)">
   Resize(int)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L222"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Resizes the chromosome to the new length.</div>
@@ -1211,7 +1211,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDataSequence__1___0___" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDataSequence``1(``0[])">
   SetDataSequence&lt;T&gt;(T[])
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L388"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1247,7 +1247,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetData__1___0_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetData``1(``0)">
   SetData&lt;T&gt;(T)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L414"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1283,7 +1283,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_SetDeafult_System_Int32_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.SetDeafult(System.Int32)">
   SetDeafult(int)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L429"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1318,7 +1318,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_Equality_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Equality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)">
   operator ==(ChromosomeBase, ChromosomeBase)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Implements the operator ==.</div>
@@ -1356,7 +1356,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_GreaterThan_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_GreaterThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)">
   operator &gt;(ChromosomeBase, ChromosomeBase)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L142"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Implements the operator &gt;.</div>
@@ -1394,7 +1394,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_Inequality_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_Inequality(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)">
   operator !=(ChromosomeBase, ChromosomeBase)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Implements the operator !=.</div>
@@ -1432,7 +1432,7 @@ It's a shortcut to:
 
   <h3 id="GeneticSharp_Domain_Chromosomes_ChromosomeBase_op_LessThan_GeneticSharp_Domain_Chromosomes_ChromosomeBase_GeneticSharp_Domain_Chromosomes_ChromosomeBase_" data-uid="GeneticSharp.Domain.Chromosomes.ChromosomeBase.op_LessThan(GeneticSharp.Domain.Chromosomes.ChromosomeBase,GeneticSharp.Domain.Chromosomes.ChromosomeBase)">
   operator &lt;(ChromosomeBase, ChromosomeBase)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L114"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Implements the operator &lt;.</div>
@@ -1470,6 +1470,7 @@ It's a shortcut to:
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Chromosomes/ChromosomeBase.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -30,7 +30,7 @@ namespace ISILab.AI.Optimization.Selections
         #region Constructors
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GeneticSharp.Domain.Selections.StochasticUniversalSamplingSelection"/> class.
+        /// <see cref="StochasticUniversalSamplingSelection"/> class.
         /// </summary>
         public StochasticUniversalSamplingSelection()
         {

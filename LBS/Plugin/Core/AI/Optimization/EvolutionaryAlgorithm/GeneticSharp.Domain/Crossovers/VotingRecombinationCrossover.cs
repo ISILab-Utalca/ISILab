@@ -10,6 +10,7 @@ namespace GeneticSharp.Domain.Crossovers
 {
     /// <summary>
     /// Voting Recombination Crossover (VR).
+    ///  </summary>
     /// <remarks>
     /// <para>
     /// It can be seen as a P-sexual crossover operator, where p (parents number) is a natural number greater than, or equal to, 2.
@@ -28,25 +29,24 @@ namespace GeneticSharp.Domain.Crossovers
     /// </para>
     /// <para>
     /// The voting recombination produce one child of parents number (p) based on a threshold.
-    /// <see href="https://www.cs.vu.nl/~gusz/papers/Handbook-Multiparent-Eiben.pdf">Multiparent Recombination</see>
+    /// <see href="https://www.cs.vu.nl/~gusz/papers/Handbook-Multiparent-Eiben.pdf">Multi-parent Recombination</see>
     /// </para>
     /// </remarks>
-    /// </summary>
     [DisplayName("Voting Recombination (VR)")]
     public sealed class VotingRecombinationCrossover : CrossoverBase
     {
         private int _threshold;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover"/> class.
+        /// Initializes a new instance of the <see cref="VotingRecombinationCrossover"/> class.
         /// </summary>
         /// <param name="parentsNumber">The number of parents need for cross.</param>
         /// <param name="threshold">An element occurs at least the threshold number of times, it is copied into the offspring</param>
-        public VotingRecombinationCrossover()
+        public VotingRecombinationCrossover(int parentsNumber=2,int threshold=2)
         {
-            ParentsNumber = 2;
+            ParentsNumber = parentsNumber;
             ChildrenNumber = 1;
-            _threshold = 2;
+            _threshold = threshold;
             IsOrdered = false;
         }
 

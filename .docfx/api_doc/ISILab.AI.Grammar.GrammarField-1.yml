@@ -17,8 +17,12 @@ items:
   fullName: ISILab.AI.Grammar.GrammarField<T>
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/GrammarFieldT.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GrammarField
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\GrammarFieldT.cs
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/GrammarFieldT.cs
     startLine: 6
   assemblies:
   - LBS
@@ -49,15 +53,17 @@ items:
   implements:
   - System.ICloneable
   inheritedMembers:
-  - ISILab.AI.Grammar.GrammarField.data
   - ISILab.AI.Grammar.GrammarField.name
   - ISILab.AI.Grammar.GrammarField.Refresh
+  - ISILab.AI.Grammar.GrammarField.Data
   - ISILab.AI.Grammar.GrammarField.PrimitiveType
   - ISILab.AI.Grammar.GrammarField.IsList
   - ISILab.AI.Grammar.GrammarField.ItemsSource
   - ISILab.AI.Grammar.GrammarField.CreateField(System.String,System.String)
   - ISILab.AI.Grammar.GrammarField.GetHashCode
   - ISILab.AI.Grammar.GrammarField.ToString
+  - ISILab.AI.Grammar.GrammarField.IsValid
+  - ISILab.AI.Grammar.GrammarField.GetValidStateLog
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
@@ -82,17 +88,31 @@ items:
   fullName: ISILab.AI.Grammar.GrammarField<T>.value
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/GrammarFieldT.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: value
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\GrammarFieldT.cs
-    startLine: 9
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/GrammarFieldT.cs
+    startLine: 10
   assemblies:
   - LBS
   namespace: ISILab.AI.Grammar
   syntax:
-    content: public T value
+    content: >-
+      [HideInInspector]
+
+      public T value
     return:
       type: '{T}'
-    content.vb: Public value As T
+    content.vb: >-
+      <HideInInspector>
+
+      Public value As T
+  attributes:
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
   nameWithType.vb: GrammarField(Of T).value
   fullName.vb: ISILab.AI.Grammar.GrammarField(Of T).value
 - uid: ISILab.AI.Grammar.GrammarField`1.Clone
@@ -107,8 +127,12 @@ items:
   fullName: ISILab.AI.Grammar.GrammarField<T>.Clone()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/GrammarFieldT.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\GrammarFieldT.cs
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/GrammarFieldT.cs
     startLine: 11
   assemblies:
   - LBS
@@ -135,9 +159,13 @@ items:
   fullName: ISILab.AI.Grammar.GrammarField<T>.SetValue(object)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/GrammarFieldT.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetValue
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\GrammarFieldT.cs
-    startLine: 18
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/GrammarFieldT.cs
+    startLine: 34
   assemblies:
   - LBS
   namespace: ISILab.AI.Grammar
@@ -165,9 +193,13 @@ items:
   fullName: ISILab.AI.Grammar.GrammarField<T>.GetValue()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/GrammarFieldT.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetValue
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Fields\GrammarFields\GrammarFieldT.cs
-    startLine: 51
+    path: ../LBS/Plugin/Components/Data/Quest/Fields/GrammarFields/GrammarFieldT.cs
+    startLine: 67
   assemblies:
   - LBS
   namespace: ISILab.AI.Grammar
@@ -238,13 +270,6 @@ references:
   name: ICloneable
   nameWithType: ICloneable
   fullName: System.ICloneable
-- uid: ISILab.AI.Grammar.GrammarField.data
-  commentId: F:ISILab.AI.Grammar.GrammarField.data
-  parent: ISILab.AI.Grammar.GrammarField
-  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_data
-  name: data
-  nameWithType: GrammarField.data
-  fullName: ISILab.AI.Grammar.GrammarField.data
 - uid: ISILab.AI.Grammar.GrammarField.name
   commentId: F:ISILab.AI.Grammar.GrammarField.name
   parent: ISILab.AI.Grammar.GrammarField
@@ -259,6 +284,13 @@ references:
   name: Refresh
   nameWithType: GrammarField.Refresh
   fullName: ISILab.AI.Grammar.GrammarField.Refresh
+- uid: ISILab.AI.Grammar.GrammarField.Data
+  commentId: P:ISILab.AI.Grammar.GrammarField.Data
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_Data
+  name: Data
+  nameWithType: GrammarField.Data
+  fullName: ISILab.AI.Grammar.GrammarField.Data
 - uid: ISILab.AI.Grammar.GrammarField.PrimitiveType
   commentId: P:ISILab.AI.Grammar.GrammarField.PrimitiveType
   parent: ISILab.AI.Grammar.GrammarField
@@ -359,6 +391,44 @@ references:
   - uid: ISILab.AI.Grammar.GrammarField.ToString
     name: ToString
     href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_ToString
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarField.IsValid
+  commentId: M:ISILab.AI.Grammar.GrammarField.IsValid
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsValid
+  name: IsValid()
+  nameWithType: GrammarField.IsValid()
+  fullName: ISILab.AI.Grammar.GrammarField.IsValid()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.IsValid
+    name: IsValid
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsValid
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.IsValid
+    name: IsValid
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_IsValid
+  - name: (
+  - name: )
+- uid: ISILab.AI.Grammar.GrammarField.GetValidStateLog
+  commentId: M:ISILab.AI.Grammar.GrammarField.GetValidStateLog
+  parent: ISILab.AI.Grammar.GrammarField
+  href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValidStateLog
+  name: GetValidStateLog()
+  nameWithType: GrammarField.GetValidStateLog()
+  fullName: ISILab.AI.Grammar.GrammarField.GetValidStateLog()
+  spec.csharp:
+  - uid: ISILab.AI.Grammar.GrammarField.GetValidStateLog
+    name: GetValidStateLog
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValidStateLog
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.AI.Grammar.GrammarField.GetValidStateLog
+    name: GetValidStateLog
+    href: ISILab.AI.Grammar.GrammarField.html#ISILab_AI_Grammar_GrammarField_GetValidStateLog
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)

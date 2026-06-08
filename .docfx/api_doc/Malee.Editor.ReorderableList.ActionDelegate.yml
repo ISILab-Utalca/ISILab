@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: Malee.Editor.ReorderableList.ActionDelegate
+  commentId: T:Malee.Editor.ReorderableList.ActionDelegate
+  id: ReorderableList.ActionDelegate
+  parent: Malee.Editor
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.ActionDelegate
+  nameWithType: ReorderableList.ActionDelegate
+  fullName: Malee.Editor.ReorderableList.ActionDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ActionDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 30
+  assemblies:
+  - ReorderableList
+  namespace: Malee.Editor
+  syntax:
+    content: public delegate void ReorderableList.ActionDelegate(ReorderableList list)
+    parameters:
+    - id: list
+      type: Malee.Editor.ReorderableList
+    content.vb: Public Delegate Sub ReorderableList.ActionDelegate(list As ReorderableList)
+references:
+- uid: Malee.Editor
+  commentId: N:Malee.Editor
+  href: Malee.html
+  name: Malee.Editor
+  nameWithType: Malee.Editor
+  fullName: Malee.Editor
+  spec.csharp:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+  spec.vb:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+- uid: Malee.Editor.ReorderableList
+  commentId: T:Malee.Editor.ReorderableList
+  parent: Malee.Editor
+  href: Malee.Editor.ReorderableList.html
+  name: ReorderableList
+  nameWithType: ReorderableList
+  fullName: Malee.Editor.ReorderableList
+shouldSkipMarkup: true

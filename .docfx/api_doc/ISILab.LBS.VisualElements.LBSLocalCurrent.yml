@@ -19,7 +19,7 @@ items:
   type: Class
   source:
     id: LBSLocalCurrent
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\obj\Release\Unity.UIToolkit.SourceGenerator\Unity.UIToolkit.SourceGenerator.UxmlSerializedDataGenerator\ISILab.LBS.VisualElements.LBSLocalCurrent.gen.cs
+    path: C:\Users\Ignacio Reyes\Documents\LBSProject\obj\Release\Unity.UIToolkit.SourceGenerator\Unity.UIToolkit.SourceGenerator.UxmlSerializedDataGenerator\ISILab.LBS.VisualElements.LBSLocalCurrent.gen.cs
     startLine: 5
   assemblies:
   - LBS.Editor
@@ -180,8 +180,12 @@ items:
   fullName: ISILab.LBS.VisualElements.LBSLocalCurrent.LBSLocalCurrent()
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalCurrent.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\InspectorElements\LBSInspector\LBSLocalCurrent.cs
+    path: ../LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalCurrent.cs
     startLine: 26
   assemblies:
   - LBS.Editor
@@ -205,13 +209,20 @@ items:
   fullName: ISILab.LBS.VisualElements.LBSLocalCurrent.InitCustomEditors(ref System.Collections.Generic.List<LBS.Components.LBSLayer>)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalCurrent.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InitCustomEditors
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\InspectorElements\LBSInspector\LBSLocalCurrent.cs
+    path: ../LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalCurrent.cs
     startLine: 39
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
-  summary: Gets the classes of editors per component, no avoid using reflection on each instance creation
+  summary: >-
+    Gets the classes of editors per component, no avoid using reflection on each instance creation
+
+    Must be overridden in a derived class to implement custom repainting behavior.
   example: []
   syntax:
     content: public override void InitCustomEditors(ref List<LBSLayer> _layers)
@@ -236,18 +247,27 @@ items:
   fullName: ISILab.LBS.VisualElements.LBSLocalCurrent.SetTarget(LBS.Components.LBSLayer)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalCurrent.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetTarget
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\InspectorElements\LBSInspector\LBSLocalCurrent.cs
+    path: ../LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalCurrent.cs
     startLine: 68
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
+  summary: >-
+    Sets the active layer into the panel to update the different components of a layer, such as modules,
+
+    behaviours, assistants and toolkit.
   example: []
   syntax:
     content: public override void SetTarget(LBSLayer layer)
     parameters:
     - id: layer
       type: LBS.Components.LBSLayer
+      description: ''
     content.vb: Public Overrides Sub SetTarget(layer As LBSLayer)
   overridden: ISILab.LBS.VisualElements.LBSInspector.SetTarget(LBS.Components.LBSLayer)
   overload: ISILab.LBS.VisualElements.LBSLocalCurrent.SetTarget*
@@ -263,12 +283,20 @@ items:
   fullName: ISILab.LBS.VisualElements.LBSLocalCurrent.Repaint()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalCurrent.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Repaint
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\InspectorElements\LBSInspector\LBSLocalCurrent.cs
+    path: ../LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalCurrent.cs
     startLine: 91
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
+  summary: >-
+    Marks the panel as dirty and requests a repaint. 
+
+    Must be overridden in a derived class to implement custom repainting behavior.
   example: []
   syntax:
     content: public override void Repaint()
@@ -287,8 +315,12 @@ items:
   fullName: ISILab.LBS.VisualElements.LBSLocalCurrent.SetSelectedVe(System.Collections.Generic.List<object>)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalCurrent.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetSelectedVe
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\InspectorElements\LBSInspector\LBSLocalCurrent.cs
+    path: ../LBS/Plugin/UI/Editor/InspectorElements/LBSInspector/LBSLocalCurrent.cs
     startLine: 97
   assemblies:
   - LBS.Editor

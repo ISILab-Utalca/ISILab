@@ -23,6 +23,7 @@ items:
   - ISILab.LBS.Components.GraphNode.Or
   - ISILab.LBS.Components.GraphNode.Position
   - ISILab.LBS.Components.GraphNode.Select(System.Boolean)
+  - ISILab.LBS.Components.GraphNode.ToString
   - ISILab.LBS.Components.GraphNode.ValidConnections
   - ISILab.LBS.Components.GraphNode.ValidGrammar
   - ISILab.LBS.Components.GraphNode.graph
@@ -39,9 +40,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GraphNode
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 16
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 14
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -57,8 +62,7 @@ items:
   inheritance:
   - System.Object
   derivedClasses:
-  - ISILab.LBS.Components.AndNode
-  - ISILab.LBS.Components.OrNode
+  - ISILab.LBS.Components.BranchNode
   - ISILab.LBS.Components.QuestNode
   implements:
   - System.ICloneable
@@ -67,7 +71,6 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
   attributes:
   - type: System.SerializableAttribute
     ctor: System.SerializableAttribute.#ctor
@@ -84,9 +87,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.Or
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Or
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 21
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 19
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -107,9 +114,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.And
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: And
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 22
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 20
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -130,9 +141,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.validGrammar
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: validGrammar
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 32
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 30
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -163,9 +178,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.validConnections
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: validConnections
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 35
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 33
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -196,9 +215,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.x
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: x
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 38
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 36
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -236,9 +259,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.y
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: y
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 41
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 39
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -276,9 +303,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.graph
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: graph
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 44
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 42
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -316,9 +347,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.nodePosition
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: nodePosition
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 47
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 45
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -349,9 +384,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.Graph
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Graph
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 52
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 50
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -374,9 +413,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.ID
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ID
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 58
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 56
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -399,9 +442,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.Position
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Position
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 67
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 65
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -426,9 +473,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.ValidGrammar
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ValidGrammar
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 77
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 75
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -451,9 +502,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.ValidConnections
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ValidConnections
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 83
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 81
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -476,9 +531,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.NodePosition
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: NodePosition
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 92
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 90
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -503,9 +562,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.OnSelect
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnSelect
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 108
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 107
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -526,9 +589,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.OnDeselect
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnDeselect
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 109
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 108
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -549,9 +616,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.GraphNode()
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 112
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 111
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -574,9 +645,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.GraphNode(string, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraph)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 114
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 113
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -606,9 +681,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.Select(bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Select
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 130
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 129
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -637,9 +716,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.Clone()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 142
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 141
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -664,9 +747,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.Equals(object)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 159
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 158
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -696,9 +783,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.GetHashCode()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 165
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 164
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -722,9 +813,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.CreateCloneInstance()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateCloneInstance
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 170
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 166
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -746,9 +841,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.IsValid()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsValid
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 172
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 168
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -770,9 +869,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.Equal(ISILab.LBS.Components.GraphNode)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equal
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 174
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 170
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -797,9 +900,13 @@ items:
   fullName: ISILab.LBS.Components.GraphNode.IsSelected()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsSelected
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\QuestGraphNode.cs
-    startLine: 179
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 172
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -809,6 +916,36 @@ items:
       type: System.Boolean
     content.vb: Public Function IsSelected() As Boolean
   overload: ISILab.LBS.Components.GraphNode.IsSelected*
+- uid: ISILab.LBS.Components.GraphNode.ToString
+  commentId: M:ISILab.LBS.Components.GraphNode.ToString
+  id: ToString
+  parent: ISILab.LBS.Components.GraphNode
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: GraphNode.ToString()
+  fullName: ISILab.LBS.Components.GraphNode.ToString()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ToString
+    path: ../LBS/Plugin/Components/Data/Quest/QuestGraphNode.cs
+    startLine: 174
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ISILab.LBS.Components.GraphNode.ToString*
 references:
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
@@ -996,30 +1133,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
   - name: )
 - uid: System
   commentId: N:System
@@ -1312,4 +1425,34 @@ references:
   name: IsSelected
   nameWithType: GraphNode.IsSelected
   fullName: ISILab.LBS.Components.GraphNode.IsSelected
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Components.GraphNode.ToString*
+  commentId: Overload:ISILab.LBS.Components.GraphNode.ToString
+  href: ISILab.LBS.Components.GraphNode.html#ISILab_LBS_Components_GraphNode_ToString
+  name: ToString
+  nameWithType: GraphNode.ToString
+  fullName: ISILab.LBS.Components.GraphNode.ToString
 shouldSkipMarkup: true

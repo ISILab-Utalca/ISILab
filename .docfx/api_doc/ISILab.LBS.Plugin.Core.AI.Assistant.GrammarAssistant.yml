@@ -18,10 +18,8 @@ items:
   - ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertNextAction(System.String,ISILab.LBS.Components.QuestNode)
   - ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertPreviousAction(System.String,ISILab.LBS.Components.QuestNode)
   - ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnAttachLayer(LBS.Components.LBSLayer)
-  - ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnCallAssistant
   - ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnGUI
-  - ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar(ISILab.LBS.Modules.QuestEdge)
-  - ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph
+  - ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateGraphGrammar
   langs:
   - csharp
   - vb
@@ -30,8 +28,12 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GrammarAssistant
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
     startLine: 21
   assemblies:
   - LBS
@@ -81,29 +83,6 @@ items:
   - type: System.SerializableAttribute
     ctor: System.SerializableAttribute.#ctor
     arguments: []
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnCallAssistant
-  commentId: F:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnCallAssistant
-  id: OnCallAssistant
-  parent: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
-  langs:
-  - csharp
-  - vb
-  name: OnCallAssistant
-  nameWithType: GrammarAssistant.OnCallAssistant
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnCallAssistant
-  type: Field
-  source:
-    id: OnCallAssistant
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 32
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
-  syntax:
-    content: public Action<GraphNode> OnCallAssistant
-    return:
-      type: System.Action{ISILab.LBS.Components.GraphNode}
-    content.vb: Public OnCallAssistant As Action(Of GraphNode)
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
   commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
   id: Disabled
@@ -116,9 +95,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Disabled
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 33
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 32
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -141,9 +124,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Graph
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 34
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 33
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -176,9 +163,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Behavior
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Behavior
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 36
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 35
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -201,9 +192,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GrammarAssistant(string, string, UnityEngine.Color)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 39
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -233,9 +228,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Clone()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 42
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 41
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -247,57 +246,34 @@ items:
     content.vb: Public Overrides Function Clone() As Object
   overridden: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
   overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Clone*
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph
-  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph
-  id: ValidateQuestGraph
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateGraphGrammar
+  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateGraphGrammar
+  id: ValidateGraphGrammar
   parent: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
   langs:
   - csharp
   - vb
-  name: ValidateQuestGraph()
-  nameWithType: GrammarAssistant.ValidateQuestGraph()
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph()
+  name: ValidateGraphGrammar()
+  nameWithType: GrammarAssistant.ValidateGraphGrammar()
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateGraphGrammar()
   type: Method
   source:
-    id: ValidateQuestGraph
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 48
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ValidateGraphGrammar
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 47
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
   syntax:
-    content: public bool ValidateQuestGraph()
+    content: public bool ValidateGraphGrammar()
     return:
       type: System.Boolean
-    content.vb: Public Function ValidateQuestGraph() As Boolean
-  overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph*
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar(ISILab.LBS.Modules.QuestEdge)
-  commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar(ISILab.LBS.Modules.QuestEdge)
-  id: ValidateEdgeGrammar(ISILab.LBS.Modules.QuestEdge)
-  parent: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
-  langs:
-  - csharp
-  - vb
-  name: ValidateEdgeGrammar(QuestEdge)
-  nameWithType: GrammarAssistant.ValidateEdgeGrammar(QuestEdge)
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar(ISILab.LBS.Modules.QuestEdge)
-  type: Method
-  source:
-    id: ValidateEdgeGrammar
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 58
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.AI.Assistant
-  syntax:
-    content: public bool ValidateEdgeGrammar(QuestEdge edge)
-    parameters:
-    - id: edge
-      type: ISILab.LBS.Modules.QuestEdge
-    return:
-      type: System.Boolean
-    content.vb: Public Function ValidateEdgeGrammar(edge As QuestEdge) As Boolean
-  overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar*
+    content.vb: Public Function ValidateGraphGrammar() As Boolean
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateGraphGrammar*
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidNextActionsInsert(System.String,System.Action{System.Single},System.Threading.CancellationToken)
   commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidNextActionsInsert(System.String,System.Action{System.Single},System.Threading.CancellationToken)
   id: GetAllValidNextActionsInsert(System.String,System.Action{System.Single},System.Threading.CancellationToken)
@@ -310,9 +286,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidNextActionsInsert(string, System.Action<float>, System.Threading.CancellationToken)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAllValidNextActionsInsert
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 146
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 188
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -344,9 +324,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidPrevActionsInsert(string, System.Action<float>, System.Threading.CancellationToken)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAllValidPrevActionsInsert
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 160
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 202
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -378,9 +362,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllExpansions(string, System.Action<float>, System.Threading.CancellationToken)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAllExpansions
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 173
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 215
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -412,9 +400,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ExpandAction(System.Collections.Generic.List<string>, ISILab.LBS.Components.QuestNode)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ExpandAction
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 235
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 276
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -444,9 +436,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertNextAction(string, ISILab.LBS.Components.QuestNode)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InsertNextAction
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 253
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 294
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -476,9 +472,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.InsertPreviousAction(string, ISILab.LBS.Components.QuestNode)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InsertPreviousAction
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 261
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 302
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -508,9 +508,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnAttachLayer(LBS.Components.LBSLayer)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAttachLayer
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 277
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 318
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -535,9 +539,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.OnGUI()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnGUI
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 312
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 323
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -559,9 +567,13 @@ items:
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ExecuteTest(bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ExecuteTest
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Assistant\GrammarAssistant.cs
-    startLine: 315
+    path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
+    startLine: 326
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -1137,67 +1149,6 @@ references:
   - uid: ISILab.LBS.Plugin.Components.Behaviours
     name: Behaviours
     href: ISILab.LBS.Plugin.Components.Behaviours.html
-- uid: System.Action{ISILab.LBS.Components.GraphNode}
-  commentId: T:System.Action{ISILab.LBS.Components.GraphNode}
-  parent: System
-  definition: System.Action`1
-  href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<GraphNode>
-  nameWithType: Action<GraphNode>
-  fullName: System.Action<ISILab.LBS.Components.GraphNode>
-  nameWithType.vb: Action(Of GraphNode)
-  fullName.vb: System.Action(Of ISILab.LBS.Components.GraphNode)
-  name.vb: Action(Of GraphNode)
-  spec.csharp:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: <
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
-  - name: )
-- uid: System.Action`1
-  commentId: T:System.Action`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
-  spec.csharp:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Disabled
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_Disabled
@@ -1359,25 +1310,12 @@ references:
   name: Clone
   nameWithType: GrammarAssistant.Clone
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Clone
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph
-  href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_ValidateQuestGraph
-  name: ValidateQuestGraph
-  nameWithType: GrammarAssistant.ValidateQuestGraph
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateQuestGraph
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar
-  href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_ValidateEdgeGrammar_ISILab_LBS_Modules_QuestEdge_
-  name: ValidateEdgeGrammar
-  nameWithType: GrammarAssistant.ValidateEdgeGrammar
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateEdgeGrammar
-- uid: ISILab.LBS.Modules.QuestEdge
-  commentId: T:ISILab.LBS.Modules.QuestEdge
-  parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestEdge.html
-  name: QuestEdge
-  nameWithType: QuestEdge
-  fullName: ISILab.LBS.Modules.QuestEdge
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateGraphGrammar*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateGraphGrammar
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_ValidateGraphGrammar
+  name: ValidateGraphGrammar
+  nameWithType: GrammarAssistant.ValidateGraphGrammar
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.ValidateGraphGrammar
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidNextActionsInsert*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.GetAllValidNextActionsInsert
   href: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_GrammarAssistant_GetAllValidNextActionsInsert_System_String_System_Action_System_Single__System_Threading_CancellationToken_
@@ -1461,6 +1399,34 @@ references:
     name: String
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
   - name: )
 - uid: System.Threading
   commentId: N:System.Threading

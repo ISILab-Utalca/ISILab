@@ -29,9 +29,9 @@ namespace ISILab.AI.Optimization.Terminations
         }
 
         /// <summary>
-        /// Returns a <see cref="System.String"/> that represents the current <see cref="GeneticSharp.Domain.Terminations.LogicalOperatorTerminationBase"/>.
+        /// Returns a <see cref="System.String"/> that represents the current <see cref="LogicalOperatorTerminationBase"/>.
         /// </summary>
-        /// <returns>A <see cref="System.String"/> that represents the current <see cref="GeneticSharp.Domain.Terminations.LogicalOperatorTerminationBase"/>.</returns>
+        /// <returns>A <see cref="System.String"/> that represents the current <see cref="LogicalOperatorTerminationBase"/>.</returns>
         public override string ToString()
         {
             return "{0} (HasReached: {1})".With(GetType().Name, m_hasReached);

@@ -1,0 +1,104 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Components.ReorderableList.ReorderableList.GetElementNameDelegate
+  commentId: T:ISILab.LBS.Components.ReorderableList.ReorderableList.GetElementNameDelegate
+  id: ReorderableList.GetElementNameDelegate
+  parent: ISILab.LBS.Components.ReorderableList
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.GetElementNameDelegate
+  nameWithType: ReorderableList.GetElementNameDelegate
+  fullName: ISILab.LBS.Components.ReorderableList.ReorderableList.GetElementNameDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetElementNameDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 37
+  assemblies:
+  - ReorderableList
+  namespace: ISILab.LBS.Components.ReorderableList
+  syntax:
+    content: public delegate string ReorderableList.GetElementNameDelegate(SerializedProperty element)
+    parameters:
+    - id: element
+      type: UnityEditor.SerializedProperty
+    return:
+      type: System.String
+    content.vb: Public Delegate Function ReorderableList.GetElementNameDelegate(element As SerializedProperty) As String
+references:
+- uid: ISILab.LBS.Components.ReorderableList
+  commentId: N:ISILab.LBS.Components.ReorderableList
+  href: ISILab.html
+  name: ISILab.LBS.Components.ReorderableList
+  nameWithType: ISILab.LBS.Components.ReorderableList
+  fullName: ISILab.LBS.Components.ReorderableList
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+  - name: .
+  - uid: ISILab.LBS.Components.ReorderableList
+    name: ReorderableList
+    href: ISILab.LBS.Components.ReorderableList.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+  - name: .
+  - uid: ISILab.LBS.Components.ReorderableList
+    name: ReorderableList
+    href: ISILab.LBS.Components.ReorderableList.html
+- uid: UnityEditor.SerializedProperty
+  commentId: T:UnityEditor.SerializedProperty
+  parent: UnityEditor
+  isExternal: true
+  name: SerializedProperty
+  nameWithType: SerializedProperty
+  fullName: UnityEditor.SerializedProperty
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityEditor
+  commentId: N:UnityEditor
+  isExternal: true
+  name: UnityEditor
+  nameWithType: UnityEditor
+  fullName: UnityEditor
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+shouldSkipMarkup: true

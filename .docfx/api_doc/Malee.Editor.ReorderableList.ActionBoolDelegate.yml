@@ -1,0 +1,82 @@
+### YamlMime:ManagedReference
+items:
+- uid: Malee.Editor.ReorderableList.ActionBoolDelegate
+  commentId: T:Malee.Editor.ReorderableList.ActionBoolDelegate
+  id: ReorderableList.ActionBoolDelegate
+  parent: Malee.Editor
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.ActionBoolDelegate
+  nameWithType: ReorderableList.ActionBoolDelegate
+  fullName: Malee.Editor.ReorderableList.ActionBoolDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ActionBoolDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 31
+  assemblies:
+  - ReorderableList
+  namespace: Malee.Editor
+  syntax:
+    content: public delegate bool ReorderableList.ActionBoolDelegate(ReorderableList list)
+    parameters:
+    - id: list
+      type: Malee.Editor.ReorderableList
+    return:
+      type: System.Boolean
+    content.vb: Public Delegate Function ReorderableList.ActionBoolDelegate(list As ReorderableList) As Boolean
+references:
+- uid: Malee.Editor
+  commentId: N:Malee.Editor
+  href: Malee.html
+  name: Malee.Editor
+  nameWithType: Malee.Editor
+  fullName: Malee.Editor
+  spec.csharp:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+  spec.vb:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+- uid: Malee.Editor.ReorderableList
+  commentId: T:Malee.Editor.ReorderableList
+  parent: Malee.Editor
+  href: Malee.Editor.ReorderableList.html
+  name: ReorderableList
+  nameWithType: ReorderableList
+  fullName: Malee.Editor.ReorderableList
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+shouldSkipMarkup: true

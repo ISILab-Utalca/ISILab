@@ -51,19 +51,21 @@ namespace ISILab.LBS.VisualElements
         
         /// <summary>
         /// Gets the classes of editors per component, no avoid using reflection on each instance creation
+        /// Must be overridden in a derived class to implement custom repainting behavior.
         /// </summary>
-        /// <param name="layer"></param>
         public abstract void InitCustomEditors(ref List<LBSLayer> layers);
+
         /// <summary>
         /// Sets the active layer into the panel to update the different components of a layer, such as modules,
         /// behaviours, assistants and toolkit. 
         /// </summary>
-        /// <param name="layer"></param
-        
-        public abstract void SetTarget(LBSLayer layer);
-        /// <summary>
-        /// Markes the panel as dirty and calls resetTarget
         /// <param name="layer"></param>
+        public abstract void SetTarget(LBSLayer layer);
+
+        /// <summary>
+        /// Marks the panel as dirty and requests a repaint. 
+        /// Must be overridden in a derived class to implement custom repainting behavior.
+        /// </summary>
         public virtual void Repaint() 
         {
             Debug.LogWarning("[ISILab]: The inspector (" + ToString() + ") does not implement repainting.");

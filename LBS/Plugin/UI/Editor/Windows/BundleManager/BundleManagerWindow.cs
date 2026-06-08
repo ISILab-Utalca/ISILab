@@ -121,7 +121,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager
             Instance = null;
         }
 
-        private void CreateGUI()
+        new private void CreateGUI()
         {
             //Set references
             _arrowDown = AssetDatabase.LoadAssetAtPath<VectorImage>(AssetDatabase.GUIDToAssetPath("b570a25de51f01c41bd82dbe5372bb3f"));

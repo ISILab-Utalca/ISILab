@@ -15,13 +15,13 @@ namespace ISILab.LBS.VisualElements
     {
         private static VisualTreeAsset view;
 
-        private LBSCustomPainter upperRightFill;
-        private LBSCustomPainter upperLeftFill;
-        private LBSCustomPainter lowerLeftFill;
-        private LBSCustomPainter lowerRightFill;
+        private CustomComponents.LBSCustomPainter upperRightFill;
+        private CustomComponents.LBSCustomPainter upperLeftFill;
+        private CustomComponents.LBSCustomPainter lowerLeftFill;
+        private CustomComponents.LBSCustomPainter lowerRightFill;
 
         //private VisualElement fill, center;
-        private LBSCustomPainter center;
+        private CustomComponents.LBSCustomPainter center;
 
         readonly Color invalidColor = Color.white;
         float boderWidth = 1f;

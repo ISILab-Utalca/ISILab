@@ -16,8 +16,12 @@ items:
   fullName: ISILab.LBS.VisualElements.DCTreeWindowTogetherVE
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DCTreeWindowTogetherVE
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Dungeon Crawler\Editor\DCTreeWindowTogetherVE.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
     startLine: 8
   assemblies:
   - LBS.Editor
@@ -26,9 +30,13 @@ items:
     content: >-
       [LBSCustomEditor("DCTreeWindowTogether", typeof(DCTreeWindowTogether))]
 
+      [Obsolete]
+
       public class DCTreeWindowTogetherVE : LBSCustomEditor, IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler
     content.vb: >-
       <LBSCustomEditor("DCTreeWindowTogether", GetType(DCTreeWindowTogether))>
+
+      <Obsolete>
 
       Public Class DCTreeWindowTogetherVE Inherits LBSCustomEditor Implements IEventHandler, IResolvedStyle, ITransform, ITransitionAnimations, IExperimentalFeatures, IVisualElementScheduler
   inheritance:
@@ -169,6 +177,9 @@ items:
       value: DCTreeWindowTogether
     - type: System.Type
       value: ISILab.AI.Categorization.DCTreeWindowTogether
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.VisualElements.DCTreeWindowTogetherVE.#ctor(System.Object)
   commentId: M:ISILab.LBS.VisualElements.DCTreeWindowTogetherVE.#ctor(System.Object)
   id: '#ctor(System.Object)'
@@ -181,9 +192,13 @@ items:
   fullName: ISILab.LBS.VisualElements.DCTreeWindowTogetherVE.DCTreeWindowTogetherVE(object)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Dungeon Crawler\Editor\DCTreeWindowTogetherVE.cs
-    startLine: 13
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
+    startLine: 14
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -209,9 +224,13 @@ items:
   fullName: ISILab.LBS.VisualElements.DCTreeWindowTogetherVE.CreateVisualElement()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CreateVisualElement
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Dungeon Crawler\Editor\DCTreeWindowTogetherVE.cs
-    startLine: 19
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
+    startLine: 20
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements
@@ -235,9 +254,13 @@ items:
   fullName: ISILab.LBS.VisualElements.DCTreeWindowTogetherVE.SetInfo(object)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetInfo
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\EvolutionaryAlgorithm\Evaluators\Dungeon Crawler\Editor\DCTreeWindowTogetherVE.cs
-    startLine: 33
+    path: ../LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/Evaluators/Dungeon Crawler/Editor/DCTreeWindowTogetherVE.cs
+    startLine: 34
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.VisualElements

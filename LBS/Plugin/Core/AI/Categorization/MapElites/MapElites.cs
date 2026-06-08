@@ -403,7 +403,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Categorization
         /// <param name="x">X index of element to update in the "BestSamples" array.</param>
         /// <param name="y">Y index of element to update in the "BestSamples" array.</param>
         /// <param name="evaluable">Evaluable object to update in the "BestSamples" array.</param>
-        /// <returns>Boolean value indicating if the update was successful or not.
+        /// <returns>
+        /// Boolean value indicating if the update was successful or not.
+        /// </returns>
         public bool UpdateSample(int x, int y, IOptimizable evaluable)
         {
             var current = BestSamples[y, x];

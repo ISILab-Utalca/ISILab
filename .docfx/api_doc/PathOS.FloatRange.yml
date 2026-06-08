@@ -14,19 +14,37 @@ items:
   nameWithType: FloatRange
   fullName: PathOS.FloatRange
   type: Struct
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: FloatRange
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOS.cs
+    startLine: 50
   assemblies:
   - PathOSPlus
   namespace: PathOS
   syntax:
-    content: public struct FloatRange
-    content.vb: Public Structure FloatRange
+    content: >-
+      [Serializable]
+
+      public struct FloatRange
+    content.vb: >-
+      <Serializable>
+
+      Public Structure FloatRange
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: PathOS.FloatRange.min
   commentId: F:PathOS.FloatRange.min
   id: min
@@ -38,6 +56,14 @@ items:
   nameWithType: FloatRange.min
   fullName: PathOS.FloatRange.min
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: min
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOS.cs
+    startLine: 53
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -57,6 +83,14 @@ items:
   nameWithType: FloatRange.max
   fullName: PathOS.FloatRange.max
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOS.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: max
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOS.cs
+    startLine: 54
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -68,7 +102,6 @@ items:
 references:
 - uid: PathOS
   commentId: N:PathOS
-  isExternal: true
   href: PathOS.html
   name: PathOS
   nameWithType: PathOS
@@ -150,30 +183,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -218,6 +227,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)

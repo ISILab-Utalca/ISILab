@@ -7,16 +7,16 @@ namespace ISILab.AI.Optimization.Terminations
 {
     /// <summary>
     /// Time Evolving Termination.
+    /// </summary>
     /// <remarks>
     /// The genetic algorithm will be terminate when the evolving exceed the max time specified.
     /// </remarks>
-    /// </summary>
     [DisplayName("Time Evolving")]
     public class TimeEvolvingTermination : TerminationBase
     {
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Terminations.TimeEvolvingTermination"/> class.
+        /// Initializes a new instance of the <see cref="TimeEvolvingTermination"/> class.
         /// </summary>
         /// <remarks>
         /// The default MaxTime is 1 minute.
@@ -27,7 +27,7 @@ namespace ISILab.AI.Optimization.Terminations
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Terminations.TimeEvolvingTermination"/> class.
+        /// Initializes a new instance of the <see cref="TimeEvolvingTermination"/> class.
         /// </summary>
         /// <param name="maxTime">The execution time to consider the termination has been reached.</param>
         public TimeEvolvingTermination(TimeSpan maxTime)

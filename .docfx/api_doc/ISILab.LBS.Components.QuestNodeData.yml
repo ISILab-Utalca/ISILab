@@ -42,9 +42,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: QuestNodeData
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 18
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 19
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -81,31 +85,28 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.ownerNode
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ownerNode
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 24
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 25
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
     content: >-
-      [SerializeField]
-
       [SerializeReference]
 
       protected QuestNode ownerNode
     return:
       type: ISILab.LBS.Components.QuestNode
     content.vb: >-
-      <SerializeField>
-
       <SerializeReference>
 
       Protected ownerNode As QuestNode
   attributes:
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
   - type: UnityEngine.SerializeReference
     ctor: UnityEngine.SerializeReference.#ctor
     arguments: []
@@ -121,9 +122,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.OnBeginChange
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnBeginChange
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 45
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 49
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -144,9 +149,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.OnEndChange
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnEndChange
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 46
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 50
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -155,6 +164,33 @@ items:
     return:
       type: System.Action
     content.vb: Public OnEndChange As Action
+- uid: ISILab.LBS.Components.QuestNodeData.OnDataChanged
+  commentId: F:ISILab.LBS.Components.QuestNodeData.OnDataChanged
+  id: OnDataChanged
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: OnDataChanged
+  nameWithType: QuestNodeData.OnDataChanged
+  fullName: ISILab.LBS.Components.QuestNodeData.OnDataChanged
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnDataChanged
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 52
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public Action<QuestNodeData> OnDataChanged
+    return:
+      type: System.Action{ISILab.LBS.Components.QuestNodeData}
+    content.vb: Public OnDataChanged As Action(Of QuestNodeData)
 - uid: ISILab.LBS.Components.QuestNodeData.Fields
   commentId: P:ISILab.LBS.Components.QuestNodeData.Fields
   id: Fields
@@ -167,9 +203,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.Fields
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Fields
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 51
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 57
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -192,9 +232,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.Terminal
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Terminal
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 52
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 60
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -217,9 +261,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.ID
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ID
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 68
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 101
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -242,9 +290,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.Node
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Node
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 69
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 102
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -267,9 +319,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.Graph
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Graph
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 70
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 103
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -292,9 +348,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.OwnerLayer
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OwnerLayer
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 71
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 104
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -317,9 +377,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.EventHooker
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: EventHooker
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 72
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 105
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -342,9 +406,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.Area
   type: Property
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Area
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 73
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 106
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -367,9 +435,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.QuestNodeData(ISILab.LBS.Components.QuestNode, ISILab.AI.Grammar.GrammarTerminal)
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 80
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 113
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -385,29 +457,6 @@ items:
   nameWithType.vb: QuestNodeData.New(QuestNode, GrammarTerminal)
   fullName.vb: ISILab.LBS.Components.QuestNodeData.New(ISILab.LBS.Components.QuestNode, ISILab.AI.Grammar.GrammarTerminal)
   name.vb: New(QuestNode, GrammarTerminal)
-- uid: ISILab.LBS.Components.QuestNodeData.OnDataChanged
-  commentId: F:ISILab.LBS.Components.QuestNodeData.OnDataChanged
-  id: OnDataChanged
-  parent: ISILab.LBS.Components.QuestNodeData
-  langs:
-  - csharp
-  - vb
-  name: OnDataChanged
-  nameWithType: QuestNodeData.OnDataChanged
-  fullName: ISILab.LBS.Components.QuestNodeData.OnDataChanged
-  type: Field
-  source:
-    id: OnDataChanged
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 112
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Components
-  syntax:
-    content: public Action<QuestNodeData> OnDataChanged
-    return:
-      type: System.Action{ISILab.LBS.Components.QuestNodeData}
-    content.vb: Public OnDataChanged As Action(Of QuestNodeData)
 - uid: ISILab.LBS.Components.QuestNodeData.Clone(ISILab.LBS.Components.QuestNodeData)
   commentId: M:ISILab.LBS.Components.QuestNodeData.Clone(ISILab.LBS.Components.QuestNodeData)
   id: Clone(ISILab.LBS.Components.QuestNodeData)
@@ -420,9 +469,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.Clone(ISILab.LBS.Components.QuestNodeData)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 116
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 146
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -445,9 +498,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.Equals(object)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 125
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 160
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -477,9 +534,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.IsValid()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsValid
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 130
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 165
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -501,9 +562,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.GetHashCode()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 132
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 174
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -527,9 +592,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.ReferencedLayerNames()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ReferencedLayerNames
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 138
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 180
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -551,9 +620,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.Resize()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Resize
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 143
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 185
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -573,9 +646,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.ApplyTilesToData(ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ApplyTilesToData
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 147
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 189
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -598,9 +675,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.ResizeToFitBundles(System.Collections.Generic.IEnumerable<ISILab.LBS.Components.BundleTargetGraph>)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ResizeToFitBundles
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 181
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 223
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -626,9 +707,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.GetFields<T>()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetFields
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 201
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 243
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -655,9 +740,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.GetField<T>()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetField
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 215
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 257
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -684,9 +773,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.GetField(string)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetField
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 216
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 258
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -714,9 +807,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.GetField<T>(string)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetField
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 217
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 259
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -746,9 +843,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraphList(System.Collections.Generic.List<LBS.Components.LBSLayer>, System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>, ref System.Collections.Generic.List<ISILab.LBS.Components.BundleTargetGraph>, ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[], bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TrySetBundleGraphList
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 225
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 267
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -784,9 +885,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.TrySetBundleGraph(System.Collections.Generic.List<LBS.Components.LBSLayer>, System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>, ref ISILab.LBS.Components.BundleTargetGraph, ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[], bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TrySetBundleGraph
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 251
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 293
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -822,9 +927,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.TrySetBundleType(System.Collections.Generic.List<LBS.Components.LBSLayer>, System.Collections.Generic.List<ISILab.LBS.Modules.TileBundleGroup>, ref ISILab.LBS.Components.BundleTarget, ISILab.LBS.Plugin.Components.Bundles.Bundle.EElementFlag[], bool)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TrySetBundleType
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 277
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 319
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -860,9 +969,13 @@ items:
   fullName: ISILab.LBS.Components.QuestNodeData.SetArea(UnityEngine.Rect)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetArea
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\ToolQuest\QuestNodeData.cs
-    startLine: 302
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 344
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -1099,6 +1212,67 @@ references:
   name: Action
   nameWithType: Action
   fullName: System.Action
+- uid: System.Action{ISILab.LBS.Components.QuestNodeData}
+  commentId: T:System.Action{ISILab.LBS.Components.QuestNodeData}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<QuestNodeData>
+  nameWithType: Action<QuestNodeData>
+  fullName: System.Action<ISILab.LBS.Components.QuestNodeData>
+  nameWithType.vb: Action(Of QuestNodeData)
+  fullName.vb: System.Action(Of ISILab.LBS.Components.QuestNodeData)
+  name.vb: Action(Of QuestNodeData)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: ISILab.LBS.Components.QuestNodeData
+    name: QuestNodeData
+    href: ISILab.LBS.Components.QuestNodeData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.QuestNodeData
+    name: QuestNodeData
+    href: ISILab.LBS.Components.QuestNodeData.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: ISILab.LBS.Components.QuestNodeData.Fields*
   commentId: Overload:ISILab.LBS.Components.QuestNodeData.Fields
   href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Fields
@@ -1428,67 +1602,6 @@ references:
   nameWithType.vb: QuestNodeData.New
   fullName.vb: ISILab.LBS.Components.QuestNodeData.New
   name.vb: New
-- uid: System.Action{ISILab.LBS.Components.QuestNodeData}
-  commentId: T:System.Action{ISILab.LBS.Components.QuestNodeData}
-  parent: System
-  definition: System.Action`1
-  href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<QuestNodeData>
-  nameWithType: Action<QuestNodeData>
-  fullName: System.Action<ISILab.LBS.Components.QuestNodeData>
-  nameWithType.vb: Action(Of QuestNodeData)
-  fullName.vb: System.Action(Of ISILab.LBS.Components.QuestNodeData)
-  name.vb: Action(Of QuestNodeData)
-  spec.csharp:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: <
-  - uid: ISILab.LBS.Components.QuestNodeData
-    name: QuestNodeData
-    href: ISILab.LBS.Components.QuestNodeData.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Components.QuestNodeData
-    name: QuestNodeData
-    href: ISILab.LBS.Components.QuestNodeData.html
-  - name: )
-- uid: System.Action`1
-  commentId: T:System.Action`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
-  spec.csharp:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
 - uid: ISILab.LBS.Components.QuestNodeData.Clone*
   commentId: Overload:ISILab.LBS.Components.QuestNodeData.Clone
   href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Clone_ISILab_LBS_Components_QuestNodeData_

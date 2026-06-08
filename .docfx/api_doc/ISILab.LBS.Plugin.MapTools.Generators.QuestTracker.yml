@@ -5,12 +5,12 @@ items:
   id: QuestTracker
   parent: ISILab.LBS.Plugin.MapTools.Generators
   children:
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraph)
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.OnQuestAdvance
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.currentQuest
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers
   langs:
   - csharp
   - vb
@@ -19,8 +19,12 @@ items:
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: QuestTracker
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTracker.cs
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
     startLine: 10
   assemblies:
   - LBS
@@ -183,106 +187,6 @@ items:
   - type: System.SerializableAttribute
     ctor: System.SerializableAttribute.#ctor
     arguments: []
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.currentQuest
-  commentId: F:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.currentQuest
-  id: currentQuest
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
-  langs:
-  - csharp
-  - vb
-  name: currentQuest
-  nameWithType: QuestTracker.currentQuest
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.currentQuest
-  type: Field
-  source:
-    id: currentQuest
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTracker.cs
-    startLine: 20
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: public QuestTrigger currentQuest
-    return:
-      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-    content.vb: Public currentQuest As QuestTrigger
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
-  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
-  id: QuestGraph
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
-  langs:
-  - csharp
-  - vb
-  name: QuestGraph
-  nameWithType: QuestTracker.QuestGraph
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
-  type: Property
-  source:
-    id: QuestGraph
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTracker.cs
-    startLine: 33
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: public QuestGraph QuestGraph { get; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Modules.QuestGraph
-    content.vb: Public ReadOnly Property QuestGraph As QuestGraph
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
-  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
-  id: Objectives
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
-  langs:
-  - csharp
-  - vb
-  name: Objectives
-  nameWithType: QuestTracker.Objectives
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
-  type: Property
-  source:
-    id: Objectives
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTracker.cs
-    startLine: 38
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  summary: Objectives(tracking the progress and node advancement)
-  example: []
-  syntax:
-    content: public IReadOnlyList<QuestObjective> Objectives { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.IReadOnlyList{ISILab.LBS.Plugin.MapTools.Generators.QuestObjective}
-    content.vb: Public ReadOnly Property Objectives As IReadOnlyList(Of QuestObjective)
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
-  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
-  id: QuestComplete
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
-  langs:
-  - csharp
-  - vb
-  name: QuestComplete
-  nameWithType: QuestTracker.QuestComplete
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
-  type: Property
-  source:
-    id: QuestComplete
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTracker.cs
-    startLine: 39
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: public bool QuestComplete { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property QuestComplete As Boolean
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete*
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.OnQuestAdvance
   commentId: E:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.OnQuestAdvance
   id: OnQuestAdvance
@@ -295,19 +199,137 @@ items:
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.OnQuestAdvance
   type: Event
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnQuestAdvance
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTracker.cs
-    startLine: 44
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+    startLine: 25
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
-  summary: Effect called whenever a trigger(actionNode) is completed. Updates UI
-  example: []
   syntax:
     content: public event Action OnQuestAdvance
     return:
       type: System.Action
     content.vb: Public Event OnQuestAdvance As Action
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest
+  id: CurrentQuest
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: CurrentQuest
+  nameWithType: QuestTracker.CurrentQuest
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: CurrentQuest
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+    startLine: 31
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public QuestTrigger CurrentQuest { get; }
+    parameters: []
+    return:
+      type: QuestTrigger
+    content.vb: Public Property CurrentQuest As QuestTrigger
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
+  id: QuestGraph
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: QuestGraph
+  nameWithType: QuestTracker.QuestGraph
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: QuestGraph
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+    startLine: 32
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public QuestGraph QuestGraph { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Modules.QuestGraph
+    content.vb: Public ReadOnly Property QuestGraph As QuestGraph
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers
+  id: ActiveTriggers
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: ActiveTriggers
+  nameWithType: QuestTracker.ActiveTriggers
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ActiveTriggers
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+    startLine: 34
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public List<QuestTrigger> ActiveTriggers { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{QuestTrigger}
+    content.vb: Public ReadOnly Property ActiveTriggers As List(Of QuestTrigger)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers
+  id: Triggers
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  langs:
+  - csharp
+  - vb
+  name: Triggers
+  nameWithType: QuestTracker.Triggers
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Triggers
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+    startLine: 48
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public List<QuestTrigger> Triggers { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{QuestTrigger}
+    content.vb: Public ReadOnly Property Triggers As List(Of QuestTrigger)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers*
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraph)
   commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraph)
   id: Init(ISILab.LBS.Modules.QuestGraph)
@@ -320,9 +342,13 @@ items:
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraph)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Init
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTracker.cs
-    startLine: 53
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTracker.cs
+    startLine: 63
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
@@ -7460,13 +7486,26 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  parent: ISILab.LBS.Plugin.MapTools.Generators
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_CurrentQuest
+  name: CurrentQuest
+  nameWithType: QuestTracker.CurrentQuest
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest
+- uid: QuestTrigger
+  commentId: T:QuestTrigger
+  href: QuestTrigger.html
   name: QuestTrigger
   nameWithType: QuestTrigger
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  fullName: QuestTrigger
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph*
   commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
   href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_QuestGraph
@@ -7510,68 +7549,68 @@ references:
   - uid: ISILab.LBS.Modules
     name: Modules
     href: ISILab.LBS.Modules.html
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Objectives
-  name: Objectives
-  nameWithType: QuestTracker.Objectives
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Objectives
-- uid: System.Collections.Generic.IReadOnlyList{ISILab.LBS.Plugin.MapTools.Generators.QuestObjective}
-  commentId: T:System.Collections.Generic.IReadOnlyList{ISILab.LBS.Plugin.MapTools.Generators.QuestObjective}
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_ActiveTriggers
+  name: ActiveTriggers
+  nameWithType: QuestTracker.ActiveTriggers
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers
+- uid: System.Collections.Generic.List{QuestTrigger}
+  commentId: T:System.Collections.Generic.List{QuestTrigger}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.IReadOnlyList`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
-  name: IReadOnlyList<QuestObjective>
-  nameWithType: IReadOnlyList<QuestObjective>
-  fullName: System.Collections.Generic.IReadOnlyList<ISILab.LBS.Plugin.MapTools.Generators.QuestObjective>
-  nameWithType.vb: IReadOnlyList(Of QuestObjective)
-  fullName.vb: System.Collections.Generic.IReadOnlyList(Of ISILab.LBS.Plugin.MapTools.Generators.QuestObjective)
-  name.vb: IReadOnlyList(Of QuestObjective)
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<QuestTrigger>
+  nameWithType: List<QuestTrigger>
+  fullName: System.Collections.Generic.List<QuestTrigger>
+  nameWithType.vb: List(Of QuestTrigger)
+  fullName.vb: System.Collections.Generic.List(Of QuestTrigger)
+  name.vb: List(Of QuestTrigger)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyList`1
-    name: IReadOnlyList
+  - uid: System.Collections.Generic.List`1
+    name: List
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestObjective
-    name: QuestObjective
-    href: ISILab.LBS.Plugin.MapTools.Generators.QuestObjective.html
+  - uid: QuestTrigger
+    name: QuestTrigger
+    href: QuestTrigger.html
   - name: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyList`1
-    name: IReadOnlyList
+  - uid: System.Collections.Generic.List`1
+    name: List
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: (
   - name: Of
   - name: " "
-  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestObjective
-    name: QuestObjective
-    href: ISILab.LBS.Plugin.MapTools.Generators.QuestObjective.html
+  - uid: QuestTrigger
+    name: QuestTrigger
+    href: QuestTrigger.html
   - name: )
-- uid: System.Collections.Generic.IReadOnlyList`1
-  commentId: T:System.Collections.Generic.IReadOnlyList`1
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
-  name: IReadOnlyList<T>
-  nameWithType: IReadOnlyList<T>
-  fullName: System.Collections.Generic.IReadOnlyList<T>
-  nameWithType.vb: IReadOnlyList(Of T)
-  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
-  name.vb: IReadOnlyList(Of T)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
   spec.csharp:
-  - uid: System.Collections.Generic.IReadOnlyList`1
-    name: IReadOnlyList
+  - uid: System.Collections.Generic.List`1
+    name: List
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
   - name: T
   - name: '>'
   spec.vb:
-  - uid: System.Collections.Generic.IReadOnlyList`1
-    name: IReadOnlyList
+  - uid: System.Collections.Generic.List`1
+    name: List
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: (
   - name: Of
   - name: " "
@@ -7614,31 +7653,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_QuestComplete
-  name: QuestComplete
-  nameWithType: QuestTracker.QuestComplete
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestComplete
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: System.Action
-  commentId: T:System.Action
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.action
-  name: Action
-  nameWithType: Action
-  fullName: System.Action
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Triggers
+  name: Triggers
+  nameWithType: QuestTracker.Triggers
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init*
   commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init
   href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Init_ISILab_LBS_Modules_QuestGraph_

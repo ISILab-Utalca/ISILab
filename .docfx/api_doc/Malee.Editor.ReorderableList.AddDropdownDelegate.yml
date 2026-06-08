@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: Malee.Editor.ReorderableList.AddDropdownDelegate
+  commentId: T:Malee.Editor.ReorderableList.AddDropdownDelegate
+  id: ReorderableList.AddDropdownDelegate
+  parent: Malee.Editor
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.AddDropdownDelegate
+  nameWithType: ReorderableList.AddDropdownDelegate
+  fullName: Malee.Editor.ReorderableList.AddDropdownDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: AddDropdownDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 32
+  assemblies:
+  - ReorderableList
+  namespace: Malee.Editor
+  syntax:
+    content: public delegate void ReorderableList.AddDropdownDelegate(Rect buttonRect, ReorderableList list)
+    parameters:
+    - id: buttonRect
+      type: UnityEngine.Rect
+    - id: list
+      type: Malee.Editor.ReorderableList
+    content.vb: Public Delegate Sub ReorderableList.AddDropdownDelegate(buttonRect As Rect, list As ReorderableList)
+references:
+- uid: Malee.Editor
+  commentId: N:Malee.Editor
+  href: Malee.html
+  name: Malee.Editor
+  nameWithType: Malee.Editor
+  fullName: Malee.Editor
+  spec.csharp:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+  spec.vb:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+- uid: UnityEngine.Rect
+  commentId: T:UnityEngine.Rect
+  parent: UnityEngine
+  isExternal: true
+  name: Rect
+  nameWithType: Rect
+  fullName: UnityEngine.Rect
+- uid: Malee.Editor.ReorderableList
+  commentId: T:Malee.Editor.ReorderableList
+  parent: Malee.Editor
+  href: Malee.Editor.ReorderableList.html
+  name: ReorderableList
+  nameWithType: ReorderableList
+  fullName: Malee.Editor.ReorderableList
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+shouldSkipMarkup: true

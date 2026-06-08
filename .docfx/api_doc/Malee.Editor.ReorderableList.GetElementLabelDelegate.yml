@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: Malee.Editor.ReorderableList.GetElementLabelDelegate
+  commentId: T:Malee.Editor.ReorderableList.GetElementLabelDelegate
+  id: ReorderableList.GetElementLabelDelegate
+  parent: Malee.Editor
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.GetElementLabelDelegate
+  nameWithType: ReorderableList.GetElementLabelDelegate
+  fullName: Malee.Editor.ReorderableList.GetElementLabelDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetElementLabelDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 38
+  assemblies:
+  - ReorderableList
+  namespace: Malee.Editor
+  syntax:
+    content: public delegate GUIContent ReorderableList.GetElementLabelDelegate(SerializedProperty element)
+    parameters:
+    - id: element
+      type: UnityEditor.SerializedProperty
+    return:
+      type: UnityEngine.GUIContent
+    content.vb: Public Delegate Function ReorderableList.GetElementLabelDelegate(element As SerializedProperty) As GUIContent
+references:
+- uid: Malee.Editor
+  commentId: N:Malee.Editor
+  href: Malee.html
+  name: Malee.Editor
+  nameWithType: Malee.Editor
+  fullName: Malee.Editor
+  spec.csharp:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+  spec.vb:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+- uid: UnityEditor.SerializedProperty
+  commentId: T:UnityEditor.SerializedProperty
+  parent: UnityEditor
+  isExternal: true
+  name: SerializedProperty
+  nameWithType: SerializedProperty
+  fullName: UnityEditor.SerializedProperty
+- uid: UnityEngine.GUIContent
+  commentId: T:UnityEngine.GUIContent
+  parent: UnityEngine
+  isExternal: true
+  name: GUIContent
+  nameWithType: GUIContent
+  fullName: UnityEngine.GUIContent
+- uid: UnityEditor
+  commentId: N:UnityEditor
+  isExternal: true
+  name: UnityEditor
+  nameWithType: UnityEditor
+  fullName: UnityEditor
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+shouldSkipMarkup: true

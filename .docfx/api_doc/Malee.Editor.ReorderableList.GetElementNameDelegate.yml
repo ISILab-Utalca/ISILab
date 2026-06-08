@@ -1,0 +1,88 @@
+### YamlMime:ManagedReference
+items:
+- uid: Malee.Editor.ReorderableList.GetElementNameDelegate
+  commentId: T:Malee.Editor.ReorderableList.GetElementNameDelegate
+  id: ReorderableList.GetElementNameDelegate
+  parent: Malee.Editor
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.GetElementNameDelegate
+  nameWithType: ReorderableList.GetElementNameDelegate
+  fullName: Malee.Editor.ReorderableList.GetElementNameDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetElementNameDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 37
+  assemblies:
+  - ReorderableList
+  namespace: Malee.Editor
+  syntax:
+    content: public delegate string ReorderableList.GetElementNameDelegate(SerializedProperty element)
+    parameters:
+    - id: element
+      type: UnityEditor.SerializedProperty
+    return:
+      type: System.String
+    content.vb: Public Delegate Function ReorderableList.GetElementNameDelegate(element As SerializedProperty) As String
+references:
+- uid: Malee.Editor
+  commentId: N:Malee.Editor
+  href: Malee.html
+  name: Malee.Editor
+  nameWithType: Malee.Editor
+  fullName: Malee.Editor
+  spec.csharp:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+  spec.vb:
+  - uid: Malee
+    name: Malee
+    href: Malee.html
+  - name: .
+  - uid: Malee.Editor
+    name: Editor
+    href: Malee.Editor.html
+- uid: UnityEditor.SerializedProperty
+  commentId: T:UnityEditor.SerializedProperty
+  parent: UnityEditor
+  isExternal: true
+  name: SerializedProperty
+  nameWithType: SerializedProperty
+  fullName: UnityEditor.SerializedProperty
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityEditor
+  commentId: N:UnityEditor
+  isExternal: true
+  name: UnityEditor
+  nameWithType: UnityEditor
+  fullName: UnityEditor
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+shouldSkipMarkup: true

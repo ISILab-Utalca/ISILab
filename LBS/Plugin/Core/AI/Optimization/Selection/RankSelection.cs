@@ -11,6 +11,7 @@ namespace ISILab.AI.Optimization.Selections
 {
     /// <summary>
     /// Rank Selection
+    /// </summary>
     /// <remarks>
     /// Is a kind of Fitness Proportionate Selection. 
     /// <see href=" https://www.obitko.com/tutorials/genetic-algorithms/selection.php">Rank Selection</see>
@@ -28,13 +29,12 @@ namespace ISILab.AI.Optimization.Selections
     /// probabilities of selection. 
     /// </para>
     /// </remarks>
-    /// </summary>
     [DisplayName("Rank")]
     public class RankSelection : SelectionBase
     {
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneticSharp.Domain.Selections.RankSelection"/> class.
+        /// Initializes a new instance of the <see cref="RankSelection"/> class.
         /// </summary>
         public RankSelection() : base()
         {

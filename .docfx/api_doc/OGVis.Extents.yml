@@ -15,19 +15,37 @@ items:
   nameWithType: Extents
   fullName: OGVis.Extents
   type: Struct
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Extents
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 27
   assemblies:
   - PathOSPlus
   namespace: OGVis
   syntax:
-    content: public struct Extents
-    content.vb: Public Structure Extents
+    content: >-
+      [Serializable]
+
+      public struct Extents
+    content.vb: >-
+      <Serializable>
+
+      Public Structure Extents
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: OGVis.Extents.min
   commentId: F:OGVis.Extents.min
   id: min
@@ -39,6 +57,14 @@ items:
   nameWithType: Extents.min
   fullName: OGVis.Extents.min
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: min
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 30
   assemblies:
   - PathOSPlus
   namespace: OGVis
@@ -58,6 +84,14 @@ items:
   nameWithType: Extents.max
   fullName: OGVis.Extents.max
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: max
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 31
   assemblies:
   - PathOSPlus
   namespace: OGVis
@@ -77,6 +111,14 @@ items:
   nameWithType: Extents.InverseLimit
   fullName: OGVis.Extents.InverseLimit
   type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: InverseLimit
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 33
   assemblies:
   - PathOSPlus
   namespace: OGVis
@@ -90,7 +132,6 @@ items:
 references:
 - uid: OGVis
   commentId: N:OGVis
-  isExternal: true
   href: OGVis.html
   name: OGVis
   nameWithType: OGVis
@@ -172,30 +213,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -240,6 +257,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -313,13 +354,20 @@ references:
   nameWithType: System
   fullName: System
 - uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
   isExternal: true
   name: Vector3
   nameWithType: Vector3
   fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
 - uid: OGVis.Extents.InverseLimit*
   commentId: Overload:OGVis.Extents.InverseLimit
-  isExternal: true
   href: OGVis.Extents.html#OGVis_Extents_InverseLimit
   name: InverseLimit
   nameWithType: Extents.InverseLimit
@@ -327,7 +375,6 @@ references:
 - uid: OGVis.Extents
   commentId: T:OGVis.Extents
   parent: OGVis
-  isExternal: true
   href: OGVis.Extents.html
   name: Extents
   nameWithType: Extents

@@ -1,0 +1,1259 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  commentId: T:ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  id: MAPElitesBenchmarkReport
+  parent: ISILab.LBS.Tests
+  children:
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Colonies
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Exploration
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_PairRatio
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_ResourceSafety
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SafeArea
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SingleRatio
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Colonies
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Exploration
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_PairRatio
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_ResourceSafety
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SafeArea
+  - ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SingleRatio
+  langs:
+  - csharp
+  - vb
+  name: MAPElitesBenchmarkReport
+  nameWithType: MAPElitesBenchmarkReport
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  type: Class
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MAPElitesBenchmarkReport
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 7
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [TestFixture]
+
+      public class MAPElitesBenchmarkReport : MAPElitesBaseBenchmark
+    content.vb: >-
+      <TestFixture>
+
+      Public Class MAPElitesBenchmarkReport Inherits MAPElitesBaseBenchmark
+  inheritance:
+  - System.Object
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  inheritedMembers:
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  - ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: NUnit.Framework.TestFixtureAttribute
+    ctor: NUnit.Framework.TestFixtureAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Exploration
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Exploration
+  id: MeasureMAPElites_9_Rooms_Exploration
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_9_Rooms_Exploration()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Exploration()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Exploration()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_9_Rooms_Exploration
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 19
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_9_Rooms_Exploration()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_9_Rooms_Exploration()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Exploration*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_ResourceSafety
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_ResourceSafety
+  id: MeasureMAPElites_9_Rooms_ResourceSafety
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_9_Rooms_ResourceSafety()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_ResourceSafety()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_ResourceSafety()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_9_Rooms_ResourceSafety
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 58
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_9_Rooms_ResourceSafety()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_9_Rooms_ResourceSafety()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_ResourceSafety*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SafeArea
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SafeArea
+  id: MeasureMAPElites_9_Rooms_SafeArea
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_9_Rooms_SafeArea()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SafeArea()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SafeArea()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_9_Rooms_SafeArea
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 95
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_9_Rooms_SafeArea()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_9_Rooms_SafeArea()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SafeArea*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Exploration
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Exploration
+  id: MeasureMAPElites_21_Rooms_Exploration
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_21_Rooms_Exploration()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Exploration()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Exploration()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_21_Rooms_Exploration
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 132
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_21_Rooms_Exploration()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_21_Rooms_Exploration()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Exploration*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_ResourceSafety
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_ResourceSafety
+  id: MeasureMAPElites_21_Rooms_ResourceSafety
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_21_Rooms_ResourceSafety()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_ResourceSafety()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_ResourceSafety()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_21_Rooms_ResourceSafety
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 169
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_21_Rooms_ResourceSafety()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_21_Rooms_ResourceSafety()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_ResourceSafety*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SafeArea
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SafeArea
+  id: MeasureMAPElites_21_Rooms_SafeArea
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_21_Rooms_SafeArea()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SafeArea()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SafeArea()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_21_Rooms_SafeArea
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 206
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_21_Rooms_SafeArea()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_21_Rooms_SafeArea()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SafeArea*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Colonies
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Colonies
+  id: MeasureMAPElites_9_Rooms_Colonies
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_9_Rooms_Colonies()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Colonies()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Colonies()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_9_Rooms_Colonies
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 249
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_9_Rooms_Colonies()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_9_Rooms_Colonies()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Colonies*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SingleRatio
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SingleRatio
+  id: MeasureMAPElites_9_Rooms_SingleRatio
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_9_Rooms_SingleRatio()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SingleRatio()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SingleRatio()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_9_Rooms_SingleRatio
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 300
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_9_Rooms_SingleRatio()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_9_Rooms_SingleRatio()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SingleRatio*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_PairRatio
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_PairRatio
+  id: MeasureMAPElites_9_Rooms_PairRatio
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_9_Rooms_PairRatio()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_PairRatio()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_PairRatio()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_9_Rooms_PairRatio
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 338
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_9_Rooms_PairRatio()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_9_Rooms_PairRatio()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_PairRatio*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Colonies
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Colonies
+  id: MeasureMAPElites_21_Rooms_Colonies
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_21_Rooms_Colonies()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Colonies()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Colonies()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_21_Rooms_Colonies
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 376
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_21_Rooms_Colonies()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_21_Rooms_Colonies()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Colonies*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SingleRatio
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SingleRatio
+  id: MeasureMAPElites_21_Rooms_SingleRatio
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_21_Rooms_SingleRatio()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SingleRatio()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SingleRatio()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_21_Rooms_SingleRatio
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 423
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_21_Rooms_SingleRatio()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_21_Rooms_SingleRatio()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SingleRatio*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_PairRatio
+  commentId: M:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_PairRatio
+  id: MeasureMAPElites_21_Rooms_PairRatio
+  parent: ISILab.LBS.Tests.MAPElitesBenchmarkReport
+  langs:
+  - csharp
+  - vb
+  name: MeasureMAPElites_21_Rooms_PairRatio()
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_PairRatio()
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_PairRatio()
+  type: Method
+  source:
+    remote:
+      path: LBS/Tests/MAPElitesBenchmarkReport.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: MeasureMAPElites_21_Rooms_PairRatio
+    path: ../LBS/Tests/MAPElitesBenchmarkReport.cs
+    startLine: 461
+  assemblies:
+  - Tests
+  namespace: ISILab.LBS.Tests
+  syntax:
+    content: >-
+      [Test]
+
+      [Performance]
+
+      [Timeout(600000)]
+
+      public void MeasureMAPElites_21_Rooms_PairRatio()
+    content.vb: >-
+      <Test>
+
+      <Performance>
+
+      <Timeout(600000)>
+
+      Public Sub MeasureMAPElites_21_Rooms_PairRatio()
+  overload: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_PairRatio*
+  attributes:
+  - type: NUnit.Framework.TestAttribute
+    ctor: NUnit.Framework.TestAttribute.#ctor
+    arguments: []
+  - type: Unity.PerformanceTesting.PerformanceAttribute
+    ctor: Unity.PerformanceTesting.PerformanceAttribute.#ctor
+    arguments: []
+  - type: NUnit.Framework.TimeoutAttribute
+    ctor: NUnit.Framework.TimeoutAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 600000
+references:
+- uid: ISILab.LBS.Tests
+  commentId: N:ISILab.LBS.Tests
+  href: ISILab.html
+  name: ISILab.LBS.Tests
+  nameWithType: ISILab.LBS.Tests
+  fullName: ISILab.LBS.Tests
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Tests
+    name: Tests
+    href: ISILab.LBS.Tests.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Tests
+    name: Tests
+    href: ISILab.LBS.Tests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  commentId: T:ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  parent: ISILab.LBS.Tests
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html
+  name: MAPElitesBaseBenchmark
+  nameWithType: MAPElitesBaseBenchmark
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_levelData
+  name: levelData
+  nameWithType: MAPElitesBaseBenchmark.levelData
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.levelData
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_assistant
+  name: assistant
+  nameWithType: MAPElitesBaseBenchmark.assistant
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.assistant
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_preset
+  name: preset
+  nameWithType: MAPElitesBaseBenchmark.preset
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.preset
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_og_optimizer
+  name: og_optimizer
+  nameWithType: MAPElitesBaseBenchmark.og_optimizer
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_optimizer
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_og_xEvaluator
+  name: og_xEvaluator
+  nameWithType: MAPElitesBaseBenchmark.og_xEvaluator
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_xEvaluator
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_og_yEvaluator
+  name: og_yEvaluator
+  nameWithType: MAPElitesBaseBenchmark.og_yEvaluator
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.og_yEvaluator
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_dungeonPresetPath
+  name: dungeonPresetPath
+  nameWithType: MAPElitesBaseBenchmark.dungeonPresetPath
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.dungeonPresetPath
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+  commentId: F:ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_timeout
+  name: timeout
+  nameWithType: MAPElitesBaseBenchmark.timeout
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.timeout
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  isExternal: true
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetLevel_System_String_
+  name: GetLevel(string)
+  nameWithType: MAPElitesBaseBenchmark.GetLevel(string)
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(string)
+  nameWithType.vb: MAPElitesBaseBenchmark.GetLevel(String)
+  fullName.vb: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(String)
+  name.vb: GetLevel(String)
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+    name: GetLevel
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetLevel_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetLevel(System.String)
+    name: GetLevel
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetLevel_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  isExternal: true
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_SetUpMAPElitesTest_System_String_System_String_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_System_String_UnityEngine_Rect_
+  name: SetUpMAPElitesTest(string, string, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, string, Rect)
+  nameWithType: MAPElitesBaseBenchmark.SetUpMAPElitesTest(string, string, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, string, Rect)
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(string, string, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, string, UnityEngine.Rect)
+  nameWithType.vb: MAPElitesBaseBenchmark.SetUpMAPElitesTest(String, String, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, String, Rect)
+  fullName.vb: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(String, String, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator, String, UnityEngine.Rect)
+  name.vb: SetUpMAPElitesTest(String, String, IRangedEvaluator, IRangedEvaluator, IRangedEvaluator, String, Rect)
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+    name: SetUpMAPElitesTest
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_SetUpMAPElitesTest_System_String_System_String_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_System_String_UnityEngine_Rect_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.SetUpMAPElitesTest(System.String,System.String,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator,System.String,UnityEngine.Rect)
+    name: SetUpMAPElitesTest
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_SetUpMAPElitesTest_System_String_System_String_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_ISILab_LBS_Plugin_Core_AI_Optimization_EvolutionaryAlgorithm_Evaluators_IRangedEvaluator_System_String_UnityEngine_Rect_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IRangedEvaluator
+    name: IRangedEvaluator
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_CleanUpMAPElitesTest
+  name: CleanUpMAPElitesTest()
+  nameWithType: MAPElitesBaseBenchmark.CleanUpMAPElitesTest()
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+    name: CleanUpMAPElitesTest
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_CleanUpMAPElitesTest
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.CleanUpMAPElitesTest
+    name: CleanUpMAPElitesTest
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_CleanUpMAPElitesTest
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  commentId: M:ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+  parent: ISILab.LBS.Tests.MAPElitesBaseBenchmark
+  href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetChromosomeFromAssistant
+  name: GetChromosomeFromAssistant()
+  nameWithType: MAPElitesBaseBenchmark.GetChromosomeFromAssistant()
+  fullName: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant()
+  spec.csharp:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+    name: GetChromosomeFromAssistant
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetChromosomeFromAssistant
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Tests.MAPElitesBaseBenchmark.GetChromosomeFromAssistant
+    name: GetChromosomeFromAssistant
+    href: ISILab.LBS.Tests.MAPElitesBaseBenchmark.html#ISILab_LBS_Tests_MAPElitesBaseBenchmark_GetChromosomeFromAssistant
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Exploration*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Exploration
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_9_Rooms_Exploration
+  name: MeasureMAPElites_9_Rooms_Exploration
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Exploration
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Exploration
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_ResourceSafety*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_ResourceSafety
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_9_Rooms_ResourceSafety
+  name: MeasureMAPElites_9_Rooms_ResourceSafety
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_ResourceSafety
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_ResourceSafety
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SafeArea*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SafeArea
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_9_Rooms_SafeArea
+  name: MeasureMAPElites_9_Rooms_SafeArea
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SafeArea
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SafeArea
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Exploration*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Exploration
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_21_Rooms_Exploration
+  name: MeasureMAPElites_21_Rooms_Exploration
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Exploration
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Exploration
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_ResourceSafety*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_ResourceSafety
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_21_Rooms_ResourceSafety
+  name: MeasureMAPElites_21_Rooms_ResourceSafety
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_ResourceSafety
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_ResourceSafety
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SafeArea*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SafeArea
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_21_Rooms_SafeArea
+  name: MeasureMAPElites_21_Rooms_SafeArea
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SafeArea
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SafeArea
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Colonies*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Colonies
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_9_Rooms_Colonies
+  name: MeasureMAPElites_9_Rooms_Colonies
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Colonies
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_Colonies
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SingleRatio*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SingleRatio
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_9_Rooms_SingleRatio
+  name: MeasureMAPElites_9_Rooms_SingleRatio
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SingleRatio
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_SingleRatio
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_PairRatio*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_PairRatio
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_9_Rooms_PairRatio
+  name: MeasureMAPElites_9_Rooms_PairRatio
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_PairRatio
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_9_Rooms_PairRatio
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Colonies*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Colonies
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_21_Rooms_Colonies
+  name: MeasureMAPElites_21_Rooms_Colonies
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Colonies
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_Colonies
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SingleRatio*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SingleRatio
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_21_Rooms_SingleRatio
+  name: MeasureMAPElites_21_Rooms_SingleRatio
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SingleRatio
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_SingleRatio
+- uid: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_PairRatio*
+  commentId: Overload:ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_PairRatio
+  href: ISILab.LBS.Tests.MAPElitesBenchmarkReport.html#ISILab_LBS_Tests_MAPElitesBenchmarkReport_MeasureMAPElites_21_Rooms_PairRatio
+  name: MeasureMAPElites_21_Rooms_PairRatio
+  nameWithType: MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_PairRatio
+  fullName: ISILab.LBS.Tests.MAPElitesBenchmarkReport.MeasureMAPElites_21_Rooms_PairRatio
+shouldSkipMarkup: true

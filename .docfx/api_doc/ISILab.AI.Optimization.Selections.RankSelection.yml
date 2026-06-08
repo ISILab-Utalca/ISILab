@@ -17,17 +17,18 @@ items:
   fullName: ISILab.AI.Optimization.Selections.RankSelection
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RankSelection
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\RankSelection.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs
     startLine: 31
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Selections
-  summary: >-
-    Rank Selection
-
-    <remarks>
-
+  summary: Rank Selection
+  remarks: >-
     Is a kind of Fitness Proportionate Selection. 
 
     <a href=" https://www.obitko.com/tutorials/genetic-algorithms/selection.php">Rank Selection</a>
@@ -57,8 +58,6 @@ items:
     probabilities of selection. 
 
     </p>
-
-    </remarks>
   example: []
   syntax:
     content: 'public class RankSelection : SelectionBase, ISelection'
@@ -91,13 +90,17 @@ items:
   fullName: ISILab.AI.Optimization.Selections.RankSelection.RankSelection()
   type: Constructor
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\RankSelection.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs
     startLine: 38
   assemblies:
   - LBS
   namespace: ISILab.AI.Optimization.Selections
-  summary: Initializes a new instance of the GeneticSharp.Domain.Selections.RankSelection class.
+  summary: Initializes a new instance of the <xref href="ISILab.AI.Optimization.Selections.RankSelection" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
     content: public RankSelection()
@@ -118,8 +121,12 @@ items:
   fullName: ISILab.AI.Optimization.Selections.RankSelection.SelectFromWheel(int, System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>, System.Collections.Generic.IList<double>, System.Func<double>)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SelectFromWheel
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\RankSelection.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs
     startLine: 52
   assemblies:
   - LBS
@@ -161,8 +168,12 @@ items:
   fullName: ISILab.AI.Optimization.Selections.RankSelection.CalculateCumulativeFitnessRank(System.Collections.Generic.IList<ISILab.AI.Optimization.IOptimizable>, System.Collections.Generic.IList<double>)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CalculateCumulativeFitnessRank
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\RankSelection.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs
     startLine: 76
   assemblies:
   - LBS
@@ -195,8 +206,12 @@ items:
   fullName: ISILab.AI.Optimization.Selections.RankSelection.PerformSelectEvaluables(int, ISILab.AI.Optimization.Populations.Generation)
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: PerformSelectEvaluables
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Core\AI\Optimization\Selection\RankSelection.cs
+    path: ../LBS/Plugin/Core/AI/Optimization/Selection/RankSelection.cs
     startLine: 95
   assemblies:
   - LBS
@@ -609,6 +624,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: ISILab.AI.Optimization.Selections.RankSelection
+  commentId: T:ISILab.AI.Optimization.Selections.RankSelection
+  href: ISILab.AI.Optimization.Selections.RankSelection.html
+  name: RankSelection
+  nameWithType: RankSelection
+  fullName: ISILab.AI.Optimization.Selections.RankSelection
 - uid: ISILab.AI.Optimization.Selections.RankSelection.#ctor*
   commentId: Overload:ISILab.AI.Optimization.Selections.RankSelection.#ctor
   href: ISILab.AI.Optimization.Selections.RankSelection.html#ISILab_AI_Optimization_Selections_RankSelection__ctor

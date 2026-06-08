@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class VotingRecombinationCrossover | lbs-api_docs </title>
+      <title>Class VotingRecombinationCrossover | LBS API Docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class VotingRecombinationCrossover | lbs-api_docs ">
+      <meta name="title" content="Class VotingRecombinationCrossover | LBS API Docs ">
       
-      
-      <link rel="icon" href="../favicon.ico">
+      <meta name="description" content="Voting Recombination Crossover (VR).">
+      <link rel="icon" href="..//images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/ISILab-Utalca/ISILab/new/ignacio-r-develop/apiSpec/new?filename=GeneticSharp_Domain_Crossovers_VotingRecombinationCrossover.md&amp;value=---%0Auid%3A%20GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="lbs-api-docs">
-            lbs-api-docs
+            <img id="logo" class="svg" src="..//images/logo.svg" alt="LBS API Docs">
+            LBS API Docs
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -89,7 +89,7 @@
 
 
   <h1 id="GeneticSharp_Domain_Crossovers_VotingRecombinationCrossover" data-uid="GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover" class="text-break">
-Class VotingRecombinationCrossover  
+Class VotingRecombinationCrossover  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/GeneticSharp.Domain/Crossovers/VotingRecombinationCrossover.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class VotingRecombinationCrossover
   <dl><dt>Assembly</dt><dd>LBS.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary">Voting Recombination Crossover (VR).</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -166,6 +166,26 @@ Class VotingRecombinationCrossover
 
 
 
+  <h2 id="GeneticSharp_Domain_Crossovers_VotingRecombinationCrossover_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+It can be seen as a P-sexual crossover operator, where p (parents number) is a natural number greater than, or equal to, 2.
+</p>
+<p>
+It starts by defining a threshold, which is a natural number smaller than, or equal to p.
+</p>
+<p>
+Next, for every; i E {l, 2, . . .N} the set of ith elements of all the parents is considered. 
+If in this set an element occurs at least the threshold number of times, it is copied into the offspring. 
+</p>
+<p>
+For example, if we consider the parents(p = 4) (1 4 3 5 2 6), (1 2 4 3 5 6), (3 2 1 5 4 6), (1 2 3 4 5 6) and we define the threshold to be equal to 3 we find(1 2 x x x 6). 
+The remaining positions of the offspring are filled with mutations.
+<a href="http://ictactjournals.in/paper/IJSC_V6_I1_paper_4_pp_1083_1092.pdf">Crossover operators in genetic algorithms: A review</a>
+</p>
+<p>
+The voting recombination produce one child of parents number (p) based on a threshold.
+<a href="https://www.cs.vu.nl/~gusz/papers/Handbook-Multiparent-Eiben.pdf">Multi-parent Recombination</a>
+</p></div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -174,18 +194,25 @@ Class VotingRecombinationCrossover
 
   <a id="GeneticSharp_Domain_Crossovers_VotingRecombinationCrossover__ctor_" data-uid="GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor*"></a>
 
-  <h3 id="GeneticSharp_Domain_Crossovers_VotingRecombinationCrossover__ctor" data-uid="GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor">
-  VotingRecombinationCrossover()
-  
+  <h3 id="GeneticSharp_Domain_Crossovers_VotingRecombinationCrossover__ctor_System_Int32_System_Int32_" data-uid="GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.#ctor(System.Int32,System.Int32)">
+  VotingRecombinationCrossover(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/GeneticSharp.Domain/Crossovers/VotingRecombinationCrossover.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Initializes a new instance of the <a class="xref" href="GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.html">VotingRecombinationCrossover</a> class.</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VotingRecombinationCrossover()</code></pre>
+    <pre><code class="lang-csharp hljs">public VotingRecombinationCrossover(int parentsNumber = 2, int threshold = 2)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parentsNumber</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd>The number of parents need for cross.</dd>
+    <dt><code>threshold</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd>An element occurs at least the threshold number of times, it is copied into the offspring</dd>
+  </dl>
 
 
 
@@ -206,7 +233,7 @@ Class VotingRecombinationCrossover
 
   <h3 id="GeneticSharp_Domain_Crossovers_VotingRecombinationCrossover_PerformCross_System_Collections_Generic_IList_GeneticSharp_Domain_Chromosomes_ChromosomeBase__" data-uid="GeneticSharp.Domain.Crossovers.VotingRecombinationCrossover.PerformCross(System.Collections.Generic.IList{GeneticSharp.Domain.Chromosomes.ChromosomeBase})">
   PerformCross(IList&lt;ChromosomeBase&gt;)
-  
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/GeneticSharp.Domain/Crossovers/VotingRecombinationCrossover.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary">Performs the cross with specified parents generating the children.</div>
@@ -242,6 +269,7 @@ Class VotingRecombinationCrossover
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/ISILab-Utalca/ISILab/blob/ignacio-r-develop/LBS/Plugin/Core/AI/Optimization/EvolutionaryAlgorithm/GeneticSharp.Domain/Crossovers/VotingRecombinationCrossover.cs/#L35" class="edit-link">Edit this page</a>
         </div>
 
 

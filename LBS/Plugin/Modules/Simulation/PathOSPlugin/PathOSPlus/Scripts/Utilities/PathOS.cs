@@ -382,6 +382,12 @@ namespace PathOS
         {
             return Equals(objectRef, (obj as LevelEntity)?.objectRef);
         }
+
+        public override int GetHashCode()
+        {
+            // If objectRef is null, return 0; otherwise, use its hash code.
+            return objectRef != null ? objectRef.GetHashCode() : 0;
+        }
     }
     // GABO: Class uniting a LevelEntity with an associated
     // obstacle connection event (either CLOSE or OPEN).

@@ -15,19 +15,37 @@ items:
   nameWithType: TimeRange
   fullName: OGVis.TimeRange
   type: Struct
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: TimeRange
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 14
   assemblies:
   - PathOSPlus
   namespace: OGVis
   syntax:
-    content: public struct TimeRange
-    content.vb: Public Structure TimeRange
+    content: >-
+      [Serializable]
+
+      public struct TimeRange
+    content.vb: >-
+      <Serializable>
+
+      Public Structure TimeRange
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
 - uid: OGVis.TimeRange.min
   commentId: F:OGVis.TimeRange.min
   id: min
@@ -39,6 +57,14 @@ items:
   nameWithType: TimeRange.min
   fullName: OGVis.TimeRange.min
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: min
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 17
   assemblies:
   - PathOSPlus
   namespace: OGVis
@@ -58,6 +84,14 @@ items:
   nameWithType: TimeRange.max
   fullName: OGVis.TimeRange.max
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: max
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 18
   assemblies:
   - PathOSPlus
   namespace: OGVis
@@ -77,6 +111,14 @@ items:
   nameWithType: TimeRange.TimeRange(float, float)
   fullName: OGVis.TimeRange.TimeRange(float, float)
   type: Constructor
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: .ctor
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/OGVis/Scripts/OGVis.cs
+    startLine: 20
   assemblies:
   - PathOSPlus
   namespace: OGVis
@@ -95,7 +137,6 @@ items:
 references:
 - uid: OGVis
   commentId: N:OGVis
-  isExternal: true
   href: OGVis.html
   name: OGVis
   nameWithType: OGVis
@@ -177,30 +218,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -245,6 +262,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -330,7 +371,6 @@ references:
   name.vb: Single
 - uid: OGVis.TimeRange.#ctor*
   commentId: Overload:OGVis.TimeRange.#ctor
-  isExternal: true
   href: OGVis.TimeRange.html#OGVis_TimeRange__ctor_System_Single_System_Single_
   name: TimeRange
   nameWithType: TimeRange.TimeRange

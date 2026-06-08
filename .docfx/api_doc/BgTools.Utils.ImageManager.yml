@@ -1,0 +1,835 @@
+### YamlMime:ManagedReference
+items:
+- uid: BgTools.Utils.ImageManager
+  commentId: T:BgTools.Utils.ImageManager
+  id: ImageManager
+  parent: BgTools.Utils
+  children:
+  - BgTools.Utils.ImageManager.Exclamation
+  - BgTools.Utils.ImageManager.GetOsIcon
+  - BgTools.Utils.ImageManager.Info
+  - BgTools.Utils.ImageManager.NotWatching
+  - BgTools.Utils.ImageManager.OsLinuxIcon
+  - BgTools.Utils.ImageManager.OsMacIcon
+  - BgTools.Utils.ImageManager.OsWinIcon
+  - BgTools.Utils.ImageManager.Refresh
+  - BgTools.Utils.ImageManager.SortAsscending
+  - BgTools.Utils.ImageManager.SortDescending
+  - BgTools.Utils.ImageManager.SortDisabled
+  - BgTools.Utils.ImageManager.SpinWheelIcons
+  - BgTools.Utils.ImageManager.Trash
+  - BgTools.Utils.ImageManager.Watching
+  langs:
+  - csharp
+  - vb
+  name: ImageManager
+  nameWithType: ImageManager
+  fullName: BgTools.Utils.ImageManager
+  type: Class
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ImageManager
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 9
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public class ImageManager
+    content.vb: Public Class ImageManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: BgTools.Utils.ImageManager.GetOsIcon
+  commentId: M:BgTools.Utils.ImageManager.GetOsIcon
+  id: GetOsIcon
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: GetOsIcon()
+  nameWithType: ImageManager.GetOsIcon()
+  fullName: BgTools.Utils.ImageManager.GetOsIcon()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetOsIcon
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 40
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D GetOsIcon()
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared Function GetOsIcon() As Texture2D
+  overload: BgTools.Utils.ImageManager.GetOsIcon*
+- uid: BgTools.Utils.ImageManager.OsLinuxIcon
+  commentId: P:BgTools.Utils.ImageManager.OsLinuxIcon
+  id: OsLinuxIcon
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: OsLinuxIcon
+  nameWithType: ImageManager.OsLinuxIcon
+  fullName: BgTools.Utils.ImageManager.OsLinuxIcon
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OsLinuxIcon
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 52
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D OsLinuxIcon { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property OsLinuxIcon As Texture2D
+  overload: BgTools.Utils.ImageManager.OsLinuxIcon*
+- uid: BgTools.Utils.ImageManager.OsWinIcon
+  commentId: P:BgTools.Utils.ImageManager.OsWinIcon
+  id: OsWinIcon
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: OsWinIcon
+  nameWithType: ImageManager.OsWinIcon
+  fullName: BgTools.Utils.ImageManager.OsWinIcon
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OsWinIcon
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 65
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D OsWinIcon { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property OsWinIcon As Texture2D
+  overload: BgTools.Utils.ImageManager.OsWinIcon*
+- uid: BgTools.Utils.ImageManager.OsMacIcon
+  commentId: P:BgTools.Utils.ImageManager.OsMacIcon
+  id: OsMacIcon
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: OsMacIcon
+  nameWithType: ImageManager.OsMacIcon
+  fullName: BgTools.Utils.ImageManager.OsMacIcon
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OsMacIcon
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 78
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D OsMacIcon { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property OsMacIcon As Texture2D
+  overload: BgTools.Utils.ImageManager.OsMacIcon*
+- uid: BgTools.Utils.ImageManager.SpinWheelIcons
+  commentId: P:BgTools.Utils.ImageManager.SpinWheelIcons
+  id: SpinWheelIcons
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: SpinWheelIcons
+  nameWithType: ImageManager.SpinWheelIcons
+  fullName: BgTools.Utils.ImageManager.SpinWheelIcons
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SpinWheelIcons
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 91
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static GUIContent[] SpinWheelIcons { get; }
+    parameters: []
+    return:
+      type: UnityEngine.GUIContent[]
+    content.vb: Public Shared ReadOnly Property SpinWheelIcons As GUIContent()
+  overload: BgTools.Utils.ImageManager.SpinWheelIcons*
+- uid: BgTools.Utils.ImageManager.Refresh
+  commentId: P:BgTools.Utils.ImageManager.Refresh
+  id: Refresh
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: Refresh
+  nameWithType: ImageManager.Refresh
+  fullName: BgTools.Utils.ImageManager.Refresh
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Refresh
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 106
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D Refresh { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property Refresh As Texture2D
+  overload: BgTools.Utils.ImageManager.Refresh*
+- uid: BgTools.Utils.ImageManager.Trash
+  commentId: P:BgTools.Utils.ImageManager.Trash
+  id: Trash
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: Trash
+  nameWithType: ImageManager.Trash
+  fullName: BgTools.Utils.ImageManager.Trash
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Trash
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 119
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D Trash { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property Trash As Texture2D
+  overload: BgTools.Utils.ImageManager.Trash*
+- uid: BgTools.Utils.ImageManager.Exclamation
+  commentId: P:BgTools.Utils.ImageManager.Exclamation
+  id: Exclamation
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: Exclamation
+  nameWithType: ImageManager.Exclamation
+  fullName: BgTools.Utils.ImageManager.Exclamation
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Exclamation
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 132
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D Exclamation { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property Exclamation As Texture2D
+  overload: BgTools.Utils.ImageManager.Exclamation*
+- uid: BgTools.Utils.ImageManager.Info
+  commentId: P:BgTools.Utils.ImageManager.Info
+  id: Info
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: Info
+  nameWithType: ImageManager.Info
+  fullName: BgTools.Utils.ImageManager.Info
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Info
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 145
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D Info { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property Info As Texture2D
+  overload: BgTools.Utils.ImageManager.Info*
+- uid: BgTools.Utils.ImageManager.Watching
+  commentId: P:BgTools.Utils.ImageManager.Watching
+  id: Watching
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: Watching
+  nameWithType: ImageManager.Watching
+  fullName: BgTools.Utils.ImageManager.Watching
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Watching
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 158
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D Watching { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property Watching As Texture2D
+  overload: BgTools.Utils.ImageManager.Watching*
+- uid: BgTools.Utils.ImageManager.NotWatching
+  commentId: P:BgTools.Utils.ImageManager.NotWatching
+  id: NotWatching
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: NotWatching
+  nameWithType: ImageManager.NotWatching
+  fullName: BgTools.Utils.ImageManager.NotWatching
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: NotWatching
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 171
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D NotWatching { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property NotWatching As Texture2D
+  overload: BgTools.Utils.ImageManager.NotWatching*
+- uid: BgTools.Utils.ImageManager.SortDisabled
+  commentId: P:BgTools.Utils.ImageManager.SortDisabled
+  id: SortDisabled
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: SortDisabled
+  nameWithType: ImageManager.SortDisabled
+  fullName: BgTools.Utils.ImageManager.SortDisabled
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SortDisabled
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 184
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D SortDisabled { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property SortDisabled As Texture2D
+  overload: BgTools.Utils.ImageManager.SortDisabled*
+- uid: BgTools.Utils.ImageManager.SortAsscending
+  commentId: P:BgTools.Utils.ImageManager.SortAsscending
+  id: SortAsscending
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: SortAsscending
+  nameWithType: ImageManager.SortAsscending
+  fullName: BgTools.Utils.ImageManager.SortAsscending
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SortAsscending
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 197
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D SortAsscending { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property SortAsscending As Texture2D
+  overload: BgTools.Utils.ImageManager.SortAsscending*
+- uid: BgTools.Utils.ImageManager.SortDescending
+  commentId: P:BgTools.Utils.ImageManager.SortDescending
+  id: SortDescending
+  parent: BgTools.Utils.ImageManager
+  langs:
+  - csharp
+  - vb
+  name: SortDescending
+  nameWithType: ImageManager.SortDescending
+  fullName: BgTools.Utils.ImageManager.SortDescending
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SortDescending
+    path: ../LBS/Plugin/Modules/Simulation/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+    startLine: 210
+  assemblies:
+  - Unity.PlayerPrefsEditor.EditorResources
+  namespace: BgTools.Utils
+  syntax:
+    content: public static Texture2D SortDescending { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Texture2D
+    content.vb: Public Shared ReadOnly Property SortDescending As Texture2D
+  overload: BgTools.Utils.ImageManager.SortDescending*
+references:
+- uid: BgTools.Utils
+  commentId: N:BgTools.Utils
+  href: BgTools.html
+  name: BgTools.Utils
+  nameWithType: BgTools.Utils
+  fullName: BgTools.Utils
+  spec.csharp:
+  - uid: BgTools
+    name: BgTools
+    href: BgTools.html
+  - name: .
+  - uid: BgTools.Utils
+    name: Utils
+    href: BgTools.Utils.html
+  spec.vb:
+  - uid: BgTools
+    name: BgTools
+    href: BgTools.html
+  - name: .
+  - uid: BgTools.Utils
+    name: Utils
+    href: BgTools.Utils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BgTools.Utils.ImageManager.GetOsIcon*
+  commentId: Overload:BgTools.Utils.ImageManager.GetOsIcon
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_GetOsIcon
+  name: GetOsIcon
+  nameWithType: ImageManager.GetOsIcon
+  fullName: BgTools.Utils.ImageManager.GetOsIcon
+- uid: UnityEngine.Texture2D
+  commentId: T:UnityEngine.Texture2D
+  parent: UnityEngine
+  isExternal: true
+  name: Texture2D
+  nameWithType: Texture2D
+  fullName: UnityEngine.Texture2D
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: BgTools.Utils.ImageManager.OsLinuxIcon*
+  commentId: Overload:BgTools.Utils.ImageManager.OsLinuxIcon
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_OsLinuxIcon
+  name: OsLinuxIcon
+  nameWithType: ImageManager.OsLinuxIcon
+  fullName: BgTools.Utils.ImageManager.OsLinuxIcon
+- uid: BgTools.Utils.ImageManager.OsWinIcon*
+  commentId: Overload:BgTools.Utils.ImageManager.OsWinIcon
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_OsWinIcon
+  name: OsWinIcon
+  nameWithType: ImageManager.OsWinIcon
+  fullName: BgTools.Utils.ImageManager.OsWinIcon
+- uid: BgTools.Utils.ImageManager.OsMacIcon*
+  commentId: Overload:BgTools.Utils.ImageManager.OsMacIcon
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_OsMacIcon
+  name: OsMacIcon
+  nameWithType: ImageManager.OsMacIcon
+  fullName: BgTools.Utils.ImageManager.OsMacIcon
+- uid: BgTools.Utils.ImageManager.SpinWheelIcons*
+  commentId: Overload:BgTools.Utils.ImageManager.SpinWheelIcons
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_SpinWheelIcons
+  name: SpinWheelIcons
+  nameWithType: ImageManager.SpinWheelIcons
+  fullName: BgTools.Utils.ImageManager.SpinWheelIcons
+- uid: UnityEngine.GUIContent[]
+  isExternal: true
+  name: GUIContent[]
+  nameWithType: GUIContent[]
+  fullName: UnityEngine.GUIContent[]
+  nameWithType.vb: GUIContent()
+  fullName.vb: UnityEngine.GUIContent()
+  name.vb: GUIContent()
+  spec.csharp:
+  - uid: UnityEngine.GUIContent
+    name: GUIContent
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: UnityEngine.GUIContent
+    name: GUIContent
+    isExternal: true
+  - name: (
+  - name: )
+- uid: BgTools.Utils.ImageManager.Refresh*
+  commentId: Overload:BgTools.Utils.ImageManager.Refresh
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_Refresh
+  name: Refresh
+  nameWithType: ImageManager.Refresh
+  fullName: BgTools.Utils.ImageManager.Refresh
+- uid: BgTools.Utils.ImageManager.Trash*
+  commentId: Overload:BgTools.Utils.ImageManager.Trash
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_Trash
+  name: Trash
+  nameWithType: ImageManager.Trash
+  fullName: BgTools.Utils.ImageManager.Trash
+- uid: BgTools.Utils.ImageManager.Exclamation*
+  commentId: Overload:BgTools.Utils.ImageManager.Exclamation
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_Exclamation
+  name: Exclamation
+  nameWithType: ImageManager.Exclamation
+  fullName: BgTools.Utils.ImageManager.Exclamation
+- uid: BgTools.Utils.ImageManager.Info*
+  commentId: Overload:BgTools.Utils.ImageManager.Info
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_Info
+  name: Info
+  nameWithType: ImageManager.Info
+  fullName: BgTools.Utils.ImageManager.Info
+- uid: BgTools.Utils.ImageManager.Watching*
+  commentId: Overload:BgTools.Utils.ImageManager.Watching
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_Watching
+  name: Watching
+  nameWithType: ImageManager.Watching
+  fullName: BgTools.Utils.ImageManager.Watching
+- uid: BgTools.Utils.ImageManager.NotWatching*
+  commentId: Overload:BgTools.Utils.ImageManager.NotWatching
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_NotWatching
+  name: NotWatching
+  nameWithType: ImageManager.NotWatching
+  fullName: BgTools.Utils.ImageManager.NotWatching
+- uid: BgTools.Utils.ImageManager.SortDisabled*
+  commentId: Overload:BgTools.Utils.ImageManager.SortDisabled
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_SortDisabled
+  name: SortDisabled
+  nameWithType: ImageManager.SortDisabled
+  fullName: BgTools.Utils.ImageManager.SortDisabled
+- uid: BgTools.Utils.ImageManager.SortAsscending*
+  commentId: Overload:BgTools.Utils.ImageManager.SortAsscending
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_SortAsscending
+  name: SortAsscending
+  nameWithType: ImageManager.SortAsscending
+  fullName: BgTools.Utils.ImageManager.SortAsscending
+- uid: BgTools.Utils.ImageManager.SortDescending*
+  commentId: Overload:BgTools.Utils.ImageManager.SortDescending
+  href: BgTools.Utils.ImageManager.html#BgTools_Utils_ImageManager_SortDescending
+  name: SortDescending
+  nameWithType: ImageManager.SortDescending
+  fullName: BgTools.Utils.ImageManager.SortDescending
+shouldSkipMarkup: true

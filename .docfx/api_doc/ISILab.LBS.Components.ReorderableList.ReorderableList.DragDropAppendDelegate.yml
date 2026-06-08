@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Components.ReorderableList.ReorderableList.DragDropAppendDelegate
+  commentId: T:ISILab.LBS.Components.ReorderableList.ReorderableList.DragDropAppendDelegate
+  id: ReorderableList.DragDropAppendDelegate
+  parent: ISILab.LBS.Components.ReorderableList
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ReorderableList.DragDropAppendDelegate
+  nameWithType: ReorderableList.DragDropAppendDelegate
+  fullName: ISILab.LBS.Components.ReorderableList.ReorderableList.DragDropAppendDelegate
+  type: Delegate
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: DragDropAppendDelegate
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/Imported Scripts/ReorderableList/List/Editor/ReorderableList.cs
+    startLine: 34
+  assemblies:
+  - ReorderableList
+  namespace: ISILab.LBS.Components.ReorderableList
+  syntax:
+    content: public delegate void ReorderableList.DragDropAppendDelegate(Object reference, ReorderableList list)
+    parameters:
+    - id: reference
+      type: UnityEngine.Object
+    - id: list
+      type: ISILab.LBS.Components.ReorderableList.ReorderableList
+    content.vb: Public Delegate Sub ReorderableList.DragDropAppendDelegate(reference As [Object], list As ReorderableList)
+references:
+- uid: ISILab.LBS.Components.ReorderableList
+  commentId: N:ISILab.LBS.Components.ReorderableList
+  href: ISILab.html
+  name: ISILab.LBS.Components.ReorderableList
+  nameWithType: ISILab.LBS.Components.ReorderableList
+  fullName: ISILab.LBS.Components.ReorderableList
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+  - name: .
+  - uid: ISILab.LBS.Components.ReorderableList
+    name: ReorderableList
+    href: ISILab.LBS.Components.ReorderableList.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+  - name: .
+  - uid: ISILab.LBS.Components.ReorderableList
+    name: ReorderableList
+    href: ISILab.LBS.Components.ReorderableList.html
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: ISILab.LBS.Components.ReorderableList.ReorderableList
+  commentId: T:ISILab.LBS.Components.ReorderableList.ReorderableList
+  parent: ISILab.LBS.Components.ReorderableList
+  href: ISILab.LBS.Components.ReorderableList.ReorderableList.html
+  name: ReorderableList
+  nameWithType: ReorderableList
+  fullName: ISILab.LBS.Components.ReorderableList.ReorderableList
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+shouldSkipMarkup: true

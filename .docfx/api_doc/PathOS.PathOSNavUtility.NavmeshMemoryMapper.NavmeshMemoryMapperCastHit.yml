@@ -15,6 +15,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit
   type: Struct
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: NavmeshMemoryMapperCastHit
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 71
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -25,8 +33,8 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit.numUnexplored
   commentId: F:PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit.numUnexplored
@@ -39,6 +47,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit.numUnexplored
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit.numUnexplored
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: numUnexplored
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 73
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -58,6 +74,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit.portionUnexplored
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit.portionUnexplored
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: portionUnexplored
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 74
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -77,6 +101,14 @@ items:
   nameWithType: PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit.distance
   fullName: PathOS.PathOSNavUtility.NavmeshMemoryMapper.NavmeshMemoryMapperCastHit.distance
   type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: distance
+    path: ../LBS/Plugin/Modules/Simulation/PathOSPlugin/PathOSPlus/Scripts/Utilities/PathOSNavUtility.cs
+    startLine: 75
   assemblies:
   - PathOSPlus
   namespace: PathOS
@@ -88,7 +120,6 @@ items:
 references:
 - uid: PathOS
   commentId: N:PathOS
-  isExternal: true
   href: PathOS.html
   name: PathOS
   nameWithType: PathOS
@@ -170,30 +201,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -238,6 +245,30 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)

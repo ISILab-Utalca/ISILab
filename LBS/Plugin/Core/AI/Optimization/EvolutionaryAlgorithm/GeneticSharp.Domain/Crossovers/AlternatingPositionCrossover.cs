@@ -8,6 +8,7 @@ namespace GeneticSharp.Domain.Crossovers
 {
     /// <summary>
     /// Alternating-position (AP).
+    /// </summary>
     /// <remarks>
     /// <para>
     /// The alternating position crossover operator (Larrañaga et al. 1996a) simply creates an offspring by selecting alternately the next 
@@ -22,7 +23,6 @@ namespace GeneticSharp.Domain.Crossovers
     /// <see href="../docs/Genetic Algorithms for the Travelling Salesman Problem - A Review of Representations and Operators.pdf">Genetic Algorithms for the Travelling Salesman Problem: A Review of Representations and Operators</see>
     /// </para>
     /// </remarks>
-    /// </summary>
     [DisplayName("Alternating-position (AP)")]
     public sealed class AlternatingPositionCrossover : CrossoverBase
     {
