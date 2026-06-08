@@ -168,7 +168,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             StepPreview();
         }
 
-        #endregion
 
         public void UseToolOnTile(AssetGridTile tile, bool rightClick)
         {
@@ -287,5 +286,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             renderTexture = prevRenderUtil.EndStaticPreview();
             thumbnail.style.backgroundImage = new StyleBackground(renderTexture);
         }
+        #endregion
     }
 }

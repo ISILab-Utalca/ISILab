@@ -22,12 +22,16 @@ MonoBehaviour:
   assets:
   - obj: {fileID: 919132149155446097, guid: 01a0327e4fae40e4b8696c8f19775638, type: 3}
     probability: 1
+    id: 
   - obj: {fileID: 8935465766269110040, guid: 46a13501be5dc5049a19d54923bb045c, type: 3}
     probability: 0.294
+    id: 
   - obj: {fileID: 8935465766269110040, guid: 5316c700b4b309c4dbe52b1527025ccb, type: 3}
     probability: 0.121
+    id: 
   characteristics:
   - rid: 5085006314459627539
+  - rid: 5871762691607757428
   elementFlag: 0
   tileSize: {x: 1, y: 1}
   childsBundles: []
@@ -41,6 +45,8 @@ MonoBehaviour:
     mesh: {fileID: 0}
     material: {fileID: 0}
   guid: 
+  entityType: 0
+  admissibleTypes: 
   references:
     version: 2
     RefIds:
@@ -53,3 +59,12 @@ MonoBehaviour:
         - Water
         - Water
         - Water
+    - rid: 5871762691607757428
+      type: {class: LBSTerrainConnectionGrid, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 11400000}
+        gridList: []
+        colorPalette: []
+        colorPaletteID: 
+        gridSize: 9
+        defaultAsset: 0
