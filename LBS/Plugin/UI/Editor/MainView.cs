@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor
@@ -443,6 +444,31 @@ namespace ISILab.LBS.Plugin.UI.Editor
 
                 _layers.Remove(layer);
             }
+        }
+
+        internal void ClearLost()
+        {
+            List<LBSLayer> lostLayers = new List<LBSLayer>();
+
+            // find lost layers (null container or null layer) clear all exlements and mark for deletion
+            foreach (var layer in _layers)
+            {
+                if(layer.Key is null || layer.Value is null)
+                {
+                    foreach (var element in layer.Value.Delete())
+                    {
+                        RemoveElement(element);
+                    }
+                    lostLayers.Add(layer.Key);
+                }
+            }
+
+            // delete from drawer dictionary
+            foreach (var lost in lostLayers)
+            {
+                _layers.Remove(lost);
+            }
+
         }
 
         #endregion
