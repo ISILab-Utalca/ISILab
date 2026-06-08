@@ -10,16 +10,21 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
     public class LayerTemplate : ScriptableObject
     {
         [JsonRequired, SerializeField]
-        public string templateName;
+        private string _templateName;
 
         [JsonRequired, SerializeField]
-        public int order;
+        public int Order;
 
         [JsonRequired, SerializeField]
         public LBSLayer layer;
 
         [JsonIgnore]
-        public string Name => templateName;
+        public string Name => _templateName;
+
+
+        // Editor stuff
+        [HideInInspector, NonSerialized]
+        public bool DebugView;
 
         public void Clear()
         {
@@ -41,6 +46,14 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             {
                 // invoke
                 assistant?.OnGUI();
+            }
+        }
+
+        public void SetName(string newName)
+        {
+            if (!string.IsNullOrEmpty(newName))
+            {
+                _templateName = newName;
             }
         }
     }

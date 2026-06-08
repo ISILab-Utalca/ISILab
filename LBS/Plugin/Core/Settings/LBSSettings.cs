@@ -124,7 +124,7 @@ namespace ISILab.LBS.Plugin.Core.Settings
         [System.Serializable]
         public class General
         {
-
+            public int defaultFloorCount = 10;
             public float zoomMax = 10;
             public float zoomMin = 0.1f;
 
@@ -136,8 +136,6 @@ namespace ISILab.LBS.Plugin.Core.Settings
                 get => tileSize;
                 set => tileSize = value;
             }
-
-            public String baseLayerName = "New Layer";
 
             public Action<float, float> OnChangeZoomValue;
             public Action<Vector2> OnChangeTileSize;

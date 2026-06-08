@@ -112,7 +112,7 @@ namespace ISILab.LBS.VisualElements.Editor
             for (int i = 0; i < _templates.Count; i++)
             {
                 int index = i;
-                addLayerButton.menu.AppendAction(_templates[i].templateName, _ => AddLayerByTemplate(index));
+                addLayerButton.menu.AppendAction(_templates[i].Name, _ => AddLayerByTemplate(index));
             }
         }
 
@@ -254,7 +254,6 @@ namespace ISILab.LBS.VisualElements.Editor
             //Undo.RegisterCompleteObjectUndo(level, "Add Layer");
 
             if (_templates[index].layer.Clone() is not LBSLayer layer) return;
-            layer.Name = LBSSettings.Instance.general.baseLayerName;
             AddLayer(layer);
 
             //if (EditorGUI.EndChangeCheck())

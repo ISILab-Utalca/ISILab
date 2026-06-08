@@ -127,12 +127,12 @@ namespace ISILab.LBS.VisualElements
             string typeKeyword = (type == ConnectedTileMapModule.ConnectedTileType.VertexBased) ? "Vertex" : "Edge";
 
             var match = _templates.FirstOrDefault(t =>
-            t.templateName.Contains("Exterior") &&
-            t.templateName.Contains(typeKeyword));
+            t.Name.Contains("Exterior") &&
+            t.Name.Contains(typeKeyword));
 
             if (match == null)
             {
-                match = _templates.FirstOrDefault(t => t.templateName.Contains("Exterior"));
+                match = _templates.FirstOrDefault(t => t.Name.Contains("Exterior"));
             }
 
             if (match != null)

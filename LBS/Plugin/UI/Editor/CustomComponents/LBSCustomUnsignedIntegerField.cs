@@ -64,16 +64,21 @@ namespace ISILab.LBS.CustomComponents
             addButton.AddToClassList("addButton");
             this.Add(addButton);
 
+            this.RegisterValueChangedCallback<uint>((evt) =>
+            {
+                value = Math.Clamp(evt.newValue, minValue, maxValue);
+            });
+
             addButton.RegisterCallback<ClickEvent>((evt) =>
             {
-                value = Math.Clamp(value + 1, minValue, maxValue);
+                value++;
                 
             });
             
             minusButton.RegisterCallback<ClickEvent>((evt) =>
             {
-                if (value != 0) 
-                    value = Math.Clamp(value - 1, minValue, maxValue);
+                if (value != 0)
+                    value--;
             });
             
         }

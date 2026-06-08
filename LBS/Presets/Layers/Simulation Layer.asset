@@ -12,110 +12,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c744a98d20f087843ac0884b895e0b43, type: 3}
   m_Name: Simulation Layer
   m_EditorClassIdentifier: 
-  templateName: Simulation Layer
-  order: 50
+  _templateName: Simulation Layer
+  Order: 50
   layer:
     visible: 1
     blocked: 0
     iconGuid: 13f64883312513a41adeb7dec75a3a5f
     id: Simulation
-    name: Layer Simulation
+    name: Simulation_Layer
+    tileSize: {x: 2, y: 2}
     floors:
-    - rid: 1508221297216717198
-    - rid: 1508221297216717199
-    - rid: 1508221297216717200
-    - rid: 1508221297216717201
-    - rid: 1508221297216717202
-    - rid: 1508221297216717203
-    - rid: 1508221297216717204
-    - rid: 1508221297216717205
-    - rid: 1508221297216717206
-    - rid: 1508221297216717207
+    - rid: 6524972627821068614
+    - rid: 6524972627821068615
+    - rid: 6524972627821068616
+    - rid: 6524972627821068617
+    - rid: 6524972627821068618
+    - rid: 6524972627821068619
+    - rid: 6524972627821068620
+    - rid: 6524972627821068621
+    - rid: 6524972627821068622
+    - rid: 6524972627821068623
     behaviours:
-    - rid: 1508221297216717208
-    - rid: 2533804032580124842
+    - rid: 6524972627821068624
     assistants:
-    - rid: 1508221297216717209
+    - rid: 6524972627821068625
     generatorRules:
-    - rid: 1508221297216717210
-    settings:
-      useBundleSize: 0
-      lightVolume: 0
-      reflectionProbe: 0
-      scale: {x: 2, y: 2, z: 2}
-      resize: {x: 0, y: 0}
-      position: {x: 0, y: 0, z: 0}
-      replacePrevious: 1
-      buildLightProbes: 1
-      bakeLights: 0
-      optimization3d: 0
-      generatedRootName: Simulation
-      rootParentName: Root_Parent
+    - rid: 6524972627821068626
     index: 0
   references:
     version: 2
     RefIds:
-    - rid: 1508221297216717198
+    - rid: 6524972627821068614
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 1508221297216717211
-        - rid: 2533804032580124843
-    - rid: 1508221297216717199
+        - rid: 6524972627821068627
+    - rid: 6524972627821068615
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 1508221297216717212
-        - rid: 2533804032580124844
-    - rid: 1508221297216717200
+        - rid: 6524972627821068628
+    - rid: 6524972627821068616
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 1508221297216717213
-        - rid: 2533804032580124845
-    - rid: 1508221297216717201
+        - rid: 6524972627821068629
+    - rid: 6524972627821068617
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 1508221297216717214
-        - rid: 2533804032580124846
-    - rid: 1508221297216717202
+        - rid: 6524972627821068630
+    - rid: 6524972627821068618
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 1508221297216717215
-        - rid: 2533804032580124847
-    - rid: 1508221297216717203
+        - rid: 6524972627821068631
+    - rid: 6524972627821068619
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 1508221297216717216
-        - rid: 2533804032580124848
-    - rid: 1508221297216717204
+        - rid: 6524972627821068632
+    - rid: 6524972627821068620
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 1508221297216717217
-        - rid: 2533804032580124849
-    - rid: 1508221297216717205
+        - rid: 6524972627821068633
+    - rid: 6524972627821068621
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 1508221297216717218
-        - rid: 2533804032580124850
-    - rid: 1508221297216717206
+        - rid: 6524972627821068634
+    - rid: 6524972627821068622
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 1508221297216717219
-        - rid: 2533804032580124851
-    - rid: 1508221297216717207
+        - rid: 6524972627821068635
+    - rid: 6524972627821068623
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 1508221297216717220
-        - rid: 2533804032580124852
-    - rid: 1508221297216717208
+        - rid: 6524972627821068636
+    - rid: 6524972627821068624
       type: {class: SimulationBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
         visible: 1
@@ -125,36 +102,24 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: Simulation Behaviour
@@ -164,7 +129,7 @@ MonoBehaviour:
         upStairTag: {fileID: 0}
         downStairTag: {fileID: 0}
         pathOSBundles: []
-    - rid: 1508221297216717209
+    - rid: 6524972627821068625
       type: {class: SimulationAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
       data:
         visible: 1
@@ -174,45 +139,33 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
         name: Simulation Assistant
         iconGuid: ad8feef201665454ca79e31b7d798ac3
         icon: {fileID: 0}
-    - rid: 1508221297216717210
+    - rid: 6524972627821068626
       type: {class: SimulationRuleGenerator, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data: 
-    - rid: 1508221297216717211
+    - rid: 6524972627821068627
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: SimulationModule
@@ -222,39 +175,27 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         tiles: []
-    - rid: 1508221297216717212
+    - rid: 6524972627821068628
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: SimulationModule
@@ -264,39 +205,27 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         tiles: []
-    - rid: 1508221297216717213
+    - rid: 6524972627821068629
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: SimulationModule
@@ -306,39 +235,27 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         tiles: []
-    - rid: 1508221297216717214
+    - rid: 6524972627821068630
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: SimulationModule
@@ -348,39 +265,27 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         tiles: []
-    - rid: 1508221297216717215
+    - rid: 6524972627821068631
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: SimulationModule
@@ -390,39 +295,27 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         tiles: []
-    - rid: 1508221297216717216
+    - rid: 6524972627821068632
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: SimulationModule
@@ -432,39 +325,27 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         tiles: []
-    - rid: 1508221297216717217
+    - rid: 6524972627821068633
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: SimulationModule
@@ -474,39 +355,27 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         tiles: []
-    - rid: 1508221297216717218
+    - rid: 6524972627821068634
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: SimulationModule
@@ -516,39 +385,27 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         tiles: []
-    - rid: 1508221297216717219
+    - rid: 6524972627821068635
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: SimulationModule
@@ -558,39 +415,27 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         tiles: []
-    - rid: 1508221297216717220
+    - rid: 6524972627821068636
       type: {class: SimulationModule, ns: ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge, asm: LBS}
       data:
         id: SimulationModule
@@ -600,511 +445,23 @@ MonoBehaviour:
           iconGuid: 13f64883312513a41adeb7dec75a3a5f
           id: Simulation
           name: Layer Simulation
+          tileSize: {x: 2, y: 2}
           floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
           behaviours:
-          - rid: 1508221297216717208
+          - rid: 6524972627821068624
           assistants:
-          - rid: 1508221297216717209
+          - rid: 6524972627821068625
           generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
+          - rid: 6524972627821068626
           index: 0
         tiles: []
-    - rid: 2533804032580124842
-      type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
-      data:
-        visible: 1
-        ownerLayerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        colorTint: {r: 0, g: 0, b: 0, a: 0}
-        name: NoteBehaviour
-        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
-        icon: {fileID: 0}
-    - rid: 2533804032580124843
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        notes: []
-    - rid: 2533804032580124844
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        notes: []
-    - rid: 2533804032580124845
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        notes: []
-    - rid: 2533804032580124846
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        notes: []
-    - rid: 2533804032580124847
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        notes: []
-    - rid: 2533804032580124848
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        notes: []
-    - rid: 2533804032580124849
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        notes: []
-    - rid: 2533804032580124850
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        notes: []
-    - rid: 2533804032580124851
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        notes: []
-    - rid: 2533804032580124852
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Layer Simulation
-          floors:
-          - rid: 1508221297216717198
-          - rid: 1508221297216717199
-          - rid: 1508221297216717200
-          - rid: 1508221297216717201
-          - rid: 1508221297216717202
-          - rid: 1508221297216717203
-          - rid: 1508221297216717204
-          - rid: 1508221297216717205
-          - rid: 1508221297216717206
-          - rid: 1508221297216717207
-          behaviours:
-          - rid: 1508221297216717208
-          - rid: 2533804032580124842
-          assistants:
-          - rid: 1508221297216717209
-          generatorRules:
-          - rid: 1508221297216717210
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Simulation
-            rootParentName: Root_Parent
-          index: 0
-        notes: []

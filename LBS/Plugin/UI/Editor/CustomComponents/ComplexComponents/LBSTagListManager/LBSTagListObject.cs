@@ -168,7 +168,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                         case LBSTagGroup.TagType.Element:
                             layerTag = new LBSTagListLayerTag(this, "Population", layerTypeRemovable);
                             break;
-
+                        case LBSTagGroup.TagType.Simulation:
+                            layerTag = new LBSTagListLayerTag(this, "Simulation", layerTypeRemovable);
+                            break;
                     }
                     layerTagContainer.Add(layerTag);
                 }
@@ -226,6 +228,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                             break;
                         case LBSTagGroup.TagType.Element:
                             layerTagContainer.Add(new LBSTagListLayerTag(this, "Population", false));
+                            break;
+                        case LBSTagGroup.TagType.Simulation:
+                            layerTagContainer.Add(new LBSTagListLayerTag(this, "Simulation", false));
                             break;
 
                     }

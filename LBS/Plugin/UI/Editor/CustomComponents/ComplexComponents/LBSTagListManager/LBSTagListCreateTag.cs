@@ -132,7 +132,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             switch(Type)
             {
                 case objectType.Individual:
-                    if (TagManagerWindow.AllTags.Find(c => c.name == tagName) != null)
+                    if (TagManagerWindow.AllTags.Find(c => c != null && c.name == tagName) != null)
                     {
                         SetWarning("A tag with this name already exists.");
                         return;
@@ -151,7 +151,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                     TagManagerWindow.OnTagAdded?.Invoke(targetTagGroup, indivTag);
                     break;
                 case objectType.Group:
-                    if (TagManagerWindow.AllTagGroups.Find(c => c.name == tagName) != null)
+                    if (TagManagerWindow.AllTagGroups.Find(c => c != null && c.name == tagName) != null)
                     {
                         SetWarning("A tag with this name already exists.");
                         return;
