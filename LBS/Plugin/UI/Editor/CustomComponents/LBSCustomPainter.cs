@@ -14,9 +14,9 @@ namespace ISILab.LBS.CustomComponents
     public partial class LBSCustomPainter: VisualElement
     {
         
-        private Color fillColor;
-        private Color strokeColor;
-        private float lineWidth;
+        protected Color fillColor;
+        protected Color strokeColor;
+        protected int lineWidth;
 
 
         [UxmlAttribute]
@@ -44,7 +44,7 @@ namespace ISILab.LBS.CustomComponents
 
 
         [UxmlAttribute]
-        public float LineWidth
+        public int LineWidth
         {
             get => lineWidth;
             set
@@ -61,8 +61,7 @@ namespace ISILab.LBS.CustomComponents
         {
             style.position = Position.Absolute;
 
-            MaxPos = new Vector2(100,100);
-
+            lineWidth = 1;
             fillColor = Color.white;
             strokeColor = Color.black;
 
@@ -71,12 +70,32 @@ namespace ISILab.LBS.CustomComponents
         }
 
 
-        private void DrawContent(MeshGenerationContext mgc)
+
+        protected virtual void DrawContent(MeshGenerationContext mgc) { }
+
+        
+
+    }
+
+    public class LBSCustomPainterBox : LBSCustomPainter
+    {
+        protected override void DrawContent(MeshGenerationContext mgc)
         {
             var painter2D = mgc.painter2D;
 
-            painter2D.DrawSelectionBox(MinPos, MaxPos, FillColor, strokeColor, 1);
+            painter2D.DrawSelectionBox(MinPos, MaxPos, FillColor, strokeColor, lineWidth);
         }
+    }
 
+    public class LBSCustomPainterCircle : LBSCustomPainter
+    {
+        public float radius = 10f;
+
+        protected override void DrawContent(MeshGenerationContext mgc)
+        {
+            var painter2D = mgc.painter2D;
+
+            painter2D.DrawCircle(MinPos, radius, FillColor, strokeColor, lineWidth);
+        }
     }
 }

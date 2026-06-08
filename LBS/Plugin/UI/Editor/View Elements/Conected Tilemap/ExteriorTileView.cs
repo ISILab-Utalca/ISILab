@@ -61,5 +61,8 @@ namespace ISILab.LBS.VisualElements
             color.g += colorBrightenner;
             return color;
         }
+
+        internal abstract void SetSelectionMode(bool layerSelected);
+
     }
 }

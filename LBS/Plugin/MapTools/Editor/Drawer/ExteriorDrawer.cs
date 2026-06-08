@@ -1,13 +1,14 @@
 using ISILab.Commons;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using ISILab.LBS.Plugin.Internal;
 using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor; // TODO: Search the reference to this namespace and remove it
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
-using ISILab.LBS.Plugin.Internal;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -52,6 +53,7 @@ namespace ISILab.LBS.Drawers
 
         private void PaintNewTiles(ExteriorBehaviour exterior, ConnectedTileMapModule connectMod, Vector2 teselationSize, MainView view)
         {
+            bool isSelected = exterior.OwnerLayer == LBSMainWindow.Instance._selectedLayer;
             int replaceCount = 0, createCount = 0;
             IEnumerable<LBSTile> newTiles = exterior.RetrieveNewTiles().Cast<LBSTile>();
             //Debug.Log($"EXTERIOR PAINT NEW TILES: {newTiles.Count()}");
@@ -80,7 +82,7 @@ namespace ISILab.LBS.Drawers
                         
                 tView.style.display = (DisplayStyle)(exterior.OwnerLayer.IsVisible ? 0 : 1);
 
-                UpdateTileView(ref tView, newTile, teselationSize, exterior.GridType, exterior.OwnerLayer.index);
+                UpdateTileView(ref tView, newTile, teselationSize, exterior.GridType, exterior.OwnerLayer.index, isSelected);
             }
             //Debug.Log($"Replaced: {replaceCount} | Created: {createCount}");
             //Debug.Log(view.graphElements.Count());
@@ -88,7 +90,8 @@ namespace ISILab.LBS.Drawers
         private void UpdateLoadedTiles(ExteriorBehaviour exterior, ConnectedTileMapModule connectMod, Vector2 teselationSize, MainView view)
         {
             exterior.Keys.RemoveWhere(item => item == null);
-            
+            bool isSelected = exterior.OwnerLayer == LBSMainWindow.Instance._selectedLayer;
+
             // Update stored tile
             foreach (object obj in exterior.Keys)
             {
@@ -115,12 +118,12 @@ namespace ISILab.LBS.Drawers
                     if (!tView.visible) continue;
 
                     List<string> connections = connectMod.GetConnections(tile);
-                    UpdateTileView(ref tView, tile, connections, teselationSize, exterior.GridType, exterior.OwnerLayer.index);
+                    UpdateTileView(ref tView, tile, connections, teselationSize, exterior.GridType, exterior.OwnerLayer.index, isSelected);
                 }
             }
         }
         
-        private void UpdateTileView(ref ExteriorTileView tView, LBSTile tile, List<string> connections, Vector2 teselationSize, ConnectedTileType gridType, int layerIndex)
+        private void UpdateTileView(ref ExteriorTileView tView, LBSTile tile, List<string> connections, Vector2 teselationSize, ConnectedTileType gridType, int layerIndex, bool layerSelected)
         {
             switch(gridType)
             {
@@ -131,16 +134,16 @@ namespace ISILab.LBS.Drawers
                     (tView as VertexExteriorTileView).SetConnections(connections.ToArray());
                     break;
             }
-            UpdateTileView(ref tView, tile, teselationSize, gridType, layerIndex);
+            UpdateTileView(ref tView, tile, teselationSize, gridType, layerIndex, layerSelected);
         }
 
-        private void UpdateTileView(ref ExteriorTileView tView, LBSTile tile, Vector2 teselationSize, ConnectedTileType gridType, int layerIndex)
+        private void UpdateTileView(ref ExteriorTileView tView, LBSTile tile, Vector2 teselationSize, ConnectedTileType gridType, int layerIndex, bool layerSelected)
         {
             var pos = new Vector2(tile.Position.x, -tile.Position.y);
 
             Vector2 size = DefaultSize * teselationSize;
             tView.SetPosition(new Rect(pos * size, size));
-
+            tView.SetSelectionMode(layerSelected);
             tView.layer = layerIndex;
         }
 
