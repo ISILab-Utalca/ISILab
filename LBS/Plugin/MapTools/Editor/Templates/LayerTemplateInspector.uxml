@@ -2,29 +2,48 @@
     <ui:Template name="LBSHorizontalDivider" src="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/StaticTemplateComponents/SimpleComponents/LBSHorizontalDivider.uxml?fileID=9197481963319205126&amp;guid=8e276661d37de8e41905231bb939b61a&amp;type=3#LBSHorizontalDivider" />
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
     <ui:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: flex-start;">
-        <ISILab.LBS.CustomComponents.LBSCustomToggle label="Debug View" name="DebugViewToggle" />
-        <ui:Instance template="LBSHorizontalDivider" enabled="false" style="display: none;" />
-        <ISILab.LBS.CustomComponents.LBSCustomLabel text="Template Settings" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 10px;" />
-        <ui:VisualElement style="flex-grow: 1; flex-direction: row; flex-shrink: 0; justify-content: space-between;">
-            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Template Name" style="-unity-font-style: bold; font-size: 14px; max-width: 50%;" />
-            <ISILab.LBS.CustomComponents.LBSCustomTextField name="TemplateNameField" style="max-height: 35px; flex-shrink: 0; flex-grow: 1; -unity-font-style: bold; align-content: auto; align-self: stretch; max-width: 50%;" />
+        <ui:VisualElement name="DebugVIewContainer" style="flex-grow: 1; flex-direction: row; justify-content: flex-start; flex-shrink: 1; overflow: visible;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Debug View" style="-unity-font-style: normal; font-size: 10px; max-width: 50%; flex-grow: 1; flex-shrink: 0; min-width: 50%; margin-left: 0;" />
+            <ISILab.LBS.CustomComponents.LBSCustomToggle name="DebugViewToggle" style="max-width: 50%; margin-left: 0; margin-right: 0; padding-left: 4px; padding-right: 4px;" />
         </ui:VisualElement>
-        <ISILab.LBS.CustomComponents.LBSCustomIntField name="SortingOrderField" label="Sorting Order" hide-mobile-input="false" style="max-height: 35px; -unity-font-style: bold;" />
         <ui:Instance template="LBSHorizontalDivider" enabled="false" style="display: none;" />
-        <ISILab.LBS.CustomComponents.LBSCustomLabel text="Layer Settings" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 20px;" />
-        <ISILab.LBS.CustomComponents.LBSCustomTextField label="Default Name" name="DefaultNameField" style="max-height: 35px; -unity-font-style: bold;" />
-        <ISILab.LBS.CustomComponents.LBSCustomTextField label="ID&#10;" name="IdField" style="max-height: 35px; -unity-font-style: bold;" />
-        <ui:VisualElement name="IconField" style="flex-grow: 0; flex-direction: column; align-items: stretch; justify-content: space-between; flex-shrink: 0; margin-top: 2px; margin-bottom: 2px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px;">
-            <ui:VisualElement style="flex-grow: 0; flex-direction: row; align-self: stretch; align-items: auto; align-content: auto; justify-content: flex-start;">
-                <ISILab.LBS.CustomComponents.LBSCustomLabel text="Icon&#10;" style="font-size: 14px; -unity-font-style: bold; flex-direction: row; justify-content: space-between; align-items: auto; align-content: auto; align-self: flex-end; min-width: 25%; flex-grow: 1; flex-shrink: 1;" />
-                <ISILab.LBS.CustomComponents.LBSCustomObjectField type="UnityEngine.UIElements.VectorImage, UnityEngine.UIElementsModule" icon-side="None" use-custom-filter="false" allow-scene-objects="false" name="IconObjectField" value="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=LayerFixedPerspectiveSimple.svg?fileID=7388822144124034973&amp;guid=6a77875a09116c74191cecf73e49111c&amp;type=3#Icon=LayerFixedPerspectiveSimple" style="font-size: 10px; flex-shrink: 1; flex-grow: 0; align-items: flex-end; max-height: 25px; padding-bottom: 0; margin-bottom: 0;" />
+        <ISILab.LBS.CustomComponents.LBSCustomLabel text="Template Settings" name="TemplateSettingsLabel" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 10px;" />
+        <ui:VisualElement name="TemplateNameContainer" style="flex-grow: 1; flex-direction: row; flex-shrink: 1; justify-content: space-between; margin-left: 0;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Template Name" style="-unity-font-style: bold; font-size: 12px; max-width: 50%; flex-shrink: 0; flex-grow: 1; min-width: 50%;" />
+            <ISILab.LBS.CustomComponents.LBSCustomTextField name="TemplateNameField" style="max-height: 35px; flex-shrink: 0; flex-grow: 1; -unity-font-style: bold; align-content: auto; align-self: stretch; max-width: 50%; align-items: center;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="SortingOrderContainer" style="flex-grow: 1; flex-direction: row; flex-shrink: 1; justify-content: space-between; margin-left: 0;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Sorting Order" style="-unity-font-style: bold; font-size: 12px; max-width: 50%; flex-shrink: 0; flex-grow: 1; min-width: 50%;" />
+            <ISILab.LBS.CustomComponents.LBSCustomIntField name="SortingOrderField" hide-mobile-input="false" style="max-height: 43px; -unity-font-style: bold; max-width: 50%; flex-grow: 1; flex-shrink: 1; justify-content: space-around; padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; margin-left: 0; margin-right: 0;" />
+        </ui:VisualElement>
+        <ui:Instance template="LBSHorizontalDivider" enabled="false" style="display: none;" />
+        <ISILab.LBS.CustomComponents.LBSCustomLabel text="Layer Settings" name="LayerSettingsLabel" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 20px;" />
+        <ui:VisualElement name="DefaultNameContainer" style="flex-grow: 1; flex-direction: row; flex-shrink: 1; justify-content: space-between; margin-left: 0;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Default Name" style="-unity-font-style: bold; font-size: 12px; max-width: 50%; flex-shrink: 0; flex-grow: 1; min-width: 50%;" />
+            <ISILab.LBS.CustomComponents.LBSCustomTextField name="DefaultNameField" style="max-height: 35px; -unity-font-style: bold; max-width: 50%; flex-grow: 1; flex-shrink: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="IDContainer" style="flex-grow: 1; flex-direction: row; flex-shrink: 1; justify-content: space-between; margin-left: 0;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="ID" style="-unity-font-style: bold; font-size: 12px; max-width: 50%; flex-shrink: 0; flex-grow: 1; min-width: 50%;" />
+            <ISILab.LBS.CustomComponents.LBSCustomTextField name="IdField" style="max-height: 35px; -unity-font-style: bold; flex-shrink: 1; flex-grow: 1; max-width: 50%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="IconContainer" style="flex-grow: 1; flex-direction: row; align-items: stretch; justify-content: space-between; flex-shrink: 1; margin-top: 0; margin-bottom: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-right: 0; margin-left: 0; align-self: stretch; align-content: stretch;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Icon" style="-unity-font-style: bold; font-size: 12px; max-width: 50%; flex-shrink: 0; flex-grow: 1; min-width: 50%;" />
+            <ui:VisualElement name="IconField" style="flex-grow: 1; flex-direction: row; align-self: flex-end; align-items: flex-end; align-content: flex-end; justify-content: flex-end; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; margin-top: 2px; margin-bottom: 2px; flex-shrink: 1;">
+                <ISILab.LBS.CustomComponents.LBSCustomObjectField type="UnityEngine.UIElements.VectorImage, UnityEngine.UIElementsModule" icon-side="None" use-custom-filter="false" allow-scene-objects="false" name="IconObjectField" value="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=LayerFixedPerspectiveSimple.svg?fileID=7388822144124034973&amp;guid=6a77875a09116c74191cecf73e49111c&amp;type=3#Icon=LayerFixedPerspectiveSimple" style="font-size: 10px; flex-shrink: 1; flex-grow: 1; align-items: flex-end; max-height: 25px; padding-bottom: 0; margin-bottom: 0;" />
                 <ui:VisualElement name="IconImage" style="background-image: resource(&apos;Icons/Vectorial/Icon=LayerFixedPerspectiveSimple&apos;); flex-grow: 1; min-width: 50px; min-height: 50px; max-height: 50px; max-width: 50px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ISILab.LBS.CustomComponents.LBSCustomVector2IntField name="TileSizeField" label="Tile Size" value="2,2" style="-unity-font-style: bold;" />
-        <ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField label="Floor Count" name="FloorCountField" max-length="100" min-value="1" value="10" style="max-height: 35px; -unity-font-style: bold;" />
+        <ui:VisualElement name="TileSizeContainer" style="flex-grow: 1; flex-direction: row; align-items: stretch; justify-content: space-between; flex-shrink: 1; margin-top: 0; margin-bottom: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-right: 0; margin-left: 0; align-self: stretch; align-content: stretch;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Tile Size" style="-unity-font-style: bold; font-size: 12px; flex-shrink: 0; flex-grow: 1; min-width: 50%; max-width: 50%;" />
+            <ISILab.LBS.CustomComponents.LBSCustomVector2IntField name="TileSizeField" label="&#10;" value="2,2" style="-unity-font-style: bold; flex-shrink: 1; flex-grow: 1; padding-left: 4px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; align-items: flex-end; justify-content: flex-end; align-self: flex-end; align-content: flex-end;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="SortingOrderContainer" style="flex-grow: 1; flex-direction: row; flex-shrink: 1; justify-content: space-between; margin-left: 0;">
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Sorting Order" style="-unity-font-style: bold; font-size: 12px; max-width: 50%; flex-shrink: 0; flex-grow: 1; min-width: 50%;" />
+            <ISILab.LBS.CustomComponents.LBSCustomUnsignedIntegerField name="FloorCountField" max-length="100" min-value="1" value="10" style="max-height: 46px; -unity-font-style: bold; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; margin-right: 0; margin-left: 0; max-width: 50%; justify-content: space-around; flex-shrink: 1; flex-grow: 1;" />
+        </ui:VisualElement>
         <ui:Instance template="LBSHorizontalDivider" enabled="false" name="TemplateContainer" style="display: none;" />
         <ISILab.LBS.CustomComponents.LBSCustomLabel text="Components" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 4px; margin-top: 20px;" />
+        <ISILab.LBS.CustomComponents.LBSCustomListView item-template="project://database/Assets/ISILab/LBS/Plugin/UI/Editor/CustomComponents/ComplexComponents/OverlayPanels/WarningPanel.uxml?fileID=9197481963319205126&amp;guid=65ad21365d671594a85cf837da5d8c84&amp;type=3#WarningPanel" tabindex="0" name="WarningListView" fixed-item-height="50" style="min-height: 0;" />
         <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="Modules" name="ModulesListGroup" hide-add-button="false" hide-remove-button="false" style="flex-shrink: 0;" />
         <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="Behaviours" name="BehavioursListGroup" style="flex-shrink: 0;" />
         <ISILab.LBS.Plugin.Editor.UI.CustomComponents.LBSBaseListGroup is-foldout-expanded="true" add-remove-buttons-visible="true" hide-add-remove-buttons="true" title-text="AI Assistants" name="AssistantsListGroup" style="flex-shrink: 0;" />

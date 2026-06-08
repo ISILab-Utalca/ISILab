@@ -43,7 +43,6 @@ namespace LBS.Components
         #endregion
 
         #region Properties
-        [JsonIgnore] public List<LBSModule> FirstModules => floors[0].Modules;
 
         [JsonIgnore] public bool IsVisible { get => visible; set => visible = value; }
         [JsonIgnore] public bool IsBlocked { get => blocked; set => blocked = value; }
@@ -60,7 +59,12 @@ namespace LBS.Components
         [JsonIgnore] public List<LBSAssistant> Assistants => new(assistants);
         [JsonIgnore] public List<LBSGeneratorRule> GeneratorRules => new(generatorRules);
 
-        //[JsonIgnore] public LBSGenerator3DSettings Settings { get => settings; set => settings = value; }
+        // "First" lists are less safe, but are meant to be used in editor
+        // as a quick way to make design changes.
+        [JsonIgnore] public List<LBSModule> FirstModules => floors[0].Modules;
+        [JsonIgnore] public List<LBSBehaviour> FirstBehaviours => behaviours;
+        [JsonIgnore] public List<LBSAssistant> FirstAssistants => assistants;
+        [JsonIgnore] public List<LBSGeneratorRule> FirstGeneratorRules => generatorRules;
 
         [JsonIgnore]
         public Vector2Int TileSize

@@ -9,6 +9,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Editor.UI.CustomComponents;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using ISILab.LBS.Plugin.Modules.Simulation.LBSPathOSBridge;
+using ISILab.LBS.VisualElements;
 using LBS.Components;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,8 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
     public class LayerTemplateEditor : UnityEditor.Editor
     {
         #region Fields
-        public VisualTreeAsset _layerTemplateInspector;
-
+        [SerializeField]
+        private VisualTreeAsset _layerTemplateInspector;
         private VisualElement _root;
 
         private int _moduleIndex;
@@ -50,8 +51,13 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
         private const string DefaultBehaviorIcon = "e17eb0e02534666439fca8ea30b4d4e4";
         private const string DefaultAssistantIcon = "ad8feef201665454ca79e31b7d798ac3";
 
+        private static Dictionary<Type, MonoScript> s_typeScriptCache = new Dictionary<Type, MonoScript>();
+
+        private List<string> _unresolvedRequirements = new List<string>();
+        private List<LBSBaseListGroup> _listGroups = new List<LBSBaseListGroup>();
+        private LBSCustomListView _warningList;
         #endregion
-        
+
         #region Properties
         private LayerTemplate Template => (LayerTemplate)target;
         #endregion
@@ -70,11 +76,9 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
         private void OnUndoRedo()
         {
-            //EditorUtility.SetDirty(Template);
             Repaint();
             ActiveEditorTracker.sharedTracker.ForceRebuild();
         }
-
 
         public override VisualElement CreateInspectorGUI()
         {
@@ -138,32 +142,40 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 label.text = Template.layer.FirstModules[index]?.ID ?? "Null Module";
                 label.style.color = Template.layer.FirstModules[index] != null ? Color.white : Color.gray;
             });
+            _listGroups.Add(modulesListGroup);
 
             // Behaviours list
             var behavioursListGroup = _root.Q<LBSBaseListGroup>("BehavioursListGroup");
-            ListGroupSetup(behavioursListGroup, s_behaviourOptions, Template.layer.Behaviours, (element, index) =>
+            ListGroupSetup(behavioursListGroup, s_behaviourOptions, Template.layer.FirstBehaviours, (element, index) =>
             {
                 var label = element.Q<LBSCustomLabel>("textL");
-                label.text = Template.layer.Behaviours[index].Name;
-                label.style.color = Template.layer.Behaviours[index].ColorTint;
+                label.text = Template.layer.Behaviours[index]?.Name ?? "Null Behaviour";
+                label.style.color = Template.layer.Behaviours[index]?.ColorTint ?? Color.gray;
             });
+            _listGroups.Add(behavioursListGroup);
 
             // Assistants list
             var assistantsListGroup = _root.Q<LBSBaseListGroup>("AssistantsListGroup");
-            ListGroupSetup(assistantsListGroup, s_assistantOptions, Template.layer.Assistants, (element, index) =>
+            ListGroupSetup(assistantsListGroup, s_assistantOptions, Template.layer.FirstAssistants, (element, index) =>
             {
                 var label = element.Q<LBSCustomLabel>("textL");
-                label.text = Template.layer.Assistants[index].Name;
-                label.style.color = Template.layer.Assistants[index].ColorTint;
+                label.text = Template.layer.Assistants[index]?.Name ?? "Null Assistant";
+                label.style.color = Template.layer.Assistants[index]?.ColorTint ?? Color.gray;
             });
+            _listGroups.Add(assistantsListGroup);
 
             // Generator rules list
             var rulesListGroup = _root.Q<LBSBaseListGroup>("GeneratorRulesListGroup");
-            ListGroupSetup(rulesListGroup, s_ruleOptions, Template.layer.GeneratorRules, (element, index) =>
+            ListGroupSetup(rulesListGroup, s_ruleOptions, Template.layer.FirstGeneratorRules, (element, index) =>
             {
                 var label = element.Q<LBSCustomLabel>("textL");
-                label.text = Template.layer.GeneratorRules[index].GetType().Name;
+                label.text = Template.layer.GeneratorRules[index]?.GetType().Name ?? "Null Rule";
             });
+            _listGroups.Add(rulesListGroup);
+
+            // Warning list
+            _warningList = _root.Q<LBSCustomListView>("WarningListView");
+            WarningListSetup();
 
             return _root;
 
@@ -279,6 +291,32 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
                 listGroup.BindListView(items, (_) => { }, () => new LBSCustomLabelItem(), bindItem);
 
+                // Registra doble-click en el ListView interno y abre/selecciona el script asociado al tipo del elemento seleccionado
+                var internalListView = listGroup.Q<LBSCustomListView>("ListView");
+                if (internalListView != null)
+                {
+                    internalListView.RegisterCallback<MouseDownEvent>(evt =>
+                    {
+                        if (evt.clickCount == 2 && evt.button == 0)
+                        {
+                            int sel = internalListView.selectedIndex;
+                            if (sel >= 0 && sel < items.Count)
+                            {
+                                var item = items[sel];
+                                if (item == null) return;
+
+                                Type itemType = item.GetType();
+                                MonoScript script = FindScriptForType(itemType);
+                                if (script != null)
+                                    EditorGUIUtility.PingObject(script);
+                                else
+                                    Debug.LogWarning($"[LayerTemplateEditor] No se encontró el script para el tipo: {itemType.FullName}");
+                            }
+                            evt.StopPropagation();
+                        }
+                    });
+                }
+
                 var addButton = listGroup.Q<LBSToolbarButton>("AddButton");
                 if(addButton == null)
                 { NotFoundErrorLog($"AddButton for {typeof(T).Name}"); return; }
@@ -310,8 +348,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                             }
 
                             EditorUtility.SetDirty(Template);
-                            //listGroup.SetItemsSource(items);
-                            listGroup.Rebuild();
+                            RebuildAllLists();
                         });
                     }
                     menu.ShowAsContext();
@@ -339,14 +376,50 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                         Debug.LogWarning($"Unsupported type for removal: {typeof(T).Name}");
 
                     EditorUtility.SetDirty(Template);
-                    //listGroup.SetItemsSource(items);
-                    listGroup.Rebuild();
+                    RebuildAllLists();
                 };
             }
         
+            void WarningListSetup()
+            {
+                if (_warningList == null)
+                { NotFoundErrorLog($"WarningListView"); return; }
+
+                _unresolvedRequirements = GetUnresolvedRequirements();
+                _warningList.itemsSource = _unresolvedRequirements;
+                _warningList.makeItem = () => new WarningPanel();
+                _warningList.bindItem = (element, index) =>
+                {
+                    var panel = element as WarningPanel;
+                    if(index >= _unresolvedRequirements.Count)
+                    {
+                        panel.RemoveFromHierarchy();
+                    }
+                    panel.Text = index < _unresolvedRequirements.Count ? _unresolvedRequirements[index] : "Empty";
+                };
+
+                // Mostrar/ocultar según el conteo de elementos
+                _warningList.style.display = _unresolvedRequirements.Count > 0
+                    ? DisplayStyle.Flex
+                    : DisplayStyle.None;
+            }
+
             void NotFoundErrorLog(string name)
             {
                 Debug.LogError($"[LayerTemplateEditor]: {Template.layer.ID} couldn't find the {name} visual element.");
+            }
+        
+            void RebuildAllLists()
+            {
+                foreach (var group in _listGroups)
+                    group.Rebuild();
+
+                if(_warningList != null)
+                {
+                    _unresolvedRequirements = GetUnresolvedRequirements();
+                    _warningList.RefreshItems();
+                    _warningList.Rebuild();
+                }
             }
         }
 
@@ -382,6 +455,134 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             catch
             {
                 s_assistantIcon = null;
+            }
+        }
+
+        private static MonoScript FindScriptForType(Type type)
+        {
+            if (type == null) return null;
+            if (s_typeScriptCache.TryGetValue(type, out var cached)) return cached;
+
+            // Busca scripts cuyo nombre de archivo coincida con el nombre del tipo
+            string[] guids = AssetDatabase.FindAssets($"{type.Name} t:script");
+            foreach (var guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                if (Path.GetFileNameWithoutExtension(path) != type.Name) continue;
+
+                var script = AssetDatabase.LoadAssetAtPath<MonoScript>(path);
+                if (script == null) continue;
+
+                var cls = script.GetClass();
+                if (cls == type || script.name == type.Name)
+                {
+                    s_typeScriptCache[type] = script;
+                    return script;
+                }
+            }
+
+            // Fallback: buscar por clase dentro de todos los scripts
+            guids = AssetDatabase.FindAssets("t:script");
+            foreach (var guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                var script = AssetDatabase.LoadAssetAtPath<MonoScript>(path);
+                if (script == null) continue;
+                var cls = script.GetClass();
+                if (cls == type)
+                {
+                    s_typeScriptCache[type] = script;
+                    return script;
+                }
+            }
+
+            s_typeScriptCache[type] = null;
+            return null;
+        }
+        
+        private List<string> GetUnresolvedRequirements()
+        {
+            List<string> unresolved = new List<string>();
+
+            foreach (var obj in Template.layer.FirstModules)
+            {
+                unresolved.AddRange(GetRequieredModules(obj, obj?.GetType().Name ?? "Unknown"));
+                unresolved.AddRange(GetRequieredBehaviours(obj, obj?.GetType().Name ?? "Unknown"));
+                unresolved.AddRange(GetRequieredAssistants(obj, obj?.GetType().Name ?? "Unknown"));
+            }
+            foreach (var obj in Template.layer.FirstBehaviours)
+            {
+                unresolved.AddRange(GetRequieredModules(obj, obj?.GetType().Name ?? "Unknown"));
+                unresolved.AddRange(GetRequieredBehaviours(obj, obj?.GetType().Name ?? "Unknown"));
+                unresolved.AddRange(GetRequieredAssistants(obj, obj?.GetType().Name ?? "Unknown"));
+            }
+            foreach (var obj in Template.layer.FirstAssistants)
+            {
+                unresolved.AddRange(GetRequieredModules(obj, obj?.GetType().Name ?? "Unknown"));
+                unresolved.AddRange(GetRequieredBehaviours(obj, obj?.GetType().Name ?? "Unknown"));
+                unresolved.AddRange(GetRequieredAssistants(obj, obj?.GetType().Name ?? "Unknown"));
+            }
+            foreach (var obj in Template.layer.FirstGeneratorRules)
+            {
+                unresolved.AddRange(GetRequieredModules(obj, obj?.GetType().Name ?? "Unknown"));
+                unresolved.AddRange(GetRequieredBehaviours(obj, obj?.GetType().Name ?? "Unknown"));
+                unresolved.AddRange(GetRequieredAssistants(obj, obj?.GetType().Name ?? "Unknown"));
+            }
+            return unresolved;
+
+            List<string> GetRequieredModules(object obj, string name)
+            {
+                List<string> unresolved = new List<string>();
+
+                // Check modules
+                if (obj == null) return unresolved;
+                var req = obj.GetType().GetCustomAttributes(typeof(RequieredModuleAttribute), true).FirstOrDefault() as RequieredModuleAttribute;
+                if (req == null) return unresolved;
+
+                foreach (var type in req.types)
+                {
+                    if (!Template.layer.FirstModules.Any(m => m != null && m.GetType() == type))
+                    {
+                        unresolved.Add($"'{name}' requires missing module: {type.Name}");
+                    }
+                }
+                return unresolved;
+            }
+            List<string> GetRequieredBehaviours(object obj, string name)
+            {
+                List<string> unresolved = new List<string>();
+
+                // Check behaviours
+                if (obj == null) return unresolved;
+                var req = obj.GetType().GetCustomAttributes(typeof(RequieredBehaviourAttribute), true).FirstOrDefault() as RequieredBehaviourAttribute;
+                if (req == null) return unresolved;
+
+                foreach (var type in req.types)
+                {
+                    if (!Template.layer.FirstBehaviours.Any(b => b != null && b.GetType() == type))
+                    {
+                        unresolved.Add($"'{name}' requires missing behaviour: {type.Name}");
+                    }
+                }
+                return unresolved;
+            }
+            List<string> GetRequieredAssistants(object obj, string name)
+            {
+                List<string> unresolved = new List<string>();
+
+                // Check assistants
+                if (obj == null) return unresolved;
+                var req = obj.GetType().GetCustomAttributes(typeof(RequieredAssistantAttribute), true).FirstOrDefault() as RequieredAssistantAttribute;
+                if (req == null) return unresolved;
+
+                foreach (var type in req.types)
+                {
+                    if (!Template.layer.FirstAssistants.Any(a => a != null && a.GetType() == type))
+                    {
+                        unresolved.Add($"'{name}' requires missing assistant: {type.Name}");
+                    }
+                }
+                return unresolved;
             }
         }
         #endregion
