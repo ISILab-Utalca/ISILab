@@ -103,7 +103,34 @@ namespace ISILab.LBS.VisualElements.Editor
 
             _noLayerNotifications = this.Q<VisualElement>("NoLayerNotify");
             _noSelectedLayerNotificator = this.Q<VisualElement>("NoSelectedLayerNotify");
+
+            Undo.undoRedoPerformed -= OnUndoRedoExecuted;
+            Undo.undoRedoPerformed += OnUndoRedoExecuted;
         }
+
+        private void OnUndoRedoExecuted()
+        {
+            if (Data != null)
+            {
+                _list.itemsSource = Data.Layers;
+            }
+
+
+            LoadedLevel level = LBSController.CurrentLevel;
+            if(level != null)
+            {
+                if (!level.data.Layers.Contains(LBSMainWindow.Instance._selectedLayer))
+                {
+                    SetSelectedLayer(null);
+                }
+            }
+
+            _list.Rebuild();
+            RefreshUI();
+            LBSInspectorPanel.Instance.Repaint();
+
+        }
+        
 
         private void SetupAddLayerButton()
         {
@@ -248,18 +275,22 @@ namespace ISILab.LBS.VisualElements.Editor
                 Debug.LogWarning("No layer type selected.");
                 return;
             }
-            
-            //LoadedLevel level = LBSController.CurrentLevel;
-            //EditorGUI.BeginChangeCheck();
-            //Undo.RegisterCompleteObjectUndo(level, "Add Layer");
+
 
             if (_templates[index].layer.Clone() is not LBSLayer layer) return;
+
+            LoadedLevel level = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(level, "Add Layer");
+
+            //layer.Name = LBSSettings.Instance.general.baseLayerName;
+            layer.Name = GenerateUniqueLayerName(layer.Name);
             AddLayer(layer);
 
-            //if (EditorGUI.EndChangeCheck())
-            //{
-            //    EditorUtility.SetDirty(level);
-            //}
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(level);
+            }
         }
 
         public void AddLayer(LBSLayer layer)

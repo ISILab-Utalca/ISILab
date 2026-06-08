@@ -177,25 +177,36 @@ namespace ISILab.LBS.VisualElements
             }
 
             // by default we set the pallete tab
-            ActivateBehaviourTab();
+            if (layer is not null)
+                ActivateBehaviourTab();
+            else
+                DeactivateTabs();
         }
 
         public void Repaint()
         {
-            ToolKit.Instance.Clear();
-            LBSManipulator currentManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
-            Type manipulatorClass = null;
-            if (currentManipulator is not null)
+            if(LBSMainWindow.Instance._selectedLayer != null)
             {
-                manipulatorClass = currentManipulator.GetType();
+                ToolKit.Instance.Clear();
+                LBSManipulator currentManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
+                Type manipulatorClass = null;
+                if (currentManipulator is not null)
+                {
+                    manipulatorClass = currentManipulator.GetType();
+                }
+                foreach (KeyValuePair<string, LBSInspector> ve in VEs)
+                {
+                    LBSInspector inspector = ve.Value;
+                    inspector.Repaint();
+                }
+                ToolKit.Instance.SetSeparators();
+                if (manipulatorClass is not null) ToolKit.Instance.SetActive(manipulatorClass);
             }
-            foreach (KeyValuePair<string, LBSInspector> ve in VEs)
+            else
             {
-                LBSInspector inspector = ve.Value;
-                inspector.Repaint();
+                ClearContent();
+                DeactivateTabs();
             }
-            ToolKit.Instance.SetSeparators();
-            if(manipulatorClass is not null) ToolKit.Instance.SetActive(manipulatorClass);
         }
 
         public void CallSelectableByPosition(LBSLayer layer, Vector2 position)
@@ -260,9 +271,6 @@ namespace ISILab.LBS.VisualElements
            
         }
 
-        internal void DeactivateTabs()
-        {
-            SetSelectedTab(null);
-        }
+        internal void DeactivateTabs() => SetSelectedTab(null);
     }
 }
