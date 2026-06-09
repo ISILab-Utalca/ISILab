@@ -34,7 +34,7 @@ namespace ISILab.LBS.Characteristics
 
         #region PROPERTIES
         /// <summary>
-        /// Points to the current assets stored in this characteristic's bundle. This list is used to assign each asset a corresponding blank <b>Asset-Connection Grid</b>
+        /// Points to the current assets stored in this characteristic's bundle. This list is used to assign each asset a corresponding blank <b>Asset Connection Grid</b>
         /// on generation of the characteristic.
         /// </summary>
         [JsonIgnore]
@@ -43,12 +43,12 @@ namespace ISILab.LBS.Characteristics
             get => Owner.Assets;
         }
         /// <summary>
-        /// A list of all <b>Asset-Connection Grids</b> stored in this characteristic.
+        /// A list of all <b>Asset Connection Grids</b> stored in this characteristic.
         /// </summary>
         [JsonIgnore]
         public List<AssetConnectionGrid> GridList => gridList;
         /// <summary>
-        /// The size of the  <b>Asset-Connection Grid</b> handled for each asset in the bundle. <br/>
+        /// The size of the  <b>Asset Connection Grid</b> handled for each asset in the bundle. <br/> <br/>
         /// <b>NOTE</b>: Currently, grids have a locked size of 9, which cannot be manually modified. It currently does not work with different sizes.
         /// </summary>
         public int GridSize => gridSize;
@@ -79,7 +79,7 @@ namespace ISILab.LBS.Characteristics
         {
         }
         /// <summary>
-        /// Alternative constructor with modifiable grid size.
+        /// Alternative constructor with modifiable grid size. <br/> <br/>
         /// <b>NOTE</b>: Unused. Only the empty constructor is used.
         /// </summary>
         public LBSTerrainConnectionGrid(int gSize = 9)
@@ -133,7 +133,7 @@ namespace ISILab.LBS.Characteristics
 
         #region METHODS - GRIDS
         /// <summary>
-        /// Sets the individual ID of every asset in the bundle if it doesn't exist. This allows the  <b>Asset-Connection Grid Editor</b> to properly differentiate
+        /// Sets the individual ID of every asset in the bundle if it doesn't exist. This allows the  <b>Asset Connection Grid Editor</b> to properly differentiate
         /// between different iterations of the exact same asset within the bundle without modifications required.
         /// </summary>
         public void Init()
@@ -144,29 +144,29 @@ namespace ISILab.LBS.Characteristics
             }
         }
         /// <summary>
-        /// Obtains a particular  <b>Asset-Connection Grid</b> by looking for its asset reference.
+        /// Obtains a particular  <b>Asset Connection Grid</b> by looking for its asset reference.
         /// </summary>
         /// <param name="asset">The asset to be searched.</param>
-        /// <returns>Returns the first Asset-Connection Grid that contains the given asset. Returns <c>null</c> otherwise.</returns>
+        /// <returns>Returns the first Asset Connection Grid that contains the given asset. Returns <c>null</c> otherwise.</returns>
         public AssetConnectionGrid GetGrid(Asset asset)
         {
             var match = gridList.Find(c => c.AssetReference.Equals(asset));
             return match;
         }
         /// <summary>
-        /// Obtains multiple <b>Asset-Connection Grid</b> by looking for a particular asset reference.
+        /// Obtains multiple <b>Asset Connection Grids</b> by looking for a particular asset reference.
         /// </summary>
         /// <param name="asset">The asset to be searched.</param>
-        /// <returns>Returns a list of every Asset-Connection Grid that contains the given asset. The list may be empty.</returns>
+        /// <returns>Returns a list of every Asset Connection Grid that contains the given asset. The list may be empty.</returns>
         public List<AssetConnectionGrid> GetGrids(Asset asset)
         {
             return gridList.FindAll(c => c.AssetReference.Equals(asset));
         }
         /// <summary>
-        /// Obtains a particular <b>Asset-Connection Grid</b> by looking for a GameObject. The object is initially searched on the bundle's asset list.
+        /// Obtains a particular <b>Asset Connection Grid</b> by looking for a GameObject. The object is initially searched on the bundle's asset list.
         /// </summary>
         /// <param name="obj">The GameObject to find.</param>
-        /// <returns>Returns the first Asset-Connection Grid that contains the given GameObject (inside of an asset). Returns <c>null</c> otherwise.</returns>
+        /// <returns>Returns the first Asset Connection Grid that contains the given GameObject (inside of an asset). Returns <c>null</c> otherwise.</returns>
         public AssetConnectionGrid GetGrid(GameObject obj) => GetGrid(Assets.Find(c => c.obj == obj));
 
         public void SetGridSize(int gSize)
@@ -178,8 +178,8 @@ namespace ISILab.LBS.Characteristics
             }
         }
         /// <summary>
-        /// Creates a new Grid List for the characteristic, then automatically populates it according to the bundle's Asset list. <br/>
-        /// To populate the Grid List, it individally checks every available Asset, then checks if an <b>Asset-Connection Grid</b> exists for it. If multiple
+        /// Creates a new Grid List for the characteristic, then automatically populates it according to the bundle's Asset list. <br/> <br/>
+        /// To populate the Grid List, it individally checks every available Asset, then checks if an <b>Asset Connection Grid</b> exists for it. If multiple
         /// grids exist for the same asset, these are chequed in sequence and added accordingly. If no grid is found for a particular asset, 
         /// a blank grid is created.
         /// </summary>
@@ -305,7 +305,8 @@ namespace ISILab.LBS.Characteristics
         [SerializeField, JsonRequired]
         private Asset assetReference;
         /// <summary>
-        /// An array holding every flag held by the Asset Grid. <b>NOTE</b>: This array currently has a set size of 9.
+        /// An array holding every flag held by the Asset Grid. <br/> <br/> 
+        /// <b>NOTE</b>: This array currently has a set size of 9.
         /// </summary>
         public int[] TerrainFlag
         {
@@ -321,7 +322,7 @@ namespace ISILab.LBS.Characteristics
         /// </summary>
         public int GridSize => terrainFlag.Length;
         /// <summary>
-        /// The size of the terrain grid's square borders. It currently points to the square root of the terrain flag array's length. <br/>
+        /// The size of the terrain grid's square borders. It currently points to the square root of the terrain flag array's length. <br/> <br/>
         /// <b>NOTE</b>: It may be personalizable to allow for non-square terrain grid sizes, but it currently depends on it being a perfect square.
         /// </summary>
         public int BorderSize => Mathf.RoundToInt(Mathf.Sqrt(terrainFlag.Length));
@@ -400,7 +401,7 @@ namespace ISILab.LBS.Characteristics
         }
 
         /// <summary>
-        /// Compares two <b>Asset-Connection Grids</b>.
+        /// Compares two <b>Asset Connection Grids</b>.
         /// </summary>
         /// <param name="obj">The object to compare to this.</param>
         /// <returns><c>true</c> if the objects equal each other. <c>false</c> otherwise.</returns>

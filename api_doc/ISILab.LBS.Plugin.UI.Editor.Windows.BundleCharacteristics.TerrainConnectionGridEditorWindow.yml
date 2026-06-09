@@ -42,12 +42,10 @@ items:
   source:
     id: TerrainConnectionGridEditorWindow
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 17
+    startLine: 20
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
-  summary: The main editing window for <b>LBS Terrain Connection Grids</b>. It possesses all the main functionalities necessary to ensure their proper functioning.
-  example: []
   syntax:
     content: 'public class TerrainConnectionGridEditorWindow : EditorWindow'
     content.vb: Public Class TerrainConnectionGridEditorWindow Inherits EditorWindow
@@ -216,10 +214,12 @@ items:
   source:
     id: connectionGridTarget
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 20
+    startLine: 26
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  summary: The target <b>LBS Terrain Connection Grid</b> to be modified with this window.
+  example: []
   syntax:
     content: public LBSTerrainConnectionGrid connectionGridTarget
     return:
@@ -239,10 +239,12 @@ items:
   source:
     id: currentColor
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 23
+    startLine: 32
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
+  summary: The currently active terrain flag to be applied with the window's painting tools.
+  example: []
   syntax:
     content: public int currentColor
     return:
@@ -262,7 +264,7 @@ items:
   source:
     id: borderColorContainer
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 28
+    startLine: 43
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -285,7 +287,7 @@ items:
   source:
     id: baseColorButton
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 30
+    startLine: 45
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -308,7 +310,7 @@ items:
   source:
     id: colorButtons
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 31
+    startLine: 46
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -331,7 +333,7 @@ items:
   source:
     id: addColorButton
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 32
+    startLine: 47
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -354,7 +356,7 @@ items:
   source:
     id: colorList
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 33
+    startLine: 48
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -377,7 +379,7 @@ items:
   source:
     id: gridTerrainTools
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 36
+    startLine: 51
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -400,7 +402,7 @@ items:
   source:
     id: brushTool
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 38
+    startLine: 53
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -423,7 +425,7 @@ items:
   source:
     id: fillTool
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 39
+    startLine: 54
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -446,7 +448,7 @@ items:
   source:
     id: eraserTool
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 40
+    startLine: 55
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -469,7 +471,7 @@ items:
   source:
     id: gridsVE
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 43
+    startLine: 58
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -492,7 +494,7 @@ items:
   source:
     id: fovScale
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 48
+    startLine: 63
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -515,7 +517,7 @@ items:
   source:
     id: ColorPaletteKey
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 67
+    startLine: 82
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -540,7 +542,7 @@ items:
   source:
     id: ActiveTool
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 79
+    startLine: 94
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -565,7 +567,7 @@ items:
   source:
     id: SetFOVScale
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 82
+    startLine: 97
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -588,7 +590,7 @@ items:
   source:
     id: OnWindowClosed
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 83
+    startLine: 98
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -611,7 +613,7 @@ items:
   source:
     id: OnColorRemoved
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 84
+    startLine: 99
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -634,7 +636,7 @@ items:
   source:
     id: OnScaleModify
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 85
+    startLine: 100
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -657,7 +659,7 @@ items:
   source:
     id: RevertChangesConfirmed
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 87
+    startLine: 102
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -680,7 +682,7 @@ items:
   source:
     id: ClearChangesConfirmed
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 88
+    startLine: 103
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -703,7 +705,7 @@ items:
   source:
     id: CreateGUI
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 91
+    startLine: 106
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -725,7 +727,7 @@ items:
   source:
     id: AddColorKey
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 242
+    startLine: 257
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -747,7 +749,7 @@ items:
   source:
     id: RemoveColorKey
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 258
+    startLine: 273
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -775,7 +777,7 @@ items:
   source:
     id: AddColorButton
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 269
+    startLine: 284
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -813,7 +815,7 @@ items:
   source:
     id: UpdateColorButtons
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 307
+    startLine: 322
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
@@ -835,7 +837,7 @@ items:
   source:
     id: PaintGridListPanel
     path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\UI\Editor\Windows\BundleCharacteristics\TerrainConnectionGrid\TerrainConnectionGridEditorWindow.cs
-    startLine: 318
+    startLine: 333
   assemblies:
   - LBS.Editor
   namespace: ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
