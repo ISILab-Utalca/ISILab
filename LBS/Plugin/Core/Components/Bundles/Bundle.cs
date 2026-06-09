@@ -92,6 +92,7 @@ namespace ISILab.LBS.Plugin.Components.Bundles
             Structural, // Ej: Door, Wall, Corner,Stair
             Element, // Ej: Furniture, Enemies, 
                      // Distinction, // (characteristics)Ej: Destroyed, Blooded, Dirty,
+            Simulation
         }
         
         [System.Flags]

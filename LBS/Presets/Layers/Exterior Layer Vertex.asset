@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c744a98d20f087843ac0884b895e0b43, type: 3}
   m_Name: Exterior Layer Vertex
   m_EditorClassIdentifier: 
-  templateName: Exterior Layer/Vertex-based
-  order: 21
+  _templateName: Exterior Layer Vertex
+  Order: 11
   layer:
     visible: 1
     blocked: 0
     iconGuid: 02a644759487ae249bc3a20d019c8745
     id: Exterior
-    name: Layer Exterior
+    name: V_Exterior_Layer
+    tileSize: {x: 2, y: 2}
     floors:
     - rid: 1508221297216716989
     behaviours:
@@ -29,19 +30,6 @@ MonoBehaviour:
     - rid: 1508221297216717000
     generatorRules:
     - rid: 1508221297216717001
-    settings:
-      useBundleSize: 0
-      lightVolume: 0
-      reflectionProbe: 0
-      scale: {x: 2, y: 2, z: 2}
-      resize: {x: 0, y: 0}
-      position: {x: 0, y: 0, z: 0}
-      replacePrevious: 1
-      buildLightProbes: 1
-      bakeLights: 0
-      optimization3d: 0
-      generatedRootName: Exterior
-      rootParentName: Root_Parent
     index: 0
   references:
     version: 2
@@ -52,7 +40,7 @@ MonoBehaviour:
         modules:
         - rid: 1508221297216717002
         - rid: 1508221297216717003
-        - rid: 2533804032580124810
+        - rid: 6524972717418482554
     - rid: 1508221297216716990
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
@@ -126,6 +114,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -143,19 +132,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
         name: Exterior behaviour
@@ -173,6 +149,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -190,19 +167,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
         name: Assistant WFC
@@ -223,6 +187,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -240,19 +205,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         tiles: []
     - rid: 1508221297216717003
@@ -265,6 +217,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -282,19 +235,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         connectedDirections: 4
         gridType: 1
@@ -309,6 +249,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -326,19 +267,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         tiles: []
     - rid: 1508221297216717005
@@ -351,6 +279,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -368,19 +297,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         connectedDirections: 4
         gridType: 1
@@ -395,6 +311,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -412,19 +329,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         tiles: []
     - rid: 1508221297216717007
@@ -437,6 +341,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -454,19 +359,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         connectedDirections: 4
         gridType: 1
@@ -481,6 +373,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -498,19 +391,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         tiles: []
     - rid: 1508221297216717009
@@ -523,6 +403,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -540,19 +421,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         connectedDirections: 4
         gridType: 1
@@ -567,6 +435,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -584,19 +453,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         tiles: []
     - rid: 1508221297216717011
@@ -609,6 +465,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -626,19 +483,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         connectedDirections: 4
         gridType: 1
@@ -653,6 +497,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -670,19 +515,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         tiles: []
     - rid: 1508221297216717013
@@ -695,6 +527,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -712,19 +545,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         connectedDirections: 4
         gridType: 1
@@ -739,6 +559,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -756,19 +577,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         tiles: []
     - rid: 1508221297216717015
@@ -781,6 +589,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -798,19 +607,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         connectedDirections: 4
         gridType: 1
@@ -825,6 +621,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -842,19 +639,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         tiles: []
     - rid: 1508221297216717017
@@ -867,6 +651,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -884,19 +669,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         connectedDirections: 4
         gridType: 1
@@ -911,6 +683,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -928,19 +701,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         tiles: []
     - rid: 1508221297216717019
@@ -953,6 +713,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -970,19 +731,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         connectedDirections: 4
         gridType: 1
@@ -997,6 +745,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1014,19 +763,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         tiles: []
     - rid: 1508221297216717021
@@ -1039,6 +775,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1056,19 +793,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         connectedDirections: 4
         gridType: 1
@@ -1083,6 +807,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1101,67 +826,11 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
-        colorTint: {r: 0, g: 0, b: 0, a: 0}
+        colorTint: {r: 0.5294118, g: 0.83921576, b: 0.9607844, a: 1}
         name: NoteBehaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
-    - rid: 2533804032580124810
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 02a644759487ae249bc3a20d019c8745
-          id: Exterior
-          name: Layer Exterior
-          floors:
-          - rid: 1508221297216716989
-          - rid: 1508221297216716990
-          - rid: 1508221297216716991
-          - rid: 1508221297216716992
-          - rid: 1508221297216716993
-          - rid: 1508221297216716994
-          - rid: 1508221297216716995
-          - rid: 1508221297216716996
-          - rid: 1508221297216716997
-          - rid: 1508221297216716998
-          behaviours:
-          - rid: 1508221297216716999
-          - rid: 2533804032580124809
-          assistants:
-          - rid: 1508221297216717000
-          generatorRules:
-          - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
-          index: 0
-        notes: []
     - rid: 2533804032580124811
       type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
       data:
@@ -1172,6 +841,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1190,19 +860,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         notes: []
     - rid: 2533804032580124812
@@ -1215,6 +872,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1233,19 +891,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         notes: []
     - rid: 2533804032580124813
@@ -1258,6 +903,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1276,19 +922,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         notes: []
     - rid: 2533804032580124814
@@ -1301,6 +934,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1319,19 +953,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         notes: []
     - rid: 2533804032580124815
@@ -1344,6 +965,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1362,19 +984,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         notes: []
     - rid: 2533804032580124816
@@ -1387,6 +996,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1405,19 +1015,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         notes: []
     - rid: 2533804032580124817
@@ -1430,6 +1027,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1448,19 +1046,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         notes: []
     - rid: 2533804032580124818
@@ -1473,6 +1058,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1491,19 +1077,6 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
           index: 0
         notes: []
     - rid: 2533804032580124819
@@ -1516,6 +1089,7 @@ MonoBehaviour:
           iconGuid: 02a644759487ae249bc3a20d019c8745
           id: Exterior
           name: Layer Exterior
+          tileSize: {x: 2, y: 2}
           floors:
           - rid: 1508221297216716989
           - rid: 1508221297216716990
@@ -1534,18 +1108,27 @@ MonoBehaviour:
           - rid: 1508221297216717000
           generatorRules:
           - rid: 1508221297216717001
-          settings:
-            useBundleSize: 0
-            lightVolume: 0
-            reflectionProbe: 0
-            scale: {x: 2, y: 2, z: 2}
-            resize: {x: 0, y: 0}
-            position: {x: 0, y: 0, z: 0}
-            replacePrevious: 1
-            buildLightProbes: 1
-            bakeLights: 0
-            optimization3d: 0
-            generatedRootName: Exterior
-            rootParentName: Root_Parent
+          index: 0
+        notes: []
+    - rid: 6524972717418482554
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: V_Exterior_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 1508221297216716989
+          behaviours:
+          - rid: 1508221297216716999
+          - rid: 2533804032580124809
+          assistants:
+          - rid: 1508221297216717000
+          generatorRules:
+          - rid: 1508221297216717001
           index: 0
         notes: []

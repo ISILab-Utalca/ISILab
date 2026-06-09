@@ -36,7 +36,7 @@
                                         }
                                     }
                                     List<int> others = elements.Except(knownDist).ToList();
-                                    EvaluatorHelper.FloodFill(elements[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, ref info);
+                                    EvaluatorHelper.FloodFill(elements[i], others, i, ref distances, tilePos, chrom, sectorMod, connectedMod, PathfindingHeuristic.Octile, ref info);
                                 }
                                 break;
                             case PathfindingAlgorithm.JPS_Plus:
@@ -53,8 +53,8 @@
                                         else
                                         {
                                             distances[i, j] = distances[j, i] = searchType == PathfindingAlgorithm.A_Star ?
-                                                EvaluatorHelper.AStarRun(elements[i], elements[j], chrom.Rect, connectedMod, ref info) :
-                                                EvaluatorHelper.JPSPlus.JPSRun(elements[i], elements[j], chrom.Rect, connectedMod, ref info);
+                                                EvaluatorHelper.AStarRun(elements[i], elements[j], chrom.Rect, connectedMod, PathfindingHeuristic.Octile, ref info) :
+                                                EvaluatorHelper.JPSPlus.JPSRun(elements[i], elements[j], chrom.Rect, connectedMod, PathfindingHeuristic.Octile, ref info);
                                         }
                                     }
                                 }

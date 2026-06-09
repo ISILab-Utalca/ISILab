@@ -31,7 +31,7 @@ namespace LBS.Components
         [SerializeField, JsonRequired] private string name = "Layer name";
         [SerializeField] private Vector2Int tileSize = new Vector2Int(2, 2);
 
-        [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[10];
+        [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[LBSSettings.Instance.general.defaultFloorCount];
         [SerializeField, SerializeReference] private List<LBSBehaviour> behaviours = new();
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
         [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
@@ -43,12 +43,14 @@ namespace LBS.Components
         #endregion
 
         #region Properties
+        [JsonIgnore] public List<LBSModule> FirstModules => floors[0].Modules;
+
         [JsonIgnore] public bool IsVisible { get => visible; set => visible = value; }
         [JsonIgnore] public bool IsBlocked { get => blocked; set => blocked = value; }
         [JsonIgnore] public bool IsLocked { get => blocked; set => blocked = value; }
 
         [JsonIgnore] public LBSLevelData Parent { get => _parent; set => _parent = value; }
-        [JsonIgnore] public string ID { get => id; set => id = value; }
+        [JsonIgnore] public string ID { get => id; }
         [JsonIgnore] public string Name { get => name; set => name = value; }
         [JsonIgnore] public int ActiveFloor { get => activeFloor; }
         [JsonIgnore] public int FloorCount { get => floors.Length; }
@@ -96,7 +98,7 @@ namespace LBS.Components
             generatorRules ??= new List<LBSGeneratorRule>();
 
             IsVisible = true;
-            ID = GetType().Name;
+            id = GetType().Name;
         }
 
         public LBSLayer(
@@ -118,7 +120,7 @@ namespace LBS.Components
             if (behaviours != null) foreach (LBSBehaviour b in behaviours) AddBehaviour(b);
 
             Parent = parent;
-            this.ID = ID;
+            id = ID;
             IsVisible = visible;
             this.name = name;
             this.iconGuid = iconGuid;
@@ -132,7 +134,7 @@ namespace LBS.Components
         public void ChangeFloor(int newFloor)
         {
             if (newFloor < 0 || newFloor >= floors.Length) return;
-            if (newFloor == activeFloor) return;
+            //if (newFloor == activeFloor) return;
 
             var prevFloor = activeFloor;
             activeFloor = newFloor;
@@ -146,7 +148,7 @@ namespace LBS.Components
         }
         #endregion
 
-        #region modules
+        #region Modules
         public List<LBSModule> Modules(int floorIndex = -1)
         {
             if (floorIndex < 0) floorIndex = activeFloor;
@@ -167,7 +169,7 @@ namespace LBS.Components
 
         public bool RemoveModule(LBSModule module)
         {
-            if (module == null) return false;
+            //if (module == null) return false;
 
             bool removed = false;
             for (int i = 0; i < floors.Length; i++)
@@ -232,7 +234,7 @@ namespace LBS.Components
         }
         #endregion
         
-        #region behaviors
+        #region Behaviors
         public void AddBehaviour(LBSBehaviour behaviour)
         {
             if (behaviour == null) return;
@@ -334,6 +336,34 @@ namespace LBS.Components
         #endregion
 
         #region Utility
+
+        /// <summary>
+        /// ID is set on creation and should not be changed, but this allows for manual setting
+        /// if needed (e.g. storing presets on Layer Template).
+        /// </summary>
+        /// <remarks>
+        /// Use on your own risk - changing ID can break references in modules and behaviours
+        /// that reference the layer by ID.
+        /// </remarks>
+        /// <param name="newID">New identification string. Must be not null or empty.</param>
+        public void SetID(string newID)
+        {
+            if (string.IsNullOrEmpty(newID)) return;
+            id = newID;
+        }
+
+        public void ChangeFloorCount(uint newCount)
+        {
+            var prevCount = floors.Length;
+            if (newCount < 1 || newCount == prevCount) return;
+
+            floors = floors.Resize((int)newCount);
+            for (int i = 0; i < floors.Length; i++) 
+            { 
+                if (floors[i] == null) floors[i] = new LBSFloor(FirstModules); 
+            }
+        }
+
         public void Reload()
         {
             foreach (var floor in floors) { foreach (LBSModule module in floor.Modules) module.OnAttach(this); }

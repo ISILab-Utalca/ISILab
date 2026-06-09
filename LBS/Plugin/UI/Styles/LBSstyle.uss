@@ -1356,7 +1356,6 @@ Toggle > .lbs-default-icon {
     flex-grow: 1;
 }
 
-
 .lbs-slide-toggle__input {
     background-color: var(--lbs-unity-6-black-color);
     max-width: 32px;
@@ -1432,7 +1431,6 @@ Toggle > .lbs-default-icon {
 
 .lbs-toolbar-toggle:hover {
     background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
-    /*scale: 1.15 1.15;*/
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
 }
@@ -1485,7 +1483,7 @@ Toggle > .lbs-default-icon {
     margin-left: 0;
 }
 
-.normal-color{
+.normal-color {
     background-color: var(--lbs-base-solid-gray-color);
 }
 
@@ -1497,7 +1495,7 @@ Toggle > .lbs-default-icon {
     background-color: var(--lbs-selection-dark-blue-color);
 }
 
-.alert-color{
+.alert-color {
     background-color: var(--lbs-default-background-container-red-color);
 }
 
@@ -1508,7 +1506,6 @@ Toggle > .lbs-default-icon {
 .alert-color:active {
     background-color: var(--lbs-default-hightlight-red-color);
 }
-
 
 .lbs-window {
     flex-grow: 1;
@@ -1845,38 +1842,39 @@ Toggle > .lbs-default-icon {
 
 .lbs-show-white-spaces {
     white-space: pre-wrap;
-    /*white-space: nowrap;*/
     overflow: visible;
     -unity-text-overflow-position: start;
 }
 
-.lbs-custom-toggle > .unity-toggle__input{
+.lbs-custom-toggle > .unity-toggle__input {
     border-width: 1px;
-    border-color:transparent;
+    border-color: transparent;
 }
 
-.lbs-custom-toggle:hover > .unity-toggle__input{
+.lbs-custom-toggle:hover > .unity-toggle__input {
     border-width: 1px;
     border-color: var(--lbs-light-purple-color);
     cursor: link;
 }
 
 .lbs-custom-toggle:checked > .unity-toggle__input > .unity-toggle__checkmark {
-    background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Characteristics_Boolean@32.png') !important;
+    background-image: url("project://database/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Characteristics_Boolean@32.png?fileID=2800000&guid=5a3ed2e470e046746acc779e930132ed&type=3#Characteristics_Boolean@32");
 }
 
 .lbs-custom-toggle > .unity-toggle__input > .unity-toggle__checkmark {
-    background-image: url('project:/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Bundle_Individual_icon@32.png') !important;
+    background-image: url("project://database/Assets/ISILab/Commons/Resources/Icons/Bundl_Interface/Bundle_Individual_icon@32.png?fileID=2800000&guid=dba521ce804584a4d92162326c9129d3&type=3#Bundle_Individual_icon@32");
 }
 
-.lbs-custom-dropdown-marginless {}
+.lbs-custom-dropdown-marginless {
+}
 
 .lbs-custom-dropdown-marginless > VisualElement:last-child {
     margin-left: 0;
     margin-right: 0;
 }
 
-.lbs-button-only-tooltip-when-disabled {}
+.lbs-button-only-tooltip-when-disabled {
+}
 
 .lbs-button-only-tooltip-when-disabled:disabled:hover {
     background-color: var(--lbs-selectable-gray-color);
@@ -1892,4 +1890,10 @@ Toggle > .lbs-default-icon {
 
 .lbs-custom-foldout #unity-content {
     flex-grow: 1;
+}
+
+.unity-base-field--no-label {
+}
+
+.lbs-vector2int-field {
 }

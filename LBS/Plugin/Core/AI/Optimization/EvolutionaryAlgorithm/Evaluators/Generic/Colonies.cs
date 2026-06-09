@@ -419,7 +419,7 @@ namespace ISILab.AI.Categorization
             minColonySize = 2;
 
             searchType = PathfindingAlgorithm.JPS_Plus;
-            searchHeuristic = PathfindingHeuristic.Chebyshev;
+            searchHeuristic = PathfindingHeuristic.Octile;
         
             CreateOrUpdateConfiguration(ref config, GetType(), GetEvaluatorFields);
         }

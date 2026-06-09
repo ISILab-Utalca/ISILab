@@ -74,9 +74,11 @@ namespace ISILab.LBS.Manipulators
 
 
                     if (!_exterior.identifierToSet ||
-                        _exterior.identifierToSet.Label == null || _exterior.identifierToSet.Label == "Empty") continue;
+                        _exterior.identifierToSet.Label == null /*|| _exterior.identifierToSet.Label == "Empty"*/) continue;
 
-                    SetConnections(tile, pos, paintNeighbors);
+                    //if (_exterior.identifierToSet.Label == "Empty") paintNeighbors = false;
+
+                    SetConnections(tile, pos, paintNeighbors, _exterior.identifierToSet.Label == "Empty");
                 }
             }
 
@@ -86,7 +88,7 @@ namespace ISILab.LBS.Manipulators
             }
         }
 
-        private void SetConnections(LBSTile tile, Vector2Int pos, bool paintNeighbors)
+        private void SetConnections(LBSTile tile, Vector2Int pos, bool paintNeighbors, bool empty)
         {
             // Paint all connections
             for (int i = 0; i < 4; i++)
@@ -105,7 +107,7 @@ namespace ISILab.LBS.Manipulators
                 LBSTile highNeigh = _exterior.GetTile(pos + highNeighbour);
                 List<LBSTile> neighs = new() { lowNeigh, midNeigh, highNeigh };
 
-                if (!paintNeighbors && neighs.RemoveEmpties().Count > 0)
+                if (!paintNeighbors && !empty && neighs.RemoveEmpties().Count > 0)
                 {
                     // Conservar conexiones de los vecinos
                     //string conn = _exterior.GetConnections(neighbour)[(i + 1) % 4];
@@ -120,18 +122,20 @@ namespace ISILab.LBS.Manipulators
                     //    _exterior.GetConnections(midNeigh)[(i + 2) % 4],
                     //    _exterior.GetConnections(highNeigh)[(i + 3) % 4]
                     //};
-                    if (conns.ContainsOnly(""))
+                    if (conns.ContainsOnly("", "Empty"))
                     {
                         _exterior.SetConnection(tile, i, _exterior.identifierToSet.Label, true);
                     }
                     else
                     {
-                        _exterior.SetConnection(tile, i, conns.FirstOrDefault(c => c != ""), true);
+                        _exterior.SetConnection(tile, i, conns.FirstOrDefault(c => c != "" && c != "Empty"), true);
                     }
                     continue;
                 }
 
                 _exterior.SetConnection(tile, i, _exterior.identifierToSet.Label, true);
+
+                if (empty) continue;
 
                 foreach (Vector2Int neighbourDir in new[] { edgeNeighbour, vertexNeighbour })
                 {

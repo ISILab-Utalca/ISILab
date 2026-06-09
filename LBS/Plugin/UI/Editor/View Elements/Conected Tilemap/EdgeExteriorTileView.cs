@@ -1,11 +1,14 @@
-using System;
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Components;
+using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
+using ISILab.Extensions;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Components;
-using ISILab.LBS.Plugin.Internal;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -13,13 +16,9 @@ namespace ISILab.LBS.VisualElements
     {
         private static VisualTreeAsset view;
 
-        private VisualElement leftConnection, leftSide;
-        private VisualElement rightConnection, rightSide;
-        private VisualElement topConnection, topSide;
-        private VisualElement bottomConnection, bottomSide;
-
-        private VisualElement fill, center;
-
+        private LBSCustomPainterCircle leftConnection, rightConnection, topConnection, bottomConnection;
+        private LBSPainterVisualElement leftSide, rightSide, topSide, bottomSide;
+        private LBSCustomPainterBox center;
         public EdgeExteriorTileView(List<string> connections = null) : base(connections, "ConnectedTile")
         {
             connections ??= new List<string>() { "", "", "", "" };
@@ -30,19 +29,53 @@ namespace ISILab.LBS.VisualElements
             }
             view.CloneTree(this);
 
-            leftConnection = this.Q<VisualElement>("LeftConnection");
-            rightConnection = this.Q<VisualElement>("RightConnection");
-            topConnection = this.Q<VisualElement>("TopConnection");
-            bottomConnection = this.Q<VisualElement>("BottomConnection");
+            leftConnection = new LBSCustomPainterCircle();
+            rightConnection = new LBSCustomPainterCircle();
+            topConnection = new LBSCustomPainterCircle();
+            bottomConnection = new LBSCustomPainterCircle();
 
-            fill = this.Q<VisualElement>("Fill");
-            leftSide = fill.Q<VisualElement>("LeftFill");
-            rightSide = fill.Q<VisualElement>("RightFill");
-            topSide = fill.Q<VisualElement>("TopFill");
-            bottomSide = fill.Q<VisualElement>("BottomFill");
-            center = fill.Q<VisualElement>("CenterFill");
+            center = new LBSCustomPainterBox();
+
+            this.Add(leftConnection);
+            this.Add(rightConnection);
+            this.Add(topConnection);
+            this.Add(bottomConnection);
+            this.Add(center);
+
+            leftSide = this.Q<LBSPainterVisualElement>("LeftSide");
+            rightSide = this.Q<LBSPainterVisualElement>("RightSide");
+            topSide = this.Q<LBSPainterVisualElement>("TopSide");
+            bottomSide = this.Q<LBSPainterVisualElement>("BottomSide");
+
 
             SetConnections(connections.ToArray());
+            EditorApplication.delayCall += () => {
+
+                var centerPoint = new Vector2(50, 50);
+
+                leftConnection.MinPos = centerPoint*Vector2.left + centerPoint;
+                rightConnection.MinPos = centerPoint*Vector2.right + centerPoint;
+                bottomConnection.MinPos = centerPoint*Vector2.up + centerPoint;
+                topConnection.MinPos = centerPoint*Vector2.down + centerPoint;
+
+                center.MinPos = centerPoint / 2f;
+                center.MaxPos = centerPoint + (centerPoint / 2f);
+
+                // Force initialization repaint updates
+                topConnection.MarkDirtyRepaint();
+                rightConnection.MarkDirtyRepaint();
+                bottomConnection.MarkDirtyRepaint();
+                leftConnection.MarkDirtyRepaint();
+                center.MarkDirtyRepaint();
+
+                SetConnections(connections.ToArray());
+
+                this.SetBorder(Color.black, 0);
+                style.display = DisplayStyle.Flex;
+            };
+
+            style.overflow = Overflow.Hidden;
+            style.display = DisplayStyle.None;
         }
 
         public override void SetConnections(string[] tags)
@@ -51,91 +84,120 @@ namespace ISILab.LBS.VisualElements
             Color invalidColor = Color.white;
             Color color = invalidColor;
             Dictionary<Color, int> ConnectionColors = new Dictionary<Color, int>();
-            
-            if (tags.Any() && !string.IsNullOrEmpty(tags[0]))
+
+            if (tags.Length > 0 && !string.IsNullOrEmpty(tags[0]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[0])).Color;
-                SetBackgroundColor(rightConnection, color);
-                SetImageTint(rightSide, BrightenColor(color));
+
+                rightConnection.FillColor = color;
+                rightSide.BGcolor = BrightenColor(color);
                 rightConnection.style.display = DisplayStyle.Flex;
 
                 if (!ConnectionColors.TryAdd(color, 1)) ConnectionColors[color]++;
-
             }
             else
             {
-                SetImageTint(rightSide, invalidColor);
+                rightConnection.FillColor = invalidColor;
+                rightSide.BGcolor = invalidColor; // Added to clear background on empty
                 rightConnection.style.display = DisplayStyle.None;
             }
 
-            if (tags.Any() && !string.IsNullOrEmpty(tags[1]))
+            if (tags.Length > 1 && !string.IsNullOrEmpty(tags[1]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[1])).Color;
-                SetBackgroundColor(topConnection, color);
-                SetImageTint(topSide, BrightenColor(color));
+
+                topConnection.FillColor = color;
+                topSide.BGcolor = BrightenColor(color);
                 topConnection.style.display = DisplayStyle.Flex;
 
                 if (!ConnectionColors.TryAdd(color, 1)) ConnectionColors[color]++;
             }
             else
             {
-                SetImageTint(topSide, invalidColor);
+                topConnection.FillColor = invalidColor;
+                topSide.BGcolor = invalidColor;
                 topConnection.style.display = DisplayStyle.None;
             }
 
-            if (tags.Any() && !string.IsNullOrEmpty(tags[2]))
+            if (tags.Length > 2 && !string.IsNullOrEmpty(tags[2]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[2])).Color;
-                SetBackgroundColor(leftConnection, color);
-                SetImageTint(leftSide, BrightenColor(color));
+
+                leftConnection.FillColor = color;
+                leftSide.BGcolor = BrightenColor(color);
                 leftConnection.style.display = DisplayStyle.Flex;
 
                 if (!ConnectionColors.TryAdd(color, 1)) ConnectionColors[color]++;
             }
             else
             {
-                SetImageTint(leftSide, invalidColor);
+                leftConnection.FillColor = invalidColor;
+                leftSide.BGcolor = invalidColor;
                 leftConnection.style.display = DisplayStyle.None;
             }
 
-            if (tags.Any() && !string.IsNullOrEmpty(tags[3]))
+            if (tags.Length > 3 && !string.IsNullOrEmpty(tags[3]))
             {
                 color = tts.Find(t => t.Label.Equals(tags[3])).Color;
-                SetBackgroundColor(bottomConnection, color);
-                SetImageTint(bottomSide, BrightenColor(color));
+
+                bottomConnection.FillColor = color;
+                bottomSide.BGcolor = BrightenColor(color);
                 bottomConnection.style.display = DisplayStyle.Flex;
 
                 if (!ConnectionColors.TryAdd(color, 1)) ConnectionColors[color]++;
             }
             else
             {
-                SetImageTint(bottomSide, invalidColor);
+                bottomConnection.FillColor = invalidColor;
+                bottomSide.BGcolor = invalidColor;
                 bottomConnection.style.display = DisplayStyle.None;
             }
 
-            // paints center if there are connections and to the most connections
+            // Paints center if there are connections and to the most connections
             if (ConnectionColors.Count > 0)
             {
                 var orderedConnectionColors = ConnectionColors
                     .OrderByDescending(kvp => kvp.Value)
                     .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-                SetBackgroundColor(center,
-                    tags.Contains("") ? invalidColor : orderedConnectionColors.First().Key);
+
+                // Kept SetBackgroundColor here as center uses it uniformly, 
+                // but you can change it to center.FillColor = ... if needed.
+                center.FillColor = tags.Contains("") ? invalidColor : orderedConnectionColors.First().Key;
             }
             else
             {
-                SetBackgroundColor(center, invalidColor);
+                center.FillColor = invalidColor;
             }
         }
 
         public override void SetTileCenter(LBSTag identifier)
         {
             var color = identifier.Color;
-            SetBackgroundColor(center, color);
-            SetImageTint(bottomSide, BrightenColor(color));
-            SetImageTint(topSide, BrightenColor(color));
-            SetImageTint(leftSide, BrightenColor(color));
-            SetImageTint(rightSide, BrightenColor(color));
+            center.FillColor = color;
+            bottomSide.BGcolor = BrightenColor(color);
+            topSide.BGcolor = BrightenColor(color);
+            leftSide.BGcolor = BrightenColor(color);
+            rightSide.BGcolor = BrightenColor(color);
+        }
+
+        internal override void SetSelectionMode(bool layerSelected)
+        {
+            var displayConnection = layerSelected ? DisplayStyle.Flex : DisplayStyle.None; 
+            float alpha = layerSelected ? 1.0f : 0f;
+            int lineWidth = layerSelected ? 1 : 0;
+
+            leftConnection.style.display = displayConnection;
+            topConnection.style.display = displayConnection;
+            rightConnection.style.display = displayConnection;
+            bottomConnection.style.display = displayConnection;
+
+
+           // topSide.LineWidth = lineWidth;
+           // leftSide.LineWidth = lineWidth;
+           // rightSide.LineWidth = lineWidth;
+//bottomSide.LineWidth = lineWidth;
+
+         //   center.LineWidth = lineWidth;
         }
     }
 }

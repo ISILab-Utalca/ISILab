@@ -23,6 +23,7 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         private Label titleLabel;
         protected LBSCustomListView listView;
         private Button expandArrowButton;
+        protected LBSToolbarButton addButton;
         protected LBSToolbarButton removeButton;
 
         [UxmlAttribute]
@@ -78,33 +79,40 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 }
             }
         }
-        
-        /*
-        private LBSCustomListItem listItemTemplate;
+
         [UxmlAttribute]
-        public LBSCustomListItem ListItemTemplate
+        public bool HideAddButton
         {
-            get => listItemTemplate;
+            get
+            {
+                if (addButton != null) return addButton.style.display == DisplayStyle.None;
+                else return false;
+            }
             set
             {
-                listItemTemplate = value;
-                if (listView != null) listView.itemTemplate = value.visualTreeAssetSource; // such a hack!
+                if (addButton != null)
+                {
+                    addButton.style.display = value ? DisplayStyle.None : DisplayStyle.Flex;
+                }
             }
         }
 
-
-        private List<LBSCustomListItem> listItems;
-
-        [UxmlObjectReference("LBSCustomListItem")]
-        public List<LBSCustomListItem> ListItems
+        [UxmlAttribute]
+        public bool HideRemoveButton
         {
-            get => listItems;
+            get
+            {
+                if (removeButton != null) return removeButton.style.display == DisplayStyle.None;
+                else return false;
+            }
             set
             {
-                listItems = value;
+                if (removeButton != null)
+                {
+                    removeButton.style.display = value ? DisplayStyle.None : DisplayStyle.Flex;
+                }
             }
         }
-        */
 
         #region EVENTS
         public Action OnListRemoved;
@@ -141,7 +149,29 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             {
                 OnListRemoved?.Invoke();
             });
+
+            addButton = this.Q<LBSToolbarButton>("AddButton");
         }
+
+        public void BindListView<T>(
+            List<T> items, 
+            Action<IEnumerable<object>> onItemSelected, 
+            Func<VisualElement> makeItem, 
+            Action<VisualElement, int> bindItem)
+        {
+            listView.itemsSource = items;
+            listView.itemsChosen += onItemSelected;
+            listView.makeItem = makeItem;
+            listView.bindItem = bindItem;
+        }
+
+        public void SetItemsSource<T>(List<T> items)
+        {
+            listView.itemsSource = items;
+        }
+
+        public int SelectedIndex => listView.selectedIndex;
+        public void Rebuild() { listView.Rebuild(); }
     }
 }
 

@@ -52,13 +52,5 @@ namespace ISILab.LBS.CustomComponents
                 this.labelR.text = value;
             }
         }
-        /*
-        public void SetAlltext(string tab, string l, string r)
-        {
-            if (tab != null) TextTab = tab;
-            if (l != null) TextL = l;
-            if (r != null) TextR = r;
-        }
-        */
     }
 }
