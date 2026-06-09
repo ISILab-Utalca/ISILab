@@ -255,7 +255,7 @@ namespace ISILab.LBS.Tests
             lvl.AddLayer(layer);
 
             // Add BundleTile
-            var bundleMap = new BundleTileMap();
+            var bundleMap = new BundleTileMapModule();
             layer.AddModule(bundleMap);
 
             // Get some bundle

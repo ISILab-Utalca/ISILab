@@ -57,7 +57,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             List<GameObject> subPivots = new();
             for (int i = 0; i < layer.FloorCount; i++)
             {
-                BundleTileMap data = layer.GetModule<BundleTileMap>("", i);
+                BundleTileMapModule data = layer.GetModule<BundleTileMapModule>("", i);
 
                 List<TileBundleGroup> groups = data.Groups;
                 Dictionary<GameObject, Bundle.EElementFlag> objects = new Dictionary<GameObject, Bundle.EElementFlag>();

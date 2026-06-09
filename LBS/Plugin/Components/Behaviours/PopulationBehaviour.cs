@@ -17,7 +17,7 @@ using UnityEngine;
 namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
-    [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
+    [RequieredModule(typeof(TileMapModule), typeof(BundleTileMapModule))]
     public class PopulationBehaviour : LBSBehaviour, IBlueprintable
     {
         #region FIELDS
@@ -44,7 +44,7 @@ namespace ISILab.LBS.Behaviours
         private string bundleGuid;
 
         private TileMapModule tileMap;
-        private BundleTileMap _bundleTileMap;
+        private BundleTileMapModule _bundleTileMap;
 
         private Bundle bundle;
         public Bundle bundleElement;
@@ -73,7 +73,7 @@ namespace ISILab.LBS.Behaviours
         }
 
         [JsonIgnore]
-        public BundleTileMap BundleTilemap
+        public BundleTileMapModule BundleTilemap
         {
             get => _bundleTileMap; set => _bundleTileMap = value;
         }
@@ -206,7 +206,7 @@ namespace ISILab.LBS.Behaviours
             return group;
         }
 
-        public void ReplaceTileMap(BundleTileMap map)
+        public void ReplaceTileMap(BundleTileMapModule map)
         {
             //Remove everything
             if (_bundleTileMap.Groups.Count > 0)
@@ -250,7 +250,7 @@ namespace ISILab.LBS.Behaviours
             OwnerLayer = layer;
 
             tileMap = OwnerLayer.GetModule<TileMapModule>();
-            _bundleTileMap = OwnerLayer.GetModule<BundleTileMap>();
+            _bundleTileMap = OwnerLayer.GetModule<BundleTileMapModule>();
             layer.OnChange += UpdateKeys;
 
         }
@@ -468,9 +468,9 @@ namespace ISILab.LBS.Behaviours
             var nextModuleList = OwnerLayer.Modules(nextLevelIndex);
 
             var prevMod = prevModuleList.Find(
-                m => m.GetType() == typeof(BundleTileMap)) as BundleTileMap;
+                m => m.GetType() == typeof(BundleTileMapModule)) as BundleTileMapModule;
             var nextMod = nextModuleList.Find(
-                m => m.GetType() == typeof(BundleTileMap)) as BundleTileMap;
+                m => m.GetType() == typeof(BundleTileMapModule)) as BundleTileMapModule;
 
             foreach (var pTile in prevMod.Groups)
             {

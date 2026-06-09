@@ -310,15 +310,15 @@ namespace ISILab.LBS.VisualElements
 
         private void GetPopulationGroups(int floor)
         {
-            var tileMaps = new List<BundleTileMap>();
+            var tileMaps = new List<BundleTileMapModule>();
             foreach (LBSLayer layer in populationLayers)
             {
-                var tileMap = layer.GetModule<BundleTileMap>("", floor);
+                var tileMap = layer.GetModule<BundleTileMapModule>("", floor);
                 if (tileMap != null)
                     tileMaps.Add(tileMap);
             }
 
-            foreach(BundleTileMap tileMap in tileMaps)
+            foreach(BundleTileMapModule tileMap in tileMaps)
             {
                 populationGroups.AddRange(tileMap.Groups);
             }

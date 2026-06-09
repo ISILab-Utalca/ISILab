@@ -18,12 +18,12 @@ namespace ISILab.LBS.VisualElements
         private readonly float _lineWidth;
         private readonly float _stroke;
         private readonly QuestEdge _edge;
-        private readonly QuestGraph _graph;
+        private readonly QuestGraphModule _graph;
         private readonly VisualElement _connectionView;
         private readonly QuestGraphNodeView _node1;
         private readonly QuestGraphNodeView _node2;
 
-        public QuestEdgeView(QuestGraph questGraph, QuestEdge edge, QuestGraphNodeView node1, QuestGraphNodeView node2, float lineWidth = 5f, float stroke = 3f)
+        public QuestEdgeView(QuestGraphModule questGraph, QuestEdge edge, QuestGraphNodeView node1, QuestGraphNodeView node2, float lineWidth = 5f, float stroke = 3f)
         {
             _graph = questGraph ?? throw new ArgumentNullException(nameof(questGraph));
             _edge = edge ?? throw new ArgumentNullException(nameof(edge));

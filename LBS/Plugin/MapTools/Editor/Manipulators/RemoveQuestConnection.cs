@@ -13,7 +13,7 @@ namespace ISILab.LBS.Manipulators
 {
     public class RemoveQuestConnection : LBSManipulator
     {
-        private QuestGraph _questGraph;
+        private QuestGraphModule _questGraph;
         private QuestBehaviour _behaviour;
 
         protected override string IconGuid => "b534f3f3d94bf1349babd81aa035d583";
@@ -28,7 +28,7 @@ namespace ISILab.LBS.Manipulators
         {
             base.Init(layer, provider);
             
-            _questGraph = layer.GetModule<QuestGraph>();
+            _questGraph = layer.GetModule<QuestGraphModule>();
             _behaviour = layer.GetBehaviour<QuestBehaviour>();
         }
         

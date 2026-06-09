@@ -19,7 +19,7 @@ namespace ISILab.LBS.Manipulators
 {
     public class ConnectQuestNodes : LBSManipulator
     {
-        private QuestGraph _quest;
+        private QuestGraphModule _quest;
         private QuestBehaviour _behaviour;
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace ISILab.LBS.Manipulators
         {
             base.Init(layer, provider);
             
-            _quest = layer.GetModule<QuestGraph>();
+            _quest = layer.GetModule<QuestGraphModule>();
             _behaviour = layer.GetBehaviour<QuestBehaviour>();
         }
 
