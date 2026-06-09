@@ -1,31 +1,26 @@
-+++
-date = "2025-04-22T17:02:57.752Z"
-draft = false
-title = "LBS - Module 1A Dungeon Generation "
-weight = 20
-showtoc = true
-tocopen = true
-tags = [ "Documentation", "LBS", "Tutorial" ]
+---
+title: "LBS - Module 1A Dungeon Generation "
+date: "2025-04-22T17:02:57.752Z"
+draft: false
+weight: 20
+showtoc: true
+tocopen: true
+tags: [ "Documentation", "LBS", "Tutorial" ]
+description: "Module 1A is intended for designing indoor scenery, such as dungeons or buildings."
+author: "Nicolas Acevedo"
+---
 
-description = "Module 1A is intended for designing indoor scenery, such as dungeons or buildings."
+# Module 1A - Interior Layer
 
-
-author = "Nicolas Acevedo"
-+++
-
-
-## Module 1A - Interior Layer
-
-
-![Tilemap](Step_1A_map_Info_01.png)
-
+## Overview
 
 The method use a `Tilemap` approach, representing the level created in this module. The rooms can be modified by painting or removing the Tiles. You can create zones to determine the number and positions of the rooms, by changing the data of these zones you can determine their size, and by generating connections you indicate which rooms are connected by doors.
 
-### Tools
+![Tilemap](/images/module_1a_layer/Step_1A_map_Info_01.png)
 
-![Interior layers tools](/step_1A_Info_01.png "layer")
+## Tools
 
+![Interior layers tools](/images/module_1a_layer/step_1A_Info_01.png "layer")
 
 **Select:** With select active you can select any part of a zone to view its information. This appears in the LBS inspector option under `Current Data` section.
 
@@ -36,12 +31,9 @@ The method use a `Tilemap` approach, representing the level created in this modu
 
 **Set interior connection:** For the creation of walls, doors or placing gaps between zones.
 
-
-
 ### Behavior and manual usage
 
-
-![How To Paint Gif](select_and_paint_01.gif)
+![How To Paint Gif](/images/module_1a_layer/select_and_paint_01.gif)
 
 ### Assistant
 
@@ -64,15 +56,12 @@ Click the `Execute` button to run the optimization algorithm, which will try to 
 > [!NOTE]
 > When running the algorithm, the operation may take some time to complete, the time taken depends directly on the number of rooms, the number of connections and the shape of the room.
 
-![How To Use Assistant](assitant_example_1a.gif)
+![How To Use Assistant](/images/module_1a_layer/assitant_example_1a.gif)
 
 ### 3D Generation 
 
+![3D Generation](/images/module_1a_layer/3d_generation_02.gif)
 
-![3D Generation](3d_generation_02.gif)
-
-
-
-![3D Result](/3d_gen_capture_01.png)
+![3D Result](/images/module_1a_layer/3d_gen_capture_01.png)
 
 The LBS 3D Generator can produce mind-boggling graphics easily. 

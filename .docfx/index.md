@@ -2,10 +2,10 @@
 _layout: landing
 ---
 
-# This is the **HOMEPAGE**.
+# LBS API Doc.
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+this is lbs api doc
 
-## Quick Start Notes:
+here to start using the tool
 
-1. Add images to the *images* folder if the file is referencing an image.
+here to explore the code

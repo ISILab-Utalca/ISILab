@@ -1,24 +1,26 @@
-+++
-date = '2025-04-09T13:02:10-04:00'
-draft = false
-title = 'LBS - Module 1B - Wave Function Collapse'
-tags = ["Documentation","Tutorial","LBS"]
-weight = 25
-author = "Nicolas Acevedo"
-+++
+---
+title: 'LBS - Module 1B - Wave Function Collapse'
+date: '2025-04-09T13:02:10-04:00'
+draft: false
+tags: ["Documentation","Tutorial","LBS"]
+weight: 25
+author: "Nicolas Acevedo"
+---
 
-> This modules layer is design to allow create exteriors and overlord maps
+# Module 1B - Exterior Layer
 
-![Exterior map generation preview](paso_01b_main.png)
+> This layer is designed create exteriors and overlord maps
 
-### Overview 
+![Exterior map generation preview](/images/module_1b_layer/paso_01b_main.png)
+
+## Overview 
 
 Module 1B is focused on the creation of exteriors or tiles with connections that meet organic constraints, it allows you for example to define the paths of different boxes and to define the type of connection between them. In this module, you can use the Wave Function Collapse (WFC) wizard to define suggestions for connections.
 
 
-### Tools
+## Tools
 
-![Tool overview](Step_1B_Info_01.png)
+![Tool overview](/images/module_1b_layer/Step_1B_Info_01.png)
 
 - **Select Tile:** Clicking on one of the tiles displays the coordinates of the tile in the tool inspector.
 - **Brush Exterior Tile:** Paint tiles on the exterior type layer.
@@ -30,14 +32,14 @@ Module 1B is focused on the creation of exteriors or tiles with connections that
 
 ### Workflow
 
-![Step 2 demonstration](paso_01b_create_01.gif)
+![Step 2 demonstration](/images/module_1b_layer/paso_01b_create_01.gif)
 
 
 ### 3D Generation de Exterior Map.
 
 
 
-![3D Result](Step_1A_3d_gen_01_compr.png)
+![3D Result](/images/module_1b_layer/Step_1A_3d_gen_01_compr.png)
 
 
 
