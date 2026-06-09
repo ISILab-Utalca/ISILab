@@ -222,7 +222,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             StepPreview();
         }
 
-
+        /// <summary>
+        /// Uses the currently selected tool in the <b>Terrain Connection Grid</b> editor on the selected tile.
+        /// </summary>
+        /// <param name="tile">The tile to work on.</param>
+        /// <param name="rightClick">Check if right click was used to select the tile.</param>
         public void UseToolOnTile(AssetGridTile tile, bool rightClick)
         {
             switch(ActiveTool)
@@ -238,6 +242,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                     break;
             }
         }
+
+        /// <summary>
+        /// Saves any changes made to the <b>Asset Grid</b>. Changes are not saved automatically and the Asset Grid can only be modified with this function.
+        /// </summary>
         public void SaveChanges()
         {
             foreach(AssetGridTile tile in tiles)
@@ -245,6 +253,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                 tile.OnValueSaved?.Invoke();
             }
         }
+
+        /// <summary>
+        /// Cleans up any unsaved changes done to the <b>Asset Grid</b> in the editor, reverting it back to its saved state.
+        /// </summary>
         public void RevertChanges()
         {
             foreach (AssetGridTile tile in tiles)
@@ -253,14 +265,31 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             }
         }
 
+        /// <summary>
+        /// Uses the <b>Brush</b> tool on the selected tile, painting it with the currently selected color. If right clicked, it'll erase the current flag instead.
+        /// </summary>
+        /// <param name="tile">The tile to modify.</param>
+        /// <param name="rightClick">Check if right click was used to select the tile.</param>
         public void BrushTool(AssetGridTile tile, bool rightClick)
         {
             tile.ChangeValue(rightClick ? 0 : CurrentColorID);
         }
+        /// <summary>
+        /// Uses the <b>Eraser</b> tool on the selected tile, erasing its current terrain flag and replacing it with a default (0).
+        /// </summary>
+        /// <param name="tile">The tile to modify.</param>
+        /// <param name="rightClick">Check if right click was used to select the tile.</param>
         public void EraserTool(AssetGridTile tile, bool rightClick)
         {
             tile.ChangeValue(0);
         }
+        /// <summary>
+        /// Uses the <b>Fill</b> tool on the selected tile. It paints the selected tile with the currently selected color (or the default if right clicked),
+        /// then checks nearby tiles for the modified tile's original color. The fill tool will then recurse itself to propagate in any tiles with the same 
+        /// original color.
+        /// </summary>
+        /// <param name="tile">The tile to modify.</param>
+        /// <param name="rightClick">Check if right click was used to select the tile.</param>
         public void FillTool(AssetGridTile tile, bool rightClick)
         {
             var _oldColor = tile.ColorValue;
@@ -305,6 +334,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
         }
 
+        /// <summary>
+        /// Completely returns the grid back to default values.
+        /// </summary>
         public void ClearGrid()
         {
             foreach (AssetGridTile __tile in tiles)
@@ -312,7 +344,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                 __tile.ChangeValue(0);
             }
         }
-
+        /// <summary>
+        /// Makes the visual highlight for the default asset visible on the asset grid if it's currently the selected default asset.
+        /// </summary>
+        /// <param name="toggle"></param>
         public void ToggleHighlight(bool toggle)
         {
             highlight.visible = toggle;
