@@ -4,3 +4,34 @@
   width: auto;
   margin: 8px;
 }
+
+.navbar-nav a[href*="/en/"], 
+.navbar-nav a[href*="/es/"] {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Inyecta la bandera de Inglés antes del texto */
+.navbar-nav a[href*="/en/"]::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('/images/us-flag.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Inyecta la bandera de Español antes del texto */
+.navbar-nav a[href*="/es/"]::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('/images/es-flag.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
