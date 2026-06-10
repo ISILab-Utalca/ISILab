@@ -317,6 +317,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                     });
                 }
 
+                // Configuración de botón de AGREGAR módulo/behaviour/assistant/rule
                 var addButton = listGroup.Q<LBSToolbarButton>("AddButton");
                 if(addButton == null)
                 { NotFoundErrorLog($"AddButton for {typeof(T).Name}"); return; }
@@ -354,6 +355,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                     menu.ShowAsContext();
                 };
 
+                // Configuración de botón de REMOVER módulo/behaviour/assistant/rule
                 var removeButton = listGroup.Q<LBSToolbarButton>("RemoveButton");
                 if(removeButton == null)
                 { NotFoundErrorLog($"RemoveButton for {typeof(T).Name}"); return; }
@@ -685,7 +687,10 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             if (type == null) return;
             if (Activator.CreateInstance(type) is LBSModule instance)
             {
-                Template.layer.AddModule(instance);
+                for(int i = 0; i < Template.layer.FloorCount; i++)
+                {
+                    Template.layer.AddModule(instance.Clone() as LBSModule);
+                }
             }
             else
             {

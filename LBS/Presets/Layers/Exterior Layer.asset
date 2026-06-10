@@ -25,7 +25,7 @@ MonoBehaviour:
     - rid: 1508221297216716926
     behaviours:
     - rid: 1508221297216716936
-    - rid: 6524972790370795685
+    - rid: 6524972830904549459
     assistants:
     - rid: 1508221297216716937
     generatorRules:
@@ -40,7 +40,7 @@ MonoBehaviour:
         modules:
         - rid: 1508221297216716939
         - rid: 1508221297216716940
-        - rid: 6524972790370795686
+        - rid: 6524972830904549458
     - rid: 1508221297216716927
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
@@ -236,7 +236,6 @@ MonoBehaviour:
           generatorRules:
           - rid: 1508221297216716938
           index: 0
-        connectedDirections: 4
         gridType: 0
         pairs: []
     - rid: 1508221297216716941
@@ -298,7 +297,6 @@ MonoBehaviour:
           generatorRules:
           - rid: 1508221297216716938
           index: 0
-        connectedDirections: 4
         gridType: 0
         pairs: []
     - rid: 1508221297216716943
@@ -360,7 +358,6 @@ MonoBehaviour:
           generatorRules:
           - rid: 1508221297216716938
           index: 0
-        connectedDirections: 4
         gridType: 0
         pairs: []
     - rid: 1508221297216716945
@@ -422,7 +419,6 @@ MonoBehaviour:
           generatorRules:
           - rid: 1508221297216716938
           index: 0
-        connectedDirections: 4
         gridType: 0
         pairs: []
     - rid: 1508221297216716947
@@ -484,7 +480,6 @@ MonoBehaviour:
           generatorRules:
           - rid: 1508221297216716938
           index: 0
-        connectedDirections: 4
         gridType: 0
         pairs: []
     - rid: 1508221297216716949
@@ -546,7 +541,6 @@ MonoBehaviour:
           generatorRules:
           - rid: 1508221297216716938
           index: 0
-        connectedDirections: 4
         gridType: 0
         pairs: []
     - rid: 1508221297216716951
@@ -608,7 +602,6 @@ MonoBehaviour:
           generatorRules:
           - rid: 1508221297216716938
           index: 0
-        connectedDirections: 4
         gridType: 0
         pairs: []
     - rid: 1508221297216716953
@@ -670,7 +663,6 @@ MonoBehaviour:
           generatorRules:
           - rid: 1508221297216716938
           index: 0
-        connectedDirections: 4
         gridType: 0
         pairs: []
     - rid: 1508221297216716955
@@ -732,7 +724,6 @@ MonoBehaviour:
           generatorRules:
           - rid: 1508221297216716938
           index: 0
-        connectedDirections: 4
         gridType: 0
         pairs: []
     - rid: 1508221297216716957
@@ -794,7 +785,6 @@ MonoBehaviour:
           generatorRules:
           - rid: 1508221297216716938
           index: 0
-        connectedDirections: 4
         gridType: 0
         pairs: []
     - rid: 2533804032580124798
@@ -1146,33 +1136,7 @@ MonoBehaviour:
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules: []
-    - rid: 6524972790370795685
-      type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
-      data:
-        visible: 1
-        ownerLayerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 02a644759487ae249bc3a20d019c8745
-          id: Exterior
-          name: E_Exterior_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 1508221297216716926
-          behaviours:
-          - rid: 1508221297216716936
-          - rid: 6524972790370795685
-          - rid: 6524972790370795687
-          assistants:
-          - rid: 1508221297216716937
-          generatorRules:
-          - rid: 1508221297216716938
-          index: 0
-        colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
-        name: NoteBehaviour
-        iconGuid: e17eb0e02534666439fca8ea30b4d4e4
-        icon: {fileID: 0}
-    - rid: 6524972790370795686
+    - rid: 6524972830904549458
       type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
       data:
         id: NoteModule
@@ -1187,85 +1151,35 @@ MonoBehaviour:
           - rid: 1508221297216716926
           behaviours:
           - rid: 1508221297216716936
-          - rid: 6524972790370795685
-          - rid: 6524972790370795687
+          - rid: 6524972830904549459
           assistants:
           - rid: 1508221297216716937
           generatorRules:
           - rid: 1508221297216716938
           index: 0
         notes: []
-    - rid: 6524972790370795687
-      type: {class: SimulationBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
+    - rid: 6524972830904549459
+      type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
         visible: 1
         ownerLayerLayer:
           visible: 1
           blocked: 0
-          iconGuid: 915dd173939598c43ab48bbec50425e8
-          id: LBSLayer
-          name: Layer name
+          iconGuid: 02a644759487ae249bc3a20d019c8745
+          id: Exterior
+          name: E_Exterior_Layer
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 6524972790370795800
-          - rid: 6524972790370795801
-          - rid: 6524972790370795802
-          - rid: 6524972790370795803
-          - rid: 6524972790370795804
-          - rid: 6524972790370795805
-          - rid: 6524972790370795806
-          - rid: 6524972790370795807
-          - rid: 6524972790370795808
-          - rid: 6524972790370795809
-          behaviours: []
-          assistants: []
-          generatorRules: []
+          - rid: 1508221297216716926
+          behaviours:
+          - rid: 1508221297216716936
+          - rid: 6524972830904549459
+          assistants:
+          - rid: 1508221297216716937
+          generatorRules:
+          - rid: 1508221297216716938
           index: 0
         colorTint: {r: 0.53, g: 0.84, b: 0.96, a: 1}
-        name: SimulationBehaviour
+        name: NoteBehaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
-        selectedToSet: {fileID: 0}
-        upStairTag: {fileID: 0}
-        downStairTag: {fileID: 0}
-        pathOSBundles: []
-    - rid: 6524972790370795800
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 6524972790370795801
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 6524972790370795802
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 6524972790370795803
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 6524972790370795804
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 6524972790370795805
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 6524972790370795806
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 6524972790370795807
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 6524972790370795808
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []
-    - rid: 6524972790370795809
-      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
-      data:
-        modules: []

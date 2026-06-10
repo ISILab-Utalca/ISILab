@@ -8,6 +8,9 @@ namespace ISILab.LBS.CustomComponents
     {
         private LBSCustomLabel labelTab, labelL, labelR;
         private string stringTab, stringL, stringR;
+        private VisualElement content;
+
+        public VisualElement Content => content;
 
         public LBSCustomLabelItem():base()
         {
@@ -17,6 +20,7 @@ namespace ISILab.LBS.CustomComponents
             labelTab = this.Q<LBSCustomLabel>("textTab");
             labelL = this.Q<LBSCustomLabel>("textL");
             labelR = this.Q<LBSCustomLabel>("textR");
+            content = this.Q<VisualElement>("Content");
 
             if (labelTab != null) labelTab.text = stringTab;
             if (labelL != null) labelL.text = stringL;

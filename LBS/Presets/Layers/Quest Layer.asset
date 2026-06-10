@@ -129,12 +129,36 @@ MonoBehaviour:
         root:
           rid: -2
         grammarGuid: 14cb4d99b22a94a45bac4216aca3f57e
+    - rid: 6524972834653995615
+      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: NoteModule
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
+          id: Quest
+          name: Quest_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 7118756570821821096
+          behaviours:
+          - rid: 7118756570821821106
+          - rid: 1036301199104803716
+          - rid: 6524972785853792956
+          assistants:
+          - rid: 7118756570821821107
+          - rid: 7118756570821821141
+          generatorRules:
+          - rid: 7118756570821821108
+          index: 0
+        notes: []
     - rid: 7118756570821821096
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 7118756570821821131
         - rid: 6524972807720010041
+        - rid: 6524972834653995615
     - rid: 7118756570821821097
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
@@ -596,39 +620,6 @@ MonoBehaviour:
         name: NoteBehaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
-    - rid: 7118756570821821131
-      type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: NoteModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Layer Quest
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 7118756570821821096
-          - rid: 7118756570821821097
-          - rid: 7118756570821821098
-          - rid: 7118756570821821099
-          - rid: 7118756570821821100
-          - rid: 7118756570821821101
-          - rid: 7118756570821821102
-          - rid: 7118756570821821103
-          - rid: 7118756570821821104
-          - rid: 7118756570821821105
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: -2
-          - rid: 7118756570821821130
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          index: 0
-        notes: []
     - rid: 7118756570821821132
       type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
       data:

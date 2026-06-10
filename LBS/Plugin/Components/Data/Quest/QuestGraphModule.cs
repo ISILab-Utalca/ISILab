@@ -45,7 +45,7 @@ namespace ISILab.LBS.Modules
         private QuestNode root;
        
         [SerializeField]
-        private string grammarGuid = defaultGrammarGuid; 
+        private string grammarGuid = defaultGrammarGuid;
 
         private LBSGrammar grammar;
 
