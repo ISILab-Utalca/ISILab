@@ -20,7 +20,7 @@ namespace ISILab.LBS.VisualElements
         #region Static Colors
 
         protected static readonly Color InvalidGrammarColor     = LBSSettings.Instance.view.errorColor;
-        protected static readonly Color DefaultBackgroundColor = LBSSettings.Instance.view.toolkitNormalDark;
+        protected static Color DefaultBackgroundColor = default;
         protected static readonly Color ValidGrammarColor   = LBSSettings.Instance.view.successColor;
 
         #endregion

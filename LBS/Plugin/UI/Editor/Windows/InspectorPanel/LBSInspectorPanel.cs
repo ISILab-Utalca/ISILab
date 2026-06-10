@@ -244,7 +244,7 @@ namespace ISILab.LBS.VisualElements
                 }
             }
 
-            _current.SetSelectedVe(selected);
+            _current?.SetSelectedVe(selected);
         }
         #endregion
 
