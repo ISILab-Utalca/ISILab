@@ -42,15 +42,15 @@ namespace ISILab.LBS.Tests.Pathfinding
             level12
         };
 
-        const string level1 =  "8fcb3f8620553e34b8968069d24dc0a8";
-        const string level2 =  "489960a220fb386498c0d94c22a979c0";
-        const string level3 =  "99aea4d41c519c34389bb29a54bcb41f";
-        const string level4 =  "46fded00b5f05974bb4c2f200ed65ce0";
-        const string level5 =  "f655e86b2ca92ff4b824400014562fde";
-        const string level6 =  "fe7e011a4f10daa4ebb6ff3701516bfd";
-        const string level7 =  "9db451314b628c84ca6b366fdb87f81c";
-        const string level8 =  "a652c5df35f5e9945951556497349b62";
-        const string level9 =  "4d30b728085df3843a89b4c4def7e354";
+        const string level1  = "8fcb3f8620553e34b8968069d24dc0a8";
+        const string level2  = "489960a220fb386498c0d94c22a979c0";
+        const string level3  = "99aea4d41c519c34389bb29a54bcb41f";
+        const string level4  = "46fded00b5f05974bb4c2f200ed65ce0";
+        const string level5  = "f655e86b2ca92ff4b824400014562fde";
+        const string level6  = "fe7e011a4f10daa4ebb6ff3701516bfd";
+        const string level7  = "9db451314b628c84ca6b366fdb87f81c";
+        const string level8  = "a652c5df35f5e9945951556497349b62";
+        const string level9  = "4d30b728085df3843a89b4c4def7e354";
         const string level10 = "8701497f3bda71342893a133381b8cb0";
         const string level11 = "9e52fa05cc04b5a4cbb0752588af5a27";
         const string level12 = "a49e34122d48f53438e7dd8051abd8e5";
@@ -63,10 +63,22 @@ namespace ISILab.LBS.Tests.Pathfinding
             //"f061d26c69f5ae74db19d2671f0776b9" // 150
             //"9418ed86a5efcf34983d879ebf43f084" // 200
             ;
-        static readonly string[] cheese = new string[]
+
+        const string BG_AR0205SR            = "83cdf5f3500dda040a19cd9c6744770e";
+        const string BG_AR0605SR            = "068a2113835354f45a3ff673047d9651";
+        const string DA_lt_gallowstemplar_f = "a2cabb46817db4344bff9b5f1b7e6c1b";
+        const string SC_BigGameHunters      = "c55b83990cc0bcd4ca4e31276e142551";
+        const string SC_Labyrinth           = "80d92b076cf7d894caa5d54b78ddb6ee";
+        const string WC_plainsofsnow        = "1d41428b8214ff947bce95c0d063e802";
+
+        static readonly string[] realMaps = new string[]
         {
-            "0553b266d7302e6449ebb9b2961e8d3e",
-            "f3d011ec0655b1e48a1fbfa5c9e3dfa5"
+            BG_AR0205SR,
+            BG_AR0605SR,
+            DA_lt_gallowstemplar_f,
+            SC_BigGameHunters,
+            SC_Labyrinth,
+            WC_plainsofsnow
         };
 
         protected void ColoniesPathfind(int level, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
@@ -149,8 +161,7 @@ namespace ISILab.LBS.Tests.Pathfinding
             })
             .Run();
         }
-
-        protected void CheesePathfind(int ind, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
+        protected void RealMapsPathfind(int level, int size, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
         {
             var evaluator = Activator.CreateInstance(typeof(Colonies)) as ITestingEvaluator;
             BundleTilemapChromosome chromosome = null;
@@ -160,15 +171,12 @@ namespace ISILab.LBS.Tests.Pathfinding
             SampleGroup measures = new SampleGroup("Measures", SampleUnit.Undefined);
 
             //int mapSize = Mathf.CeilToInt(level / 3f);
-            Vector2Int[] sizes = new Vector2Int[]
-            {
-                new Vector2Int(11, 11),
-                new Vector2Int(25, 23)
-            };
 
             int c = 0;
             Measure.Method(() =>
             {
+                UnityEngine.Assertions.Assert.IsTrue((evaluator as Colonies).searchType == searchType);
+                UnityEngine.Assertions.Assert.IsTrue((evaluator as Colonies).searchHeuristic == heuristic);
                 double fitness = evaluator.EvaluateWithInfo(chromosome, out EvaluationInfo info);
                 c++;
                 if (c <= WARM_UP_COUNT) return;
@@ -177,13 +185,13 @@ namespace ISILab.LBS.Tests.Pathfinding
                 Measure.Custom(measures, info.MeasureCount());
             })
             .WarmupCount(WARM_UP_COUNT)
-            .MeasurementCount(5)
+            .MeasurementCount(MEASUREMENT_COUNT)
             .IterationsPerMeasurement(1)
             .SetUp(() =>
             {
-                GetLevel(cheese[ind]);
+                GetLevel(realMaps[level-1]);
                 IRangedEvaluator eval = evaluator as IRangedEvaluator;
-                SetUpMAPElitesTest(cheese[ind], dungeonPresetPath, eval, eval, eval, "", new Rect(Vector2.zero, sizes[ind]));
+                SetUpMAPElitesTest(realMaps[level - 1], dungeonPresetPath, eval, eval, eval, "", new Rect(Vector2.zero, new Vector2(size, size)));
                 chromosome = GetChromosomeFromAssistant();
                 (eval as Colonies).searchType = searchType;
                 (eval as Colonies).searchHeuristic = heuristic;
@@ -325,12 +333,8 @@ namespace ISILab.LBS.Tests.Pathfinding
             return new Rect(Vector2.zero, size);
         }
 
-        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Chebyshev_FloodFill() => UltraLabyrinthPathfind(FF, Chebyshev);
-        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Chebyshev_JPS() => UltraLabyrinthPathfind(JPS, Chebyshev); 
-        [Test, Performance, Timeout(timeout)] public void Cheese1_Chebyshev_FloodFill() => CheesePathfind(0, FF, Chebyshev);
-        [Test, Performance, Timeout(timeout)] public void Cheese1_Chebyshev_JPS() => CheesePathfind(0, JPS, Chebyshev);
-        [Test, Performance, Timeout(timeout)] public void Cheese2_Chebyshev_FloodFill() => CheesePathfind(1, FF, Chebyshev);
-        [Test, Performance, Timeout(timeout)] public void Cheese2_Chebyshev_JPS() => CheesePathfind(1, JPS, Chebyshev);
+        //[Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Chebyshev_FloodFill() => UltraLabyrinthPathfind(FF, Chebyshev);
+        //[Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Chebyshev_JPS() => UltraLabyrinthPathfind(JPS, Chebyshev); 
 
         #region OLD TESTS
 
@@ -558,7 +562,7 @@ namespace ISILab.LBS.Tests.Pathfinding
         [Test, Performance, Timeout(timeout)] public void Level_L_Chebyshev_JPS() => ColoniesPathfind(12, JPS, Chebyshev);
     }
 
-    [TestFixture, Obsolete]
+    [TestFixture]
     public class ChebyshevAStar : PathfindingBenchmarkReport
     {
         [Test, Performance, Timeout(timeout)] public void Level_A_Chebyshev_AStar() => ColoniesPathfind(1,  AStar, Chebyshev);
@@ -573,6 +577,60 @@ namespace ISILab.LBS.Tests.Pathfinding
         [Test, Performance, Timeout(timeout)] public void Level_J_Chebyshev_AStar() => ColoniesPathfind(10, AStar, Chebyshev);
         [Test, Performance, Timeout(timeout)] public void Level_K_Chebyshev_AStar() => ColoniesPathfind(11, AStar, Chebyshev);
         [Test, Performance, Timeout(timeout)] public void Level_L_Chebyshev_AStar() => ColoniesPathfind(12, AStar, Chebyshev);
+    }
+
+    [TestFixture]
+    public class RealMaps : PathfindingBenchmarkReport
+    {
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0205SR_Chebyshev_AStar()  => RealMapsPathfind(1, 75, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0605SR_Chebyshev_AStar()  => RealMapsPathfind(2, 75, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void DA_lt_gallowstemplar_f_Chebyshev_AStar()  => RealMapsPathfind(3,150, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void      SC_BigGameHunters_Chebyshev_AStar()  => RealMapsPathfind(4, 75, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void           SC_Labyrinth_Chebyshev_AStar()  => RealMapsPathfind(5, 75, AStar, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void        WC_plainsofsnow_Chebyshev_AStar()  => RealMapsPathfind(6, 75, AStar, Chebyshev);
+
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0205SR_Chebyshev_JPS()  => RealMapsPathfind(1, 75, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0605SR_Chebyshev_JPS()  => RealMapsPathfind(2, 75, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void DA_lt_gallowstemplar_f_Chebyshev_JPS()  => RealMapsPathfind(3,150, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void      SC_BigGameHunters_Chebyshev_JPS()  => RealMapsPathfind(4, 75, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void           SC_Labyrinth_Chebyshev_JPS()  => RealMapsPathfind(5, 75, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void        WC_plainsofsnow_Chebyshev_JPS()  => RealMapsPathfind(6, 75, JPS, Chebyshev);
+
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0205SR_Chebyshev_FloodFIll()  => RealMapsPathfind(1, 75, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0605SR_Chebyshev_FloodFIll()  => RealMapsPathfind(2, 75, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void DA_lt_gallowstemplar_f_Chebyshev_FloodFIll()  => RealMapsPathfind(3,150, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void      SC_BigGameHunters_Chebyshev_FloodFIll()  => RealMapsPathfind(4, 75, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void           SC_Labyrinth_Chebyshev_FloodFIll()  => RealMapsPathfind(5, 75, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void        WC_plainsofsnow_Chebyshev_FloodFIll()  => RealMapsPathfind(6, 75, FF, Chebyshev);
+
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0205SR_Octile_AStar()  => RealMapsPathfind(1, 75, AStar, Octile);
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0605SR_Octile_AStar()  => RealMapsPathfind(2, 75, AStar, Octile);
+        [Test, Performance, Timeout(timeout)] public void DA_lt_gallowstemplar_f_Octile_AStar()  => RealMapsPathfind(3,150, AStar, Octile);
+        [Test, Performance, Timeout(timeout)] public void      SC_BigGameHunters_Octile_AStar()  => RealMapsPathfind(4, 75, AStar, Octile);
+        [Test, Performance, Timeout(timeout)] public void           SC_Labyrinth_Octile_AStar()  => RealMapsPathfind(5, 75, AStar, Octile);
+        [Test, Performance, Timeout(timeout)] public void        WC_plainsofsnow_Octile_AStar()  => RealMapsPathfind(6, 75, AStar, Octile);
+
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0205SR_Octile_JPS()  => RealMapsPathfind(1, 75, JPS, Octile);
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0605SR_Octile_JPS()  => RealMapsPathfind(2, 75, JPS, Octile);
+        [Test, Performance, Timeout(timeout)] public void DA_lt_gallowstemplar_f_Octile_JPS()  => RealMapsPathfind(3,150, JPS, Octile);
+        [Test, Performance, Timeout(timeout)] public void      SC_BigGameHunters_Octile_JPS()  => RealMapsPathfind(4, 75, JPS, Octile);
+        [Test, Performance, Timeout(timeout)] public void           SC_Labyrinth_Octile_JPS()  => RealMapsPathfind(5, 75, JPS, Octile);
+        [Test, Performance, Timeout(timeout)] public void        WC_plainsofsnow_Octile_JPS()  => RealMapsPathfind(6, 75, JPS, Octile);
+
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0205SR_Manhattan_AStar()  => RealMapsPathfind(1, 75, AStar, Manhattan);
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0605SR_Manhattan_AStar()  => RealMapsPathfind(2, 75, AStar, Manhattan);
+        [Test, Performance, Timeout(timeout)] public void DA_lt_gallowstemplar_f_Manhattan_AStar()  => RealMapsPathfind(3,150, AStar, Manhattan);
+        [Test, Performance, Timeout(timeout)] public void      SC_BigGameHunters_Manhattan_AStar()  => RealMapsPathfind(4, 75, AStar, Manhattan);
+        [Test, Performance, Timeout(timeout)] public void           SC_Labyrinth_Manhattan_AStar()  => RealMapsPathfind(5, 75, AStar, Manhattan);
+        [Test, Performance, Timeout(timeout)] public void        WC_plainsofsnow_Manhattan_AStar()  => RealMapsPathfind(6, 75, AStar, Manhattan);
+                                                                 
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0205SR_Manhattan_FloodFill()  => RealMapsPathfind(1, 75, FF, Manhattan);
+        [Test, Performance, Timeout(timeout)] public void            BG_AR0605SR_Manhattan_FloodFill()  => RealMapsPathfind(2, 75, FF, Manhattan);
+        [Test, Performance, Timeout(timeout)] public void DA_lt_gallowstemplar_f_Manhattan_FloodFill()  => RealMapsPathfind(3,150, FF, Manhattan);
+        [Test, Performance, Timeout(timeout)] public void      SC_BigGameHunters_Manhattan_FloodFill()  => RealMapsPathfind(4, 75, FF, Manhattan);
+        [Test, Performance, Timeout(timeout)] public void           SC_Labyrinth_Manhattan_FloodFill()  => RealMapsPathfind(5, 75, FF, Manhattan);
+        [Test, Performance, Timeout(timeout)] public void        WC_plainsofsnow_Manhattan_FloodFill()  => RealMapsPathfind(6, 75, FF, Manhattan);
+
     }
 }
 
