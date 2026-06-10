@@ -124,7 +124,7 @@ namespace LBS.Components
             IsVisible = visible;
             this.name = name;
             this.iconGuid = iconGuid;
-            TileSize = tileSize;
+            TileSize = tileSize; 
 
             InitializeContextEvents();
         }
@@ -464,7 +464,7 @@ namespace LBS.Components
         public override int GetHashCode() => id.GetHashCode();
 
         #endregion
-        
+
         #region Events
 
         public void OnChangeUpdate() => OnChange?.Invoke();
@@ -661,5 +661,6 @@ namespace LBS.Components
             return true;
         }
         #endregion
+
     }
 }

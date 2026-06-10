@@ -65,7 +65,7 @@ namespace ISILab.LBS.VisualElements
         }
         private void OnMouseDown(MouseDownEvent evt)
         {
-            if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+            if (LBSMainWindow.Instance.SelectedLayer != _ownerLayer) return;
             if (ToolKit.Instance.GetActiveManipulator() is null) return;
             if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
             {

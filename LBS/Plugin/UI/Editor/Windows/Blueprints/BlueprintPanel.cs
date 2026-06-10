@@ -529,7 +529,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             if (previewLayers.Count == 0 || selectedBlueprint == null ||
                 previewElements.Count == 0) return;
 
-            var selectedLayer = LBSMainWindow.Instance._selectedLayer;
+            var selectedLayer = LBSMainWindow.Instance.SelectedLayer;
             if(selectedLayer == null) return;
 
             Vector2Int gridSpace = selectedLayer.ToFixedPosition(offset);

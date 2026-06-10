@@ -18,7 +18,6 @@ namespace ISILab.LBS.Drawers.Editor
     public class QuestBehaviorDrawer : Drawer
     {
         const float selectedOpacity = 1f;
-        const float unselectedOpacity = 0.33f;
 
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
@@ -120,10 +119,10 @@ namespace ISILab.LBS.Drawers.Editor
             var graph = bh.Graph;
             if (graph == null) return;
 
-            bool isSelected = bh.OwnerLayer == LBSMainWindow.Instance._selectedLayer;
+            bool isSelected = bh.OwnerLayer == LBSMainWindow.Instance.SelectedLayer;
+   //         Debug.Log($"Layer:{graph.OwnerLayer.Name}: selected => {isSelected}");
             bool layerVisible = bh.OwnerLayer.IsVisible;
             var pickMode = isSelected ? PickingMode.Position : PickingMode.Ignore;
-            float opacity = isSelected ? selectedOpacity : unselectedOpacity;
 
             // Refresh existing Nodes
             foreach (GraphNode node in graph.GraphNodes)

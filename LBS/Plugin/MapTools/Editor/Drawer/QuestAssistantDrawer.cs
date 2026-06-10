@@ -83,7 +83,7 @@ namespace ISILab.LBS.Drawers.Editor
             if (graph == null) return;
 
             bool assTabActive = LBSInspectorPanel.Instance.IsAssistantTabActive();
-            bool isSelected = qa.OwnerLayer == LBSMainWindow.Instance._selectedLayer && assTabActive;
+            bool isSelected = qa.OwnerLayer == LBSMainWindow.Instance.SelectedLayer && assTabActive;
             bool layerVisible = qa.OwnerLayer.IsVisible && assTabActive && isSelected;
 
             // Refresh existing Nodes
@@ -134,7 +134,7 @@ namespace ISILab.LBS.Drawers.Editor
             }
 
             bool assTabActive = LBSInspectorPanel.Instance.IsAssistantTabActive();
-            bool isSelected = qa.OwnerLayer == LBSMainWindow.Instance._selectedLayer;
+            bool isSelected = qa.OwnerLayer == LBSMainWindow.Instance.SelectedLayer;
             bool layerVisible = qa.OwnerLayer.IsVisible;
 
             if (assTabActive && isSelected && layerVisible)

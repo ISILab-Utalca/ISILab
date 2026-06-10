@@ -65,7 +65,7 @@ namespace ISILab.LBS.Drawers
         {
             ClearElements(assistant);
 
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, assistant.OwnerLayer)) return; 
+            if (!Equals(LBSMainWindow.Instance.SelectedLayer, assistant.OwnerLayer)) return; 
             
             PaintEverything(assistant, view, constraints, tesselationSize);
         }

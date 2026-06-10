@@ -107,7 +107,7 @@ namespace ISILab.LBS.Drawers.Editor
         private void UpdateVisibility(NodeDataBehaviour bh, MainView view)
         {
             // if hidden -> hide everything
-            if (!bh.OwnerLayer.IsVisible || bh.OwnerLayer != LBSMainWindow.Instance._selectedLayer)
+            if (!bh.OwnerLayer.IsVisible || bh.OwnerLayer != LBSMainWindow.Instance.SelectedLayer)
             {
                 HideVisuals(bh, view);
                 return;
@@ -141,7 +141,7 @@ namespace ISILab.LBS.Drawers.Editor
             HideVisuals(target, view);
 
             if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null
-                || bh.OwnerLayer != LBSMainWindow.Instance._selectedLayer) 
+                || bh.OwnerLayer != LBSMainWindow.Instance.SelectedLayer) 
                 return;
 
             foreach (var key in bh.Keys)

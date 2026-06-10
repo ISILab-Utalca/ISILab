@@ -196,11 +196,11 @@ namespace ISILab.LBS.VisualElements
             layer.OnChangeUpdate();
             if (DrawManager.Instance != null) DrawManager.Instance.RedrawLayer(layer);
 
-            LBSMainWindow.Instance._selectedLayer = layer;
-            if (LBSInspectorPanel.Instance != null)
+            //LBSMainWindow.Instance._selectedLayer = layer;
+            if (LBSMainWindow.Instance.layerPanel != null)
             {
-                LBSInspectorPanel.Instance.SetTarget(layer);
-                LBSInspectorPanel.ActivateBehaviourTab();
+                LBSMainWindow.Instance.layerPanel.SetSelectedLayer(layer);
+               // LBSInspectorPanel.ActivateBehaviourTab();
             }
         }
 

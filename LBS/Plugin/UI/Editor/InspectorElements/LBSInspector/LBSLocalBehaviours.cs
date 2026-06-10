@@ -1,16 +1,18 @@
 using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
-using LBS.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
-using UnityEngine;
-using UnityEngine.UIElements;
 using ISILab.LBS.Editor;
+using LBS.Components;
 using LBS.VisualElements;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UIElements;
+using Debug = UnityEngine.Debug;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -69,6 +71,16 @@ namespace ISILab.LBS.VisualElements
 
         public override void SetTarget(LBSLayer layer)
         {
+            Stopwatch sw = Stopwatch.StartNew();
+            long last = sw.ElapsedMilliseconds;
+
+            void Log(string name)
+            {
+                long now = sw.ElapsedMilliseconds;
+                Debug.Log($"{name}: {now - last} ms");
+                last = now;
+            }
+
             noContentPanel.SetDisplay(layer is null);
             contentPanel.Clear();
             _target = layer;
@@ -89,21 +101,30 @@ namespace ISILab.LBS.VisualElements
 
                 Type editorType = customEditor.GetValueOrDefault(behaviour.GetType()).Item1;
                 if(editorType == null) continue;
-                LBSCustomEditor instance = Activator.CreateInstance(editorType, behaviour) as LBSCustomEditor;
-                
-                
-                instance?.SetInfo(behaviour);
-                ToolKit.Instance.SetTarget(instance);
 
+                LBSCustomEditor instance = null;
+              //  Log("pre setinfo instance EDITOR");
+                if (editorInstances.TryGetValue(behaviour.GetType(), out var editor) && editor is LBSCustomEditor existingEditor)
+                {
+                    instance = existingEditor;
+                }
+                else
+                {
+                    instance = Activator.CreateInstance(editorType, behaviour) as LBSCustomEditor;
+                }
+
+              //  Log("pre setinfo");
+                instance?.SetInfo(behaviour);
+                Log("Setinfo");
+                ToolKit.Instance.SetTarget(instance);
+                Log("postTool");
                 OnFocus += instance.OnFocus;
                 OnUnfocus += instance.OnUnfocus;
-                
+
                 var content = new InspectorContentPanel(instance, behaviour.Name, behaviour.Icon, behaviour.ColorTint);
                 contentPanel.Add(content);
 
-                if (activeEditor is null) continue;
-                InspectorInstance entry = new InspectorInstance(behaviour.GetType(), _target);
-                activeEditor[entry] = instance;
+                editorInstances.TryAdd(behaviour.GetType(), instance);
             }
         }
 
