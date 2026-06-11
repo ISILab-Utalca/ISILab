@@ -18,7 +18,7 @@ namespace ISILab.LBS.Modules
         public enum ConnectedTileType { EdgeBased, VertexBased }
 
         #region FIELDS
-        [SerializeField, JsonRequired]
+        [SerializeField, JsonRequired, ShowOnTemplateInspector]
         private ConnectedTileType gridType;
 
         [SerializeField, JsonRequired, SerializeReference]

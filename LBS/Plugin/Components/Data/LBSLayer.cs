@@ -189,6 +189,20 @@ namespace LBS.Components
             return removed;
         }
 
+        public void RemoveModuleInAllFloors(LBSModule module)
+        {
+            for (int i = 0; i < floors.Length; i++)
+            {
+                var toRemove = floors[i].Modules.Find(m => m.ID == module.ID);
+                if (toRemove != null)
+                {
+                    floors[i].Modules.Remove(toRemove);
+                    try { toRemove.OnDetach(this); } catch { /* swallow detach errors */ }
+                    OnRemoveModule?.Invoke(this, toRemove);
+                }
+            }
+        }
+
         public LBSModule GetModule(int levelIndex, int posIndex) => floors[levelIndex].Modules[posIndex];
 
         public LBSModule GetModule(string moduleID)

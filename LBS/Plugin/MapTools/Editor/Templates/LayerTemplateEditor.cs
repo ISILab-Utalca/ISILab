@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -55,6 +56,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
         private List<string> _unresolvedRequirements = new List<string>();
         private List<LBSBaseListGroup> _listGroups = new List<LBSBaseListGroup>();
+        private Dictionary<LBSBaseListGroup, int> _prevSelectedIndexes = new Dictionary<LBSBaseListGroup, int>();
         private LBSCustomListView _warningList;
         #endregion
 
@@ -138,9 +140,33 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             var modulesListGroup = _root.Q<LBSBaseListGroup>("ModulesListGroup");
             ListGroupSetup(modulesListGroup, s_moduleOptions, Template.layer.FirstModules, (element, index) =>
             {
+                var mod = Template.layer.FirstModules[index];
+
                 var label = element.Q<LBSCustomLabel>("textL");
-                label.text = Template.layer.FirstModules[index]?.ID ?? "Null Module";
-                label.style.color = Template.layer.FirstModules[index] != null ? Color.white : Color.gray;
+                label.text = mod?.ID ?? "Null Module";
+                label.style.color = mod != null ? Color.white : Color.gray;
+
+                var fields = mod.GetTemplateInspectorFields();
+                var content = element.Q<VisualElement>("Content");
+
+                string debug = $"Module {mod?.ID ?? "Null Module"} contains {fields.Length} fields: ";
+                foreach (var field in fields)
+                {
+                    var val = field.GetValue(mod);
+                    var type = val != null ? val.GetType() : typeof(object);
+
+                    // Enum
+                    if (type.IsEnum)
+                    {
+                        var enumField = new LBSCustomEnumField(field.Name);
+                        enumField.dataSourceType = type;
+                        enumField.value = (Enum)val;
+                        content.Add(enumField);
+                        //element
+                        
+                        Debug.Log("Enum field detected");
+                    }
+                }
             });
             _listGroups.Add(modulesListGroup);
 
@@ -289,33 +315,48 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 if(listGroup == null)
                 { NotFoundErrorLog($"ListGroup<{typeof(T).Name}>"); return; }
 
-                listGroup.BindListView(items, (_) => { }, () => new LBSCustomLabelItem(), bindItem);
-
-                // Registra doble-click en el ListView interno y abre/selecciona el script asociado al tipo del elemento seleccionado
-                var internalListView = listGroup.Q<LBSCustomListView>("ListView");
-                if (internalListView != null)
+                // Wrap the provided bindItem so we can store the index on the visual element (userData)
+                Action<VisualElement, int> wrappedBindItem = (element, index) =>
                 {
-                    internalListView.RegisterCallback<MouseDownEvent>(evt =>
-                    {
-                        if (evt.clickCount == 2 && evt.button == 0)
-                        {
-                            int sel = internalListView.selectedIndex;
-                            if (sel >= 0 && sel < items.Count)
-                            {
-                                var item = items[sel];
-                                if (item == null) return;
+                    // Guard: ensure element isn't null
+                    if (element != null)
+                        element.userData = index;
+                    bindItem?.Invoke(element, index);
+                };
 
-                                Type itemType = item.GetType();
-                                MonoScript script = FindScriptForType(itemType);
-                                if (script != null)
-                                    EditorGUIUtility.PingObject(script);
-                                else
-                                    Debug.LogWarning($"[LayerTemplateEditor] No se encontró el script para el tipo: {itemType.FullName}");
-                            }
-                            evt.StopPropagation();
+                listGroup.BindListView(items, 
+                    (selected) =>
+                    {
+                        // 'selected' is the selected items (data). To get the visual element (LBSCustomLabelItem)
+                        // we read the selected index from the listGroup and query the visual tree for the created item
+                        var sel = selected.FirstOrDefault();
+
+                        int selIndex = listGroup.SelectedIndex;
+                        if (selIndex < 0 || selIndex >= items.Count)
+                            return;
+
+                        // Set all items' content visibility.
+                        foreach (var item in listGroup.Query<LBSCustomLabelItem>().ToList())
+                        {
+                            if (item == null) continue;
+
+                            if(item.userData is int i && i == selIndex)
+                                item.SetContentVisibility(true);
+                            else
+                                item.SetContentVisibility(false);
                         }
-                    });
-                }
+                    },
+                    (chosen) =>
+                    {
+                        var item = chosen.First();
+                        Type itemType = item.GetType();
+                        MonoScript script = FindScriptForType(itemType);
+                        if (script != null)
+                            EditorGUIUtility.PingObject(script);
+                        else
+                            Debug.LogWarning($"[LayerTemplateEditor] No se encontró el script para el tipo: {itemType.FullName}");
+
+                    }, () => new LBSCustomLabelItem(), wrappedBindItem);
 
                 // Configuración de botón de AGREGAR módulo/behaviour/assistant/rule
                 var addButton = listGroup.Q<LBSToolbarButton>("AddButton");
@@ -367,7 +408,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                         return;
                     Undo.RecordObject(Template, $"Remove {typeof(T).Name}");
                     if (typeof(T) == typeof(LBSModule))
-                        Template.layer.RemoveModule(items[selectedIndex] as LBSModule);
+                        Template.layer.RemoveModuleInAllFloors(items[selectedIndex] as LBSModule);
                     else if (typeof(T) == typeof(LBSBehaviour))
                         Template.layer.RemoveBehaviour(items[selectedIndex] as LBSBehaviour);
                     else if (typeof(T) == typeof(LBSAssistant))
@@ -378,7 +419,8 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                         Debug.LogWarning($"Unsupported type for removal: {typeof(T).Name}");
 
                     EditorUtility.SetDirty(Template);
-                    RebuildAllLists();
+                    listGroup.Rebuild();
+                    RebuildWarningList();
                 };
             }
         
@@ -415,13 +457,14 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             {
                 foreach (var group in _listGroups)
                     group.Rebuild();
-
-                if(_warningList != null)
-                {
-                    _unresolvedRequirements = GetUnresolvedRequirements();
-                    _warningList.RefreshItems();
-                    _warningList.Rebuild();
-                }
+                RebuildWarningList();
+            }
+            void RebuildWarningList()
+            {
+                if (_warningList == null) return;
+                _unresolvedRequirements = GetUnresolvedRequirements();
+                _warningList.RefreshItems();
+                _warningList.Rebuild();
             }
         }
 
@@ -689,7 +732,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             {
                 for(int i = 0; i < Template.layer.FloorCount; i++)
                 {
-                    Template.layer.AddModule(instance.Clone() as LBSModule);
+                    Template.layer.AddModule(instance.Clone() as LBSModule, i);
                 }
             }
             else

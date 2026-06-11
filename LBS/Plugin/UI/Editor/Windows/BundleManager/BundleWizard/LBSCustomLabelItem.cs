@@ -56,5 +56,19 @@ namespace ISILab.LBS.CustomComponents
                 this.labelR.text = value;
             }
         }
+        [UxmlAttribute]
+        public bool ShowContent
+        {
+            get { return content.style.display == DisplayStyle.Flex; }
+            set
+            {
+                content.style.display = value ? DisplayStyle.Flex : DisplayStyle.None;
+            }
+        }
+
+        public void SetContentVisibility(bool visible)
+        {
+            content.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
+        }
     }
 }
