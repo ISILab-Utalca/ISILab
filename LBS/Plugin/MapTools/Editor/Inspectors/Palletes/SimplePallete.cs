@@ -153,9 +153,9 @@ namespace LBS.VisualElements
 
             // Content
             contentContainer = this.Q<VisualElement>("Content");
-            contentContainer.style.flexDirection = FlexDirection.Row;         // Horizontal layout
-            contentContainer.style.justifyContent = Justify.FlexStart;     // Space items evenly
-            contentContainer.style.alignItems = Align.Stretch;                 // Vertically center them
+           // contentContainer.style.flexDirection = FlexDirection.Row;         // Horizontal layout
+            //contentContainer.style.justifyContent = Justify.FlexStart;     // Space items evenly
+           // contentContainer.style.alignItems = Align.Stretch;                 // Vertically center them
             
             // Change Group
             dropdownGroup = this.Q<LBSCustomDropdown>("DropdownGroup");

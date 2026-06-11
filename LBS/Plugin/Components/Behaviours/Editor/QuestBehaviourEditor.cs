@@ -187,6 +187,18 @@ namespace ISILab.LBS.VisualElements
                 if (conditional == GraphNode.And) optionView.Icon = AndIcon;
             });
 
+            _conditionsPallete.OnSelectOption += (selected) =>
+            {
+                string conditional = (string)selected;
+                ToolKit.Instance.SetActive(typeof(AddGraphNode));
+                if (conditional == GraphNode.Or) behaviour.activeGraphNodeType = typeof(OrNode);
+                if (conditional == GraphNode.And) behaviour.activeGraphNodeType = typeof(AndNode);
+
+                // no action, only node type
+                behaviour.ActionToSet = string.Empty;
+
+            };
+
             _actionsPallete.OnSelectOption += (selected) =>
             {
                 ToolKit.Instance.SetActive(typeof(AddGraphNode));
@@ -218,9 +230,18 @@ namespace ISILab.LBS.VisualElements
             _actionsPallete.SetOptions(options, (optionView, option) =>
             {
                 string terminalAction = (string)option;
+
                 optionView.Label = terminalAction;
-                //optionView.FrameColor = bundle.Color;
-                optionView.Icon = QuestActionIcon;
+                //optionView.Icon = QuestActionIcon;
+
+                var terminal = quest.Grammar.GetTerminal(terminalAction);
+                if (terminal != null)
+                {
+                    optionView.FrameColor = terminal.color;
+                    optionView.Icon = terminal.Icon;
+                }
+
+  
             });
 
             _actionsPallete.Repaint();

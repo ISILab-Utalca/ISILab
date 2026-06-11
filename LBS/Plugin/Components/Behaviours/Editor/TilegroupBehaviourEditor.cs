@@ -10,25 +10,18 @@ using LBS;
 using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
+using System.Reflection;
+using UnityEditor;
 using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
+    [InitializeOnLoad]
     [LBSCustomEditor("TileGroupBehavior", typeof(TileGroupBehavior))]
     public class TileGroupBehaviorEditor : LBSCustomEditor, IToolProvider
     {
         #region STATICS
-        private static readonly Dictionary<Type, Type> AddonEditorMap = new()
-        {
-            { typeof(Addon_Trigger), typeof(Addon_TriggerEditor) },
-            { typeof(Addon_Patrol), typeof(Addon_PatrolEditor) },
-            { typeof(Addon_Destruct), typeof(Addon_DestroyEditor) },
-            { typeof(Addon_Interact), typeof(Addon_InteractEditor) },
-            { typeof(Addon_Drop), typeof(Addon_DropEditor) },
-            { typeof(Addon_Unlock), typeof(Addon_UnlockEditor) },
-            { typeof(Addon_TriggerUnlock), typeof(Addon_TriggerUnlockEditor) }
-        };
+        private static readonly Dictionary<Type, Type> AddonEditorMap = new();
         #endregion
 
         #region FIELDS
@@ -94,11 +87,11 @@ namespace ISILab.LBS.VisualElements
         {
             AddonContainer.Clear();
 
+
             // Toggle Visibility
-            bool isValid = group?.BundleData?.Bundle != null;
+            bool isValid = group?.BundleData?.Bundle != null && behaviour.SelectedTilemap != null;
             NoContent.style.display = isValid ? DisplayStyle.None : DisplayStyle.Flex;
             Content.style.display = isValid ? DisplayStyle.Flex : DisplayStyle.None;
-
             if (!isValid) return;
 
             // Header Setup
@@ -137,6 +130,41 @@ namespace ISILab.LBS.VisualElements
             toolButton.SetEnabled(false);
         }
 
+        #endregion
+
+        #region STATIC INIT
+        static TileGroupBehaviorEditor()
+        {
+            InitializeAddonEditorRegistry();
+        }
+
+        private static void InitializeAddonEditorRegistry()
+        {
+         
+            AddonEditorMap.Clear();
+
+            // 1. Scan the assembly where your custom editors are compiled
+            Assembly currentAssembly = Assembly.GetExecutingAssembly();
+            Type[] allTypes = currentAssembly.GetTypes();
+
+            foreach (Type type in allTypes)
+            {
+                // 2. Look for your existing LBSCustomEditorAttribute instead of a new one
+                var attribute = type.GetCustomAttribute<LBSCustomEditorAttribute>();
+                if (attribute != null)
+                {
+                    // 3. Extract the target type bound inside your existing attribute definition.
+                    // (Assuming your attribute exposes the bound type via a property like 'TargetType' or 'CustomType')
+                    Type boundTargetType = attribute.type;
+
+                    // 4. Ensure we only map types that inherit from your Addon module base class
+                    if (boundTargetType != null && typeof(BundleTileMapAddons).IsAssignableFrom(boundTargetType))
+                    {
+                        AddonEditorMap[boundTargetType] = type;
+                    }
+                }
+            }
+        }
         #endregion
     }
 }

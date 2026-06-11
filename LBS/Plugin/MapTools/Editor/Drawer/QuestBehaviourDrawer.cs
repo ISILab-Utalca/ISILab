@@ -17,13 +17,9 @@ namespace ISILab.LBS.Drawers.Editor
     [Drawer(typeof(QuestBehaviour))]
     public class QuestBehaviorDrawer : Drawer
     {
-        const float selectedOpacity = 1f;
-
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             if (target is not QuestBehaviour bh) return;
-
-            UpdateTiles(bh, view, tesselationSize);
 
             if (!Loaded || FullRedrawRequested)
             {
@@ -31,6 +27,8 @@ namespace ISILab.LBS.Drawers.Editor
                 Loaded = true;
                 FullRedrawRequested = false;
             }
+
+            UpdateTiles(bh, view, tesselationSize);
         }
 
         public override void UpdateTiles(object target, MainView view, Vector2 teselationSize)

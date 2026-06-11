@@ -58,7 +58,7 @@ namespace ISILab.LBS.CustomComponents
             minusButton = new Button() { text = "-" };
             iconVisualElement = new VisualElement();
 
-
+            AddToClassList("lbs-uint-field");
             minusButton.AddToClassList("minusButton");
             this.Add(minusButton);
             addButton.AddToClassList("addButton");

@@ -1,11 +1,13 @@
+using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
+using ISILab.LBS.Components;
+using ISILab.LBS.Editor.Windows;
+using ISILab.LBS.Modules;
 using System;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.Extensions;
-using ISILab.LBS.Components;
-using ISILab.LBS.Modules;
-using UnityEditor;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -14,25 +16,32 @@ namespace ISILab.LBS.VisualElements
         private const float curveBendStrength = 0.5f;
         private const float minCurveValue = 10f;
 
+        private static VisualTreeAsset visualTree;
+
+
         private Vector2 _startPos, _endPos;
         private readonly float _lineWidth;
         private readonly float _stroke;
         private readonly QuestEdge _edge;
         private readonly QuestGraph _graph;
-        private readonly VisualElement _connectionView;
+        // meant to be used to access the USS color hehe
+        private readonly VisualElement _viewData;
         private readonly QuestGraphNodeView _node1;
         private readonly QuestGraphNodeView _node2;
 
         public QuestEdgeView(QuestGraph questGraph, QuestEdge edge, QuestGraphNodeView node1, QuestGraphNodeView node2, float lineWidth = 5f, float stroke = 3f)
         {
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestEdgeView");
+            visualTree.CloneTree(this);
+
+            _viewData = this.Q<VisualElement>("View");
+
             _graph = questGraph ?? throw new ArgumentNullException(nameof(questGraph));
             _edge = edge ?? throw new ArgumentNullException(nameof(edge));
             _node1 = node1 ?? throw new ArgumentNullException(nameof(node1));
             _node2 = node2 ?? throw new ArgumentNullException(nameof(node2));
             _lineWidth = lineWidth;
             _stroke = stroke;
-
-            _connectionView = this.Q<VisualElement>("View");
 
             ActionExtensions.AddUnique(ref node1.OnMoving, UpdatePositionFromNode1);
             ActionExtensions.AddUnique(ref node2.OnMoving, UpdatePositionFromNode2);
@@ -94,7 +103,7 @@ namespace ISILab.LBS.VisualElements
         private void DrawLine(MeshGenerationContext mgc)
         {
             var painter = mgc.painter2D;
-            painter.strokeColor = Color.white;
+            painter.strokeColor = _viewData.resolvedStyle.unityBackgroundImageTintColor;
             painter.lineWidth = _stroke;
 
             float deltaX = _endPos.x - _startPos.x;

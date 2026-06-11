@@ -209,7 +209,7 @@ namespace ISILab.LBS.VisualElements
                 float r = color.r * Alpha; 
                 float g = color.g * Alpha;
                 float b = color.b * Alpha;
-                color = new Color(r, g, b, 1f); 
+                color = new Color(r, g, b, 0.5f) + DefaultBackgroundColor;
             }
 
             VisualElement coloredVe = this.Q<VisualElement>("Capsule");

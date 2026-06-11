@@ -8,12 +8,13 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
+    [LBSCustomEditor("Addon_Interact", typeof(Addon_Interact))]
     public class Addon_InteractEditor : LBSCustomEditor
     {
         private TileGroupBehavior behaviour;
         private LBSCustomEventHooker InteractHook;
 
-        private static VisualTreeAsset visualTree { get; set; }
+        private static VisualTreeAsset visualTree;
 
         public Addon_InteractEditor(object target) : base(target)
         {
@@ -32,11 +33,8 @@ namespace ISILab.LBS.VisualElements
 
         protected override VisualElement CreateVisualElement()
         {
-            if (visualTree is null)
-            {
-                visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_InteractEditor", true);
-            }
-
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_InteractEditor", true);
+           
             visualTree.CloneTree(this);
 
             InteractHook = this.Q<LBSCustomEventHooker>("InteractHook");

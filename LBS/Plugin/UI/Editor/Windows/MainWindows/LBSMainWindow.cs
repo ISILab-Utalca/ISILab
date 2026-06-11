@@ -426,7 +426,7 @@ namespace ISILab.LBS.Editor.Windows
             blueprintPanel ??=  new BlueprintPanel();
             bottomPanel.Add(blueprintPanel);
             blueprintPanel.style.display = DisplayStyle.None;
-
+            OnLayerChange += () => blueprintPanel.UpdateCaptureEnable();
 
             #endregion
 
