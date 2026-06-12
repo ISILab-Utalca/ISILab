@@ -137,7 +137,8 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
 
             titleLabel = this.Q<Label>("TitleLabel");
             listView = this.Q<LBSCustomListView>("ListView");
-          
+            listView.virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight;
+
             expandArrowButton = this.Q<Button>("ExpandButton");
             expandArrowButton.RegisterCallback<ClickEvent>(_evt =>
             { 
