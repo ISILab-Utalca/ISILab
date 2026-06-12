@@ -7,6 +7,7 @@ items:
   children:
   - ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType.Aesthetic
   - ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType.Element
+  - ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType.Simulation
   - ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType.Structural
   langs:
   - csharp
@@ -105,6 +106,32 @@ items:
   namespace: ISILab.LBS.Plugin.Components.Bundles
   syntax:
     content: Element = 2
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType
+- uid: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType.Simulation
+  commentId: F:ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType.Simulation
+  id: Simulation
+  parent: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType
+  langs:
+  - csharp
+  - vb
+  name: Simulation
+  nameWithType: Bundle.TagType.Simulation
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType.Simulation
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Bundles/Bundle.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Simulation
+    path: ../LBS/Plugin/Core/Components/Bundles/Bundle.cs
+    startLine: 94
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Bundles
+  syntax:
+    content: Simulation = 3
     return:
       type: ISILab.LBS.Plugin.Components.Bundles.Bundle.TagType
 references:

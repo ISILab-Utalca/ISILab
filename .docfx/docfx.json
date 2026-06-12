@@ -23,7 +23,16 @@
     "content": [
       {
         "files": [
-          "**/*.{md,yml,xml}"
+          "en/**/*.md",
+          "en/**/**/*.md",
+          "en/**/toc.yml",
+          "es/**/*.md",
+          "es/**/*.md",
+          "es/**/toc.yml",
+          "api_doc/**.yml",
+          "api_doc/toc.yml",
+          "toc.yml",
+          "index.md"
         ],
         "exclude": [
           "_site/**"
@@ -44,8 +53,8 @@
       "templates"
     ],
     "globalMetadata": {
-      "_appName": "LBS API Docs",
-      "_appTitle": "LBS API Docs",
+      "_appName": "Level Building Sidekick",
+      "_appTitle": "Level Building Sidekick",
       "_enableSearch": true,
       "pdf": false,
       "_appLogoPath": "/images/logo.svg",

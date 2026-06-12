@@ -16,10 +16,12 @@ items:
   - LBS.Components.LBSLayer.Behaviours
   - LBS.Components.LBSLayer.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
   - LBS.Components.LBSLayer.ChangeFloor(System.Int32)
+  - LBS.Components.LBSLayer.ChangeFloorCount(System.UInt32)
   - LBS.Components.LBSLayer.ClearEvents
   - LBS.Components.LBSLayer.Clone
   - LBS.Components.LBSLayer.CloneFloorArray(LBS.Components.LBSFloor[])
   - LBS.Components.LBSLayer.Equals(System.Object)
+  - LBS.Components.LBSLayer.FirstModules
   - LBS.Components.LBSLayer.FixedToPosition(UnityEngine.Vector2Int,System.Boolean)
   - LBS.Components.LBSLayer.FloorCount
   - LBS.Components.LBSLayer.GeneratorRules
@@ -64,6 +66,7 @@ items:
   - LBS.Components.LBSLayer.RemoveGeneratorRule(ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratorRule)
   - LBS.Components.LBSLayer.RemoveModule(ISILab.LBS.Modules.LBSModule)
   - LBS.Components.LBSLayer.ReplaceModule(ISILab.LBS.Modules.LBSModule,ISILab.LBS.Modules.LBSModule)
+  - LBS.Components.LBSLayer.SetID(System.String)
   - LBS.Components.LBSLayer.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
   - LBS.Components.LBSLayer.TileSize
   - LBS.Components.LBSLayer.ToFixedPosition(UnityEngine.Vector2)
@@ -209,6 +212,45 @@ items:
   - type: Newtonsoft.Json.JsonRequiredAttribute
     ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
     arguments: []
+- uid: LBS.Components.LBSLayer.FirstModules
+  commentId: P:LBS.Components.LBSLayer.FirstModules
+  id: FirstModules
+  parent: LBS.Components.LBSLayer
+  langs:
+  - csharp
+  - vb
+  name: FirstModules
+  nameWithType: LBSLayer.FirstModules
+  fullName: LBS.Components.LBSLayer.FirstModules
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: FirstModules
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 45
+  assemblies:
+  - LBS
+  namespace: LBS.Components
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public List<LBSModule> FirstModules { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property FirstModules As List(Of LBSModule)
+  overload: LBS.Components.LBSLayer.FirstModules*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
 - uid: LBS.Components.LBSLayer.IsVisible
   commentId: P:LBS.Components.LBSLayer.IsVisible
   id: IsVisible
@@ -227,7 +269,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsVisible
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 45
+    startLine: 47
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -266,7 +308,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsBlocked
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 46
+    startLine: 48
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -305,7 +347,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsLocked
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 47
+    startLine: 49
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -344,7 +386,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Parent
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 49
+    startLine: 51
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -383,7 +425,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ID
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 50
+    startLine: 52
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -391,14 +433,14 @@ items:
     content: >-
       [JsonIgnore]
 
-      public string ID { get; set; }
+      public string ID { get; }
     parameters: []
     return:
       type: System.String
     content.vb: >-
       <JsonIgnore>
 
-      Public Property ID As String
+      Public ReadOnly Property ID As String
   overload: LBS.Components.LBSLayer.ID*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
@@ -422,7 +464,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Name
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 51
+    startLine: 53
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -461,7 +503,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ActiveFloor
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 52
+    startLine: 54
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -500,7 +542,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: FloorCount
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 53
+    startLine: 55
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -539,7 +581,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Behaviours
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 56
+    startLine: 58
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -578,7 +620,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Assistants
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 57
+    startLine: 59
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -617,7 +659,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GeneratorRules
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 58
+    startLine: 60
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -656,7 +698,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TileSize
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 62
+    startLine: 64
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -695,7 +737,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChangeName
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 76
+    startLine: 78
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -722,7 +764,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChange
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 77
+    startLine: 79
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -749,7 +791,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnTileSizeChange
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 78
+    startLine: 80
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -776,7 +818,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAddModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 79
+    startLine: 81
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -803,7 +845,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnReplaceModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 80
+    startLine: 82
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -830,7 +872,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnRemoveModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 81
+    startLine: 83
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -857,7 +899,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextAdd
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 82
+    startLine: 84
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -884,7 +926,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextRemove
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 83
+    startLine: 85
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -911,7 +953,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 87
+    startLine: 89
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -940,7 +982,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 101
+    startLine: 103
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -990,7 +1032,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ChangeFloor
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 131
+    startLine: 133
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1022,7 +1064,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Modules
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 149
+    startLine: 151
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1056,7 +1098,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 155
+    startLine: 157
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1092,7 +1134,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 167
+    startLine: 169
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1123,7 +1165,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 185
+    startLine: 187
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1159,7 +1201,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 187
+    startLine: 189
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1193,7 +1235,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 190
+    startLine: 192
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1231,7 +1273,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetRule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 200
+    startLine: 202
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1264,7 +1306,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ReplaceModule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 222
+    startLine: 224
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1295,7 +1337,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddBehaviour
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 235
+    startLine: 237
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1324,7 +1366,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveBehaviour
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 263
+    startLine: 265
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1353,7 +1395,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetBehaviour
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 270
+    startLine: 272
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1389,7 +1431,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddAssistant
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 280
+    startLine: 282
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1418,7 +1460,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveAssistant
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 307
+    startLine: 309
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1447,7 +1489,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAssistant
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 314
+    startLine: 316
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1481,7 +1523,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAssistant
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 316
+    startLine: 318
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1517,7 +1559,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddGeneratorRule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 325
+    startLine: 327
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1546,7 +1588,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveGeneratorRule
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 331
+    startLine: 333
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1559,6 +1601,80 @@ items:
       type: System.Boolean
     content.vb: Public Function RemoveGeneratorRule(rule As LBSGeneratorRule) As Boolean
   overload: LBS.Components.LBSLayer.RemoveGeneratorRule*
+- uid: LBS.Components.LBSLayer.SetID(System.String)
+  commentId: M:LBS.Components.LBSLayer.SetID(System.String)
+  id: SetID(System.String)
+  parent: LBS.Components.LBSLayer
+  langs:
+  - csharp
+  - vb
+  name: SetID(string)
+  nameWithType: LBSLayer.SetID(string)
+  fullName: LBS.Components.LBSLayer.SetID(string)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SetID
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 348
+  assemblies:
+  - LBS
+  namespace: LBS.Components
+  summary: >-
+    ID is set on creation and should not be changed, but this allows for manual setting
+
+    if needed (e.g. storing presets on Layer Template).
+  remarks: >-
+    Use on your own risk - changing ID can break references in modules and behaviours
+
+    that reference the layer by ID.
+  example: []
+  syntax:
+    content: public void SetID(string newID)
+    parameters:
+    - id: newID
+      type: System.String
+      description: New identification string. Must be not null or empty.
+    content.vb: Public Sub SetID(newID As String)
+  overload: LBS.Components.LBSLayer.SetID*
+  nameWithType.vb: LBSLayer.SetID(String)
+  fullName.vb: LBS.Components.LBSLayer.SetID(String)
+  name.vb: SetID(String)
+- uid: LBS.Components.LBSLayer.ChangeFloorCount(System.UInt32)
+  commentId: M:LBS.Components.LBSLayer.ChangeFloorCount(System.UInt32)
+  id: ChangeFloorCount(System.UInt32)
+  parent: LBS.Components.LBSLayer
+  langs:
+  - csharp
+  - vb
+  name: ChangeFloorCount(uint)
+  nameWithType: LBSLayer.ChangeFloorCount(uint)
+  fullName: LBS.Components.LBSLayer.ChangeFloorCount(uint)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/LBSLayer.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ChangeFloorCount
+    path: ../LBS/Plugin/Components/Data/LBSLayer.cs
+    startLine: 354
+  assemblies:
+  - LBS
+  namespace: LBS.Components
+  syntax:
+    content: public void ChangeFloorCount(uint newCount)
+    parameters:
+    - id: newCount
+      type: System.UInt32
+    content.vb: Public Sub ChangeFloorCount(newCount As UInteger)
+  overload: LBS.Components.LBSLayer.ChangeFloorCount*
+  nameWithType.vb: LBSLayer.ChangeFloorCount(UInteger)
+  fullName.vb: LBS.Components.LBSLayer.ChangeFloorCount(UInteger)
+  name.vb: ChangeFloorCount(UInteger)
 - uid: LBS.Components.LBSLayer.Reload
   commentId: M:LBS.Components.LBSLayer.Reload
   id: Reload
@@ -1577,7 +1693,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Reload
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 336
+    startLine: 366
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1603,7 +1719,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveAll
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 346
+    startLine: 376
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1629,7 +1745,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPosition
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 358
+    startLine: 388
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1660,7 +1776,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPositionOffset
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 369
+    startLine: 399
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1693,7 +1809,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPositionOffset
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 370
+    startLine: 400
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1729,7 +1845,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: FixedToPosition
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 372
+    startLine: 402
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1765,7 +1881,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFixedPosition
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 380
+    startLine: 410
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1798,7 +1914,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ClearEvents
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 390
+    startLine: 420
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1824,7 +1940,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 401
+    startLine: 431
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1855,7 +1971,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CloneFloorArray
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 412
+    startLine: 442
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1889,7 +2005,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 421
+    startLine: 451
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1925,7 +2041,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 433
+    startLine: 463
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1955,7 +2071,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChangeUpdate
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 439
+    startLine: 469
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -1981,7 +2097,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InvokeNameChanged
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 440
+    startLine: 470
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2007,7 +2123,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextAddInvoke
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 441
+    startLine: 471
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2033,7 +2149,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnContextRemoveInvoke
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 442
+    startLine: 472
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2059,7 +2175,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsExteriorLayer
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 496
+    startLine: 526
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2090,7 +2206,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsPopulationLayer
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 503
+    startLine: 533
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2118,7 +2234,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsQuestLayer
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 509
+    startLine: 539
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2146,7 +2262,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsInteriorLayer
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 515
+    startLine: 545
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2174,7 +2290,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAreaClone
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 531
+    startLine: 561
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2212,7 +2328,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAnchor
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 554
+    startLine: 584
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2245,7 +2361,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetPosition
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 576
+    startLine: 606
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2281,7 +2397,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CaptureAreaData
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 594
+    startLine: 624
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2324,7 +2440,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MergeLayerData
     path: ../LBS/Plugin/Components/Data/LBSLayer.cs
-    startLine: 599
+    startLine: 629
   assemblies:
   - LBS
   namespace: LBS.Components
@@ -2651,6 +2767,110 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: LBS.Components.LBSLayer.FirstModules*
+  commentId: Overload:LBS.Components.LBSLayer.FirstModules
+  href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_FirstModules
+  name: FirstModules
+  nameWithType: LBSLayer.FirstModules
+  fullName: LBS.Components.LBSLayer.FirstModules
+- uid: System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSModule>
+  nameWithType: List<LBSModule>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.LBSModule>
+  nameWithType.vb: List(Of LBSModule)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.LBSModule)
+  name.vb: List(Of LBSModule)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Modules.LBSModule
+    name: LBSModule
+    href: ISILab.LBS.Modules.LBSModule.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: LBS.Components.LBSLayer.IsVisible*
   commentId: Overload:LBS.Components.LBSLayer.IsVisible
   href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_IsVisible
@@ -2778,71 +2998,6 @@ references:
     name: LBSBehaviour
     href: ISILab.LBS.Behaviours.LBSBehaviour.html
   - name: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: LBS.Components.LBSLayer.Assistants*
   commentId: Overload:LBS.Components.LBSLayer.Assistants
   href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_Assistants
@@ -3255,39 +3410,6 @@ references:
   name: Modules
   nameWithType: LBSLayer.Modules
   fullName: LBS.Components.LBSLayer.Modules
-- uid: System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule}
-  commentId: T:System.Collections.Generic.List{ISILab.LBS.Modules.LBSModule}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<LBSModule>
-  nameWithType: List<LBSModule>
-  fullName: System.Collections.Generic.List<ISILab.LBS.Modules.LBSModule>
-  nameWithType.vb: List(Of LBSModule)
-  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Modules.LBSModule)
-  name.vb: List(Of LBSModule)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: ISILab.LBS.Modules.LBSModule
-    name: LBSModule
-    href: ISILab.LBS.Modules.LBSModule.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ISILab.LBS.Modules.LBSModule
-    name: LBSModule
-    href: ISILab.LBS.Modules.LBSModule.html
-  - name: )
 - uid: LBS.Components.LBSLayer.AddModule*
   commentId: Overload:LBS.Components.LBSLayer.AddModule
   href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_AddModule_ISILab_LBS_Modules_LBSModule_System_Int32_
@@ -3556,6 +3678,29 @@ references:
   name: RemoveGeneratorRule
   nameWithType: LBSLayer.RemoveGeneratorRule
   fullName: LBS.Components.LBSLayer.RemoveGeneratorRule
+- uid: LBS.Components.LBSLayer.SetID*
+  commentId: Overload:LBS.Components.LBSLayer.SetID
+  href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_SetID_System_String_
+  name: SetID
+  nameWithType: LBSLayer.SetID
+  fullName: LBS.Components.LBSLayer.SetID
+- uid: LBS.Components.LBSLayer.ChangeFloorCount*
+  commentId: Overload:LBS.Components.LBSLayer.ChangeFloorCount
+  href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_ChangeFloorCount_System_UInt32_
+  name: ChangeFloorCount
+  nameWithType: LBSLayer.ChangeFloorCount
+  fullName: LBS.Components.LBSLayer.ChangeFloorCount
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
 - uid: LBS.Components.LBSLayer.Reload*
   commentId: Overload:LBS.Components.LBSLayer.Reload
   href: LBS.Components.LBSLayer.html#LBS_Components_LBSLayer_Reload
