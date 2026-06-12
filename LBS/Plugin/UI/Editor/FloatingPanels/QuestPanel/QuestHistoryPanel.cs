@@ -25,7 +25,7 @@ namespace ISILab.LBS.VisualElements.Editor
         #endregion
 
         #region PROPERTIES
-        private QuestGraph QuestGraphs { get; set; } = new();
+        private QuestGraphModule QuestGraphs { get; set; } = new();
 
         #endregion
 

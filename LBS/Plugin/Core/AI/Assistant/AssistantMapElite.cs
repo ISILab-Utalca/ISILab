@@ -27,7 +27,7 @@ using UnityEngine;
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
     [System.Serializable]
-    [RequieredModule(typeof(BundleTileMap))]
+    [RequieredModule(typeof(BundleTileMapModule))]
     public class AssistantMapElite : LBSAssistant
     {
         #region FIELDS
@@ -203,7 +203,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         private Rect GetDefaultLayerArea()
         {
             //Grabs the owner layer area
-            return OwnerLayer.GetModule<BundleTileMap>().GetBounds();
+            return OwnerLayer.GetModule<BundleTileMapModule>().GetBounds();
         }
 
         private Rect GetLayerContextArea(out List<string> logs)
@@ -288,7 +288,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public void SetAdam(Rect rect, List<LBSLayer> contextLayers = null)
         {
-            var tm = OwnerLayer.GetModule<BundleTileMap>();
+            var tm = OwnerLayer.GetModule<BundleTileMapModule>();
             var chrom = new BundleTilemapChromosome(tm, rect, CalcImmutables(rect), CalcInvalids(rect, contextLayers));
             mapElites.Adam = chrom;
         }
@@ -331,7 +331,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             //}
             #endregion
 
-            var tm = OwnerLayer.GetModule<BundleTileMap>();
+            var tm = OwnerLayer.GetModule<BundleTileMapModule>();
             foreach (TileBundleGroup g in tm.Groups)
             {
                 foreach (LBSTile t in g.TileGroup)
@@ -482,7 +482,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 AutoSelectArea(out _);
             }
 
-            var currentBundleMap = OwnerLayer.GetModule<BundleTileMap>();
+            var currentBundleMap = OwnerLayer.GetModule<BundleTileMapModule>();
             if (currentBundleMap == null) return Vector3.negativeInfinity;
 
             if (mapElites.XEvaluator != null) InitializeEvaluator(mapElites.XEvaluator);

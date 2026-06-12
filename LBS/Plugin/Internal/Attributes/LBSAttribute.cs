@@ -22,6 +22,12 @@ namespace ISILab.LBS
         }
     }
 
+    [AttributeUsage(AttributeTargets.Field)]
+    public class ShowOnTemplateInspectorAttribute : LBSAttribute
+    {
+        public ShowOnTemplateInspectorAttribute() { }
+    }
+
     //[System.AttributeUsage(System.AttributeTargets.Class)]
     //public class LBSCharacteristicAttribute : LBSSearchAttribute
     //{

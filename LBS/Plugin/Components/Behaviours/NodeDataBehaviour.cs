@@ -9,17 +9,19 @@ using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
 {
-    [RequieredModule(typeof(QuestGraph))]
+    [RequieredModule(typeof(QuestGraphModule))]
     public class NodeDataBehaviour : LBSBehaviour
     {
         public QuestNodeData SelectedNodeData => Graph.SelectedQuestNode?.Data;
-        public QuestGraph Graph => OwnerLayer.GetModule<QuestGraph>();
+        public QuestGraphModule Graph => OwnerLayer.GetModule<QuestGraphModule>();
 
+        // Events
         public Action<GraphNode> OnNodeDataChanged;
         public Action<QuestNodeData> OnNodeDataChangedBegin;
         public Action<QuestNodeData> OnNodeDataChangedEnd;
         public Action<GrammarField> OnAddField;
         public Action<GrammarField> OnRemoveField;
+
         /// <summary>
         /// Assigned from the QuestNodeView On MouseDown event. It will assign the current selected node, allowing to
         /// modify it based on its action type.

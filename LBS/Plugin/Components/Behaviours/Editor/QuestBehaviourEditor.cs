@@ -172,7 +172,7 @@ namespace ISILab.LBS.VisualElements
         { 
 
             _actionsPallete.DisplayContent(false);
-            QuestGraph quest = behaviour?.OwnerLayer.GetModule<QuestGraph>();
+            QuestGraphModule quest = behaviour?.OwnerLayer.GetModule<QuestGraphModule>();
             if (quest == null) return;
             if (quest.Grammar == null || !quest.Grammar.TerminalActions.Any()) return;
 
@@ -211,7 +211,7 @@ namespace ISILab.LBS.VisualElements
         {
             _conditionsPallete.DisplayContent(false);
 
-            QuestGraph quest = behaviour?.OwnerLayer.GetModule<QuestGraph>();
+            QuestGraphModule quest = behaviour?.OwnerLayer.GetModule<QuestGraphModule>();
             if (quest == null) return;
             if (quest.Grammar == null || !quest.Grammar.TerminalActions.Any()) return;
 

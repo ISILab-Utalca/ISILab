@@ -10,7 +10,7 @@ using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
 {
-    [RequieredModule(typeof(QuestGraph))]
+    [RequieredModule(typeof(QuestGraphModule))]
     public class QuestBehaviour : LBSBehaviour, IBlueprintable
     {
         public Type activeGraphNodeType = null;
@@ -19,7 +19,7 @@ namespace ISILab.LBS.Behaviours
 
         #region PROPERTIES
 
-        public QuestGraph Graph => OwnerLayer.GetModule<QuestGraph>();
+        public QuestGraphModule Graph => OwnerLayer.GetModule<QuestGraphModule>();
 
         #endregion
 

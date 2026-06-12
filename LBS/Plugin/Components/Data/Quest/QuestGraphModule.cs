@@ -26,7 +26,7 @@ namespace ISILab.LBS.Modules
     /// </para>
     /// </summary>
     [Serializable]
-    public class QuestGraph : LBSModule, ICloneable, ISelectable
+    public class QuestGraphModule : LBSModule, ICloneable, ISelectable
     {
         #region CONSTANTS
         private const string defaultGrammarGuid = "14cb4d99b22a94a45bac4216aca3f57e"; // Default grammar guid
@@ -44,8 +44,8 @@ namespace ISILab.LBS.Modules
         [SerializeField, SerializeReference]
         private QuestNode root;
        
-        [SerializeField]
-        private string grammarGuid = defaultGrammarGuid; 
+        [SerializeField, ShowOnTemplateInspector]
+        private string grammarGuid = defaultGrammarGuid;
 
         private LBSGrammar grammar;
 
@@ -137,7 +137,7 @@ namespace ISILab.LBS.Modules
         #endregion
 
         #region CONSTRUCTOR
-        public QuestGraph()
+        public QuestGraphModule()
         {
             // changing one edge can change the values of all the graph so we recheck all the graph for
             ActionExtensions.AddUnique(ref OnAddEdge, PostEdge);
@@ -655,7 +655,7 @@ namespace ISILab.LBS.Modules
 
         public override object Clone()
         {
-            QuestGraph clone = new QuestGraph { grammarGuid = grammarGuid };
+            QuestGraphModule clone = new QuestGraphModule { grammarGuid = grammarGuid };
  
             // cloning nodes and their data
             var nodes = graphNodes.Select(CloneRefs.Get).Cast<GraphNode>();

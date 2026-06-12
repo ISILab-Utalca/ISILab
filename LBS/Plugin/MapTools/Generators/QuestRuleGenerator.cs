@@ -64,7 +64,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var observer = pivot.AddComponent<QuestTracker>();
 
             CloneRefs.Start();
-            var quest = layer.GetModule<QuestGraph>().Clone() as QuestGraph;
+            var quest = layer.GetModule<QuestGraphModule>().Clone() as QuestGraphModule;
             if(quest == null)
             {
                 Object.DestroyImmediate(pivot);
@@ -133,7 +133,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return new GeneratedGO(pivot, new LBSLog(0));
         }
 
-        private void GenerateTriggers(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
+        private void GenerateTriggers(LBSGenerator3DSettings settings, QuestGraphModule quest, QuestTracker tracker, GameObject pivot)
         {
             foreach (var node in quest.QuestNodes)
             {
@@ -154,7 +154,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
         }
 
-        private static void GenerateGraphTriggers(LBSGenerator3DSettings settings, QuestGraph qGraph, QuestTracker tracker, GameObject pivot)
+        private static void GenerateGraphTriggers(LBSGenerator3DSettings settings, QuestGraphModule qGraph, QuestTracker tracker, GameObject pivot)
         {
             // make triggers
             Dictionary<GraphNode, QuestTriggerNode> nodeToTrigger = MakeTriggerNodes(settings, qGraph, tracker, pivot);
@@ -197,7 +197,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
         }
 
-        private static Dictionary<GraphNode, QuestTriggerNode> MakeTriggerNodes(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
+        private static Dictionary<GraphNode, QuestTriggerNode> MakeTriggerNodes(LBSGenerator3DSettings settings, QuestGraphModule quest, QuestTracker tracker, GameObject pivot)
         {
             Dictionary<GraphNode, QuestTriggerNode> dict = new();
 
@@ -307,7 +307,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
         }
 
-        private static Dictionary<GraphNode, QuestTriggerBranch> MakeTriggerBranches(LBSGenerator3DSettings settings, QuestGraph quest, QuestTracker tracker, GameObject pivot)
+        private static Dictionary<GraphNode, QuestTriggerBranch> MakeTriggerBranches(LBSGenerator3DSettings settings, QuestGraphModule quest, QuestTracker tracker, GameObject pivot)
         {
             Dictionary<GraphNode, QuestTriggerBranch> dict = new();
 

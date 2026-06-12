@@ -155,12 +155,14 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
 
         public void BindListView<T>(
             List<T> items, 
-            Action<IEnumerable<object>> onItemSelected, 
+            Action<IEnumerable<object>> onSelectionChanged,
+            Action<IEnumerable<object>> onItemChosen, 
             Func<VisualElement> makeItem, 
             Action<VisualElement, int> bindItem)
         {
             listView.itemsSource = items;
-            listView.itemsChosen += onItemSelected;
+            listView.selectionChanged += onSelectionChanged;
+            listView.itemsChosen += onItemChosen;
             listView.makeItem = makeItem;
             listView.bindItem = bindItem;
         }

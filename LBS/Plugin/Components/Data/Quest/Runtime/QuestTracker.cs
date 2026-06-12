@@ -14,7 +14,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #region FIELDS
 
         [SerializeField, SerializeReference] 
-        private QuestGraph questGraph;
+        private QuestGraphModule questGraph;
 
         #endregion
 
@@ -30,7 +30,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #region PROPERTIES
 
         public QuestTrigger CurrentQuest { get; private set; }
-        public QuestGraph QuestGraph { get => questGraph; }
+        public QuestGraphModule QuestGraph { get => questGraph; }
 
         public List<QuestTrigger> ActiveTriggers
         {
@@ -61,7 +61,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #region METHODS
         private void Awake() => StartQuest();
 
-        public void Init(QuestGraph graph) => questGraph = graph;
+        public void Init(QuestGraphModule graph) => questGraph = graph;
 
         private void StartQuest()
         {

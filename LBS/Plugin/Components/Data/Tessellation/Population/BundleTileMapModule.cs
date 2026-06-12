@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace ISILab.LBS.Modules
 {
-    public class BundleTileMap : LBSModule, ISelectable
+    public class BundleTileMapModule : LBSModule, ISelectable
     {
         #region FIELDS
         [SerializeField, JsonRequired, SerializeReference]
@@ -30,13 +30,13 @@ namespace ISILab.LBS.Modules
         #endregion
 
         #region CONSTRUCTORS
-        public BundleTileMap() : base()
+        public BundleTileMapModule() : base()
         {
             id = GetType().Name;
         }
 
         //This one has to be compatible with groups so let's see how I'll make groups work
-        public BundleTileMap(IEnumerable<TileBundleGroup> groups, string id = "ConnectedTileMapModule") : base(id)
+        public BundleTileMapModule(IEnumerable<TileBundleGroup> groups, string id = "ConnectedTileMapModule") : base(id)
         {
             foreach (var t in groups)
             {
@@ -269,12 +269,12 @@ namespace ISILab.LBS.Modules
 
         public override object Clone()
         {
-            return new BundleTileMap(groups.Select(t => t.Clone()).Cast<TileBundleGroup>(), ID);
+            return new BundleTileMapModule(groups.Select(t => t.Clone()).Cast<TileBundleGroup>(), ID);
         }
 
         public override void Rewrite(LBSModule module)
         {
-            var map = module as BundleTileMap;
+            var map = module as BundleTileMapModule;
             if (map == null)
             {
                 return;
@@ -306,7 +306,7 @@ namespace ISILab.LBS.Modules
 
         public override bool Equals(object obj)
         {
-            var other = obj as BundleTileMap;
+            var other = obj as BundleTileMapModule;
 
             if (other == null) return false;
 
