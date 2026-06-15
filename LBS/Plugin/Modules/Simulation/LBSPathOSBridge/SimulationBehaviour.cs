@@ -30,9 +30,9 @@ namespace ISILab.LBS.Behaviours
         [JsonIgnore]
         public Bundle selectedToSet;
 
-        [JsonIgnore]
+        [JsonIgnore, ShowOnLayerTemplate]
         public LBSTag upStairTag;
-        [JsonIgnore]
+        [JsonIgnore, ShowOnLayerTemplate]
         public LBSTag downStairTag;
 
         public List<Bundle> pathOSBundles;

@@ -4,6 +4,7 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Editor.UI.CustomComponents;
@@ -16,7 +17,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Xml.Linq;
 using UnityEditor;
+using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -145,29 +148,8 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 var label = element.Q<LBSCustomLabel>("textL");
                 label.text = mod?.ID ?? "Null Module";
                 label.style.color = mod != null ? Color.white : Color.gray;
-
-                var fields = mod.GetTemplateInspectorFields();
-                var content = element.Q<VisualElement>("Content");
-
-                string debug = $"Module {mod?.ID ?? "Null Module"} contains {fields.Length} fields: ";
-                foreach (var field in fields)
-                {
-                    var val = field.GetValue(mod);
-                    var type = val != null ? val.GetType() : typeof(object);
-
-                    // Enum
-                    if (type.IsEnum)
-                    {
-                        var enumField = new LBSCustomEnumField(field.Name);
-                        enumField.SetEnabled(true);
-                        enumField.dataSourceType = type;
-                        enumField.value = (Enum)val;
-                        content.Add(enumField);
-                        //element
-                        
-                        Debug.Log("Enum field detected");
-                    }
-                }
+                if (ItemContentSetup(element, mod, $"Module {mod?.ID ?? "NULL"}") > 0)
+                    label.text += " (...)";
             });
             _listGroups.Add(modulesListGroup);
 
@@ -175,9 +157,13 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             var behavioursListGroup = _root.Q<LBSBaseListGroup>("BehavioursListGroup");
             ListGroupSetup(behavioursListGroup, s_behaviourOptions, Template.layer.FirstBehaviours, (element, index) =>
             {
+                var beh = Template.layer.FirstBehaviours[index];
+
                 var label = element.Q<LBSCustomLabel>("textL");
-                label.text = Template.layer.Behaviours[index]?.Name ?? "Null Behaviour";
-                label.style.color = Template.layer.Behaviours[index]?.ColorTint ?? Color.gray;
+                label.text = beh?.Name ?? "Null Behaviour";
+                label.style.color = beh?.ColorTint ?? Color.gray;
+                if (ItemContentSetup(element, beh, $"Behaviour {beh?.Name ?? "NULL"}") > 0)
+                    label.text += " (...)";
             });
             _listGroups.Add(behavioursListGroup);
 
@@ -185,9 +171,13 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             var assistantsListGroup = _root.Q<LBSBaseListGroup>("AssistantsListGroup");
             ListGroupSetup(assistantsListGroup, s_assistantOptions, Template.layer.FirstAssistants, (element, index) =>
             {
+                var ass = Template.layer.FirstAssistants[index];
+
                 var label = element.Q<LBSCustomLabel>("textL");
-                label.text = Template.layer.Assistants[index]?.Name ?? "Null Assistant";
-                label.style.color = Template.layer.Assistants[index]?.ColorTint ?? Color.gray;
+                label.text = ass?.Name ?? "Null Assistant";
+                label.style.color = ass?.ColorTint ?? Color.gray;
+                if (ItemContentSetup(element, ass, $"Behaviour {ass?.Name ?? "NULL"}") > 0)
+                    label.text += " (...)";
             });
             _listGroups.Add(assistantsListGroup);
 
@@ -195,8 +185,12 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             var rulesListGroup = _root.Q<LBSBaseListGroup>("GeneratorRulesListGroup");
             ListGroupSetup(rulesListGroup, s_ruleOptions, Template.layer.FirstGeneratorRules, (element, index) =>
             {
+                var rul = Template.layer.FirstGeneratorRules[index];
+
                 var label = element.Q<LBSCustomLabel>("textL");
-                label.text = Template.layer.GeneratorRules[index]?.GetType().Name ?? "Null Rule";
+                label.text = rul?.GetType().Name ?? "Null Rule";
+                if (ItemContentSetup(element, rul, $"Behaviour {label.text}") > 0)
+                    label.text += " (...)";
             });
             _listGroups.Add(rulesListGroup);
 
@@ -326,10 +320,9 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 };
 
                 listGroup.BindListView(items, 
+                    // Show content when clicked
                     (selected) =>
                     {
-                        // 'selected' is the selected items (data). To get the visual element (LBSCustomLabelItem)
-                        // we read the selected index from the listGroup and query the visual tree for the created item
                         var sel = selected.FirstOrDefault();
 
                         int selIndex = listGroup.SelectedIndex;
@@ -351,6 +344,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                             }
                         }
                     },
+                    // Ping script on project window when double clicked
                     (chosen) =>
                     {
                         var item = chosen.First();
@@ -363,7 +357,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 
                     }, () => new LBSCustomLabelItem(), wrappedBindItem);
 
-                // Configuración de botón de AGREGAR módulo/behaviour/assistant/rule
+                // "Add" button config
                 var addButton = listGroup.Q<LBSToolbarButton>("AddButton");
                 if(addButton == null)
                 { NotFoundErrorLog($"AddButton for {typeof(T).Name}"); return; }
@@ -401,7 +395,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                     menu.ShowAsContext();
                 };
 
-                // Configuración de botón de REMOVER módulo/behaviour/assistant/rule
+                // "Remove" button config
                 var removeButton = listGroup.Q<LBSToolbarButton>("RemoveButton");
                 if(removeButton == null)
                 { NotFoundErrorLog($"RemoveButton for {typeof(T).Name}"); return; }
@@ -429,6 +423,125 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 };
             }
         
+            int ItemContentSetup(VisualElement element, object obj, string name)
+            {
+                var members = ShowOnLayerTemplateAttribute.GetMembers(obj);
+                var content = element.Q<VisualElement>("Content");
+
+                string debug = $"{name} contains {members.Length} members: ";
+                foreach (var member in members)
+                {
+                    object val;
+
+                    // Get value
+                    if (member is FieldInfo field)
+                    {
+                        val = field.GetValue(obj);
+                    }
+                    else if (member is PropertyInfo property)
+                    {
+                        val = property.GetValue(obj);
+                    }
+                    else continue;
+
+                    var type = val != null ? val.GetType() : typeof(object);
+                    VisualElement visualField = null;
+
+                    // Enum
+                    if (type.IsEnum)
+                    {
+                        visualField = new LBSCustomEnumField(member.Name, (Enum)val);
+                        visualField.RegisterCallback<ChangeEvent<Enum>>(evt =>
+                        {
+                            MemberChangeCallback(member, evt);
+                        });
+                        content.Add(visualField);
+                        continue;
+                    }
+                    /*
+                    // Bundle
+                    if(type == typeof(Bundle))
+                    {
+                        visualField = new LBSCustomObjectField()
+                        {
+                            label = member.Name,
+                            value = (UnityEngine.Object) val
+                        };
+                        visualField.RegisterCallback<ChangeEvent<UnityEngine.Object>>(evt =>
+                        {
+                            MemberChangeCallback(member, evt);
+                        });
+                        content.Add(visualField);
+                        continue;
+                    }//*/
+
+                    // Common types
+                    switch (Type.GetTypeCode(type))
+                    {
+                        case TypeCode.String:
+                            visualField = new LBSCustomTextField(member.Name) { value = (string) val };
+                            visualField.RegisterCallback<ChangeEvent<string>>
+                                (evt => { MemberChangeCallback(member, evt); });
+                            break;
+                        case TypeCode.Int32:
+                            visualField = new LBSCustomIntField(member.Name) { value = (int) val };
+                            visualField.RegisterCallback<ChangeEvent<int>>
+                                (evt => { MemberChangeCallback(member, evt); });
+                            break;
+                        case TypeCode.Boolean:
+                            visualField = new LBSCustomToggleField(member.Name) { value = (bool) val };
+                            visualField.RegisterCallback<ChangeEvent<bool>>
+                                (evt => { MemberChangeCallback(member, evt); });
+                            break;
+                        default:
+                            visualField = new LBSCustomObjectField()
+                            {
+                                label = member.Name,
+                                value = (UnityEngine.Object)val,
+                                dataSourceType = type,
+                                objectType = type
+                            };
+                            visualField.RegisterCallback<ChangeEvent<UnityEngine.Object>>(evt =>{
+                                MemberChangeCallback(member, evt);
+                            });
+                            break;
+                    }
+
+                    if(visualField != null)
+                    { 
+                        content.Add(visualField); 
+                    }
+                }
+                return members.Count();
+
+
+                // Sub-Methods
+                void MemberChangeCallback<T>(object info, ChangeEvent<T> evt)
+                {
+                    var infoType = info.GetType();
+                    if (infoType == typeof(FieldInfo))
+                    {
+                        FieldChangeCallback<T>(info as FieldInfo, evt);
+                    }
+                    else if (infoType == typeof(PropertyInfo))
+                    {
+                        PropertyChangeCallback<T>(info as PropertyInfo, evt);
+                    }
+                }
+                void FieldChangeCallback<T>(FieldInfo field, ChangeEvent<T> evt)
+                {
+                    Undo.RecordObject(Template, $"Change {field.Name} of {name}");
+                    field.SetValue(obj, evt.newValue);
+                    EditorUtility.SetDirty(Template);
+                }
+                void PropertyChangeCallback<T>(PropertyInfo field, ChangeEvent<T> evt)
+                {
+                    Undo.RecordObject(Template, $"Change {field.Name} of {name}");
+                    field.SetValue(obj, evt.newValue);
+                    EditorUtility.SetDirty(Template);
+                }
+            }
+
             void WarningListSetup()
             {
                 if (_warningList == null)

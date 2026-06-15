@@ -97,7 +97,7 @@ namespace ISILab.LBS.CustomComponents
 
         public LBSCustomEnumField(): this("CustomEnumField"){}
 
-        public LBSCustomEnumField(string _label) : base(_label)
+        public LBSCustomEnumField(string _label, Enum _value = null) : base(_label, _value)
         {
             style.alignItems = Align.Center;
             this.AddToClassList(LBSClassName);

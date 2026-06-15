@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace ISILab.LBS
@@ -22,15 +24,47 @@ namespace ISILab.LBS
         }
     }
 
-    [AttributeUsage(AttributeTargets.Field)]
-    public class ShowOnTemplateInspectorAttribute : LBSAttribute
+    /// <summary>
+    /// Atributo que marca un campo o propiedad para que sea mostrado en el "Template Inspector" del editor.
+    /// </summary>
+    /// <remarks>
+    /// Este atributo se aplica sobre campos o propiedades (ver __AttributeUsage__). Su propósito es permitir
+    /// al código del editor filtrar y mostrar únicamente los miembros relevantes cuando se edita una plantilla.
+    /// No cambia comportamiento en tiempo de ejecución y está pensado para uso exclusivo en el entorno de edición.
+    /// </remarks>
+    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+    public class ShowOnLayerTemplateAttribute : LBSAttribute
     {
-        public ShowOnTemplateInspectorAttribute() { }
+        /// <summary>
+        /// Constructor por defecto. Aplicar el atributo a un miembro indica que debe aparecer en el Template Inspector.
+        /// </summary>
+        public ShowOnLayerTemplateAttribute() { }
+    
+        public static MemberInfo[] GetMembers(object obj)
+        {
+            List<MemberInfo> memberInfos = new List<MemberInfo>();
+            if (obj is null) return memberInfos.ToArray();
+
+            var members = obj.GetType().GetMembers(
+            BindingFlags.Instance |
+            BindingFlags.Public |
+            BindingFlags.NonPublic);
+
+            foreach(var member in members)
+            {
+                var attribute = member.GetCustomAttribute<ShowOnLayerTemplateAttribute>();
+
+                if (attribute == null)
+                    continue;
+                memberInfos.Add(member);
+            }
+            return (memberInfos.ToArray());
+        }
     }
 
-    //[System.AttributeUsage(System.AttributeTargets.Class)]
-    //public class LBSCharacteristicAttribute : LBSSearchAttribute
-    //{
-    //    public LBSCharacteristicAttribute(string name, string iconPath) : base(name, iconPath) { }
-    //}
+        //[System.AttributeUsage(System.AttributeTargets.Class)]
+        //public class LBSCharacteristicAttribute : LBSSearchAttribute
+        //{
+        //    public LBSCharacteristicAttribute(string name, string iconPath) : base(name, iconPath) { }
+        //}
 }
