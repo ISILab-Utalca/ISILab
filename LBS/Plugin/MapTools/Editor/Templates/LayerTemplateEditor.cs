@@ -159,6 +159,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                     if (type.IsEnum)
                     {
                         var enumField = new LBSCustomEnumField(field.Name);
+                        enumField.SetEnabled(true);
                         enumField.dataSourceType = type;
                         enumField.value = (Enum)val;
                         content.Add(enumField);
@@ -341,9 +342,13 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                             if (item == null) continue;
 
                             if(item.userData is int i && i == selIndex)
+                            {
                                 item.SetContentVisibility(true);
+                            }
                             else
+                            {
                                 item.SetContentVisibility(false);
+                            }
                         }
                     },
                     (chosen) =>
