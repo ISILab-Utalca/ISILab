@@ -80,8 +80,10 @@ namespace ISILab.LBS.Editor
             target = paramTarget;
             assistant = target as GrammarAssistant;
 
+            Macros.LBSLayerHelper.PrintReference(assistant);
+
             ActionExtensions.RemoveMethod(ref Graph.OnNodeSelected, nameof(UpdatePanel));
-            Graph.OnNodeSelected -= UpdatePanel;
+           // Graph.OnNodeSelected -= UpdatePanel;
             Graph.OnNodeSelected += UpdatePanel;
 
             grammarField.value = Graph?.Grammar;
@@ -117,7 +119,7 @@ namespace ISILab.LBS.Editor
             if (assistant.Disabled) 
                 return;
 
-            if (selectedGraphNode != null && LBSMainWindow.Instance._selectedLayer != selectedGraphNode.Graph.OwnerLayer) 
+            if (selectedGraphNode != null && LBSMainWindow.Instance.SelectedLayer != selectedGraphNode.Graph.OwnerLayer) 
             {
                 Debug.Log("Different layer from node selected - return");
                 return;

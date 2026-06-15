@@ -32,21 +32,23 @@ namespace ISILab.LBS.VisualElements
     /// </summary>
     public sealed class TriggerElementArea : GraphElement
     {
+        #region Attributes
+        [UxmlAttribute("background-repeat")]
+        private Repeat _bgRepeatMode = Repeat.Repeat;
+
+        [UxmlAttribute("background-size-pixels")]
+        private float _bgSizePixels = 256f;
+        #endregion
+
+        #region FIELDS
 
         private QuestNodeData _nodeData;
-        private readonly GrammarArea _areaField;
+
         private Color _currentColor;
         
         private string _activeHandle;
-        private const string HandleBottomLeft = "bl";
-        private const string HandleBottomRight = "br";
-        private const string HandleTopLeft = "tl";
-        private const string HandleTopRight = "tr";
-
-        private const float GraphGridLength = 100;
         
         private bool _resizing;
-        private readonly bool _isCenter;
         private bool _isDragging;
         
         private Vector2 _dragStartMouse;
@@ -55,7 +57,23 @@ namespace ISILab.LBS.VisualElements
         private Type _prevManipulatorType;
         private VisualElement triggerElementGizmo;
         private VisualElement targetIcon;
+
+        #endregion
+
+        #region CONSTANTS
+
+        private const string HandleBottomLeft = "bl";
+        private const string HandleBottomRight = "br";
+        private const string HandleTopLeft = "tl";
+        private const string HandleTopRight = "tr";
+
+        private const float GraphGridLength = 100;
+
         private readonly VisualElement cornerTargetIcon;
+        private readonly GrammarArea _areaField;
+        private readonly bool _isCenter;
+
+        #endregion
 
         public TriggerElementArea(GrammarArea grammarArea, QuestNodeView nodeView,
             bool centerTarget = true)
@@ -130,8 +148,13 @@ namespace ISILab.LBS.VisualElements
             generateVisualContent -= OnGenerateVisualContent;
             generateVisualContent += OnGenerateVisualContent;
 
-            //activeTriggerElementArea = this;
+            triggerElementGizmo.style.backgroundRepeat = new StyleBackgroundRepeat(
+                new BackgroundRepeat(_bgRepeatMode, _bgRepeatMode)
+            );
 
+            triggerElementGizmo.style.backgroundSize = new StyleBackgroundSize(
+                new BackgroundSize(_bgSizePixels, _bgSizePixels)
+            );
         }
 
         private void UpdateTargetIcon()

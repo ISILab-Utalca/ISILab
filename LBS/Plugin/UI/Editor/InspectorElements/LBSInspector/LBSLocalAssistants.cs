@@ -1,16 +1,17 @@
 using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
+using ISILab.Extensions;
+using ISILab.LBS.Editor;
+using ISILab.LBS.Plugin.Components.Behaviours;
 using LBS.Components;
+using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ISILab.Extensions;
 using UnityEngine;
-using UnityEngine.UIElements;
-using ISILab.LBS.Editor;
-using LBS.VisualElements;
-using ISILab.LBS.Plugin.Components.Behaviours;
 using UnityEngine.Assertions;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -85,9 +86,18 @@ namespace ISILab.LBS.VisualElements
 
                 Type editorType = customEditor.GetValueOrDefault(assistant.GetType()).Item1;
                 if(editorType == null) continue;
-                
-                LBSCustomEditor instance = Activator.CreateInstance(editorType, assistant) as LBSCustomEditor;
-              
+
+                LBSCustomEditor instance = null;
+                if (editorInstances.TryGetValue(assistant.GetType(), out var editor) && editor is LBSCustomEditor existingEditor)
+                {
+                    instance = existingEditor;
+                }
+                else
+                {
+                    instance = Activator.CreateInstance(editorType, assistant) as LBSCustomEditor;
+                    assistant.OnTermination += OnTerminationBaseCallback;
+                }
+
                 instance.SetInfo(assistant);
                 ToolKit.Instance.SetTarget(instance);
 
@@ -96,11 +106,8 @@ namespace ISILab.LBS.VisualElements
                 
                 var content = new InspectorContentPanel(instance, assistant.Name, assistant.Icon, assistant.ColorTint);
                 contentPanel.Add(content);
-                currentAssistant.OnTermination += OnTerminationBaseCallback;
-                
-                if (activeEditor is null) continue;
-                InspectorInstance entry = new InspectorInstance(assistant.GetType(), _target);
-                activeEditor[entry] = instance;
+
+                editorInstances.TryAdd(assistant.GetType(), instance);
             }
 
             return; /// END OF METHOD

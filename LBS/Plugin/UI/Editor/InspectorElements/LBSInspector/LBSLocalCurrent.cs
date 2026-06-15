@@ -146,11 +146,7 @@ namespace ISILab.LBS.VisualElements
                 var container = new DataContent(instance, Ve.Item2.First().name);
                 contentPanel.Add(container);
                 
-                if (activeEditor is null) 
-                    continue;
-                
-                InspectorInstance entry = new InspectorInstance(obj.GetType(), _target);
-                activeEditor[entry] = instance;
+                editorInstances.TryAdd(type, instance);
             }
         }
         #endregion

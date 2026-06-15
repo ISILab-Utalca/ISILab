@@ -5,17 +5,18 @@ using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Utilities;
+using ISILab.LBS.Macros;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.VisualElements.Editor.CustomComponents.Interfaces;
 using LBS;
 using LBS.VisualElements;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Macros;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -78,10 +79,12 @@ namespace ISILab.LBS.VisualElements
             displayChoices.Add(nameof(Bundle.EElementFlag.Prop), propList);
             displayChoices.Add(nameof(Bundle.EElementFlag.Misc), miscList);
 
-            
+            Stopwatch sw = Stopwatch.StartNew();
+            long last = sw.ElapsedMilliseconds;
 
             SetInfo(behaviour);
             CreateVisualElement();
+
         }
         #endregion
         
@@ -119,7 +122,7 @@ namespace ISILab.LBS.VisualElements
             //This doesn't work for some reason! Check tomorrow~. - Alice
             RegisterCallback<KeyDownEvent>(evt =>
             {
-                Debug.Log("pressed key");
+                UnityEngine.Debug.Log("pressed key");
             });
         }
 

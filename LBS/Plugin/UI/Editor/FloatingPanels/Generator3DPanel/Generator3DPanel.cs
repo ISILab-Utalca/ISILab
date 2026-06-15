@@ -65,7 +65,7 @@ namespace ISILab.LBS.VisualElements.Editor
             get
             {
                 LBSMainWindow lmw = LBSMainWindow.Instance;
-                return lmw._selectedLayer;
+                return lmw.SelectedLayer;
             }
         }
         private List<LBSLayer> Layers

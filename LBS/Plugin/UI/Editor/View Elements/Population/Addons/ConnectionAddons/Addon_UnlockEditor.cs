@@ -7,12 +7,14 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
+    [LBSCustomEditor("Addon_UnlockTrigger", typeof(Addon_Unlock))]
+
     public class Addon_UnlockEditor : LBSCustomEditor
     {
         private TileGroupBehavior behaviour;
         private AddonConnectionView acv;
 
-        private static VisualTreeAsset visualTree { get; set; }
+        private static VisualTreeAsset visualTree;
 
         public Addon_UnlockEditor(object target): base(target) 
         {
@@ -36,11 +38,8 @@ namespace ISILab.LBS.VisualElements
 
         protected override VisualElement CreateVisualElement()
         {
-            if (visualTree is null)
-            {
-                visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_UnlockEditor", true);
-            }
-
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_UnlockEditor", true);
+            
             visualTree.CloneTree(this);
             acv = this.Q<AddonConnectionView>("ConnectionView");
             return this;

@@ -34,7 +34,7 @@ namespace ISILab.LBS.Drawers
             PopulationTileView.SelectedTile?.Highlight(false);
 
             OwnerLayer = population.OwnerLayer;
-            PaintNewTiles(population, view);
+            //PaintNewTiles(population, view);
 
             //OwnerLayer = population.OwnerLayer;
             //LoadAllTiles(population, view);
@@ -50,6 +50,8 @@ namespace ISILab.LBS.Drawers
                 Loaded = true;
                 FullRedrawRequested = false;
             }
+
+            UpdateLoadedTiles(population, view);
         }
 
         public override void UpdateTiles(object target, MainView view, Vector2 teselationSize)

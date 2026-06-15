@@ -9,13 +9,14 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
+    [LBSCustomEditor("Addon_Trigger", typeof(Addon_Trigger))]
     public class Addon_TriggerEditor : LBSCustomEditor
     {
         private TileGroupBehavior behaviour;
 
         private ListView AddonsView;
 
-        private static VisualTreeAsset visualTree { get; set; }
+        private static VisualTreeAsset visualTree;
 
         public Addon_TriggerEditor(object target) : base(target)
         {
@@ -32,10 +33,7 @@ namespace ISILab.LBS.VisualElements
 
         protected override VisualElement CreateVisualElement()
         {
-            if (visualTree is null)
-            {
-                visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_TriggerEditor", true);
-            }
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_TriggerEditor", true);
 
             visualTree.CloneTree(this);
             AddonsView = this.Q<ListView>("AddonsView");

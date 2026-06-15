@@ -18,6 +18,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace ISILab.LBS.VisualElements
@@ -27,7 +28,7 @@ namespace ISILab.LBS.VisualElements
     {
 
         #region FIELDS
-        private QuestBehaviour behaviour;
+        private static QuestBehaviour behaviour;
 
         private const string actionIconGuid = "aa4c8898bd338cb4b91b6516e6d4e0c9";
         private const string orIconGuid = "e06ff34bd346d754eb0a4b12ef3dbe56";
@@ -72,7 +73,7 @@ namespace ISILab.LBS.VisualElements
 
         public sealed override void SetInfo(object paramTarget)
         {
-            if (behaviour != null) return;
+            target = paramTarget;
             behaviour = target as QuestBehaviour;
 
             ChangeGrammar(behaviour.Graph.Grammar);
@@ -81,11 +82,10 @@ namespace ISILab.LBS.VisualElements
             ActionExtensions.AddUnique(ref behaviour.Graph.GoToNodeInGraph, GoToQuestNode);
         }
 
-
-
         private void Redraw(GraphNode node)
         {
-            DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
+            if(LBSMainWindow.Instance.SelectedLayer == behaviour.OwnerLayer)
+                DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
         }
 
         public void SetTools(ToolKit toolkit)
@@ -165,6 +165,47 @@ namespace ISILab.LBS.VisualElements
             _conditionsPallete.ShowNoElement = false;
             _conditionsPallete.DisplayContent(false);
 
+
+            // Init options
+
+            string[] conditionals = { GraphNode.Or, GraphNode.And };
+
+            object[] options = new object[conditionals.Length];
+            for (int i = 0; i < conditionals.Length; i++)
+            {
+                options[i] = conditionals[i];
+            }
+
+            // Init options
+            _conditionsPallete.SetOptions(options, (optionView, option) =>
+            {
+                string conditional = (string)option;
+
+                optionView.Label = conditional;
+                //optionView.FrameColor = bundle.Color;
+                if (conditional == GraphNode.Or) optionView.Icon = OrIcon;
+                if (conditional == GraphNode.And) optionView.Icon = AndIcon;
+            });
+
+            _conditionsPallete.OnSelectOption += (selected) =>
+            {
+                string conditional = (string)selected;
+                ToolKit.Instance.SetActive(typeof(AddGraphNode));
+                if (conditional == GraphNode.Or) behaviour.activeGraphNodeType = typeof(OrNode);
+                if (conditional == GraphNode.And) behaviour.activeGraphNodeType = typeof(AndNode);
+
+                // no action, only node type
+                behaviour.ActionToSet = string.Empty;
+
+            };
+
+            _actionsPallete.OnSelectOption += (selected) =>
+            {
+                ToolKit.Instance.SetActive(typeof(AddGraphNode));
+                behaviour.activeGraphNodeType = typeof(QuestNode);
+                behaviour.ActionToSet = (string)selected;
+            };
+
             return this;
         }
 
@@ -186,22 +227,22 @@ namespace ISILab.LBS.VisualElements
                 options[i] = terminals[i];
             }
 
-            // Init options
             _actionsPallete.SetOptions(options, (optionView, option) =>
             {
                 string terminalAction = (string)option;
+
                 optionView.Label = terminalAction;
-                //optionView.FrameColor = bundle.Color;
-                optionView.Icon = QuestActionIcon;
+                //optionView.Icon = QuestActionIcon;
+
+                var terminal = quest.Grammar.GetTerminal(terminalAction);
+                if (terminal != null)
+                {
+                    optionView.FrameColor = terminal.color;
+                    optionView.Icon = terminal.Icon;
+                }
+
+  
             });
-
-            _actionsPallete.OnSelectOption += (selected) =>
-            {
-                ToolKit.Instance.SetActive(typeof(AddGraphNode));
-                behaviour.activeGraphNodeType = typeof(QuestNode);
-                behaviour.ActionToSet = (string)selected;
-            };
-
 
             _actionsPallete.Repaint();
 
@@ -216,38 +257,6 @@ namespace ISILab.LBS.VisualElements
             if (quest.Grammar == null || !quest.Grammar.TerminalActions.Any()) return;
 
             _conditionsPallete.DisplayContent(true);
-
-            string[] conditionals = {GraphNode.Or, GraphNode.And};
-
-            object[] options = new object[conditionals.Length];
-            for (int i = 0; i < conditionals.Length; i++)
-            {
-                options[i] = conditionals[i];
-            }
-
-            // Init options
-            _conditionsPallete.SetOptions(options, (optionView, option) =>
-            {
-                string conditional = (string)option;
-
-                optionView.Label = conditional;
-                //optionView.FrameColor = bundle.Color;
-                if (conditional == GraphNode.Or)optionView.Icon = OrIcon;
-                if (conditional == GraphNode.And) optionView.Icon = AndIcon;
-            });
-
-            _conditionsPallete.OnSelectOption += (selected) =>
-            {
-                string conditional = (string)selected;
-                ToolKit.Instance.SetActive(typeof(AddGraphNode));
-                if (conditional == GraphNode.Or) behaviour.activeGraphNodeType = typeof(OrNode);
-                if (conditional == GraphNode.And) behaviour.activeGraphNodeType = typeof(AndNode);
-    
-                // no action, only node type
-                behaviour.ActionToSet = string.Empty;
-
-            };
-
 
             _conditionsPallete.Repaint();
 

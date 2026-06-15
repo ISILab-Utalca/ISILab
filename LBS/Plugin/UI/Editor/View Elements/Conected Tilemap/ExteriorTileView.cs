@@ -21,6 +21,7 @@ namespace ISILab.LBS.VisualElements
             this.SetBackgroundColor(fillColor);
             this.SetBorderRadius(0);
             this.transform.scale = Vector3.one * scaleFactor;
+
         }
 
         protected static void SetBackgroundColor(VisualElement ve, Color color)

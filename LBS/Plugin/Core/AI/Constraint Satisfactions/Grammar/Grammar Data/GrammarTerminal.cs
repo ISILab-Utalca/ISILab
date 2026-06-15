@@ -71,10 +71,15 @@ namespace ISILab.AI.Grammar
                 : fallbackColor;
             }
       
-            iconGuid = defaultIconGuid;
+
             // call the getter just to read the generated class name
             var script = Script;
             base.OnEnable();
+
+            if(string.IsNullOrEmpty(iconGuid))
+            {
+                iconGuid = defaultIconGuid;
+            }
         }
     }
 }

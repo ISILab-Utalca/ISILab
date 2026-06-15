@@ -20,7 +20,7 @@ namespace ISILab.LBS.VisualElements
         #region Static Colors
 
         protected static readonly Color InvalidGrammarColor     = LBSSettings.Instance.view.errorColor;
-        protected static readonly Color DefaultBackgroundColor = LBSSettings.Instance.view.toolkitNormalDark;
+        protected static Color DefaultBackgroundColor = default;
         protected static readonly Color ValidGrammarColor   = LBSSettings.Instance.view.successColor;
 
         #endregion
@@ -83,9 +83,9 @@ namespace ISILab.LBS.VisualElements
         {
             if (Node == null) return;
             if (Node.Graph == null) return;
-            if (LBSMainWindow.Instance._selectedLayer == null) return;
+            if (LBSMainWindow.Instance.SelectedLayer == null) return;
 
-            if (LBSMainWindow.Instance._selectedLayer != Node.Graph.OwnerLayer) return;
+            if (LBSMainWindow.Instance.SelectedLayer != Node.Graph.OwnerLayer) return;
           
 
             if (evt.button == 0 && ToolKit.Instance.GetActiveManipulatorInstance() is SelectManipulator)
@@ -106,7 +106,7 @@ namespace ISILab.LBS.VisualElements
 
         protected virtual void OnMouseMove(MouseMoveEvent e)
         {
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
+            if (!Equals(LBSMainWindow.Instance.SelectedLayer, Node.Graph.OwnerLayer)) return;
             // only move the selected node
             if (Node == null || !Node.IsSelected()) return;
             if (e.pressedButtons != 1) return; // only while dragging
@@ -124,7 +124,7 @@ namespace ISILab.LBS.VisualElements
 
         protected virtual void OnMouseLeave(MouseLeaveEvent e) 
         {
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
+            if (!Equals(LBSMainWindow.Instance.SelectedLayer, Node.Graph.OwnerLayer)) return;
             if (Node == null) return;
             if (_isDragging) return;
 
@@ -135,7 +135,7 @@ namespace ISILab.LBS.VisualElements
         
         protected void OnMouseUp(MouseUpEvent evt)
         {
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
+            if (!Equals(LBSMainWindow.Instance.SelectedLayer, Node.Graph.OwnerLayer)) return;
 
             RestoreManipulator();
             DrawManager.Instance.PickingModeRestoreAll();
@@ -153,7 +153,7 @@ namespace ISILab.LBS.VisualElements
 
         protected virtual void OnMouseEnter(MouseEnterEvent evt)
         {
-            if (!Equals(LBSMainWindow.Instance._selectedLayer, Node.Graph.OwnerLayer)) return;
+            if (!Equals(LBSMainWindow.Instance.SelectedLayer, Node.Graph.OwnerLayer)) return;
             ShelfManipulator();
         }
         
@@ -209,7 +209,7 @@ namespace ISILab.LBS.VisualElements
                 float r = color.r * Alpha; 
                 float g = color.g * Alpha;
                 float b = color.b * Alpha;
-                color = new Color(r, g, b, 1f); 
+                color = new Color(r, g, b, 0.5f) + DefaultBackgroundColor;
             }
 
             VisualElement coloredVe = this.Q<VisualElement>("Capsule");

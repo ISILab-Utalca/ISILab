@@ -61,7 +61,8 @@ namespace ISILab.LBS.VisualElements
             _questActionDetails = this.Q<QuestActionDetailsView>("TooltipWindow");
             
             VisualElement coloredVe = this.Q<VisualElement>("Capsule");
-            coloredVe.style.backgroundColor = DefaultBackgroundColor;
+            DefaultBackgroundColor = coloredVe.resolvedStyle.backgroundColor;
+            //coloredVe.style.backgroundColor = DefaultBackgroundColor;
             
             style.marginBottom = style.marginLeft = style.marginRight = style.marginTop = 0;
 

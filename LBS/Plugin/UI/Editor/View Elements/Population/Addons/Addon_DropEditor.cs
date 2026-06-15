@@ -11,13 +11,14 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
+    [LBSCustomEditor("Addon_Drop", typeof(Addon_Drop))]
     public class Addon_DropEditor : LBSCustomEditor, IBundleFilter
     {
         private TileGroupBehavior behaviour;
         private LBSCustomObjectField DropObjectField;
 
         public LBSButtonListFilter BundlePickerWindow { get; set; }
-        private static VisualTreeAsset visualTree { get; set; }
+        private static VisualTreeAsset visualTree;
 
         public Addon_DropEditor(object target) : base(target)
         {
@@ -40,11 +41,8 @@ namespace ISILab.LBS.VisualElements
 
         protected override VisualElement CreateVisualElement()
         {
-            if (visualTree is null)
-            {
-                visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_DropEditor", true);
-            }
-
+            visualTree ??=  DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_DropEditor", true);
+           
             visualTree.CloneTree(this);
 
             DropObjectField = this.Q<LBSCustomObjectField>("DropObjectField");

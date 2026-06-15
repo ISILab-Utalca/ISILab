@@ -47,7 +47,7 @@ namespace ISILab.LBS.VisualElements
         public abstract void SetInfo(string name, string tooltip);
         protected QuestNodeData GetActionData()
         {
-            var layer = LBSMainWindow.Instance._selectedLayer;
+            var layer = LBSMainWindow.Instance.SelectedLayer;
             if (layer == null) return null;
             var ndb = layer.GetBehaviour<NodeDataBehaviour>();
             if (ndb == null) return null;

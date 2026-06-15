@@ -1,14 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.MapTools.Editor.Templates;
+using ISILab.LBS.Plugin.UI.Editor.Panel;
 using LBS.Components;
 using LBS.VisualElements;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
@@ -74,6 +77,8 @@ namespace ISILab.LBS.VisualElements
             
             tabsGroup = this.Q<ButtonGroup>("SubTabs");
             content = this.Q<VisualElement>("InspectorContent");
+
+            DeactivateTabs();
         }
         
         #endregion
@@ -122,6 +127,9 @@ namespace ISILab.LBS.VisualElements
         private void SetSelectedTab(string name)
         {
             ClearContent();
+
+            LBSSideBarPanel.Instance.InspectorToggleButtonChange(name);
+
             if (VEs == null) return;
             if (string.IsNullOrEmpty(name)) return;
             if (!VEs.TryGetValue(name, out LBSInspector inspector))  return;
@@ -146,9 +154,9 @@ namespace ISILab.LBS.VisualElements
             
         }
 
-        public bool IsDataTabActive() { return GetActiveTabKey() == DataTab; }
-        public bool IsBehaviourTabActive() { return GetActiveTabKey() == BehavioursTab; }
-        public bool IsAssistantTabActive() { return GetActiveTabKey() == AssistantsTab; }
+        public bool IsDataTabActive() => GetActiveTabKey() == DataTab;
+        public bool IsBehaviourTabActive() => GetActiveTabKey() == BehavioursTab;
+        public bool IsAssistantTabActive() => GetActiveTabKey() == AssistantsTab;
 
         private void ClearContent()
         {
@@ -163,17 +171,30 @@ namespace ISILab.LBS.VisualElements
 
         internal void SetTarget(LBSLayer layer)
         {
+            Stopwatch sw = Stopwatch.StartNew();
+            long last = sw.ElapsedMilliseconds;
+
+            void Log(string name)
+            {
+                long now = sw.ElapsedMilliseconds;
+                UnityEngine.Debug.Log($"{name}: {now - last} ms");
+                last = now;
+            }
+
             ToolKit.Instance.Clear();
 
             // updates the inspector panel locals and tools
             foreach (KeyValuePair<string, LBSInspector> ve in VEs)
             {
+
                 // Update the inspector with the new layer data
                 LBSInspector inspector = ve.Value;
+
                 inspector.SetTarget(layer);
-             
+
                 // Focus updates
                 ActiveInspector = inspector;
+
             }
 
             // by default we set the pallete tab
@@ -185,7 +206,7 @@ namespace ISILab.LBS.VisualElements
 
         public void Repaint()
         {
-            if(LBSMainWindow.Instance._selectedLayer != null)
+            if(LBSMainWindow.Instance.SelectedLayer != null)
             {
                 ToolKit.Instance.Clear();
                 LBSManipulator currentManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
@@ -200,11 +221,11 @@ namespace ISILab.LBS.VisualElements
                     inspector.Repaint();
                 }
                 ToolKit.Instance.SetSeparators();
-                if (manipulatorClass is not null) ToolKit.Instance.SetActive(manipulatorClass);
+                if (manipulatorClass is not null) 
+                    ToolKit.Instance.SetActive(manipulatorClass);
             }
             else
             {
-                ClearContent();
                 DeactivateTabs();
             }
         }
@@ -223,7 +244,7 @@ namespace ISILab.LBS.VisualElements
                 }
             }
 
-            _current.SetSelectedVe(selected);
+            _current?.SetSelectedVe(selected);
         }
         #endregion
 
@@ -244,16 +265,13 @@ namespace ISILab.LBS.VisualElements
             ve.style.display = DisplayStyle.Flex;
             panel.tabsGroup.ChangeActive(tab);
             
-            LBSMainWindow.Instance.InspectorToggleButtonChange(tab);
+            LBSSideBarPanel.Instance.InspectorToggleButtonChange(tab);
         }
 
-        public static void ActivateBehaviourTab() { ShowInspector(BehavioursTab); }
-        public  static void ActivateAssistantTab() { ShowInspector(AssistantsTab); }
-        public  static void ActivateDataTab() { ShowInspector(DataTab); }
-        public static void ReDraw()
-        {
-            Instance.Repaint();
-        }
+        public static void ActivateBehaviourTab() => ShowInspector(BehavioursTab);
+        public static void ActivateAssistantTab() => ShowInspector(AssistantsTab);
+        public static void ActivateDataTab() => ShowInspector(DataTab);
+        public static void ReDraw() => Instance.Repaint();
         #endregion
 
         /// <summary>
@@ -271,6 +289,11 @@ namespace ISILab.LBS.VisualElements
            
         }
 
-        internal void DeactivateTabs() => SetSelectedTab(null);
+        internal void DeactivateTabs()
+        {
+            ClearContent();
+            recentTab = null;
+            SetSelectedTab(null);
+        }
     }
 }

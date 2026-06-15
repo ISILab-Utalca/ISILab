@@ -22,6 +22,7 @@ namespace ISILab.LBS.VisualElements
         #region CONSTANTS
         public static PopulationTileView SelectedTile;
         private const float defaultAlpha = 0.75f;
+        private const string SelectedClass = "selected";
         #endregion
 
         #region STATIC
@@ -107,7 +108,7 @@ namespace ISILab.LBS.VisualElements
         #region EVENT HANDLERS
         private void OnMouseDown(MouseDownEvent evt)
         {
-            if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+            if (LBSMainWindow.Instance.SelectedLayer != _ownerLayer) return;
             if (ToolKit.Instance.GetActiveManipulator() is null) return;
             if (ToolKit.Instance.GetActiveManipulator().GetType() == typeof(SelectManipulator))
             {                
@@ -162,11 +163,16 @@ namespace ISILab.LBS.VisualElements
             _icon.style.backgroundImage = new StyleBackground(icon);
         }
 
+        /// <summary>
+        /// Highlights the tile, showing its borders and setting the background to full alpha.
+        /// </summary>
+        /// <param name="highlight">Whether to highlight the tile.</param>
+        /// <param name="staticCall">A static call affects any tile. if false only affects a tile if its part of the selected layer</param>
         public void Highlight(bool highlight, bool staticCall = false)
         {
             if (!staticCall)
             {
-                if (LBSMainWindow.Instance._selectedLayer != _ownerLayer) return;
+                if (LBSMainWindow.Instance.SelectedLayer != _ownerLayer) return;
             }
 
             float backgroundAlpha = highlight ? 1f : defaultAlpha;
@@ -182,8 +188,10 @@ namespace ISILab.LBS.VisualElements
             _background.style.borderLeftColor = newValue;
             _background.style.borderTopColor = newValue;
 
-            if (highlight) _pivot.AddToClassList("selected");
-            else _pivot.RemoveFromClassList("selected");
+            if (highlight) 
+                _pivot.AddToClassList(SelectedClass);
+            else 
+                _pivot.RemoveFromClassList(SelectedClass);
 
         }
         #endregion
