@@ -32,16 +32,22 @@ namespace ISILab.LBS.Editor.Utilities
 
             Color white = new Color(229f/255f, 229f / 255f, 229f / 255f);
             int texSize = tex.width;
-            int mapSize = 128;
-            int blockSize = texSize / mapSize;
+            int mapSize = 75;
+            int blockSize = Mathf.CeilToInt((float)texSize / (float)mapSize);
             char[,] map = new char[mapSize, mapSize];
             if (tex == null) return;
             for(int y = 0; y < mapSize; y++)
             {
+                int sizeY = Mathf.Min(blockSize, texSize - y * blockSize);
+                if (sizeY < blockSize / 2)
+                    break;
                 for(int x = 0; x < mapSize; x++)
                 {
+                    int sizeX = Mathf.Min(blockSize, texSize - x * blockSize);
+                    if (sizeX < blockSize / 2)
+                        break;
                     int t = 0, f = 0;
-                    Color[] pixels = tex.GetPixels(y * blockSize, x * blockSize, blockSize, blockSize);
+                    Color[] pixels = tex.GetPixels(y * blockSize, x * blockSize, sizeY, sizeX);
                     foreach(Color pixel in pixels)
                     {
                         if (pixel == white)
@@ -103,7 +109,7 @@ namespace ISILab.LBS.Editor.Utilities
 
             if (LBS.loadedLevel != null) EditorUtility.SetDirty(LBS.loadedLevel);
             layer.OnChangeUpdate();
-            if (DrawManager.Instance != null) DrawManager.Instance.RedrawLayer(layer);
+            DrawManager.Instance?.RedrawLayer(layer);
 
             LBSMainWindow.Instance._selectedLayer = layer;
             if (LBSInspectorPanel.Instance != null)

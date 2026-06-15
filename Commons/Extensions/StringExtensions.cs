@@ -30,7 +30,6 @@ namespace ISILab.Commons.Extensions
         public static string ReplaceOrErase(this string text, string oldValue, string newValue, bool replaceCondition)
         {
             string newText = text.Replace(oldValue, replaceCondition ? newValue : string.Empty);
-            Debug.Log(newText);
             return newText;
         }
 

@@ -108,7 +108,7 @@ namespace ISILab.LBS.Plugin.Internal
             paramGenButton.RegisterCallback<ClickEvent>(GenerateNewParameter);
 
             //"TÍTULO PARA LA LISTA"
-            EVParameterElement paramVE = new EVParameterElement("Name", false, "Type", "Initial Value");
+            EVParameterElement paramVE = new EVParameterElement("Name", ParameterCreateState.None, "Type", "Initial Value");
             paramVE.style.unityFontStyleAndWeight = FontStyle.Bold;
             paramListView.hierarchy.ElementAt(0).Add(paramVE);
 
@@ -171,8 +171,8 @@ namespace ISILab.LBS.Plugin.Internal
             ParameterData newParameter = new ParameterData(
                     paramGenName.value,
                     paramGenClassDropDown.value,
-                    ""
-                    );
+                    "",
+                    ParameterCreateState.Defined);
 
             if (paramGenClassDropDown.value == IValueType.Int.AsString() || paramGenClassDropDown.value == IValueType.Float.AsString())
             {
@@ -269,7 +269,7 @@ namespace ISILab.LBS.Plugin.Internal
         public void AddParamToVisualList(ParameterData param)
         {
             //turn param into VisualElement
-            EVParameterElement paramVE = new EVParameterElement(param.name, param.isDeletable, param.varTypeAsString, param.initialValue);
+            EVParameterElement paramVE = new EVParameterElement(param.name, param.state, param.varTypeAsString, param.initialValue);
 
             paramVE.OnDelete += (elem) =>
             {
@@ -300,16 +300,23 @@ namespace ISILab.LBS.Plugin.Internal
         // se puede llamar a GetTypeFromString(paramGenClassDropDown.value) para obtener el Type del parámetro
         public void AddParamCode(ParameterData paramData)
         {
+            //if (paramData.state.Equals(ParameterCreateState.None)) return; // Show some warning.
             //UnityEngine.Object evToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+            evDatabase.ReturnEvaluatorByName(EvRef).AddingOrRemovingParameter = true;
+            paramData.state = ParameterCreateState.Defined;
             string path = LBSSettings.Instance.paths.evaluatorsPath + System.IO.Path.DirectorySeparatorChar + EvRef + ".cs";
             Type type = GetTypeFromString(paramData.varTypeAsString);
             EvaluatorCreator.AddParameter(paramData.name, path, type, paramData.initialValue);
         }
         public void DeleteParamCode(ParameterData paramData)
         {
+            if (paramData.state.Equals(ParameterCreateState.None)) return; // Show some warning.
+            if (!paramData.state.Equals(ParameterCreateState.JustCreated)) return; // Only allow deletion of a recent parameter.
             //UnityEngine.Object evToEdit = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(LBSSettings.Instance.paths.evaluatorsPath + EvRef);
+            evDatabase.ReturnEvaluatorByName(EvRef).AddingOrRemovingParameter = true;
             string path = LBSSettings.Instance.paths.evaluatorsPath + System.IO.Path.DirectorySeparatorChar + EvRef + ".cs";
             EvaluatorCreator.DeleteParameter(paramData.name, path);
+            paramData.state = ParameterCreateState.Deleted;
         }
         public void ManageIValueUI(string newValue)
         {
