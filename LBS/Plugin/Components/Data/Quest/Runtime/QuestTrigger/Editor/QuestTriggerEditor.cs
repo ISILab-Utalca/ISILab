@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.MapTools.Generators;
 using UnityEditor;
 
 namespace ISILab.LBS.VisualElements

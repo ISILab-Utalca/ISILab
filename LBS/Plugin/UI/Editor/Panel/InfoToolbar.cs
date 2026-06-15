@@ -11,8 +11,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
     {
         private static VisualTreeAsset VisualTree;
         
-        private LBSToolbarButton clearNotificationButton;
-        private LBSToolbarButton disableNotificationButton;
+        private LBSCustomButton clearNotificationButton;
+        private LBSCustomToggle disableNotificationButton;
         
         private VisualElement toolInformation;
         private Label toolLabel;
@@ -38,9 +38,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
             this.name = "InfoToolbarWidget";
             this.AddToClassList("lbs-widget");
 
-            clearNotificationButton = this.Q<LBSToolbarButton>("CleanNotificationsButton");
-            disableNotificationButton = this.Q<LBSToolbarButton>("DisableNotificationsButton");
-            
+            clearNotificationButton = this.Q<LBSCustomButton>("CleanNotificationsButton");
+            clearNotificationButton.Q<VisualElement>().AddToClassList("lbs.icon");
+
+            disableNotificationButton = this.Q<LBSCustomToggle>("DisableNotificationsButton");
+
             toolInformation = this.Q<VisualElement>("ToolInformation");
             toolLabel  = this.Q<Label>("ToolText");
             
