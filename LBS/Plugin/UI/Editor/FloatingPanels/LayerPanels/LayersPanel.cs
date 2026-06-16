@@ -1,17 +1,19 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Editor.Windows;
-using LBS.Components;
 using ISILab.LBS.Plugin.Core.Settings;
-
+using ISILab.LBS.Plugin.MapTools.Editor.Templates;
+using ISILab.LBS.Plugin.UI.Editor.Panel;
+using LBS.Components;
+using LBS.VisualElements;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using ISILab.LBS.Plugin.MapTools.Editor.Templates;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using LBS.VisualElements;
+using Debug = UnityEngine.Debug;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
@@ -20,7 +22,6 @@ namespace ISILab.LBS.VisualElements.Editor
     {
         #region FIELDS
         public readonly LBSLevelData Data;
-        private LBSLayer _selectedLayer;
         private readonly List<LayerTemplate> _templates;
 
         private ListView _list;
@@ -28,7 +29,6 @@ namespace ISILab.LBS.VisualElements.Editor
         private VisualElement _noLayerNotifications;
         private VisualElement _noSelectedLayerNotificator;
 
-        private readonly HashSet<LayerView> _layerViews = new HashSet<LayerView>();
         
         [SerializeField]
         private Toggle _toggleFocus;
@@ -91,7 +91,7 @@ namespace ISILab.LBS.VisualElements.Editor
             
             _list.makeItem = () => new LayerView();
             _list.bindItem = BindListItem;
-            _list.itemsChosen += ItemChosen;
+            _list.itemsChosen += SelectionChanged;
             _list.selectionChanged += SelectionChanged;
             _list.itemIndexChanged += OnItemDrag;
 
@@ -115,20 +115,16 @@ namespace ISILab.LBS.VisualElements.Editor
                 _list.itemsSource = Data.Layers;
             }
 
-
             LoadedLevel level = LBSController.CurrentLevel;
             if(level != null)
             {
-                if (!level.data.Layers.Contains(LBSMainWindow.Instance._selectedLayer))
+                if (!level.data.Layers.Contains(LBSMainWindow.Instance.SelectedLayer))
                 {
                     SetSelectedLayer(null);
                 }
             }
 
-            _list.Rebuild();
-            RefreshUI();
-            LBSInspectorPanel.Instance.Repaint();
-
+            RefreshUI();           
         }
         
 
@@ -171,7 +167,6 @@ namespace ISILab.LBS.VisualElements.Editor
             bool last = index == Data.LayerCount - 1;
 
             var layer = Data.GetLayer(index);
-            _layerViews.Add(view);
             layer.index = _list.childCount - index;
 
             if (_dragAffected.Count == 0)
@@ -188,7 +183,7 @@ namespace ISILab.LBS.VisualElements.Editor
             }
             view.UpdateSelect(GetSelectedLayer());
             view.SetStyleSelectors();
-            CheckOpacity();
+           // CheckOpacity();
         }
 
         private void ResetLayerViewEvents(LayerView view, LBSLayer layer, bool last)
@@ -201,13 +196,14 @@ namespace ISILab.LBS.VisualElements.Editor
             view.SetInfo(layer);
             view.OnNameChange += layer.InvokeNameChanged;
 
-            CheckOpacity();
+            //CheckOpacity();
         }
 
         private void SelectionChanged(IEnumerable<object> objs)
         {
             LBSLayer newSelected = objs.FirstOrDefault() as LBSLayer;
-            
+            SetSelectedLayer(newSelected);
+
             //if (newSelected != null)
             //{
             //    if (newSelected.Parent == null)
@@ -228,16 +224,6 @@ namespace ISILab.LBS.VisualElements.Editor
             //    }
             //}
 
-            SetSelectedLayer(newSelected);
-            LBSMainWindow.Instance._selectedLayer = _selectedLayer;
-            CheckOpacity();
-        }
-
-        private void ItemChosen(IEnumerable<object> objs)
-        {
-            var selected = objs.FirstOrDefault() as LBSLayer;
-            LBSMainWindow.Instance._selectedLayer = selected;
-            OnDoubleSelectLayer?.Invoke(GetSelectedLayer());
         }
 
         private void OnItemDrag(int oldIndex, int newIndex)
@@ -252,19 +238,6 @@ namespace ISILab.LBS.VisualElements.Editor
             }
             RefreshUI();
         }
-        #endregion
-        
-        #region EVENT HANDLERS
-        private void UpdateListChildItems(LBSLayer layer)
-        {
-            _layerViews.Clear();
-            _list.RefreshItems(); // calls rebind -> refill _layerViews
-            foreach (var layerView in _layerViews)
-            {
-                layerView.UpdateSelect(layer, IsFocusToggleOn());
-            }
-        }
-        
         #endregion
 
         #region LAYER MANAGEMENT
@@ -298,23 +271,15 @@ namespace ISILab.LBS.VisualElements.Editor
             layer.Name = GenerateUniqueLayerName(layer.Name);
 
             Data.AddLayer(layer);
-            _list.SetSelection(new List<int> { 0 }); // Aca se invoca OnSelectLayer
+            // _list.SetSelection(new List<int> { 0 }); // Aca se invoca OnSelectLayer
+
             OnAddLayer?.Invoke(layer);
+
             SetSelectedLayer(layer); // Aca tambien se invoca OnSelectLayer, seria bueno unificarlo de alguna forma para que se llame solo una vez en los casos que corresponda
 
             LBSMainWindow.MessageNotify(
                 new LBSLog("New Data layer created"));
-            _list.Rebuild();
-
-            foreach (var layerView in _layerViews)
-            {
-                if (Equals(layerView.Target, layer))
-                {
-                    layerView.UpdateSelect(layer, IsFocusToggleOn());
-                }
-            }
-            
-            CheckOpacity();
+           
         }
 
         private string GenerateUniqueLayerName(string baseName)
@@ -383,6 +348,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void CheckOpacity()
         {
+            //Debug.Log("opacity checked");
             if (DrawManager.Instance is null) return;
 
             var selectedLayer = GetSelectedLayer();
@@ -402,20 +368,43 @@ namespace ISILab.LBS.VisualElements.Editor
 
         #region SELECTION MANAGEMENT
 
-        private void SetSelectedLayer(LBSLayer layer)
+        public void SetSelectedLayer(LBSLayer layer)
         {
-            //Debug.Log("SET SELECTED LAYER");
-            if (_selectedLayer is not null)
+            Stopwatch sw = Stopwatch.StartNew();
+            long last = sw.ElapsedMilliseconds;
+
+            void Log(string name)
             {
-                _selectedLayer.OnChangeUpdate();
+                long now = sw.ElapsedMilliseconds;
+                Debug.Log($"{name}: {now - last} ms");
+                last = now;
             }
 
-            _selectedLayer = layer;
-            _selectedLayer?.OnChangeUpdate();
+            LBSMainWindow.Instance.SelectedLayer?.OnChangeUpdate();
+            //Log("prev on change changed");
             OnSelectLayer?.Invoke(layer);
+            //Log("Select layer");
+            OnDoubleSelectLayer?.Invoke(GetSelectedLayer());
+            //Log("DoubleSelect changed");
+            LBSMainWindow.Instance.SelectedLayer?.OnChangeUpdate();
+            //Log("Selected changed");
+            LBSInspectorPanel.Instance.SetTarget(LBSMainWindow.Instance.SelectedLayer);
+            //Log("Inspector SetTarget");
+            //LBSMainWindow.Instance.SelectedLayer?.OnChangeUpdate();
+            //Log("second Selected changed");
+            RefreshUI();
+           // Log("RefreshUI SetTarget");
+           // Debug.Log($"TOTAL: {sw.ElapsedMilliseconds} ms");
         }
 
-        private LBSLayer GetSelectedLayer() => LBSMainWindow.Instance._selectedLayer;
+        private LBSLayer GetSelectedLayer()
+        {
+            var selected = LBSMainWindow.Instance.SelectedLayer;
+            if (Data.Layers.Contains(selected)) 
+                return selected;
+            
+            return null;
+        }
 
         public void ResetSelection()
         {
@@ -446,7 +435,10 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void HideFloorButtonsEvent(LBSLayer _)
         {
-            bool oneFloorLayer = _selectedLayer != null && _selectedLayer.FloorCount < 2;
+            bool oneFloorLayer = 
+                LBSMainWindow.Instance.SelectedLayer != null && 
+                LBSMainWindow.Instance.SelectedLayer.FloorCount < 2;
+            
             bool noLayers = !Data.Layers.Any();
 
             if (noLayers)
@@ -469,12 +461,27 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void HandleSelectLayerEvent(LBSLayer layer)
         {
-            foreach (var layerView in _layerViews)
+            for (int i = 0; i < _list.childCount; i++)
             {
-                layerView.UpdateSelect(layer, IsFocusToggleOn());
+                if (_list[i] is LayerView view)
+                {
+                    view.UpdateSelect(layer, IsFocusToggleOn());
+                    
+                }
             }
+
+            if (layer != null)
+            {
+                int index = Data.Layers.IndexOf(layer);
+
+                if (index >= 0 && index != _list.selectedIndex)
+                {
+                    _list.SetSelectionWithoutNotify(new[] { index });
+                }
+            }
+
             NotifierViewer.ClearNotifications();
-            CheckOpacity();
+           // CheckOpacity();
         }
 
         public void RefreshUI()
@@ -482,7 +489,6 @@ namespace ISILab.LBS.VisualElements.Editor
             UpdateNoLayerPanel();
             UpdateNoSelectedLayer();
             UpdateDisplayList();
-            UpdateListChildItems(GetSelectedLayer());
             CheckOpacity();
         }
 
@@ -496,6 +502,7 @@ namespace ISILab.LBS.VisualElements.Editor
         {
             bool hasItems = _list.itemsSource.Count > 0;
             _list.style.display = hasItems ? DisplayStyle.Flex : DisplayStyle.None;
+            _list.RefreshItems();
         }
 
         #endregion
@@ -512,9 +519,9 @@ namespace ISILab.LBS.VisualElements.Editor
                 evt.StopPropagation();
             }
 
-            if (evt.ctrlKey && evt.keyCode == KeyCode.D && _selectedLayer != null)
+            if (evt.ctrlKey && evt.keyCode == KeyCode.D && LBSMainWindow.Instance.SelectedLayer != null)
             {
-                AddLayer(_selectedLayer.Clone() as LBSLayer);
+                AddLayer(LBSMainWindow.Instance.SelectedLayer.Clone() as LBSLayer);
             }
         }
 

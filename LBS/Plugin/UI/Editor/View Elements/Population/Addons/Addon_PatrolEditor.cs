@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
+    [LBSCustomEditor("Addon_Patrol", typeof(Addon_Patrol))]
     public class Addon_PatrolEditor : LBSCustomEditor
     {
         private TileGroupBehavior behaviour;
@@ -15,7 +16,7 @@ namespace ISILab.LBS.VisualElements
         private LBSCustomToggleField PatrolLoop;
         private ListView PatrolPointsView;
 
-        private static VisualTreeAsset visualTree { get; set; }
+        private static VisualTreeAsset visualTree;
 
         public Addon_PatrolEditor(object target) : base(target)
         {
@@ -32,11 +33,8 @@ namespace ISILab.LBS.VisualElements
 
         protected override VisualElement CreateVisualElement()
         {
-            if (visualTree is null)
-            {
-                visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_PatrolEditor", true);
-            }
-
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("Addon_PatrolEditor", true);
+            
             visualTree.CloneTree(this);
 
             PatrolPointsView = this.Q<ListView>("PatrolPointsView");

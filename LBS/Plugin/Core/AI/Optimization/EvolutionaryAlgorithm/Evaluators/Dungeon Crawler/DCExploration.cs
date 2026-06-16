@@ -86,7 +86,7 @@ namespace ISILab.AI.Categorization
 
             var genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
-            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            BundleTileMapModule bundleTM = CombinedPopulationLayer.GetModule<BundleTileMapModule>();
             List<TileBundleGroup> groups = new();
 
             bool checkPermaIndices = permaIndices is null && bundleTM is not null;

@@ -15,6 +15,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 {
@@ -244,6 +245,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
 
             deleteButton.clicked += DeleteSelectedBlueprint;
             captureButton.clicked += CaptureBlueprint;
+            captureButton.SetEnabled(false);
+            
 
             generators = new()
             {
@@ -258,6 +261,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             RegisterCallback<KeyUpEvent>(evt => OnKeyUp(evt));
             RegisterCallback<KeyDownEvent>(evt => OnKeyDown(evt));
         }
+
+
         #endregion
 
         #region METHODS
@@ -366,6 +371,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             scrollView.Add(defaultEntry);
             defaultEntry.pickingMode = PickingMode.Ignore;
 
+            deleteButton.SetEnabled(entries.Count != 0);
+
             ClearPreviews();
         }
 
@@ -390,6 +397,14 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
                 autoCaptureToggle.value = false;
             }
         }
+
+        public void UpdateCaptureEnable()
+        {
+            captureButton.SetEnabled(LBSMainWindow.Instance.SelectedLayer != null);
+        }
+
+        
+       
         #endregion
 
         #region BLUEPRINT MANIPULATOR METHODS
@@ -529,7 +544,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             if (previewLayers.Count == 0 || selectedBlueprint == null ||
                 previewElements.Count == 0) return;
 
-            var selectedLayer = LBSMainWindow.Instance._selectedLayer;
+            var selectedLayer = LBSMainWindow.Instance.SelectedLayer;
             if(selectedLayer == null) return;
 
             Vector2Int gridSpace = selectedLayer.ToFixedPosition(offset);

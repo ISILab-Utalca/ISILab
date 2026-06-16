@@ -27,7 +27,7 @@ namespace ISILab.LBS.Editor
         #region FIELDS
    
         private QuestAssistant _assistant;
-        private QuestGraph _questGraph;
+        private QuestGraphModule _questGraph;
         private ListView _layerList;
         private ListView _suggestionList;
         private Button _addLayerButton;
@@ -54,7 +54,7 @@ namespace ISILab.LBS.Editor
         {
             this.target = target as QuestAssistant;
             _assistant = target as QuestAssistant;
-            _questGraph = _assistant?.OwnerLayer.GetModule<QuestGraph>();
+            _questGraph = _assistant?.OwnerLayer.GetModule<QuestGraphModule>();
         }
 
         /// <summary>

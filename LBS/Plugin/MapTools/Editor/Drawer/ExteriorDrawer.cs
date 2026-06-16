@@ -53,7 +53,7 @@ namespace ISILab.LBS.Drawers
 
         private void PaintNewTiles(ExteriorBehaviour exterior, ConnectedTileMapModule connectMod, Vector2 teselationSize, MainView view)
         {
-            bool isSelected = exterior.OwnerLayer == LBSMainWindow.Instance._selectedLayer;
+            bool isSelected = exterior.OwnerLayer == LBSMainWindow.Instance.SelectedLayer;
             int replaceCount = 0, createCount = 0;
             IEnumerable<LBSTile> newTiles = exterior.RetrieveNewTiles().Cast<LBSTile>();
             //Debug.Log($"EXTERIOR PAINT NEW TILES: {newTiles.Count()}");
@@ -90,8 +90,8 @@ namespace ISILab.LBS.Drawers
         private void UpdateLoadedTiles(ExteriorBehaviour exterior, ConnectedTileMapModule connectMod, Vector2 teselationSize, MainView view)
         {
             exterior.Keys.RemoveWhere(item => item == null);
-            bool isSelected = exterior.OwnerLayer == LBSMainWindow.Instance._selectedLayer;
-
+            bool isSelected = exterior.OwnerLayer == LBSMainWindow.Instance.SelectedLayer;
+          //  Debug.Log($"Layer{exterior.OwnerLayer.Name} : Selected => {isSelected}");
             // Update stored tile
             foreach (object obj in exterior.Keys)
             {
@@ -172,9 +172,12 @@ namespace ISILab.LBS.Drawers
                     exterior.Keys.Add(tile);
                 }
                 tView.style.display = (DisplayStyle)(exterior.OwnerLayer.IsVisible ? 0 : 1);
+                tView.SetSelectionMode(false);
             }
             //    Debug.Log($"Replaced: {replaceCount} | Created: {createCount}");
             //Debug.Log(view.graphElements.Count());
+
+            //UpdateTiles(exterior, view, teselationSize);
         }
         
         public override void ShowVisuals(object target, MainView view)

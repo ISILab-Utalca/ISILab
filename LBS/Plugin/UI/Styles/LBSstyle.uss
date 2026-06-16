@@ -8,7 +8,7 @@ Label {
 }
 
 .lbs Label {
-    padding-right: 21px;
+    
     color: var(--lbs-text-color, var(--lbs-default-text-color));
 }
 
@@ -779,7 +779,46 @@ Toggle > .lbs-default-icon {
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
 }
+.lbs-list-view {
+}
 
+.lbs-list-view .unity-list-view__scroll-view {
+    background-color: var(--lbs-darker-solid-gray-color, var(--lbs-default-darker-solid-gray-color));
+    border-color: var(--lbs-dark-overlay-color);
+    border-width: 1px;
+}
+
+
+.lbs-list-view .unity-list-view__empty-label {
+    background-color: var(--lbs-darker-solid-gray-color, var(--lbs-default-darker-solid-gray-color));
+    padding: 10px;
+    align-self: stretch;
+    text-align: center;
+}
+
+.lbs-list-view > TextField > TextInput {
+    background-color: var(--lbs-base-solid-gray-color); 
+    border-color: var(--lbs-dark-overlay-color);
+    border-width: 1px;
+}
+
+.lbs-list-view .unity-list-view__footer {
+    background-color: var(--lbs-darker-solid-gray-color, var(--lbs-default-darker-solid-gray-color));
+    border-color: var(--lbs-dark-overlay-color);
+    border-width: 1px;
+}
+
+.lbs-list-view .unity-list-view__add-button,
+.lbs-list-view .unity-list-view__remove-button {
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+    border-color: var(--lbs-dark-overlay-color);
+    border-radius: 3px;
+}
+
+.lbs-list-view .unity-list-view__add-button:hover,
+.lbs-list-view .unity-list-view__remove-button:hover {
+    background-color: var(--lbs-dark-overlay-color);
+}
 .lbs-radio-button {
     width: auto;
     max-width: 32px;
@@ -1625,6 +1664,63 @@ Toggle > .lbs-default-icon {
     background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
     flex-grow: 1;
     align-self: stretch;
+}
+
+
+.lbs-rect-field {
+}
+
+
+.lbs-rect-field FloatInput {
+    border-color: var(--lbs-dark-overlay-color);
+    border-width: 1px;
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+    flex-grow: 1;
+    align-self: stretch;
+    min-width: 32px;
+    flex-shrink: 1;
+}
+
+.lbs-rect-field > VisualElement {
+    flex-grow: 1;
+    align-self: stretch;
+    flex-shrink: 1;
+    align-items: stretch;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+}
+
+.lbs-rect-field .unity-composite-field__field-spacer {
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-self: stretch;
+    margin: 0;
+    padding: 0;
+}
+
+
+.lbs-uint-field {
+}
+
+.lbs-uint-field UnsignedIntegerInput {
+    border-color: var(--lbs-dark-overlay-color);
+    border-width: 1px;
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+    flex-grow: 1;
+    align-self: stretch;
+    min-width: 32px;
+    flex-shrink: 1;
+}
+
+.lbs-uint-field > VisualElement {
+    flex-grow: 1;
+    align-self: stretch;
+    flex-shrink: 1;
+    align-items: stretch;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
 }
 
 .lbs-vector2-field {

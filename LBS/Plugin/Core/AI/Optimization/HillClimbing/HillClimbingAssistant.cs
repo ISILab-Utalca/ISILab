@@ -59,7 +59,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         [JsonIgnore]
         public List<Zone> Zones => OwnerLayer.GetModule<SectorizedTileMapModule>().Zones;
         [JsonIgnore]
-        public List<Zone> ZonesWhitTiles => OwnerLayer.GetModule<SectorizedTileMapModule>().ZonesWithTiles;
+        public List<Zone> ZonesWithTiles => OwnerLayer.GetModule<SectorizedTileMapModule>().ZonesWithTiles;
         public TileMapModule TileMapMod => OwnerLayer.GetModule<TileMapModule>();
         public SectorizedTileMapModule AreasMod => OwnerLayer.GetModule<SectorizedTileMapModule>();
         public ConnectedZonesModule GraphMod => OwnerLayer.GetModule<ConnectedZonesModule>();
@@ -845,14 +845,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             _prevZones ??= new List<Zone>();
 
             // New zones
-            foreach (var zone in ZonesWhitTiles.Where(zone => !_prevZones.Contains(zone)))
+            foreach (var zone in ZonesWithTiles.Where(zone => !_prevZones.Contains(zone)))
             {
                 RequestTilePaint(zone);
                 _prevZones.Add(zone);
             }
             
             // Expired zones
-            foreach (var zone in _prevZones.Where(zone => !ZonesWhitTiles.Contains(zone)).ToList())
+            foreach (var zone in _prevZones.Where(zone => !ZonesWithTiles.Contains(zone)).ToList())
             {
                 RequestTileRemove(zone);
                 

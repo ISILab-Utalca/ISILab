@@ -1,10 +1,7 @@
 using System;
 using ISILab.LBS.CustomComponents;
-using ISILab.LBS.Plugin.Core.Settings;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Object = System.Object;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -86,7 +83,6 @@ namespace ISILab.LBS.VisualElements
             style.paddingBottom = 6;
             style.paddingLeft = 8;
             style.paddingRight = 8;
-            style.backgroundColor = LBSSettings.Instance.view.toolkitNormalDark;
 
             SetVisualLayout();
            
@@ -129,6 +125,9 @@ namespace ISILab.LBS.VisualElements
                 }
             };
 
+            _container.AddToClassList(".lbs-box-container");
+            this.AddToClassList(".lbs-box-container");
+
             _iconElement = new VisualElement
             {
                 name = "icon",
@@ -140,6 +139,7 @@ namespace ISILab.LBS.VisualElements
                     flexShrink = 0
                 }
             };
+            _iconElement.AddToClassList(".lbs-icon");
 
             VisualElement textGroup = new()
             {
@@ -152,7 +152,7 @@ namespace ISILab.LBS.VisualElements
                 }
             };
 
-            _titleLabel = new Label
+            _titleLabel = new LBSCustomLabel
             {
                 style =
                 {
@@ -161,12 +161,12 @@ namespace ISILab.LBS.VisualElements
                 }
             };
 
-            _descriptionLabel = new Label
+            _descriptionLabel = new LBSCustomLabel
             {
                 style =
                 {
                     fontSize = 10,
-                    color = new StyleColor(new Color(0.8f, 0.8f, 0.8f)),
+                    //color = new StyleColor(new Color(0.8f, 0.8f, 0.8f)),
                     whiteSpace = WhiteSpace.Normal
                 }
             };
@@ -187,7 +187,7 @@ namespace ISILab.LBS.VisualElements
                     paddingRight = 8
                 }
             };
-            _actionButton.AddToClassList(_actionButton.LBSClassName);
+            //_actionButton.AddToClassList(_actionButton.LBSClassName);
             _actionButton.clicked += OnButtonClicked;
 
             _container.Add(_iconElement);

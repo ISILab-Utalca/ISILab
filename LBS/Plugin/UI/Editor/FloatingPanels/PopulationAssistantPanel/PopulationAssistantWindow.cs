@@ -36,7 +36,7 @@ namespace ISILab.LBS.VisualElements.Editor
         private Dictionary<string, MAPElitesPreset> presetDictionary;
         private MAPElitesPreset mapEliteBundle;
 
-        private BundleTileMap originalTileMap;
+        private BundleTileMapModule originalTileMap;
         private AssistantMapElite _assistant;
 
         //Default text for unchosen elements
@@ -314,13 +314,13 @@ namespace ISILab.LBS.VisualElements.Editor
             applySuggestion.clicked += ApplySuggestion;
 
             //Reset button
-            originalTileMap = LayerPopulation.BundleTilemap.Clone() as BundleTileMap;
+            originalTileMap = LayerPopulation.BundleTilemap.Clone() as BundleTileMapModule;
             resetButton = rootVisualElement.Q<Button>("ButtonReset");
             resetButton.clicked += ResetSuggestion;
             resetButton.SetEnabled(false);
             
             OnTileMapChanged += () => {
-                originalTileMap = LayerPopulation.BundleTilemap.Clone() as BundleTileMap;
+                originalTileMap = LayerPopulation.BundleTilemap.Clone() as BundleTileMapModule;
                 resetButton.SetEnabled(originalTileMap!=null);
             };
             OnTileMapReset += () => 
@@ -695,7 +695,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 }
 
                 //Create bundle tile map
-                var newTileMap = new BundleTileMap();
+                var newTileMap = new BundleTileMapModule();
                 for (int i = 0; i < suggestionData.GetGenes().Length; i++)
                 {
                     if (suggestionData.GetGenes()[i] == null) continue;

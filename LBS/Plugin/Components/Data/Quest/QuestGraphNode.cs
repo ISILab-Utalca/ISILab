@@ -40,7 +40,7 @@ namespace ISILab.LBS.Components
         protected int y;
 
         [SerializeField, SerializeReference]
-        protected QuestGraph graph;
+        protected QuestGraphModule graph;
 
         [SerializeField]
         protected Rect nodePosition;
@@ -48,7 +48,7 @@ namespace ISILab.LBS.Components
         #endregion
 
         #region PROPERTIES
-        public QuestGraph Graph
+        public QuestGraphModule Graph
         {
             get => graph;
             set => graph = value;
@@ -111,7 +111,7 @@ namespace ISILab.LBS.Components
         #region CONSTRUCTORS
         protected GraphNode() { }
 
-        protected GraphNode(string id, Vector2 position, QuestGraph graph)
+        protected GraphNode(string id, Vector2 position, QuestGraphModule graph)
         {
             this.id = id;
             x = (int)position.x;
@@ -178,7 +178,7 @@ namespace ISILab.LBS.Components
 
     public class BranchNode : GraphNode
     {
-        public BranchNode(string id, Vector2 position, QuestGraph graph) : base(id, position, graph) { }
+        public BranchNode(string id, Vector2 position, QuestGraphModule graph) : base(id, position, graph) { }
         protected override GraphNode CreateCloneInstance() => new BranchNode(ID, Position, graph);
         public override bool IsValid() => ValidConnections;
         public override string ToString() => $"Branch ({ID})";
@@ -197,7 +197,7 @@ namespace ISILab.LBS.Components
     [Serializable]
     public class OrNode : BranchNode
     {
-        public OrNode(string id, Vector2 position, QuestGraph graph) : base(id, position, graph) { }
+        public OrNode(string id, Vector2 position, QuestGraphModule graph) : base(id, position, graph) { }
 
         protected override GraphNode CreateCloneInstance() => new OrNode(ID, Position, graph);
 
@@ -210,7 +210,7 @@ namespace ISILab.LBS.Components
     [Serializable]
     public class AndNode : BranchNode
     {
-        public AndNode(string id, Vector2 position, QuestGraph graph) : base(id, position, graph) { }
+        public AndNode(string id, Vector2 position, QuestGraphModule graph) : base(id, position, graph) { }
 
         protected override GraphNode CreateCloneInstance() => new AndNode(ID, Position, graph);
 
@@ -278,7 +278,7 @@ namespace ISILab.LBS.Components
         private QuestNode()
         { }
 
-        public QuestNode(string id, Vector2 position, string action, QuestGraph graph) : base(id, position, graph)
+        public QuestNode(string id, Vector2 position, string action, QuestGraphModule graph) : base(id, position, graph)
         {
             terminalID = action;
             nodeType = ENodeType.Middle;

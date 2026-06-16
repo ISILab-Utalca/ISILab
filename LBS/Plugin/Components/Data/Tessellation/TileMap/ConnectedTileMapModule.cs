@@ -18,10 +18,7 @@ namespace ISILab.LBS.Modules
         public enum ConnectedTileType { EdgeBased, VertexBased }
 
         #region FIELDS
-        [SerializeField, JsonRequired]
-        private int connectedDirections = 4;
-
-        [SerializeField, JsonRequired]
+        [SerializeField, JsonRequired, ShowOnTemplateInspector]
         private ConnectedTileType gridType;
 
         [SerializeField, JsonRequired, SerializeReference]
@@ -29,13 +26,6 @@ namespace ISILab.LBS.Modules
         #endregion
 
         #region PROPERTIES
-        [JsonIgnore]
-        public int ConnectedDirections
-        {
-            get => connectedDirections;
-            set => connectedDirections = value;
-        }
-
         [JsonIgnore]
         public List<TileConnectionsPair> Pairs => new List<TileConnectionsPair>(pairs);
 
@@ -62,9 +52,8 @@ namespace ISILab.LBS.Modules
             id = GetType().Name;
         }
 
-        public ConnectedTileMapModule(IEnumerable<TileConnectionsPair> tiles, int connectedDirections, ConnectedTileType gridType, PathfindInfo pathfindInfo, string id = "ConnectedTileMapModule") : base(id)
+        public ConnectedTileMapModule(IEnumerable<TileConnectionsPair> tiles, ConnectedTileType gridType, PathfindInfo pathfindInfo, string id = "ConnectedTileMapModule") : base(id)
         {
-            this.connectedDirections = connectedDirections;
             this.gridType = gridType;
             foreach (var t in tiles)
             {
@@ -211,11 +200,7 @@ namespace ISILab.LBS.Modules
             }
 
             if(jps) JPSDistances = JPSPlus.JPSPreprocessDistances(selection, this);
-
-            //PathfindInitialized = true;
         }
-
-
 
         public override Rect GetBounds()
         {
@@ -239,7 +224,7 @@ namespace ISILab.LBS.Modules
         public override object Clone()
         {
             var pairs = this.pairs.Select(t => t.Clone()).Cast<TileConnectionsPair>();
-            var clone = new ConnectedTileMapModule(pairs, connectedDirections, GridType, Pathfind, ID);
+            var clone = new ConnectedTileMapModule(pairs, GridType, Pathfind, ID);
             return clone;
         }
 
@@ -251,7 +236,6 @@ namespace ISILab.LBS.Modules
                 return;
             }
             Clear();
-            connectedDirections = connectedTileMap.connectedDirections;
             foreach (var t in connectedTileMap.pairs)
             {
                 AddPair(t.Tile, t.Connections, t.EditedByIA);
@@ -284,8 +268,6 @@ namespace ISILab.LBS.Modules
             if (other == null) return false;
 
             if(other.ID != this.ID) return false;
-
-            if (other.connectedDirections != this.connectedDirections) return false;
 
             if(other.gridType != this.gridType) return false;
 

@@ -29,7 +29,7 @@ namespace ISILab.LBS.Manipulators
             var target = element.panel.Pick(e.mousePosition);
             if (target is LBSNoteView || target.parent is LBSNoteView) return;
 
-            var note = new LBSNote(endPosition, "Double Click to Write your Comment", LBSMainWindow.Instance._selectedLayer);
+            var note = new LBSNote(endPosition, "Double Click to Write your Comment", LBSMainWindow.Instance.SelectedLayer);
 
             var level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();

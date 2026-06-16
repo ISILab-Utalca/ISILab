@@ -47,7 +47,7 @@ MonoBehaviour:
   fields:
   - rid: 655044578397917941
   generatedClassName: ReportTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: 13e600b13cc787c43949cde2d90e6e4e, type: 3}
   references:
     version: 2
     RefIds:
@@ -75,7 +75,7 @@ MonoBehaviour:
             iconGuid: 915dd173939598c43ab48bbec50425e8
             id: LBSLayer
             name: Layer name
-            activeFloor: 0
+            tileSize: {x: 2, y: 2}
             floors:
             - rid: 655044578397917942
             - rid: 655044578397917943
@@ -90,19 +90,6 @@ MonoBehaviour:
             behaviours: []
             assistants: []
             generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
             index: 0
           tileBundleGroup:
             rid: -2
@@ -189,7 +176,7 @@ MonoBehaviour:
   fields:
   - rid: 655044578397917952
   generatedClassName: ReadTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: 8b4e05ce1916145448d99ee56d242718, type: 3}
   references:
     version: 2
     RefIds:
@@ -217,7 +204,7 @@ MonoBehaviour:
             iconGuid: 915dd173939598c43ab48bbec50425e8
             id: LBSLayer
             name: Layer name
-            activeFloor: 0
+            tileSize: {x: 2, y: 2}
             floors:
             - rid: 655044578397917953
             - rid: 655044578397917954
@@ -232,19 +219,6 @@ MonoBehaviour:
             behaviours: []
             assistants: []
             generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
             index: 0
           tileBundleGroup:
             rid: -2
@@ -342,7 +316,7 @@ MonoBehaviour:
   fields:
   - rid: 655044578397917963
   generatedClassName: TakeTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: fb6b718769be7ac449131bb8ba560c67, type: 3}
   references:
     version: 2
     RefIds:
@@ -370,7 +344,7 @@ MonoBehaviour:
             iconGuid: 915dd173939598c43ab48bbec50425e8
             id: LBSLayer
             name: Layer name
-            activeFloor: 0
+            tileSize: {x: 2, y: 2}
             floors:
             - rid: 655044578397917964
             - rid: 655044578397917965
@@ -385,19 +359,6 @@ MonoBehaviour:
             behaviours: []
             assistants: []
             generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
             index: 0
           tileBundleGroup:
             rid: -2
@@ -572,7 +533,20 @@ MonoBehaviour:
   - {fileID: 1215880656486227008}
   - {fileID: 1956823283537651623}
   - {fileID: -7135499888831890683}
-  terminals: []
+  terminals:
+  - go to
+  - explore
+  - listen
+  - read
+  - give
+  - gather
+  - exchange
+  - stealth
+  - take
+  - kill
+  - capture
+  - spy
+  - report
   rules:
   - Quest
   - Subquest
@@ -604,7 +578,7 @@ MonoBehaviour:
   - rid: 655044578397917974
   - rid: 655044578397917975
   generatedClassName: CaptureTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: 870a36e5fe5b9094a9a47d4b9fe8c362, type: 3}
   references:
     version: 2
     RefIds:
@@ -660,7 +634,7 @@ MonoBehaviour:
   - rid: 655044578397917976
   - rid: 655044578397917977
   generatedClassName: SpyTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: 6304f985d05481740920491271cbddf8, type: 3}
   references:
     version: 2
     RefIds:
@@ -703,7 +677,7 @@ MonoBehaviour:
             iconGuid: 915dd173939598c43ab48bbec50425e8
             id: LBSLayer
             name: Layer name
-            activeFloor: 0
+            tileSize: {x: 2, y: 2}
             floors:
             - rid: 655044578397917978
             - rid: 655044578397917979
@@ -718,19 +692,6 @@ MonoBehaviour:
             behaviours: []
             assistants: []
             generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
             index: 0
           tileBundleGroup:
             rid: -2
@@ -790,12 +751,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: explore
   iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
+  color: {r: 0.34376112, g: 0.9716981, b: 0.48917085, a: 1}
   icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
   fields:
   - rid: 655044578397917988
   generatedClassName: ExploreTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: 1f6e91cb98a02904781699a3b5c8e769, type: 3}
   references:
     version: 2
     RefIds:
@@ -836,7 +797,7 @@ MonoBehaviour:
   - rid: 655044578397917989
   - rid: 655044578397917990
   generatedClassName: GiveTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: 766b59339ed4e9a42ae84ba7d5d0ad30, type: 3}
   references:
     version: 2
     RefIds:
@@ -864,7 +825,7 @@ MonoBehaviour:
             iconGuid: 915dd173939598c43ab48bbec50425e8
             id: LBSLayer
             name: Layer name
-            activeFloor: 0
+            tileSize: {x: 2, y: 2}
             floors:
             - rid: 655044578397917991
             - rid: 655044578397917992
@@ -879,19 +840,6 @@ MonoBehaviour:
             behaviours: []
             assistants: []
             generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
             index: 0
           tileBundleGroup:
             rid: -2
@@ -973,7 +921,7 @@ MonoBehaviour:
   - rid: 655044578397918001
   - rid: 655044578397918002
   generatedClassName: GatherTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: d7e94943f80ffe64c88fc643ebd236fc, type: 3}
   references:
     version: 2
     RefIds:
@@ -1032,7 +980,7 @@ MonoBehaviour:
   - rid: 655044578397918005
   - rid: 655044578397918006
   generatedClassName: ExchangeTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: dce798aa779ac6c4e8ea57251e02a167, type: 3}
   references:
     version: 2
     RefIds:
@@ -1141,7 +1089,7 @@ MonoBehaviour:
   - rid: 655044578397918008
   - rid: 655044578397918009
   generatedClassName: StealthTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: 8b2e2d6fc55426d41885fe8c04bbc969, type: 3}
   references:
     version: 2
     RefIds:
@@ -1245,14 +1193,14 @@ MonoBehaviour:
   m_Name: Terminal_kill
   m_EditorClassIdentifier: 
   id: kill
-  iconGuid: bb0770b945366c94c822cf3255eb885d
-  color: {r: 1, g: 1, b: 1, a: 1}
-  icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
+  iconGuid: a61dfe92868e5eb439f0cf35f9822fda
+  color: {r: 0.9528302, g: 0.22022964, b: 0.22022964, a: 1}
+  icon: {fileID: 7388822144124034973, guid: a61dfe92868e5eb439f0cf35f9822fda, type: 3}
   fields:
   - rid: 655044578397918010
   - rid: 655044578397918011
   generatedClassName: KillTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: a9b50b6141ac31d46b2eaaa986c5bf22, type: 3}
   references:
     version: 2
     RefIds:
@@ -1308,7 +1256,7 @@ MonoBehaviour:
   fields:
   - rid: 655044578397918012
   generatedClassName: ListenTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: 0618cabc3423e2948a21e6781da0fe4a, type: 3}
   references:
     version: 2
     RefIds:
@@ -1336,7 +1284,7 @@ MonoBehaviour:
             iconGuid: 915dd173939598c43ab48bbec50425e8
             id: LBSLayer
             name: Layer name
-            activeFloor: 0
+            tileSize: {x: 2, y: 2}
             floors:
             - rid: 655044578397918013
             - rid: 655044578397918014
@@ -1351,19 +1299,6 @@ MonoBehaviour:
             behaviours: []
             assistants: []
             generatorRules: []
-            settings:
-              useBundleSize: 0
-              lightVolume: 0
-              reflectionProbe: 0
-              scale: {x: 2, y: 2, z: 2}
-              resize: {x: 0, y: 0}
-              position: {x: 0, y: 0, z: 0}
-              replacePrevious: 1
-              buildLightProbes: 1
-              bakeLights: 0
-              optimization3d: 0
-              generatedRootName: DEFAULT
-              rootParentName: Root_Parent
             index: 0
           tileBundleGroup:
             rid: -2
@@ -1427,7 +1362,7 @@ MonoBehaviour:
   icon: {fileID: 7388822144124034973, guid: bb0770b945366c94c822cf3255eb885d, type: 3}
   fields: []
   generatedClassName: GoToTrigger
-  script: {fileID: 0}
+  script: {fileID: 11500000, guid: e6510248d55512d48b1de4e2e74bd54b, type: 3}
   references:
     version: 2
     RefIds: []

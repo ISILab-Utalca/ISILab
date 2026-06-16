@@ -190,7 +190,7 @@ namespace ISILab.AI.Categorization
 
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
-            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            BundleTileMapModule bundleTM = CombinedPopulationLayer.GetModule<BundleTileMapModule>();
             List<TileBundleGroup> groups = new();
 
             bool checkPermaIndices = permaIndices is null && bundleTM is not null;
@@ -506,7 +506,7 @@ namespace ISILab.AI.Categorization
             List<BundleData> genes = chrom.GetGenes().Cast<BundleData>().ToList();
 
 #if !EVAL_TEST
-            BundleTileMap bundleTM = CombinedPopulationLayer.GetModule<BundleTileMap>();
+            BundleTileMapModule bundleTM = CombinedPopulationLayer.GetModule<BundleTileMapModule>();
             List<TileBundleGroup> groups = new();
 
             bool checkPermaIndices = permaIndices is null && bundleTM is not null;

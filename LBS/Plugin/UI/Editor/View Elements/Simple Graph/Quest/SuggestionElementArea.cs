@@ -62,8 +62,8 @@ namespace ISILab.LBS.VisualElements
         {
             // Calculate visual position
             if(LBSMainWindow.Instance is null) return;
-            if(LBSMainWindow.Instance._selectedLayer is null) return;
-            var position = LBSMainWindow.Instance._selectedLayer.FixedToPosition(
+            if(LBSMainWindow.Instance.SelectedLayer is null) return;
+            var position = LBSMainWindow.Instance.SelectedLayer.FixedToPosition(
                 new Vector2Int((int)area.x, (int)area.y), true);
 
             var drawArea = new Rect(position,

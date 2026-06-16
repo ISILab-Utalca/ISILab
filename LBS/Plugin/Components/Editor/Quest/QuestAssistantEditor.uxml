@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <Style src="project://database/Assets/isi-lab-unity-module/LBS/Plugin/VisualElements/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
-    <ui:VisualElement style="flex-grow: 1; background-color: rgb(48, 48, 48); min-height: auto; padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px; margin-left: 4px; margin-right: 4px; margin-top: 4px; margin-bottom: 4px;">
+    <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
+    <ui:VisualElement style="flex-grow: 1; min-height: auto; padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px; margin-left: 4px; margin-right: 4px; margin-top: 4px; margin-bottom: 4px;">
         <ui:VisualElement name="LayersElement" style="flex-grow: 0; flex-direction: row; background-color: rgba(42, 42, 42, 0); border-left-color: rgb(20, 20, 20); border-right-color: rgb(20, 20, 20); border-top-color: rgb(20, 20, 20); border-bottom-color: rgb(20, 20, 20); border-left-width: 0; border-right-width: 0; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; border-top-width: 0; border-bottom-width: 0; align-self: auto; justify-content: space-around; white-space: normal; align-items: center; align-content: auto;">
             <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row; justify-content: space-evenly;">
                 <ui:Label text="Layer Context" style="justify-content: flex-start;" />
@@ -21,7 +21,7 @@
             <ui:Button text="Remove Suggestions" name="RemoveSuggestions" style="background-color: rgb(88, 106, 55);" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; align-self: stretch; align-content: flex-start; align-items: stretch;">
-            <ISILab.LBS.CustomComponents.LBSCustomLabelIcon icon="project://database/Assets/isi-lab-unity-module/Commons/Assets2D/Resources/Icons/Vectorial/Icon=ActionQuest.svg?fileID=7388822144124034973&amp;guid=1aca99945585da54f9a4bf6db1cc435a&amp;type=3#Icon=ActionQuest" label="No Suggestions available for this grammar" direction="RowReverse" name="NoSuggestionPanel" style="align-self: stretch; justify-content: flex-start; align-content: auto; align-items: auto; flex-grow: 0; flex-wrap: wrap;" />
+            <ISILab.LBS.CustomComponents.LBSCustomLabelIcon icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/GrammarAssistant/Icon=ActionQuest.svg?fileID=7388822144124034973&amp;guid=1aca99945585da54f9a4bf6db1cc435a&amp;type=3#Icon=ActionQuest" label="No Suggestions available for this grammar" direction="RowReverse" name="NoSuggestionPanel" style="align-self: stretch; justify-content: flex-start; align-content: auto; align-items: auto; flex-grow: 0; flex-wrap: wrap;" />
             <ISILab.LBS.CustomComponents.LBSCustomListView name="SuggestionList" style="flex-grow: 1;" />
         </ui:VisualElement>
     </ui:VisualElement>
