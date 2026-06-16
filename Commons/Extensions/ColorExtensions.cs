@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace ISILab.Commons.Extensions
 {
+    /// <summary>
+    /// Class extending Unity Color structure with random generation methods.
+    /// </summary>
     public static class ColorExtensions
     {
         private const float colorDifferenceValue = 0.25f;
@@ -12,6 +15,11 @@ namespace ISILab.Commons.Extensions
         // create a dictionary of colors and apply small modifications on it
         //
         // （づ￣3￣）づ╭🖌️～
+        /// <summary>
+        /// Generates a random HSV color, with high saturation and value, ensuring not to repeat colors from last invocations.
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
         public static Color RandomColorHSV(this Color color)
         {
 
@@ -48,7 +56,12 @@ namespace ISILab.Commons.Extensions
             }
             return true;
         }
-        
+
+        /// <summary>
+        /// Generates a random RGB color.
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
         public static Color RandomColorRGB(this Color color)
         {
             color = new Color(
@@ -58,6 +71,11 @@ namespace ISILab.Commons.Extensions
             return color;
         }
 
+        /// <summary>
+        /// Generates a random color in gray scale.
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
         public static Color RandomGrayScale(this Color color)
         {
  
