@@ -109,9 +109,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         #endregion
 
         #region CONSTRUCTORS
-        public AssistantMapElite(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
-        {
-        }
+        public AssistantMapElite(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
         #endregion
 
         #region METHODS

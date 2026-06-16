@@ -271,7 +271,11 @@ namespace ISILab.LBS.Behaviours
         }
         public override object Clone()
         {
-            return new SimulationBehaviour(this.IconGuid, this.Name, this.ColorTint);
+            return new SimulationBehaviour(this.IconGuid, this.Name, this.ColorTint) 
+            { 
+                downStairTag = this.downStairTag,
+                upStairTag = this.upStairTag
+            };
         }
 
         public override void OnAttachLayer(LBSLayer layer)

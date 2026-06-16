@@ -428,24 +428,24 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 var members = ShowOnLayerTemplateAttribute.GetMembers(obj);
                 var content = element.Q<VisualElement>("Content");
 
-                string debug = $"{name} contains {members.Length} members: ";
                 foreach (var member in members)
                 {
                     object val;
+                    Type type;
+                    VisualElement visualField = null;
 
                     // Get value
                     if (member is FieldInfo field)
                     {
                         val = field.GetValue(obj);
+                        type = field.FieldType;
                     }
                     else if (member is PropertyInfo property)
                     {
                         val = property.GetValue(obj);
+                        type = property.PropertyType;
                     }
                     else continue;
-
-                    var type = val != null ? val.GetType() : typeof(object);
-                    VisualElement visualField = null;
 
                     // Enum
                     if (type.IsEnum)
@@ -476,7 +476,8 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                     }//*/
 
                     // Common types
-                    switch (Type.GetTypeCode(type))
+                    TypeCode code = Type.GetTypeCode(type);
+                    switch (code)
                     {
                         case TypeCode.String:
                             visualField = new LBSCustomTextField(member.Name) { value = (string) val };
@@ -488,12 +489,17 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                             visualField.RegisterCallback<ChangeEvent<int>>
                                 (evt => { MemberChangeCallback(member, evt); });
                             break;
+                        case TypeCode.Single:
+                            visualField = new LBSCustomFloatField(member.Name) { value = (float)val };
+                            visualField.RegisterCallback<ChangeEvent<float>>
+                                (evt => { MemberChangeCallback(member, evt); });
+                            break;
                         case TypeCode.Boolean:
                             visualField = new LBSCustomToggleField(member.Name) { value = (bool) val };
                             visualField.RegisterCallback<ChangeEvent<bool>>
                                 (evt => { MemberChangeCallback(member, evt); });
                             break;
-                        default:
+                        case TypeCode.Object:
                             visualField = new LBSCustomObjectField()
                             {
                                 label = member.Name,
@@ -501,9 +507,11 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                                 dataSourceType = type,
                                 objectType = type
                             };
-                            visualField.RegisterCallback<ChangeEvent<UnityEngine.Object>>(evt =>{
-                                MemberChangeCallback(member, evt);
-                            });
+                            visualField.RegisterCallback<ChangeEvent<UnityEngine.Object>>
+                                (evt =>{ MemberChangeCallback(member, evt); });
+                            break;
+                        default:
+                            Debug.LogError("[LayerTemplateEditor]");
                             break;
                     }
 
@@ -515,17 +523,27 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                 return members.Count();
 
 
-                // Sub-Methods
-                void MemberChangeCallback<T>(object info, ChangeEvent<T> evt)
+
+                void MemberChangeCallback<T>(MemberInfo info, ChangeEvent<T> evt)
                 {
-                    var infoType = info.GetType();
-                    if (infoType == typeof(FieldInfo))
+                    // Can't make a type == comparison because info can sometimes be "RuntimeXInfo",
+                    // and I can't seem to be able to reference that Type. That issue aside, casting
+                    // info as X is working fine.
+
+                    var field = info as FieldInfo;
+                    var property = info as PropertyInfo;
+
+                    if (field is not null)
                     {
                         FieldChangeCallback<T>(info as FieldInfo, evt);
                     }
-                    else if (infoType == typeof(PropertyInfo))
+                    else if (property is not null)
                     {
                         PropertyChangeCallback<T>(info as PropertyInfo, evt);
+                    }
+                    else
+                    {
+                        Debug.LogError("[LayerTemplateEditor]: Can't change value due to ");
                     }
                 }
                 void FieldChangeCallback<T>(FieldInfo field, ChangeEvent<T> evt)

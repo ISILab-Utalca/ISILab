@@ -44,7 +44,7 @@ namespace ISILab.LBS.Modules
         [SerializeField, SerializeReference]
         private QuestNode root;
        
-        [SerializeField, ShowOnLayerTemplate]
+        [SerializeField]
         private string grammarGuid = defaultGrammarGuid;
 
         private LBSGrammar grammar;
@@ -61,6 +61,7 @@ namespace ISILab.LBS.Modules
         /// <summary>
         /// Grammar whose's rules and terminals are used to assign and validate quest nodes. It must be stored using GUIDs to avoid corruption.
         /// </summary>
+        [ShowOnLayerTemplate]
         public LBSGrammar Grammar
         {
             get
