@@ -55,14 +55,27 @@ namespace ISILab.LBS.Tests.Pathfinding
         const string level11 = "9e52fa05cc04b5a4cbb0752588af5a27";
         const string level12 = "a49e34122d48f53438e7dd8051abd8e5";
 
-        const string ultraLabyrinth =
-            //"995a3afcb9fc6e64c90596fd7328d761" // Micro (100) // Sobreescribi Half (90) sin querer xdn't pero se puede rehacer a partir del 150
-            "a2389a54af9bb5b49899b56d1551992a" // Micro (77)
-            //"be4a28232962e824fa38cea4a871fb04" // Half (150)
-            //"50a1ad21d6d768e4eac31c15c86d695a" // Half (200)
-            //"f061d26c69f5ae74db19d2671f0776b9" // 150
-            //"9418ed86a5efcf34983d879ebf43f084" // 200
-            ;
+        //const string ultraLabyrinth =
+        //    //"995a3afcb9fc6e64c90596fd7328d761" // Micro (100) // Sobreescribi Half (90) sin querer xdn't pero se puede rehacer a partir del 150
+        //    "a2389a54af9bb5b49899b56d1551992a" // Micro (77)
+        //    //"be4a28232962e824fa38cea4a871fb04" // Half (150)
+        //    //"50a1ad21d6d768e4eac31c15c86d695a" // Half (200)
+        //    //"f061d26c69f5ae74db19d2671f0776b9" // 150
+        //    //"9418ed86a5efcf34983d879ebf43f084" // 200
+        //    ;
+
+        static readonly string[] ultraLabyrinth = new string[]
+        {
+            "9418ed86a5efcf34983d879ebf43f084", // Full 200
+            "f061d26c69f5ae74db19d2671f0776b9", // Full 150
+
+            "50a1ad21d6d768e4eac31c15c86d695a", // Half 200
+            "be4a28232962e824fa38cea4a871fb04", // Half 150
+            "0eb7c0fb0e460e04f989052018275241", // Half 90
+
+            "995a3afcb9fc6e64c90596fd7328d761", // Micro 100
+            "a2389a54af9bb5b49899b56d1551992a" // Micro 77
+        };
 
         const string BG_AR0205SR            = "83cdf5f3500dda040a19cd9c6744770e";
         const string BG_AR0605SR            = "068a2113835354f45a3ff673047d9651";
@@ -119,14 +132,14 @@ namespace ISILab.LBS.Tests.Pathfinding
             })
             .Run();
         }
-        protected void UltraLabyrinthPathfind(PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
+        protected void UltraLabyrinthPathfind(int level, PathfindingAlgorithm searchType, PathfindingHeuristic heuristic)
         {
             var evaluator = Activator.CreateInstance(typeof(Colonies)) as ITestingEvaluator;
             BundleTilemapChromosome chromosome = null;
             SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
             SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
             SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time", SampleUnit.Microsecond);
-            SampleGroup measures = new SampleGroup("Measures", SampleUnit.Undefined);
+            //SampleGroup measures = new SampleGroup("Measures", SampleUnit.Undefined);
 
             //int mapSize = Mathf.CeilToInt(level / 3f);
 
@@ -140,16 +153,16 @@ namespace ISILab.LBS.Tests.Pathfinding
                 if (c <= WARM_UP_COUNT) return;
                 Measure.Custom(visitedNodesGroup, info.visitedNodes);
                 Measure.Custom(meanExecutionTime, info.Average() * 1000);
-                Measure.Custom(measures, info.MeasureCount());
+                //Measure.Custom(measures, info.MeasureCount());
             })
             .WarmupCount(WARM_UP_COUNT)
-            .MeasurementCount(5)
+            .MeasurementCount(MEASUREMENT_COUNT)
             .IterationsPerMeasurement(1)
             .SetUp(() =>
             {
-                GetLevel(ultraLabyrinth);
+                GetLevel(ultraLabyrinth[level-1]);
                 IRangedEvaluator eval = evaluator as IRangedEvaluator;
-                SetUpMAPElitesTest(ultraLabyrinth, dungeonPresetPath, eval, eval, eval, "", GetArea(4));
+                SetUpMAPElitesTest(ultraLabyrinth[level - 1], dungeonPresetPath, eval, eval, eval, "", GetArea(4));
                 chromosome = GetChromosomeFromAssistant();
                 (eval as Colonies).searchType = searchType;
                 (eval as Colonies).searchHeuristic = heuristic;
@@ -168,7 +181,7 @@ namespace ISILab.LBS.Tests.Pathfinding
             SampleGroup fitnessGroup = new SampleGroup("Fitness Score", SampleUnit.Undefined);
             SampleGroup visitedNodesGroup = new SampleGroup("Visited Nodes", SampleUnit.Undefined);
             SampleGroup meanExecutionTime = new SampleGroup("Mean Execution Time", SampleUnit.Microsecond);
-            SampleGroup measures = new SampleGroup("Measures", SampleUnit.Undefined);
+            //SampleGroup measures = new SampleGroup("Measures", SampleUnit.Undefined);
 
             //int mapSize = Mathf.CeilToInt(level / 3f);
 
@@ -182,7 +195,7 @@ namespace ISILab.LBS.Tests.Pathfinding
                 if (c <= WARM_UP_COUNT) return;
                 Measure.Custom(visitedNodesGroup, info.visitedNodes);
                 Measure.Custom(meanExecutionTime, info.Average() * 1000);
-                Measure.Custom(measures, info.MeasureCount());
+                //Measure.Custom(measures, info.MeasureCount());
             })
             .WarmupCount(WARM_UP_COUNT)
             .MeasurementCount(MEASUREMENT_COUNT)
@@ -333,8 +346,7 @@ namespace ISILab.LBS.Tests.Pathfinding
             return new Rect(Vector2.zero, size);
         }
 
-        //[Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Chebyshev_FloodFill() => UltraLabyrinthPathfind(FF, Chebyshev);
-        //[Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Chebyshev_JPS() => UltraLabyrinthPathfind(JPS, Chebyshev); 
+        
 
         #region OLD TESTS
 
@@ -577,6 +589,26 @@ namespace ISILab.LBS.Tests.Pathfinding
         [Test, Performance, Timeout(timeout)] public void Level_J_Chebyshev_AStar() => ColoniesPathfind(10, AStar, Chebyshev);
         [Test, Performance, Timeout(timeout)] public void Level_K_Chebyshev_AStar() => ColoniesPathfind(11, AStar, Chebyshev);
         [Test, Performance, Timeout(timeout)] public void Level_L_Chebyshev_AStar() => ColoniesPathfind(12, AStar, Chebyshev);
+    }
+
+    [TestFixture]
+    public class UltraLabyrinth : PathfindingBenchmarkReport
+    {
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Full_200_Chebyshev_FloodFill() => UltraLabyrinthPathfind(1, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Full_150_Chebyshev_FloodFill() => UltraLabyrinthPathfind(2, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Half_200_Chebyshev_FloodFill() => UltraLabyrinthPathfind(3, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Half_150_Chebyshev_FloodFill() => UltraLabyrinthPathfind(4, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Half_90_Chebyshev_FloodFill() => UltraLabyrinthPathfind(5, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Micro_100_Chebyshev_FloodFill() => UltraLabyrinthPathfind(6, FF, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Micro_77_Chebyshev_FloodFill() => UltraLabyrinthPathfind(7, FF, Chebyshev);
+
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Full_200_Chebyshev_JPS() => UltraLabyrinthPathfind(1, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Full_150_Chebyshev_JPS() => UltraLabyrinthPathfind(2, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Half_200_Chebyshev_JPS() => UltraLabyrinthPathfind(3, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Half_150_Chebyshev_JPS() => UltraLabyrinthPathfind(4, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Half_90_Chebyshev_JPS() => UltraLabyrinthPathfind(5, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Micro_100_Chebyshev_JPS() => UltraLabyrinthPathfind(6, JPS, Chebyshev);
+        [Test, Performance, Timeout(timeout)] public void UltraLabyrinth_Micro_77_Chebyshev_JPS() => UltraLabyrinthPathfind(7, JPS, Chebyshev);
     }
 
     [TestFixture]
