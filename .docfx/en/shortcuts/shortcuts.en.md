@@ -46,7 +46,7 @@ LBS has shortcuts to quickly access some of its different tools. This section pr
 | &emsp; Drag camera | <img src="/images/shortcuts/Property 1=Midle Click.png" width="18" style="vertical-align: middle;"/> |
 | &emsp; Move camera to origin | <kbd>O</kbd> |
 | &emsp; Adjust camera to viewport | <kbd>A</kbd> |
-| **_LBS File_** | |
+| **_LBS File (.lbs)_** | |
 | &emsp; Save LBS File | <kbd>Ctrl</kbd> + <kbd>S</kbd> |
 | &emsp; Open LBS File | <kbd>Ctrl</kbd> + <kbd>O</kbd> |
 | &emsp; New LBS File | <kbd>Ctrl</kbd> + <kbd>N</kbd> |
