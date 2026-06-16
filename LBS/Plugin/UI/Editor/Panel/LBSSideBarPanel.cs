@@ -8,7 +8,9 @@ using ISILab.LBS.VisualElements;
 using LBS.VisualElements;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Toggle = UnityEngine.UIElements.Toggle;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Panel
 {
@@ -32,6 +34,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
         private static VisualTreeAsset visualTreeAsset;
 
 
+        #region STATIC METHODS
+
+        private static LBSSideBarPanel instance;
+        public static LBSSideBarPanel Instance
+        {
+            get => instance ?? (instance = new LBSSideBarPanel());
+        }
+        #endregion
+
         #region EVENTS
         //public LBSBoolEvent toggleEvent; //Experimental!
         #endregion
@@ -42,11 +53,15 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
 
         #endregion
 
+
         public LBSSideBarPanel(): base()
         {
             
             visualTreeAsset = DirectoryTools.GetAssetByName<VisualTreeAsset>("LBSSideBarPanel");
             visualTreeAsset.CloneTree(this);
+
+            instance = this;
+
             name = "LBSSideBarPanel";
             
             layerToggle = this.Q<Toggle>("LayerToggle");
@@ -54,8 +69,26 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
             qAssisToggle = this.Q<Toggle>("QAssisToggle");
             
             layerDataTab = this.Q<Toggle>("LayerDataButton");
+            layerDataTab.RegisterCallback<ChangeEvent<bool>>(evt => 
+            {
+                if (evt.newValue == true)
+                    LBSInspectorPanel.ActivateDataTab();
+            });
+
             assistantTab = this.Q<Toggle>("AssistantButton");
+            assistantTab.RegisterCallback<ChangeEvent<bool>>(evt =>
+            {
+                if (evt.newValue == true)
+                    LBSInspectorPanel.ActivateAssistantTab();
+            });
+
             behaviorTab = this.Q<Toggle>("BehaviourButton");
+            behaviorTab.RegisterCallback<ChangeEvent<bool>>(evt =>
+            {
+                if(evt.newValue == true)
+                    LBSInspectorPanel.ActivateBehaviourTab();
+            });
+            
             inspectorToggleTabs.Clear();
             inspectorToggleTabs.Add(layerDataTab);
             inspectorToggleTabs.Add(assistantTab);
@@ -88,13 +121,13 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
                     _mainWindow.quickAssistantPanel.style.display = _evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
                 });
 
-                layerDataTab.RegisterCallback<ClickEvent>(_ => _mainWindow.ChangeInspectorPanelTab(layerDataTab));
-                assistantTab.RegisterCallback<ClickEvent>(_ => _mainWindow.ChangeInspectorPanelTab(assistantTab));
-                behaviorTab.RegisterCallback<ClickEvent>(_ => _mainWindow.ChangeInspectorPanelTab(behaviorTab));
+                layerDataTab.RegisterCallback<ClickEvent>(_ => ChangeInspectorPanelTab(layerDataTab));
+                assistantTab.RegisterCallback<ClickEvent>(_ => ChangeInspectorPanelTab(assistantTab));
+                behaviorTab.RegisterCallback<ClickEvent>(_ => ChangeInspectorPanelTab(behaviorTab));
 
                 tagWindowButton?.RegisterCallback<ClickEvent>(_ =>
                 {
-                    OnToggleButtonClick();
+                    DeactiveToggles();
                     switch(tagWindowButton.value)
                     {
                         case true:
@@ -109,7 +142,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
                 
                 bundleWindowButton?.RegisterCallback<ClickEvent>(_ =>
                 {
-                    OnToggleButtonClick();
+                    DeactiveToggles();
                     switch (bundleWindowButton.value)
                     {
                         case true:
@@ -130,17 +163,48 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
         }
         
         
-        //TODO: Change this behavior for tabs system.
-        public void OnToggleButtonClick()
+
+        /// <summary>
+        /// Deactivates all the toggles buttons
+        /// </summary>
+        private void DeactiveToggles()
         {
             foreach (var toggleTab in inspectorToggleTabs)
             {
                 if (toggleTab is Toggle toggle)
                 {
-                    toggle.SetValueWithoutNotify(false); // Deselect
+                    toggle.value = (false); // Deselect
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Called when changing tabs from the toggle buttons in this class
+        /// </summary>
+        /// <param name="toggleVe"></param>
+        public void ChangeInspectorPanelTab(Toggle toggleVe)
+        {
+            DeactiveToggles();
+            if (toggleVe is null) 
+                return;
+            
+            toggleVe.value = (true);
+        }
+
+        /// <summary>
+        /// Activates visually the corresponding toggle button, only call this from inspector panel
+        /// </summary>
+        /// <param name="panel"></param>
+        public void InspectorToggleButtonChange(string panel)
+        {
+            Toggle toggleVe = null;
+            if (panel == LBSInspectorPanel.DataTab) 
+                toggleVe = layerDataTab;
+            if (panel == LBSInspectorPanel.BehavioursTab) 
+                toggleVe = behaviorTab;
+            if (panel == LBSInspectorPanel.AssistantsTab) 
+                toggleVe = assistantTab;
+            ChangeInspectorPanelTab(toggleVe);
+        }
     }
 }

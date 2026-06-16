@@ -49,14 +49,14 @@ namespace ISILab.AI.Grammar
             set
             {
                 icon = value;
-                iconGuid = LBSAssetMacro.GetGuidFromAsset(Icon);
+                iconGuid = LBSAssetMacro.GetGuidFromAsset(icon);
             }
         }
 
         public virtual void OnEnable()
         {
             // on load get vector image by guid. VectorImage is not serialized
-            icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
+            Icon = LBSAssetMacro.LoadAssetByGuid<VectorImage>(iconGuid);
         }
 
         protected virtual void OnValidate()

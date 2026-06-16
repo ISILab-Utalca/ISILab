@@ -49,30 +49,54 @@ namespace LBS.VisualElements
                 Debug.LogError("Missing VE");
                 return;
             }
-            VectorImage setIcon = logType switch
-            {
-                LogType.Error => ErrorImage,
-                LogType.Assert => LogImage,
-                LogType.Warning => WarningImage,
-                LogType.Log => LogImage,
-                LogType.Exception => ErrorImage,
-                _ => throw new ArgumentOutOfRangeException(nameof(logType), logType, null)
-            };
-            
-            Color setColor = logType switch
-            {
-                LogType.Error => LBSSettings.Instance.view.errorColor,
-                LogType.Assert => LBSSettings.Instance.view.errorColor,
-                LogType.Warning => LBSSettings.Instance.view.warningColor,
-                LogType.Log => LBSSettings.Instance.view.okColor,
-                LogType.Exception => new Color(1, 1, 1, 0),
-                _ => throw new ArgumentOutOfRangeException(nameof(logType), logType, null)
-            };
-            
-            icon.style.backgroundImage = new StyleBackground(setIcon);
-            icon.style.unityBackgroundImageTintColor = setColor;
-            message.text = inMessage;
 
-        } 
+            // 1. Traditional Switch Statement for the Icon
+            VectorImage setIcon;
+            switch (logType)
+            {
+                case LogType.Error:
+                case LogType.Exception:
+                    setIcon = ErrorImage;
+                    break;
+
+                case LogType.Assert:
+                case LogType.Log:
+                    setIcon = LogImage;
+                    break;
+
+                case LogType.Warning:
+                    setIcon = WarningImage;
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(logType), logType, null);
+            }
+
+            // 2. Traditional Switch Statement for the Color
+            switch (logType)
+            {
+                case LogType.Error:
+                case LogType.Assert:
+                    icon.style.unityBackgroundImageTintColor = LBSSettings.Instance.view.errorColor;
+                    break;
+
+                case LogType.Warning:
+                    icon.style.unityBackgroundImageTintColor = LBSSettings.Instance.view.warningColor;
+                    break;
+
+                case LogType.Log:
+                    break;
+
+                case LogType.Exception:
+                    icon.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0); 
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(logType), logType, null);
+            }
+
+            icon.style.backgroundImage = new StyleBackground(setIcon);
+            message.text = inMessage;
+        }
     } 
 }

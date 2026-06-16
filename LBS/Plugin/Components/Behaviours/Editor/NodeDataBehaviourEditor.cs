@@ -238,7 +238,7 @@ namespace ISILab.LBS.VisualElements
             foldout.text = listField.name;
             foldout.InitialValue = false;
 
-            var listView = new ListView
+            var listView = new LBSCustomListView
             {
                 itemsSource = listField.ItemsSource,
                 reorderable = true,

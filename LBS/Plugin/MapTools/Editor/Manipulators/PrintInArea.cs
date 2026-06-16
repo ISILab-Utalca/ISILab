@@ -99,8 +99,7 @@ namespace ISILab.LBS.Manipulators
         {
             Feedback.style.display = DisplayStyle.None;
             ClearPreview();
-            LBSLayer selectedLayer = LBSMainWindow.Instance._selectedLayer;
-            if (blueprintToPrint == null || selectedLayer == null) return;
+            if (blueprintToPrint == null || LBSMainWindow.Instance.SelectedLayer == null) return;
 
             base.OnMouseMove(element, movePosition, e);
 

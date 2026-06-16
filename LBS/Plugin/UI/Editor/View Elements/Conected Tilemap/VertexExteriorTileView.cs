@@ -76,6 +76,7 @@ namespace ISILab.LBS.VisualElements
                 center.MarkDirtyRepaint();
 
                 SetConnections(connections.ToArray());
+                SetSelectionMode(false);
 
                 this.SetBorder(Color.black, 0);
                 style.display = DisplayStyle.Flex;

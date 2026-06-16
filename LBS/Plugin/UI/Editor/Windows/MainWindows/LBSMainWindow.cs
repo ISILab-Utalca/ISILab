@@ -92,17 +92,15 @@ namespace ISILab.LBS.Editor.Windows
             set => LBS.loadedLevel.data = value;
         }
 
-        private LBSLevelData backUpData;
+        public LBSLayer SelectedLayer => _selectedLayer;
 
         #endregion
 
         #region DATA & STATE
 
-        // Selected
-        public LBSLayer _selectedLayer;
-        // Templates
+        private LBSLayer _selectedLayer;
         public List<LayerTemplate> layerTemplates;
-
+        private LBSLevelData backUpData;
         #endregion
 
         #region MANAGERS
@@ -428,7 +426,7 @@ namespace ISILab.LBS.Editor.Windows
             blueprintPanel ??=  new BlueprintPanel();
             bottomPanel.Add(blueprintPanel);
             blueprintPanel.style.display = DisplayStyle.None;
-
+            OnLayerChange += () => blueprintPanel.UpdateCaptureEnable();
 
             #endregion
 
@@ -484,45 +482,13 @@ namespace ISILab.LBS.Editor.Windows
 
             #endregion
 
-
             #region THEME SET
             ChangeTheme(LBSSettings.Instance.view.LBSTheme);
             #endregion
         }
 
 
-        /// <summary>
-        /// Called when changing tabs from the toggle buttons in this class
-        /// </summary>
-        /// <param name="toggleVe"></param>
-        public void ChangeInspectorPanelTab(Toggle toggleVe)
-        {
-            sideBarPanel.OnToggleButtonClick();
-            toggleVe.SetValueWithoutNotify(true);
-            if (toggleVe == sideBarPanel.layerDataTab) LBSInspectorPanel.ActivateDataTab();
-            if (toggleVe == sideBarPanel.behaviorTab) LBSInspectorPanel.ActivateBehaviourTab();
-            if (toggleVe == sideBarPanel.assistantTab) LBSInspectorPanel.ActivateAssistantTab();
-        }
 
-        /// <summary>
-        /// Activates visually the corresponding toggle button, only call this from inspector panel
-        /// </summary>
-        /// <param name="panel"></param>
-        public void InspectorToggleButtonChange(string panel)
-        {
-            if (sideBarPanel == null)
-            {
-                sideBarPanel = rootVisualElement.Q<LBSSideBarPanel>("SideBarPanel");
-            }
-            Toggle toggleVe = null;
-            if (panel == LBSInspectorPanel.DataTab) toggleVe = sideBarPanel.layerDataTab;
-            if (panel == LBSInspectorPanel.BehavioursTab) toggleVe = sideBarPanel.behaviorTab;
-            if (panel == LBSInspectorPanel.AssistantsTab) toggleVe = sideBarPanel.assistantTab;
-            if (toggleVe is null) return;
-
-            sideBarPanel.OnToggleButtonClick();
-            toggleVe.SetValueWithoutNotify(true);
-        }
 
         /// <summary>
         /// Repaint the window.
@@ -560,7 +526,7 @@ namespace ISILab.LBS.Editor.Windows
         }
 
         /// <summary>
-        /// Called when the selected layer is changed.
+        /// Called when the selected layer is changed. The only way to assign a selected layer is here.
         /// </summary>
         /// <param name="layer"></param>
         private void OnSelectedLayerChange(LBSLayer layer)
@@ -570,24 +536,15 @@ namespace ISILab.LBS.Editor.Windows
 
             if (previousSelected is not null)
             {
-                previousSelected.OnChangeUpdate();
+                // we update the layer so that the selected visibility function on the drawer gets called
+                DrawManager.Instance.UpdateLayer(previousSelected);
                 previousSelected.OnChange -= NotifyChange;
             }
             if (_selectedLayer is not null)
             {
-                _selectedLayer.OnChangeUpdate();
                 _selectedLayer.OnChange += NotifyChange;
+                DrawManager.Instance.UpdateLayer(SelectedLayer);
             }
-
-            if (toolkit != null)
-            {
-                toolkit.Clear();
-                inspectorManager.SetTarget(layer);
-                toolkit.SetActive(typeof(SelectManipulator));
-                toolkit.SetSeparators();
-            }
-
-           // gen3DPanel.Init(layer);
 
             string layerName = layer is not null ? layer.Name : "-";
             selectedLabel.text = "Selected: " + layerName;
@@ -601,7 +558,7 @@ namespace ISILab.LBS.Editor.Windows
             warningNotification.visible = description != null && description != string.Empty;
         }
 
-        private static void NotifyChange()
+        private void NotifyChange()
         {
             OnLayerChange?.Invoke();
         }

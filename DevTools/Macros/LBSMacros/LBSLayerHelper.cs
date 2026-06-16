@@ -5,13 +5,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using Object = UnityEngine.Object;
+
 
 namespace ISILab.LBS.Macros
 { 
     public class LBSLayerHelper
     {
 
+        #region Object Retrievals
         /// <summary>
         /// Retrieves an object of type T from the Behaviours, Assistants, or Modules list within the given layerChild's OwnerLayer.
         /// </summary>
@@ -102,5 +106,39 @@ namespace ISILab.LBS.Macros
 
             return null; // nothing found
         }
-    }   
+
+        #endregion
+
+
+        #region Debug
+        /// <summary>
+        /// Prints an object's anme and its memory adress
+        /// </summary>
+        /// <param name="obj">target object</param>
+        public static void PrintReference(object obj)
+        {
+            if (obj == null)
+            {
+                Debug.Log($"PrintReference param object is null");
+                return;
+            }
+
+            string name = obj.GetType().Name;
+
+            string message =
+                $"{name} | " +
+                $"Type: {obj.GetType().Name} | " +
+                $"RefHash: {RuntimeHelpers.GetHashCode(obj)}";
+
+            if (obj is Object unityObject)
+            {
+                message +=
+                    $" | UnityInstanceID: {unityObject.GetInstanceID()}" +
+                    $" | UnityName: {unityObject.name}";
+            }
+
+            Debug.Log(message);
+        }
+        #endregion
+    }
 }

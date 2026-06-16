@@ -37,7 +37,7 @@ namespace ISILab.LBS.Drawers
                 _tgb.OwnerLayer.OnChange += () =>
                 {
                     PopulationTileGroupView.UpdateVisuals(null);
-                    var isSelected = tgb.OwnerLayer == LBSMainWindow.Instance._selectedLayer;
+                    var isSelected = tgb.OwnerLayer == LBSMainWindow.Instance.SelectedLayer;
 
                     PopulationTileView.SelectedTile?.Highlight(isSelected, true);
                     view.ClearLayerComponentView(_tgb.OwnerLayer, this);
@@ -46,7 +46,7 @@ namespace ISILab.LBS.Drawers
 
             view.ClearLayerComponentView(_tgb.OwnerLayer, this);
 
-            if (LBSMainWindow.Instance._selectedLayer != _tgb.OwnerLayer)
+            if (LBSMainWindow.Instance.SelectedLayer != _tgb.OwnerLayer)
                 return;
 
             var selected = _tgb.SelectedTilemap;

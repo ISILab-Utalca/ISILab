@@ -26,8 +26,10 @@ namespace ISILab.LBS.Drawers
                 view.AddElementToLayerContainer(assistant.OwnerLayer,this,_dotArea);
                 assistant.OwnerLayer.OnChange += () =>
                 {
-                    if (assistant.OwnerLayer != LBSMainWindow.Instance._selectedLayer) HideVisuals(null, null);
-                    else ShowVisuals(null, null);
+                    if (assistant.OwnerLayer != LBSMainWindow.Instance.SelectedLayer) 
+                        HideVisuals(null, null);
+                    else 
+                        ShowVisuals(null, null);
                 };
                 Loaded = true;
             }
