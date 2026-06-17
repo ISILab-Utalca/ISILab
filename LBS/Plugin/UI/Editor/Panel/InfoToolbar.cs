@@ -39,8 +39,6 @@ namespace ISILab.LBS.Plugin.UI.Editor.Panel
             this.AddToClassList("lbs-widget");
 
             clearNotificationButton = this.Q<LBSCustomButton>("CleanNotificationsButton");
-            clearNotificationButton.Q<VisualElement>().AddToClassList("lbs.icon");
-
             disableNotificationButton = this.Q<LBSCustomToggle>("DisableNotificationsButton");
 
             toolInformation = this.Q<VisualElement>("ToolInformation");

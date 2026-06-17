@@ -67,6 +67,7 @@ namespace ISILab.LBS.VisualElements
             _color = style.backgroundColor.value;
             icon = new VisualElement();
             icon.AddToClassList("prop-centered");
+            icon.AddToClassList("lbs-icon");
             this.Add(icon);
             AddToClassList("lbs-rounded-button");
             
