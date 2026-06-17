@@ -2,7 +2,7 @@ using ISILab.Commons.Utility;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Editor;
-using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Assistants;
 using LBS.Components;
 using LBS.VisualElements;
 using System;

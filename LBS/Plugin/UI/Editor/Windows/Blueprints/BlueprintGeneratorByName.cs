@@ -25,10 +25,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
         {
             return null;
         }
-        public override void OnGUI()
-        {
+        public override void OnGUI() { }
 
-        }
         public override List<LBSLayer> Generate(Action<float> onProgress = null, CancellationToken token = default)
         {
             List<LBSLayer> modifiedLayers = new();

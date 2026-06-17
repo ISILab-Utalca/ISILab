@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.Components.Behaviours
+namespace ISILab.LBS.Assistants
 {
     [Serializable]
     public abstract class LBSAssistant : ICloneable

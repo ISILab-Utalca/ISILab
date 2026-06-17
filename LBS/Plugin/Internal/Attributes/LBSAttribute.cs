@@ -39,7 +39,18 @@ namespace ISILab.LBS
         /// Constructor por defecto. Aplicar el atributo a un miembro indica que debe aparecer en el Template Inspector.
         /// </summary>
         public ShowOnLayerTemplateAttribute() { }
-    
+
+        /// <summary>
+        /// Obtiene los miembros de instancia del objeto especificado que están anotados con <see cref="ShowOnLayerTemplateAttribute"/>.
+        /// </summary>
+        /// <param name="obj">Instancia cuyo tipo se inspecciona.</param>
+        /// <returns>
+        /// Array de <see cref="FieldInfo"/> que representa los campos marcados con el atributo.
+        /// Retorna un array vacío si no se encuentran coincidencias, o si obj es mull.
+        /// </returns>
+        /// <remarks>
+        /// La búsqueda incluye campos y propiedades, públicos y no públicos de instancia.
+        /// </remarks>
         public static MemberInfo[] GetMembers(object obj)
         {
             List<MemberInfo> memberInfos = new List<MemberInfo>();

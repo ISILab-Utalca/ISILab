@@ -3,8 +3,8 @@ using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Components.Behaviours;
-using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.Editor.UI.CustomComponents;
@@ -458,44 +458,38 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                         content.Add(visualField);
                         continue;
                     }
-                    /*
-                    // Bundle
-                    if(type == typeof(Bundle))
-                    {
-                        visualField = new LBSCustomObjectField()
-                        {
-                            label = member.Name,
-                            value = (UnityEngine.Object) val
-                        };
-                        visualField.RegisterCallback<ChangeEvent<UnityEngine.Object>>(evt =>
-                        {
-                            MemberChangeCallback(member, evt);
-                        });
-                        content.Add(visualField);
-                        continue;
-                    }//*/
 
                     // Common types
                     TypeCode code = Type.GetTypeCode(type);
                     switch (code)
                     {
                         case TypeCode.String:
-                            visualField = new LBSCustomTextField(member.Name) { value = (string) val };
+                            visualField = new LBSCustomTextField(member.Name) 
+                            { value = (string) val };
                             visualField.RegisterCallback<ChangeEvent<string>>
                                 (evt => { MemberChangeCallback(member, evt); });
                             break;
                         case TypeCode.Int32:
-                            visualField = new LBSCustomIntField(member.Name) { value = (int) val };
+                            visualField = new LBSCustomIntField(member.Name) 
+                            { value = (int) val };
                             visualField.RegisterCallback<ChangeEvent<int>>
                                 (evt => { MemberChangeCallback(member, evt); });
                             break;
+                        case TypeCode.UInt32:
+                            visualField = new LBSCustomUnsignedIntegerField() 
+                            { label = member.Name, value = (uint) val };
+                            visualField.RegisterCallback<ChangeEvent<uint>>
+                                (evt => { MemberChangeCallback(member, evt); });
+                            break;
                         case TypeCode.Single:
-                            visualField = new LBSCustomFloatField(member.Name) { value = (float)val };
+                            visualField = new LBSCustomFloatField(member.Name) 
+                            { value = (float) val };
                             visualField.RegisterCallback<ChangeEvent<float>>
                                 (evt => { MemberChangeCallback(member, evt); });
                             break;
                         case TypeCode.Boolean:
-                            visualField = new LBSCustomToggleField(member.Name) { value = (bool) val };
+                            visualField = new LBSCustomToggleField(member.Name) 
+                            { value = (bool) val };
                             visualField.RegisterCallback<ChangeEvent<bool>>
                                 (evt => { MemberChangeCallback(member, evt); });
                             break;
@@ -511,7 +505,7 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
                                 (evt =>{ MemberChangeCallback(member, evt); });
                             break;
                         default:
-                            Debug.LogError("[LayerTemplateEditor]");
+                            Debug.LogError($"[LayerTemplateEditor]: Type {type.Name} with code {code.ToString()} is not currently supported.");
                             break;
                     }
 

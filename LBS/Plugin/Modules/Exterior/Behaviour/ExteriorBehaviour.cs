@@ -65,7 +65,6 @@ namespace ISILab.LBS.Behaviours
             }
         }
 
-        [ShowOnLayerTemplate]
         public ConnectedTileType GridType
         {
             get

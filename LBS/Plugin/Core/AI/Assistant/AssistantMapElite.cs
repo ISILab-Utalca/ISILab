@@ -7,7 +7,7 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Categorization;
 using ISILab.LBS.Plugin.Core.AI.Optimization;

@@ -2,7 +2,7 @@ using ISILab.AI.Grammar;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Assistants;
 using LBS.Components;
 using Newtonsoft.Json;
 using System;
@@ -70,7 +70,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         #region PROPERTIE
 
-        [JsonIgnore] public uint SuggestionAmount
+        [JsonIgnore, ShowOnLayerTemplate]
+        public uint SuggestionAmount
         {
             get => suggestionAmount;
             set => suggestionAmount = value;
