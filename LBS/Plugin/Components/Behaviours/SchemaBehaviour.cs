@@ -40,6 +40,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
        //     BlockedDoor // within wall connection. Opened by trigger
         };
 
+        public static List<string> DefaultConnections = new() { "Empty", "Empty", "Empty", "Empty" };
+
         public const string Empty = "Empty";
         public const string Wall = "Wall";
         public const string Door = "Door";
@@ -580,7 +582,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             {
                 var newTile = AddTile(vt.TargetPosition, zone);
                 createdTiles.Add(newTile);
-                AddConnections(newTile, new List<string> { "Empty", "Empty", "Empty", "Empty" }, new List<bool> { false, false, false, false });
+                AddConnections(newTile, DefaultConnections, new List<bool> { false, false, false, false });
             }
 
             for (int i = 0; i < virtualTiles.Count; i++)

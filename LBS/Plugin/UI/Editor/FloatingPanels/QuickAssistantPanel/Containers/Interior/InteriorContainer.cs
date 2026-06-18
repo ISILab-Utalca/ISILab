@@ -204,14 +204,13 @@ namespace ISILab.LBS.VisualElements
         }
         private void CreateRoomTiles(SchemaBehaviour schema, Zone zone, Vector2Int startPos, int size)
         {
-            var defaultConnections = new List<string> { "Empty", "Empty", "Empty", "Empty" };
             var defaultMeta = new List<bool> { true, true, true, true };
             for (int x = 0; x < size; x++)
             {
                 for (int y = 0; y < size; y++)
                 {
                     LBSTile newTile = schema.AddTile(startPos + new Vector2Int(x, y), zone);
-                    if (newTile != null) schema.AddConnections(newTile, defaultConnections, defaultMeta);
+                    if (newTile != null) schema.AddConnections(newTile, SchemaBehaviour.DefaultConnections, defaultMeta);
                 }
             }
         }
