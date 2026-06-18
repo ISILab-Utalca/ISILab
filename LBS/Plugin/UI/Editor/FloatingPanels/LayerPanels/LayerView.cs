@@ -45,6 +45,7 @@ namespace ISILab.LBS.VisualElements.Editor
         }
 
         public Action OnLayerVisibilityChangeAction;
+        private static VisualTreeAsset visualTree;
         #endregion
 
         #region CONSTRUCTOR
@@ -64,10 +65,8 @@ namespace ISILab.LBS.VisualElements.Editor
         #region INITIALIZATION
         private void CloneVisualTree()
         {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LayerView");
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("LayerView");
             visualTree.CloneTree(this);
-            Base = this;
-            Base.name = "Base";
         }
 
         private void BindUIElements()

@@ -207,7 +207,6 @@ namespace ISILab.LBS.Drawers.Editor
 
                 // disable when loading levels
                 edgeView.SetEnabled(false);
-
             }
         }
 

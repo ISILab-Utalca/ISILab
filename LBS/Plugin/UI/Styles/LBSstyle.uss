@@ -389,10 +389,40 @@ Toggle > .lbs-default-icon {
     border-width: 0;
     -unity-background-image-tint-color: rgb(255, 255, 255);
 }
-
-
-
+/* --- The Main Field Container --- */
 .lbs-input-field-float {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    align-self: stretch;
+    border-color: var(--lbs-dark-overlay-color);
+    border-width: 1px;
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+}
+
+.lbs-input-field-float > Label,
+.lbs-input-field-float > .unity-base-field__label {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    min-width: 40px; 
+    max-width: 120px;
+    margin-right: 6px; 
+    text-align: left;
+    -unity-text-align: middle-left;
+}
+
+
+.lbs-input-field-float > .unity-base-field__input,
+.lbs-input-field-float FloatInput,
+.lbs-input-field-float BaseFieldInput {
+    flex-grow: 1 !important;    
+    flex-shrink: 1 !important;   
+    flex-basis: auto !important;
+    width: 100% !important;    
+    
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
 }
 
 .lbs-inspector__show {

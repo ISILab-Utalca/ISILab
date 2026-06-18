@@ -138,10 +138,7 @@ namespace ISILab.LBS.VisualElements
             
             benchmarkToggle = this.Q<LBSCustomToggleField>("UseBenchmark");
 
-            recalculate = new Button
-            {
-                text = "Recalculate Constraints"
-            };
+            recalculate = this.Q<LBSCustomButton>("Recalc");
             recalculate.clicked += ClickedRecalculate;
 
             Add(recalculate);
