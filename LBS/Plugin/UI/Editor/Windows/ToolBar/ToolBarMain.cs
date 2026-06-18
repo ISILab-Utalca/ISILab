@@ -28,11 +28,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
         public event Action OnProgressCancelled;
         
         #region  Visual Elements
-            private LBSToolbarToggle HelpToggle;
+            private LBSCustomButton HelpToggle;
             private VisualElement taskInfo;
             private LBSCustomProgressBar taskProgressBar;
-            private LBSToolbarButton taskStopButton;
-            private LBSToolbarButton settingMenu;
+            private LBSCustomButton taskStopButton;
+            private LBSCustomButton settingMenu;
         #endregion
         
         public ToolBarMain()
@@ -48,10 +48,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
             fileMenu.menu.AppendAction("Save as", SaveAsLevel);
 
             //Button
-            settingMenu = this.Q<LBSToolbarButton>("OptionButton");
-            HelpToggle = this.Q<LBSToolbarToggle>("HelpToggle");
-            
-            LBSToolbarButton bundManBtn = this.Q<LBSToolbarButton>("BundleManagerButton");
+            settingMenu = this.Q<LBSCustomButton>("OptionButton");
+            HelpToggle = this.Q<LBSCustomButton>("HelpButton");
+
+            LBSCustomButton bundManBtn = this.Q<LBSCustomButton>("BundleManagerButton");
             bundManBtn.clickable.clicked += BundleManagerWindow.ShowWindow;
 
             // file name label
@@ -71,7 +71,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar
             
             taskInfo = this.Q<VisualElement>("TaskInfo");
             taskProgressBar = this.Q<LBSCustomProgressBar>("TaskProgressBar");
-            taskStopButton = this.Q<LBSToolbarButton>("TaskStop");
+            taskStopButton = this.Q<LBSCustomButton>("TaskStop");
             
             taskStopButton.clicked += () =>
             {

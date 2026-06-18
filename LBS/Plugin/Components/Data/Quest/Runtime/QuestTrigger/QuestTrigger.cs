@@ -4,122 +4,124 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[DisallowMultipleComponent]
-[Serializable]
-public abstract class QuestTrigger : MonoBehaviour
+namespace ISILab.LBS.Plugin.MapTools.Generators
 {
-    #region FIELDS
-
-    [SerializeField]
-    protected QuestState state;
-
-    [SerializeField]
-    private List<QuestTrigger> previous = new();
-
-    [SerializeField]
-    private List<QuestTrigger> next = new();
-
-    #endregion
-
-    #region ACTIONS
-
-    public event Action<QuestTrigger> OnTriggerCompleted;
-
-    #endregion
-
-    #region PROPERTIES
-
-    public QuestState State { get => state; set => state = value; }
-
-    /// <summary>
-    /// Gets or sets the next trigger in the sequence. 
-    /// Automatically manages the bi-directional pairing safely.
-    /// </summary>
-    public List<QuestTrigger> Next
+    [DisallowMultipleComponent]
+    [Serializable]
+    public abstract class QuestTrigger : MonoBehaviour
     {
-        get => next;
-    }
+        #region FIELDS
 
-    /// <summary>
-    /// Read-only access to the previous triggers to prevent external bypassing of validation rules.
-    /// </summary>
-    public IReadOnlyList<QuestTrigger> Previous => previous;
+        [SerializeField]
+        protected QuestState state;
 
-    #endregion
+        [SerializeField]
+        private List<QuestTrigger> previous = new();
 
+        [SerializeField]
+        private List<QuestTrigger> next = new();
 
+        #endregion
 
-    #region METHODS
+        #region ACTIONS
 
-    // Used by generator 3d
-    public abstract void InitTrigger(GraphNode paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0);
+        public event Action<QuestTrigger> OnTriggerCompleted;
 
-    public bool TryComplete()
-    {
-        if (isActiveAndEnabled && CanComplete())
+        #endregion
+
+        #region PROPERTIES
+
+        public QuestState State { get => state; set => state = value; }
+
+        /// <summary>
+        /// Gets or sets the next trigger in the sequence. 
+        /// Automatically manages the bi-directional pairing safely.
+        /// </summary>
+        public List<QuestTrigger> Next
         {
-            Complete();
-            return true;
+            get => next;
         }
 
-        return false;
-    }
+        /// <summary>
+        /// Read-only access to the previous triggers to prevent external bypassing of validation rules.
+        /// </summary>
+        public IReadOnlyList<QuestTrigger> Previous => previous;
 
-    protected virtual void Complete()
-    {
-        state = QuestState.Completed;
-        gameObject.SetActive(false);
-        OnTriggerCompleted?.Invoke(this);
-    }
-
-    // nodes should have their own check, AND & Or trigger branches check that all their previous are true
-    protected abstract bool CanComplete();
+        #endregion
 
 
-    public void AddNext(QuestTrigger nextTrigger)
-    {
-        if (nextTrigger == null || nextTrigger == this) return;
-        if (!next.Contains(nextTrigger))
+
+        #region METHODS
+
+        // Used by generator 3d
+        public abstract void InitTrigger(GraphNode paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0);
+
+        public bool TryComplete()
         {
-            next.Add(nextTrigger);
-            // Ensure the bi-directional link is maintained
-            nextTrigger.AddPrevious(this); 
-        }
-    }
-    /// <summary>
-    /// Safely registers a previous dependency without creating duplicate references.
-    /// </summary>
-    private void AddPrevious(QuestTrigger previousTrigger)
-    {
-        if (previousTrigger == null || previousTrigger == this) return;
+            if (isActiveAndEnabled && CanComplete())
+            {
+                Complete();
+                return true;
+            }
 
-        if (!previous.Contains(previousTrigger))
+            return false;
+        }
+
+        protected virtual void Complete()
         {
-            previous.Add(previousTrigger);
+            state = QuestState.Completed;
+            gameObject.SetActive(false);
+            OnTriggerCompleted?.Invoke(this);
         }
-    }
 
-    /// <summary>
-    /// Safely removes a previous dependency if it exists.
-    /// </summary>
-    public void RemovePrevious(QuestTrigger previousTrigger)
-    {
-        if (previousTrigger == null) return;
+        // nodes should have their own check, AND & Or trigger branches check that all their previous are true
+        protected abstract bool CanComplete();
 
-        if (previous.Contains(previousTrigger))
+
+        public void AddNext(QuestTrigger nextTrigger)
         {
-            previous.Remove(previousTrigger);
+            if (nextTrigger == null || nextTrigger == this) return;
+            if (!next.Contains(nextTrigger))
+            {
+                next.Add(nextTrigger);
+                // Ensure the bi-directional link is maintained
+                nextTrigger.AddPrevious(this);
+            }
         }
+        /// <summary>
+        /// Safely registers a previous dependency without creating duplicate references.
+        /// </summary>
+        private void AddPrevious(QuestTrigger previousTrigger)
+        {
+            if (previousTrigger == null || previousTrigger == this) return;
+
+            if (!previous.Contains(previousTrigger))
+            {
+                previous.Add(previousTrigger);
+            }
+        }
+
+        /// <summary>
+        /// Safely removes a previous dependency if it exists.
+        /// </summary>
+        public void RemovePrevious(QuestTrigger previousTrigger)
+        {
+            if (previousTrigger == null) return;
+
+            if (previous.Contains(previousTrigger))
+            {
+                previous.Remove(previousTrigger);
+            }
+        }
+
+        protected void ClearPrevious() => previous.Clear();
+
+        internal virtual void Activate()
+        {
+            gameObject.SetActive(true);
+            State = QuestState.Active;
+        }
+        #endregion
+
     }
-
-    protected void ClearPrevious() => previous.Clear();
-
-    internal virtual void Activate()
-    {
-        gameObject.SetActive(true);
-        State = QuestState.Active;
-    }
-    #endregion
-
 }

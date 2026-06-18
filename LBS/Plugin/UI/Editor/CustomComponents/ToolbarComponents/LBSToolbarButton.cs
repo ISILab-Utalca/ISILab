@@ -65,8 +65,7 @@ namespace ISILab.LBS.CustomComponents
         {
             RemoveFromClassList(ussClassName);
             AddToClassList(lbsClassName);
-            AddToClassList("normal-color");
-            
+         //   AddToClassList("normal-color");
         }
     }
 }

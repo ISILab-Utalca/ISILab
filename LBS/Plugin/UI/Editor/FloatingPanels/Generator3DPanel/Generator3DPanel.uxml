@@ -3,12 +3,12 @@
     <ui:VisualElement name="Panel" class="SubBackground lbs-default-container-panel" style="margin-left: 2px; margin-right: 2px;">
         <ui:VisualElement class="lbs-title-label-container">
             <ui:VisualElement name="VisualElement" class="lbs-default-label-icon lbs-3d-icon" style="background-image: resource(&apos;Icons/Vectorial/SideToolBar/3D_Icon_Vector&apos;);" />
-            <ui:Label tabindex="-1" text="3D Generator" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 12px; margin-left: 3px; margin-right: 0; margin-top: 0; margin-bottom: 0; align-items: stretch; height: 22px; width: auto; -unity-text-align: middle-center; align-self: stretch; color: rgb(255, 255, 255);" />
+            <ISILab.LBS.CustomComponents.LBSCustomLabel text="Generator" style="-unity-font-style: bold;" />
         </ui:VisualElement>
         <ISILab.LBS.CustomComponents.LBSCustomFoldout name="ButtonsFoldout" text="Generation Actions" left-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/Icon=Star.svg?fileID=7388822144124034973&amp;guid=99b7816ce61fd85449ad2379f39bb8c2&amp;type=3#Icon=Star" style="border-bottom-width: 0;">
             <ISILab.LBS.CustomComponents.LBSCustomButton tooltip="Generate 3D models of the current layer in the scene." text="Generate Current Layer" name="ButtonGenCurrentLayer" icon-image="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/SideToolBar/3DGenPanel/Icon=Build.svg?fileID=7388822144124034973&amp;guid=08a9df3527821804b88a635d3208e1d1&amp;type=3#Icon=Build" button-tint="#AAFF0016" hover-color="#FF0000FF" pressed-color="#1100FFFF" style="height: 39px;" />
             <ISILab.LBS.CustomComponents.LBSCustomButton tooltip="Generate 3D models of all the layers in the scene." text="Generate All Layers" name="ButtonGenAllLayers" button-tint="#FFFFFF00" style="height: 24px;" />
-            <ISILab.LBS.CustomComponents.LBSCustomToggleField label="Replace Previous Map" name="Replace" tooltip="Destroy the previously generated 3D model with the same name.">
+            <ISILab.LBS.CustomComponents.LBSCustomToggleField label="Replace Previous Map" name="Replace" tooltip="Destroy the previously generated 3D model with the same name." style="align-self: stretch; align-items: flex-end;">
                 <Bindings>
                     <ui:DataBinding property="value" data-source="project://database/Assets/ISILab/LBS/Plugin/Core/Settings/Resources/LBSDefaultSettings.asset?fileID=11400000&amp;guid=29abd09f3cff7644da7097258d0ae978&amp;type=2#LBSDefaultSettings" binding-mode="TwoWay" data-source-path="generator.settings.replacePrevious" />
                 </Bindings>

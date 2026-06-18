@@ -8,6 +8,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
+using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.LBS.VisualElements
 {

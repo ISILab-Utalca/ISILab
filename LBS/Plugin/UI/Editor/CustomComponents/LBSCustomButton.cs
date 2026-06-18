@@ -11,7 +11,7 @@ namespace ISILab.LBS.CustomComponents
     public partial class LBSCustomButton: Button
     {
         public readonly String LBSClassName = "lbs-button";
-        
+
         [UxmlAttribute]
         public Color ButtonTint
         {
@@ -44,7 +44,7 @@ namespace ISILab.LBS.CustomComponents
                 if (iconColor != Color.white && imageVe != null)
                 {
                     //imageVe.style.unityBackgroundImageTintColor = new StyleColor(iconColor);
-                    imageVe.tintColor = IconColor;
+                   // imageVe.tintColor = IconColor;
                 }
             }
         }
@@ -65,7 +65,6 @@ namespace ISILab.LBS.CustomComponents
             RegisterCallback<ClickEvent>((_evt => SetOverlayColors(pressedButtonTint)));
             RegisterCallback<MouseUpEvent>((_evt => SetOverlayColors(buttonTint)));
             // RegisterCallback<AttachToPanelEvent>((_evt => SetOverlayColors(buttonTint)));
-            
         }
 
         public void SetOverlayColors(Color _newColor = new Color())
