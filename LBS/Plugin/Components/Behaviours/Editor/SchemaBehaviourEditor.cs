@@ -203,11 +203,6 @@ namespace ISILab.LBS.Behaviours.Editor
             // Clear old event handlers to avoid duplicates
             areaPallete.ClearBindings();
 
-            areaPallete.ShowGroups = false;
-            areaPallete.SetName("Zones");
-            areaPallete.SetIcon(icon, BHcolor);
-            areaPallete.DisplayToolbar(false);
-
             var zones = behaviour.Zones;
             var options = new object[zones.Count];
             for (int i = 0; i < zones.Count; i++)
@@ -238,6 +233,38 @@ namespace ISILab.LBS.Behaviours.Editor
             
             areaPallete.Repaint();
 
+        }
+
+        private void SetConnectionPallete()
+        {
+            var connections = SchemaBehaviour.Connections;
+            var options = new object[connections.Count];
+            for (int i = 0; i < connections.Count; i++)
+            {
+                options[i] = connections[i];
+            }
+
+            // Select option event
+            connectionPallete.OnSelectOption += (selected) =>
+            {
+                // var tk = ToolKit.Instance;
+                behaviour.conectionToSet = selected as string;
+                //setTileConnection.ToSet = selected as string;
+                ToolKit.Instance.SetActive(typeof(AddSchemaTileConnection));
+            };
+
+            // Init options
+            connectionPallete.SetOptions(options, (optionView, option) =>
+            {
+                var arg1Label = (string)option;
+                optionView.Label = arg1Label;
+                optionView.Icon = GetOptionIcon(arg1Label);
+
+            });
+
+
+            connectionPallete.OnRepaint += () => { connectionPallete.Selected = behaviour.conectionToSet; };
+            connectionPallete.Repaint();
         }
 
 
@@ -294,6 +321,7 @@ namespace ISILab.LBS.Behaviours.Editor
             }
 
             areaPallete.Selected = behaviour.RoomToSet;
+            areaPallete.ShowNoElement = refreshedZones.Count == 0;
         }
 
         private void SelectOption(object selected)
@@ -303,47 +331,7 @@ namespace ISILab.LBS.Behaviours.Editor
             ToolKit.Instance.SetActive(typeof(AddSchemaTile));
         }
 
-        private void SetConnectionPallete()
-        {
-            connectionPallete.ShowGroups = false;
-            connectionPallete.ShowRemoveButton = false;
-            connectionPallete.ShowAddButton = false;
-            connectionPallete.ShowNoElement = false;
-            connectionPallete.DisplayToolbar(false);
-
-            connectionPallete.SetName("Connections");
-            connectionPallete.SetIcon(icon, BHcolor);
-            
-            var connections = SchemaBehaviour.Connections;
-            var options = new object[connections.Count];
-            for (int i = 0; i < connections.Count; i++)
-            {
-                options[i] = connections[i];
-            }
-            
-            // Select option event
-            connectionPallete.OnSelectOption += (selected) =>
-            {
-                // var tk = ToolKit.Instance;
-                behaviour.conectionToSet = selected as string;
-                //setTileConnection.ToSet = selected as string;
-                ToolKit.Instance.SetActive(typeof(AddSchemaTileConnection));
-            };
-
-            // Init options
-            connectionPallete.SetOptions(options, (optionView, option) =>
-            {
-                var arg1Label = (string)option;
-                optionView.Label = arg1Label;
-                optionView.Icon = GetOptionIcon(arg1Label);
-
-            });
-            
-            
-            connectionPallete.OnRepaint += () => { connectionPallete.Selected = behaviour.conectionToSet; };
-            connectionPallete.Repaint();
-        }
-
+      
         VectorImage GetOptionIcon(string label)
         {
             switch (label)

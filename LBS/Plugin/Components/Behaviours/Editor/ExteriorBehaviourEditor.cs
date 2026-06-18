@@ -202,7 +202,7 @@ namespace ISILab.LBS.VisualElements
 
             // Connection Pallete
             connectionPallete = this.Q<SimplePallete>("ConnectionPallete");
-            connectionPallete.DisplayToolbar(false);
+
             CheckTargetBundle();
 
             exterior.OwnerLayer.OnChange += () =>
@@ -223,19 +223,6 @@ namespace ISILab.LBS.VisualElements
         private void SetConnectionPallete(Bundle bundle)
         {
             if (bundle == null) return;
-
-            connectionPallete.style.display = DisplayStyle.Flex;
-            
-            // Set init options
-            connectionPallete.ShowGroups = true;
-            connectionPallete.ShowAddButton = false;
-            connectionPallete.ShowRemoveButton = false;
-            connectionPallete.ShowDropdown = false;
-            connectionPallete.ShowNoElement = false;
-            
-            // Set basic value
-            connectionPallete.SetName("Tile Brushes");
-            connectionPallete.SetIcon(icon, BHcolor);
             
             var identifierTags = LBSAssetsStorage.Instance.Get<LBSTag>();
             var idents = SetPalleteConnectionView(bundle, identifierTags);

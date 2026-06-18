@@ -88,14 +88,9 @@ namespace ISILab.LBS.VisualElements.Editor
             _showButton.clicked += () => ShowLayer(true);
             _hideButton.clicked += () => ShowLayer(false);
         }
-        
+
         public void SetStyleSelectors()
         {
-            RemoveFromClassList("unity-collection-view__item");
-            RemoveFromClassList("unity-list-view__item");
-            RemoveFromClassList("unity-collection-view__item:selected");
-            RemoveFromClassList("unity-collection-view__item:hover");
-            
             AddToClassList("lbs-list-item");
         }
         #endregion
@@ -152,18 +147,21 @@ namespace ISILab.LBS.VisualElements.Editor
         }
         #endregion
 
+
         #region SELECTION
         public void UpdateSelect(LBSLayer layer, bool FocusToggle = false)
         {
             _iconFocus.style.display = DisplayStyle.None;
-    
+
             if (layer is null || !layer.Equals(_target))
             {
-                //RemoveFromClassList("lbs-list-item:selected");
+                RemoveFromClassList("lbs-list-item--selected");
                 return;
             }
-            _iconFocus.style.display = FocusToggle ? DisplayStyle.Flex :  DisplayStyle.None;
-            AddToClassList("unity-collection-view__item:selected");
+
+            _iconFocus.style.display = FocusToggle ? DisplayStyle.Flex : DisplayStyle.None;
+
+            AddToClassList("lbs-list-item--selected");
         }
         #endregion
 

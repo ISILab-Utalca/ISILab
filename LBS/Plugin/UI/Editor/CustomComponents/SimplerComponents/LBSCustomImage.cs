@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -50,6 +51,11 @@ namespace ISILab.LBS.CustomComponents
                 this.style.backgroundImage = new StyleBackground(image);
             }
             
+        }
+
+        public static implicit operator LBSCustomImage(VectorImage v)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -63,7 +63,8 @@ namespace ISILab.LBS.CustomComponents
                 iconColor = value;
                 if (iconColor != Color.white && _toggleIconElement != null)
                 {
-                    _toggleIconElement.style.unityBackgroundImageTintColor = new StyleColor(iconColor);
+                    //_toggleIconElement.style.unityBackgroundImageTintColor = new StyleColor(iconColor);
+                    style.backgroundColor = iconColor;
                 }
             }
         }

@@ -148,26 +148,13 @@ namespace ISILab.LBS.VisualElements
             _grammarReference.RegisterValueChangedCallback(evt => ChangeGrammar(evt.newValue as LBSGrammar));
 
             _actionsPallete = this.Q<SimplePallete>("ActionsPallete");
-            _actionsPallete.DisplayAddElement = false;
-            _actionsPallete.NameLabel = "Action nodes";
-            _actionsPallete.ShowGroups = false;
-            _actionsPallete.ShowAddButton = false;
-            _actionsPallete.ShowRemoveButton = false;
-            _actionsPallete.ShowNoElement = false;
             _actionsPallete.DisplayContent(false);
 
             _conditionsPallete = this.Q<SimplePallete>("ConditionsPallete");
-            _conditionsPallete.DisplayAddElement = false;
-            _conditionsPallete.NameLabel = "Connection nodes";
-            _conditionsPallete.ShowGroups = false;
-            _conditionsPallete.ShowAddButton = false;
-            _conditionsPallete.ShowRemoveButton = false;
-            _conditionsPallete.ShowNoElement = false;
             _conditionsPallete.DisplayContent(false);
 
 
             // Init options
-
             string[] conditionals = { GraphNode.Or, GraphNode.And };
 
             object[] options = new object[conditionals.Length];
