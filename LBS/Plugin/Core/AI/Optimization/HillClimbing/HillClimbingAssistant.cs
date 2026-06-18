@@ -8,6 +8,7 @@ using ISILab.Commons.Extensions;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
@@ -74,9 +75,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         #region METHODS
 
-        public override void OnGUI()
-        {
-        }
+        public override void OnGUI() { }
 
         public bool TryExecute(out string log, out LogType type, Action<float> onProgress = null, CancellationToken token = default)
         {

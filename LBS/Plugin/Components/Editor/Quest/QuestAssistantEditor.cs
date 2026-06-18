@@ -146,7 +146,7 @@ namespace ISILab.LBS.Editor
             {
                 try
                 {
-                    var bundleToActions = _assistant.GenerateCandidates((int)GetSuggestionCount(), progress =>
+                    var bundleToActions = _assistant.GenerateCandidates((int)_assistant.SuggestionAmount, progress =>
                     {
                         ((IAssistantThreadedEditor)this).ReportProgress(0.5f * progress);
                     }, CancelToken);
@@ -170,8 +170,6 @@ namespace ISILab.LBS.Editor
                 }
             }, CancelToken);
         }
-
-        private uint GetSuggestionCount() => _suggestionField.value;
 
         #region LAYERS
         private void SetupLayerContextList()

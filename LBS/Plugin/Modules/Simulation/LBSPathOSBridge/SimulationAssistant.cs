@@ -1,7 +1,7 @@
 ﻿using LBS.Components;
 using PathOS;
 using System.Collections;
-using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Assistants;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -24,10 +24,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             return new SimulationAssistant(IconGuid, Name, ColorTint);
         }
 
-        public override void OnGUI()
-        {
-            
-        }
+        public override void OnGUI() { }
 
         public override void OnDetachLayer(LBSLayer layer)
         {

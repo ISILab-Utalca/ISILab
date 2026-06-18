@@ -74,25 +74,7 @@ namespace ISILab.LBS.Modules
             layer.ClearEvents();
             OwnerLayer = null;
         }
-        
-        public virtual FieldInfo[] GetTemplateInspectorFields()
-        {
-            List<FieldInfo> fieldInfos = new List<FieldInfo>();
-            var fields = this.GetType().GetFields(
-            BindingFlags.Instance |
-            BindingFlags.Public |
-            BindingFlags.NonPublic);
 
-            foreach (var field in fields)
-            {
-                var attribute = field.GetCustomAttribute<ShowOnTemplateInspectorAttribute>();
-
-                if (attribute == null)
-                    continue;
-                fieldInfos.Add(field);
-            }
-            return fieldInfos.ToArray();
-        }//*/
         /*
         public virtual void Reload(LBSLayer layer)
         {

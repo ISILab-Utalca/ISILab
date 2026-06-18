@@ -36,15 +36,11 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             if (layer == null) return;
             foreach (var behaviour in layer.Behaviours)
             {
-                
-                
                 behaviour?.OnGUI();
-                // invoke
             }
 
             foreach (var assistant in layer.Assistants)
             {
-                // invoke
                 assistant?.OnGUI();
             }
         }

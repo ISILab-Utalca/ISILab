@@ -74,6 +74,7 @@ namespace ISILab.LBS.Components
         #endregion
 
         #region METHODS
+        public LBSTag() { }
         public void Init(string text, Color color, VectorImage icon)
         {
             this.label = text;

@@ -36,7 +36,7 @@ MonoBehaviour:
     - rid: 6524972785853792942
     - rid: 6524972785853792958
     assistants:
-    - rid: 6524972785853792953
+    - rid: 6524972994949283941
     generatorRules:
     - rid: 6524972627821068626
     index: 0
@@ -549,9 +549,15 @@ MonoBehaviour:
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
         selectedToSet: {fileID: 0}
-        upStairTag: {fileID: 0}
-        downStairTag: {fileID: 0}
-        pathOSBundles: []
+        upStairTag: {fileID: 11400000, guid: da55ea2c6f44a1b4b8e30b331330dc6f, type: 2}
+        downStairTag: {fileID: 11400000, guid: 5a9a6c25d681c804287dfd9d654744d8, type: 2}
+        pathOSBundles:
+        - {fileID: 11400000, guid: 22707a0f0edc831458a43e3e46b1d148, type: 2}
+        - {fileID: 11400000, guid: e2fe25f577c8ede48ab66afd6c45617b, type: 2}
+        - {fileID: 11400000, guid: b65cb0f4f5bb20b43b7e7fee92b6b172, type: 2}
+        - {fileID: 11400000, guid: 33e08ed54604696458b83df4b209ce26, type: 2}
+        - {fileID: 11400000, guid: 850476f1d5157464abcd46ac05fb279b, type: 2}
+        - {fileID: 11400000, guid: fa2e4744ac692b142b16e6587e7dd614, type: 2}
     - rid: 6524972785853792953
       type: {class: SimulationAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
       data:
@@ -559,28 +565,24 @@ MonoBehaviour:
         ownerLayer:
           visible: 1
           blocked: 0
-          iconGuid: 13f64883312513a41adeb7dec75a3a5f
-          id: Simulation
-          name: Simulation_Layer
+          iconGuid: 915dd173939598c43ab48bbec50425e8
+          id: LBSLayer
+          name: Layer name
           tileSize: {x: 2, y: 2}
           floors:
-          - rid: 6524972627821068614
-          - rid: 6524972627821068615
-          - rid: 6524972627821068616
-          - rid: 6524972627821068617
-          - rid: 6524972627821068618
-          - rid: 6524972627821068619
-          - rid: 6524972627821068620
-          - rid: 6524972627821068621
-          - rid: 6524972627821068622
-          - rid: 6524972627821068623
-          behaviours:
-          - rid: 6524972785853792942
-          - rid: 6524972785853792958
-          assistants:
-          - rid: 6524972785853792953
-          generatorRules:
-          - rid: 6524972627821068626
+          - rid: 6524972994949283931
+          - rid: 6524972994949283932
+          - rid: 6524972994949283933
+          - rid: 6524972994949283934
+          - rid: 6524972994949283935
+          - rid: 6524972994949283936
+          - rid: 6524972994949283937
+          - rid: 6524972994949283938
+          - rid: 6524972994949283939
+          - rid: 6524972994949283940
+          behaviours: []
+          assistants: []
+          generatorRules: []
           index: 0
         colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
         name: SimulationAssistant
@@ -930,3 +932,77 @@ MonoBehaviour:
           - rid: 6524972627821068626
           index: 0
         notes: []
+    - rid: 6524972994949283931
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 6524972994949283932
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 6524972994949283933
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 6524972994949283934
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 6524972994949283935
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 6524972994949283936
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 6524972994949283937
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 6524972994949283938
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 6524972994949283939
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 6524972994949283940
+      type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
+      data:
+        modules: []
+    - rid: 6524972994949283941
+      type: {class: SimulationAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
+      data:
+        visible: 1
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 13f64883312513a41adeb7dec75a3a5f
+          id: Simulation
+          name: Simulation_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 6524972627821068614
+          - rid: 6524972627821068615
+          - rid: 6524972627821068616
+          - rid: 6524972627821068617
+          - rid: 6524972627821068618
+          - rid: 6524972627821068619
+          - rid: 6524972627821068620
+          - rid: 6524972627821068621
+          - rid: 6524972627821068622
+          - rid: 6524972627821068623
+          behaviours:
+          - rid: 6524972785853792942
+          - rid: 6524972785853792958
+          assistants:
+          - rid: 6524972994949283941
+          generatorRules:
+          - rid: 6524972627821068626
+          index: 0
+        colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
+        name: SimulationAssistant
+        iconGuid: ad8feef201665454ca79e31b7d798ac3
+        icon: {fileID: 0}

@@ -46,6 +46,7 @@ namespace ISILab.LBS.Behaviours
         [JsonIgnore]
         private ConnectedTileMapModule Connections => OwnerLayer.GetModule<ConnectedTileMapModule>();
 
+        [ShowOnLayerTemplate]
         public Bundle Bundle
         {
             get

@@ -18,9 +18,9 @@ MonoBehaviour:
     ySampleCount: 3
     devest: 0.5
     xEvaluator:
-      rid: 5517870021007378388
+      rid: 6524972972411978444
     yEvaluator:
-      rid: 5517870021007378389
+      rid: 6524972972411978445
     optimizer:
       rid: 7236886930071748628
     changedSample: 
@@ -30,21 +30,34 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 5517870021007378388
-      type: {class: SingleRatio, ns: ISILab.AI.Categorization, asm: LBS}
+    - rid: 6524972972411978444
+      type: {class: DCResourceSafety, ns: ISILab.AI.Categorization, asm: LBS}
       data:
-        itemCharacteristic:
-          rid: 5517870021007378390
-        targetRatio: 0.1
-    - rid: 5517870021007378389
-      type: {class: PairRatio, ns: ISILab.AI.Categorization, asm: LBS}
+        playerCharacteristic:
+          rid: 6524972972411978446
+        resources:
+        - rid: 6524972972411978447
+        - rid: 6524972972411978448
+        - rid: 6524972972411978449
+        - rid: 6524972972411978450
+        - rid: 6524972972411978451
+        - rid: 6524972972411978452
+    - rid: 6524972972411978445
+      type: {class: DCSafeArea, ns: ISILab.AI.Categorization, asm: LBS}
       data:
-        item1Characteristic:
-          rid: 5517870021007378391
-        item2Characteristic:
-          rid: 5517870021007378392
-        targetRatio: 0.5
-    - rid: 5517870021007378390
+        playerCharacteristic:
+          rid: 6524972972411978453
+        enemiesCharacteristic:
+          rid: 6524972972411978454
+    - rid: 6524972972411978446
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Player
+          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
+          tagGUID: 975a57a1811d3f743838422b5c87c58a
+    - rid: 6524972972411978447
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
@@ -52,15 +65,55 @@ MonoBehaviour:
         - tagName: Chest
           value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
           tagGUID: 08dd0ea3801e02447b5d7dd01339fa26
-    - rid: 5517870021007378391
+    - rid: 6524972972411978448
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
         tagEntries:
-        - tagName: Chest
-          value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
-          tagGUID: 08dd0ea3801e02447b5d7dd01339fa26
-    - rid: 5517870021007378392
+        - tagName: Axe
+          value: {fileID: 11400000, guid: 90c0458b7a8ee514d9c7ba0ace177f05, type: 2}
+          tagGUID: 90c0458b7a8ee514d9c7ba0ace177f05
+    - rid: 6524972972411978449
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Hammer
+          value: {fileID: 11400000, guid: 1b5f81de2f3a4ac40a031e0d2f7ddd0b, type: 2}
+          tagGUID: 1b5f81de2f3a4ac40a031e0d2f7ddd0b
+    - rid: 6524972972411978450
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Sword
+          value: {fileID: 11400000, guid: b1c5ecf1473587a42ba9abcff06c1437, type: 2}
+          tagGUID: b1c5ecf1473587a42ba9abcff06c1437
+    - rid: 6524972972411978451
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Food
+          value: {fileID: 11400000, guid: b354587b73f945f4188c7dc7026de4ef, type: 2}
+          tagGUID: b354587b73f945f4188c7dc7026de4ef
+    - rid: 6524972972411978452
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Tree
+          value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
+          tagGUID: 0147d0d479179b04a8c825d8159e70ce
+    - rid: 6524972972411978453
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Player
+          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
+          tagGUID: 975a57a1811d3f743838422b5c87c58a
+    - rid: 6524972972411978454
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
@@ -68,30 +121,92 @@ MonoBehaviour:
         - tagName: Enemies
           value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
           tagGUID: 1c34483075e8bb54d8aa70274f2eddfe
-    - rid: 5517870021456698040
-      type: {class: Colonies, ns: ISILab.AI.Categorization, asm: LBS}
+    - rid: 6524972972411978455
+      type: {class: DCExploration, ns: ISILab.AI.Categorization, asm: LBS}
       data:
-        itemCharacteristic:
-          rid: 5517870021456698048
-        maxDist: 6
-        minColonySize: 2
+        playerCharacteristic:
+          rid: 6524972972411978456
+        colliderCharacteristic:
+          rid: 6524972972411978457
+        pointsOfInterest:
+        - rid: 6524972972411978458
+        - rid: 6524972972411978459
+        - rid: 6524972972411978460
+        - rid: 6524972972411978461
+        - rid: 6524972972411978462
+        - rid: 6524972972411978463
         searchType: 1
-        searchHeuristic: 1
-    - rid: 5517870021456698048
+    - rid: 6524972972411978456
       type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
       data:
         owner: {fileID: 0}
         tagEntries:
-        - tagName: Enemies
-          value: {fileID: 11400000, guid: 1c34483075e8bb54d8aa70274f2eddfe, type: 2}
-          tagGUID: 1c34483075e8bb54d8aa70274f2eddfe
+        - tagName: Player
+          value: {fileID: 11400000, guid: 975a57a1811d3f743838422b5c87c58a, type: 2}
+          tagGUID: 975a57a1811d3f743838422b5c87c58a
+    - rid: 6524972972411978457
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Collider
+          value: {fileID: 11400000, guid: 261af09a46f50a647b4fb33a0e989c66, type: 2}
+          tagGUID: 261af09a46f50a647b4fb33a0e989c66
+    - rid: 6524972972411978458
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Chest
+          value: {fileID: 11400000, guid: 08dd0ea3801e02447b5d7dd01339fa26, type: 2}
+          tagGUID: 08dd0ea3801e02447b5d7dd01339fa26
+    - rid: 6524972972411978459
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Axe
+          value: {fileID: 11400000, guid: 90c0458b7a8ee514d9c7ba0ace177f05, type: 2}
+          tagGUID: 90c0458b7a8ee514d9c7ba0ace177f05
+    - rid: 6524972972411978460
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Hammer
+          value: {fileID: 11400000, guid: 1b5f81de2f3a4ac40a031e0d2f7ddd0b, type: 2}
+          tagGUID: 1b5f81de2f3a4ac40a031e0d2f7ddd0b
+    - rid: 6524972972411978461
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Sword
+          value: {fileID: 11400000, guid: b1c5ecf1473587a42ba9abcff06c1437, type: 2}
+          tagGUID: b1c5ecf1473587a42ba9abcff06c1437
+    - rid: 6524972972411978462
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Food
+          value: {fileID: 11400000, guid: b354587b73f945f4188c7dc7026de4ef, type: 2}
+          tagGUID: b354587b73f945f4188c7dc7026de4ef
+    - rid: 6524972972411978463
+      type: {class: LBSTagsCharacteristic, ns: ISILab.LBS.Characteristics, asm: LBS}
+      data:
+        owner: {fileID: 0}
+        tagEntries:
+        - tagName: Tree
+          value: {fileID: 11400000, guid: 0147d0d479179b04a8c825d8159e70ce, type: 2}
+          tagGUID: 0147d0d479179b04a8c825d8159e70ce
     - rid: 7236886930071748628
       type: {class: GeneticAlgorithm, ns: ISILab.LBS.Plugin.Core.AI.Optimization, asm: LBS}
       data:
         population:
           rid: 7236886930071748629
         evaluator:
-          rid: 5517870021456698040
+          rid: 6524972972411978455
         selection:
           rid: 7236886930071748630
         termination:

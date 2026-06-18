@@ -77,12 +77,14 @@ namespace ISILab.LBS.Behaviours
         {
             get => _bundleTileMap; set => _bundleTileMap = value;
         }
-
+        
         public TileMapModule TileMap => tileMap;
 
         /// <summary>
         ///  Get the bundle that contains the population elements to paint
         /// </summary>
+
+        [ShowOnLayerTemplate]
         public Bundle Bundle
         {
             get

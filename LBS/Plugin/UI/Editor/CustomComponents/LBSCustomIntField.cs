@@ -27,8 +27,9 @@ namespace ISILab.LBS.CustomComponents
             get => typeIcon;
             set => typeIcon = value;
         }
-        
-        public LBSCustomIntField() : base()
+
+        public LBSCustomIntField() { new LBSCustomIntField(""); }
+        public LBSCustomIntField(string _name = "") : base(_name)
         {
             
             addButton = new Button() { text = "+" };

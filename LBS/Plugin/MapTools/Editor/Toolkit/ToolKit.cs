@@ -1,5 +1,4 @@
 using ISILab.Commons.Utility.Editor;
-using ISILab.Extensions;
 using ISILab.LBS;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.CustomComponents;
@@ -7,22 +6,16 @@ using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Behaviours;
-using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.MapTools.Editor.Manipulators;
 using ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint;
 using ISILab.LBS.VisualElements;
-using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
-using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
 
 namespace LBS.VisualElements

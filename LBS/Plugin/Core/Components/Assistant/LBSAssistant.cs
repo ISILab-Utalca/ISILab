@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ISILab.LBS.Plugin.Components.Behaviours
+namespace ISILab.LBS.Assistants
 {
     [Serializable]
     public abstract class LBSAssistant : ICloneable
@@ -26,7 +26,14 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         private Color colorTint;
         [SerializeField, JsonRequired]
         private string name;
-        
+
+        [HideInInspector, SerializeField]
+        private string iconGuid;
+        // although not serialized because this IClonable is stored within a list of LBSLayer template
+        // unity does not keep references of objects in list of references of objects. Serialized to display in inspector
+        [SerializeField]
+        private VectorImage icon;
+
         private HashSet<object> _newTiles = new ();
         private HashSet<object> _expiredTiles = new ();
         #endregion
@@ -47,13 +54,6 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             set => ownerLayer = value;
         }
 
-        [HideInInspector, SerializeField]
-        private string iconGuid; 
-
-        // although not serialized because this IClonable is stored within a list of LBSLayer template
-        // unity does not keep references of objects in list of references of objects. Serialized to display in inspector
-        [SerializeField]
-        private VectorImage icon; 
         
         public VectorImage Icon
         {
@@ -136,14 +136,14 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         #endregion
         
         #region VISUAL ELEMENTS HANDLING METHODS
-        /* To optimally handle all the visual elements in display in the MainView of the LBS tool,
+        /* To optimally handle all the visual elements in display in the MainView of the LBS window,
          * each assistant has a HashSet of elements that it wants to draw, and a HashSet of elements
          * it wants to erase, these are _newTiles and _expiredTiles respectively.
         
          * Both of these HashSet use object as value, this object is the instance that will be
          * represented through a VisualElement, it might be a LBSTile, QuestNodeView, or even different
-         * classes from the same assistant. Eventually, all VisualElements are stored in MainView
-         * dictionaries, using the defined object as key.
+         * classes. Eventually, all VisualElements are stored in MainView dictionaries, using the defined
+         * object as key.
          
          * It is important that the key is representative of the visualElement, since if you want to
          * access it to update it, or delete it, you are gonna need to get that key's reference. For

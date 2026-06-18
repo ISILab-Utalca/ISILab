@@ -83,21 +83,21 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         #endregion
 
         #region PROPERTIES
-        [JsonIgnore]
+        [JsonIgnore, ShowOnLayerTemplate]
         public Bundle PressetInsideStyle
         {
             get => AssetMacro.LoadAssetByGuid<Bundle>(pressetInsideStyleGuid);
             set => pressetInsideStyleGuid = AssetMacro.GetGuidFromAsset(value);
         }
 
-        [JsonIgnore]
+        [JsonIgnore, ShowOnLayerTemplate]
         public Bundle PressetOutsideStyle
         {
             get => AssetMacro.LoadAssetByGuid<Bundle>(pressetOutsideStyleGuid);
             set => pressetOutsideStyleGuid = AssetMacro.GetGuidFromAsset(value);
         }
 
-        [JsonIgnore]
+        [JsonIgnore, ShowOnLayerTemplate]
         public bool MultiLayerConnections { get => multiLayerConnections; set => multiLayerConnections = value; }
 
         [JsonIgnore]
