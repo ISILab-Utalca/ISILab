@@ -139,13 +139,11 @@ namespace ISILab.LBS.VisualElements.Editor
             visualTree.CloneTree(rootVisualElement);
 
             SetUpPreset();
-            
+
             SetUpOptimizer();
 
-            // preset settings
             SetUpPresets();
 
-            // grid
             SetUpGrid();
 
             // buttons lower bar
@@ -154,7 +152,6 @@ namespace ISILab.LBS.VisualElements.Editor
             // graph of hell
             SetUpGraph();
 
-            //LAYER CONTEXT
             SetUpLayerContext();
 
             ChangeTheme(LBSSettings.Instance.view.LBSTheme);

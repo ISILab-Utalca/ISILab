@@ -43,11 +43,10 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region VIEW FIELDS
-        private VectorImage icon = AssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
         private SimplePallete connectionPallete;
         private LBSCustomObjectField bundleField;
         private WarningPanel warningPanel;
-        private string tileIconGuid = "";
+        private string tileIconGuid = "87f2bb6f2c78b184a8ea2b6a5b14f878";
         #endregion
 
         #region PROPERTIES
