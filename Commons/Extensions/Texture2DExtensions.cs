@@ -1,13 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using ISILab.Commons.Utility;
-using UnityEngine.UIElements;
 
 namespace ISILab.Extensions
 {
+    /// <summary>
+    /// Class with extension methods for Unity Texture2D.
+    /// </summary>
     public static class Texture2DExtensions
     {
         /// <summary>
