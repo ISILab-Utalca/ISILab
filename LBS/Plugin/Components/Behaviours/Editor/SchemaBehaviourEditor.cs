@@ -206,6 +206,7 @@ namespace ISILab.LBS.Behaviours.Editor
             areaPallete.ShowGroups = false;
             areaPallete.SetName("Zones");
             areaPallete.SetIcon(icon, BHcolor);
+            areaPallete.DisplayToolbar(false);
 
             var zones = behaviour.Zones;
             var options = new object[zones.Count];
@@ -308,7 +309,8 @@ namespace ISILab.LBS.Behaviours.Editor
             connectionPallete.ShowRemoveButton = false;
             connectionPallete.ShowAddButton = false;
             connectionPallete.ShowNoElement = false;
-            
+            connectionPallete.DisplayToolbar(false);
+
             connectionPallete.SetName("Connections");
             connectionPallete.SetIcon(icon, BHcolor);
             

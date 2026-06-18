@@ -33,6 +33,7 @@ namespace LBS.VisualElements
         private LBSToolbarButton addButton;
         private LBSToolbarButton removeButton;
         private LBSCustomDropdown dropdownGroup;
+        private readonly VisualElement palleteToolbar;
         private new readonly VisualElement contentContainer;
 
         #endregion
@@ -151,6 +152,8 @@ namespace LBS.VisualElements
             visualTree.CloneTree(this);
             this.AddToClassList("lbs-simple-palette");
 
+            // toolbar
+            palleteToolbar = this.Q<VisualElement>("PaletteToolbar");
             // Content
             contentContainer = this.Q<VisualElement>("Content");
            // contentContainer.style.flexDirection = FlexDirection.Row;         // Horizontal layout
@@ -216,6 +219,11 @@ namespace LBS.VisualElements
             
             dropdownGroup.label = name;
             dropdownGroup.style.display = name == "" ? DisplayStyle.None : DisplayStyle.Flex;
+        }
+        public void DisplayToolbar(bool show)
+        {
+            if (show) palleteToolbar.style.display = DisplayStyle.Flex;
+            else palleteToolbar.style.display = DisplayStyle.None;
         }
 
         public void DisplayContent(bool show)

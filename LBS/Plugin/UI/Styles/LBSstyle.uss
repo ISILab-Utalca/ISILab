@@ -2,6 +2,19 @@
 :root {
 }
 
+
+.unity-label,
+.unity-popup-field__text,
+.unity-base-popup-field__text,
+.unity-text-element
+{
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
+}
+
+.lbs-field .unity-progress-bar__background {
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+}
+
 Label {
     font-size: 12px;
     color: var(--lbs-text-color, var(--lbs-default-text-color));
@@ -32,6 +45,13 @@ Label {
 }
 
 .lbs-field Label {
+    padding-right: 4px;
+    min-width: auto;
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
+}
+
+
+.lbs-field TextElement {
     padding-right: 4px;
     min-width: auto;
     color: var(--lbs-text-color, var(--lbs-default-text-color));
@@ -362,6 +382,8 @@ Toggle > .lbs-default-icon {
     border-width: 0;
     -unity-background-image-tint-color: rgb(255, 255, 255);
 }
+
+
 
 .lbs-input-field-float {
 }
@@ -1818,9 +1840,10 @@ Toggle > .lbs-default-icon {
 }
 
 .lbs-button > TextElement {
-    color: var(--lbs-icon-color, var(--lbs-default-icon-color));
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
     margin-left: 4px;
 }
+
 
 .lbs-button > Image {
     color: var(--lbs-icon-color, var(--lbs-default-icon-color));

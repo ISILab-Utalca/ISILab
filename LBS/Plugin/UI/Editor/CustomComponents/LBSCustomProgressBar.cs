@@ -1,4 +1,5 @@
 using ISILab.DevTools.Macros;
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -18,6 +19,7 @@ namespace ISILab.LBS.CustomComponents
         private const string STYLE_CLASS_NAME = "lbs-custom-progress-bar";
         
         private Color progressThemeColor = Color.blue;
+        private Color iconThemeColor = Color.blue;
         private VectorImage iconImage;
         private string progressTextLabel = "";
 
@@ -47,6 +49,18 @@ namespace ISILab.LBS.CustomComponents
         }
 
         [UxmlAttribute]
+        public Color IconThemeColor
+        {
+            get => iconThemeColor;
+            set
+            {
+                iconThemeColor = value;
+                UpdateIconColorTheme(value);
+            }
+        }
+
+
+        [UxmlAttribute]
         public VectorImage ProgressIconImage
         {
             get => iconImage;
@@ -56,7 +70,7 @@ namespace ISILab.LBS.CustomComponents
                 if (iconImage != null)
                 {
                     icon.style.backgroundImage = new StyleBackground(iconImage);
-                    
+                    UpdateIconColorTheme(IconThemeColor);
                 }
             }
         }
@@ -110,9 +124,7 @@ namespace ISILab.LBS.CustomComponents
             
             barVisualElement = this.Query<VisualElement>(className: progressUssClassName);
             barVisualElement.AddToClassList(STYLE_CLASS_NAME + "__progress");
-            
-            
-            
+
             UpdateBarColorTheme(ProgressThemeColor);
             
             
@@ -129,6 +141,14 @@ namespace ISILab.LBS.CustomComponents
             bgColor.a = 0.2f;
             this.style.backgroundColor = bgColor;
         }
+
+        private void UpdateIconColorTheme(Color value)
+        {
+            if(icon != null)
+            {
+                icon.style.unityBackgroundImageTintColor = iconThemeColor;
+            }
+               }
     }
 }
 

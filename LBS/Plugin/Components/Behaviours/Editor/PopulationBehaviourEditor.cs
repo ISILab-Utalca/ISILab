@@ -170,11 +170,12 @@ namespace ISILab.LBS.VisualElements
 
             UpdateElementBundles();
             SetPallete();
-            bundlePallete.Repaint();
+            //bundlePallete.Repaint();
+            bundlePallete.DisplayToolbar(false);
             bundleField.value = behaviour.Bundle;
 
 
-            MarkDirtyRepaint();
+            //MarkDirtyRepaint();
             
             return this;
         }

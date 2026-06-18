@@ -202,6 +202,7 @@ namespace ISILab.LBS.VisualElements
 
             // Connection Pallete
             connectionPallete = this.Q<SimplePallete>("ConnectionPallete");
+            connectionPallete.DisplayToolbar(false);
             CheckTargetBundle();
 
             exterior.OwnerLayer.OnChange += () =>

@@ -62,7 +62,7 @@ namespace ISILab.LBS.Plugin.Internal
         #endregion
 
         #region METHODS
-        public new void CreateGUI()
+        protected override void CreateGUI()
         {
             FindDatabase();
 
