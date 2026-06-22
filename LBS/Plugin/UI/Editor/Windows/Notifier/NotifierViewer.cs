@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.CustomComponents;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -146,22 +147,13 @@ namespace LBS.VisualElements
             scrollView?.Clear();
         }
         
-        public void NotificationFlipFlop(VisualElement button)
-        {
-            notificationOn = !notificationOn;
-            if (button == null) return;
-            var tButton = button as ToolbarButton;
-            if (tButton == null) return;
-            var ve = button.Children().First() as VisualElement;
-            
-            ve.style.backgroundImage = notificationOn ? new StyleBackground(iconNotificationsOn) : new StyleBackground(iconNotificationsOff);
-            
-        }
-        
-        public void SetButtons(VisualElement cleanButton, VisualElement disableNotificationButton)
+        public void SetButtons(LBSCustomButton cleanButton, LBSCustomToggle disableNotificationButton)
         {
             cleanButton.RegisterCallback<ClickEvent>(vt => ClearNotifications());
-            disableNotificationButton.RegisterCallback<ClickEvent>(vt => NotificationFlipFlop(disableNotificationButton));
+            disableNotificationButton.RegisterValueChangedCallback(evt =>
+            {
+                notificationOn = evt.newValue;
+            });
         }
 
     }

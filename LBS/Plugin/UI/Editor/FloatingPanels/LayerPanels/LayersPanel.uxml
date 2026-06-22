@@ -3,8 +3,8 @@
     <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSOverrideStyle.uss?fileID=7433441132597879392&amp;guid=dc3922656bcc222469152418c1839f87&amp;type=3#LBSOverrideStyle" />
     <ui:VisualElement name="VisualElement" class="lbs-default-container-panel">
         <ui:VisualElement class="lbs-title-label-container" style="margin-bottom: 2px;">
-            <ui:VisualElement name="LayerIcon" class="lbs-layer-icon lbs-default-label-icon lbs-icon-tint-yellow" style="background-image: resource(&apos;Icons/Vectorial/SideToolBar/Layer_Panel_Icon&apos;);" />
-            <ui:Label tabindex="-1" text="Layers" display-tooltip-when-elided="true" name="LayerLabel" enable-rich-text="false" style="-unity-font-style: bold; padding-left: 2px; -unity-text-align: middle-left;" />
+            <ISILab.LBS.CustomComponents.LBSCustomImage name="LayerIcon" style="background-image: resource(&apos;Icons/Vectorial/SideToolBar/Layer_Panel_Icon&apos;); max-width: 24px; max-height: 24px; min-width: 24px; min-height: 24px; -unity-background-scale-mode: scale-to-fit;" />
+            <ISILab.LBS.CustomComponents.LBSCustomLabel name="LayerLabel" text="Layers" style="-unity-font-style: bold;" />
         </ui:VisualElement>
         <ISILab.LBS.CustomComponents.LBSToolbar name="ToolLayerEditor" style="height: 24px; flex-direction: row-reverse;">
             <ISILab.LBS.CustomComponents.LBSToolbarMenu toggle-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/SideToolBar/LayerPanel/Icon=Add_New_Layer.svg?fileID=7388822144124034973&amp;guid=28adcfa38ebab16439a79e6c4bd8976b&amp;type=3#Icon=Add_New_Layer" arrow-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Arrows/Icon=ArrowDown.svg?fileID=7388822144124034973&amp;guid=b570a25de51f01c41bd82dbe5372bb3f&amp;type=3#Icon=ArrowDown" display-tooltip-when-elided="true" name="AddLayerButtonMenu" tooltip="Create a New Layer" icon-color="#C2F671FF" />
@@ -12,13 +12,17 @@
             <ui:VisualElement style="flex-grow: 1;" />
             <ISILab.LBS.CustomComponents.LBSToolbarToggle toggle-icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/SideToolBar/LayerPanel/Icon=AutoFocus.svg?fileID=7388822144124034973&amp;guid=cf58ef1d5947e7041ba1377ce1d1165a&amp;type=3#Icon=AutoFocus" name="ToggleFocusButton" value="false" hide-toggle="true" style="align-items: center;" />
         </ISILab.LBS.CustomComponents.LBSToolbar>
-        <ISILab.LBS.CustomComponents.LBSCustomLabelIcon name="NoLayerNotify" label="Add a new layer to start working." icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/SideToolBar/LayerPanel/Icon=Add_New_Layer.svg?fileID=7388822144124034973&amp;guid=28adcfa38ebab16439a79e6c4bd8976b&amp;type=3#Icon=Add_New_Layer" direction="Column" icon-tint="#FFFFFF4C" />
+        <ISILab.LBS.CustomComponents.LBSCustomLabel text="Add a new layer to start working." name="NoLayerNotify" enabled="false" style="flex-grow: 1; flex-shrink: 0; -unity-text-align: upper-center; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; flex-direction: column;">
+            <ISILab.LBS.CustomComponents.LBSCustomImage style="background-image: resource(&apos;Icons/Vectorial/SideToolBar/LayerPanel/Icon=Add_New_Layer&apos;); align-self: center; margin-top: 16px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px;" />
+        </ISILab.LBS.CustomComponents.LBSCustomLabel>
         <ISILab.LBS.CustomComponents.LBSCustomListView name="List" reorderable="true" virtualization-method="DynamicHeight" show-border="true" class="lbs-group-box" />
         <ui:VisualElement name="LayerSettings" class="lbs-group-box" style="display: flex;">
             <ui:TextField picking-mode="Ignore" label="Name" value="New Layer" name="NameField" style="display: none;" />
             <ui:DropdownField label="Type" index="0" choices="System.Collections.Generic.List`1[System.String]" name="TypeDropdown" tooltip="Select the type of layer you need for your job" style="display: none;" />
             <LBS.VisualElements.LayerInfoView style="display: flex;" />
         </ui:VisualElement>
-        <ISILab.LBS.CustomComponents.LBSCustomLabelIcon name="NoSelectedLayerNotify" label="Select a specific layer to see its configuration." direction="Column" icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Icon=Layer.svg?fileID=7388822144124034973&amp;guid=915dd173939598c43ab48bbec50425e8&amp;type=3#Icon=Layer" icon-tint="#FFFFFF4C" style="-unity-background-image-tint-color: rgb(255, 255, 255);" />
+        <ISILab.LBS.CustomComponents.LBSCustomLabel text="Select a specific layer to see its configuration." name="NoSelectedLayerNotify" enabled="false" style="flex-grow: 1; flex-shrink: 0; -unity-text-align: upper-center; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; align-self: stretch;">
+            <ISILab.LBS.CustomComponents.LBSCustomImage style="background-image: resource(&apos;Icons/Vectorial/Icon=Layer&apos;); align-self: center; justify-content: center; align-items: center; margin-top: 16px;" />
+        </ISILab.LBS.CustomComponents.LBSCustomLabel>
     </ui:VisualElement>
 </ui:UXML>

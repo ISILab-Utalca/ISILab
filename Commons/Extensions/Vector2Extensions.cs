@@ -1,11 +1,20 @@
-using System.Collections;
+using ISILab.Commons;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ISILab.Extensions
 {
+    /// <summary>
+    /// Class with extension methods for Unity Vector2 and Vector2Int.
+    /// </summary>
     public static class Vector2Extensions
     {
+        /// <summary>
+        /// Converts a Vector2 to a Vector2Int.
+        /// </summary>
+        /// <param name="vector"></param>
+        /// <param name="round">Whether the components of the vector are rounded or truncated.</param>
+        /// <returns>An equivalent Vector2Int.</returns>
         public static Vector2Int ToInt(this Vector2 vector, bool round = false)
         {
             return round ?
@@ -13,21 +22,45 @@ namespace ISILab.Extensions
                 new Vector2Int((int)vector.x, (int)vector.y);
         }
 
+        /// <summary>
+        /// Converts a Vector2Int to a Vector2.
+        /// </summary>
+        /// <param name="vector"></param>
+        /// <returns>An equivalent Vector2.</returns>
         public static Vector2 ToFloat(this Vector2Int vector)
         {
             return new Vector2(vector.x, vector.y);
         }
 
+        /// <summary>
+        /// Separates a Vector2 into its components.
+        /// </summary>
+        /// <param name="vector"></param>
+        /// <returns>The components of the vector as vectors as well.</returns>
         public static List<Vector2> AsComponents(this Vector2 vector)
         {
             return new List<Vector2>() { new Vector2(vector.x, 0), new Vector2(0, vector.y) };
         }
 
+        /// <summary>
+        /// Separates a Vector2Int into its components.
+        /// </summary>
+        /// <param name="vector"></param>
+        /// <returns>The components of the vector as vectors as well.</returns>
         public static List<Vector2Int> AsComponents(this Vector2Int vector)
         {
             return new List<Vector2Int>() { new Vector2Int(vector.x, 0), new Vector2Int(0, vector.y) };
         }
 
+        /// <summary>
+        /// Get all neighbours of a vector in 4 directions.
+        /// </summary>
+        /// <remarks>
+        /// This method is obsolete. We recommend using <see cref="Directions.Bidimencional.Edges"/> instead.
+        /// </remarks>
+        /// <param name="vector"></param>
+        /// <returns>A list with all neighbours.</returns>
+        [System.Obsolete("Use Directions.Bidimencional.Edges instead.")]
         public static List<Vector2Int> Get4Connected(this Vector2Int vector)
         {
             var toR = new List<Vector2Int>();
@@ -38,6 +71,15 @@ namespace ISILab.Extensions
             return toR;
         }
 
+        /// <summary>
+        /// Get all neighbours of a vector in 8 directions.
+        /// </summary>
+        /// <remarks>
+        /// This method is obsolete. We recommend using <see cref="Directions.Bidimencional.All"/> instead.
+        /// </remarks>
+        /// <param name="vector"></param>
+        /// <returns>A list with all neighbours.</returns>
+        [System.Obsolete("Use Directions.Bidimencional.All instead.")]
         public static List<Vector2Int> Get8Connected(this Vector2Int vector)
         {
             var toR = new List<Vector2Int>();
@@ -45,17 +87,29 @@ namespace ISILab.Extensions
             {
                 for (int j = -1; j <= 1; j++)
                 {
+                    if(i == 0 && j == 0) continue;
                     toR.Add(new Vector2Int(vector.x + i, vector.y + j));
                 }
             }
             return toR;
         }
 
+        /// <summary>
+        /// Obtains an index representing the opposite 4-connected direction.
+        /// </summary>
+        /// <param name="targetDirection"></param>
+        /// <param name="directions">All 4 directions. </param>
+        /// <returns></returns>
         public static int GetEdge(this Vector2Int targetDirection, List<Vector2Int> directions)
         {
             return directions.FindIndex(d => d.Equals(-targetDirection));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="direction"></param>
+        /// <returns></returns>
         public static List<int> GetVertices(this Vector2Int direction)
         {
             int x = direction.x, y = direction.y;
