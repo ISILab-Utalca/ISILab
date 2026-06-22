@@ -382,18 +382,25 @@ namespace ISILab.LBS.VisualElements.Editor
 
             LBSMainWindow.Instance.SelectedLayer?.OnChangeUpdate();
             //Log("prev on change changed");
+
             OnSelectLayer?.Invoke(layer);
             //Log("Select layer");
+
             OnDoubleSelectLayer?.Invoke(GetSelectedLayer());
             //Log("DoubleSelect changed");
+
             LBSMainWindow.Instance.SelectedLayer?.OnChangeUpdate();
             //Log("Selected changed");
+
             LBSInspectorPanel.Instance.SetTarget(LBSMainWindow.Instance.SelectedLayer);
             //Log("Inspector SetTarget");
+
             //LBSMainWindow.Instance.SelectedLayer?.OnChangeUpdate();
             //Log("second Selected changed");
+
             RefreshUI();
            // Log("RefreshUI SetTarget");
+
            // Debug.Log($"TOTAL: {sw.ElapsedMilliseconds} ms");
         }
 

@@ -76,7 +76,7 @@ namespace ISILab.LBS.VisualElements
                     //Debug.Log($"Removed Auto Map Callback from layer {layer.Name}");
                 }
             };
-            behaviour.LevelChangedCallback = (int newFloor) =>
+            behaviour.FloorChangedCallback = (int newFloor) =>
             {
                 MapToCurrentPopulation(newFloor);
             };

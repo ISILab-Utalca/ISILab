@@ -148,7 +148,7 @@ namespace LBS.Components
             foreach (var behaviour in Behaviours)
             {
                 behaviour.ChangeLevelRender(prevFloor, newFloor);
-                behaviour.LevelChangedCallback?.Invoke(newFloor);
+                behaviour.FloorChangedCallback?.Invoke(newFloor);
             }//*/
         }
         #endregion

@@ -113,11 +113,11 @@ namespace ISILab.LBS.VisualElements
                     instance = Activator.CreateInstance(editorType, behaviour) as LBSCustomEditor;
                 }
 
-              //  Log("pre setinfo");
+                //Log("pre setinfo");
                 instance?.SetInfo(behaviour);
-                Log("Setinfo");
+                //Log("Setinfo");
                 ToolKit.Instance.SetTarget(instance);
-                Log("postTool");
+                //Log("postTool");
                 OnFocus += instance.OnFocus;
                 OnUnfocus += instance.OnUnfocus;
 

@@ -77,6 +77,7 @@ namespace ISILab.LBS.VisualElements
         public override void SetInfo(object paramTarget)
         {
             _assistant = paramTarget as HillClimbingAssistant;
+            Repaint();
         }
 
         public void SetTools(ToolKit toolKit)
