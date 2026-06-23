@@ -188,7 +188,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             return tile;
         }
 
-        public Zone AddZone()
+        public Zone AddZone(bool async = false)
         {
             string prefix = "Zone: ";
             int counter = 0;
@@ -205,7 +205,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                
             }
 
-            var c = new Color().RandomColorHSV();
+            var c = new Color().RandomColorHSV(async);
             var zone = new Zone(name, c);
 
             areas.AddZone(zone);

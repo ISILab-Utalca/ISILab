@@ -7,6 +7,7 @@ using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using LBS.Components;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -53,40 +54,69 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public BSPDungeonAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
 
-        public void Run()
+        public void RunSynced()
         {
+            // Init
             ZoneDict.Clear();
-            List<LBSTile> _newTiles = new();
             int[,] mapData = Generator.Generate(mapWidth, mapHeight, minPartitionSize, minRoomSize);
 
+            // Read mapData
             for (int i = 0; i < mapData.GetLength(0); i++)
             {
                 for (int j = 0; j < mapData.GetLength(1); j++)
                 {
+                    // Ignore if 0
                     int key = mapData[i, j];
                     if (key < 1) continue;
 
-                    Zone value;
+                    // Get or create Zone
+                    Zone value = ZoneDict.ContainsKey(key) ? ZoneDict[key] : ZoneDict[key] = Schema.AddZone();
 
-                    if (!ZoneDict.ContainsKey(key))
-                    {
-                        value = Schema.AddZone();
-                        ZoneDict[key] = value;
-                    }
-                    else
-                    {
-                        value = ZoneDict[key];
-                    }
-
+                    // Add new Tile and it's connections
                     LBSTile t = Schema.AddTile(new Vector2Int(i, j), value);
                     if (t != null) Schema.AddConnections(t, SchemaBehaviour.DefaultConnections,
                         new List<bool> { true, true, true, true });
-                    _newTiles.Add(t);
                 }
             }
+
+            // Closing and drawing
             Schema.RecalculateWalls();
             DrawManager.Instance.RedrawLevel(LBS.loadedLevel.data);
             LBSMainWindow.Instance.layerPanel.SetSelectedLayer(Schema.OwnerLayer);
+        }
+
+        public void RunAsync(Action<float> onProgress = null, CancellationToken token = default)
+        {
+            // Init
+            ZoneDict.Clear();
+            int[,] mapData = Generator.Generate(mapWidth, mapHeight, minPartitionSize, minRoomSize, true);
+
+            // Read mapData
+            int w = mapData.GetLength(0);
+            int h = mapData.GetLength(1);
+            for (int i = 0; i < mapData.GetLength(0); i++)
+            {
+                for (int j = 0; j < mapData.GetLength(1); j++)
+                {
+                    // Ignore if 0
+                    int key = mapData[i, j];
+                    if (key < 1) continue;
+
+                    // Get or create Zone
+                    Zone value = ZoneDict.ContainsKey(key) ? ZoneDict[key] : ZoneDict[key] = Schema.AddZone(true);
+
+                    // Add new Tile and it's connections
+                    LBSTile t = Schema.AddTile(new Vector2Int(i, j), value);
+                    if (t != null) Schema.AddConnections(t, SchemaBehaviour.DefaultConnections,
+                        new List<bool> { true, true, true, true });
+
+                    // Update progress bar
+                    onProgress?.Invoke((float) ((i * w) + j) / (w * h));
+                }
+            }
+            // Update progress bar
+            onProgress?.Invoke(1);
+            Thread.Sleep(1);
         }
 
         public override object Clone()

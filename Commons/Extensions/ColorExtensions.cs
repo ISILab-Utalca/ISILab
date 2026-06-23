@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using ISILab.Commons.Utility;
 
 namespace ISILab.Commons.Extensions
 {
@@ -20,14 +21,14 @@ namespace ISILab.Commons.Extensions
         /// </summary>
         /// <param name="color"></param>
         /// <returns></returns>
-        public static Color RandomColorHSV(this Color color)
+        public static Color RandomColorHSV(this Color color, bool async = false)
         {
 
             do
             {
-                float hue = Random.Range(0f, 1f);
-                float saturation = Random.Range(0.75f, 1f);
-                float value = Random.Range(0.75f, 1f);
+                float hue = SafeRandom.Range(0f, 1f, async);
+                float saturation = SafeRandom.Range(0.75f, 1f, async);
+                float value = SafeRandom.Range(0.75f, 1f, async);
                 color = Color.HSVToRGB(hue, saturation, value);
             }while(!ColorDifferentEnough(color));
             
