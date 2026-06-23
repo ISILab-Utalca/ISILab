@@ -38,13 +38,13 @@ items:
     content: >-
       [Serializable]
 
-      [RequieredModule(new Type[] { typeof(TileMapModule), typeof(BundleTileMap) })]
+      [RequieredModule(new Type[] { typeof(TileMapModule), typeof(BundleTileMapModule) })]
 
       public class TileGroupBehavior : LBSBehaviour, ICloneable
     content.vb: >-
       <Serializable>
 
-      <RequieredModule(New Type() { GetType(TileMapModule), GetType(BundleTileMap) })>
+      <RequieredModule(New Type() { GetType(TileMapModule), GetType(BundleTileMapModule) })>
 
       Public Class TileGroupBehavior Inherits LBSBehaviour Implements ICloneable
   inheritance:

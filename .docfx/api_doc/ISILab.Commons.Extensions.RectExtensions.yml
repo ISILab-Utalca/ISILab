@@ -26,10 +26,12 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RectExtensions
     path: ../Commons/Extensions/RectExtensions.cs
-    startLine: 4
+    startLine: 7
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Class containing extension methods for Unity Rect.
+  example: []
   syntax:
     content: public static class RectExtensions
     content.vb: Public Module RectExtensions
@@ -62,7 +64,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetCombinedArea
     path: ../Commons/Extensions/RectExtensions.cs
-    startLine: 10
+    startLine: 16
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
@@ -76,10 +78,13 @@ items:
     parameters:
     - id: rect
       type: UnityEngine.Rect
+      description: The rectangle to modify.
     - id: a
       type: UnityEngine.Rect
+      description: First rectangle to merge.
     - id: b
       type: UnityEngine.Rect
+      description: Second rectangle to merge.
     content.vb: Public Shared Sub GetCombinedArea(rect As Rect, a As Rect, b As Rect)
   overload: ISILab.Commons.Extensions.RectExtensions.GetCombinedArea*
   nameWithType.vb: RectExtensions.GetCombinedArea(Rect, Rect, Rect)
@@ -104,7 +109,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetCombinedArea
     path: ../Commons/Extensions/RectExtensions.cs
-    startLine: 22
+    startLine: 30
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
@@ -118,8 +123,10 @@ items:
     parameters:
     - id: rect
       type: UnityEngine.Rect
+      description: The rectangle to merge and modify.
     - id: b
       type: UnityEngine.Rect
+      description: Other rectangle to merge.
     content.vb: Public Shared Sub GetCombinedArea(rect As Rect, b As Rect)
   overload: ISILab.Commons.Extensions.RectExtensions.GetCombinedArea*
   nameWithType.vb: RectExtensions.GetCombinedArea(Rect, Rect)
@@ -144,7 +151,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: HasArea
     path: ../Commons/Extensions/RectExtensions.cs
-    startLine: 35
+    startLine: 43
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
@@ -155,10 +162,10 @@ items:
     parameters:
     - id: rect
       type: UnityEngine.Rect
-      description: ''
+      description: Rectangle to evaluate.
     return:
       type: System.Boolean
-      description: ''
+      description: <b>True</b> if the rectangle has positive area. <b>False</b> otherwise.
     content.vb: Public Shared Function HasArea(rect As Rect) As Boolean
   overload: ISILab.Commons.Extensions.RectExtensions.HasArea*
 - uid: ISILab.Commons.Extensions.RectExtensions.ToIndex(UnityEngine.Rect,UnityEngine.Vector2)
@@ -180,7 +187,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToIndex
     path: ../Commons/Extensions/RectExtensions.cs
-    startLine: 41
+    startLine: 49
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
@@ -217,10 +224,12 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GlobalToIndex
     path: ../Commons/Extensions/RectExtensions.cs
-    startLine: 48
+    startLine: 60
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Converts a 2D position to an index in a 1D array, using global position.
+  example: []
   syntax:
     content: public static int GlobalToIndex(this Rect rect, Vector2 pos)
     parameters:
@@ -228,6 +237,7 @@ items:
       type: UnityEngine.Rect
     - id: pos
       type: UnityEngine.Vector2
+      description: The 2D position to convert.
     return:
       type: System.Int32
     content.vb: Public Shared Function GlobalToIndex(rect As Rect, pos As Vector2) As Integer
@@ -251,7 +261,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToMatrixPosition
     path: ../Commons/Extensions/RectExtensions.cs
-    startLine: 54
+    startLine: 66
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
@@ -291,10 +301,12 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToGlobalPosition
     path: ../Commons/Extensions/RectExtensions.cs
-    startLine: 59
+    startLine: 75
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Converts an index in a 1D array to a 2D position, using global position.
+  example: []
   syntax:
     content: public static Vector2Int ToGlobalPosition(this Rect rect, int index)
     parameters:
@@ -302,6 +314,7 @@ items:
       type: UnityEngine.Rect
     - id: index
       type: System.Int32
+      description: The index in the 1D array to convert.
     return:
       type: UnityEngine.Vector2Int
     content.vb: Public Shared Function ToGlobalPosition(rect As Rect, index As Integer) As Vector2Int

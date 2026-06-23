@@ -723,6 +723,9 @@ items:
   - uid: ISILab.LBS.SavedMapList
     name: SavedMapList
     type: Class
+  - uid: ISILab.LBS.ShowOnLayerTemplateAttribute
+    name: ShowOnLayerTemplateAttribute
+    type: Class
 - uid: ISILab.LBS.AI.Categorization
   name: ISILab.LBS.AI.Categorization
   type: Namespace
@@ -753,6 +756,13 @@ items:
     type: Class
   - uid: ISILab.LBS.AI.Categorization.MAPElitesPreset
     name: MAPElitesPreset
+    type: Class
+- uid: ISILab.LBS.Assistants
+  name: ISILab.LBS.Assistants
+  type: Namespace
+  items:
+  - uid: ISILab.LBS.Assistants.LBSAssistant
+    name: LBSAssistant
     type: Class
 - uid: ISILab.LBS.Behaviours
   name: ISILab.LBS.Behaviours
@@ -954,8 +964,8 @@ items:
   name: ISILab.LBS.Modules
   type: Namespace
   items:
-  - uid: ISILab.LBS.Modules.BundleTileMap
-    name: BundleTileMap
+  - uid: ISILab.LBS.Modules.BundleTileMapModule
+    name: BundleTileMapModule
     type: Class
   - uid: ISILab.LBS.Modules.CloneRefs
     name: CloneRefs
@@ -1008,8 +1018,8 @@ items:
   - uid: ISILab.LBS.Modules.QuestEdge
     name: QuestEdge
     type: Class
-  - uid: ISILab.LBS.Modules.QuestGraph
-    name: QuestGraph
+  - uid: ISILab.LBS.Modules.QuestGraphModule
+    name: QuestGraphModule
     type: Class
   - uid: ISILab.LBS.Modules.SimulationEntityData
     name: SimulationEntityData
@@ -1048,9 +1058,6 @@ items:
   - uid: ISILab.LBS.Plugin.Components.Behaviours.DirConnection
     name: DirConnection
     type: Struct
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-    name: LBSAssistant
-    type: Class
   - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
     name: SchemaBehaviour
     type: Class
@@ -1255,6 +1262,9 @@ items:
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorHelper.JPSPlus
     name: EvaluatorHelper.JPSPlus
     type: Class
+  - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.EvaluatorWatcher
+    name: EvaluatorWatcher
+    type: Class
   - uid: ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators.IConfigurableEvaluator
     name: IConfigurableEvaluator
     type: Interface
@@ -1332,6 +1342,9 @@ items:
   - uid: ISILab.LBS.Plugin.Internal.LBSTextUtilities
     name: LBSTextUtilities
     type: Class
+  - uid: ISILab.LBS.Plugin.Internal.ParameterCreateState
+    name: ParameterCreateState
+    type: Enum
   - uid: ISILab.LBS.Plugin.Internal.ParameterData
     name: ParameterData
     type: Struct
@@ -1444,8 +1457,14 @@ items:
   - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
     name: QuestTracker
     type: Class
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    name: QuestTrigger
+    type: Class
   - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch
     name: QuestTriggerBranch
+    type: Class
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerNode
+    name: QuestTriggerNode
     type: Class
   - uid: ISILab.LBS.Plugin.MapTools.Generators.SchemaRuleGenerator
     name: SchemaRuleGenerator

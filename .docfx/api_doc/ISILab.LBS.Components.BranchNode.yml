@@ -5,7 +5,7 @@ items:
   id: BranchNode
   parent: ISILab.LBS.Components
   children:
-  - ISILab.LBS.Components.BranchNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraph)
+  - ISILab.LBS.Components.BranchNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraphModule)
   - ISILab.LBS.Components.BranchNode.Area
   - ISILab.LBS.Components.BranchNode.CreateCloneInstance
   - ISILab.LBS.Components.BranchNode.IsValid
@@ -66,16 +66,16 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: ISILab.LBS.Components.BranchNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraph)
-  commentId: M:ISILab.LBS.Components.BranchNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraph)
-  id: '#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraph)'
+- uid: ISILab.LBS.Components.BranchNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraphModule)
+  commentId: M:ISILab.LBS.Components.BranchNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraphModule)
+  id: '#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraphModule)'
   parent: ISILab.LBS.Components.BranchNode
   langs:
   - csharp
   - vb
-  name: BranchNode(string, Vector2, QuestGraph)
-  nameWithType: BranchNode.BranchNode(string, Vector2, QuestGraph)
-  fullName: ISILab.LBS.Components.BranchNode.BranchNode(string, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraph)
+  name: BranchNode(string, Vector2, QuestGraphModule)
+  nameWithType: BranchNode.BranchNode(string, Vector2, QuestGraphModule)
+  fullName: ISILab.LBS.Components.BranchNode.BranchNode(string, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraphModule)
   type: Constructor
   source:
     remote:
@@ -89,19 +89,19 @@ items:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: public BranchNode(string id, Vector2 position, QuestGraph graph)
+    content: public BranchNode(string id, Vector2 position, QuestGraphModule graph)
     parameters:
     - id: id
       type: System.String
     - id: position
       type: UnityEngine.Vector2
     - id: graph
-      type: ISILab.LBS.Modules.QuestGraph
-    content.vb: Public Sub New(id As String, position As Vector2, graph As QuestGraph)
+      type: ISILab.LBS.Modules.QuestGraphModule
+    content.vb: Public Sub New(id As String, position As Vector2, graph As QuestGraphModule)
   overload: ISILab.LBS.Components.BranchNode.#ctor*
-  nameWithType.vb: BranchNode.New(String, Vector2, QuestGraph)
-  fullName.vb: ISILab.LBS.Components.BranchNode.New(String, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraph)
-  name.vb: New(String, Vector2, QuestGraph)
+  nameWithType.vb: BranchNode.New(String, Vector2, QuestGraphModule)
+  fullName.vb: ISILab.LBS.Components.BranchNode.New(String, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraphModule)
+  name.vb: New(String, Vector2, QuestGraphModule)
 - uid: ISILab.LBS.Components.BranchNode.CreateCloneInstance
   commentId: M:ISILab.LBS.Components.BranchNode.CreateCloneInstance
   id: CreateCloneInstance
@@ -681,7 +681,7 @@ references:
   fullName: System
 - uid: ISILab.LBS.Components.BranchNode.#ctor*
   commentId: Overload:ISILab.LBS.Components.BranchNode.#ctor
-  href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode__ctor_System_String_UnityEngine_Vector2_ISILab_LBS_Modules_QuestGraph_
+  href: ISILab.LBS.Components.BranchNode.html#ISILab_LBS_Components_BranchNode__ctor_System_String_UnityEngine_Vector2_ISILab_LBS_Modules_QuestGraphModule_
   name: BranchNode
   nameWithType: BranchNode.BranchNode
   fullName: ISILab.LBS.Components.BranchNode.BranchNode
@@ -706,13 +706,13 @@ references:
   name: Vector2
   nameWithType: Vector2
   fullName: UnityEngine.Vector2
-- uid: ISILab.LBS.Modules.QuestGraph
-  commentId: T:ISILab.LBS.Modules.QuestGraph
+- uid: ISILab.LBS.Modules.QuestGraphModule
+  commentId: T:ISILab.LBS.Modules.QuestGraphModule
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraph.html
-  name: QuestGraph
-  nameWithType: QuestGraph
-  fullName: ISILab.LBS.Modules.QuestGraph
+  href: ISILab.LBS.Modules.QuestGraphModule.html
+  name: QuestGraphModule
+  nameWithType: QuestGraphModule
+  fullName: ISILab.LBS.Modules.QuestGraphModule
 - uid: UnityEngine
   commentId: N:UnityEngine
   isExternal: true

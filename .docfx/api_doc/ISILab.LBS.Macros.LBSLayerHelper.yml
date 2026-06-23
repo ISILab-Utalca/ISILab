@@ -9,6 +9,7 @@ items:
   - ISILab.LBS.Macros.LBSLayerHelper.GetBundleTileByPosition(UnityEngine.Vector2Int,System.Collections.Generic.List{LBS.Components.LBSLayer})
   - ISILab.LBS.Macros.LBSLayerHelper.GetObjectFromLayerChild``1(System.Object)
   - ISILab.LBS.Macros.LBSLayerHelper.GetObjectFromLayer``1(System.Object)
+  - ISILab.LBS.Macros.LBSLayerHelper.PrintReference(System.Object)
   langs:
   - csharp
   - vb
@@ -23,7 +24,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: LBSLayerHelper
     path: ../DevTools/Macros/LBSMacros/LBSLayerHelper.cs
-    startLine: 11
+    startLine: 14
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -58,7 +59,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetObjectFromLayerChild
     path: ../DevTools/Macros/LBSMacros/LBSLayerHelper.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -99,7 +100,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetObjectFromLayer
     path: ../DevTools/Macros/LBSMacros/LBSLayerHelper.cs
-    startLine: 50
+    startLine: 54
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -140,7 +141,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetBundleTileByPosition
     path: ../DevTools/Macros/LBSMacros/LBSLayerHelper.cs
-    startLine: 67
+    startLine: 71
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -176,7 +177,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetBundleTileByMouse
     path: ../DevTools/Macros/LBSMacros/LBSLayerHelper.cs
-    startLine: 86
+    startLine: 90
   assemblies:
   - LBS
   namespace: ISILab.LBS.Macros
@@ -194,6 +195,41 @@ items:
   nameWithType.vb: LBSLayerHelper.GetBundleTileByMouse(Vector2Int, List(Of LBSLayer))
   fullName.vb: ISILab.LBS.Macros.LBSLayerHelper.GetBundleTileByMouse(UnityEngine.Vector2Int, System.Collections.Generic.List(Of LBS.Components.LBSLayer))
   name.vb: GetBundleTileByMouse(Vector2Int, List(Of LBSLayer))
+- uid: ISILab.LBS.Macros.LBSLayerHelper.PrintReference(System.Object)
+  commentId: M:ISILab.LBS.Macros.LBSLayerHelper.PrintReference(System.Object)
+  id: PrintReference(System.Object)
+  parent: ISILab.LBS.Macros.LBSLayerHelper
+  langs:
+  - csharp
+  - vb
+  name: PrintReference(object)
+  nameWithType: LBSLayerHelper.PrintReference(object)
+  fullName: ISILab.LBS.Macros.LBSLayerHelper.PrintReference(object)
+  type: Method
+  source:
+    remote:
+      path: DevTools/Macros/LBSMacros/LBSLayerHelper.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: PrintReference
+    path: ../DevTools/Macros/LBSMacros/LBSLayerHelper.cs
+    startLine: 117
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Macros
+  summary: Prints an object's anme and its memory adress
+  example: []
+  syntax:
+    content: public static void PrintReference(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: target object
+    content.vb: Public Shared Sub PrintReference(obj As Object)
+  overload: ISILab.LBS.Macros.LBSLayerHelper.PrintReference*
+  nameWithType.vb: LBSLayerHelper.PrintReference(Object)
+  fullName.vb: ISILab.LBS.Macros.LBSLayerHelper.PrintReference(Object)
+  name.vb: PrintReference(Object)
 references:
 - uid: ISILab.LBS.Macros
   commentId: N:ISILab.LBS.Macros
@@ -684,4 +720,10 @@ references:
   name: GetBundleTileByMouse
   nameWithType: LBSLayerHelper.GetBundleTileByMouse
   fullName: ISILab.LBS.Macros.LBSLayerHelper.GetBundleTileByMouse
+- uid: ISILab.LBS.Macros.LBSLayerHelper.PrintReference*
+  commentId: Overload:ISILab.LBS.Macros.LBSLayerHelper.PrintReference
+  href: ISILab.LBS.Macros.LBSLayerHelper.html#ISILab_LBS_Macros_LBSLayerHelper_PrintReference_System_Object_
+  name: PrintReference
+  nameWithType: LBSLayerHelper.PrintReference
+  fullName: ISILab.LBS.Macros.LBSLayerHelper.PrintReference
 shouldSkipMarkup: true

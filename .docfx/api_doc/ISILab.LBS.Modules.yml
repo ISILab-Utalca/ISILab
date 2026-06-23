@@ -4,7 +4,7 @@ items:
   commentId: N:ISILab.LBS.Modules
   id: ISILab.LBS.Modules
   children:
-  - ISILab.LBS.Modules.BundleTileMap
+  - ISILab.LBS.Modules.BundleTileMapModule
   - ISILab.LBS.Modules.CloneRefs
   - ISILab.LBS.Modules.ConnectedTileMapModule
   - ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
@@ -22,7 +22,7 @@ items:
   - ISILab.LBS.Modules.PathOSStorage
   - ISILab.LBS.Modules.PathfindInfo
   - ISILab.LBS.Modules.QuestEdge
-  - ISILab.LBS.Modules.QuestGraph
+  - ISILab.LBS.Modules.QuestGraphModule
   - ISILab.LBS.Modules.SimulationEntityData
   - ISILab.LBS.Modules.StairShape
   - ISILab.LBS.Modules.StairsModule
@@ -49,27 +49,6 @@ references:
   name: LBSNote
   nameWithType: LBSNote
   fullName: ISILab.LBS.Modules.LBSNote
-- uid: ISILab.LBS.Modules.BundleTileMap
-  commentId: T:ISILab.LBS.Modules.BundleTileMap
-  parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.BundleTileMap.html
-  name: BundleTileMap
-  nameWithType: BundleTileMap
-  fullName: ISILab.LBS.Modules.BundleTileMap
-- uid: ISILab.LBS.Modules.TileBundleGroup
-  commentId: T:ISILab.LBS.Modules.TileBundleGroup
-  parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.TileBundleGroup.html
-  name: TileBundleGroup
-  nameWithType: TileBundleGroup
-  fullName: ISILab.LBS.Modules.TileBundleGroup
-- uid: ISILab.LBS.Modules.QuestGraph
-  commentId: T:ISILab.LBS.Modules.QuestGraph
-  parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraph.html
-  name: QuestGraph
-  nameWithType: QuestGraph
-  fullName: ISILab.LBS.Modules.QuestGraph
 - uid: ISILab.LBS.Modules.StairsModule
   commentId: T:ISILab.LBS.Modules.StairsModule
   href: ISILab.LBS.Modules.StairsModule.html
@@ -109,6 +88,20 @@ references:
   name: CloneRefs
   nameWithType: CloneRefs
   fullName: ISILab.LBS.Modules.CloneRefs
+- uid: ISILab.LBS.Modules.BundleTileMapModule
+  commentId: T:ISILab.LBS.Modules.BundleTileMapModule
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.BundleTileMapModule.html
+  name: BundleTileMapModule
+  nameWithType: BundleTileMapModule
+  fullName: ISILab.LBS.Modules.BundleTileMapModule
+- uid: ISILab.LBS.Modules.TileBundleGroup
+  commentId: T:ISILab.LBS.Modules.TileBundleGroup
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.TileBundleGroup.html
+  name: TileBundleGroup
+  nameWithType: TileBundleGroup
+  fullName: ISILab.LBS.Modules.TileBundleGroup
 - uid: ISILab.LBS.Modules.SimulationEntityData
   commentId: T:ISILab.LBS.Modules.SimulationEntityData
   parent: ISILab.LBS.Modules
@@ -251,6 +244,13 @@ references:
   name: PathfindInfo
   nameWithType: PathfindInfo
   fullName: ISILab.LBS.Modules.PathfindInfo
+- uid: ISILab.LBS.Modules.QuestGraphModule
+  commentId: T:ISILab.LBS.Modules.QuestGraphModule
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.QuestGraphModule.html
+  name: QuestGraphModule
+  nameWithType: QuestGraphModule
+  fullName: ISILab.LBS.Modules.QuestGraphModule
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html
