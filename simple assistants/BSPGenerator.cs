@@ -18,15 +18,13 @@ public class BSPDungeonGenerator
         public Leaf leftChild, rightChild;
         public RectInt room;
         public int roomId = 0;
-        private bool async;
 
-        public Leaf(int x, int y, int width, int height, bool async = false)
+        public Leaf(int x, int y, int width, int height)
         {
             this.x = x;
             this.y = y;
             this.width = width;
             this.height = height;
-            this.async = async;
         }
 
         public bool Split(int minSize)
@@ -34,7 +32,7 @@ public class BSPDungeonGenerator
             if (leftChild != null || rightChild != null) return false; // Already split
 
             // Randomly decide split direction
-            bool splitH = SafeRandom.Value(async) > 0.5f;
+            bool splitH = SafeRandom.Value() > 0.5f;
 
             // Force split direction if the partition is too wide or too tall
             if (width > height && width / (float)height >= 1.25f) splitH = false; // Cut vertically
@@ -43,17 +41,17 @@ public class BSPDungeonGenerator
             int max = (splitH ? height : width) - minSize;
             if (max <= minSize) return false; // Too small to split further
 
-            int split = SafeRandom.Range(minSize, max, async);
+            int split = SafeRandom.Range(minSize, max);
 
             if (splitH)
             {
-                leftChild = new Leaf(x, y, width, split, async);
-                rightChild = new Leaf(x, y + split, width, height - split, async);
+                leftChild = new Leaf(x, y, width, split);
+                rightChild = new Leaf(x, y + split, width, height - split);
             }
             else
             {
-                leftChild = new Leaf(x, y, split, height, async);
-                rightChild = new Leaf(x + split, y, width - split, height, async);
+                leftChild = new Leaf(x, y, split, height);
+                rightChild = new Leaf(x + split, y, width - split, height);
             }
             return true;
         }
@@ -67,7 +65,7 @@ public class BSPDungeonGenerator
     /// <param name="minPartition">Minimum size a partition can be split into.</param>
     /// <param name="minRoom">Minimum size of the actual room inside a partition.</param>
     /// <returns>A 2D int array: 0=Empty, 1=Corridor, >1=Rooms.</returns>
-    public int[,] Generate(int gridWidth, int gridHeight, int minPartition, int minRoom, bool async = false)
+    public int[,] Generate(int gridWidth, int gridHeight, int minPartition, int minRoom)
     {
         map = new int[gridWidth, gridHeight];
         minPartitionSize = minPartition;
@@ -76,7 +74,7 @@ public class BSPDungeonGenerator
         // Start counting rooms at 2 (0 = empty, 1 = corridor)
         roomCounter = 2;
 
-        Leaf root = new Leaf(0, 0, gridWidth, gridHeight, async);
+        Leaf root = new Leaf(0, 0, gridWidth, gridHeight);
         List<Leaf> leaves = new List<Leaf> { root };
 
         bool didSplit = true;
@@ -89,7 +87,7 @@ public class BSPDungeonGenerator
                 if (l.leftChild == null && l.rightChild == null)
                 {
                     // Attempt to split if it's large enough or randomly
-                    if (l.width > minPartitionSize * 2 || l.height > minPartitionSize * 2 || SafeRandom.Value(async) > 0.25f)
+                    if (l.width > minPartitionSize * 2 || l.height > minPartitionSize * 2 || SafeRandom.Value() > 0.25f)
                     {
                         if (l.Split(minPartitionSize))
                         {
@@ -103,22 +101,22 @@ public class BSPDungeonGenerator
         }
 
         // Recursively create rooms and corridors starting from the root
-        CreateRoomsAndCorridors(root, async);
+        CreateRoomsAndCorridors(root);
 
         return map;
     }
 
-    private void CreateRoomsAndCorridors(Leaf leaf, bool async)
+    private void CreateRoomsAndCorridors(Leaf leaf)
     {
         if (leaf.leftChild != null || leaf.rightChild != null)
         {
-            if (leaf.leftChild != null) CreateRoomsAndCorridors(leaf.leftChild, async);
-            if (leaf.rightChild != null) CreateRoomsAndCorridors(leaf.rightChild, async);
+            if (leaf.leftChild != null) CreateRoomsAndCorridors(leaf.leftChild);
+            if (leaf.rightChild != null) CreateRoomsAndCorridors(leaf.rightChild);
 
             // Connect the two children with a corridor
             if (leaf.leftChild != null && leaf.rightChild != null)
             {
-                CreateCorridor(GetRoomFromLeaf(leaf.leftChild, async), GetRoomFromLeaf(leaf.rightChild, async), async);
+                CreateCorridor(GetRoomFromLeaf(leaf.leftChild), GetRoomFromLeaf(leaf.rightChild));
             }
         }
         else
@@ -127,12 +125,12 @@ public class BSPDungeonGenerator
             int maxW = Mathf.Max(minRoomSize, leaf.width - 2);
             int maxH = Mathf.Max(minRoomSize, leaf.height - 2);
 
-            int w = SafeRandom.Range(minRoomSize, maxW, async);
-            int h = SafeRandom.Range(minRoomSize, maxH, async);
+            int w = SafeRandom.Range(minRoomSize, maxW);
+            int h = SafeRandom.Range(minRoomSize, maxH);
 
             // Random position inside the leaf, ensuring at least 1 pixel of padding
-            int rx = SafeRandom.Range(leaf.x + 1, leaf.x + leaf.width - w - 1, async);
-            int ry = SafeRandom.Range(leaf.y + 1, leaf.y + leaf.height - h - 1, async);
+            int rx = SafeRandom.Range(leaf.x + 1, leaf.x + leaf.width - w - 1);
+            int ry = SafeRandom.Range(leaf.y + 1, leaf.y + leaf.height - h - 1);
 
             leaf.room = new RectInt(rx, ry, w, h);
             leaf.roomId = roomCounter++;
@@ -148,33 +146,33 @@ public class BSPDungeonGenerator
         }
     }
 
-    private RectInt GetRoomFromLeaf(Leaf leaf, bool async)
+    private RectInt GetRoomFromLeaf(Leaf leaf)
     {
         if (leaf != null)
         {
             if (leaf.room.width > 0) return leaf.room;
 
-            RectInt lRoom = GetRoomFromLeaf(leaf.leftChild, async);
-            RectInt rRoom = GetRoomFromLeaf(leaf.rightChild, async);
+            RectInt lRoom = GetRoomFromLeaf(leaf.leftChild);
+            RectInt rRoom = GetRoomFromLeaf(leaf.rightChild);
 
             if (lRoom.width == 0 && rRoom.width == 0) return new RectInt();
             if (lRoom.width > 0 && rRoom.width == 0) return lRoom;
             if (rRoom.width > 0 && lRoom.width == 0) return rRoom;
 
             // If both children have rooms, pick one randomly to connect from
-            return SafeRandom.Value(async) > 0.5f ? lRoom : rRoom;
+            return SafeRandom.Value() > 0.5f ? lRoom : rRoom;
         }
         return new RectInt();
     }
 
-    private void CreateCorridor(RectInt roomA, RectInt roomB, bool async)
+    private void CreateCorridor(RectInt roomA, RectInt roomB)
     {
         // Get the center points of both rooms
         Vector2Int pointA = new Vector2Int(roomA.x + roomA.width / 2, roomA.y + roomA.height / 2);
         Vector2Int pointB = new Vector2Int(roomB.x + roomB.width / 2, roomB.y + roomB.height / 2);
 
         // Randomly choose whether to draw Horizontal-Vertical or Vertical-Horizontal
-        if (SafeRandom.Value(async) > 0.5f)
+        if (SafeRandom.Value() > 0.5f)
         {
             DrawLine(pointA.x, pointA.y, pointB.x, pointA.y); // Horizontal
             DrawLine(pointB.x, pointA.y, pointB.x, pointB.y); // Vertical

@@ -21,14 +21,14 @@ namespace ISILab.Commons.Extensions
         /// </summary>
         /// <param name="color"></param>
         /// <returns></returns>
-        public static Color RandomColorHSV(this Color color, bool async = false)
+        public static Color RandomColorHSV(this Color color)
         {
 
             do
             {
-                float hue = SafeRandom.Range(0f, 1f, async);
-                float saturation = SafeRandom.Range(0.75f, 1f, async);
-                float value = SafeRandom.Range(0.75f, 1f, async);
+                float hue = SafeRandom.Range(0f, 1f);
+                float saturation = SafeRandom.Range(0.75f, 1f);
+                float value = SafeRandom.Range(0.75f, 1f);
                 color = Color.HSVToRGB(hue, saturation, value);
             }while(!ColorDifferentEnough(color));
             

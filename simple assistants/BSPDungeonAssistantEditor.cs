@@ -33,7 +33,6 @@ namespace ISILab.LBS.VisualElements
         LBSCustomIntField minRoomField;
         LBSCustomToggle asyncToggle;
 
-
         // Constructor
         // It's important that the assistant reference is saved here,
         // and call CreateVisualElement after that.
@@ -41,15 +40,6 @@ namespace ISILab.LBS.VisualElements
         {
             assistant = target as BSPDungeonAssistant;
             CreateVisualElement();
-        }
-
-        // SetInfo
-        // Called when the selected Layer is changed. Saves the reference
-        // of the new Layer, and updates the fields after that.
-        public override void SetInfo(object paramTarget)
-        {
-            assistant = paramTarget as BSPDungeonAssistant;
-            SetFieldsInfo();
         }
 
         // CreateVisualElement
@@ -98,6 +88,14 @@ namespace ISILab.LBS.VisualElements
             return this;
         }
 
+        // SetInfo
+        // Called when the selected Layer is changed. Saves the reference
+        // of the new Layer, and updates the fields after that.
+        public override void SetInfo(object paramTarget)
+        {
+            assistant = paramTarget as BSPDungeonAssistant;
+            SetFieldsInfo();
+        }
         private void SetFieldsInfo()
         {
             // Size
@@ -112,6 +110,11 @@ namespace ISILab.LBS.VisualElements
             minRoomField.label = "Minimum Room Size";
             minRoomField.value = assistant.minRoomSize;
         }
+        /*
+        public override void SetTools()
+        {
+
+        }//*/
 
 
         // Multi-Thread Stuff

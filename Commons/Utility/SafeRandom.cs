@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 
@@ -8,20 +9,47 @@ namespace ISILab.Commons.Utility
 {
     public static class SafeRandom
     {
-        private static System.Random _rand;
-        private static System.Random Rand => _rand ??= new();
+        private static readonly ThreadLocal<System.Random> _rand =
+            new(() => new System.Random());
+        private static System.Random Rand => _rand.Value;
 
-        public static float Value(bool async = false)
+        public static float Value()
         {
-            return Range(0.0f, 1.0f, async);
+            return Range(0.0f, 1.0f);
         }
-        public static float Range(float min, float max, bool async = false)
+        public static float Range(float min, float max)
         {
-            return async ? (float)Rand.NextDouble() * (max - min) + min : UnityEngine.Random.Range(min, max);
+            return UnityThread.IsMainThread
+                ? UnityEngine.Random.Range(min, max)
+                : (float)Rand.NextDouble() * (max - min) + min;
         }
-        public static int Range(int min, int max, bool async = false)
+        public static int Range(int min, int max)
         {
-            return async ? Rand.Next(min, max) : UnityEngine.Random.Range(min, max);
+            return UnityThread.IsMainThread
+                ? UnityEngine.Random.Range(min, max)
+                : Rand.Next(min, max);
         }
+    }
+
+    public static class UnityThread
+    {
+        public static int MainThreadId { get; private set; }
+
+        [RuntimeInitializeOnLoadMethod]
+        private static void Initialize()
+        {
+            MainThreadId = Thread.CurrentThread.ManagedThreadId;
+        }
+
+        #if UNITY_EDITOR
+        [UnityEditor.InitializeOnLoadMethod]
+        private static void EditorInitialize()
+        {
+            MainThreadId = Thread.CurrentThread.ManagedThreadId;
+        }
+        #endif
+
+        public static bool IsMainThread =>
+            Thread.CurrentThread.ManagedThreadId == MainThreadId;
     }
 }
