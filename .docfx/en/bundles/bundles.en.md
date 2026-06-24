@@ -10,28 +10,31 @@ author: ["Ignacio Reyes"]
 
 ## What are Bundles?
 
-“Bundles” are intermediary scriptable objects that wrap different game assets, models , prefabs and its metadata used by LBS to generate interior, exterior, and population layer content. A bundle can contain one or more prefab assets. Bundles also contain characteristics, characteristics are the base metadata that LBS uses to know how to place bundles (and their assets) in the 3D generation process.
+“Bundles” are intermediary scriptable objects that wrap different game assets, models , prefabs and its metadata used by LBS to generate interior, exterior, and population layer content. A bundle can contain one or more prefab assets. 
 
-The dimensions and settings of each prefab will depend exclusively on the user at the moment of using the 3D generation tab. We recommend checking the transform of each prefab and secure its position.
+Bundles also contain characteristics, characteristics are the base metadata that LBS uses to know how to place bundles (and their assets) in the 3D generation process.
+
+<!-- Image example of different bundle uses -->
+
+The dimensions and settings of each prefab will depend exclusively on the users at the moment of using the 3D generation tab. We highly recommend checking thoroughly the transform and pivot of bundle's prefabs when setting up bundles.
 
 > [!NOTE]
 > If a bundle contains multiple game objects, the 3D generator will randomly use one of those, the probability of each asset can be adjusted in the inspector panel.  
 > This can be used to increase asset variability when generating levels
 
+<!-- Gif de bundle con diferentes assets / pared o piso con variaciones -->
+
 ---
 
 ## Main Bundles
 
-"Main Bundles" is how we call bundles that contain a list of other bundles. This is then used by the different LBS's assistants in order to work correctly. Users must use Main Bundles to group same-layer-bundles. You may still separate same-layer-bundles in different Main Bundles depending on their purpose.
-Example: A project with 4 Main Bundles, in which two of them are population layer bundles, one for props and one for lighting assets;
-InteriorLayer_MB, ExteriorLayer_MB, PopulationAssets_MB and PopulationLighting_MB.
+"Main Bundles" are bundles that contain a list of other bundles. This is then used by the different LBS's assistants in order to correctly show them when corresponding. Users must use Main Bundles to group same-layer-bundles. 
+
+> [!NOTE]
+>You may still separate same-layer-bundles in different Main Bundles depending on their purpose.  
+>Example: A project with 4 Main Bundles, in which two of them are population layer bundles, one for props and one for lighting assets.
 
 LBS assistants need a reference to a Main Bundle in order to work, this may be to list a set of bundles so the user can place them in the LBS window, or to create the level with the correct assets in the 3D generation step. This is why users must separate bundles in main bundles depending on their layer, but you **can still** have more than one Main Bundle for the same layer. Many times this last option will result in needing multiple same type layers for a level, which may be correct in order to get the expected result.
-
-How does LBS uses Main Bundles depending on their layer?
-- Interior Layer Main Bundles
-- Exterior Layer Main Bundles
-- Population Layer Main Bundles
 
 ---
 
