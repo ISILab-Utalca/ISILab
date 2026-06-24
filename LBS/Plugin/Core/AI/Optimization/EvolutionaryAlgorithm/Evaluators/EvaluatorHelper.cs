@@ -704,8 +704,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluator
 
             public override string ToString()
             {
-                //return $"{pos} | g = {givenCost} , h = {finalCost - givenCost} , f = {finalCost}";
-                return $"{pos}";
+                return $"{pos} | g = {givenCost} , h = {finalCost - givenCost} , f = {finalCost}";
+                //return $"{pos}";
             }
         }
 

@@ -10,6 +10,10 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 {
+    /// <summary>
+    /// Asset Grid Editor Windows work as editors for the <b>Asset Grids</b> stored in <b>Terrain Connection Grid</b> characteristics. The editor
+    /// creates a visual representation of the Asset Grid, as well as overlaying a square grid on top for easy modification of its terrain flag array.
+    /// </summary>
     public class AssetGridEditorWindow : VisualElement
     {
         #region FIELDS
@@ -34,26 +38,68 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
         #endregion
 
         #region PROPERTIES
+        /// <summary>
+        /// Points to the <b>Asset Grid</b> tied to this editor.
+        /// </summary>
         public AssetConnectionGrid AssetGrid => assetGrid;
+        /// <summary>
+        /// Points to the container for this editor's terrain flag editor grid.
+        /// </summary>
         public VisualElement GridContainer => gridContainer;
+        /// <summary>
+        /// References the asset tied to this <b>Asset Grid</b> for ease of 3D generation purposes.
+        /// </summary>
         public Asset AssetReference => AssetGrid.AssetReference;
         //For tool usage
+        /// <summary>
+        /// Points to the main editor window for the <b>Terrain Connection Grid</b> characteristic.
+        /// </summary>
         public TerrainConnectionGridEditorWindow WindowOwner => windowOwner;
+        /// <summary>
+        /// The FOV scale for the window's asset preview.
+        /// </summary>
         public float FOVScale => windowOwner.fovScale;
+        /// <summary>
+        /// References the current active tool in the <b>Terrain Connection Grid</b> editor window for ease of modification.
+        /// </summary>
         public TerrainConnectionGridEditorWindow.GridTerrainTool ActiveTool => WindowOwner.ActiveTool;
+        /// <summary>
+        /// References the current active color key in the <b>Terrain Connection Grid</b> editor window.
+        /// </summary>
         public int CurrentColorID => windowOwner.currentColor;
+        /// <summary>
+        /// References the <b>Terrain Connection Grid</b>'s color key palette.
+        /// </summary>
         public Dictionary<int, UnityEngine.Color> ColorPaletteKey => WindowOwner.ColorPaletteKey;
+        /// <summary>
+        /// References the length of the <b>Asset Grid</b> to generate the terrain flag grid.
+        /// </summary>
         public int GridLength => AssetGrid.TerrainFlag.Length;
+        /// <summary>
+        /// The square root of the <b>Asset Grid</b>'s length. Defines the length of the grid's borders.
+        /// </summary>
         public int GridLengthSqr { get { return Mathf.RoundToInt(Mathf.Sqrt(GridLength)); } }
 
         #endregion
 
         #region EVENTS
+        /// <summary>
+        /// Called when the object is removed from the hierarchy it lives in. Cleans the render preview to avoid memory leaks.
+        /// </summary>
         public Action OnRemove;
+        /// <summary>
+        /// Called when the color list from the <b>Terrain Connection Grid Editor</b> is modified. If any recently removed terrain flag coincides with terrain flags
+        /// present in this <b>Asset Grid</b>, they will automatically be turned back to their default state.
+        /// </summary>
         public Action OnColorListModified;
         #endregion
 
         #region CONSTRUCTOR
+        /// <summary>
+        /// Basic constructor. Initializes the editor's base characteristics.
+        /// </summary>
+        /// <param name="grid">The <b>Asset Grid</b> to associate to this editor window.</param>
+        /// <param name="owner">The <b>Terrain Connection Grid</b> editor window currently creating this visual element (ideally).</param>
         public AssetGridEditorWindow(AssetConnectionGrid grid, TerrainConnectionGridEditorWindow owner)
         {
             windowOwner = owner;
@@ -95,6 +141,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
         }
         #endregion
 
+        /// <summary>
+        /// Sets up the proper <b>Asset Grid</b> editor by overlaying a square grid of modifiable panels linked to the object's terrain flag list. </br>
+        /// It individually adds each modifiable square in sequence while automatically setting up their modifiable characteristics, as well as how they
+        /// interact with tools and what happens if the color palette is modified.
+        /// </summary>
         #region METHODS
         public void SetGrid()
         {
@@ -163,12 +214,19 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             }
         }
     
+        /// <summary>
+        /// Updates the <b>Asset Grid</b> editor's asset preview's scale, making the object closer or further away from the preview square.
+        /// </summary>
         public void UpdateFOVScale()
         {
             StepPreview();
         }
 
-
+        /// <summary>
+        /// Uses the currently selected tool in the <b>Terrain Connection Grid</b> editor on the selected tile.
+        /// </summary>
+        /// <param name="tile">The tile to work on.</param>
+        /// <param name="rightClick">Check if right click was used to select the tile.</param>
         public void UseToolOnTile(AssetGridTile tile, bool rightClick)
         {
             switch(ActiveTool)
@@ -184,6 +242,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                     break;
             }
         }
+
+        /// <summary>
+        /// Saves any changes made to the <b>Asset Grid</b>. Changes are not saved automatically and the Asset Grid can only be modified with this function.
+        /// </summary>
         public void SaveChanges()
         {
             foreach(AssetGridTile tile in tiles)
@@ -191,6 +253,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                 tile.OnValueSaved?.Invoke();
             }
         }
+
+        /// <summary>
+        /// Cleans up any unsaved changes done to the <b>Asset Grid</b> in the editor, reverting it back to its saved state.
+        /// </summary>
         public void RevertChanges()
         {
             foreach (AssetGridTile tile in tiles)
@@ -199,14 +265,31 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
             }
         }
 
+        /// <summary>
+        /// Uses the <b>Brush</b> tool on the selected tile, painting it with the currently selected color. If right clicked, it'll erase the current flag instead.
+        /// </summary>
+        /// <param name="tile">The tile to modify.</param>
+        /// <param name="rightClick">Check if right click was used to select the tile.</param>
         public void BrushTool(AssetGridTile tile, bool rightClick)
         {
             tile.ChangeValue(rightClick ? 0 : CurrentColorID);
         }
+        /// <summary>
+        /// Uses the <b>Eraser</b> tool on the selected tile, erasing its current terrain flag and replacing it with a default (0).
+        /// </summary>
+        /// <param name="tile">The tile to modify.</param>
+        /// <param name="rightClick">Check if right click was used to select the tile.</param>
         public void EraserTool(AssetGridTile tile, bool rightClick)
         {
             tile.ChangeValue(0);
         }
+        /// <summary>
+        /// Uses the <b>Fill</b> tool on the selected tile. It paints the selected tile with the currently selected color (or the default if right clicked),
+        /// then checks nearby tiles for the modified tile's original color. The fill tool will then recurse itself to propagate in any tiles with the same 
+        /// original color.
+        /// </summary>
+        /// <param name="tile">The tile to modify.</param>
+        /// <param name="rightClick">Check if right click was used to select the tile.</param>
         public void FillTool(AssetGridTile tile, bool rightClick)
         {
             var _oldColor = tile.ColorValue;
@@ -251,6 +334,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
 
         }
 
+        /// <summary>
+        /// Completely returns the grid back to default values.
+        /// </summary>
         public void ClearGrid()
         {
             foreach (AssetGridTile __tile in tiles)
@@ -258,7 +344,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.BundleCharacteristics
                 __tile.ChangeValue(0);
             }
         }
-
+        /// <summary>
+        /// Makes the visual highlight for the default asset visible on the asset grid if it's currently the selected default asset.
+        /// </summary>
+        /// <param name="toggle"></param>
         public void ToggleHighlight(bool toggle)
         {
             highlight.visible = toggle;

@@ -33,7 +33,16 @@ namespace ISILab.LBS.Modules
         public static List<LBSModule> Clone(this List<LBSModule> modules)
         {
             CloneRefs.Start();
-            var clone = modules.Select(m => m.Clone() as LBSModule).ToList();
+            List<LBSModule> clone;
+            try
+            {
+                clone = modules.Select(m => m.Clone() as LBSModule).ToList();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error clonando modulos: " + ex);
+                throw;
+            }
             CloneRefs.End();
 
             return clone;

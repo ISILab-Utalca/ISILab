@@ -30,10 +30,7 @@ namespace ISILab.LBS.Modules
         #endregion
 
         #region CONSTRUCTORS
-        public ConnectedZonesModule()
-        {
-
-        }
+        public ConnectedZonesModule() { }
         #endregion
 
         #region METHODS

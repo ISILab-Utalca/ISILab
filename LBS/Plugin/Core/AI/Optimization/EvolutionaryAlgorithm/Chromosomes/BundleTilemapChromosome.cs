@@ -16,7 +16,7 @@ namespace ISILab.AI.Categorization
 {
     public class BundleTilemapChromosome : ChromosomeBase2D, IDrawable, IChromosome
     {
-        public BundleTilemapChromosome(BundleTileMap tileMap, Rect rect, HashSet<int> immutables = null, HashSet<int> invalids = null) : base(rect, immutables, invalids)
+        public BundleTilemapChromosome(BundleTileMapModule tileMap, Rect rect, HashSet<int> immutables = null, HashSet<int> invalids = null) : base(rect, immutables, invalids)
         {
             var groups = tileMap.Groups;
 

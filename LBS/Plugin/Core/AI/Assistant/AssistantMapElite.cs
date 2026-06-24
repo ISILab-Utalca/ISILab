@@ -7,7 +7,7 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Categorization;
 using ISILab.LBS.Plugin.Core.AI.Optimization;
@@ -27,7 +27,7 @@ using UnityEngine;
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
     [System.Serializable]
-    [RequieredModule(typeof(BundleTileMap))]
+    [RequieredModule(typeof(BundleTileMapModule))]
     public class AssistantMapElite : LBSAssistant
     {
         #region FIELDS
@@ -109,9 +109,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         #endregion
 
         #region CONSTRUCTORS
-        public AssistantMapElite(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
-        {
-        }
+        public AssistantMapElite(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
         #endregion
 
         #region METHODS
@@ -203,7 +201,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         private Rect GetDefaultLayerArea()
         {
             //Grabs the owner layer area
-            return OwnerLayer.GetModule<BundleTileMap>().GetBounds();
+            return OwnerLayer.GetModule<BundleTileMapModule>().GetBounds();
         }
 
         private Rect GetLayerContextArea(out List<string> logs)
@@ -288,7 +286,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public void SetAdam(Rect rect, List<LBSLayer> contextLayers = null)
         {
-            var tm = OwnerLayer.GetModule<BundleTileMap>();
+            var tm = OwnerLayer.GetModule<BundleTileMapModule>();
             var chrom = new BundleTilemapChromosome(tm, rect, CalcImmutables(rect), CalcInvalids(rect, contextLayers));
             mapElites.Adam = chrom;
         }
@@ -331,7 +329,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             //}
             #endregion
 
-            var tm = OwnerLayer.GetModule<BundleTileMap>();
+            var tm = OwnerLayer.GetModule<BundleTileMapModule>();
             foreach (TileBundleGroup g in tm.Groups)
             {
                 foreach (LBSTile t in g.TileGroup)
@@ -482,7 +480,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 AutoSelectArea(out _);
             }
 
-            var currentBundleMap = OwnerLayer.GetModule<BundleTileMap>();
+            var currentBundleMap = OwnerLayer.GetModule<BundleTileMapModule>();
             if (currentBundleMap == null) return Vector3.negativeInfinity;
 
             if (mapElites.XEvaluator != null) InitializeEvaluator(mapElites.XEvaluator);

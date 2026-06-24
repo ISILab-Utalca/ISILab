@@ -3,6 +3,7 @@ using ISILab.Extensions;
 using ISILab.LBS;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
@@ -43,7 +44,6 @@ namespace LBS.Components
         #endregion
 
         #region Properties
-        [JsonIgnore] public List<LBSModule> FirstModules => floors[0].Modules;
 
         [JsonIgnore] public bool IsVisible { get => visible; set => visible = value; }
         [JsonIgnore] public bool IsBlocked { get => blocked; set => blocked = value; }
@@ -60,7 +60,12 @@ namespace LBS.Components
         [JsonIgnore] public List<LBSAssistant> Assistants => new(assistants);
         [JsonIgnore] public List<LBSGeneratorRule> GeneratorRules => new(generatorRules);
 
-        //[JsonIgnore] public LBSGenerator3DSettings Settings { get => settings; set => settings = value; }
+        // "First" lists are less safe, but are meant to be used in editor
+        // as a quick way to make design changes.
+        [JsonIgnore] public List<LBSModule> FirstModules => floors[0].Modules;
+        [JsonIgnore] public List<LBSBehaviour> FirstBehaviours => behaviours;
+        [JsonIgnore] public List<LBSAssistant> FirstAssistants => assistants;
+        [JsonIgnore] public List<LBSGeneratorRule> FirstGeneratorRules => generatorRules;
 
         [JsonIgnore]
         public Vector2Int TileSize
@@ -183,6 +188,20 @@ namespace LBS.Components
                 else break;
             }
             return removed;
+        }
+
+        public void RemoveModuleInAllFloors(LBSModule module)
+        {
+            for (int i = 0; i < floors.Length; i++)
+            {
+                var toRemove = floors[i].Modules.Find(m => m.ID == module.ID);
+                if (toRemove != null)
+                {
+                    floors[i].Modules.Remove(toRemove);
+                    try { toRemove.OnDetach(this); } catch { /* swallow detach errors */ }
+                    OnRemoveModule?.Invoke(this, toRemove);
+                }
+            }
         }
 
         public LBSModule GetModule(int levelIndex, int posIndex) => floors[levelIndex].Modules[posIndex];

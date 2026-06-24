@@ -1,0 +1,774 @@
+using ISILab.AI.Grammar;
+using ISILab.DevTools.Macros;
+using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
+using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Core.AI.Assistant;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+namespace ISILab.LBS.Modules
+{
+    /// <summary>
+    /// The graph contains the quest nodes and edges, it also contains the grammar reference to validate the graph and the root node reference to easily access it.
+    /// 
+    /// <para>
+    /// Also contains multiple actions and delegates to update the graph and notify the changes to the editor and the following classes:
+    /// <list type="bullet">
+    ///     <item><description><see cref="QuestBehaviour"/>: Controls the adding, removal of graph nodes and edges.</description></item>
+    ///     <item><description><see cref="NodeDataBehaviour"/>: Controls data assignment within a graph node of QuestNode type</description></item>
+    ///     
+    ///     <item><description><see cref="GrammarAssistant"/>: Controls the validity of the graph's structure and gives fixing recommendations.</description></item>
+    ///     <item><description><see cref="QuestAssistant"/>: Reads context from other layers (assigned by the user) and recommends new nodes based on the other layer's data.</description></item>
+    /// </list>
+    /// </para>
+    /// </summary>
+    [Serializable]
+    public class QuestGraphModule : LBSModule, ICloneable, ISelectable
+    {
+        #region CONSTANTS
+        private const string defaultGrammarGuid = "14cb4d99b22a94a45bac4216aca3f57e"; // Default grammar guid
+        public const float ViewNodeWidthOffset = 100f;
+        public const float SuggestionDistance = 1.5f;
+        #endregion
+
+        #region FIELDS
+        [SerializeField, SerializeReference]
+        private List<GraphNode> graphNodes = new();
+       
+        [SerializeField, SerializeReference]
+        private List<QuestEdge> graphEdges = new();
+
+        [SerializeField, SerializeReference]
+        private QuestNode root;
+       
+        [SerializeField]
+        private string grammarGuid = defaultGrammarGuid;
+
+        private LBSGrammar grammar;
+
+        private GraphNode selectedNode;
+
+        #endregion
+
+        #region PROPERTIES
+        public QuestNode Root => root;
+        public List<GraphNode> GraphNodes => graphNodes;
+        public List<QuestEdge> GraphEdges => graphEdges;
+
+        /// <summary>
+        /// Grammar whose's rules and terminals are used to assign and validate quest nodes. It must be stored using GUIDs to avoid corruption.
+        /// </summary>
+        [ShowOnLayerTemplate]
+        public LBSGrammar Grammar
+        {
+            get
+            {
+                if (grammar != null) return grammar;
+
+                Grammar = AssetMacro.LoadAssetByGuid<LBSGrammar>(grammarGuid)
+                      ?? AssetMacro.LoadAssetByGuid<LBSGrammar>(defaultGrammarGuid);
+
+                return grammar;
+            }
+            set
+            {
+                grammar = value;
+                grammarGuid = AssetMacro.GetGuidFromAsset(Grammar);
+                ValidateGraph();
+            }
+        }
+
+        /// <summary>
+        /// The active selected graph node by the user.
+        /// </summary>
+        public GraphNode SelectedGraphNode
+        {
+            get => selectedNode;
+            set
+            {
+                if (value is not null && selectedNode is not null)
+                {
+                    if (value.Equals(selectedNode)) return;
+                }
+
+
+                // assign if its null or it is a graphnode contained in the existing nodes
+                if (value == null || (value is not null && GraphNodes.Contains(value)))
+                {
+
+                    // deselect the previous node
+                    selectedNode?.OnDeselect?.Invoke();
+
+                    selectedNode = value;
+                    Reselect();
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// Access to the graph nodes of QuestNode type
+        /// </summary>
+        public List<QuestNode> QuestNodes =>
+            graphNodes.OfType<QuestNode>().ToList();
+        /// <summary>
+        /// Access to the selected graph node as a QuestNode
+        /// </summary>
+        public QuestNode SelectedQuestNode => SelectedGraphNode as QuestNode;
+        /// <summary>
+        /// Access to the data of the selected QuestNode
+        /// </summary>
+        public QuestNodeData SelectedQuestData => SelectedQuestNode?.Data;
+
+        #endregion
+
+        #region ACTIONS
+
+        public Action OnUpdateGraph;
+        public Action<GraphNode> OnNodeSelected;
+        public Action<Vector2Int> GoToNodeInGraph;
+        public Action<QuestEdge> OnAddEdge;
+        public Action<QuestEdge> OnRemoveEdge;
+        public Action<GraphNode> OnAddNode;
+        public Action<GraphNode> OnRemoveNode;
+
+        #endregion
+
+        #region CONSTRUCTOR
+        public QuestGraphModule()
+        {
+            // changing one edge can change the values of all the graph so we recheck all the graph for
+            ActionExtensions.AddUnique(ref OnAddEdge, PostEdge);
+            ActionExtensions.AddUnique(ref OnRemoveEdge, PostEdge);
+            ActionExtensions.AddUnique(ref OnAddNode, PostAddNode);
+            ActionExtensions.AddUnique(ref OnRemoveNode, PostRemoveNode);
+        }
+
+
+        #endregion
+
+        #region METHODS
+
+        #region Action methods
+        public void Reselect()
+        {
+            // delegeates related to the graph node selection
+            OnNodeSelected?.Invoke(selectedNode);
+
+            // delgates related to the node only
+            selectedNode?.OnSelect?.Invoke();
+        }
+
+        private void PostEdge(QuestEdge edge) => ValidateGraph();
+
+        private void PostAddNode(GraphNode node)
+        {
+            SelectedGraphNode = node;
+            ValidateGraph();
+        }
+
+        private void PostRemoveNode(GraphNode node)
+        {
+            if (SelectedGraphNode == node) 
+                SelectedGraphNode = null;
+        }
+
+        #endregion
+
+        #region Validation
+
+        private void ValidateData()
+        {
+            foreach (var qn in QuestNodes)
+            {
+                qn.validData = qn.Data.IsValid();
+            }
+        }
+
+        private void ValidateGrammar()
+        {
+            if (GraphEdges.Count == 0) return;
+
+            GrammarAssistant assistant = OwnerLayer.GetAssistant<GrammarAssistant>();
+            if (assistant == null) throw new Exception("No GrammarAssistant found");
+
+            assistant.ValidateGraphGrammar();
+
+        }
+        
+        private void ValidateConnections()
+        {
+            //  Update quest node types (Goal or Middle) by their connections
+            foreach (QuestEdge innerEdge in GraphEdges)
+            {
+                if (innerEdge.To is QuestNode qn)
+                {
+                    if (qn == root) continue;
+                    qn.NodeType = GetBranches(qn).Any()
+                        ? QuestNode.ENodeType.Middle
+                        : QuestNode.ENodeType.Goal;
+                }
+            }
+            // we must revalidate all edges connections
+            foreach (QuestEdge edge in GraphEdges)
+            {
+                // destination node validation
+                GraphNode dest = edge.To;
+                int destRoots = GetRoots(dest).Count;
+                int destBranches = GetBranches(dest).Count;
+                dest.ValidConnections = destRoots > 0 && destBranches > 0;
+
+                // source nodes validation
+                GraphNode from = edge.From;
+                int roots = GetRoots(from).Count;
+                int branches = GetBranches(from).Count;
+                from.ValidConnections = roots > 0 && branches > 0;
+
+                if (dest is QuestNode { NodeType: QuestNode.ENodeType.Goal } goalNode)
+                {
+                    bool hasBranches = GetBranches(goalNode).Any();
+                    bool hasRoots = GetRoots(goalNode).Any();
+                    // the goal must not have branches!
+                    goalNode.ValidConnections = !hasBranches && hasRoots;
+                }
+            }
+
+
+        }
+
+        /// <summary>
+        /// Checks and updates the validation of the whole graph against the grammar rules, the nodes' data and connections. 
+        /// It should be called after any change in the graph to make sure the graph is updated and valid.
+        /// </summary>
+        public void ValidateGraph()
+        {
+            // reset all connections validations
+            foreach (GraphNode node in GraphNodes)
+            {
+                node.ValidConnections = false;
+                node.ValidGrammar = false;
+                if (node is QuestNode qn)
+                    qn.validData = false;
+            }
+
+            ValidateData();
+            ValidateConnections();
+            ValidateGrammar();
+            RootValidation();
+
+            OnUpdateGraph?.Invoke();
+        }
+
+
+        #endregion
+
+        #region Nodes
+
+        public T GetNodeAtPosition<T>(Vector2 pos) where T : GraphNode
+        {
+            foreach (GraphNode node in graphNodes)
+            {
+                if (node.NodePosition.Contains(pos) && node is T casted)
+                    return casted;
+            }
+            return null;
+        }
+
+        
+        public GraphNode AddNewNode(QuestBehaviour behaviour, Vector2 pos)
+        {
+            if (behaviour.activeGraphNodeType is null) 
+                return null;
+
+            // adding a quest action node
+            if (behaviour.activeGraphNodeType == typeof(QuestNode))
+                return AddQuestNode(behaviour.ActionToSet, pos);
+
+            // adding a branching node
+            return AddBranch(behaviour, pos);
+        }
+
+
+        /// <summary>
+        /// Adds a quest node from a given action type and position. The action type is used to assign the terminalID of the node, which is used to validate the node's data and grammar rules.
+        /// </summary>
+        /// <param name="action">terminal(for example, "kill")</param>
+        /// <param name="pos">position the node gets added at</param>
+        /// <returns>the added <see cref="QuestNode"/></returns>
+        public QuestNode AddQuestNode(string action, Vector2 pos)
+        {
+            string uniqueId = GenerateUniqueId(action, QuestNodes.Select(n => n.ID));
+            QuestNode node = new QuestNode(uniqueId, pos, action, this);
+            AddNode(node);
+            return node;
+        }
+
+        /// <summary>
+        /// Adds an <see cref="OrNode"/> or an <see cref="AndNode"/> in the graph.
+        /// </summary>
+        /// <param name="behaviour">the behaviour that determines the type of node to add</param>
+        /// <param name="pos">position the node gets added at</param>
+        /// <returns></returns>
+        private GraphNode AddBranch(QuestBehaviour behaviour, Vector2 pos)
+        {
+            GraphNode node = behaviour.activeGraphNodeType == typeof(OrNode)
+             ? new OrNode(string.Empty, pos, this)
+             : new AndNode(string.Empty, pos, this);
+
+            node.ID = GenerateUniqueId(node.ToString(), GraphNodes.Select(n => n.ID));
+            AddNode(node);
+            return node;
+        }
+
+        public void AddSuggestionNode(QuestNode generatedQuestNode)
+        {
+            if(generatedQuestNode is null) return;
+            Vector2Int pos = generatedQuestNode.NodePosition.position.ToInt();
+            Vector2 graphPos = OwnerLayer.FixedToPosition(pos, true);
+            QuestNode node = AddQuestNode(generatedQuestNode.TerminalID, graphPos);
+             node.Data = generatedQuestNode.Data;
+             node.NodePosition = new Rect(
+                 graphPos, 
+                 generatedQuestNode.NodePosition.size * SuggestionDistance);
+        }
+
+        
+        public void AddNode(GraphNode node)
+        {
+            graphNodes.Add(node);
+
+            if (node is QuestNode qn)
+            {
+                if (root == null) 
+                    SetRoot(qn);
+            }
+
+            OnAddNode?.Invoke(node);
+        }
+
+        public void RemoveNode(GraphNode node)
+        {
+            graphNodes.Remove(node);
+            
+            foreach (QuestEdge e in GetEdgesWithNode(node))
+            {
+                RemoveEdge(e); 
+            }
+
+            if (Equals(node, root)) root = null;
+            OnRemoveNode?.Invoke(node);
+        }
+        #endregion
+
+        #region Edges
+        
+        /// <summary>
+        /// Checks to avoid loops in the graph by traversing it from the destination node to the source node, if it finds the source node again it means there is a loop and the connection should not be added.
+        /// </summary>
+        /// <param name="origin">starting node</param>
+        /// <param name="current">iteration node</param>
+        /// <param name="visited">set of marked visited nodes</param>
+        /// <returns>true if a loop is found, false otherwise</returns>
+        public bool IsLooped(GraphNode origin, GraphNode current, HashSet<GraphNode> visited)
+        {
+            if (Equals(origin, current))
+                return true;
+
+            if (!visited.Add(current))
+                return false;
+
+            // Traverse *forward only* (branches)
+            foreach (QuestEdge branch in GetBranches(current))
+            {
+                if (IsLooped(origin, branch.To, visited))
+                    return true;
+            }
+  
+            return false;
+        }
+
+        public Tuple<string, LogType> AddEdge(GraphNode from, GraphNode to)
+        {
+            QuestEdge newEdge = new QuestEdge(from, to);
+            graphEdges.Add(newEdge);
+            OnAddEdge?.Invoke(newEdge);
+
+            return Tuple.Create($"Connection: {from.ToString()} → {to.ToString()}", LogType.Log);
+        }
+
+
+        public bool RemoveEdge(QuestEdge edge)
+        {
+            if (edge == null) return false;
+            OnRemoveEdge?.Invoke(edge);
+            graphEdges.Remove(edge);
+            return true;
+        }
+
+        /// <summary>
+        /// Returns a <see cref="QuestEdge"/>. by passing a position and a delta distance(error margin) to check if its near the edge's middle point connection.
+        /// </summary>
+        /// <param name="pos">Position to check</param>
+        /// <param name="delta">Delta distance (error margin)</param>
+        /// <returns>The edge if found, otherwise null</returns>
+        public QuestEdge GetEdge(Vector2 pos, float delta)
+        {
+            foreach (QuestEdge e in graphEdges)
+            {
+                Vector2 c1 = new Rect(e.From.NodePosition).center;
+                Vector2 c2 = new Rect(e.To.NodePosition).center;
+                if (pos.DistanceToLine(c1, c2) < delta)
+                    return e;
+
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Finds any <see cref="QuestEdge"/> where either the source or destination is the param node
+        /// </summary>
+        /// <param name="node">node to find</param>
+        /// <returns>list of edges</returns>
+        private List<QuestEdge> GetEdgesWithNode(GraphNode node) =>
+            graphEdges.Where(e => e.From == node || e.To.Equals(node)).ToList();
+
+        /// <summary>
+        /// Finds all the <see cref="QuestEdge"/> where the param node is the source, so it can be considered as the branches of that node.
+        /// </summary>
+        /// <param name="node">source node</param>
+        /// <returns>list of edges</returns>
+        public List<QuestEdge> GetBranches(GraphNode node)
+        {
+            List<QuestEdge> list = new List<QuestEdge>();
+            
+            if (!graphNodes.Contains(node)) 
+                return list;
+            
+            foreach (QuestEdge edge in graphEdges)
+            {
+                // root found -> can obtain branches from it
+                if (!Equals(edge.From, node))
+                    continue;
+
+                if (!graphNodes.Contains(edge.To)) 
+                    continue;
+
+                if (!graphNodes.Contains(edge.From))
+                    continue;
+
+                list.Add(edge);
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// Finds all the <see cref="QuestEdge"/> that have the param node as destination.
+        /// </summary>
+        /// <param name="node">destination node</param>
+        /// <returns>list of edges</returns>
+        public List<QuestEdge> GetRoots(GraphNode node)
+        {
+            List<QuestEdge> valid = new List<QuestEdge>();
+
+            foreach (QuestEdge edge in graphEdges)
+            {
+                // to found -> can obtain roots from it
+                if (!Equals(edge.To, node)) 
+                    continue;
+                
+                if (!graphNodes.Contains(edge.To)) 
+                    continue;
+
+                if (!graphNodes.Contains(edge.From))
+                    continue;
+
+                valid.Add(edge);
+            }
+
+            return valid;
+        }
+
+           
+        #endregion
+        
+        #region AssistantCalls
+        
+         /// <summary>
+        /// finds the edge of a referenced node. makes a new action that turns into the "To"
+        /// of the connection and makes a new edge from the new action and the original "To"
+        /// of the referenced node
+        /// </summary>
+        /// <param name="action">The action type for the new node</param>
+        /// <param name="referenceNode">The node after which the new node will be inserted</param>
+        public QuestNode InsertQuestNodeAfter(string action, QuestNode referenceNode)
+        {
+            if (referenceNode == null || !graphNodes.Contains(referenceNode))
+            {
+                Debug.LogWarning("Reference node is null or not in the graph. Adding as regular node.");
+                return AddQuestNode(action, Vector2.zero);
+            }
+
+            // Position new node next to reference
+            Vector2 position = referenceNode.NodePosition.position;
+            position.x += (int)ViewNodeWidthOffset;
+
+            QuestNode newNode = AddQuestNode(action, position);
+
+            // Move all outgoing edges of reference so they start at new node
+            foreach (QuestEdge edge in GetBranches(referenceNode).ToList())
+            {
+                RemoveEdge(edge);
+                AddEdge(newNode, edge.To);
+            }
+            
+            // Add edge from reference → new node
+            AddEdge(referenceNode, newNode);
+
+            SelectedGraphNode = newNode;
+            return newNode;
+        }
+
+
+
+        /// <summary>
+        /// Inserts a new node before a specified reference node
+        /// </summary>
+        /// <param name="action">The action type for the new node</param>
+        /// <param name="referenceNode">The node before which the new node will be inserted</param>
+        public QuestNode InsertQuestNodeBefore(string action, QuestNode referenceNode)
+        {
+            if (referenceNode == null || !graphNodes.Contains(referenceNode))
+            {
+                Debug.LogWarning("Reference node is null or not in the graph. Adding as regular node.");
+                return AddQuestNode(action, Vector2.zero);
+            }
+
+            // Position new node next to reference
+            Vector2 position = referenceNode.NodePosition.position;
+            position.x -= (int)ViewNodeWidthOffset;
+
+            QuestNode newNode = AddQuestNode(action, position);
+
+            // Move all incoming edges of reference so they start at new node
+            foreach (QuestEdge edge in GetRoots(referenceNode).ToList())
+            {
+                RemoveEdge(edge);
+                AddEdge(edge.From, newNode);
+            }
+            
+            // Add edge from new node →reference
+            AddEdge(newNode, referenceNode);
+            OnUpdateGraph?.Invoke();
+
+            SelectedGraphNode = newNode;
+
+            return newNode;
+        }
+        
+        /// <summary>
+        /// Inserts all the nodes to replace the reference node
+        /// </summary>
+        /// <param name="expandActions">all the actions that correspond to a new node</param>
+        /// <param name="referenceNode">the node that will be expanded(replaced)</param>
+        public QuestNode ExpandNode(List<string> expandActions, QuestNode referenceNode)
+        {
+            if(!expandActions.Any()) return null;
+
+            QuestNode iterationNode = referenceNode;
+            
+            // cant' redo connections with a root already in use
+            if(Equals(referenceNode, Root)) SetRoot(null);
+            
+            List<QuestNode> newNodes = new List<QuestNode>();
+
+            // add from the previous index position to add the new ones
+            for (int i = 0; i < expandActions.Count; i++)
+            {
+                QuestNode newNode = InsertQuestNodeAfter(expandActions[i], iterationNode);
+                newNodes.Add(newNode);
+                iterationNode = newNode;
+            }
+
+            // the nodes whose destination is the reference node
+            if (newNodes.Any())
+            {
+                List<QuestEdge> roots = referenceNode.Graph.GetRoots(referenceNode);
+                foreach (QuestEdge edge in roots)
+                {
+                    AddEdge(edge.From, newNodes.First());
+                }
+            }
+
+            RemoveNode(referenceNode);
+            SelectedGraphNode = iterationNode;
+            return iterationNode;
+        }
+
+        #endregion
+
+        #region Root
+        /// <summary>
+        /// Assigns a new root to the graph. It must be a <see cref="QuestNode"/>
+        /// </summary>
+        /// <param name="node">The node to set as root</param>
+        public void SetRoot(QuestNode node)
+        {
+            if (node == root) return;
+
+            if (root != null)
+            {
+                root.NodeType = QuestNode.ENodeType.Middle;
+            }
+            
+            root = node;
+            if(root != null) root.NodeType = QuestNode.ENodeType.Start;
+
+            ValidateGraph();
+        }
+
+        /// <summary>
+        /// Make sure the root has no roots, at least one branch (valid connections) and its nodetype is <see cref="QuestNode.ENodeType.Start"/>
+        /// </summary>
+        private void RootValidation()
+        {
+           if(root is not null) 
+            {
+                var roots = !GetRoots(root).Any();
+                var branches = GetBranches(root).Any();
+                root.ValidConnections = roots && branches; 
+                root.NodeType = QuestNode.ENodeType.Start;
+            }
+        }
+
+        #endregion
+
+        #region Clone & Utils
+
+        /// <summary>
+        /// Check if there are any nodes in the graph
+        /// </summary>
+        /// <returns></returns>
+        public override bool IsEmpty() => graphNodes.Count == 0;
+
+        public override object Clone()
+        {
+            QuestGraphModule clone = new QuestGraphModule { grammarGuid = grammarGuid };
+ 
+            // cloning nodes and their data
+            var nodes = graphNodes.Select(CloneRefs.Get).Cast<GraphNode>();
+            foreach (GraphNode n in nodes)
+            {
+                if(n is QuestNode qn)
+                {
+                    if (Root is not null)
+                    {
+                        if (Root.ID == qn.ID)
+                        {
+                            clone.root = qn;
+                        }
+                    }
+                   
+                }
+                clone.graphNodes.Add(n);
+                n.Graph = clone;
+            }
+
+            // cloning edges
+            var edges = graphEdges.Select(CloneRefs.Get).Cast<QuestEdge>();
+            foreach (QuestEdge e in edges) clone.graphEdges.Add(e);
+
+            return clone;
+        }
+
+        public List<object> GetSelected(Vector2Int pos)
+        {
+            var list = new List<object>();
+            GraphNode node = GetGraphNode(pos);
+            if (node != null) list.Add(node);
+            return list;
+        }
+
+        private GraphNode GetGraphNode(Vector2Int pos) =>
+            graphNodes.FirstOrDefault(n => n.Position == pos);
+
+        #endregion
+
+        #region Unused
+        public void ChangeConnection(QuestEdge edge, Type graphNodeType) =>
+            throw new NotImplementedException();
+
+        public override void Print() => throw new NotImplementedException();
+        public override void Clear() => throw new NotImplementedException();
+        public override Rect GetBounds() => throw new NotImplementedException();
+        public override void Rewrite(LBSModule other) => throw new NotImplementedException();
+
+        /// <summary>
+        /// Checks that all the graph nodes have valid connections.
+        /// </summary>
+        /// <returns>true or false</returns>
+        internal bool HasValidConnections()
+        {
+            foreach (var node in GraphNodes)
+            {
+                if (!node.ValidConnections) return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Checks that all the graph nodes meet grammar structure requirements/rules
+        /// </summary>
+        /// <returns>true or false</returns>
+        internal bool HasValidGrammar()
+        {
+            foreach (var node in GraphNodes)
+            {
+                if (!node.ValidGrammar) return false;
+            }
+            return true;
+
+        }
+
+        /// <summary>
+        /// Checks that all nodes(<see cref="QuestNode"/>)'s fields <see cref="QuestNodeData.Fields"/> are valid, according to their terminal definitions.
+        /// For example, a <see cref="GrammarBundleGraph"/> must have a tile(<see cref="TileBundleGroup"/>) reference assigned from another layer.
+        /// </summary>
+        /// <returns>true or false</returns>
+        internal bool HasValidData()
+        {
+            foreach (var node in QuestNodes)
+            {
+                if (!node.Data.IsValid()) return false;
+            }
+            return true;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Generates an unique ID
+        /// </summary>
+        /// <param name="baseName">the base name: the action name</param>
+        /// <param name="existingIds">the list of existing IDs</param>
+        /// <returns>the unique ID</returns>
+        public static string GenerateUniqueId(string baseName, IEnumerable<string> existingIds)
+        {
+            var enumerable = existingIds.ToList();
+            if (!enumerable.Contains(baseName))
+                return baseName;
+
+            int suffix = 1;
+            string uniqueId;
+            do { uniqueId = $"{baseName} ({suffix++})"; }
+            while (enumerable.Contains(uniqueId));
+            return uniqueId;
+        }
+
+        #endregion
+
+    }
+}

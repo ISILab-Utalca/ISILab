@@ -37,7 +37,7 @@ namespace ISILab.LBS.Editor
         #endregion
 
         #region PROPERTIES
-        private QuestGraph Graph => assistant?.Graph;
+        private QuestGraphModule Graph => assistant?.Graph;
         #endregion
 
         #region VIEW

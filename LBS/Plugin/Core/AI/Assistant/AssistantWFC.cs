@@ -9,7 +9,7 @@ using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Components.Bundles;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Internal;

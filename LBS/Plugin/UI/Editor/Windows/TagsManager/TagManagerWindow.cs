@@ -16,13 +16,23 @@ using static ISILab.LBS.Plugin.UI.Editor.Windows.BundleManager.BundleManagerWind
 
 namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
 {
+    /// <summary>
+    /// The <b>Tag Manager</b> Window can be accessed from the main LBS interface. It's a simple interface that immediately initializes all tags currently
+    /// stored in the application and allows for easy manipulation of them.
+    /// </summary>
     public class TagManagerWindow : ThemeableWindow
     {
+        /// <summary>
+        /// References the currently instatiated window to ensure no memory leaks.
+        /// </summary>
         public static TagManagerWindow Instance { get; private set; }
 
         #region FIELDS
         private static List<ScriptableObject> allTagGroups = new();
         private static List<ScriptableObject> allTags = new();
+        /// <summary>
+        /// A list containing all orphan tags loaded in the project.
+        /// </summary>
         public static List<ScriptableObject> _orphanTags = new();
 
         //VISUAL ELEMENTS
@@ -36,18 +46,45 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
         #endregion
 
         #region PROPERTIES
+        /// <summary>
+        /// A list with every single tag loaded in the current project.
+        /// </summary>
         public static List<ScriptableObject> AllTags => allTags;
+        /// <summary>
+        /// A list with every <b>Tag Group</b> loaded in the project.
+        /// </summary>
         public static List<ScriptableObject> AllTagGroups => allTagGroups;
 
         #endregion
 
         #region EVENTS
+        /// <summary>
+        /// Called when the window is closed.
+        /// </summary>
         public static Action OnClosed;
+        /// <summary>
+        /// Called when a particular <b>Tag Group</b> is selected.
+        /// </summary>
         public static Action<LBSTagGroup> OnTagGroupSelected;
+        /// <summary>
+        /// Called when a <b>Tag Group</b> is attempted to be removed via the window.
+        /// </summary>
         public static Action<LBSTagListGroup> OnRemovableGroupRemoved;
+        /// <summary>
+        /// Called when a tag is added for immediate initialization. A <b>Tag Group</b> can be added to the call to immediately associate the added tag to it.
+        /// </summary>
         public static Action<LBSTagGroup, LBSTag> OnTagAdded;
+        /// <summary>
+        /// Called when a <b>Tag Group</b> is added for immediate initialization.
+        /// </summary>
         public static Action<LBSTagGroup> OnTagGroupAdded;
+        /// <summary>
+        /// Called when a tag is removed from its current group and orphaned.
+        /// </summary>
         public static Action<LBSTag> OnTagOrphaned;
+        /// <summary>
+        /// Called when a tag is succesfully added to a <b>Tag Group</b> to automatically remove it from its orphan group.
+        /// </summary>
         public static Action<LBSTag> OnTagUnorphaned;
         #endregion
                
@@ -103,6 +140,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
 
         #region METHODS
         
+        /// <summary>
+        /// Scans the LBS Asset Storage, then initializes and stores all tags found within the tag manager window. The initialized tags are then divided
+        /// between tags, <b>Tag Groups</b> and <b>orphan</b> tags (tags without a Tag Group assigned).
+        /// </summary>
         public void FindAllTags()
         {
             //Reset first
@@ -124,6 +165,16 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             Debug.Log(_orphanTags.Count + " orphan tags found");
         }
 
+        /// <summary>
+        /// Instantiates the visual element for a <b>Tag List Group</b>.
+        /// </summary>
+        /// <param name="groupList">A list with all the objects to be stored within the group.
+        /// The list can be composed of tags, <b>Tag Groups</b> or a combination of both.</param>
+        /// <param name="name">The visual element's name.</param>
+        /// <param name="removable">Checks if the object is removable or not. A removable element will have a removal button enabled.</param>
+        /// <param name="buttons">A list of every button to be bound to the new visual element. The button list can be checked in the "<b>BindAllButtons</b>" method
+        /// in the <b>Tag List Group</b> object.</param>
+        /// <returns>The generated visual element is returned, allowing the window to easily add it to a corresponding container.</returns>
         public LBSTagListGroup GenerateTagGroups(List<ScriptableObject> groupList, string name = "Tags", bool removable = false, List<int> buttons = null)
         {
             var tagGroups = new LBSTagListGroup();
@@ -136,7 +187,10 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             }
             return tagGroups;
         }
-
+        
+        /// <summary>
+        /// Creates a new <b>Create Tag Group</b> window connected to the Tag Manager to allow creation of a new <b>Tag Group</b>.
+        /// </summary>
         public static void CreateNewTagGroup()
         {
             Debug.Log("Creating new tag (debug)");
@@ -147,6 +201,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             createTag.ShowWindow();
         }
 
+        /// <summary>
+        /// Creates a new <b>Create Tag</b> window connected to the Tag Manager to allow creating a new tag.
+        /// </summary>
+        /// <param name="group">The <b>Tag List Group</b> currently creating this tag. If the group is associated to a <b>Tag Group</b>, the
+        /// window will immediately try to assign the new tag to it.</param>
         public static void CreateNewTag(LBSTagListGroup group)
         {
             Debug.Log("Creating new tag (debug)");
@@ -165,6 +224,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             createTag.ShowWindow();
         }
 
+        /// <summary>
+        /// Attempts to select and expand a <B>Tag Group</B> after selection. The function will attempt to add the Tag Group to the Tag Manager's container if
+        /// it isn't already initialized, and will attempt to remove it if it is (functioning as a toggle).
+        /// </summary>
+        /// <param name="group">The <b>Tag Group</b> to be expanded.</param>
         public void SelectTagGroup(LBSTagGroup group)
         {
             if (group == null) return;
@@ -190,7 +254,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
                 tagGroupsContainer.Remove(findGroup);
             }
         }
-
+        /// <summary>
+        /// Associates a tag to a <b>Tag Group</b>, both within the asset and within the visual element.
+        /// </summary>
+        /// <param name="group">The <b>Tag Group</b> to add the tag to.</param>
+        /// <param name="tag">The tag to be added.</param>
         public void AssociateTag(LBSTagGroup group, LBSTag tag)
         {
             allTags.Add(tag);
@@ -210,12 +278,20 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             }
         }
 
+        /// <summary>
+        /// Associates a <b>Tag Group</b> to the window's tag group list in case a new one is created within the window.
+        /// </summary>
+        /// <param name="group"></param>
         public void AssociateGroup(LBSTagGroup group)
         {
             allTagGroups.Add(group);
             groupTagsGroup.OnTagCreated?.Invoke(group);
         }
 
+        /// <summary>
+        /// Adds an orphan tag to the window's orphan tag list, then refreshes all bindings in the window.
+        /// </summary>
+        /// <param name="toAdd"></param>
         public void AddOrphanTag(LBSTag toAdd)
         {
             _orphanTags.Add(toAdd);
@@ -225,6 +301,11 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
                 group.RebindButtons();
             }
         }
+
+        /// <summary>
+        /// Removes an orphan tag from the window's orphan tag list, then refreshes all bindings in the window.
+        /// </summary>
+        /// <param name="toRemove"></param>
         public void RemoveOrphanTag(LBSTag toRemove)
         {
             _orphanTags.Remove(toRemove);
@@ -235,11 +316,20 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             }
         }
 
+        /// <summary>
+        /// Finds the <b>Tag List Group</b> for a particular <b>Tag Group</b>.
+        /// </summary>
+        /// <param name="lookingFor">The <b>Tag Group</b> being currently searched.</param>
+        /// <returns></returns>
         public LBSTagListGroup FindVisualForGroup(LBSTagGroup lookingFor)
         {
             return groupedTagsContainerList.Find(c => c.AssociatedTag == lookingFor);
         }
 
+        /// <summary>
+        /// Removes a <b>Tag List Group</b> from the Tag Manager Window.
+        /// </summary>
+        /// <param name="group">The <b>Tag List Group</b> to remove.</param>
         public void CleanElement(LBSTagListGroup group)
         {
             var findGroup = groupedTagsContainerList.Find(c => c.Equals(group));
@@ -249,6 +339,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             }
         }
 
+        /// <summary>
+        /// Simply opens the Tag Manager window and sets its dimensions appropriately.
+        /// </summary>
         [MenuItem("Window/ISILab/Tag Manager", priority = 2)]
         public static void ShowWindow()
         {
@@ -257,6 +350,9 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             window.minSize = new Vector2(340, 500); // use the Canvas Size of the uxml
             window.titleContent = new GUIContent("Tag Manager", icon);
         }
+        /// <summary>
+        /// Closes the window.
+        /// </summary>
         public static void CloseWindow()
         {
             TagManagerWindow window = GetWindow<TagManagerWindow>();

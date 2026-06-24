@@ -15,6 +15,10 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
 {
+    /// <summary>
+    /// A list visual element containing a <b>Tag Group</b> (or an abstract element containing Tag Groups within itself). It can then display all elements
+    /// associated with the main objcet and allow them to be easily manipulated.
+    /// </summary>
     [UxmlElement]
     public partial class LBSTagListGroup : LBSBaseListGroup
     {
@@ -32,7 +36,15 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         private VectorImage sortAscending;
         private VectorImage sortDescending;
         protected LBSToolbarToggle toggleSortButton;
+
+        /// <summary>
+        /// A custom enumerator encompassing all three sorting types available for the element. Elements can be sorted by their original internal order as well
+        /// as alphabetically, ascending or descending.
+        /// </summary>
         protected enum SortType { Disabled, Ascending, Descending };
+        /// <summary>
+        /// The current sorting type currently applying to the Visual Element.
+        /// </summary>
         protected SortType currentSort;
 
         #endregion
@@ -44,11 +56,17 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #endregion
 
         #region PROPERTIES
+        /// <summary>
+        /// References the current object associated to the Tag List. It can be either a tag or a <b>Tag Group</b>.
+        /// </summary>
         public ScriptableObject AssociatedTag
         {
             get => associatedTag;
             set => associatedTag = value;
         }
+        /// <summary>
+        /// The name applied to the Tag List. Usually shared with the associated <b>Tag Group</b>, but can be freely personalized.
+        /// </summary>
         public string TagListName
         {
             get => tagListName;
@@ -61,11 +79,17 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 }
             }
         }
+        /// <summary>
+        /// References the object list contained within the Tag List.
+        /// </summary>
         public List<object> TagList
         {
             get => tagList;
         }
 
+        /// <summary>
+        /// Enables or disables the <b>Remove</b> button in the visual element, depending on whether it's marked as removable or non-removable.
+        /// </summary>
         [UxmlAttribute]
         public bool isRemovable
         {
@@ -83,22 +107,43 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 }
             }
         }
-
+        /// <summary>
+        /// References the List View object in which all elements within the Tag List are stored.
+        /// </summary>
         public ListView TagListView => listView;
         #endregion
 
         #region EVENTS
+        /// <summary>
+        /// Called when a tag is removed from the associated object. Normally called to remove the visual residue of the element.
+        /// </summary>
         public Action<object> OnTagRemoved;
+        /// <summary>
+        /// Called when a tag is created within the associated object. Currently used to automatically instantiate it within the visual element.
+        /// </summary>
         public Action<object> OnTagCreated;
+        /// <summary>
+        /// Called when the sorting type for the object is changed to refresh it in real time.
+        /// </summary>
         public Action OnSortToggle;
+        /// <summary>
+        /// Called when the <b>Add</b> button is pressed in the element. Currently unused.
+        /// </summary>
         public Action OnAddButton;
         #endregion
 
         #region CONSTRUCTOR
+        /// <summary>
+        /// An empty constructor. It simply initializes the object.
+        /// </summary>
         public LBSTagListGroup() : base()
         {
             Init();
         }
+        /// <summary>
+        /// A variant of the constructor that can be initialized as removable. Unused.
+        /// </summary>
+        /// <param name="removable"></param>
         public LBSTagListGroup(bool removable) : base()
         {
             this.removable = removable;
@@ -107,6 +152,10 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         #endregion
 
         #region METHODS
+        /// <summary>
+        /// Initializes all containers and objects within the Visual Element. It additionally sets up the object's <b>List View</b> as per the associated
+        /// object's necessities, converting all objects added to it into <b>Tag List Objects</b> with the associated element inside.
+        /// </summary>
         public void Init()
         {
             //Sort stuff!
@@ -198,6 +247,10 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             };
         }
 
+        /// <summary>
+        /// Initializes the list within the visual element, adding all elemenents from a provided list.
+        /// </summary>
+        /// <param name="initList">A list with all elements to initialize and introduce into this visual element's tag list.</param>
         public void ListInitialize(List<ScriptableObject> initList)
         {
             tagList.Clear();
@@ -206,11 +259,20 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
                 tagList.Add(tag);
             }
         }
-
+        /// <summary>
+        /// Adds a new <b>Tag Group</b> to the tag list. Unused.
+        /// </summary>
+        /// <param name="newObj">The object to add to the tag list.</param>
+        /// <param name="removable">Checks whether the element will be removable or not upon introduction.</param>
         public void AddToGroup(LBSTagGroup newObj, bool removable = false)
         {
             tagList.Add(newObj);
         }
+        /// <summary>
+        /// Adds a new tag to the tag list. Unused.
+        /// </summary>
+        /// <param name="newObj">The object to add to the tag list.</param>
+        /// <param name="removable">Checks whether the element will be removable or not upon introduction.</param>
         public void AddToGroup(LBSTag newObj, bool removable = false)
         {
             tagList.Add(newObj);
@@ -226,6 +288,13 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             }
         }
 
+        /// <summary>
+        /// Sets the sorting type for the List View depending on the provided variable (usually the current sorting setting). </br>
+        /// When set to Disabled, it'll order all objects within the list by their natural order.</br>
+        /// When set to Ascending, it'll order all objects alphabetically in an ascending orrder.</br>
+        /// When set to Descending, it'll order all objects alphabetically in a descending order.
+        /// </summary>
+        /// <param name="type"></param>
         private void SetSort(SortType type)
         {
             switch (type)
@@ -268,10 +337,21 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             }
 
         }
-
+        /// <summary>
+        /// Binds an Add Button option to the visual element's <b>Add Button</b>.
+        /// </summary>
+        /// <param name="option"></param>
         public void BindAddButton(int option)
         => BindAddButtons(new List<int> { option });
-        
+
+        /// <summary>
+        /// Binds a number of "Add Button options" to the visual element's <b>Add</b> Button based on a number of parameters. Each number introduced into the list
+        /// of options will add a different functionality to the button:</br>
+        /// <b>1</b>: Allows the object to create a new <b>Tag Group</b> and store it.</br>
+        /// <b>2</b>: Allows the object to create a new <b>Tag</b> and store it.</br>
+        /// <b>3</b>: Allows the object to add an orphan tag to its associated group.</br>
+        /// </summary>
+        /// <param name="options"></param>
         public void BindAddButtons(List<int> options)
         {
             buttons = options;
@@ -329,6 +409,9 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
             };
         }
 
+        /// <summary>
+        /// Unbinds all button functionalities from the visual element's <b>Add</b> button, then remakes all bindings.
+        /// </summary>
         public void RebindButtons()
         {
             addButton.Unbind();
@@ -337,13 +420,5 @@ namespace ISILab.LBS.Plugin.Editor.UI.CustomComponents
         }
 
         #endregion
-
-
-
-
-
-
-
-
     }
 }

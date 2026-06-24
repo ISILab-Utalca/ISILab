@@ -1,5 +1,5 @@
 using ISILab.LBS.Editor.Windows;
-using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar;
 using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;

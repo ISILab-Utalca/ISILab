@@ -27,7 +27,7 @@ namespace ISILab.LBS.Editor
         #region FIELDS
    
         private QuestAssistant _assistant;
-        private QuestGraph _questGraph;
+        private QuestGraphModule _questGraph;
         private ListView _layerList;
         private ListView _suggestionList;
         private Button _addLayerButton;
@@ -54,7 +54,7 @@ namespace ISILab.LBS.Editor
         {
             this.target = target as QuestAssistant;
             _assistant = target as QuestAssistant;
-            _questGraph = _assistant?.OwnerLayer.GetModule<QuestGraph>();
+            _questGraph = _assistant?.OwnerLayer.GetModule<QuestGraphModule>();
         }
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace ISILab.LBS.Editor
             {
                 try
                 {
-                    var bundleToActions = _assistant.GenerateCandidates((int)GetSuggestionCount(), progress =>
+                    var bundleToActions = _assistant.GenerateCandidates((int)_assistant.SuggestionAmount, progress =>
                     {
                         ((IAssistantThreadedEditor)this).ReportProgress(0.5f * progress);
                     }, CancelToken);
@@ -170,8 +170,6 @@ namespace ISILab.LBS.Editor
                 }
             }, CancelToken);
         }
-
-        private uint GetSuggestionCount() => _suggestionField.value;
 
         #region LAYERS
         private void SetupLayerContextList()

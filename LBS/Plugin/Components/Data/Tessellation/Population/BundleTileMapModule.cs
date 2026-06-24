@@ -1,0 +1,644 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using ISILab.Commons.Extensions;
+using ISILab.DevTools.Macros;
+using ISILab.Extensions;
+using ISILab.LBS.Characteristics;
+using ISILab.LBS.Components;
+using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
+using LBS.Components.TileMap;
+using Newtonsoft.Json;
+using UnityEngine;
+
+namespace ISILab.LBS.Modules
+{
+    public class BundleTileMapModule : LBSModule, ISelectable
+    {
+        #region FIELDS
+        [SerializeField, JsonRequired, SerializeReference]
+        protected List<TileBundleGroup> groups = new List<TileBundleGroup>();
+        #endregion
+
+        #region PROPERTIES
+        [JsonIgnore]
+        public List<TileBundleGroup> Groups => new List<TileBundleGroup>(groups);
+
+
+        [JsonIgnore]
+        public int GroupCount => Groups.Count;
+        #endregion
+
+        #region CONSTRUCTORS
+        public BundleTileMapModule() : base()
+        {
+            id = GetType().Name;
+        }
+
+        //This one has to be compatible with groups so let's see how I'll make groups work
+        public BundleTileMapModule(IEnumerable<TileBundleGroup> groups, string id = "ConnectedTileMapModule") : base(id)
+        {
+            foreach (var t in groups)
+            {
+                AddGroup(t);
+            }
+        }
+        #endregion
+
+        #region METHODS
+        //METHODS TO REPLACE ELSEWHERE
+        //AddTile -> CreateGroup
+        //GetTIle -> GetGroup
+        //RemoveTile -> RemoveGroup
+
+        //METHODS THAT ARE NECESSARY
+        // - Create group from a position, bundledata and rotation combo = Check!
+        // - Add group to the group list, replacing anything in the way = Check!
+
+        // - Get group from tile = Check!
+        // - Get group from location = Check!
+        // - Remove group = Check! ( From tile = Check! / From index = Check!)+
+
+        // - Get tile from group = Can be done from group
+        // - Get tile from position = Can be done from group
+
+        // - Check if tilemap has tile = Check!
+        // - Check if tilemap has group = Check!
+
+        //For a bundle to add a tile, it should always add the entire group.
+        //Check bundle size -> create group -> check tile location and add all tiles according to size.
+
+        //Creates group from variables provided
+        public TileBundleGroup CreateGroup(Vector2Int position, BundleData bundleData, Vector2 rotation, List<BundleTileMapAddons> addons) {
+
+            //Create group, then get the tilesize
+            TileBundleGroup newGroup = new TileBundleGroup(new List<LBSTile>(), bundleData, rotation, addons);
+            Vector2Int groupSize = newGroup.GetBundleSize();
+            
+            //Fill group with tiles according to tilesize
+            for(int i=0; i<groupSize.x; i++)
+            {
+                for(int j=0; j<groupSize.y; j++)
+                {
+                    newGroup.TileGroup.Add( new LBSTile( new Vector2( position.x + i, position.y - j ) ) );
+                }
+            }
+
+            AddGroup(newGroup);
+            return newGroup;
+        }
+        
+        public bool ValidNewGroup(Vector2Int position, BundleData bundleData, Vector2 rotation)
+        {
+         
+            //Create group, then get the tilesize
+            TileBundleGroup newGroup = new TileBundleGroup(new List<LBSTile>(), bundleData, rotation, null);
+            Vector2Int groupSize = newGroup.GetBundleSize();
+            
+            // Check if its valid to add a tilegroup
+            foreach (var tbg in groups)
+            {
+                foreach (var lbsTile in tbg.TileGroup)
+                {
+                    for(int i=0; i<groupSize.x; i++)
+                    {
+                        for(int j=0; j<groupSize.y; j++)
+                        {
+                            if (new Vector2(position.x + i, position.y - j) != lbsTile.Position) continue;
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+        
+        public bool ValidMoveGroup(Vector2Int newPosition, TileBundleGroup currentGroup, Vector2 rotation)
+        {
+            if (currentGroup is null) return false;
+            // Create a temporary group at the new position to get the tile layout
+            TileBundleGroup tempGroup = new TileBundleGroup(new List<LBSTile>(), currentGroup.BundleData, rotation, null);
+            Vector2Int groupSize = tempGroup.GetBundleSize();
+    
+            // Collect the new positions for the current group
+            HashSet<Vector2Int> newPositions = new HashSet<Vector2Int>();
+
+            foreach (var tile in currentGroup.TileGroup)
+            {
+                newPositions.Add(tile.Position);
+            }
+
+            // Iterate through all existing groups
+            foreach (var tbg in groups)
+            {
+                // Skip the current group since we are moving it
+                if (tbg == currentGroup) 
+                    continue;
+
+                // Check for overlap
+                foreach (var lbsTile in tbg.TileGroup)
+                {
+                    for (int i = 0; i < groupSize.x; i++)
+                    {
+                        for (int j = 0; j < groupSize.y; j++)
+                        {
+                            var checkPosition = new Vector2Int(newPosition.x + i, newPosition.y - j);
+
+                            // If the position is occupied and not part of the current moving group
+                            if (checkPosition == lbsTile.Position && !newPositions.Contains(checkPosition))
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        
+        //Adds a group to the group list and replaces anything in the way
+        public void AddGroup(TileBundleGroup group)
+        {
+            foreach(LBSTile tile in group.TileGroup)
+            {
+                //Check if there's tiles and remove their respective groups.
+                var groupToRemove = GetGroup(tile);
+                if (groupToRemove != null)
+                {
+                    groups.Remove(groupToRemove);
+                }
+            }
+            //OnChanged
+            OnChanged?.Invoke(this, null, new List<object>() { group });
+
+            //Then add the group!
+            groups.Add(group);
+        }
+
+        //Gets a group from any tile
+        public TileBundleGroup GetGroup(LBSTile tile)
+        {
+            //The obvious
+            if (groups.Count <= 0)
+                return null;
+
+            //Then, find the specific tile and return the group
+            foreach (TileBundleGroup group in groups)
+            {
+                LBSTile searchTile = group.TileGroup.Find(t => /*t==tile*/t.Equals(tile));
+                if (searchTile != null) { return group; }
+            }
+            return null;
+        }
+
+        //Gets a group from a position
+        public TileBundleGroup GetGroup(Vector2 pos)
+        {
+            if (groups.Count <= 0)
+                return null;
+
+            //Find the position and return the group if it isn't null
+            foreach (TileBundleGroup group in groups)
+            {
+                LBSTile searchTile = group.TileGroup.Find(t => t.Position == pos);
+                if (searchTile != null) { return group; }
+            }
+            return null;
+        }
+
+        //Remove group
+        public void RemoveGroup(TileBundleGroup group)
+        {
+            if (groups.Count <= 0) return;
+            if (group == null) return;
+
+            OnChanged?.Invoke(this, new List<object>() { group }, null);
+            groups.Remove(group);
+        }
+
+        //Remove group from tile
+        public void RemoveGroup(LBSTile tile) => RemoveGroup(GetGroup(tile));
+        
+        //Remove group from index
+        public void RemoveGroup(int index) => RemoveGroup(groups[index]);
+        
+        //Check if there's a tile on the tilemap
+        public bool Contains(LBSTile tile)
+        {
+            if (groups.Count <= 0)
+                return false;
+            foreach (TileBundleGroup group in groups)
+            {
+                bool tileExists = group.TileGroup.Any(t => t == tile);
+                if(tileExists) return true;
+            }
+            return false;
+        }
+        //Check if there's a group on the tilemap
+        public bool Contains(TileBundleGroup group)
+        {
+            if(groups.Count <= 0) return false;
+            if(groups.Any(t => t == group)) return true;
+            return false;
+        }
+        
+        //Idk if this one works, modify if it breaks anything
+        public override Rect GetBounds()
+        {
+            if (groups == null || groups.Count == 0)
+            {
+                return new Rect(Vector2.zero, Vector2.zero);
+            }
+
+            //I have no idea if this works but I want to see because I'm tired of the entire code flashing red!!
+            return groups.Select(t => t.TileGroup[0]).GetBounds();
+        }
+
+        public override bool IsEmpty()
+        {
+            return groups.Count <= 0;
+        }
+
+        public override void Clear()
+        {
+            groups.Clear();
+        }
+
+        public override object Clone()
+        {
+            return new BundleTileMapModule(groups.Select(t => t.Clone()).Cast<TileBundleGroup>(), ID);
+        }
+
+        public override void Rewrite(LBSModule module)
+        {
+            var map = module as BundleTileMapModule;
+            if (map == null)
+            {
+                return;
+            }
+
+            OnChanged?.Invoke(this, new List<object>(groups), new List<object>(map.groups));
+
+            Clear();
+            foreach (var t in map.groups)
+            {
+                AddGroup(t);
+            }
+        }
+        
+        //Selects groups, probably needs fixing
+        public List<object> GetSelected(Vector2Int position)
+        {
+            var pos = OwnerLayer.ToFixedPosition(position);
+            var r = new List<object>();
+            var group = GetGroup(pos);
+
+            if (group != null)
+            {
+                r.Add(group.BundleData);
+            }
+
+            return r;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as BundleTileMapModule;
+
+            if (other == null) return false;
+
+            var tCount = other.groups.Count;
+
+            if (tCount != this.groups.Count) return false;
+
+            for (int i = 0; i < tCount; i++)
+            {
+                var t1 = other.groups[i];
+                var t2 = this.groups[i];
+
+                if (!t1.Equals(t2)) return false;
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+        #endregion
+    }
+
+    /// <summary>
+    /// So TileBundlePairs are a little too limited in functionality since they only link a tile to bundle data and that's it.
+    /// I made a reworked version that SHOULD allow for multiple tiles to be stored with an ID.
+    /// </summary>
+    [System.Serializable]
+    public class TileBundleGroup : ICloneable
+    {
+        #region STATICS
+        private static readonly Dictionary<string, Func<BundleTileMapAddons>> AddonFactory = new()
+        {
+            { "Patrol",        () => new Addon_Patrol() },
+            { "Destructible",  () => new Addon_Destruct() },
+            { "Drops",         () => new Addon_Drop() },
+            { "Interactable",  () => new Addon_Interact() },
+            { "TriggerArea",   () => new Addon_Trigger() },
+            { "TriggerUnlock", () => new Addon_TriggerUnlock() },
+            { "Unlock",        () => new Addon_Unlock() }
+        };
+        #endregion
+
+        #region FIELDS
+        [SerializeField, JsonRequired]
+        List<LBSTile> tileGroup = new List<LBSTile>();
+        [SerializeField, JsonRequired]
+        BundleData bData;
+        [SerializeField, JsonRequired]
+        Vector2 rotation;
+        [SerializeField, JsonRequired] 
+        string guid;
+
+        bool? rotatable = null;
+        string locationKey = null;
+
+        [SerializeField, SerializeReference]
+        List<BundleTileMapAddons> addons = new();
+        #endregion
+
+        #region PROPERTIES
+
+        public List<BundleTileMapAddons> Addons 
+        { 
+            get => addons; 
+            set 
+            { 
+                addons = value; 
+            }
+        }
+
+        [JsonIgnore]
+        public List<LBSTile> TileGroup
+        {
+            get => tileGroup;
+            set => tileGroup = value;
+        }
+
+        public Rect AreaRect
+        {
+            get
+            {
+                if (tileGroup == null || tileGroup.Count == 0) return new Rect();
+            
+                float minX = tileGroup.Min(t => t.Position.x);
+                float minY = tileGroup.Min(t => t.Position.y);
+                float maxX = tileGroup.Max(t => t.Position.x);
+                float maxY = tileGroup.Max(t => t.Position.y);
+
+                float width = maxX - minX + 1;
+                float height = maxY - minY + 1;
+
+                // "maxY" because graph is inverted
+                return new Rect(minX, maxY, Mathf.Abs(width), Mathf.Abs(height));
+            }
+          
+        }
+
+        [JsonIgnore]
+        public BundleData BundleData
+        {
+            get => bData;
+            set => bData = value;
+        }
+
+        [JsonIgnore]
+        public Vector2 Rotation
+        {
+            get => rotation;
+            set => rotation = value;
+        }
+
+        [JsonIgnore]
+        public bool Rotatable
+        {
+            get
+            {
+                if(!rotatable.HasValue)
+                    rotatable = !BundleData.Bundle.GetHasTagCharacteristic("NonRotate");
+                return rotatable.Value;
+            }
+            set => rotatable = value;
+        }
+
+        [JsonIgnore]
+        public string LocationKey
+        {
+            get
+            {
+                locationKey ??= TileGroup.SortedElementsToString((t1, t2) =>
+                {
+                    int compX = t1.x.CompareTo(t2.x);
+                    if (compX != 0) return compX;
+                    return t1.y.CompareTo(t2.y);
+                });
+                return locationKey;
+            }
+            set => locationKey = value;
+        }
+
+        public TileBundleGroup(List<LBSTile> tiles, BundleData bData, Vector2 rotation, List<BundleTileMapAddons> _addons)
+        {
+            tileGroup = tiles;
+            this.bData = bData;
+            guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
+            this.rotation = rotation;
+            if (_addons is not null)
+                this.Addons = _addons;
+            else
+                BuildAddons(bData); // TODO omit duplicates
+        }
+
+        public TileBundleGroup(Vector2 position, Vector2 size, BundleData bData, Vector2 rotation)
+        {
+            tileGroup = new List<LBSTile>();
+            for(int i=0; i<size.x;i++)
+            {
+                for (int j = 0; j < size.y; j++)
+                {
+                    var newPosition = new Vector2(position.x + i, position.y + j);
+                    tileGroup.Add(new LBSTile(newPosition));
+                }
+            }
+            
+            this.bData = bData;
+            guid = AssetMacro.GetGuidFromAsset(bData.Bundle);
+            this.rotation = rotation;
+
+            BuildAddons(bData);
+        }
+        #endregion
+
+        #region EVENTS
+        
+        public event Action OnRemoved;
+        
+        #endregion
+        
+        #region METHODS
+        //Returns bundle size
+        public Vector2Int GetBundleSize()
+        {
+            if (bData is null || bData.Bundle is null) return Vector2Int.zero;
+
+            if (bData.Bundle==null && bData.Characteristics.Any())
+            {
+                if (bData.Characteristics[0]?.Owner==null)
+                {
+                    //Default option
+                    return new Vector2Int(1, 1);
+                }
+                return bData.Characteristics[0].Owner.TileSize;
+            }
+
+            return bData.Bundle.TileSize;
+        }
+
+        //Check if group contains tile
+        public bool Contains(LBSTile tile)
+        {
+            if (tileGroup.Count <= 0) return false;
+            if (tileGroup.Any(t => t == tile)) return true;
+            return false;
+        }
+
+        //Get tile from position
+        public LBSTile GetTile(Vector2Int pos)
+        {
+            return TileGroup.Find(t => t.Position == pos);
+        }
+
+        public TileBundleGroup FindFromTile(LBSTile tile)
+        {
+            if(this.Contains(tile)) return this;
+            return null;
+        }
+
+        //Get tile
+        public LBSTile GetTile(LBSTile tile)
+        {
+            return TileGroup.Find(t => t == tile);
+        }
+
+        public Rect GetBounds()
+        {
+            if (TileGroup == null) return new Rect();
+
+            var tiles = TileGroup.Where(t => t != null).ToList();
+            if (tiles.Count == 0) return new Rect();
+
+            var xMin = tiles.Min(t => t.Position.x);
+            var yMin = tiles.Min(t => t.Position.y);
+            var xMax = tiles.Max(t => t.Position.x);
+            var yMax = tiles.Max(t => t.Position.y);
+
+            return new Rect(
+                xMin,
+                yMin,
+                xMax - xMin + 1,
+                yMax - yMin + 1
+            );
+        }
+
+        public Vector2 GetCenter()
+        {
+            var bounds = this.GetBounds();
+            return new Vector2(
+                (bounds.x + bounds.width/2),
+                (bounds.y + bounds.height/2)
+                );
+        }
+
+        public void Translate(Vector2Int offset)
+        {
+            foreach (LBSTile tile in TileGroup)
+            {
+                tile.Position += offset;
+            }
+            LocationKey = null;
+        }
+
+        public object Clone()
+        {
+            return new TileBundleGroup(tileGroup.Clone(), bData.Clone() as BundleData, rotation, Addons.Select(a => ((a as ICloneable)?.Clone() as BundleTileMapAddons) ?? a).ToList());
+        }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as TileBundleGroup;
+
+            if (other == null) return false;
+
+            if (tileGroup.Count != other.tileGroup.Count) return false;
+
+            for (int i = 0; i < tileGroup.Count; i++)
+            {
+                if (!tileGroup[i].Equals(other.tileGroup[i])) return false;
+            }
+
+            if (!this.bData.Equals(other.bData)) return false;
+
+            if (!this.rotation.Equals(other.rotation)) return false;
+
+            return true;
+        }
+
+        private void BuildAddons(BundleData bData)
+        {
+            Addons = new List<BundleTileMapAddons>();
+
+            var tags = bData.GetCharacteristic<LBSTagsCharacteristic>()?.Tags;
+            if (tags == null) return;
+
+            foreach (var tag in tags)
+            {
+                // If the label exists in our map, run the associated function to create the addon
+                if (AddonFactory.TryGetValue(tag.Label, out var createAddon))
+                {
+                    Addons.Add(createAddon());
+                }
+            }
+        }
+
+        public T GetAddon<T>() where T : BundleTileMapAddons
+        {
+            if (!addons.Any()) return null;
+            return addons.OfType<T>().FirstOrDefault();
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+        
+        public string GetGuid()
+        {
+            return guid;
+        }
+        /// <summary>
+        /// Meant to notify any Quest Node Data that references this tilemap, in order for it to be
+        /// Garbage Collected Correctly
+        /// </summary>
+        public void Removed()
+        {
+            OnRemoved?.Invoke();
+        }
+        #endregion
+
+
+     
+    }
+}
+

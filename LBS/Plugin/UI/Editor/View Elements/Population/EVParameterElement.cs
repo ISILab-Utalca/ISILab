@@ -1,5 +1,6 @@
 using ISILab.LBS.Characteristics;
 using ISILab.LBS.CustomComponents;
+using ISILab.LBS.Plugin.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
         private VisualElement verticalDivider2;
         //private VisualElement verticalDivider3;
 
-        private bool canBeDeleted = false;
+        //private bool canBeDeleted = false;
+        private ParameterCreateState deletionState = ParameterCreateState.None;
         private LBSCustomButton paramDeleteButton;
 
         public event Action<EVParameterElement> OnDelete;
@@ -33,12 +35,26 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
             get => paramNameLabel.text;
             private set => paramNameLabel.text = value;
         }
-        public bool CanBeDeleted
+        //public bool CanBeDeleted
+        //{
+        //    get => canBeDeleted;
+        //    set {
+        //        canBeDeleted = value;
+        //        if (!value)
+        //        {
+        //            paramDeleteButton.visible = false;
+        //            verticalDivider1.style.display = DisplayStyle.None;
+        //            verticalDivider2.style.display = DisplayStyle.None;
+        //        }
+        //    }
+        //}
+        public ParameterCreateState DeletionState
         {
-            get => canBeDeleted;
-            set {
-                canBeDeleted = value;
-                if (!value)
+            get => deletionState;
+            set
+            {
+                deletionState = value;
+                if (value != ParameterCreateState.JustCreated)
                 {
                     paramDeleteButton.visible = false;
                     verticalDivider1.style.display = DisplayStyle.None;
@@ -51,12 +67,12 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
         {
             Initialize();
         }
-        public EVParameterElement(string label, bool b, string type, string iValue) : base()
+        public EVParameterElement(string label, ParameterCreateState state, string type, string iValue) : base()
         {
-            Initialize(label, b, type, iValue);
+            Initialize(label, state, type, iValue);
         }
 
-        public void Initialize(string label = "", bool b = true, string type="", string iValue="")
+        public void Initialize(string label = "", ParameterCreateState state = ParameterCreateState.None, string type="", string iValue="")
         {
             GetVisualTreeForThis();
 
@@ -69,15 +85,16 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
             verticalDivider2 = this.Q<VisualElement>("VerticalDivider2");
             //verticalDivider3 = this.Q<VisualElement>("VerticalDivider3");
 
-            setParameterElement(label, b, type, iValue);
+            setParameterElement(label, state, type, iValue);
         }
 
-        public void setParameterElement(string label, bool b, string type, string iValue)
+        public void setParameterElement(string label, ParameterCreateState state, string type, string iValue)
         {
             ParamLabelString = label;
             paramTypeLabel.text = type;
             paramIValueLabel.text = iValue;
-            CanBeDeleted = b;
+            DeletionState = state;
+            //CanBeDeleted = b;
         }
         public override int GetHashCode()
         {
@@ -85,7 +102,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.View_Elements.Population.EVParameterElemen
         }
         private void DeleteParameterElement(ClickEvent evt)
         {
-            if(canBeDeleted)
+            if(DeletionState.Equals(ParameterCreateState.JustCreated))
                 OnDelete?.Invoke(this);
         }
     }

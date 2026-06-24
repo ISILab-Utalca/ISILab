@@ -7,6 +7,7 @@ items:
   children:
   - ISILab.LBS.LBSTagGroup.TagType.Aesthetic
   - ISILab.LBS.LBSTagGroup.TagType.Element
+  - ISILab.LBS.LBSTagGroup.TagType.Simulation
   - ISILab.LBS.LBSTagGroup.TagType.Structural
   langs:
   - csharp
@@ -105,6 +106,32 @@ items:
   namespace: ISILab.LBS
   syntax:
     content: Element = 2
+    return:
+      type: ISILab.LBS.LBSTagGroup.TagType
+- uid: ISILab.LBS.LBSTagGroup.TagType.Simulation
+  commentId: F:ISILab.LBS.LBSTagGroup.TagType.Simulation
+  id: Simulation
+  parent: ISILab.LBS.LBSTagGroup.TagType
+  langs:
+  - csharp
+  - vb
+  name: Simulation
+  nameWithType: LBSTagGroup.TagType.Simulation
+  fullName: ISILab.LBS.LBSTagGroup.TagType.Simulation
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Bundles/LBSTagGroup.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Simulation
+    path: ../LBS/Plugin/Core/Components/Bundles/LBSTagGroup.cs
+    startLine: 15
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS
+  syntax:
+    content: Simulation = 3
     return:
       type: ISILab.LBS.LBSTagGroup.TagType
 references:

@@ -4,7 +4,7 @@ using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Assistants;
 using LBS.Components;
 using Newtonsoft.Json;
 using System;
@@ -20,19 +20,19 @@ using Debug = UnityEngine.Debug;
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
     [Serializable]
-    [RequieredModule(typeof(QuestGraph))]
+    [RequieredModule(typeof(QuestGraphModule))]
     public class GrammarAssistant : LBSAssistant
     {
         #region FIELDS
         private QuestBehaviour questBehaviour;
-        private QuestGraph graph;
+        private QuestGraphModule graph;
         private bool disabled = false;
         #endregion
 
         #region PROPERTIES
         public bool Disabled => disabled;
         [JsonIgnore]
-        public QuestGraph Graph => graph ??= OwnerLayer.GetModule<QuestGraph>();
+        public QuestGraphModule Graph => graph ??= OwnerLayer.GetModule<QuestGraphModule>();
         public QuestBehaviour Behavior => questBehaviour ??= OwnerLayer.GetBehaviour<QuestBehaviour>();
         #endregion
 

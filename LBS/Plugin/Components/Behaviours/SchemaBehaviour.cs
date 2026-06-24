@@ -40,13 +40,13 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
        //     BlockedDoor // within wall connection. Opened by trigger
         };
 
+        public static List<string> DefaultConnections = new() { "Empty", "Empty", "Empty", "Empty" };
+
         public const string Empty = "Empty";
         public const string Wall = "Wall";
         public const string Door = "Door";
         public const string Window = "Window";
         public const string LockedDoor = "LockedDoor";
-        public const string DownStair = "DownStair";
-        public const string UpStair = "UpStair";
         //      public const string BlockedDoor = "BlockedDoor";
 
         #endregion
@@ -85,21 +85,21 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         #endregion
 
         #region PROPERTIES
-        [JsonIgnore]
+        [JsonIgnore, ShowOnLayerTemplate]
         public Bundle PressetInsideStyle
         {
             get => AssetMacro.LoadAssetByGuid<Bundle>(pressetInsideStyleGuid);
             set => pressetInsideStyleGuid = AssetMacro.GetGuidFromAsset(value);
         }
 
-        [JsonIgnore]
+        [JsonIgnore, ShowOnLayerTemplate]
         public Bundle PressetOutsideStyle
         {
             get => AssetMacro.LoadAssetByGuid<Bundle>(pressetOutsideStyleGuid);
             set => pressetOutsideStyleGuid = AssetMacro.GetGuidFromAsset(value);
         }
 
-        [JsonIgnore]
+        [JsonIgnore, ShowOnLayerTemplate]
         public bool MultiLayerConnections { get => multiLayerConnections; set => multiLayerConnections = value; }
 
         [JsonIgnore]
@@ -582,7 +582,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             {
                 var newTile = AddTile(vt.TargetPosition, zone);
                 createdTiles.Add(newTile);
-                AddConnections(newTile, new List<string> { "Empty", "Empty", "Empty", "Empty" }, new List<bool> { false, false, false, false });
+                AddConnections(newTile, DefaultConnections, new List<bool> { false, false, false, false });
             }
 
             for (int i = 0; i < virtualTiles.Count; i++)

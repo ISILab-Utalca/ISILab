@@ -22,7 +22,7 @@ namespace ISILab.LBS.Tests
         private LBSLevelData _levelData;
         private GrammarAssistant _grammarAssistant;
         private QuestAssistant _questAssistant;
-        private QuestGraph _questGraph;
+        private QuestGraphModule _questGraph;
 
         #region NODE COUNT 10
 
@@ -287,7 +287,7 @@ namespace ISILab.LBS.Tests
             LBSLayer firstLayer = _levelData.GetLayer(0);
             Assert.IsNotNull(firstLayer, "First layer not found in level data");
 
-            _questGraph = firstLayer.GetModule<QuestGraph>();
+            _questGraph = firstLayer.GetModule<QuestGraphModule>();
             _questAssistant = firstLayer.GetAssistant<QuestAssistant>();
             _grammarAssistant = firstLayer.GetAssistant<GrammarAssistant>();
 

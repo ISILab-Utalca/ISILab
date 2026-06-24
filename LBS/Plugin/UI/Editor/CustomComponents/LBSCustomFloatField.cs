@@ -57,8 +57,10 @@ namespace ISILab.LBS.CustomComponents
             get => typeIcon;
             set => typeIcon = value;
         }
+
+        public LBSCustomFloatField() { new LBSCustomFloatField(""); }
         
-        public LBSCustomFloatField() : base()
+        public LBSCustomFloatField(string _name = "") : base(_name)
         {
             
             addButton = new Button() { text = "+" };

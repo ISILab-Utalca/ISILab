@@ -1,7 +1,8 @@
-using System;
-using System.Collections.Generic;
 using LBS.Components;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -73,6 +74,7 @@ namespace ISILab.LBS.Modules
             layer.ClearEvents();
             OwnerLayer = null;
         }
+
         /*
         public virtual void Reload(LBSLayer layer)
         {

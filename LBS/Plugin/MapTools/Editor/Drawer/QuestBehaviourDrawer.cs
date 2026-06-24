@@ -250,7 +250,7 @@ namespace ISILab.LBS.Drawers.Editor
         }
 
         private static QuestEdgeView CreateEdgeView(
-            QuestGraph graph,
+            QuestGraphModule graph,
             QuestEdge edge,
             QuestGraphNodeView n1,
             QuestGraphNodeView n2)

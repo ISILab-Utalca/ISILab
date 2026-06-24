@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ISILab.LBS.Behaviours
 {
     [System.Serializable]
-    [RequieredModule(typeof(TileMapModule), typeof(BundleTileMap))]
+    [RequieredModule(typeof(TileMapModule), typeof(BundleTileMapModule))]
     public class TileGroupBehavior : LBSBehaviour
     {
         #region FIELDS

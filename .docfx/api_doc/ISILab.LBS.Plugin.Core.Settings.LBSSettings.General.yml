@@ -8,7 +8,7 @@ items:
   - ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.OnChangeTileSize
   - ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.OnChangeZoomValue
   - ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.TileSize
-  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.baseLayerName
+  - ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.defaultFloorCount
   - ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.zoomMax
   - ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.zoomMin
   langs:
@@ -52,6 +52,33 @@ items:
   - type: System.SerializableAttribute
     ctor: System.SerializableAttribute.#ctor
     arguments: []
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.defaultFloorCount
+  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.defaultFloorCount
+  id: defaultFloorCount
+  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General
+  langs:
+  - csharp
+  - vb
+  name: defaultFloorCount
+  nameWithType: LBSSettings.General.defaultFloorCount
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.defaultFloorCount
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Core/Settings/LBSSettings.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: defaultFloorCount
+    path: ../LBS/Plugin/Core/Settings/LBSSettings.cs
+    startLine: 126
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Core.Settings
+  syntax:
+    content: public int defaultFloorCount
+    return:
+      type: System.Int32
+    content.vb: Public defaultFloorCount As Integer
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.zoomMax
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.zoomMax
   id: zoomMax
@@ -135,33 +162,6 @@ items:
       type: UnityEngine.Vector2
     content.vb: Public Property TileSize As Vector2
   overload: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.TileSize*
-- uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.baseLayerName
-  commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.baseLayerName
-  id: baseLayerName
-  parent: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General
-  langs:
-  - csharp
-  - vb
-  name: baseLayerName
-  nameWithType: LBSSettings.General.baseLayerName
-  fullName: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.baseLayerName
-  type: Field
-  source:
-    remote:
-      path: LBS/Plugin/Core/Settings/LBSSettings.cs
-      branch: ignacio-r-develop
-      repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: baseLayerName
-    path: ../LBS/Plugin/Core/Settings/LBSSettings.cs
-    startLine: 139
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Core.Settings
-  syntax:
-    content: public string baseLayerName
-    return:
-      type: System.String
-    content.vb: Public baseLayerName As String
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.OnChangeZoomValue
   commentId: F:ISILab.LBS.Plugin.Core.Settings.LBSSettings.General.OnChangeZoomValue
   id: OnChangeZoomValue
@@ -180,7 +180,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChangeZoomValue
     path: ../LBS/Plugin/Core/Settings/LBSSettings.cs
-    startLine: 141
+    startLine: 139
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
@@ -207,7 +207,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnChangeTileSize
     path: ../LBS/Plugin/Core/Settings/LBSSettings.cs
-    startLine: 142
+    startLine: 140
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.Settings
@@ -500,6 +500,17 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -530,17 +541,6 @@ references:
   name: UnityEngine
   nameWithType: UnityEngine
   fullName: UnityEngine
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
 - uid: System.Action{System.Single,System.Single}
   commentId: T:System.Action{System.Single,System.Single}
   parent: System

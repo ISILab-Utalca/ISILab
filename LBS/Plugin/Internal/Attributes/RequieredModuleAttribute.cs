@@ -4,7 +4,7 @@ using System.Linq;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Plugin.Components.Behaviours;
+using ISILab.LBS.Assistants;
 
 namespace ISILab.LBS
 {

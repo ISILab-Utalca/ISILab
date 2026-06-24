@@ -58,7 +58,11 @@ namespace ISILab.LBS.Plugin.Internal
             get { return interface3; }
             set { interface3 = value; }
         }
+
+        public bool AddingOrRemovingParameter { get; set; } = false;
     }
+
+    public enum ParameterCreateState { None, Defined, JustCreated, PreviouslyCreated, Deleted }
 
     [System.Serializable]
     public struct ParameterData
@@ -66,14 +70,16 @@ namespace ISILab.LBS.Plugin.Internal
         public string name;
         public string varTypeAsString;
         public string initialValue;
-        public bool isDeletable;
+        public ParameterCreateState state;
+        //public bool isDeletable;
 
-        public ParameterData(string name, string varType, string initialValue, bool isDeletable = true)
+        public ParameterData(string name, string varType, string initialValue, ParameterCreateState state = ParameterCreateState.None)
         {
             this.name = name;
             this.varTypeAsString = varType;
             this.initialValue = initialValue;
-            this.isDeletable = isDeletable;
+            this.state = state;
+            //this.isDeletable = isDeletable;
         }
 
         public Type VarType

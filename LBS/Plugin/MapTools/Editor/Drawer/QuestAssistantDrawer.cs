@@ -16,7 +16,7 @@ namespace ISILab.LBS.Drawers.Editor
         {
             if (target is not QuestAssistant assistant) return;
             
-            QuestGraph graph = assistant.Graph;
+            QuestGraphModule graph = assistant.Graph;
             if (graph == null) return;
             
             UpdateTiles(target, view, tesselationSize);
