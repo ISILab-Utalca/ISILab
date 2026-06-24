@@ -452,9 +452,15 @@ namespace LBS.Components
         {
             // Clone modules via provided helper, clone lists of polymorphic objects by calling Clone() on each
             LBSFloor[] clonedModules = CloneFloorArray(this.floors);
-            List<LBSAssistant> clonedAssistants = this.assistants.Select(a => a.Clone() as LBSAssistant).ToList();
-            List<LBSGeneratorRule> clonedRules = this.generatorRules.Select(r => r.Clone() as LBSGeneratorRule).ToList();
-            List<LBSBehaviour> clonedBehaviours = this.behaviours.Select(b => b.Clone() as LBSBehaviour).ToList();
+            List<LBSAssistant> clonedAssistants = new();
+            if(assistants.Count > 0)
+                clonedAssistants = this.assistants.Select(a => a.Clone() as LBSAssistant).ToList();
+            List<LBSGeneratorRule> clonedRules = new();
+            if (generatorRules.Count > 0)
+                generatorRules = this.generatorRules.Select(r => r.Clone() as LBSGeneratorRule).ToList();
+            List<LBSBehaviour> clonedBehaviours = new();
+            if (behaviours.Count > 0)
+                clonedBehaviours = this.behaviours.Select(b => b.Clone() as LBSBehaviour).ToList();
 
             return new LBSLayer(clonedModules, clonedAssistants, clonedRules, clonedBehaviours, Parent, id, visible, name, iconGuid, TileSize);
         }
