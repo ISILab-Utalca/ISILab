@@ -10,10 +10,11 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.UI.Image;
 
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
-    public class BSPDungeonAssistant : LBSAssistant
+    public class BSPAssistant : LBSAssistant
     {
         #region FIELDS
         BSPDungeonGenerator _generator;
@@ -21,7 +22,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         SectorizedTileMapModule _sectorizedModule;
         SchemaBehaviour _schemaBehaviour;
 
-        [Header("BSP Settings")]
+        public Vector2Int origin = Vector2Int.zero;
         public int mapWidth = 50;
         public int mapHeight = 50;
         public int minPartitionSize = 10;
@@ -52,7 +53,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         #endregion
 
 
-        public BSPDungeonAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
+        public BSPAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
 
         public void RunSynced()
         {
@@ -73,7 +74,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     Zone value = ZoneDict.ContainsKey(key) ? ZoneDict[key] : ZoneDict[key] = Schema.AddZone();
 
                     // Add new Tile and it's connections
-                    LBSTile t = Schema.AddTile(new Vector2Int(i, j), value);
+                    LBSTile t = Schema.AddTile(new Vector2Int(origin.x + i, origin.y + j), value);
                     if (t != null) Schema.AddConnections(t, SchemaBehaviour.DefaultConnections,
                         new List<bool> { true, true, true, true });
                 }
@@ -89,7 +90,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             // Init
             ZoneDict.Clear();
-            int[,] mapData = Generator.Generate(mapWidth, mapHeight, minPartitionSize, minRoomSize, true);
+            int[,] mapData = Generator.Generate(mapWidth, mapHeight, minPartitionSize, minRoomSize);
 
             // Read mapData
             int w = mapData.GetLength(0);
@@ -103,10 +104,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     if (key < 1) continue;
 
                     // Get or create Zone
-                    Zone value = ZoneDict.ContainsKey(key) ? ZoneDict[key] : ZoneDict[key] = Schema.AddZone(true);
+                    Zone value = ZoneDict.ContainsKey(key) ? ZoneDict[key] : ZoneDict[key] = Schema.AddZone();
 
                     // Add new Tile and it's connections
-                    LBSTile t = Schema.AddTile(new Vector2Int(i, j), value);
+                    LBSTile t = Schema.AddTile(new Vector2Int(origin.x + i, origin.y + j), value);
                     if (t != null) Schema.AddConnections(t, SchemaBehaviour.DefaultConnections,
                         new List<bool> { true, true, true, true });
 
@@ -121,7 +122,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
         public override object Clone()
         {
-            return new BSPDungeonAssistant(IconGuid, Name, ColorTint);
+            return new BSPAssistant(IconGuid, Name, ColorTint);
         }
 
         public override void OnGUI() { }

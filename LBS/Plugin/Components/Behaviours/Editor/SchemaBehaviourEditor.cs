@@ -243,8 +243,6 @@ namespace ISILab.LBS.Behaviours.Editor
         private void AddZone()
         {
             var newZone = behaviour.AddZone();
-            newZone.InsideStyles = new List<string>() { behaviour.PressetInsideStyle.Name };
-            newZone.OutsideStyles = new List<string>() { behaviour.PressetOutsideStyle.Name };
             areaPallete.Options = new object[behaviour.Zones.Count];
             for (int i = 0; i < behaviour.Zones.Count; i++)
             {

@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 namespace ISILab.LBS.Plugin.Components.Behaviours
 {
     
@@ -134,11 +135,8 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
         #endregion
 
         #region METHODS
-        
-        public override void OnGUI()
-        {
 
-        }
+        public override void OnGUI() { }
         
         public override void OnAttachLayer(LBSLayer layer)
         {
@@ -188,7 +186,7 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
             return tile;
         }
 
-        public Zone AddZone(bool async = false)
+        public Zone AddZone()
         {
             string prefix = "Zone: ";
             int counter = 0;
@@ -205,8 +203,12 @@ namespace ISILab.LBS.Plugin.Components.Behaviours
                
             }
 
-            var c = new Color().RandomColorHSV(async);
-            var zone = new Zone(name, c);
+            var c = new Color().RandomColorHSV();
+            var zone = new Zone(name, c)
+            {
+                InsideStyles = new List<string>() { pressetInsideStyleGuid },
+                OutsideStyles = new List<string>() { pressetOutsideStyleGuid }
+            };
 
             areas.AddZone(zone);
             return zone;

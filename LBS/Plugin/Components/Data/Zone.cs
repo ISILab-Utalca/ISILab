@@ -212,7 +212,7 @@ namespace ISILab.LBS.Plugin.Components.Data
             var allBundles = LBSAssetsStorage.Instance.Get<Bundle>().ToList();
             foreach (var tags in zone.InsideStyles)
             {
-                bundles.Add(allBundles.Find(b => b.name.Equals(tags)));
+                bundles.Add(allBundles.Find(b => b.GUID.Equals(tags)));
             }
             return bundles;
         }

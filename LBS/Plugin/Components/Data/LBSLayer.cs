@@ -32,7 +32,7 @@ namespace LBS.Components
         [SerializeField, JsonRequired] private string name = "Layer name";
         [SerializeField] private Vector2Int tileSize = new Vector2Int(2, 2);
 
-        [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[LBSSettings.Instance.general.defaultFloorCount];
+        [SerializeField, SerializeReference] private LBSFloor[] floors = new LBSFloor[10];
         [SerializeField, SerializeReference] private List<LBSBehaviour> behaviours = new();
         [SerializeField, SerializeReference] private List<LBSAssistant> assistants = new();
         [SerializeField, SerializeReference] private List<LBSGeneratorRule> generatorRules = new();
@@ -101,6 +101,7 @@ namespace LBS.Components
             behaviours ??= new List<LBSBehaviour>();
             assistants ??= new List<LBSAssistant>();
             generatorRules ??= new List<LBSGeneratorRule>();
+            floors = new LBSFloor[LBSSettings.Instance.general.defaultFloorCount];
 
             IsVisible = true;
             id = GetType().Name;

@@ -21,11 +21,11 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    [LBSCustomEditor("BSP Dungeon Generator", typeof(BSPDungeonAssistant))]
-    public class BSPDungeonAssistantEditor : LBSCustomEditor, IToolProvider, IAssistantThreadedEditor
+    [LBSCustomEditor("BSP Dungeon Generator", typeof(BSPAssistant))]
+    public class BSPAssistantEditor : LBSCustomEditor, IToolProvider, IAssistantThreadedEditor
     {
         // References
-        BSPDungeonAssistant assistant;
+        BSPAssistant assistant;
 
         // Visual Elements
         LBSCustomVector2IntField sizeField;
@@ -36,9 +36,9 @@ namespace ISILab.LBS.VisualElements
         // Constructor
         // It's important that the assistant reference is saved here,
         // and call CreateVisualElement after that.
-        public BSPDungeonAssistantEditor(object target) : base(target)
+        public BSPAssistantEditor(object target) : base(target)
         {
-            assistant = target as BSPDungeonAssistant;
+            assistant = target as BSPAssistant;
             CreateVisualElement();
         }
 
@@ -93,7 +93,7 @@ namespace ISILab.LBS.VisualElements
         // of the new Layer, and updates the fields after that.
         public override void SetInfo(object paramTarget)
         {
-            assistant = paramTarget as BSPDungeonAssistant;
+            assistant = paramTarget as BSPAssistant;
             SetFieldsInfo();
         }
         private void SetFieldsInfo()
@@ -110,8 +110,8 @@ namespace ISILab.LBS.VisualElements
             minRoomField.label = "Minimum Room Size";
             minRoomField.value = assistant.minRoomSize;
         }
-        /*
-        public override void SetTools()
+
+        public void SetTools()
         {
 
         }//*/
