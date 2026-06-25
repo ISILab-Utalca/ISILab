@@ -243,11 +243,11 @@ namespace ISILab.LBS.Behaviours.Editor
         private void AddZone()
         {
             var newZone = behaviour.AddZone();
+
             areaPallete.Options = new object[behaviour.Zones.Count];
             for (int i = 0; i < behaviour.Zones.Count; i++)
             {
                 areaPallete.Options[i] = behaviour.Zones[i];
-             
             }
             behaviour.RoomToSet = newZone;
             areaPallete.Repaint();

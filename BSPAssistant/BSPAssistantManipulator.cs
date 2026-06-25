@@ -1,19 +1,32 @@
+using ISILab.LBS;
+using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar;
+using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using LBS.Components;
+using System.Threading;
+using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ISILab
 {
-    public class BSPAssistantManipulator : ManipulateTeselation
+    public class BSPAssistantManipulator : ManipulateTeselation, IAssistantThreadedEditor
     {
+        // Fields
         private Vector2Int _cornerStart;
+        private BSPAssistant assistant;
 
-        private BSPAssistant _assistant;
+        // Inherited Properties
+        protected override string IconGuid => "5ab039ea1b079eb4dbe013d7a618c2aa";
+        public CancellationToken CancelToken { set; get; }
+        public CancellationTokenSource CancellationTokenSource { set; get; }
+        public ToolBarMain TaskBar { set; get; }
 
-        protected override string IconGuid => "08c60bd0a76e4bb4dad11ebf18bca46e";
-
+        // Constructor
         public BSPAssistantManipulator()
         {
             Feedback.fixToTeselation = true;
@@ -21,10 +34,11 @@ namespace ISILab
             Description = "Select an area to generate a dungeon usign the Binary Space Partition algorithm.";
         }
 
+        // Manipulator Methods
         public override void Init(LBSLayer layer, object owner)
         {
             base.Init(layer, owner);
-            _assistant = owner as BSPAssistant;
+            assistant = owner as BSPAssistant;
         }
         protected override void OnMouseDown(VisualElement element, Vector2Int position, MouseDownEvent e)
         {
@@ -42,14 +56,55 @@ namespace ISILab
                 return;
             }
 
-            var corners = _assistant.OwnerLayer.ToFixedPosition(_cornerStart, endPosition);
-            _assistant.origin = new(
-                Mathf.Min(_cornerStart.x, endPosition.x),
-                Mathf.Min(_cornerStart.y, endPosition.y)
-            );
-            _assistant.mapWidth = Mathf.Abs(endPosition.x - _cornerStart.x);
-            _assistant.mapHeight = Mathf.Abs(endPosition.y - _cornerStart.y );
+            var corners = assistant.OwnerLayer.ToFixedPosition(_cornerStart, endPosition);
+            var mapWidth = corners.max.x - corners.min.x;
+            var mapHeight = corners.max.y - corners.min.y;
+            assistant.Area = new RectInt(corners.min.x, corners.min.y, mapWidth, mapHeight);
+            Execute();
+        }
 
+        private void Execute()
+        {
+            string insideStyle = assistant.Schema.PressetInsideStyle.name;
+            string outsideStyle = assistant.Schema.PressetOutsideStyle.name;
+            // Save history version to revert if necessary
+            LoadedLevel x = LBSController.CurrentLevel;
+            EditorGUI.BeginChangeCheck();
+            Undo.RegisterCompleteObjectUndo(x, "Execute BSPDungeon");
+
+            ((IAssistantThreadedEditor)this).SetUpTask(this, assistant);
+            Task.Run(() =>
+            {
+                try
+                {
+                    assistant.RunAsync(insideStyle, outsideStyle,
+                        ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
+                    EditorApplication.delayCall += () => assistant.OnTermination.Invoke("BSPDungeon Generated", LogType.Log, LBSController.CurrentLevel);
+                }
+                catch (System.Exception ex)
+                {
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, assistant);
+                    Debug.LogError("[BSPDungeonAssistantEditor]: " + ex.Message);
+                }
+            }, CancelToken);
+        }
+
+        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type, Object loadedLevel)
+        {
+            LBSMainWindow.MessageNotify(new LBSLog(log, type));
+
+            // Mark as dirty
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(loadedLevel);
+            }
+
+            assistant.Schema.RecalculateWalls();
+            DrawManager.Instance.RedrawLevel(LBS.LBS.loadedLevel.data);
+            LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.Schema.OwnerLayer);
+
+            TaskBar.EnableProcess(false);
+            assistant.OnTermination = null;
         }
     }
 }

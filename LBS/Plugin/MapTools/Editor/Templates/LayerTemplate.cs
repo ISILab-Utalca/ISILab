@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
 {
-#if UNITY_EDITOR
     [Serializable]
     [CreateAssetMenu(menuName = "ISILab/LBS/Layer Template")]
     public class LayerTemplate : ScriptableObject
@@ -54,5 +53,4 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             }
         }
     }
-#endif
 }
