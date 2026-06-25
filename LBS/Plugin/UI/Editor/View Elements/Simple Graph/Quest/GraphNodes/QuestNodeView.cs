@@ -1,128 +1,79 @@
+using ISILab.AI.Grammar;
 using ISILab.Commons.Utility.Editor;
-using System;
-using UnityEngine;
-using UnityEngine.UIElements;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
-using UnityEditor.UIElements;
 using ISILab.LBS.Editor.Windows;
-using ISILab.AI.Grammar;
+using ISILab.LBS.Manipulators;
+using LBS.VisualElements;
+using System;
+using UnityEditor.UIElements;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
     public class QuestNodeView : QuestGraphNodeView
     {
-        #region CONSTS
-        const float iconSize = 24f;
-        const float padding = 40f;
-        const float minWidth = 160;
-
-        bool bBound = false;
-        #endregion
-
-        #region FIELDS
+        private const float IconSize = 24f;
+        private const float Padding = 40f;
+        private const float MinWidth = 160f;
 
         private static VisualTreeAsset _asset;
 
-        #region VIEWS
         private readonly VisualElement _root;
-        
         private readonly VisualElement _start;
         private readonly VisualElement _goal;
         private readonly VisualElement _scrollIcon;
-        
         private readonly VisualElement _iconGrammarInvalid;
         private readonly VisualElement _iconNodeDataInvalid;
-        
+        private readonly VisualElement _capsule;
         private readonly ToolbarMenu _toolbar;
         private readonly Label _label;
         private readonly QuestActionDetailsView _questActionDetails;
+        private readonly QuestNode _questNode;
 
-        #endregion
-        
-        #endregion
+        private bool _isBound;
 
         public QuestNodeView(QuestNode graphNode)
         {
-            if (_asset == null)
-                _asset = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestNodeView");
+            _questNode = graphNode ?? throw new ArgumentNullException(nameof(graphNode));
+            Node = graphNode;
 
+            _asset ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestNodeView");
             _asset.CloneTree(this);
 
-            _label             = this.Q<Label>("Title");
-            _root              = this.Q<VisualElement>("Root");
-            _start          = this.Q<VisualElement>("StartVe");
-            _goal          = this.Q<VisualElement>("GoalVe");
+            _label = this.Q<Label>("Title");
+            _root = this.Q<VisualElement>("Root");
+            _start = this.Q<VisualElement>("StartVe");
+            _goal = this.Q<VisualElement>("GoalVe");
             _scrollIcon = this.Q<VisualElement>("ScrollIcon");
             InvalidConnectionIcon = this.Q<VisualElement>("InvalidConnectionIcon");
             _iconNodeDataInvalid = this.Q<VisualElement>("InvalidDataIcon");
             _iconGrammarInvalid = this.Q<VisualElement>("InvalidGrammarIcon");
-            _toolbar           = this.Q<ToolbarMenu>("ToolBar");
+            _toolbar = this.Q<ToolbarMenu>("ToolBar");
             _questActionDetails = this.Q<QuestActionDetailsView>("TooltipWindow");
-            
-            VisualElement coloredVe = this.Q<VisualElement>("Capsule");
-            DefaultBackgroundColor = coloredVe.resolvedStyle.backgroundColor;
-            //coloredVe.style.backgroundColor = DefaultBackgroundColor;
-            
-            style.marginBottom = style.marginLeft = style.marginRight = style.marginTop = 0;
+            _capsule = this.Q<VisualElement>("Capsule");
+
+            DefaultBackgroundColor = _capsule.resolvedStyle.backgroundColor;
 
             InvalidConnectionIcon.style.unityBackgroundImageTintColor = InvalidGrammarColor;
             _iconNodeDataInvalid.style.unityBackgroundImageTintColor = InvalidGrammarColor;
             _iconGrammarInvalid.style.unityBackgroundImageTintColor = InvalidGrammarColor;
             _questActionDetails.style.display = DisplayStyle.None;
 
-            Node = graphNode;
-            _questActionDetails.Node = Node as QuestNode;
+            _questActionDetails.Node = _questNode;
 
-            SetPosition(new Rect(Node.NodePosition.position, Vector2.one));
+            SetPosition(new Rect(Node.Area.position, Vector2.one));
 
             SetupToolbar();
             SetupCallbacks();
             Refresh();
         }
 
-
-        #region Setup
         private void SetupToolbar()
         {
             _toolbar.style.display = DisplayStyle.None;
             _toolbar.menu.AppendAction("Set as Start Node", MakeRoot);
-        }
-
-        public override void Refresh()
-        {
-
-            if (Node == null) throw new ArgumentNullException("null node");
-
-            UpdateRefresh();
-
-            UpdateNodeID();
-
-            UpdateNodeType();
-
-            UpdateGrammarState();
-
-            UpdatePosition();
-            
-        }
-
-        private void UpdateNodeType()
-        {
-            _start.style.display = DisplayStyle.None;
-            _goal.style.display = DisplayStyle.None;
-
-            if (Node is QuestNode qn)
-            {
-                switch (qn.NodeType)
-                {
-                    case QuestNode.ENodeType.Start:
-                        _start.style.display = DisplayStyle.Flex;
-                        break;
-                    case QuestNode.ENodeType.Goal:
-                        _goal.style.display = DisplayStyle.Flex;
-                        break;
-                }
-            }
         }
 
         private void SetupCallbacks()
@@ -133,92 +84,90 @@ namespace ISILab.LBS.VisualElements
             RegisterCallback<MouseEnterEvent>(OnMouseEnter);
             RegisterCallback<MouseUpEvent>(OnMouseUp);
             RegisterCallback<GeometryChangedEvent>(_ => UpdatePosition());
+
+            _capsule.RegisterCallback<MouseDownEvent>(OnMouseDownCapsule);
+        }
+
+        private void OnMouseDownCapsule(MouseDownEvent evt)
+        {
+            if (ToolKit.Instance.GetActiveManipulatorInstance() is null) 
+                return;
+
+            var activeManipulator = ToolKit.Instance.GetActiveManipulatorInstance();
+            if (activeManipulator is null)
+                return;
+
+            var rgn = activeManipulator as RemoveGraphNode;
+            if (rgn is null)
+                return;
+
+            rgn.Delete(Node);
+        }
+
+        public override void Refresh()
+        {
+            if (Node == null) throw new ArgumentNullException(nameof(Node), "Underlying Node reference is null");
+
+            UpdateRefresh();
+            UpdateNodeID();
+            UpdateNodeType();
+            UpdateGrammarState();
+            UpdatePosition();
+        }
+
+        private void UpdateNodeType()
+        {
+            _start.style.display = _questNode.NodeType == QuestNode.NodeGraphType.Start ? DisplayStyle.Flex : DisplayStyle.None;
+            _goal.style.display = _questNode.NodeType == QuestNode.NodeGraphType.Goal ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
         private void UpdateRefresh()
         {
-            if (bBound) return;
+            if (_isBound) return;
 
-            if (Node is QuestNode qn)
+            foreach (var field in _questNode.Data.Fields)
             {
-                foreach (var field in qn.Data.Fields)
-                {
-                    ActionExtensions.RemoveMethod(ref field.Refresh, nameof(NotifyValidData));
-                    ActionExtensions.AddUnique(ref field.Refresh, NotifyValidData);
-                }
+                ActionExtensions.RemoveMethod(ref field.Refresh, nameof(NotifyValidData));
+                ActionExtensions.AddUnique(ref field.Refresh, NotifyValidData);
             }
 
-            bBound = true;
+            _isBound = true;
         }
 
-
-        #endregion
-
-        #region Updates
         public void UpdatePosition()
         {
             UpdateWidth();
-
-            SetPosition(new Rect(GetPosition().position,
-                new Vector2(                
-                _root.resolvedStyle.width ,
-                _root.resolvedStyle.height))
-            );
-
+            SetPosition(new Rect(GetPosition().position, new Vector2(_root.resolvedStyle.width, _root.resolvedStyle.height)));
             OnMoving?.Invoke(GetPosition());
         }
 
         private void UpdateWidth()
         {
-            // Use the Font and Style of the label to measure text without waiting for layout
-            var textSize = _label.MeasureTextSize(
-                _label.text, 
-                0,
-                MeasureMode.Undefined, 
-                0,
-                MeasureMode.Undefined);
+            if (string.IsNullOrEmpty(_label.text)) return;
 
-            if (string.IsNullOrEmpty(_label.text)) 
-                return;
+            var textSize = _label.MeasureTextSize(_label.text, 0, MeasureMode.Undefined, 0, MeasureMode.Undefined);
+            float iconTotal = IconSize;
 
-            float iconTotal = iconSize;
-            if (Node is QuestNode qn)
-            {
-                // add icon spaces
-                if (!qn.Data.IsValid()) 
-                    iconTotal += iconSize;
-                if (!Node.ValidGrammar) 
-                    iconTotal += iconSize;
-                if (!Node.ValidConnections) 
-                    iconTotal += iconSize;
-                if (qn.NodeType != QuestNode.ENodeType.Middle)
-                    iconTotal += iconSize;
-            }
+            if (!_questNode.Data.IsValid()) iconTotal += IconSize;
+            if (!_questNode.ValidGrammar) iconTotal += IconSize;
+            if (!Node.ValidConnections) iconTotal += IconSize;
+            if (_questNode.NodeType != QuestNode.NodeGraphType.Middle) iconTotal += IconSize;
 
-            float calculatedWidth = textSize.x + iconTotal + padding;
-            float finalWidth = Mathf.Max(minWidth, calculatedWidth);
-
-            _root.style.width = finalWidth;
+            _root.style.width = Mathf.Max(MinWidth, textSize.x + iconTotal + Padding);
         }
-        #endregion
 
-        #region Grammar State
         protected sealed override void UpdateGrammarState()
         {
-            if(Node is not QuestNode qn) return;
-         
             base.UpdateGrammarState();
 
-            _iconNodeDataInvalid.style.display = qn.Data.IsValid() ? DisplayStyle.None : DisplayStyle.Flex;
-            _iconGrammarInvalid.style.display = Node.ValidGrammar ? DisplayStyle.None : DisplayStyle.Flex;
-            this.Q<VisualElement>("Capsule").SetBorder(Node.IsValid() ? ValidGrammarColor : InvalidGrammarColor, 1f);
+            _iconNodeDataInvalid.style.display = _questNode.Data.IsValid() ? DisplayStyle.None : DisplayStyle.Flex;
+            _iconGrammarInvalid.style.display = _questNode.ValidGrammar ? DisplayStyle.None : DisplayStyle.Flex;
+            _capsule.SetBorder(Node.IsValid() ? ValidGrammarColor : InvalidGrammarColor, 1f);
         }
-        #endregion
 
-        #region Toolbar Actions
         private void MakeRoot(DropdownMenuAction _)
         {
-            Node.Graph.SetRoot(Node as QuestNode);
+            Node.Graph.SetRoot(_questNode);
             _toolbar.menu.ClearItems();
             _toolbar.menu.AppendAction("Remove Start Node assignation", RemoveRoot);
             UpdateWidth();
@@ -231,9 +180,7 @@ namespace ISILab.LBS.VisualElements
             _toolbar.menu.AppendAction("Set as Start Node", MakeRoot);
             UpdateWidth();
         }
-        #endregion
 
-        #region Mouse Events
         protected override void OnMouseDown(MouseDownEvent evt)
         {
             base.OnMouseDown(evt);
@@ -251,26 +198,20 @@ namespace ISILab.LBS.VisualElements
                 foreach (var item in field.ItemsSource)
                 {
                     if (item is GrammarField gf && !gf.IsValid())
-                    {
                         LBSMainWindow.MessageNotify(gf.GetValidStateLog());
-                    }
                 }
             }
-            else
+            else if (!field.IsValid())
             {
-                if (!field.IsValid())
-                    LBSMainWindow.MessageNotify(field.GetValidStateLog());
+                LBSMainWindow.MessageNotify(field.GetValidStateLog());
             }
 
-
             UpdateGrammarState();
-
         }
 
         protected override void OnMouseEnter(MouseEnterEvent evt)
         {
-            if (Node == null) return;
-            if (!this.enabledSelf) return;
+            if (Node == null || !enabledSelf) return;
             base.OnMouseEnter(evt);
 
             if (!_isDragging)
@@ -290,31 +231,19 @@ namespace ISILab.LBS.VisualElements
 
             base.OnMouseMove(evt);
         }
-        
-        #endregion
-
-        #region Helpers
-
-        private float GetElementWidthIfVisible(VisualElement element, float fallback)
-        {
-            if (element.style.display != DisplayStyle.Flex) return 0f;
-            var width = element.resolvedStyle.width;
-            return (float.IsNaN(width) || width == 0) ? fallback : width;
-        }
 
         private void UpdateNodeID()
         {
-            var text = Node.ID;
-            if (!string.IsNullOrWhiteSpace(text))
-                text = char.ToUpper(text.TrimStart()[0]) + text.TrimStart().Substring(1);
+            var rawText = Node.ID?.TrimStart();
+            if (string.IsNullOrWhiteSpace(rawText))
+            {
+                _label.text = string.Empty;
+                return;
+            }
 
-            _label.text = text;
+            _label.text = $"{char.ToUpper(rawText[0])}{rawText[1..]}";
         }
 
-        public override VisualElement GetSelectVisualElement()
-        {
-            return this;
-        }
-        #endregion
+        public override VisualElement GetSelectVisualElement() => this;
     }
 }

@@ -104,24 +104,24 @@ namespace ISILab.LBS.VisualElements
             VisualElement previousContainer = this.Q<VisualElement>("Previous");
             VisualElement nextContainer = this.Q<VisualElement>("Next");
 
-            QuestNode.ENodeType nType = qtn.NodeType;
+            QuestNode.NodeGraphType nType = qtn.NodeType;
 
-            if (nType == QuestNode.ENodeType.Middle)
+            if (nType == QuestNode.NodeGraphType.Middle)
             {
                 stepType.style.display = DisplayStyle.None;
                 return;
             }
 
             stepType.style.display = DisplayStyle.Flex;
-            string iconGuid = (nType == QuestNode.ENodeType.Start) ? StartIconGuid : GoalIconGuid;
+            string iconGuid = (nType == QuestNode.NodeGraphType.Start) ? StartIconGuid : GoalIconGuid;
             stepType.style.backgroundImage = new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid));
 
-            if (nType == QuestNode.ENodeType.Start)
+            if (nType == QuestNode.NodeGraphType.Start)
             {
                 previousStep.style.display = DisplayStyle.None;
                 previousContainer.style.display = DisplayStyle.None;
             }
-            else if (nType == QuestNode.ENodeType.Goal)
+            else if (nType == QuestNode.NodeGraphType.Goal)
             {
                 nextStep.style.display = DisplayStyle.None;
                 nextContainer.style.display = DisplayStyle.None;
