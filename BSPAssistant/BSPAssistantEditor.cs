@@ -53,7 +53,7 @@ namespace ISILab.LBS.VisualElements
             // Create VisualElements
             // Should create a visual element for each field you'll want to tweak,
             // and a button to run the assistant.
-            var runButton = new LBSCustomButton() { text = "Run" };
+            var runButton = new LBSCustomButton() {  text = $"Run" };
 
             areaField = new LBSCustomRectField();
             minPartitionField = new LBSCustomIntField();
