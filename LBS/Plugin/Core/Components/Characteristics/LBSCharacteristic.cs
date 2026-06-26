@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using ISILab.LBS.Plugin.Components.Bundles;
 using UnityEngine;
+using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.LBS.Characteristics
 {
@@ -87,6 +88,8 @@ namespace ISILab.LBS.Characteristics
 
         public abstract override bool Equals(object obj);
 
+        
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -95,6 +98,11 @@ namespace ISILab.LBS.Characteristics
         public virtual List<string> Validate()
         {
             return  new List<string>();
+        }
+
+        public virtual LBSCharacteristicRule GetCharacteristicRule()
+        {
+            return null;
         }
         #endregion
 
