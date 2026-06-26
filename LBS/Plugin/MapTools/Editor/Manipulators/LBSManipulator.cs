@@ -472,7 +472,7 @@ namespace ISILab.LBS.Manipulators
 
     public interface IToolProvider
     {
-        public void SetTools(ToolKit toolkit);
+        public abstract void SetTools(ToolKit toolkit);
     }
 }
 

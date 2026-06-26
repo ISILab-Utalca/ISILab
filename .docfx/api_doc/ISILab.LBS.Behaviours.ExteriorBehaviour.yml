@@ -155,12 +155,22 @@ items:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public Bundle Bundle { get; set; }
+    content: >-
+      [ShowOnLayerTemplate]
+
+      public Bundle Bundle { get; set; }
     parameters: []
     return:
       type: ISILab.LBS.Plugin.Components.Bundles.Bundle
-    content.vb: Public Property Bundle As Bundle
+    content.vb: >-
+      <ShowOnLayerTemplate>
+
+      Public Property Bundle As Bundle
   overload: ISILab.LBS.Behaviours.ExteriorBehaviour.Bundle*
+  attributes:
+  - type: ISILab.LBS.ShowOnLayerTemplateAttribute
+    ctor: ISILab.LBS.ShowOnLayerTemplateAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.ExteriorBehaviour.GridType
   commentId: P:ISILab.LBS.Behaviours.ExteriorBehaviour.GridType
   id: GridType
@@ -179,7 +189,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GridType
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 66
+    startLine: 67
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -208,7 +218,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: NavigableTags
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 79
+    startLine: 80
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -237,7 +247,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Tiles
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 102
+    startLine: 103
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -276,7 +286,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Directions
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 105
+    startLine: 106
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -315,7 +325,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 111
+    startLine: 112
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -351,7 +361,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnGUI
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 122
+    startLine: 123
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -379,7 +389,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAttachLayer
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 124
+    startLine: 125
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -410,7 +420,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnDetachLayer
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 130
+    startLine: 131
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -441,7 +451,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CheckKeys
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 135
+    startLine: 136
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -469,7 +479,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: UpdateKeys
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 140
+    startLine: 141
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -495,7 +505,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetTile
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 145
+    startLine: 146
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -526,7 +536,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveTile
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 150
+    startLine: 151
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -555,7 +565,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddTile
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 157
+    startLine: 158
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -584,7 +594,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetConnection
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 168
+    startLine: 169
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -622,7 +632,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetConnections
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 175
+    startLine: 176
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -653,7 +663,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RequestTilesRepaint
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 180
+    startLine: 181
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -685,7 +695,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 186
+    startLine: 187
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -715,7 +725,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 193
+    startLine: 194
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -751,7 +761,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 205
+    startLine: 206
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -781,7 +791,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CaptureAreaData
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 210
+    startLine: 211
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -822,7 +832,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetPosition
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 239
+    startLine: 240
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -858,7 +868,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAnchor
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 249
+    startLine: 250
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -891,7 +901,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ChangeLevelRender
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 261
+    startLine: 262
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -927,7 +937,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MergeLayerData
     path: ../LBS/Plugin/Modules/Exterior/Behaviour/ExteriorBehaviour.cs
-    startLine: 262
+    startLine: 263
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours

@@ -7,6 +7,7 @@ items:
   children:
   - ISILab.LBS.Plugin.Internal.EvaluatorData.#ctor(System.String,System.Boolean,System.Boolean,System.Boolean)
   - ISILab.LBS.Plugin.Internal.EvaluatorData.AddParam(ISILab.LBS.Plugin.Internal.ParameterData)
+  - ISILab.LBS.Plugin.Internal.EvaluatorData.AddingOrRemovingParameter
   - ISILab.LBS.Plugin.Internal.EvaluatorData.Interface1
   - ISILab.LBS.Plugin.Internal.EvaluatorData.Interface2
   - ISILab.LBS.Plugin.Internal.EvaluatorData.Interface3
@@ -295,6 +296,35 @@ items:
       type: System.Boolean
     content.vb: Public Property Interface3 As Boolean
   overload: ISILab.LBS.Plugin.Internal.EvaluatorData.Interface3*
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorData.AddingOrRemovingParameter
+  commentId: P:ISILab.LBS.Plugin.Internal.EvaluatorData.AddingOrRemovingParameter
+  id: AddingOrRemovingParameter
+  parent: ISILab.LBS.Plugin.Internal.EvaluatorData
+  langs:
+  - csharp
+  - vb
+  name: AddingOrRemovingParameter
+  nameWithType: EvaluatorData.AddingOrRemovingParameter
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorData.AddingOrRemovingParameter
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Internal/Resources/EvaluatorsDatabase.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: AddingOrRemovingParameter
+    path: ../LBS/Plugin/Internal/Resources/EvaluatorsDatabase.cs
+    startLine: 61
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Internal
+  syntax:
+    content: public bool AddingOrRemovingParameter { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AddingOrRemovingParameter As Boolean
+  overload: ISILab.LBS.Plugin.Internal.EvaluatorData.AddingOrRemovingParameter*
 references:
 - uid: ISILab.LBS.Plugin.Internal
   commentId: N:ISILab.LBS.Plugin.Internal
@@ -749,4 +779,10 @@ references:
   name: Interface3
   nameWithType: EvaluatorData.Interface3
   fullName: ISILab.LBS.Plugin.Internal.EvaluatorData.Interface3
+- uid: ISILab.LBS.Plugin.Internal.EvaluatorData.AddingOrRemovingParameter*
+  commentId: Overload:ISILab.LBS.Plugin.Internal.EvaluatorData.AddingOrRemovingParameter
+  href: ISILab.LBS.Plugin.Internal.EvaluatorData.html#ISILab_LBS_Plugin_Internal_EvaluatorData_AddingOrRemovingParameter
+  name: AddingOrRemovingParameter
+  nameWithType: EvaluatorData.AddingOrRemovingParameter
+  fullName: ISILab.LBS.Plugin.Internal.EvaluatorData.AddingOrRemovingParameter
 shouldSkipMarkup: true

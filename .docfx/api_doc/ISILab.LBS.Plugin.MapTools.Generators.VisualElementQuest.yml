@@ -6,7 +6,7 @@ items:
   parent: ISILab.LBS.Plugin.MapTools.Generators
   children:
   - ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.#ctor
-  - ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger(QuestTrigger)
+  - ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
   langs:
   - csharp
   - vb
@@ -201,16 +201,16 @@ items:
   nameWithType.vb: VisualElementQuest.New()
   fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.New()
   name.vb: New()
-- uid: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger(QuestTrigger)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger(QuestTrigger)
-  id: SetTrigger(QuestTrigger)
+- uid: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  id: SetTrigger(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
   parent: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest
   langs:
   - csharp
   - vb
   name: SetTrigger(QuestTrigger)
   nameWithType: VisualElementQuest.SetTrigger(QuestTrigger)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger(QuestTrigger)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
   type: Method
   source:
     remote:
@@ -232,7 +232,7 @@ items:
     content: public void SetTrigger(QuestTrigger trigger)
     parameters:
     - id: trigger
-      type: QuestTrigger
+      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
     content.vb: Public Sub SetTrigger(trigger As QuestTrigger)
   overload: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger*
 references:
@@ -3758,14 +3758,15 @@ references:
   name.vb: New
 - uid: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger*
   commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger
-  href: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.html#ISILab_LBS_Plugin_MapTools_Generators_VisualElementQuest_SetTrigger_QuestTrigger_
+  href: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.html#ISILab_LBS_Plugin_MapTools_Generators_VisualElementQuest_SetTrigger_ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_
   name: SetTrigger
   nameWithType: VisualElementQuest.SetTrigger
   fullName: ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.SetTrigger
-- uid: QuestTrigger
-  commentId: T:QuestTrigger
-  href: QuestTrigger.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
   name: QuestTrigger
   nameWithType: QuestTrigger
-  fullName: QuestTrigger
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
 shouldSkipMarkup: true

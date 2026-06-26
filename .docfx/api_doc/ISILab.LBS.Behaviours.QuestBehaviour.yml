@@ -39,11 +39,11 @@ items:
   namespace: ISILab.LBS.Behaviours
   syntax:
     content: >-
-      [RequieredModule(new Type[] { typeof(QuestGraph) })]
+      [RequieredModule(new Type[] { typeof(QuestGraphModule) })]
 
       public class QuestBehaviour : LBSBehaviour, ICloneable, IBlueprintable
     content.vb: >-
-      <RequieredModule(New Type() { GetType(QuestGraph) })>
+      <RequieredModule(New Type() { GetType(QuestGraphModule) })>
 
       Public Class QuestBehaviour Inherits LBSBehaviour Implements ICloneable, IBlueprintable
   inheritance:
@@ -157,11 +157,11 @@ items:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public QuestGraph Graph { get; }
+    content: public QuestGraphModule Graph { get; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.QuestGraph
-    content.vb: Public ReadOnly Property Graph As QuestGraph
+      type: ISILab.LBS.Modules.QuestGraphModule
+    content.vb: Public ReadOnly Property Graph As QuestGraphModule
   overload: ISILab.LBS.Behaviours.QuestBehaviour.Graph*
 - uid: ISILab.LBS.Behaviours.QuestBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
   commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
@@ -1343,13 +1343,13 @@ references:
   name: Graph
   nameWithType: QuestBehaviour.Graph
   fullName: ISILab.LBS.Behaviours.QuestBehaviour.Graph
-- uid: ISILab.LBS.Modules.QuestGraph
-  commentId: T:ISILab.LBS.Modules.QuestGraph
+- uid: ISILab.LBS.Modules.QuestGraphModule
+  commentId: T:ISILab.LBS.Modules.QuestGraphModule
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraph.html
-  name: QuestGraph
-  nameWithType: QuestGraph
-  fullName: ISILab.LBS.Modules.QuestGraph
+  href: ISILab.LBS.Modules.QuestGraphModule.html
+  name: QuestGraphModule
+  nameWithType: QuestGraphModule
+  fullName: ISILab.LBS.Modules.QuestGraphModule
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html

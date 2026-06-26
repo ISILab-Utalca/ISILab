@@ -5,7 +5,7 @@ items:
   id: BundleTilemapChromosome
   parent: ISILab.AI.Categorization
   children:
-  - ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  - ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMapModule,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
   - ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
   - ISILab.AI.Categorization.BundleTilemapChromosome.CloneChromosome
   - ISILab.AI.Categorization.BundleTilemapChromosome.CompareTo(GeneticSharp.Domain.Chromosomes.IChromosome)
@@ -86,16 +86,16 @@ items:
   - System.Object.ToString
   extensionMethods:
   - GeneticSharp.Domain.Chromosomes.IChromosome.GeneticSharp.Domain.Chromosomes.ChromosomeExtensions.ValidateGenes
-- uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
-  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
-  id: '#ctor(ISILab.LBS.Modules.BundleTileMap,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})'
+- uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMapModule,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(ISILab.LBS.Modules.BundleTileMapModule,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
+  id: '#ctor(ISILab.LBS.Modules.BundleTileMapModule,UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})'
   parent: ISILab.AI.Categorization.BundleTilemapChromosome
   langs:
   - csharp
   - vb
-  name: BundleTilemapChromosome(BundleTileMap, Rect, HashSet<int>, HashSet<int>)
-  nameWithType: BundleTilemapChromosome.BundleTilemapChromosome(BundleTileMap, Rect, HashSet<int>, HashSet<int>)
-  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome(ISILab.LBS.Modules.BundleTileMap, UnityEngine.Rect, System.Collections.Generic.HashSet<int>, System.Collections.Generic.HashSet<int>)
+  name: BundleTilemapChromosome(BundleTileMapModule, Rect, HashSet<int>, HashSet<int>)
+  nameWithType: BundleTilemapChromosome.BundleTilemapChromosome(BundleTileMapModule, Rect, HashSet<int>, HashSet<int>)
+  fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome(ISILab.LBS.Modules.BundleTileMapModule, UnityEngine.Rect, System.Collections.Generic.HashSet<int>, System.Collections.Generic.HashSet<int>)
   type: Constructor
   source:
     remote:
@@ -109,21 +109,21 @@ items:
   - LBS
   namespace: ISILab.AI.Categorization
   syntax:
-    content: public BundleTilemapChromosome(BundleTileMap tileMap, Rect rect, HashSet<int> immutables = null, HashSet<int> invalids = null)
+    content: public BundleTilemapChromosome(BundleTileMapModule tileMap, Rect rect, HashSet<int> immutables = null, HashSet<int> invalids = null)
     parameters:
     - id: tileMap
-      type: ISILab.LBS.Modules.BundleTileMap
+      type: ISILab.LBS.Modules.BundleTileMapModule
     - id: rect
       type: UnityEngine.Rect
     - id: immutables
       type: System.Collections.Generic.HashSet{System.Int32}
     - id: invalids
       type: System.Collections.Generic.HashSet{System.Int32}
-    content.vb: Public Sub New(tileMap As BundleTileMap, rect As Rect, immutables As HashSet(Of Integer) = Nothing, invalids As HashSet(Of Integer) = Nothing)
+    content.vb: Public Sub New(tileMap As BundleTileMapModule, rect As Rect, immutables As HashSet(Of Integer) = Nothing, invalids As HashSet(Of Integer) = Nothing)
   overload: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor*
-  nameWithType.vb: BundleTilemapChromosome.New(BundleTileMap, Rect, HashSet(Of Integer), HashSet(Of Integer))
-  fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.New(ISILab.LBS.Modules.BundleTileMap, UnityEngine.Rect, System.Collections.Generic.HashSet(Of Integer), System.Collections.Generic.HashSet(Of Integer))
-  name.vb: New(BundleTileMap, Rect, HashSet(Of Integer), HashSet(Of Integer))
+  nameWithType.vb: BundleTilemapChromosome.New(BundleTileMapModule, Rect, HashSet(Of Integer), HashSet(Of Integer))
+  fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.New(ISILab.LBS.Modules.BundleTileMapModule, UnityEngine.Rect, System.Collections.Generic.HashSet(Of Integer), System.Collections.Generic.HashSet(Of Integer))
+  name.vb: New(BundleTileMapModule, Rect, HashSet(Of Integer), HashSet(Of Integer))
 - uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
   commentId: M:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})
   id: '#ctor(UnityEngine.Rect,System.Collections.Generic.HashSet{System.Int32},System.Collections.Generic.HashSet{System.Int32})'
@@ -1796,20 +1796,20 @@ references:
   fullName: GeneticSharp.Domain.Chromosomes.ChromosomeExtensions
 - uid: ISILab.AI.Categorization.BundleTilemapChromosome.#ctor*
   commentId: Overload:ISILab.AI.Categorization.BundleTilemapChromosome.#ctor
-  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome__ctor_ISILab_LBS_Modules_BundleTileMap_UnityEngine_Rect_System_Collections_Generic_HashSet_System_Int32__System_Collections_Generic_HashSet_System_Int32__
+  href: ISILab.AI.Categorization.BundleTilemapChromosome.html#ISILab_AI_Categorization_BundleTilemapChromosome__ctor_ISILab_LBS_Modules_BundleTileMapModule_UnityEngine_Rect_System_Collections_Generic_HashSet_System_Int32__System_Collections_Generic_HashSet_System_Int32__
   name: BundleTilemapChromosome
   nameWithType: BundleTilemapChromosome.BundleTilemapChromosome
   fullName: ISILab.AI.Categorization.BundleTilemapChromosome.BundleTilemapChromosome
   nameWithType.vb: BundleTilemapChromosome.New
   fullName.vb: ISILab.AI.Categorization.BundleTilemapChromosome.New
   name.vb: New
-- uid: ISILab.LBS.Modules.BundleTileMap
-  commentId: T:ISILab.LBS.Modules.BundleTileMap
+- uid: ISILab.LBS.Modules.BundleTileMapModule
+  commentId: T:ISILab.LBS.Modules.BundleTileMapModule
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.BundleTileMap.html
-  name: BundleTileMap
-  nameWithType: BundleTileMap
-  fullName: ISILab.LBS.Modules.BundleTileMap
+  href: ISILab.LBS.Modules.BundleTileMapModule.html
+  name: BundleTileMapModule
+  nameWithType: BundleTileMapModule
+  fullName: ISILab.LBS.Modules.BundleTileMapModule
 - uid: UnityEngine.Rect
   commentId: T:UnityEngine.Rect
   parent: UnityEngine

@@ -85,8 +85,8 @@ namespace ISILab.LBS.VisualElements.Editor
         private void Callbacks()
         {
             _layerName.RegisterCallback<ChangeEvent<string>>(OnNameChanged);
-            _showButton.clicked += () => ShowLayer(true);
-            _hideButton.clicked += () => ShowLayer(false);
+            _showButton.clicked += () => ShowLayer(false);
+            _hideButton.clicked += () => ShowLayer(true);
         }
         
         public void SetStyleSelectors()
@@ -132,8 +132,8 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void ShowLayer(bool value)
         {
-            _showButton.style.display = value ? DisplayStyle.None : DisplayStyle.Flex;
-            _hideButton.style.display = value ? DisplayStyle.Flex : DisplayStyle.None;
+            _showButton.style.display = value ? DisplayStyle.Flex : DisplayStyle.None;
+            _hideButton.style.display = value ? DisplayStyle.None : DisplayStyle.Flex;
 
             if(_target.IsVisible != value)
             {

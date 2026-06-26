@@ -368,45 +368,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 Thread.Sleep(1); // to draw
             }
         }
-        /* Old OnAttachLayer
-        public override void OnAttachLayer(LBSLayer layer)
-        {
-            // Call base method
-            base.OnAttachLayer(layer);
-
-            // Get modules
-            var zonesMod = layer.GetModule<SectorizedTileMapModule>();
-
-            // Set event
-            zonesMod.OnAddZone += (module, zone) =>
-            {
-                ConstrainsZonesMod.RecalculateConstraint(zonesMod.Zones);
-            };
-            zonesMod.OnRemoveZone += (module, zone) =>
-            {
-                ConstrainsZonesMod.RecalculateConstraint(zonesMod.Zones);
-                foreach (var edge in GraphMod.RemoveEdges(zone))
-                {
-                    RequestTileRemove(edge);
-                }
-            };
-
-            zonesMod.OnRemovePair += (module, tile) =>
-            {
-                if (tile == null) return;
-
-                if (!module.ZonesWithTiles.Contains(tile.Zone))
-                {
-                    foreach (var edge in GraphMod.RemoveEdges(tile.Zone))
-                    {
-                        RequestTileRemove(edge);
-                    }
-                }
-
-            };
-
-            CreateHillClimbing();
-        }*/
 
         public override void OnAttachLayer(LBSLayer layer)
         {

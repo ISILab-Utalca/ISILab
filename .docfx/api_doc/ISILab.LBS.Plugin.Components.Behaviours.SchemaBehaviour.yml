@@ -14,9 +14,9 @@ items:
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CheckKeys
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Clone
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Connections
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DefaultConnections
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Door
-  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DownStair
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Empty
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Equals(System.Object)
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.GetAnchor
@@ -52,7 +52,6 @@ items:
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileConnections
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.TileMap
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Tiles
-  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpStair
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpdateKeys
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Wall
@@ -124,6 +123,33 @@ items:
   - type: System.SerializableAttribute
     ctor: System.SerializableAttribute.#ctor
     arguments: []
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DefaultConnections
+  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DefaultConnections
+  id: DefaultConnections
+  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
+  langs:
+  - csharp
+  - vb
+  name: DefaultConnections
+  nameWithType: SchemaBehaviour.DefaultConnections
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DefaultConnections
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: DefaultConnections
+    path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
+    startLine: 42
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.Components.Behaviours
+  syntax:
+    content: public static List<string> DefaultConnections
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Shared DefaultConnections As List(Of String)
 - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Empty
   commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Empty
   id: Empty
@@ -142,7 +168,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Empty
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 42
+    startLine: 44
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -169,7 +195,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Wall
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 43
+    startLine: 45
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -196,7 +222,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Door
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 44
+    startLine: 46
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -223,7 +249,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Window
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 45
+    startLine: 47
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -250,7 +276,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: LockedDoor
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 46
+    startLine: 48
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -259,60 +285,6 @@ items:
     return:
       type: System.String
     content.vb: Public Const LockedDoor As String = "LockedDoor"
-- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DownStair
-  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DownStair
-  id: DownStair
-  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
-  langs:
-  - csharp
-  - vb
-  name: DownStair
-  nameWithType: SchemaBehaviour.DownStair
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.DownStair
-  type: Field
-  source:
-    remote:
-      path: LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-      branch: ignacio-r-develop
-      repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: DownStair
-    path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 47
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Behaviours
-  syntax:
-    content: public const string DownStair = "DownStair"
-    return:
-      type: System.String
-    content.vb: Public Const DownStair As String = "DownStair"
-- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpStair
-  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpStair
-  id: UpStair
-  parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
-  langs:
-  - csharp
-  - vb
-  name: UpStair
-  nameWithType: SchemaBehaviour.UpStair
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.UpStair
-  type: Field
-  source:
-    remote:
-      path: LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-      branch: ignacio-r-develop
-      repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: UpStair
-    path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 48
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.Components.Behaviours
-  syntax:
-    content: public const string UpStair = "UpStair"
-    return:
-      type: System.String
-    content.vb: Public Const UpStair As String = "UpStair"
 - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RoomToSet
   commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RoomToSet
   id: RoomToSet
@@ -422,6 +394,8 @@ items:
     content: >-
       [JsonIgnore]
 
+      [ShowOnLayerTemplate]
+
       public Bundle PressetInsideStyle { get; set; }
     parameters: []
     return:
@@ -429,11 +403,16 @@ items:
     content.vb: >-
       <JsonIgnore>
 
+      <ShowOnLayerTemplate>
+
       Public Property PressetInsideStyle As Bundle
   overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetInsideStyle*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+  - type: ISILab.LBS.ShowOnLayerTemplateAttribute
+    ctor: ISILab.LBS.ShowOnLayerTemplateAttribute.#ctor
     arguments: []
 - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle
   commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle
@@ -461,6 +440,8 @@ items:
     content: >-
       [JsonIgnore]
 
+      [ShowOnLayerTemplate]
+
       public Bundle PressetOutsideStyle { get; set; }
     parameters: []
     return:
@@ -468,11 +449,16 @@ items:
     content.vb: >-
       <JsonIgnore>
 
+      <ShowOnLayerTemplate>
+
       Public Property PressetOutsideStyle As Bundle
   overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.PressetOutsideStyle*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+  - type: ISILab.LBS.ShowOnLayerTemplateAttribute
+    ctor: ISILab.LBS.ShowOnLayerTemplateAttribute.#ctor
     arguments: []
 - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections
   commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections
@@ -500,6 +486,8 @@ items:
     content: >-
       [JsonIgnore]
 
+      [ShowOnLayerTemplate]
+
       public bool MultiLayerConnections { get; set; }
     parameters: []
     return:
@@ -507,11 +495,16 @@ items:
     content.vb: >-
       <JsonIgnore>
 
+      <ShowOnLayerTemplate>
+
       Public Property MultiLayerConnections As Boolean
   overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.MultiLayerConnections*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+  - type: ISILab.LBS.ShowOnLayerTemplateAttribute
+    ctor: ISILab.LBS.ShowOnLayerTemplateAttribute.#ctor
     arguments: []
 - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea
   commentId: P:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ValidArea
@@ -2671,6 +2664,106 @@ references:
   - name: T
   - name: )
   - name: )
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -2868,71 +2961,6 @@ references:
     name: Zone
     href: ISILab.LBS.Plugin.Components.Data.Zone.html
   - name: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ZonesWithTiles*
   commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ZonesWithTiles
   href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_ZonesWithTiles
@@ -3079,41 +3107,6 @@ references:
   name: Connections
   nameWithType: SchemaBehaviour.Connections
   fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Connections
-- uid: System.Collections.Generic.List{System.String}
-  commentId: T:System.Collections.Generic.List{System.String}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<string>
-  nameWithType: List<string>
-  fullName: System.Collections.Generic.List<string>
-  nameWithType.vb: List(Of String)
-  fullName.vb: System.Collections.Generic.List(Of String)
-  name.vb: List(Of String)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
 - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions*
   commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.Directions
   href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_Directions

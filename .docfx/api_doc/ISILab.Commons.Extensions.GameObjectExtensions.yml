@@ -20,10 +20,12 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GameObjectExtensions
     path: ../Commons/Extensions/GameObjectExtensions.cs
-    startLine: 4
+    startLine: 7
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Class containing extension methods for GameObject.
+  example: []
   syntax:
     content: public static class GameObjectExtensions
     content.vb: Public Module GameObjectExtensions
@@ -56,18 +58,22 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetParent
     path: ../Commons/Extensions/GameObjectExtensions.cs
-    startLine: 6
+    startLine: 14
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Sets the parent of a GameObject.
+  example: []
   syntax:
-    content: public static void SetParent(this GameObject gameObjct, GameObject other)
+    content: public static void SetParent(this GameObject gameObject, GameObject other)
     parameters:
-    - id: gameObjct
+    - id: gameObject
       type: UnityEngine.GameObject
+      description: The child object.
     - id: other
       type: UnityEngine.GameObject
-    content.vb: Public Shared Sub SetParent(gameObjct As GameObject, other As GameObject)
+      description: The new parent object.
+    content.vb: Public Shared Sub SetParent(gameObject As GameObject, other As GameObject)
   overload: ISILab.Commons.Extensions.GameObjectExtensions.SetParent*
 references:
 - uid: ISILab.Commons.Extensions

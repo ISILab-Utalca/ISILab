@@ -158,16 +158,23 @@ items:
     content: >-
       [JsonIgnore]
 
+      [ShowOnLayerTemplate]
+
       public LBSTag upStairTag
     return:
       type: ISILab.LBS.Components.LBSTag
     content.vb: >-
       <JsonIgnore>
 
+      <ShowOnLayerTemplate>
+
       Public upStairTag As LBSTag
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+  - type: ISILab.LBS.ShowOnLayerTemplateAttribute
+    ctor: ISILab.LBS.ShowOnLayerTemplateAttribute.#ctor
     arguments: []
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.downStairTag
   commentId: F:ISILab.LBS.Behaviours.SimulationBehaviour.downStairTag
@@ -195,16 +202,23 @@ items:
     content: >-
       [JsonIgnore]
 
+      [ShowOnLayerTemplate]
+
       public LBSTag downStairTag
     return:
       type: ISILab.LBS.Components.LBSTag
     content.vb: >-
       <JsonIgnore>
 
+      <ShowOnLayerTemplate>
+
       Public downStairTag As LBSTag
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+  - type: ISILab.LBS.ShowOnLayerTemplateAttribute
+    ctor: ISILab.LBS.ShowOnLayerTemplateAttribute.#ctor
     arguments: []
 - uid: ISILab.LBS.Behaviours.SimulationBehaviour.pathOSBundles
   commentId: F:ISILab.LBS.Behaviours.SimulationBehaviour.pathOSBundles
@@ -780,7 +794,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAttachLayer
     path: ../LBS/Plugin/Modules/Simulation/LBSPathOSBridge/SimulationBehaviour.cs
-    startLine: 276
+    startLine: 280
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -811,7 +825,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnDetachLayer
     path: ../LBS/Plugin/Modules/Simulation/LBSPathOSBridge/SimulationBehaviour.cs
-    startLine: 283
+    startLine: 287
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -842,7 +856,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CheckKeys
     path: ../LBS/Plugin/Modules/Simulation/LBSPathOSBridge/SimulationBehaviour.cs
-    startLine: 289
+    startLine: 293
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -870,7 +884,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnGUI
     path: ../LBS/Plugin/Modules/Simulation/LBSPathOSBridge/SimulationBehaviour.cs
-    startLine: 294
+    startLine: 298
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -898,7 +912,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
     path: ../LBS/Plugin/Modules/Simulation/LBSPathOSBridge/SimulationBehaviour.cs
-    startLine: 299
+    startLine: 303
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -934,7 +948,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
     path: ../LBS/Plugin/Modules/Simulation/LBSPathOSBridge/SimulationBehaviour.cs
-    startLine: 310
+    startLine: 314
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours

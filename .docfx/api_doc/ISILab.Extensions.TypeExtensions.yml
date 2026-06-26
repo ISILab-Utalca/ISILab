@@ -21,10 +21,12 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TypeExtensions
     path: ../Commons/Extensions/TypeExtensions.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Class with extension methods for Type.
+  example: []
   syntax:
     content: public static class TypeExtensions
     content.vb: Public Module TypeExtensions
@@ -57,19 +59,24 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetDerivedTypes
     path: ../Commons/Extensions/TypeExtensions.cs
-    startLine: 10
+    startLine: 17
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Gets from a collection all types that are derived from a specified base type.
+  example: []
   syntax:
     content: public static IEnumerable<Type> GetDerivedTypes(this IEnumerable<Type> types, Type baseType)
     parameters:
     - id: types
       type: System.Collections.Generic.IEnumerable{System.Type}
+      description: The collection to inspect.
     - id: baseType
       type: System.Type
+      description: The base type from which the derived types are consulted.
     return:
       type: System.Collections.Generic.IEnumerable{System.Type}
+      description: All types from the collection that are derived from <code class="paramref">baseType</code>
     content.vb: Public Shared Function GetDerivedTypes(types As IEnumerable(Of Type), baseType As Type) As IEnumerable(Of Type)
   overload: ISILab.Extensions.TypeExtensions.GetDerivedTypes*
   nameWithType.vb: TypeExtensions.GetDerivedTypes(IEnumerable(Of Type), Type)
@@ -94,17 +101,21 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetDerivedTypes
     path: ../Commons/Extensions/TypeExtensions.cs
-    startLine: 15
+    startLine: 27
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Gets all types in the Current Domain that are derived from a specified base type.
+  example: []
   syntax:
     content: public static IEnumerable<Type> GetDerivedTypes(this Type baseType)
     parameters:
     - id: baseType
       type: System.Type
+      description: The base type from which the derived types are consulted.
     return:
       type: System.Collections.Generic.IEnumerable{System.Type}
+      description: All types that are derived from <code class="paramref">baseType</code>
     content.vb: Public Shared Function GetDerivedTypes(baseType As Type) As IEnumerable(Of Type)
   overload: ISILab.Extensions.TypeExtensions.GetDerivedTypes*
 references:

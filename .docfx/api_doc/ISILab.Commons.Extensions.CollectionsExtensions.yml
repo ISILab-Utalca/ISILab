@@ -9,7 +9,7 @@ items:
   - ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex``1(System.Collections.Generic.List{``0},System.Int32)
   - ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex``1(``0[],System.Int32)
   - ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly``1(System.Collections.Generic.List{``0},``0[])
-  - ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString``1(System.Collections.Generic.List{``0})
+  - ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString``1(System.Collections.Generic.List{``0},System.String)
   - ISILab.Commons.Extensions.CollectionsExtensions.GetRandom``1(``0[])
   - ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete``1(System.Collections.Generic.List{``0},System.Func{``0,System.Single})
   - ISILab.Commons.Extensions.CollectionsExtensions.Random``1(System.Collections.Generic.List{``0})
@@ -18,7 +18,7 @@ items:
   - ISILab.Commons.Extensions.CollectionsExtensions.Rotate``1(System.Collections.Generic.List{``0})
   - ISILab.Commons.Extensions.CollectionsExtensions.Rotate``1(System.Collections.Generic.List{``0},System.Int32)
   - ISILab.Commons.Extensions.CollectionsExtensions.Shuffle``1(System.Collections.Generic.IList{``0})
-  - ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0})
+  - ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0},System.String)
   langs:
   - csharp
   - vb
@@ -33,10 +33,12 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CollectionsExtensions
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 8
+    startLine: 11
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Class containing extension methods for collection types, such as List and Array.
+  example: []
   syntax:
     content: public static class CollectionsExtensions
     content.vb: Public Module CollectionsExtensions
@@ -69,20 +71,25 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 11
+    startLine: 20
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Creates a deep copy of a list.
+  example: []
   syntax:
-    content: 'public static List<T> Clone<T>(this List<T> list) where T : class'
+    content: 'public static List<T> Clone<T>(this List<T> list) where T : class, ICloneable'
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
     typeParameters:
     - id: T
+      description: A class type that implements ICloneable.
     return:
       type: System.Collections.Generic.List{{T}}
-    content.vb: Public Shared Function Clone(Of T As Class)(list As List(Of T)) As List(Of T)
+      description: A deep copy of the list.
+    content.vb: Public Shared Function Clone(Of T As {Class, ICloneable})(list As List(Of T)) As List(Of T)
   overload: ISILab.Commons.Extensions.CollectionsExtensions.Clone*
   nameWithType.vb: CollectionsExtensions.Clone(Of T)(List(Of T))
   fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.Clone(Of T)(System.Collections.Generic.List(Of T))
@@ -106,21 +113,27 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ContainsOnly
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 31
+    startLine: 49
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Indicates whether a list contains only the specified values ​​or not.
+  example: []
   syntax:
     content: public static bool ContainsOnly<T>(this List<T> list, params T[] values)
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
     - id: values
       type: '{T}[]'
+      description: The values to consult.
     typeParameters:
     - id: T
+      description: ''
     return:
       type: System.Boolean
+      description: <b>True</b> if all elements in the list are equal to one of the passed values. <b>False</b> otherwise.
     content.vb: Public Shared Function ContainsOnly(Of T)(list As List(Of T), ParamArray values As T()) As Boolean
   overload: ISILab.Commons.Extensions.CollectionsExtensions.ContainsOnly*
   nameWithType.vb: CollectionsExtensions.ContainsOnly(Of T)(List(Of T), ParamArray T())
@@ -145,21 +158,27 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RandomRullete
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 36
+    startLine: 61
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Performs a weighted random selection of an element from a list.
+  example: []
   syntax:
     content: public static T RandomRullete<T>(this List<T> list, Func<T, float> predicate)
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
     - id: predicate
       type: System.Func{{T},System.Single}
+      description: Function to obtain an element's weight.
     typeParameters:
     - id: T
+      description: ''
     return:
       type: '{T}'
+      description: The randomly selected element if the list is not empty. <br />Default otherwise.
     content.vb: Public Shared Function RandomRullete(Of T)(list As List(Of T), predicate As Func(Of T, Single)) As T
   overload: ISILab.Commons.Extensions.CollectionsExtensions.RandomRullete*
   nameWithType.vb: CollectionsExtensions.RandomRullete(Of T)(List(Of T), Func(Of T, Single))
@@ -184,21 +203,27 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ContainsIndex
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 65
+    startLine: 98
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Indicates whether an index is within the range of a list or not.
+  example: []
   syntax:
     content: public static bool ContainsIndex<T>(this List<T> list, int index)
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
     - id: index
       type: System.Int32
+      description: Index to check.
     typeParameters:
     - id: T
+      description: ''
     return:
       type: System.Boolean
+      description: <b>True</b> if index is in range. <b>False</b> otherwise.
     content.vb: Public Shared Function ContainsIndex(Of T)(list As List(Of T), index As Integer) As Boolean
   overload: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex*
   nameWithType.vb: CollectionsExtensions.ContainsIndex(Of T)(List(Of T), Integer)
@@ -223,19 +248,24 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Random
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 70
+    startLine: 109
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Obtains a random element from a list.
+  example: []
   syntax:
     content: public static T Random<T>(this List<T> list)
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
     typeParameters:
     - id: T
+      description: ''
     return:
       type: '{T}'
+      description: The randomly selected element if the list is not empty. <br />Default otherwise.
     content.vb: Public Shared Function Random(Of T)(list As List(Of T)) As T
   overload: ISILab.Commons.Extensions.CollectionsExtensions.Random*
   nameWithType.vb: CollectionsExtensions.Random(Of T)(List(Of T))
@@ -260,21 +290,27 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Rotate
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 81
+    startLine: 127
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Shifts the elements of a list in a new one.
+  example: []
   syntax:
     content: public static List<T> Rotate<T>(this List<T> list, int count)
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
     - id: count
       type: System.Int32
+      description: Times to make a shift.
     typeParameters:
     - id: T
+      description: ''
     return:
       type: System.Collections.Generic.List{{T}}
+      description: A new list with the shifted elements.
     content.vb: Public Shared Function Rotate(Of T)(list As List(Of T), count As Integer) As List(Of T)
   overload: ISILab.Commons.Extensions.CollectionsExtensions.Rotate*
   nameWithType.vb: CollectionsExtensions.Rotate(Of T)(List(Of T), Integer)
@@ -299,19 +335,24 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Rotate
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 99
+    startLine: 151
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Shifts only once the elements of a list in a new one.
+  example: []
   syntax:
     content: public static List<T> Rotate<T>(this List<T> list)
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
     typeParameters:
     - id: T
+      description: ''
     return:
       type: System.Collections.Generic.List{{T}}
+      description: A new list with the shifted elements.
     content.vb: Public Shared Function Rotate(Of T)(list As List(Of T)) As List(Of T)
   overload: ISILab.Commons.Extensions.CollectionsExtensions.Rotate*
   nameWithType.vb: CollectionsExtensions.Rotate(Of T)(List(Of T))
@@ -336,19 +377,24 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveEmpties
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 113
+    startLine: 171
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Removes all null elements from a list.
+  example: []
   syntax:
     content: public static List<T> RemoveEmpties<T>(this List<T> list)
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
     typeParameters:
     - id: T
+      description: ''
     return:
       type: System.Collections.Generic.List{{T}}
+      description: The same list without null elements.
     content.vb: Public Shared Function RemoveEmpties(Of T)(list As List(Of T)) As List(Of T)
   overload: ISILab.Commons.Extensions.CollectionsExtensions.RemoveEmpties*
   nameWithType.vb: CollectionsExtensions.RemoveEmpties(Of T)(List(Of T))
@@ -373,19 +419,24 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveDuplicates
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 119
+    startLine: 183
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Removes all duplicate elements from a list.
+  example: []
   syntax:
     content: public static List<T> RemoveDuplicates<T>(this List<T> list)
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
     typeParameters:
     - id: T
+      description: ''
     return:
       type: System.Collections.Generic.List{{T}}
+      description: The same list with unique elements.
     content.vb: Public Shared Function RemoveDuplicates(Of T)(list As List(Of T)) As List(Of T)
   overload: ISILab.Commons.Extensions.CollectionsExtensions.RemoveDuplicates*
   nameWithType.vb: CollectionsExtensions.RemoveDuplicates(Of T)(List(Of T))
@@ -410,33 +461,37 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Shuffle
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 130
+    startLine: 199
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Shuffles elements in a list.
+  example: []
   syntax:
     content: public static void Shuffle<T>(this IList<T> list)
     parameters:
     - id: list
       type: System.Collections.Generic.IList{{T}}
+      description: ''
     typeParameters:
     - id: T
+      description: ''
     content.vb: Public Shared Sub Shuffle(Of T)(list As IList(Of T))
   overload: ISILab.Commons.Extensions.CollectionsExtensions.Shuffle*
   nameWithType.vb: CollectionsExtensions.Shuffle(Of T)(IList(Of T))
   fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.Shuffle(Of T)(System.Collections.Generic.IList(Of T))
   name.vb: Shuffle(Of T)(IList(Of T))
-- uid: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString``1(System.Collections.Generic.List{``0})
-  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString``1(System.Collections.Generic.List{``0})
-  id: ElementsToString``1(System.Collections.Generic.List{``0})
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString``1(System.Collections.Generic.List{``0},System.String)
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString``1(System.Collections.Generic.List{``0},System.String)
+  id: ElementsToString``1(System.Collections.Generic.List{``0},System.String)
   isExtensionMethod: true
   parent: ISILab.Commons.Extensions.CollectionsExtensions
   langs:
   - csharp
   - vb
-  name: ElementsToString<T>(List<T>)
-  nameWithType: CollectionsExtensions.ElementsToString<T>(List<T>)
-  fullName: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString<T>(System.Collections.Generic.List<T>)
+  name: ElementsToString<T>(List<T>, string)
+  nameWithType: CollectionsExtensions.ElementsToString<T>(List<T>, string)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString<T>(System.Collections.Generic.List<T>, string)
   type: Method
   source:
     remote:
@@ -445,35 +500,43 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ElementsToString
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 142
+    startLine: 218
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Creates a string that concatenates all elements in a list.
+  example: []
   syntax:
-    content: public static string ElementsToString<T>(this List<T> list)
+    content: public static string ElementsToString<T>(this List<T> list, string separator = ";")
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
+    - id: separator
+      type: System.String
+      description: String to separate elements.
     typeParameters:
     - id: T
+      description: ''
     return:
       type: System.String
-    content.vb: Public Shared Function ElementsToString(Of T)(list As List(Of T)) As String
+      description: A string containing all elements from the list, spaced by a separator.
+    content.vb: Public Shared Function ElementsToString(Of T)(list As List(Of T), separator As String = ";") As String
   overload: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString*
-  nameWithType.vb: CollectionsExtensions.ElementsToString(Of T)(List(Of T))
-  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString(Of T)(System.Collections.Generic.List(Of T))
-  name.vb: ElementsToString(Of T)(List(Of T))
-- uid: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0})
-  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0})
-  id: SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0})
+  nameWithType.vb: CollectionsExtensions.ElementsToString(Of T)(List(Of T), String)
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString(Of T)(System.Collections.Generic.List(Of T), String)
+  name.vb: ElementsToString(Of T)(List(Of T), String)
+- uid: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0},System.String)
+  commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0},System.String)
+  id: SortedElementsToString``1(System.Collections.Generic.List{``0},System.Comparison{``0},System.String)
   isExtensionMethod: true
   parent: ISILab.Commons.Extensions.CollectionsExtensions
   langs:
   - csharp
   - vb
-  name: SortedElementsToString<T>(List<T>, Comparison<T>)
-  nameWithType: CollectionsExtensions.SortedElementsToString<T>(List<T>, Comparison<T>)
-  fullName: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString<T>(System.Collections.Generic.List<T>, System.Comparison<T>)
+  name: SortedElementsToString<T>(List<T>, Comparison<T>, string)
+  nameWithType: CollectionsExtensions.SortedElementsToString<T>(List<T>, Comparison<T>, string)
+  fullName: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString<T>(System.Collections.Generic.List<T>, System.Comparison<T>, string)
   type: Method
   source:
     remote:
@@ -482,26 +545,35 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SortedElementsToString
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 147
+    startLine: 231
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Creates a string that concatenates all sorted elements in a list.
+  example: []
   syntax:
-    content: public static string SortedElementsToString<T>(this List<T> list, Comparison<T> sorter)
+    content: public static string SortedElementsToString<T>(this List<T> list, Comparison<T> sorter, string separator = ";")
     parameters:
     - id: list
       type: System.Collections.Generic.List{{T}}
+      description: ''
     - id: sorter
       type: System.Comparison{{T}}
+      description: A custom element sorter.
+    - id: separator
+      type: System.String
+      description: String to separate elements.
     typeParameters:
     - id: T
+      description: ''
     return:
       type: System.String
-    content.vb: Public Shared Function SortedElementsToString(Of T)(list As List(Of T), sorter As Comparison(Of T)) As String
+      description: A string containing all sorted elements from the list, spaced by a separator.
+    content.vb: Public Shared Function SortedElementsToString(Of T)(list As List(Of T), sorter As Comparison(Of T), separator As String = ";") As String
   overload: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString*
-  nameWithType.vb: CollectionsExtensions.SortedElementsToString(Of T)(List(Of T), Comparison(Of T))
-  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString(Of T)(System.Collections.Generic.List(Of T), System.Comparison(Of T))
-  name.vb: SortedElementsToString(Of T)(List(Of T), Comparison(Of T))
+  nameWithType.vb: CollectionsExtensions.SortedElementsToString(Of T)(List(Of T), Comparison(Of T), String)
+  fullName.vb: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString(Of T)(System.Collections.Generic.List(Of T), System.Comparison(Of T), String)
+  name.vb: SortedElementsToString(Of T)(List(Of T), Comparison(Of T), String)
 - uid: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex``1(``0[],System.Int32)
   commentId: M:ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex``1(``0[],System.Int32)
   id: ContainsIndex``1(``0[],System.Int32)
@@ -521,21 +593,27 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ContainsIndex
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 161
+    startLine: 251
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Indicates whether an index is within the range of an array or not.
+  example: []
   syntax:
     content: public static bool ContainsIndex<T>(this T[] array, int index)
     parameters:
     - id: array
       type: '{T}[]'
+      description: ''
     - id: index
       type: System.Int32
+      description: Index to check.
     typeParameters:
     - id: T
+      description: ''
     return:
       type: System.Boolean
+      description: <b>True</b> if index is in range. <b>False</b> otherwise.
     content.vb: Public Shared Function ContainsIndex(Of T)(array As T(), index As Integer) As Boolean
   overload: ISILab.Commons.Extensions.CollectionsExtensions.ContainsIndex*
   nameWithType.vb: CollectionsExtensions.ContainsIndex(Of T)(T(), Integer)
@@ -560,19 +638,24 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetRandom
     path: ../Commons/Extensions/CollectionsExtensions.cs
-    startLine: 166
+    startLine: 262
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Obtains a random element from an array.
+  example: []
   syntax:
     content: public static T GetRandom<T>(this T[] array)
     parameters:
     - id: array
       type: '{T}[]'
+      description: ''
     typeParameters:
     - id: T
+      description: ''
     return:
       type: '{T}'
+      description: The randomly selected element if the array is not empty. <br />Default otherwise.
     content.vb: Public Shared Function GetRandom(Of T)(array As T()) As T
   overload: ISILab.Commons.Extensions.CollectionsExtensions.GetRandom*
   nameWithType.vb: CollectionsExtensions.GetRandom(Of T)(T())
@@ -1176,7 +1259,7 @@ references:
   - name: )
 - uid: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString*
   commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString
-  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_ElementsToString__1_System_Collections_Generic_List___0__
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_ElementsToString__1_System_Collections_Generic_List___0__System_String_
   name: ElementsToString
   nameWithType: CollectionsExtensions.ElementsToString
   fullName: ISILab.Commons.Extensions.CollectionsExtensions.ElementsToString
@@ -1193,7 +1276,7 @@ references:
   name.vb: String
 - uid: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString*
   commentId: Overload:ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString
-  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_SortedElementsToString__1_System_Collections_Generic_List___0__System_Comparison___0__
+  href: ISILab.Commons.Extensions.CollectionsExtensions.html#ISILab_Commons_Extensions_CollectionsExtensions_SortedElementsToString__1_System_Collections_Generic_List___0__System_Comparison___0__System_String_
   name: SortedElementsToString
   nameWithType: CollectionsExtensions.SortedElementsToString
   fullName: ISILab.Commons.Extensions.CollectionsExtensions.SortedElementsToString
