@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using ISILab.Commons.Utility;
 
 namespace ISILab.Commons.Extensions
 {
@@ -25,9 +26,9 @@ namespace ISILab.Commons.Extensions
 
             do
             {
-                float hue = Random.Range(0f, 1f);
-                float saturation = Random.Range(0.75f, 1f);
-                float value = Random.Range(0.75f, 1f);
+                float hue = SafeRandom.Range(0f, 1f);
+                float saturation = SafeRandom.Range(0.75f, 1f);
+                float value = SafeRandom.Range(0.75f, 1f);
                 color = Color.HSVToRGB(hue, saturation, value);
             }while(!ColorDifferentEnough(color));
             
