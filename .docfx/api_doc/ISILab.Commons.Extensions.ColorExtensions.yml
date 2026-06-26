@@ -23,10 +23,12 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ColorExtensions
     path: ../Commons/Extensions/ColorExtensions.cs
-    startLine: 5
+    startLine: 8
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Class extending Unity Color structure with random generation methods.
+  example: []
   syntax:
     content: public static class ColorExtensions
     content.vb: Public Module ColorExtensions
@@ -59,17 +61,21 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RandomColorHSV
     path: ../Commons/Extensions/ColorExtensions.cs
-    startLine: 14
+    startLine: 22
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Generates a random HSV color, with high saturation and value, ensuring not to repeat colors from last invocations.
+  example: []
   syntax:
     content: public static Color RandomColorHSV(this Color color)
     parameters:
     - id: color
       type: UnityEngine.Color
+      description: ''
     return:
       type: UnityEngine.Color
+      description: ''
     content.vb: Public Shared Function RandomColorHSV(color As Color) As Color
   overload: ISILab.Commons.Extensions.ColorExtensions.RandomColorHSV*
 - uid: ISILab.Commons.Extensions.ColorExtensions.RandomColorRGB(UnityEngine.Color)
@@ -91,17 +97,21 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RandomColorRGB
     path: ../Commons/Extensions/ColorExtensions.cs
-    startLine: 51
+    startLine: 64
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Generates a random RGB color.
+  example: []
   syntax:
     content: public static Color RandomColorRGB(this Color color)
     parameters:
     - id: color
       type: UnityEngine.Color
+      description: ''
     return:
       type: UnityEngine.Color
+      description: ''
     content.vb: Public Shared Function RandomColorRGB(color As Color) As Color
   overload: ISILab.Commons.Extensions.ColorExtensions.RandomColorRGB*
 - uid: ISILab.Commons.Extensions.ColorExtensions.RandomGrayScale(UnityEngine.Color)
@@ -123,17 +133,21 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RandomGrayScale
     path: ../Commons/Extensions/ColorExtensions.cs
-    startLine: 60
+    startLine: 78
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Generates a random color in gray scale.
+  example: []
   syntax:
     content: public static Color RandomGrayScale(this Color color)
     parameters:
     - id: color
       type: UnityEngine.Color
+      description: ''
     return:
       type: UnityEngine.Color
+      description: ''
     content.vb: Public Shared Function RandomGrayScale(color As Color) As Color
   overload: ISILab.Commons.Extensions.ColorExtensions.RandomGrayScale*
 - uid: ISILab.Commons.Extensions.ColorExtensions.Inverse(UnityEngine.Color)
@@ -155,7 +169,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Inverse
     path: ../Commons/Extensions/ColorExtensions.cs
-    startLine: 68
+    startLine: 86
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions

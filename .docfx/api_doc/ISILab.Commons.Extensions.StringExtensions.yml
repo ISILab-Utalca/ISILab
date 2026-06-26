@@ -23,10 +23,12 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: StringExtensions
     path: ../Commons/Extensions/StringExtensions.cs
-    startLine: 5
+    startLine: 7
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Class with extension methods for strings.
+  example: []
   syntax:
     content: public static class StringExtensions
     content.vb: Public Module StringExtensions
@@ -59,19 +61,24 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddSpacesToSentence
     path: ../Commons/Extensions/StringExtensions.cs
-    startLine: 11
+    startLine: 19
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Separates a string by words.
+  example: []
   syntax:
     content: public static string AddSpacesToSentence(this string text, bool preserveAcronyms = true)
     parameters:
     - id: text
       type: System.String
+      description: ''
     - id: preserveAcronyms
       type: System.Boolean
+      description: Wether to preserve acronyms or to split them.
     return:
       type: System.String
+      description: The same string, with separated words.
     content.vb: Public Shared Function AddSpacesToSentence(text As String, preserveAcronyms As Boolean = True) As String
   overload: ISILab.Commons.Extensions.StringExtensions.AddSpacesToSentence*
   nameWithType.vb: StringExtensions.AddSpacesToSentence(String, Boolean)
@@ -96,23 +103,31 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ReplaceOrErase
     path: ../Commons/Extensions/StringExtensions.cs
-    startLine: 29
+    startLine: 46
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Replaces part of a text with a value, as long as the condition is met. <b>If not, erases that part.</b>
+  remarks: Based on string.Replace().
+  example: []
   syntax:
     content: public static string ReplaceOrErase(this string text, string oldValue, string newValue, bool replaceCondition)
     parameters:
     - id: text
       type: System.String
+      description: Full text.
     - id: oldValue
       type: System.String
+      description: Part of the text to replace.
     - id: newValue
       type: System.String
+      description: Replacement text.
     - id: replaceCondition
       type: System.Boolean
+      description: Requirement to perform replacement.
     return:
       type: System.String
+      description: The full text modified, according to the requirement.
     content.vb: Public Shared Function ReplaceOrErase(text As String, oldValue As String, newValue As String, replaceCondition As Boolean) As String
   overload: ISILab.Commons.Extensions.StringExtensions.ReplaceOrErase*
   nameWithType.vb: StringExtensions.ReplaceOrErase(String, String, String, Boolean)
@@ -137,17 +152,21 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: LowerFirst
     path: ../Commons/Extensions/StringExtensions.cs
-    startLine: 36
+    startLine: 57
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Makes the first character of a string lowercase.
+  example: []
   syntax:
     content: public static string LowerFirst(this string text)
     parameters:
     - id: text
       type: System.String
+      description: ''
     return:
       type: System.String
+      description: The string with the first character in lowercase.
     content.vb: Public Shared Function LowerFirst(text As String) As String
   overload: ISILab.Commons.Extensions.StringExtensions.LowerFirst*
   nameWithType.vb: StringExtensions.LowerFirst(String)
@@ -172,17 +191,21 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: UpperFirst
     path: ../Commons/Extensions/StringExtensions.cs
-    startLine: 46
+    startLine: 72
   assemblies:
   - Commons
   namespace: ISILab.Commons.Extensions
+  summary: Makes the first character of a string uppercase.
+  example: []
   syntax:
     content: public static string UpperFirst(this string text)
     parameters:
     - id: text
       type: System.String
+      description: ''
     return:
       type: System.String
+      description: The string with the first character in uppercase.
     content.vb: Public Shared Function UpperFirst(text As String) As String
   overload: ISILab.Commons.Extensions.StringExtensions.UpperFirst*
   nameWithType.vb: StringExtensions.UpperFirst(String)

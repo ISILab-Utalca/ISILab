@@ -1,0 +1,1445 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Assistants.LBSAssistant
+  commentId: T:ISILab.LBS.Assistants.LBSAssistant
+  id: LBSAssistant
+  parent: ISILab.LBS.Assistants
+  children:
+  - ISILab.LBS.Assistants.LBSAssistant.#ctor(System.String,System.String,UnityEngine.Color,System.Action)
+  - ISILab.LBS.Assistants.LBSAssistant.Clone
+  - ISILab.LBS.Assistants.LBSAssistant.ColorTint
+  - ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules
+  - ISILab.LBS.Assistants.LBSAssistant.Icon
+  - ISILab.LBS.Assistants.LBSAssistant.IconGuid
+  - ISILab.LBS.Assistants.LBSAssistant.Name
+  - ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  - ISILab.LBS.Assistants.LBSAssistant.OnCancellation
+  - ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  - ISILab.LBS.Assistants.LBSAssistant.OnGUI
+  - ISILab.LBS.Assistants.LBSAssistant.OnStart
+  - ISILab.LBS.Assistants.LBSAssistant.OnTermination
+  - ISILab.LBS.Assistants.LBSAssistant.OwnerLayer
+  - ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(System.Object)
+  - ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(System.Object)
+  - ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles
+  - ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles
+  - ISILab.LBS.Assistants.LBSAssistant.visible
+  langs:
+  - csharp
+  - vb
+  name: LBSAssistant
+  nameWithType: LBSAssistant
+  fullName: ISILab.LBS.Assistants.LBSAssistant
+  type: Class
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: LBSAssistant
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 12
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: >-
+      [Serializable]
+
+      public abstract class LBSAssistant : ICloneable
+    content.vb: >-
+      <Serializable>
+
+      Public MustInherit Class LBSAssistant Implements ICloneable
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantMapElite
+  - ISILab.LBS.Plugin.Core.AI.Assistant.AssistantWFC
+  - ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant
+  - ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant
+  - ISILab.LBS.Plugin.Core.AI.Assistant.QuestAssistant
+  - ISILab.LBS.Plugin.Core.AI.Assistant.SimulationAssistant
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Assistants.LBSAssistant.visible
+  commentId: F:ISILab.LBS.Assistants.LBSAssistant.visible
+  id: visible
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: visible
+  nameWithType: LBSAssistant.visible
+  fullName: ISILab.LBS.Assistants.LBSAssistant.visible
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: visible
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 17
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: >-
+      [SerializeField]
+
+      [JsonRequired]
+
+      [HideInInspector]
+
+      public bool visible
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <SerializeField>
+
+      <JsonRequired>
+
+      <HideInInspector>
+
+      Public visible As Boolean
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: Newtonsoft.Json.JsonRequiredAttribute
+    ctor: Newtonsoft.Json.JsonRequiredAttribute.#ctor
+    arguments: []
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
+- uid: ISILab.LBS.Assistants.LBSAssistant.ColorTint
+  commentId: P:ISILab.LBS.Assistants.LBSAssistant.ColorTint
+  id: ColorTint
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: ColorTint
+  nameWithType: LBSAssistant.ColorTint
+  fullName: ISILab.LBS.Assistants.LBSAssistant.ColorTint
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ColorTint
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 42
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Color ColorTint { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property ColorTint As Color
+  overload: ISILab.LBS.Assistants.LBSAssistant.ColorTint*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Assistants.LBSAssistant.OwnerLayer
+  commentId: P:ISILab.LBS.Assistants.LBSAssistant.OwnerLayer
+  id: OwnerLayer
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: OwnerLayer
+  nameWithType: LBSAssistant.OwnerLayer
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OwnerLayer
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OwnerLayer
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 49
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public LBSLayer OwnerLayer { get; set; }
+    parameters: []
+    return:
+      type: LBS.Components.LBSLayer
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property OwnerLayer As LBSLayer
+  overload: ISILab.LBS.Assistants.LBSAssistant.OwnerLayer*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Assistants.LBSAssistant.Icon
+  commentId: P:ISILab.LBS.Assistants.LBSAssistant.Icon
+  id: Icon
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: Icon
+  nameWithType: LBSAssistant.Icon
+  fullName: ISILab.LBS.Assistants.LBSAssistant.Icon
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Icon
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 57
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: public VectorImage Icon { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.UIElements.VectorImage
+    content.vb: Public Property Icon As VectorImage
+  overload: ISILab.LBS.Assistants.LBSAssistant.Icon*
+- uid: ISILab.LBS.Assistants.LBSAssistant.IconGuid
+  commentId: P:ISILab.LBS.Assistants.LBSAssistant.IconGuid
+  id: IconGuid
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: IconGuid
+  nameWithType: LBSAssistant.IconGuid
+  fullName: ISILab.LBS.Assistants.LBSAssistant.IconGuid
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: IconGuid
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 71
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public string IconGuid { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property IconGuid As String
+  overload: ISILab.LBS.Assistants.LBSAssistant.IconGuid*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Assistants.LBSAssistant.Name
+  commentId: P:ISILab.LBS.Assistants.LBSAssistant.Name
+  id: Name
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: LBSAssistant.Name
+  fullName: ISILab.LBS.Assistants.LBSAssistant.Name
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Name
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 78
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonIgnore>
+
+      Public ReadOnly Property Name As String
+  overload: ISILab.LBS.Assistants.LBSAssistant.Name*
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnStart
+  commentId: F:ISILab.LBS.Assistants.LBSAssistant.OnStart
+  id: OnStart
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: OnStart
+  nameWithType: LBSAssistant.OnStart
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnStart
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnStart
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 85
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Action OnStart
+    return:
+      type: System.Action
+    content.vb: >-
+      <JsonIgnore>
+
+      Public OnStart As Action
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnTermination
+  commentId: F:ISILab.LBS.Assistants.LBSAssistant.OnTermination
+  id: OnTermination
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: OnTermination
+  nameWithType: LBSAssistant.OnTermination
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnTermination
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnTermination
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 87
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Action<string, LogType, Object> OnTermination
+    return:
+      type: System.Action{System.String,UnityEngine.LogType,UnityEngine.Object}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public OnTermination As Action(Of String, LogType, [Object])
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnCancellation
+  commentId: F:ISILab.LBS.Assistants.LBSAssistant.OnCancellation
+  id: OnCancellation
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: OnCancellation
+  nameWithType: LBSAssistant.OnCancellation
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnCancellation
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnCancellation
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 89
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public Action OnCancellation
+    return:
+      type: System.Action
+    content.vb: >-
+      <JsonIgnore>
+
+      Public OnCancellation As Action
+  attributes:
+  - type: Newtonsoft.Json.JsonIgnoreAttribute
+    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Assistants.LBSAssistant.#ctor(System.String,System.String,UnityEngine.Color,System.Action)
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.#ctor(System.String,System.String,UnityEngine.Color,System.Action)
+  id: '#ctor(System.String,System.String,UnityEngine.Color,System.Action)'
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: LBSAssistant(string, string, Color, Action)
+  nameWithType: LBSAssistant.LBSAssistant(string, string, Color, Action)
+  fullName: ISILab.LBS.Assistants.LBSAssistant.LBSAssistant(string, string, UnityEngine.Color, System.Action)
+  type: Constructor
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: .ctor
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 93
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: public LBSAssistant(string IconGuid, string name, Color colorTint, Action onStart = null)
+    parameters:
+    - id: IconGuid
+      type: System.String
+    - id: name
+      type: System.String
+    - id: colorTint
+      type: UnityEngine.Color
+    - id: onStart
+      type: System.Action
+    content.vb: Public Sub New(IconGuid As String, name As String, colorTint As Color, onStart As Action = Nothing)
+  overload: ISILab.LBS.Assistants.LBSAssistant.#ctor*
+  nameWithType.vb: LBSAssistant.New(String, String, Color, Action)
+  fullName.vb: ISILab.LBS.Assistants.LBSAssistant.New(String, String, UnityEngine.Color, System.Action)
+  name.vb: New(String, String, Color, Action)
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  id: OnAttachLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: OnAttachLayer(LBSLayer)
+  nameWithType: LBSAssistant.OnAttachLayer(LBSLayer)
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnAttachLayer
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 104
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: public virtual void OnAttachLayer(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Overridable Sub OnAttachLayer(layer As LBSLayer)
+  overload: ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer*
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  id: OnDetachLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: OnDetachLayer(LBSLayer)
+  nameWithType: LBSAssistant.OnDetachLayer(LBSLayer)
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnDetachLayer
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 109
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: public virtual void OnDetachLayer(LBSLayer layer)
+    parameters:
+    - id: layer
+      type: LBS.Components.LBSLayer
+    content.vb: Public Overridable Sub OnDetachLayer(layer As LBSLayer)
+  overload: ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer*
+- uid: ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules
+  id: GetRequiredModules
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: GetRequiredModules()
+  nameWithType: LBSAssistant.GetRequiredModules()
+  fullName: ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetRequiredModules
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 114
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: public List<Type> GetRequiredModules()
+    return:
+      type: System.Collections.Generic.List{System.Type}
+    content.vb: Public Function GetRequiredModules() As List(Of Type)
+  overload: ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules*
+- uid: ISILab.LBS.Assistants.LBSAssistant.Clone
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.Clone
+  id: Clone
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: LBSAssistant.Clone()
+  fullName: ISILab.LBS.Assistants.LBSAssistant.Clone()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Clone
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 131
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  example: []
+  syntax:
+    content: public abstract object Clone()
+    return:
+      type: System.Object
+    content.vb: Public MustOverride Function Clone() As Object
+  overload: ISILab.LBS.Assistants.LBSAssistant.Clone*
+  implements:
+  - System.ICloneable.Clone
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnGUI
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.OnGUI
+  id: OnGUI
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: OnGUI()
+  nameWithType: LBSAssistant.OnGUI()
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnGUI()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OnGUI
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 133
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: public abstract void OnGUI()
+    content.vb: Public MustOverride Sub OnGUI()
+  overload: ISILab.LBS.Assistants.LBSAssistant.OnGUI*
+- uid: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(System.Object)
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(System.Object)
+  id: RequestTilePaint(System.Object)
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: RequestTilePaint(object)
+  nameWithType: LBSAssistant.RequestTilePaint(object)
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(object)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: RequestTilePaint
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 172
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: protected void RequestTilePaint(object tile)
+    parameters:
+    - id: tile
+      type: System.Object
+    content.vb: Protected Sub RequestTilePaint(tile As Object)
+  overload: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint*
+  nameWithType.vb: LBSAssistant.RequestTilePaint(Object)
+  fullName.vb: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(Object)
+  name.vb: RequestTilePaint(Object)
+- uid: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(System.Object)
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(System.Object)
+  id: RequestTileRemove(System.Object)
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: RequestTileRemove(object)
+  nameWithType: LBSAssistant.RequestTileRemove(object)
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(object)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: RequestTileRemove
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 178
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  syntax:
+    content: protected void RequestTileRemove(object tile)
+    parameters:
+    - id: tile
+      type: System.Object
+    content.vb: Protected Sub RequestTileRemove(tile As Object)
+  overload: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove*
+  nameWithType.vb: LBSAssistant.RequestTileRemove(Object)
+  fullName.vb: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(Object)
+  name.vb: RequestTileRemove(Object)
+- uid: ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles
+  id: RetrieveNewTiles
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: RetrieveNewTiles()
+  nameWithType: LBSAssistant.RetrieveNewTiles()
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: RetrieveNewTiles
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 190
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  summary: >-
+    Get all new tiles' position that have been created since the last time they were retrieved.
+
+    The memory of new tiles will be cleared after calling this method.
+  example: []
+  syntax:
+    content: public virtual object[] RetrieveNewTiles()
+    return:
+      type: System.Object[]
+    content.vb: Public Overridable Function RetrieveNewTiles() As Object()
+  overload: ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles*
+- uid: ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles
+  id: RetrieveExpiredTiles
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  langs:
+  - csharp
+  - vb
+  name: RetrieveExpiredTiles()
+  nameWithType: LBSAssistant.RetrieveExpiredTiles()
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: RetrieveExpiredTiles
+    path: ../LBS/Plugin/Core/Components/Assistant/LBSAssistant.cs
+    startLine: 209
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Assistants
+  summary: >-
+    Get all tiles' position that   since the last time they were retrieved.
+
+    The memory of new tiles will be cleared after calling this method.
+  example: []
+  syntax:
+    content: public virtual object[] RetrieveExpiredTiles()
+    return:
+      type: System.Object[]
+    content.vb: Public Overridable Function RetrieveExpiredTiles() As Object()
+  overload: ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles*
+references:
+- uid: ISILab.LBS.Assistants
+  commentId: N:ISILab.LBS.Assistants
+  href: ISILab.html
+  name: ISILab.LBS.Assistants
+  nameWithType: ISILab.LBS.Assistants
+  fullName: ISILab.LBS.Assistants
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Assistants
+    name: Assistants
+    href: ISILab.LBS.Assistants.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Assistants
+    name: Assistants
+    href: ISILab.LBS.Assistants.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ISILab.LBS.Assistants.LBSAssistant.ColorTint*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.ColorTint
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_ColorTint
+  name: ColorTint
+  nameWithType: LBSAssistant.ColorTint
+  fullName: ISILab.LBS.Assistants.LBSAssistant.ColorTint
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: ISILab.LBS.Assistants.LBSAssistant.OwnerLayer*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.OwnerLayer
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OwnerLayer
+  name: OwnerLayer
+  nameWithType: LBSAssistant.OwnerLayer
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OwnerLayer
+- uid: LBS.Components.LBSLayer
+  commentId: T:LBS.Components.LBSLayer
+  parent: LBS.Components
+  href: LBS.Components.LBSLayer.html
+  name: LBSLayer
+  nameWithType: LBSLayer
+  fullName: LBS.Components.LBSLayer
+- uid: LBS.Components
+  commentId: N:LBS.Components
+  href: LBS.html
+  name: LBS.Components
+  nameWithType: LBS.Components
+  fullName: LBS.Components
+  spec.csharp:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+  spec.vb:
+  - uid: LBS
+    name: LBS
+    href: LBS.html
+  - name: .
+  - uid: LBS.Components
+    name: Components
+    href: LBS.Components.html
+- uid: ISILab.LBS.Assistants.LBSAssistant.Icon*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.Icon
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_Icon
+  name: Icon
+  nameWithType: LBSAssistant.Icon
+  fullName: ISILab.LBS.Assistants.LBSAssistant.Icon
+- uid: UnityEngine.UIElements.VectorImage
+  commentId: T:UnityEngine.UIElements.VectorImage
+  parent: UnityEngine.UIElements
+  isExternal: true
+  name: VectorImage
+  nameWithType: VectorImage
+  fullName: UnityEngine.UIElements.VectorImage
+- uid: UnityEngine.UIElements
+  commentId: N:UnityEngine.UIElements
+  isExternal: true
+  name: UnityEngine.UIElements
+  nameWithType: UnityEngine.UIElements
+  fullName: UnityEngine.UIElements
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.UIElements
+    name: UIElements
+    isExternal: true
+- uid: ISILab.LBS.Assistants.LBSAssistant.IconGuid*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.IconGuid
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_IconGuid
+  name: IconGuid
+  nameWithType: LBSAssistant.IconGuid
+  fullName: ISILab.LBS.Assistants.LBSAssistant.IconGuid
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Assistants.LBSAssistant.Name*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.Name
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_Name
+  name: Name
+  nameWithType: LBSAssistant.Name
+  fullName: ISILab.LBS.Assistants.LBSAssistant.Name
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System.Action{System.String,UnityEngine.LogType,UnityEngine.Object}
+  commentId: T:System.Action{System.String,UnityEngine.LogType,UnityEngine.Object}
+  parent: System
+  definition: System.Action`3
+  href: https://learn.microsoft.com/dotnet/api/system.action-3
+  name: Action<string, LogType, Object>
+  nameWithType: Action<string, LogType, Object>
+  fullName: System.Action<string, UnityEngine.LogType, UnityEngine.Object>
+  nameWithType.vb: Action(Of String, LogType, Object)
+  fullName.vb: System.Action(Of String, UnityEngine.LogType, UnityEngine.Object)
+  name.vb: Action(Of String, LogType, Object)
+  spec.csharp:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.LogType
+    name: LogType
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Object
+    name: Object
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.LogType
+    name: LogType
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Action`3
+  commentId: T:System.Action`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-3
+  name: Action<T1, T2, T3>
+  nameWithType: Action<T1, T2, T3>
+  fullName: System.Action<T1, T2, T3>
+  nameWithType.vb: Action(Of T1, T2, T3)
+  fullName.vb: System.Action(Of T1, T2, T3)
+  name.vb: Action(Of T1, T2, T3)
+  spec.csharp:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+- uid: ISILab.LBS.Assistants.LBSAssistant.#ctor*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.#ctor
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant__ctor_System_String_System_String_UnityEngine_Color_System_Action_
+  name: LBSAssistant
+  nameWithType: LBSAssistant.LBSAssistant
+  fullName: ISILab.LBS.Assistants.LBSAssistant.LBSAssistant
+  nameWithType.vb: LBSAssistant.New
+  fullName.vb: ISILab.LBS.Assistants.LBSAssistant.New
+  name.vb: New
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
+  name: OnAttachLayer
+  nameWithType: LBSAssistant.OnAttachLayer
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
+  name: OnDetachLayer
+  nameWithType: LBSAssistant.OnDetachLayer
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer
+- uid: ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_GetRequiredModules
+  name: GetRequiredModules
+  nameWithType: LBSAssistant.GetRequiredModules
+  fullName: ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules
+- uid: System.Collections.Generic.List{System.Type}
+  commentId: T:System.Collections.Generic.List{System.Type}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Type>
+  nameWithType: List<Type>
+  fullName: System.Collections.Generic.List<System.Type>
+  nameWithType.vb: List(Of Type)
+  fullName.vb: System.Collections.Generic.List(Of System.Type)
+  name.vb: List(Of Type)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Assistants.LBSAssistant.Clone*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.Clone
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_Clone
+  name: Clone
+  nameWithType: LBSAssistant.Clone
+  fullName: ISILab.LBS.Assistants.LBSAssistant.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnGUI*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.OnGUI
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnGUI
+  name: OnGUI
+  nameWithType: LBSAssistant.OnGUI
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnGUI
+- uid: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RequestTilePaint_System_Object_
+  name: RequestTilePaint
+  nameWithType: LBSAssistant.RequestTilePaint
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint
+- uid: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RequestTileRemove_System_Object_
+  name: RequestTileRemove
+  nameWithType: LBSAssistant.RequestTileRemove
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove
+- uid: ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RetrieveNewTiles
+  name: RetrieveNewTiles
+  nameWithType: LBSAssistant.RetrieveNewTiles
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles*
+  commentId: Overload:ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RetrieveExpiredTiles
+  name: RetrieveExpiredTiles
+  nameWithType: LBSAssistant.RetrieveExpiredTiles
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles
+shouldSkipMarkup: true

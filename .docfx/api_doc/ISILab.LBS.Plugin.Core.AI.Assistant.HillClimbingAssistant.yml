@@ -34,7 +34,7 @@ items:
   - ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.TileMapMod
   - ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.TryExecute(System.String@,UnityEngine.LogType@,System.Action{System.Single},System.Threading.CancellationToken)
   - ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Zones
-  - ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWhitTiles
+  - ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWithTiles
   - ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.printClocks
   - ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.visibleConstraints
   langs:
@@ -51,7 +51,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: HillClimbingAssistant
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 27
+    startLine: 28
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -70,25 +70,25 @@ items:
       Public Class HillClimbingAssistant Inherits LBSAssistant Implements ICloneable, IAssistantThreaded
   inheritance:
   - System.Object
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  - ISILab.LBS.Assistants.LBSAssistant
   implements:
   - System.ICloneable
   - ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
   inheritedMembers:
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
-  - ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
+  - ISILab.LBS.Assistants.LBSAssistant.visible
+  - ISILab.LBS.Assistants.LBSAssistant.ColorTint
+  - ISILab.LBS.Assistants.LBSAssistant.OwnerLayer
+  - ISILab.LBS.Assistants.LBSAssistant.Icon
+  - ISILab.LBS.Assistants.LBSAssistant.IconGuid
+  - ISILab.LBS.Assistants.LBSAssistant.Name
+  - ISILab.LBS.Assistants.LBSAssistant.OnStart
+  - ISILab.LBS.Assistants.LBSAssistant.OnTermination
+  - ISILab.LBS.Assistants.LBSAssistant.OnCancellation
+  - ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules
+  - ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(System.Object)
+  - ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(System.Object)
+  - ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles
+  - ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
@@ -116,7 +116,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: visibleConstraints
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 40
+    startLine: 41
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -167,7 +167,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: printClocks
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 42
+    startLine: 43
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -218,7 +218,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Zones
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 58
+    startLine: 59
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -239,25 +239,25 @@ items:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
     arguments: []
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWhitTiles
-  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWhitTiles
-  id: ZonesWhitTiles
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWithTiles
+  commentId: P:ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWithTiles
+  id: ZonesWithTiles
   parent: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant
   langs:
   - csharp
   - vb
-  name: ZonesWhitTiles
-  nameWithType: HillClimbingAssistant.ZonesWhitTiles
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWhitTiles
+  name: ZonesWithTiles
+  nameWithType: HillClimbingAssistant.ZonesWithTiles
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWithTiles
   type: Property
   source:
     remote:
       path: LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: ZonesWhitTiles
+    id: ZonesWithTiles
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 60
+    startLine: 61
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -265,15 +265,15 @@ items:
     content: >-
       [JsonIgnore]
 
-      public List<Zone> ZonesWhitTiles { get; }
+      public List<Zone> ZonesWithTiles { get; }
     parameters: []
     return:
       type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Zone}
     content.vb: >-
       <JsonIgnore>
 
-      Public ReadOnly Property ZonesWhitTiles As List(Of Zone)
-  overload: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWhitTiles*
+      Public ReadOnly Property ZonesWithTiles As List(Of Zone)
+  overload: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWithTiles*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
@@ -296,7 +296,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TileMapMod
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 62
+    startLine: 63
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -325,7 +325,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AreasMod
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 63
+    startLine: 64
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -354,7 +354,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GraphMod
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 64
+    startLine: 65
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -383,7 +383,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ConstrainsZonesMod
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 65
+    startLine: 66
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -412,7 +412,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 69
+    startLine: 70
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -448,7 +448,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnGUI
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 76
+    startLine: 77
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -456,7 +456,7 @@ items:
   syntax:
     content: public override void OnGUI()
     content.vb: Public Overrides Sub OnGUI()
-  overridden: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
+  overridden: ISILab.LBS.Assistants.LBSAssistant.OnGUI
   overload: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnGUI*
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.TryExecute(System.String@,UnityEngine.LogType@,System.Action{System.Single},System.Threading.CancellationToken)
   commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.TryExecute(System.String@,UnityEngine.LogType@,System.Action{System.Single},System.Threading.CancellationToken)
@@ -476,7 +476,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TryExecute
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 80
+    startLine: 79
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -516,7 +516,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Execute
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 104
+    startLine: 103
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -550,7 +550,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ExecuteOneStep
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 142
+    startLine: 141
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -588,7 +588,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RecalculateWalls
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 195
+    startLine: 194
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -620,7 +620,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetEdges
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 315
+    startLine: 314
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -648,7 +648,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetTiles
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 320
+    startLine: 319
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -679,7 +679,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RecalculateConstraint
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 325
+    startLine: 324
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -713,7 +713,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAttachLayer
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 411
+    startLine: 410
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -724,7 +724,7 @@ items:
     - id: layer
       type: LBS.Components.LBSLayer
     content.vb: Public Overrides Sub OnAttachLayer(layer As LBSLayer)
-  overridden: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  overridden: ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
   overload: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnAttachLayer*
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnDetachLayer(LBS.Components.LBSLayer)
   commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnDetachLayer(LBS.Components.LBSLayer)
@@ -744,7 +744,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnDetachLayer
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 426
+    startLine: 425
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -755,7 +755,7 @@ items:
     - id: layer
       type: LBS.Components.LBSLayer
     content.vb: Public Overrides Sub OnDetachLayer(layer As LBSLayer)
-  overridden: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  overridden: ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
   overload: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnDetachLayer*
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetNeighbors(ISILab.AI.Optimization.IOptimizable)
   commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.GetNeighbors(ISILab.AI.Optimization.IOptimizable)
@@ -775,7 +775,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetNeighbors
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 527
+    startLine: 526
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -810,7 +810,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveZoneConnection
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 792
+    startLine: 791
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -844,7 +844,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetZone
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 799
+    startLine: 798
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -875,7 +875,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetZone
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 821
+    startLine: 820
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -906,7 +906,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetTile
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 827
+    startLine: 826
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -937,7 +937,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ConnectZones
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 832
+    startLine: 831
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -968,7 +968,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CheckEdges
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 837
+    startLine: 836
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -1001,7 +1001,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ReloadPrevData
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 842
+    startLine: 841
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -1027,7 +1027,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SaveConstraintKey
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 868
+    startLine: 867
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -1058,7 +1058,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 883
+    startLine: 882
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -1068,7 +1068,7 @@ items:
     return:
       type: System.Object
     content.vb: Public Overrides Function Clone() As Object
-  overridden: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
+  overridden: ISILab.LBS.Assistants.LBSAssistant.Clone
   overload: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Clone*
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Equals(System.Object)
   commentId: M:ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Equals(System.Object)
@@ -1088,7 +1088,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 888
+    startLine: 887
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -1124,7 +1124,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 899
+    startLine: 898
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -1154,7 +1154,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnTaskCancelled
     path: ../LBS/Plugin/Core/AI/Optimization/HillClimbing/HillClimbingAssistant.cs
-    startLine: 905
+    startLine: 904
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -1232,13 +1232,13 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  commentId: T:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  parent: ISILab.LBS.Plugin.Components.Behaviours
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html
+- uid: ISILab.LBS.Assistants.LBSAssistant
+  commentId: T:ISILab.LBS.Assistants.LBSAssistant
+  parent: ISILab.LBS.Assistants
+  href: ISILab.LBS.Assistants.LBSAssistant.html
   name: LBSAssistant
   nameWithType: LBSAssistant
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+  fullName: ISILab.LBS.Assistants.LBSAssistant
 - uid: System.ICloneable
   commentId: T:System.ICloneable
   parent: System
@@ -1254,103 +1254,103 @@ references:
   name: IAssistantThreaded
   nameWithType: IAssistantThreaded
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.IAssistantThreaded
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
-  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_visible
+- uid: ISILab.LBS.Assistants.LBSAssistant.visible
+  commentId: F:ISILab.LBS.Assistants.LBSAssistant.visible
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_visible
   name: visible
   nameWithType: LBSAssistant.visible
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.visible
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_ColorTint
+  fullName: ISILab.LBS.Assistants.LBSAssistant.visible
+- uid: ISILab.LBS.Assistants.LBSAssistant.ColorTint
+  commentId: P:ISILab.LBS.Assistants.LBSAssistant.ColorTint
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_ColorTint
   name: ColorTint
   nameWithType: LBSAssistant.ColorTint
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.ColorTint
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OwnerLayer
+  fullName: ISILab.LBS.Assistants.LBSAssistant.ColorTint
+- uid: ISILab.LBS.Assistants.LBSAssistant.OwnerLayer
+  commentId: P:ISILab.LBS.Assistants.LBSAssistant.OwnerLayer
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OwnerLayer
   name: OwnerLayer
   nameWithType: LBSAssistant.OwnerLayer
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OwnerLayer
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Icon
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OwnerLayer
+- uid: ISILab.LBS.Assistants.LBSAssistant.Icon
+  commentId: P:ISILab.LBS.Assistants.LBSAssistant.Icon
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_Icon
   name: Icon
   nameWithType: LBSAssistant.Icon
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Icon
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_IconGuid
+  fullName: ISILab.LBS.Assistants.LBSAssistant.Icon
+- uid: ISILab.LBS.Assistants.LBSAssistant.IconGuid
+  commentId: P:ISILab.LBS.Assistants.LBSAssistant.IconGuid
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_IconGuid
   name: IconGuid
   nameWithType: LBSAssistant.IconGuid
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.IconGuid
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-  commentId: P:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Name
+  fullName: ISILab.LBS.Assistants.LBSAssistant.IconGuid
+- uid: ISILab.LBS.Assistants.LBSAssistant.Name
+  commentId: P:ISILab.LBS.Assistants.LBSAssistant.Name
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_Name
   name: Name
   nameWithType: LBSAssistant.Name
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Name
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
-  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnStart
+  fullName: ISILab.LBS.Assistants.LBSAssistant.Name
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnStart
+  commentId: F:ISILab.LBS.Assistants.LBSAssistant.OnStart
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnStart
   name: OnStart
   nameWithType: LBSAssistant.OnStart
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnStart
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
-  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnTermination
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnStart
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnTermination
+  commentId: F:ISILab.LBS.Assistants.LBSAssistant.OnTermination
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnTermination
   name: OnTermination
   nameWithType: LBSAssistant.OnTermination
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnTermination
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
-  commentId: F:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnCancellation
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnTermination
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnCancellation
+  commentId: F:ISILab.LBS.Assistants.LBSAssistant.OnCancellation
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnCancellation
   name: OnCancellation
   nameWithType: LBSAssistant.OnCancellation
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnCancellation
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
-  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnCancellation
+- uid: ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_GetRequiredModules
   name: GetRequiredModules()
   nameWithType: LBSAssistant.GetRequiredModules()
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules()
+  fullName: ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules()
   spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
+  - uid: ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules
     name: GetRequiredModules
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_GetRequiredModules
   - name: (
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.GetRequiredModules
+  - uid: ISILab.LBS.Assistants.LBSAssistant.GetRequiredModules
     name: GetRequiredModules
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_GetRequiredModules
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_GetRequiredModules
   - name: (
   - name: )
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
-  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+- uid: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(System.Object)
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(System.Object)
+  parent: ISILab.LBS.Assistants.LBSAssistant
   isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RequestTilePaint_System_Object_
   name: RequestTilePaint(object)
   nameWithType: LBSAssistant.RequestTilePaint(object)
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(object)
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(object)
   nameWithType.vb: LBSAssistant.RequestTilePaint(Object)
-  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(Object)
+  fullName.vb: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(Object)
   name.vb: RequestTilePaint(Object)
   spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
+  - uid: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(System.Object)
     name: RequestTilePaint
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RequestTilePaint_System_Object_
   - name: (
   - uid: System.Object
     name: object
@@ -1358,30 +1358,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTilePaint(System.Object)
+  - uid: ISILab.LBS.Assistants.LBSAssistant.RequestTilePaint(System.Object)
     name: RequestTilePaint
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTilePaint_System_Object_
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RequestTilePaint_System_Object_
   - name: (
   - uid: System.Object
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
-  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
+- uid: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(System.Object)
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(System.Object)
+  parent: ISILab.LBS.Assistants.LBSAssistant
   isExternal: true
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RequestTileRemove_System_Object_
   name: RequestTileRemove(object)
   nameWithType: LBSAssistant.RequestTileRemove(object)
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(object)
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(object)
   nameWithType.vb: LBSAssistant.RequestTileRemove(Object)
-  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(Object)
+  fullName.vb: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(Object)
   name.vb: RequestTileRemove(Object)
   spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
+  - uid: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(System.Object)
     name: RequestTileRemove
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RequestTileRemove_System_Object_
   - name: (
   - uid: System.Object
     name: object
@@ -1389,51 +1389,51 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RequestTileRemove(System.Object)
+  - uid: ISILab.LBS.Assistants.LBSAssistant.RequestTileRemove(System.Object)
     name: RequestTileRemove
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RequestTileRemove_System_Object_
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RequestTileRemove_System_Object_
   - name: (
   - uid: System.Object
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
-  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
+- uid: ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RetrieveNewTiles
   name: RetrieveNewTiles()
   nameWithType: LBSAssistant.RetrieveNewTiles()
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles()
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles()
   spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
+  - uid: ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles
     name: RetrieveNewTiles
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RetrieveNewTiles
   - name: (
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveNewTiles
+  - uid: ISILab.LBS.Assistants.LBSAssistant.RetrieveNewTiles
     name: RetrieveNewTiles
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveNewTiles
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RetrieveNewTiles
   - name: (
   - name: )
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
-  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
+- uid: ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RetrieveExpiredTiles
   name: RetrieveExpiredTiles()
   nameWithType: LBSAssistant.RetrieveExpiredTiles()
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles()
+  fullName: ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles()
   spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
+  - uid: ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RetrieveExpiredTiles
   - name: (
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.RetrieveExpiredTiles
+  - uid: ISILab.LBS.Assistants.LBSAssistant.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_RetrieveExpiredTiles
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_RetrieveExpiredTiles
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
@@ -1605,12 +1605,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.Plugin.Components.Behaviours
-  commentId: N:ISILab.LBS.Plugin.Components.Behaviours
+- uid: ISILab.LBS.Assistants
+  commentId: N:ISILab.LBS.Assistants
   href: ISILab.html
-  name: ISILab.LBS.Plugin.Components.Behaviours
-  nameWithType: ISILab.LBS.Plugin.Components.Behaviours
-  fullName: ISILab.LBS.Plugin.Components.Behaviours
+  name: ISILab.LBS.Assistants
+  nameWithType: ISILab.LBS.Assistants
+  fullName: ISILab.LBS.Assistants
   spec.csharp:
   - uid: ISILab
     name: ISILab
@@ -1620,17 +1620,9 @@ references:
     name: LBS
     href: ISILab.LBS.html
   - name: .
-  - uid: ISILab.LBS.Plugin
-    name: Plugin
-    href: ISILab.LBS.Plugin.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components
-    name: Components
-    href: ISILab.LBS.Plugin.Components.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Behaviours
-    name: Behaviours
-    href: ISILab.LBS.Plugin.Components.Behaviours.html
+  - uid: ISILab.LBS.Assistants
+    name: Assistants
+    href: ISILab.LBS.Assistants.html
   spec.vb:
   - uid: ISILab
     name: ISILab
@@ -1640,17 +1632,9 @@ references:
     name: LBS
     href: ISILab.LBS.html
   - name: .
-  - uid: ISILab.LBS.Plugin
-    name: Plugin
-    href: ISILab.LBS.Plugin.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components
-    name: Components
-    href: ISILab.LBS.Plugin.Components.html
-  - name: .
-  - uid: ISILab.LBS.Plugin.Components.Behaviours
-    name: Behaviours
-    href: ISILab.LBS.Plugin.Components.Behaviours.html
+  - uid: ISILab.LBS.Assistants
+    name: Assistants
+    href: ISILab.LBS.Assistants.html
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -1766,12 +1750,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWhitTiles*
-  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWhitTiles
-  href: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ZonesWhitTiles
-  name: ZonesWhitTiles
-  nameWithType: HillClimbingAssistant.ZonesWhitTiles
-  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWhitTiles
+- uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWithTiles*
+  commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWithTiles
+  href: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_ZonesWithTiles
+  name: ZonesWithTiles
+  nameWithType: HillClimbingAssistant.ZonesWithTiles
+  fullName: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.ZonesWithTiles
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.TileMapMod*
   commentId: Overload:ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.TileMapMod
   href: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.html#ISILab_LBS_Plugin_Core_AI_Assistant_HillClimbingAssistant_TileMapMod
@@ -1949,23 +1933,23 @@ references:
   name: UnityEngine
   nameWithType: UnityEngine
   fullName: UnityEngine
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
-  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnGUI
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.OnGUI
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnGUI
   name: OnGUI()
   nameWithType: LBSAssistant.OnGUI()
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI()
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnGUI()
   spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
+  - uid: ISILab.LBS.Assistants.LBSAssistant.OnGUI
     name: OnGUI
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnGUI
   - name: (
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnGUI
+  - uid: ISILab.LBS.Assistants.LBSAssistant.OnGUI
     name: OnGUI
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnGUI
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnGUI
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.OnGUI*
@@ -2273,26 +2257,26 @@ references:
   name: RecalculateConstraint
   nameWithType: HillClimbingAssistant.RecalculateConstraint
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.RecalculateConstraint
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
-  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
   name: OnAttachLayer(LBSLayer)
   nameWithType: LBSAssistant.OnAttachLayer(LBSLayer)
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
   spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  - uid: ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
     name: OnAttachLayer
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
     href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
+  - uid: ISILab.LBS.Assistants.LBSAssistant.OnAttachLayer(LBS.Components.LBSLayer)
     name: OnAttachLayer
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnAttachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
@@ -2333,26 +2317,26 @@ references:
   - uid: LBS.Components
     name: Components
     href: LBS.Components.html
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
-  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
+- uid: ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
   name: OnDetachLayer(LBSLayer)
   nameWithType: LBSAssistant.OnDetachLayer(LBSLayer)
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  fullName: ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
   spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  - uid: ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
     name: OnDetachLayer
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
     href: LBS.Components.LBSLayer.html
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
+  - uid: ISILab.LBS.Assistants.LBSAssistant.OnDetachLayer(LBS.Components.LBSLayer)
     name: OnDetachLayer
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_OnDetachLayer_LBS_Components_LBSLayer_
   - name: (
   - uid: LBS.Components.LBSLayer
     name: LBSLayer
@@ -2521,23 +2505,23 @@ references:
   name: ConstraintPair
   nameWithType: ConstraintPair
   fullName: ISILab.LBS.Modules.ConstraintPair
-- uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
-  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
-  parent: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant
-  href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
+- uid: ISILab.LBS.Assistants.LBSAssistant.Clone
+  commentId: M:ISILab.LBS.Assistants.LBSAssistant.Clone
+  parent: ISILab.LBS.Assistants.LBSAssistant
+  href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_Clone
   name: Clone()
   nameWithType: LBSAssistant.Clone()
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone()
+  fullName: ISILab.LBS.Assistants.LBSAssistant.Clone()
   spec.csharp:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
+  - uid: ISILab.LBS.Assistants.LBSAssistant.Clone
     name: Clone
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_Clone
   - name: (
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.Clone
+  - uid: ISILab.LBS.Assistants.LBSAssistant.Clone
     name: Clone
-    href: ISILab.LBS.Plugin.Components.Behaviours.LBSAssistant.html#ISILab_LBS_Plugin_Components_Behaviours_LBSAssistant_Clone
+    href: ISILab.LBS.Assistants.LBSAssistant.html#ISILab_LBS_Assistants_LBSAssistant_Clone
   - name: (
   - name: )
 - uid: ISILab.LBS.Plugin.Core.AI.Assistant.HillClimbingAssistant.Clone*
