@@ -88,7 +88,7 @@ namespace ISILab.LBS.Behaviours
         public HashSet<object> Keys => _keys ??= new HashSet<object>();
 
         [JsonIgnore]
-        public Action<int> LevelChangedCallback
+        public Action<int> FloorChangedCallback
         {
             get => levelChangedCallback;
             set => levelChangedCallback = value;

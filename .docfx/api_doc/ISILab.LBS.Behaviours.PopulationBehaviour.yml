@@ -32,7 +32,7 @@ items:
   - ISILab.LBS.Behaviours.PopulationBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
   - ISILab.LBS.Behaviours.PopulationBehaviour.OnGUI
   - ISILab.LBS.Behaviours.PopulationBehaviour.RemoveTileGroup(UnityEngine.Vector2Int)
-  - ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap(ISILab.LBS.Modules.BundleTileMap)
+  - ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap(ISILab.LBS.Modules.BundleTileMapModule)
   - ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveExpiredTiles
   - ISILab.LBS.Behaviours.PopulationBehaviour.RetrieveNewRotations
   - ISILab.LBS.Behaviours.PopulationBehaviour.RotateTile(UnityEngine.Vector2Int,UnityEngine.Vector2)
@@ -68,13 +68,13 @@ items:
     content: >-
       [Serializable]
 
-      [RequieredModule(new Type[] { typeof(TileMapModule), typeof(BundleTileMap) })]
+      [RequieredModule(new Type[] { typeof(TileMapModule), typeof(BundleTileMapModule) })]
 
       public class PopulationBehaviour : LBSBehaviour, ICloneable, IBlueprintable
     content.vb: >-
       <Serializable>
 
-      <RequieredModule(New Type() { GetType(TileMapModule), GetType(BundleTileMap) })>
+      <RequieredModule(New Type() { GetType(TileMapModule), GetType(BundleTileMapModule) })>
 
       Public Class PopulationBehaviour Inherits LBSBehaviour Implements ICloneable, IBlueprintable
   inheritance:
@@ -282,14 +282,14 @@ items:
     content: >-
       [JsonIgnore]
 
-      public BundleTileMap BundleTilemap { get; set; }
+      public BundleTileMapModule BundleTilemap { get; set; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.BundleTileMap
+      type: ISILab.LBS.Modules.BundleTileMapModule
     content.vb: >-
       <JsonIgnore>
 
-      Public Property BundleTilemap As BundleTileMap
+      Public Property BundleTilemap As BundleTileMapModule
   overload: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
@@ -342,19 +342,29 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Bundle
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 85
+    startLine: 86
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   summary: Get the bundle that contains the population elements to paint
   example: []
   syntax:
-    content: public Bundle Bundle { get; set; }
+    content: >-
+      [ShowOnLayerTemplate]
+
+      public Bundle Bundle { get; set; }
     parameters: []
     return:
       type: ISILab.LBS.Plugin.Components.Bundles.Bundle
-    content.vb: Public Property Bundle As Bundle
+    content.vb: >-
+      <ShowOnLayerTemplate>
+
+      Public Property Bundle As Bundle
   overload: ISILab.LBS.Behaviours.PopulationBehaviour.Bundle*
+  attributes:
+  - type: ISILab.LBS.ShowOnLayerTemplateAttribute
+    ctor: ISILab.LBS.ShowOnLayerTemplateAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
   commentId: P:ISILab.LBS.Behaviours.PopulationBehaviour.SelectedFilter
   id: SelectedFilter
@@ -373,7 +383,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SelectedFilter
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 103
+    startLine: 105
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -402,7 +412,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TileRotationMode
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 109
+    startLine: 111
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -431,7 +441,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DirectionWeights
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 119
+    startLine: 121
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -460,7 +470,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ActiveRotationDirection
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 124
+    startLine: 126
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -489,7 +499,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 139
+    startLine: 141
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -525,7 +535,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetTileRotation
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 150
+    startLine: 152
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -556,7 +566,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetTile
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 151
+    startLine: 153
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -587,7 +597,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetTileGroup
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 152
+    startLine: 154
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -618,7 +628,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetBundleData
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 153
+    startLine: 155
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -649,7 +659,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetBundleData
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 154
+    startLine: 156
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -680,7 +690,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnGUI
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 160
+    startLine: 162
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -708,7 +718,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddTileGroup
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 162
+    startLine: 164
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -748,7 +758,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MoveGroup
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 180
+    startLine: 182
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -781,7 +791,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveTileGroup
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 190
+    startLine: 192
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -794,16 +804,16 @@ items:
       type: ISILab.LBS.Modules.TileBundleGroup
     content.vb: Public Function RemoveTileGroup(position As Vector2Int) As TileBundleGroup
   overload: ISILab.LBS.Behaviours.PopulationBehaviour.RemoveTileGroup*
-- uid: ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap(ISILab.LBS.Modules.BundleTileMap)
-  commentId: M:ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap(ISILab.LBS.Modules.BundleTileMap)
-  id: ReplaceTileMap(ISILab.LBS.Modules.BundleTileMap)
+- uid: ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap(ISILab.LBS.Modules.BundleTileMapModule)
+  commentId: M:ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap(ISILab.LBS.Modules.BundleTileMapModule)
+  id: ReplaceTileMap(ISILab.LBS.Modules.BundleTileMapModule)
   parent: ISILab.LBS.Behaviours.PopulationBehaviour
   langs:
   - csharp
   - vb
-  name: ReplaceTileMap(BundleTileMap)
-  nameWithType: PopulationBehaviour.ReplaceTileMap(BundleTileMap)
-  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap(ISILab.LBS.Modules.BundleTileMap)
+  name: ReplaceTileMap(BundleTileMapModule)
+  nameWithType: PopulationBehaviour.ReplaceTileMap(BundleTileMapModule)
+  fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap(ISILab.LBS.Modules.BundleTileMapModule)
   type: Method
   source:
     remote:
@@ -812,16 +822,16 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ReplaceTileMap
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 208
+    startLine: 210
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public void ReplaceTileMap(BundleTileMap map)
+    content: public void ReplaceTileMap(BundleTileMapModule map)
     parameters:
     - id: map
-      type: ISILab.LBS.Modules.BundleTileMap
-    content.vb: Public Sub ReplaceTileMap(map As BundleTileMap)
+      type: ISILab.LBS.Modules.BundleTileMapModule
+    content.vb: Public Sub ReplaceTileMap(map As BundleTileMapModule)
   overload: ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap*
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.RotateTile(UnityEngine.Vector2Int,UnityEngine.Vector2)
   commentId: M:ISILab.LBS.Behaviours.PopulationBehaviour.RotateTile(UnityEngine.Vector2Int,UnityEngine.Vector2)
@@ -841,7 +851,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RotateTile
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 226
+    startLine: 228
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -874,7 +884,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clear
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 239
+    startLine: 241
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -900,7 +910,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAttachLayer
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 247
+    startLine: 249
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -931,7 +941,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnDetachLayer
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 257
+    startLine: 259
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -962,7 +972,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CheckKeys
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 263
+    startLine: 265
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -990,7 +1000,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: UpdateKeys
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 265
+    startLine: 267
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1016,7 +1026,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RetrieveExpiredTiles
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 273
+    startLine: 275
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1050,7 +1060,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 276
+    startLine: 278
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1080,7 +1090,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 283
+    startLine: 285
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1116,7 +1126,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 298
+    startLine: 300
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1146,7 +1156,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RetrieveNewRotations
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 305
+    startLine: 307
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1179,7 +1189,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetDirectionWeight
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 350
+    startLine: 352
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1213,7 +1223,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetDirectionWeight
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 357
+    startLine: 359
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1247,7 +1257,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetActiveRotation
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 367
+    startLine: 369
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1275,7 +1285,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CaptureAreaData
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 405
+    startLine: 407
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1316,7 +1326,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetPosition
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 434
+    startLine: 436
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1352,7 +1362,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAnchor
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 447
+    startLine: 449
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1385,7 +1395,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ChangeLevelRender
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 462
+    startLine: 464
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1421,7 +1431,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MergeLayerData
     path: ../LBS/Plugin/Components/Behaviours/PopulationBehaviour.cs
-    startLine: 485
+    startLine: 487
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -2287,13 +2297,13 @@ references:
   name: BundleTilemap
   nameWithType: PopulationBehaviour.BundleTilemap
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.BundleTilemap
-- uid: ISILab.LBS.Modules.BundleTileMap
-  commentId: T:ISILab.LBS.Modules.BundleTileMap
+- uid: ISILab.LBS.Modules.BundleTileMapModule
+  commentId: T:ISILab.LBS.Modules.BundleTileMapModule
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.BundleTileMap.html
-  name: BundleTileMap
-  nameWithType: BundleTileMap
-  fullName: ISILab.LBS.Modules.BundleTileMap
+  href: ISILab.LBS.Modules.BundleTileMapModule.html
+  name: BundleTileMapModule
+  nameWithType: BundleTileMapModule
+  fullName: ISILab.LBS.Modules.BundleTileMapModule
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html
@@ -2704,7 +2714,7 @@ references:
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.RemoveTileGroup
 - uid: ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap*
   commentId: Overload:ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap
-  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_ReplaceTileMap_ISILab_LBS_Modules_BundleTileMap_
+  href: ISILab.LBS.Behaviours.PopulationBehaviour.html#ISILab_LBS_Behaviours_PopulationBehaviour_ReplaceTileMap_ISILab_LBS_Modules_BundleTileMapModule_
   name: ReplaceTileMap
   nameWithType: PopulationBehaviour.ReplaceTileMap
   fullName: ISILab.LBS.Behaviours.PopulationBehaviour.ReplaceTileMap

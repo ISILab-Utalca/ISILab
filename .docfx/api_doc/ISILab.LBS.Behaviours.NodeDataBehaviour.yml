@@ -39,11 +39,11 @@ items:
   namespace: ISILab.LBS.Behaviours
   syntax:
     content: >-
-      [RequieredModule(new Type[] { typeof(QuestGraph) })]
+      [RequieredModule(new Type[] { typeof(QuestGraphModule) })]
 
       public class NodeDataBehaviour : LBSBehaviour, ICloneable
     content.vb: >-
-      <RequieredModule(New Type() { GetType(QuestGraph) })>
+      <RequieredModule(New Type() { GetType(QuestGraphModule) })>
 
       Public Class NodeDataBehaviour Inherits LBSBehaviour Implements ICloneable
   inheritance:
@@ -129,11 +129,11 @@ items:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public QuestGraph Graph { get; }
+    content: public QuestGraphModule Graph { get; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.QuestGraph
-    content.vb: Public ReadOnly Property Graph As QuestGraph
+      type: ISILab.LBS.Modules.QuestGraphModule
+    content.vb: Public ReadOnly Property Graph As QuestGraphModule
   overload: ISILab.LBS.Behaviours.NodeDataBehaviour.Graph*
 - uid: ISILab.LBS.Behaviours.NodeDataBehaviour.OnNodeDataChanged
   commentId: F:ISILab.LBS.Behaviours.NodeDataBehaviour.OnNodeDataChanged
@@ -153,7 +153,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnNodeDataChanged
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 17
+    startLine: 18
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -180,7 +180,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnNodeDataChangedBegin
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 18
+    startLine: 19
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -207,7 +207,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnNodeDataChangedEnd
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -234,7 +234,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAddField
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 20
+    startLine: 21
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -261,7 +261,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnRemoveField
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 21
+    startLine: 22
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -288,7 +288,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 28
+    startLine: 30
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -329,7 +329,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnGUI
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 32
+    startLine: 34
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -357,7 +357,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 37
+    startLine: 39
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -387,7 +387,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAttachLayer
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 42
+    startLine: 44
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -418,7 +418,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnDetachLayer
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 94
+    startLine: 96
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -449,7 +449,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CheckKeys
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 100
+    startLine: 102
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -477,7 +477,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: UpdateKeys
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 105
+    startLine: 107
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1251,13 +1251,13 @@ references:
   name: Graph
   nameWithType: NodeDataBehaviour.Graph
   fullName: ISILab.LBS.Behaviours.NodeDataBehaviour.Graph
-- uid: ISILab.LBS.Modules.QuestGraph
-  commentId: T:ISILab.LBS.Modules.QuestGraph
+- uid: ISILab.LBS.Modules.QuestGraphModule
+  commentId: T:ISILab.LBS.Modules.QuestGraphModule
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraph.html
-  name: QuestGraph
-  nameWithType: QuestGraph
-  fullName: ISILab.LBS.Modules.QuestGraph
+  href: ISILab.LBS.Modules.QuestGraphModule.html
+  name: QuestGraphModule
+  nameWithType: QuestGraphModule
+  fullName: ISILab.LBS.Modules.QuestGraphModule
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html

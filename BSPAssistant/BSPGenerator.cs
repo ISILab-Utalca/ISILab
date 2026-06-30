@@ -1,5 +1,8 @@
-using UnityEngine;
+using ISILab.Commons.Utility;
+using System;
 using System.Collections.Generic;
+using System.Threading;
+using UnityEngine;
 
 public class BSPDungeonGenerator
 {
@@ -29,7 +32,7 @@ public class BSPDungeonGenerator
             if (leftChild != null || rightChild != null) return false; // Already split
 
             // Randomly decide split direction
-            bool splitH = Random.value > 0.5f;
+            bool splitH = SafeRandom.Value() > 0.5f;
 
             // Force split direction if the partition is too wide or too tall
             if (width > height && width / (float)height >= 1.25f) splitH = false; // Cut vertically
@@ -38,7 +41,7 @@ public class BSPDungeonGenerator
             int max = (splitH ? height : width) - minSize;
             if (max <= minSize) return false; // Too small to split further
 
-            int split = Random.Range(minSize, max);
+            int split = SafeRandom.Range(minSize, max);
 
             if (splitH)
             {
@@ -84,7 +87,7 @@ public class BSPDungeonGenerator
                 if (l.leftChild == null && l.rightChild == null)
                 {
                     // Attempt to split if it's large enough or randomly
-                    if (l.width > minPartitionSize * 2 || l.height > minPartitionSize * 2 || Random.value > 0.25f)
+                    if (l.width > minPartitionSize * 2 || l.height > minPartitionSize * 2 || SafeRandom.Value() > 0.25f)
                     {
                         if (l.Split(minPartitionSize))
                         {
@@ -122,12 +125,12 @@ public class BSPDungeonGenerator
             int maxW = Mathf.Max(minRoomSize, leaf.width - 2);
             int maxH = Mathf.Max(minRoomSize, leaf.height - 2);
 
-            int w = Random.Range(minRoomSize, maxW);
-            int h = Random.Range(minRoomSize, maxH);
+            int w = SafeRandom.Range(minRoomSize, maxW);
+            int h = SafeRandom.Range(minRoomSize, maxH);
 
             // Random position inside the leaf, ensuring at least 1 pixel of padding
-            int rx = Random.Range(leaf.x + 1, leaf.x + leaf.width - w - 1);
-            int ry = Random.Range(leaf.y + 1, leaf.y + leaf.height - h - 1);
+            int rx = SafeRandom.Range(leaf.x + 1, leaf.x + leaf.width - w - 1);
+            int ry = SafeRandom.Range(leaf.y + 1, leaf.y + leaf.height - h - 1);
 
             leaf.room = new RectInt(rx, ry, w, h);
             leaf.roomId = roomCounter++;
@@ -157,7 +160,7 @@ public class BSPDungeonGenerator
             if (rRoom.width > 0 && lRoom.width == 0) return rRoom;
 
             // If both children have rooms, pick one randomly to connect from
-            return Random.value > 0.5f ? lRoom : rRoom;
+            return SafeRandom.Value() > 0.5f ? lRoom : rRoom;
         }
         return new RectInt();
     }
@@ -169,7 +172,7 @@ public class BSPDungeonGenerator
         Vector2Int pointB = new Vector2Int(roomB.x + roomB.width / 2, roomB.y + roomB.height / 2);
 
         // Randomly choose whether to draw Horizontal-Vertical or Vertical-Horizontal
-        if (Random.value > 0.5f)
+        if (SafeRandom.Value() > 0.5f)
         {
             DrawLine(pointA.x, pointA.y, pointB.x, pointA.y); // Horizontal
             DrawLine(pointB.x, pointA.y, pointB.x, pointB.y); // Vertical

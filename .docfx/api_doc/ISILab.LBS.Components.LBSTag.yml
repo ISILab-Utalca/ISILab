@@ -5,6 +5,7 @@ items:
   id: LBSTag
   parent: ISILab.LBS.Components
   children:
+  - ISILab.LBS.Components.LBSTag.#ctor
   - ISILab.LBS.Components.LBSTag.Color
   - ISILab.LBS.Components.LBSTag.Equals(System.Object)
   - ISILab.LBS.Components.LBSTag.GetHashCode
@@ -448,6 +449,35 @@ items:
     return:
       type: ISILab.LBS.Components.LBSTag.TagEvent
     content.vb: Public OnChangeEntityType As LBSTag.TagEvent
+- uid: ISILab.LBS.Components.LBSTag.#ctor
+  commentId: M:ISILab.LBS.Components.LBSTag.#ctor
+  id: '#ctor'
+  parent: ISILab.LBS.Components.LBSTag
+  langs:
+  - csharp
+  - vb
+  name: LBSTag()
+  nameWithType: LBSTag.LBSTag()
+  fullName: ISILab.LBS.Components.LBSTag.LBSTag()
+  type: Constructor
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Tags/LBSTag.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: .ctor
+    path: ../LBS/Plugin/Core/Components/Tags/LBSTag.cs
+    startLine: 76
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public LBSTag()
+    content.vb: Public Sub New()
+  overload: ISILab.LBS.Components.LBSTag.#ctor*
+  nameWithType.vb: LBSTag.New()
+  fullName.vb: ISILab.LBS.Components.LBSTag.New()
+  name.vb: New()
 - uid: ISILab.LBS.Components.LBSTag.Init(System.String,UnityEngine.Color,UnityEngine.UIElements.VectorImage)
   commentId: M:ISILab.LBS.Components.LBSTag.Init(System.String,UnityEngine.Color,UnityEngine.UIElements.VectorImage)
   id: Init(System.String,UnityEngine.Color,UnityEngine.UIElements.VectorImage)
@@ -466,7 +496,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Init
     path: ../LBS/Plugin/Core/Components/Tags/LBSTag.cs
-    startLine: 76
+    startLine: 77
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -502,7 +532,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
     path: ../LBS/Plugin/Core/Components/Tags/LBSTag.cs
-    startLine: 83
+    startLine: 84
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -538,7 +568,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
     path: ../LBS/Plugin/Core/Components/Tags/LBSTag.cs
-    startLine: 89
+    startLine: 90
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -5390,6 +5420,15 @@ references:
   - uid: ISILab.LBS.Components.LBSTag.TagEvent
     name: TagEvent
     href: ISILab.LBS.Components.LBSTag.TagEvent.html
+- uid: ISILab.LBS.Components.LBSTag.#ctor*
+  commentId: Overload:ISILab.LBS.Components.LBSTag.#ctor
+  href: ISILab.LBS.Components.LBSTag.html#ISILab_LBS_Components_LBSTag__ctor
+  name: LBSTag
+  nameWithType: LBSTag.LBSTag
+  fullName: ISILab.LBS.Components.LBSTag.LBSTag
+  nameWithType.vb: LBSTag.New
+  fullName.vb: ISILab.LBS.Components.LBSTag.New
+  name.vb: New
 - uid: ISILab.LBS.Components.LBSTag.Init*
   commentId: Overload:ISILab.LBS.Components.LBSTag.Init
   href: ISILab.LBS.Components.LBSTag.html#ISILab_LBS_Components_LBSTag_Init_System_String_UnityEngine_Color_UnityEngine_UIElements_VectorImage_

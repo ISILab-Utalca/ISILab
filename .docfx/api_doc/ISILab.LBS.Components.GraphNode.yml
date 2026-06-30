@@ -6,7 +6,7 @@ items:
   parent: ISILab.LBS.Components
   children:
   - ISILab.LBS.Components.GraphNode.#ctor
-  - ISILab.LBS.Components.GraphNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraph)
+  - ISILab.LBS.Components.GraphNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraphModule)
   - ISILab.LBS.Components.GraphNode.And
   - ISILab.LBS.Components.GraphNode.Clone
   - ISILab.LBS.Components.GraphNode.CreateCloneInstance
@@ -319,15 +319,15 @@ items:
 
       [SerializeReference]
 
-      protected QuestGraph graph
+      protected QuestGraphModule graph
     return:
-      type: ISILab.LBS.Modules.QuestGraph
+      type: ISILab.LBS.Modules.QuestGraphModule
     content.vb: >-
       <SerializeField>
 
       <SerializeReference>
 
-      Protected graph As QuestGraph
+      Protected graph As QuestGraphModule
   attributes:
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
@@ -395,11 +395,11 @@ items:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: public QuestGraph Graph { get; set; }
+    content: public QuestGraphModule Graph { get; set; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.QuestGraph
-    content.vb: Public Property Graph As QuestGraph
+      type: ISILab.LBS.Modules.QuestGraphModule
+    content.vb: Public Property Graph As QuestGraphModule
   overload: ISILab.LBS.Components.GraphNode.Graph*
 - uid: ISILab.LBS.Components.GraphNode.ID
   commentId: P:ISILab.LBS.Components.GraphNode.ID
@@ -633,16 +633,16 @@ items:
   nameWithType.vb: GraphNode.New()
   fullName.vb: ISILab.LBS.Components.GraphNode.New()
   name.vb: New()
-- uid: ISILab.LBS.Components.GraphNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraph)
-  commentId: M:ISILab.LBS.Components.GraphNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraph)
-  id: '#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraph)'
+- uid: ISILab.LBS.Components.GraphNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraphModule)
+  commentId: M:ISILab.LBS.Components.GraphNode.#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraphModule)
+  id: '#ctor(System.String,UnityEngine.Vector2,ISILab.LBS.Modules.QuestGraphModule)'
   parent: ISILab.LBS.Components.GraphNode
   langs:
   - csharp
   - vb
-  name: GraphNode(string, Vector2, QuestGraph)
-  nameWithType: GraphNode.GraphNode(string, Vector2, QuestGraph)
-  fullName: ISILab.LBS.Components.GraphNode.GraphNode(string, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraph)
+  name: GraphNode(string, Vector2, QuestGraphModule)
+  nameWithType: GraphNode.GraphNode(string, Vector2, QuestGraphModule)
+  fullName: ISILab.LBS.Components.GraphNode.GraphNode(string, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraphModule)
   type: Constructor
   source:
     remote:
@@ -656,19 +656,19 @@ items:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: protected GraphNode(string id, Vector2 position, QuestGraph graph)
+    content: protected GraphNode(string id, Vector2 position, QuestGraphModule graph)
     parameters:
     - id: id
       type: System.String
     - id: position
       type: UnityEngine.Vector2
     - id: graph
-      type: ISILab.LBS.Modules.QuestGraph
-    content.vb: Protected Sub New(id As String, position As Vector2, graph As QuestGraph)
+      type: ISILab.LBS.Modules.QuestGraphModule
+    content.vb: Protected Sub New(id As String, position As Vector2, graph As QuestGraphModule)
   overload: ISILab.LBS.Components.GraphNode.#ctor*
-  nameWithType.vb: GraphNode.New(String, Vector2, QuestGraph)
-  fullName.vb: ISILab.LBS.Components.GraphNode.New(String, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraph)
-  name.vb: New(String, Vector2, QuestGraph)
+  nameWithType.vb: GraphNode.New(String, Vector2, QuestGraphModule)
+  fullName.vb: ISILab.LBS.Components.GraphNode.New(String, UnityEngine.Vector2, ISILab.LBS.Modules.QuestGraphModule)
+  name.vb: New(String, Vector2, QuestGraphModule)
 - uid: ISILab.LBS.Components.GraphNode.Select(System.Boolean)
   commentId: M:ISILab.LBS.Components.GraphNode.Select(System.Boolean)
   id: Select(System.Boolean)
@@ -1174,13 +1174,13 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: ISILab.LBS.Modules.QuestGraph
-  commentId: T:ISILab.LBS.Modules.QuestGraph
+- uid: ISILab.LBS.Modules.QuestGraphModule
+  commentId: T:ISILab.LBS.Modules.QuestGraphModule
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraph.html
-  name: QuestGraph
-  nameWithType: QuestGraph
-  fullName: ISILab.LBS.Modules.QuestGraph
+  href: ISILab.LBS.Modules.QuestGraphModule.html
+  name: QuestGraphModule
+  nameWithType: QuestGraphModule
+  fullName: ISILab.LBS.Modules.QuestGraphModule
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html

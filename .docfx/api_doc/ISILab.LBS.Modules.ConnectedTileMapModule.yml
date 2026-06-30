@@ -6,11 +6,10 @@ items:
   parent: ISILab.LBS.Modules
   children:
   - ISILab.LBS.Modules.ConnectedTileMapModule.#ctor
-  - ISILab.LBS.Modules.ConnectedTileMapModule.#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},System.Int32,ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)
+  - ISILab.LBS.Modules.ConnectedTileMapModule.#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)
   - ISILab.LBS.Modules.ConnectedTileMapModule.AddPair(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
   - ISILab.LBS.Modules.ConnectedTileMapModule.Clear
   - ISILab.LBS.Modules.ConnectedTileMapModule.Clone
-  - ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
   - ISILab.LBS.Modules.ConnectedTileMapModule.Equals(System.Object)
   - ISILab.LBS.Modules.ConnectedTileMapModule.GetAllPairsWithConnections(System.String[])
   - ISILab.LBS.Modules.ConnectedTileMapModule.GetBounds
@@ -84,45 +83,6 @@ items:
   - type: System.SerializableAttribute
     ctor: System.SerializableAttribute.#ctor
     arguments: []
-- uid: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
-  commentId: P:ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
-  id: ConnectedDirections
-  parent: ISILab.LBS.Modules.ConnectedTileMapModule
-  langs:
-  - csharp
-  - vb
-  name: ConnectedDirections
-  nameWithType: ConnectedTileMapModule.ConnectedDirections
-  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
-  type: Property
-  source:
-    remote:
-      path: LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-      branch: ignacio-r-develop
-      repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: ConnectedDirections
-    path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 31
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Modules
-  syntax:
-    content: >-
-      [JsonIgnore]
-
-      public int ConnectedDirections { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: >-
-      <JsonIgnore>
-
-      Public Property ConnectedDirections As Integer
-  overload: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections*
-  attributes:
-  - type: Newtonsoft.Json.JsonIgnoreAttribute
-    ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
-    arguments: []
 - uid: ISILab.LBS.Modules.ConnectedTileMapModule.Pairs
   commentId: P:ISILab.LBS.Modules.ConnectedTileMapModule.Pairs
   id: Pairs
@@ -141,7 +101,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Pairs
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 38
+    startLine: 28
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -180,7 +140,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GridType
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 41
+    startLine: 31
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -219,7 +179,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: PathfindNodes
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 44
+    startLine: 34
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -258,7 +218,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: JPSDistances
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 46
+    startLine: 36
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -297,7 +257,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Pathfind
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 50
+    startLine: 40
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -324,7 +284,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAddPair
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 54
+    startLine: 44
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -351,7 +311,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnRemovePair
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 55
+    startLine: 45
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -378,7 +338,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 59
+    startLine: 49
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -389,16 +349,16 @@ items:
   nameWithType.vb: ConnectedTileMapModule.New()
   fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.New()
   name.vb: New()
-- uid: ISILab.LBS.Modules.ConnectedTileMapModule.#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},System.Int32,ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)
-  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},System.Int32,ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)
-  id: '#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},System.Int32,ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)'
+- uid: ISILab.LBS.Modules.ConnectedTileMapModule.#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)
+  commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)
+  id: '#ctor(System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair},ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType,ISILab.LBS.Modules.PathfindInfo,System.String)'
   parent: ISILab.LBS.Modules.ConnectedTileMapModule
   langs:
   - csharp
   - vb
-  name: ConnectedTileMapModule(IEnumerable<TileConnectionsPair>, int, ConnectedTileType, PathfindInfo, string)
-  nameWithType: ConnectedTileMapModule.ConnectedTileMapModule(IEnumerable<TileConnectionsPair>, int, ConnectedTileMapModule.ConnectedTileType, PathfindInfo, string)
-  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileMapModule(System.Collections.Generic.IEnumerable<ISILab.LBS.Modules.TileConnectionsPair>, int, ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType, ISILab.LBS.Modules.PathfindInfo, string)
+  name: ConnectedTileMapModule(IEnumerable<TileConnectionsPair>, ConnectedTileType, PathfindInfo, string)
+  nameWithType: ConnectedTileMapModule.ConnectedTileMapModule(IEnumerable<TileConnectionsPair>, ConnectedTileMapModule.ConnectedTileType, PathfindInfo, string)
+  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileMapModule(System.Collections.Generic.IEnumerable<ISILab.LBS.Modules.TileConnectionsPair>, ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType, ISILab.LBS.Modules.PathfindInfo, string)
   type: Constructor
   source:
     remote:
@@ -407,28 +367,26 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 64
+    startLine: 54
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
   syntax:
-    content: public ConnectedTileMapModule(IEnumerable<TileConnectionsPair> tiles, int connectedDirections, ConnectedTileMapModule.ConnectedTileType gridType, PathfindInfo pathfindInfo, string id = "ConnectedTileMapModule")
+    content: public ConnectedTileMapModule(IEnumerable<TileConnectionsPair> tiles, ConnectedTileMapModule.ConnectedTileType gridType, PathfindInfo pathfindInfo, string id = "ConnectedTileMapModule")
     parameters:
     - id: tiles
       type: System.Collections.Generic.IEnumerable{ISILab.LBS.Modules.TileConnectionsPair}
-    - id: connectedDirections
-      type: System.Int32
     - id: gridType
       type: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType
     - id: pathfindInfo
       type: ISILab.LBS.Modules.PathfindInfo
     - id: id
       type: System.String
-    content.vb: Public Sub New(tiles As IEnumerable(Of TileConnectionsPair), connectedDirections As Integer, gridType As ConnectedTileMapModule.ConnectedTileType, pathfindInfo As PathfindInfo, id As String = "ConnectedTileMapModule")
+    content.vb: Public Sub New(tiles As IEnumerable(Of TileConnectionsPair), gridType As ConnectedTileMapModule.ConnectedTileType, pathfindInfo As PathfindInfo, id As String = "ConnectedTileMapModule")
   overload: ISILab.LBS.Modules.ConnectedTileMapModule.#ctor*
-  nameWithType.vb: ConnectedTileMapModule.New(IEnumerable(Of TileConnectionsPair), Integer, ConnectedTileMapModule.ConnectedTileType, PathfindInfo, String)
-  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.New(System.Collections.Generic.IEnumerable(Of ISILab.LBS.Modules.TileConnectionsPair), Integer, ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType, ISILab.LBS.Modules.PathfindInfo, String)
-  name.vb: New(IEnumerable(Of TileConnectionsPair), Integer, ConnectedTileType, PathfindInfo, String)
+  nameWithType.vb: ConnectedTileMapModule.New(IEnumerable(Of TileConnectionsPair), ConnectedTileMapModule.ConnectedTileType, PathfindInfo, String)
+  fullName.vb: ISILab.LBS.Modules.ConnectedTileMapModule.New(System.Collections.Generic.IEnumerable(Of ISILab.LBS.Modules.TileConnectionsPair), ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedTileType, ISILab.LBS.Modules.PathfindInfo, String)
+  name.vb: New(IEnumerable(Of TileConnectionsPair), ConnectedTileType, PathfindInfo, String)
 - uid: ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
   commentId: M:ISILab.LBS.Modules.ConnectedTileMapModule.SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
   id: SetConnection(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Int32,System.String,System.Boolean)
@@ -447,7 +405,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetConnection
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 81
+    startLine: 70
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -485,7 +443,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetConnections
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 92
+    startLine: 81
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -521,7 +479,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddPair
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 103
+    startLine: 92
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -557,7 +515,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetPair
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 118
+    startLine: 107
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -588,7 +546,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetPair
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 125
+    startLine: 114
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -619,7 +577,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAllPairsWithConnections
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 130
+    startLine: 119
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -653,7 +611,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetConnections
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 146
+    startLine: 135
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -684,7 +642,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetConnections
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 153
+    startLine: 142
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -715,7 +673,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveTile
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 160
+    startLine: 149
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -744,7 +702,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveTile
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 167
+    startLine: 156
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -773,7 +731,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveTile
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 175
+    startLine: 164
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -805,7 +763,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InitializePathfinding
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 184
+    startLine: 173
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -834,7 +792,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InitializePathfinding
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 186
+    startLine: 175
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -865,7 +823,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetBounds
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 219
+    startLine: 204
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -897,7 +855,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsEmpty
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 228
+    startLine: 213
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -929,7 +887,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clear
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 233
+    startLine: 218
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -958,7 +916,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 238
+    startLine: 223
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -990,7 +948,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Rewrite
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 245
+    startLine: 230
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -1022,7 +980,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Print
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 260
+    startLine: 244
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -1054,7 +1012,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 279
+    startLine: 263
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -1090,7 +1048,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
     path: ../LBS/Plugin/Components/Data/Tessellation/TileMap/ConnectedTileMapModule.cs
-    startLine: 306
+    startLine: 288
   assemblies:
   - LBS
   namespace: ISILab.LBS.Modules
@@ -1406,23 +1364,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections*
-  commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
-  href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_ConnectedDirections
-  name: ConnectedDirections
-  nameWithType: ConnectedTileMapModule.ConnectedDirections
-  fullName: ISILab.LBS.Modules.ConnectedTileMapModule.ConnectedDirections
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: ISILab.LBS.Modules.ConnectedTileMapModule.Pairs*
   commentId: Overload:ISILab.LBS.Modules.ConnectedTileMapModule.Pairs
   href: ISILab.LBS.Modules.ConnectedTileMapModule.html#ISILab_LBS_Modules_ConnectedTileMapModule_Pairs
@@ -1850,6 +1791,17 @@ references:
   name: LBSTile
   nameWithType: LBSTile
   fullName: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System

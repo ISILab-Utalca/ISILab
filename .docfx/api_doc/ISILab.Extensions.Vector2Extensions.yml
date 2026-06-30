@@ -38,10 +38,12 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Vector2Extensions
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 6
+    startLine: 9
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Class with extension methods for Unity Vector2 and Vector2Int.
+  example: []
   syntax:
     content: public static class Vector2Extensions
     content.vb: Public Module Vector2Extensions
@@ -74,19 +76,24 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToInt
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 8
+    startLine: 17
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Converts a Vector2 to a Vector2Int.
+  example: []
   syntax:
     content: public static Vector2Int ToInt(this Vector2 vector, bool round = false)
     parameters:
     - id: vector
       type: UnityEngine.Vector2
+      description: ''
     - id: round
       type: System.Boolean
+      description: Whether the components of the vector are rounded or truncated.
     return:
       type: UnityEngine.Vector2Int
+      description: An equivalent Vector2Int.
     content.vb: Public Shared Function ToInt(vector As Vector2, round As Boolean = False) As Vector2Int
   overload: ISILab.Extensions.Vector2Extensions.ToInt*
   nameWithType.vb: Vector2Extensions.ToInt(Vector2, Boolean)
@@ -111,17 +118,21 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToFloat
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 15
+    startLine: 29
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Converts a Vector2Int to a Vector2.
+  example: []
   syntax:
     content: public static Vector2 ToFloat(this Vector2Int vector)
     parameters:
     - id: vector
       type: UnityEngine.Vector2Int
+      description: ''
     return:
       type: UnityEngine.Vector2
+      description: An equivalent Vector2.
     content.vb: Public Shared Function ToFloat(vector As Vector2Int) As Vector2
   overload: ISILab.Extensions.Vector2Extensions.ToFloat*
 - uid: ISILab.Extensions.Vector2Extensions.AsComponents(UnityEngine.Vector2)
@@ -143,17 +154,21 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AsComponents
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 20
+    startLine: 39
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Separates a Vector2 into its components.
+  example: []
   syntax:
     content: public static List<Vector2> AsComponents(this Vector2 vector)
     parameters:
     - id: vector
       type: UnityEngine.Vector2
+      description: ''
     return:
       type: System.Collections.Generic.List{UnityEngine.Vector2}
+      description: The components of the vector as vectors as well.
     content.vb: Public Shared Function AsComponents(vector As Vector2) As List(Of Vector2)
   overload: ISILab.Extensions.Vector2Extensions.AsComponents*
 - uid: ISILab.Extensions.Vector2Extensions.AsComponents(UnityEngine.Vector2Int)
@@ -175,17 +190,21 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AsComponents
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 25
+    startLine: 49
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Separates a Vector2Int into its components.
+  example: []
   syntax:
     content: public static List<Vector2Int> AsComponents(this Vector2Int vector)
     parameters:
     - id: vector
       type: UnityEngine.Vector2Int
+      description: ''
     return:
       type: System.Collections.Generic.List{UnityEngine.Vector2Int}
+      description: The components of the vector as vectors as well.
     content.vb: Public Shared Function AsComponents(vector As Vector2Int) As List(Of Vector2Int)
   overload: ISILab.Extensions.Vector2Extensions.AsComponents*
 - uid: ISILab.Extensions.Vector2Extensions.Get4Connected(UnityEngine.Vector2Int)
@@ -207,19 +226,36 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Get4Connected
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 30
+    startLine: 62
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Get all neighbours of a vector in 4 directions.
+  remarks: This method is obsolete. We recommend using <xref href="ISILab.Commons.Directions.Bidimencional.Edges" data-throw-if-not-resolved="false"></xref> instead.
+  example: []
   syntax:
-    content: public static List<Vector2Int> Get4Connected(this Vector2Int vector)
+    content: >-
+      [Obsolete("Use Directions.Bidimencional.Edges instead.")]
+
+      public static List<Vector2Int> Get4Connected(this Vector2Int vector)
     parameters:
     - id: vector
       type: UnityEngine.Vector2Int
+      description: ''
     return:
       type: System.Collections.Generic.List{UnityEngine.Vector2Int}
-    content.vb: Public Shared Function Get4Connected(vector As Vector2Int) As List(Of Vector2Int)
+      description: A list with all neighbours.
+    content.vb: >-
+      <Obsolete("Use Directions.Bidimencional.Edges instead.")>
+
+      Public Shared Function Get4Connected(vector As Vector2Int) As List(Of Vector2Int)
   overload: ISILab.Extensions.Vector2Extensions.Get4Connected*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use Directions.Bidimencional.Edges instead.
 - uid: ISILab.Extensions.Vector2Extensions.Get8Connected(UnityEngine.Vector2Int)
   commentId: M:ISILab.Extensions.Vector2Extensions.Get8Connected(UnityEngine.Vector2Int)
   id: Get8Connected(UnityEngine.Vector2Int)
@@ -239,19 +275,36 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Get8Connected
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 40
+    startLine: 81
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Get all neighbours of a vector in 8 directions.
+  remarks: This method is obsolete. We recommend using <xref href="ISILab.Commons.Directions.Bidimencional.All" data-throw-if-not-resolved="false"></xref> instead.
+  example: []
   syntax:
-    content: public static List<Vector2Int> Get8Connected(this Vector2Int vector)
+    content: >-
+      [Obsolete("Use Directions.Bidimencional.All instead.")]
+
+      public static List<Vector2Int> Get8Connected(this Vector2Int vector)
     parameters:
     - id: vector
       type: UnityEngine.Vector2Int
+      description: ''
     return:
       type: System.Collections.Generic.List{UnityEngine.Vector2Int}
-    content.vb: Public Shared Function Get8Connected(vector As Vector2Int) As List(Of Vector2Int)
+      description: A list with all neighbours.
+    content.vb: >-
+      <Obsolete("Use Directions.Bidimencional.All instead.")>
+
+      Public Shared Function Get8Connected(vector As Vector2Int) As List(Of Vector2Int)
   overload: ISILab.Extensions.Vector2Extensions.Get8Connected*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use Directions.Bidimencional.All instead.
 - uid: ISILab.Extensions.Vector2Extensions.GetEdge(UnityEngine.Vector2Int,System.Collections.Generic.List{UnityEngine.Vector2Int})
   commentId: M:ISILab.Extensions.Vector2Extensions.GetEdge(UnityEngine.Vector2Int,System.Collections.Generic.List{UnityEngine.Vector2Int})
   id: GetEdge(UnityEngine.Vector2Int,System.Collections.Generic.List{UnityEngine.Vector2Int})
@@ -271,19 +324,24 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetEdge
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 53
+    startLine: 102
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: Obtains an index representing the opposite 4-connected direction.
+  example: []
   syntax:
     content: public static int GetEdge(this Vector2Int targetDirection, List<Vector2Int> directions)
     parameters:
     - id: targetDirection
       type: UnityEngine.Vector2Int
+      description: ''
     - id: directions
       type: System.Collections.Generic.List{UnityEngine.Vector2Int}
+      description: All 4 directions.
     return:
       type: System.Int32
+      description: ''
     content.vb: Public Shared Function GetEdge(targetDirection As Vector2Int, directions As List(Of Vector2Int)) As Integer
   overload: ISILab.Extensions.Vector2Extensions.GetEdge*
   nameWithType.vb: Vector2Extensions.GetEdge(Vector2Int, List(Of Vector2Int))
@@ -308,17 +366,21 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetVertices
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 58
+    startLine: 112
   assemblies:
   - Commons
   namespace: ISILab.Extensions
+  summary: ''
+  example: []
   syntax:
     content: public static List<int> GetVertices(this Vector2Int direction)
     parameters:
     - id: direction
       type: UnityEngine.Vector2Int
+      description: ''
     return:
       type: System.Collections.Generic.List{System.Int32}
+      description: ''
     content.vb: Public Shared Function GetVertices(direction As Vector2Int) As List(Of Integer)
   overload: ISILab.Extensions.Vector2Extensions.GetVertices*
 - uid: ISILab.Extensions.Vector2Extensions.GetVertices(UnityEngine.Vector2Int,System.Collections.Generic.List{System.Int32}@)
@@ -340,7 +402,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetVertices
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 73
+    startLine: 127
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -377,7 +439,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsInLine
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 91
+    startLine: 145
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -413,7 +475,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IntersectionOrientation
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 102
+    startLine: 156
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -449,7 +511,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: LinesIntersect
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 122
+    startLine: 176
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -487,7 +549,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Multiply
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 147
+    startLine: 201
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -526,7 +588,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Divided
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 154
+    startLine: 208
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -563,7 +625,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DistanceToLine
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 161
+    startLine: 215
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -599,7 +661,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Divided
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 178
+    startLine: 232
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -636,7 +698,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Distance
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 185
+    startLine: 239
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -670,7 +732,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Average
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 205
+    startLine: 259
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -705,7 +767,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Average
     path: ../Commons/Extensions/Vector2Extensions.cs
-    startLine: 218
+    startLine: 272
   assemblies:
   - Commons
   namespace: ISILab.Extensions
@@ -1161,12 +1223,24 @@ references:
     name: Vector2Int
     isExternal: true
   - name: )
+- uid: ISILab.Commons.Directions.Bidimencional.Edges
+  commentId: P:ISILab.Commons.Directions.Bidimencional.Edges
+  href: ISILab.Commons.Directions.Bidimencional.html#ISILab_Commons_Directions_Bidimencional_Edges
+  name: Edges
+  nameWithType: Directions.Bidimencional.Edges
+  fullName: ISILab.Commons.Directions.Bidimencional.Edges
 - uid: ISILab.Extensions.Vector2Extensions.Get4Connected*
   commentId: Overload:ISILab.Extensions.Vector2Extensions.Get4Connected
   href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_Get4Connected_UnityEngine_Vector2Int_
   name: Get4Connected
   nameWithType: Vector2Extensions.Get4Connected
   fullName: ISILab.Extensions.Vector2Extensions.Get4Connected
+- uid: ISILab.Commons.Directions.Bidimencional.All
+  commentId: P:ISILab.Commons.Directions.Bidimencional.All
+  href: ISILab.Commons.Directions.Bidimencional.html#ISILab_Commons_Directions_Bidimencional_All
+  name: All
+  nameWithType: Directions.Bidimencional.All
+  fullName: ISILab.Commons.Directions.Bidimencional.All
 - uid: ISILab.Extensions.Vector2Extensions.Get8Connected*
   commentId: Overload:ISILab.Extensions.Vector2Extensions.Get8Connected
   href: ISILab.Extensions.Vector2Extensions.html#ISILab_Extensions_Vector2Extensions_Get8Connected_UnityEngine_Vector2Int_
