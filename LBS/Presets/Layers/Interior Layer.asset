@@ -37,10 +37,9 @@ MonoBehaviour:
     - rid: 6524972785853792770
     assistants:
     - rid: 1508221576461156358
-    - rid: 6524972994949284062
     generatorRules:
-    - rid: 1508221576461156359
-    - rid: 1508221576461156360
+    - rid: 2509153161786163200
+    - rid: 2509153161786163201
     index: 0
   references:
     version: 2
@@ -2151,6 +2150,12 @@ MonoBehaviour:
           - rid: 1508221576461156360
           index: 0
         pairs: []
+    - rid: 2509153161786163200
+      type: {class: SchemaRuleGenerator, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
+      data: 
+    - rid: 2509153161786163201
+      type: {class: SchemaRuleGeneratorExterior, ns: ISILab.LBS.Plugin.MapTools.Generators, asm: LBS}
+      data: 
     - rid: 6524972785853792769
       type: {class: SchemaBehaviour, ns: ISILab.LBS.Plugin.Components.Behaviours, asm: LBS}
       data:
@@ -7720,42 +7725,3 @@ MonoBehaviour:
           - rid: 1508221576461156360
           index: 0
         notes: []
-    - rid: 6524972994949284062
-      type: {class: BSPDungeonAssistant, ns: , asm: Assembly-CSharp}
-      data:
-        visible: 1
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Interior_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 1508221576237548539
-          - rid: 6524972859793080408
-          - rid: 6524972859793080409
-          - rid: 6524972859793080410
-          - rid: 6524972859793080411
-          - rid: 6524972859793080412
-          - rid: 6524972859793080413
-          - rid: 6524972859793080414
-          - rid: 6524972859793080415
-          - rid: 6524972859793080416
-          behaviours:
-          - rid: 6524972785853792769
-          - rid: 6524972785853792770
-          assistants:
-          - rid: 1508221576461156358
-          - rid: 6524972994949284062
-          generatorRules:
-          - rid: 1508221576461156359
-          - rid: 1508221576461156360
-          index: 0
-        colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
-        name: BSPDungeonAssistant
-        iconGuid: ad8feef201665454ca79e31b7d798ac3
-        icon: {fileID: 0}
-        mapHeight: 50
-        minPartitionSize: 10
-        minRoomSize: 4

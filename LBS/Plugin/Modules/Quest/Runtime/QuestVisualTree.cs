@@ -245,7 +245,7 @@ namespace ISILab.LBS.VisualElements
                 {
                     foreach (var trigger in tracker.Triggers)
                     {
-                        if (trigger is QuestTriggerNode qtn && qtn.NodeType == QuestNode.ENodeType.Start)
+                        if (trigger is QuestTriggerNode qtn && qtn.NodeType == QuestNode.NodeGraphType.Start)
                         {
                             rootItems.Add(BuildTreeRecursive(qtn));
                         }

@@ -177,6 +177,7 @@ namespace LBS.VisualElements
 
         private void InitFloorTools(LBSLayer layer)
         {
+            
             if (layer.FloorCount > 1)
             {
                 nextFloorButton.style.display = DisplayStyle.Flex;
@@ -220,6 +221,10 @@ namespace LBS.VisualElements
 
 
                 floorIndexField.value = (uint)layer.ActiveFloor;
+            }
+            else
+            {
+                HideFloorButtons();
             }
         }
 

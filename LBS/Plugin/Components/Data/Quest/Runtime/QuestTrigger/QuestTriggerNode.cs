@@ -17,7 +17,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
     {
         #region FIELDS
         [SerializeField, ISILab.Commons.Attributes.ReadOnly]
-        private QuestNode.ENodeType nodeType;
+        private QuestNode.NodeGraphType nodeType;
 
         private LBSGeneratedEventHook eventHooker;
 
@@ -34,7 +34,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         #region PROPERTIES
         public GrammarTerminal Terminal { get => terminal; set => terminal = value; }
-        public QuestNode.ENodeType NodeType => nodeType;
+        public QuestNode.NodeGraphType NodeType => nodeType;
         public List<GrammarField> Fields { get => fields; }
         #endregion
 
@@ -44,7 +44,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
         }
 
-        public override void InitTrigger(GraphNode paramNode, LBSGenerator3DSettings settings, float pivotY)
+        public override void InitTrigger(Node paramNode, LBSGenerator3DSettings settings, float pivotY)
         {
             var questNode = paramNode as QuestNode;
             if (questNode == null)
@@ -150,13 +150,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         protected virtual void OnValidate()
         {
             // If it's a Start node, it shouldn't have previous connections
-            if (nodeType == QuestNode.ENodeType.Start && Previous.Count > 0)
+            if (nodeType == QuestNode.NodeGraphType.Start && Previous.Count > 0)
             {
                 ClearPrevious();
             }
 
             // If it's a Goal node, it cannot point to a next node
-            if (nodeType == QuestNode.ENodeType.Goal && Next.Count != 0)
+            if (nodeType == QuestNode.NodeGraphType.Goal && Next.Count != 0)
             {
                 Next.Clear();
             }

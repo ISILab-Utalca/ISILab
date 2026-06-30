@@ -1,5 +1,6 @@
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
@@ -20,6 +21,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 using Debug = UnityEngine.Debug;
 using ToolBarMain = ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar.ToolBarMain;
 
@@ -37,7 +39,7 @@ namespace ISILab.LBS.Editor
         #endregion
 
         #region PROPERTIES
-        private QuestGraphModule Graph => assistant?.Graph;
+        private Graph Graph => assistant?.Graph;
         #endregion
 
         #region VIEW
@@ -80,13 +82,13 @@ namespace ISILab.LBS.Editor
             target = paramTarget;
             assistant = target as GrammarAssistant;
 
-            Macros.LBSLayerHelper.PrintReference(assistant);
+            //Macros.LBSLayerHelper.PrintReference(assistant);
 
-            ActionExtensions.RemoveMethod(ref Graph.OnNodeSelected, nameof(UpdatePanel));
+            ActionExtensions.RemoveMethod(ref Graph.OnSelect, nameof(UpdatePanel));
            // Graph.OnNodeSelected -= UpdatePanel;
-            Graph.OnNodeSelected += UpdatePanel;
+            Graph.OnSelect += UpdatePanel;
 
-            grammarField.value = Graph?.Grammar;
+            grammarField.value = Graph.OwnerLayer.GetBehaviour<QuestBehaviour>().Grammar;
         }
 
         protected sealed override VisualElement CreateVisualElement()
@@ -114,12 +116,18 @@ namespace ISILab.LBS.Editor
             return this;
         }
 
-        private void UpdatePanel(GraphNode selectedGraphNode = null)
+        private void UpdatePanel(object obj = null)
         {
+            var node = obj as Node;
+            if (node == null || node.Graph == null)
+                return;
+
+
             if (assistant.Disabled) 
                 return;
 
-            if (selectedGraphNode != null && LBSMainWindow.Instance.SelectedLayer != selectedGraphNode.Graph.OwnerLayer) 
+            var layer = node.Graph.OwnerLayer;
+            if (layer == null && LBSMainWindow.Instance.SelectedLayer != layer) 
             {
                 Debug.Log("Different layer from node selected - return");
                 return;
@@ -129,13 +137,13 @@ namespace ISILab.LBS.Editor
                 Debug.Log("No graph - return");
                 return;
             }
+            var bh = layer.GetBehaviour<QuestBehaviour>();
 
-
-            grammarField.value = Graph.Grammar;
+            grammarField.value = bh.Grammar;
             paramActionLabel.text = "none";
             nodeIDLabel.text = "none";
             
-            var questNode = selectedGraphNode as QuestNode;
+            var questNode = node as QuestNode;
             var selectedAction = questNode?.TerminalID;
 
             if (string.IsNullOrEmpty(selectedAction))
@@ -144,8 +152,8 @@ namespace ISILab.LBS.Editor
                 return;
             }
 
-            paramActionLabel.text = Graph.SelectedQuestNode.TerminalID;
-            nodeIDLabel.text = Graph.SelectedQuestNode.ID;
+            paramActionLabel.text = bh.SelectedQuestNode.TerminalID;
+            nodeIDLabel.text = bh.SelectedQuestNode.ID;
             SetNodeVisuals();
             
             RunTask(selectedAction);
@@ -162,9 +170,11 @@ namespace ISILab.LBS.Editor
             // Once done, update UI safely
             EditorApplication.delayCall += () =>
             {
-                UpdateNextSuggestions(nextArray, Graph.SelectedQuestNode);
-                UpdatePrevSuggestions(prevArray, Graph.SelectedQuestNode);
-                UpdateExpandSuggestions(expandArray, Graph.SelectedQuestNode);
+                var bh = Graph.OwnerLayer.GetBehaviour<QuestBehaviour>();
+
+                UpdateNextSuggestions(nextArray, bh.SelectedQuestNode);
+                UpdatePrevSuggestions(prevArray, bh.SelectedQuestNode);
+                UpdateExpandSuggestions(expandArray, bh.SelectedQuestNode);
                 TaskBar.EnableProcess(false);
                
                 LBSMainWindow.MessageNotify(new LBSLog(log, type, 5));
@@ -176,17 +186,18 @@ namespace ISILab.LBS.Editor
         void RunTask(string selectedAction)
         {
             
-            var currentAssistant = assistant;
-            var currentGrammar = assistant.Graph.Grammar;
+            var currAssist = assistant;
+            var bh = Graph.OwnerLayer.GetBehaviour<QuestBehaviour>();
+            var currGrammar = bh.Grammar;
 
-            if (currentGrammar == null) return;
+            if (currGrammar == null) return;
 
-            ((IAssistantThreadedEditor)this).SetUpTask(this, currentAssistant);
+            ((IAssistantThreadedEditor)this).SetUpTask(this, currAssist);
             Task.Run(() =>
             {
                 try
                 {
-                    nextArray = currentAssistant
+                    nextArray = currAssist
                         .GetAllValidNextActionsInsert(selectedAction, progress =>
                         {
                             // progress from 0 → 0.33
@@ -196,7 +207,7 @@ namespace ISILab.LBS.Editor
                     
                     Thread.Sleep(1);
                      
-                    prevArray = currentAssistant
+                    prevArray = currAssist
                         .GetAllValidPrevActionsInsert(selectedAction, progress =>
                         {
                             // progress from 0.33 → 0.66
@@ -206,7 +217,7 @@ namespace ISILab.LBS.Editor
                     
                     Thread.Sleep(1);
                     
-                    expandArray = currentAssistant
+                    expandArray = currAssist
                         .GetAllExpansions(selectedAction, progress =>
                         {
                             // progress from 0.67 → 1.0
@@ -218,12 +229,12 @@ namespace ISILab.LBS.Editor
                    Thread.Sleep(1);
                    string log = "All valid grammar recommendations found.";
                    LogType logType = LogType.Log;
-                   EditorApplication.delayCall += () => currentAssistant.OnTermination?.Invoke(log, logType, null);
+                   EditorApplication.delayCall += () => currAssist.OnTermination?.Invoke(log, logType, null);
                    
                 }
                 catch (Exception ex)
                 {
-                    ((IAssistantThreadedEditor)this).OnTaskException(ex, currentAssistant);
+                    ((IAssistantThreadedEditor)this).OnTaskException(ex, currAssist);
                 }
 
             }, CancelToken);
@@ -238,15 +249,17 @@ namespace ISILab.LBS.Editor
 
         private void SetNodeVisuals()
         {
-            if (Graph.SelectedQuestNode == null) return;
+            var bh = Graph.OwnerLayer.GetBehaviour<QuestBehaviour>();
 
-            Color nodeColor = Graph.SelectedQuestNode.Data.Terminal.color;
+            if (bh.SelectedQuestNode == null) return;
+
+            Color nodeColor = bh.SelectedQuestNode.Data.Terminal.color;
 
             var backgroundColor = nodeColor;
             backgroundColor.a = BackgroundOpacity;
             actionColor.SetBackgroundColor(backgroundColor);
 
-            actionIcon.style.backgroundImage = new StyleBackground(Graph.SelectedQuestNode.Data.Terminal.Icon);
+            actionIcon.style.backgroundImage = new StyleBackground(bh.SelectedQuestNode.Data.Terminal.Icon);
             actionIcon.style.unityBackgroundImageTintColor = nodeColor;
             actionColor.SetBorder(nodeColor, ActionBorderThickness);
         }
@@ -347,9 +360,9 @@ namespace ISILab.LBS.Editor
                 // Entries
                 for (int j = 0; j < actions.Count; j++)
                 {
-                    var type =  j == 0 ? QuestNode.ENodeType.Start :
-                                j == actions.Count - 1 ? QuestNode.ENodeType.Goal :
-                                QuestNode.ENodeType.Middle;
+                    var type =  j == 0 ? QuestNode.NodeGraphType.Start :
+                                j == actions.Count - 1 ? QuestNode.NodeGraphType.Goal :
+                                QuestNode.NodeGraphType.Middle;
 
                     var entry = new ActionExpandEntry
                     {

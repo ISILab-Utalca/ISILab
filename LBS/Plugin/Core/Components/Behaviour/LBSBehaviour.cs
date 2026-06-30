@@ -231,6 +231,10 @@ namespace ISILab.LBS.Behaviours
             // Return array
             return o;
         }
+        /// <summary>
+        /// Retrieves a read-only view of the tiles marked for erasing.
+        /// </summary>
+        public IReadOnlyList<object> RetrieveExpiredReadOnly() => _expiredTiles.ToArray();
 
         public abstract void CheckKeys();
 

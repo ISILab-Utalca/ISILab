@@ -447,22 +447,53 @@ namespace LBS.Components
             OnRemoveModule = null;
             // keep context events if they're needed elsewhere
         }
-        
+
         public object Clone()
         {
-            // Clone modules via provided helper, clone lists of polymorphic objects by calling Clone() on each
-            LBSFloor[] clonedModules = CloneFloorArray(this.floors);
-            List<LBSAssistant> clonedAssistants = new();
-            if(assistants.Count > 0)
-                clonedAssistants = this.assistants.Select(a => a.Clone() as LBSAssistant).ToList();
-            List<LBSGeneratorRule> clonedRules = new();
-            if (generatorRules.Count > 0)
-                generatorRules = this.generatorRules.Select(r => r.Clone() as LBSGeneratorRule).ToList();
-            List<LBSBehaviour> clonedBehaviours = new();
-            if (behaviours.Count > 0)
-                clonedBehaviours = this.behaviours.Select(b => b.Clone() as LBSBehaviour).ToList();
+            LBSFloor[] clonedModules = floors != null ? CloneFloorArray(floors) : Array.Empty<LBSFloor>();
 
-            return new LBSLayer(clonedModules, clonedAssistants, clonedRules, clonedBehaviours, Parent, id, visible, name, iconGuid, TileSize);
+            List<LBSAssistant> clonedAssistants = new();
+            if (assistants != null)
+            {
+                clonedAssistants = assistants
+                    .Where(a => a != null)
+                    .Select(a => a.Clone() as LBSAssistant)
+                    .Where(cloned => cloned != null)
+                    .ToList();
+            }
+
+            List<LBSGeneratorRule> clonedRules = new();
+            if (generatorRules != null)
+            {
+                clonedRules = generatorRules
+                    .Where(r => r != null)
+                    .Select(r => r.Clone() as LBSGeneratorRule)
+                    .Where(cloned => cloned != null)
+                    .ToList();
+            }
+
+            List<LBSBehaviour> clonedBehaviours = new();
+            if (behaviours != null)
+            {
+                clonedBehaviours = behaviours
+                    .Where(b => b != null)
+                    .Select(b => b.Clone() as LBSBehaviour)
+                    .Where(cloned => cloned != null)
+                    .ToList();
+            }
+
+            return new LBSLayer(
+                clonedModules,
+                clonedAssistants,
+                clonedRules,
+                clonedBehaviours,
+                Parent,
+                id,
+                visible,
+                name,
+                iconGuid,
+                TileSize
+            );
         }
 
         public static LBSFloor[] CloneFloorArray(LBSFloor[] input)

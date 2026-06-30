@@ -9,14 +9,25 @@ using Color = UnityEngine.Color;
 
 namespace ISILab.LBS.Behaviours
 {
-    [RequieredModule(typeof(QuestGraphModule))]
+    [RequieredModule(typeof(Graph))]
     public class NodeDataBehaviour : LBSBehaviour
     {
-        public QuestNodeData SelectedNodeData => Graph.SelectedQuestNode?.Data;
-        public QuestGraphModule Graph => OwnerLayer.GetModule<QuestGraphModule>();
+        public QuestNodeData SelectedNodeData
+        {
+            get
+            {
+                if(Graph.Selected is QuestNode qn)
+                {
+                    return qn.Data;
+                }
+                return null;
+            }
+        }
+
+        public Graph Graph => OwnerLayer.GetModule<Graph>();
 
         // Events
-        public Action<GraphNode> OnNodeDataChanged;
+        public Action<QuestNode> OnNodeDataChanged;
         public Action<QuestNodeData> OnNodeDataChangedBegin;
         public Action<QuestNodeData> OnNodeDataChangedEnd;
         public Action<GrammarField> OnAddField;
@@ -88,10 +99,10 @@ namespace ISILab.LBS.Behaviours
             };
         }
 
-        private void OnDataChanged(GraphNode node)
+        private void OnDataChanged(Node node)
         {
-            if (Equals(Graph.SelectedGraphNode, node)) return;
-            Graph.OnNodeSelected?.Invoke(node);
+            if (Equals(Graph.Selected, node)) return;
+            Graph.OnSelect?.Invoke(node);
         }
 
         public override void OnDetachLayer(LBSLayer layer) 
@@ -112,7 +123,7 @@ namespace ISILab.LBS.Behaviours
             List<object> allKeys = new List<object>();
 
             // Add Node as keys
-            foreach (var node in Graph.QuestNodes)
+            foreach (var node in Graph.GetNodes<QuestNode>())
             {
                 allKeys.AddRange(node.Data.GetFields<GrammarField>());
             }

@@ -50,7 +50,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
         #region METHODS
 
-        public void SetEntryAction(string action, QuestNode.ENodeType nodeType, bool SingleEntry)
+        public void SetEntryAction(string action, QuestNode.NodeGraphType nodeType, bool SingleEntry)
         {
             Color backgroundColor = Color.white;
             BackgroundSize iconSize = new BackgroundSize(28, 28);
@@ -60,9 +60,9 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 iconPath = nodeType switch
                 {
-                    QuestNode.ENodeType.Start => startIconGuid,
-                    QuestNode.ENodeType.Middle => middleIconGuid,
-                    QuestNode.ENodeType.Goal => goalIconGuid,
+                    QuestNode.NodeGraphType.Start => startIconGuid,
+                    QuestNode.NodeGraphType.Middle => middleIconGuid,
+                    QuestNode.NodeGraphType.Goal => goalIconGuid,
                     _ => throw new ArgumentOutOfRangeException()
                 };
             }

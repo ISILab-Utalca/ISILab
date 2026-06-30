@@ -3,6 +3,7 @@ using ISILab.AI.Grammar;
 using ISILab.Commons.Extensions;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Components.Bundles;
@@ -14,8 +15,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using Graph = ISILab.LBS.Modules.Graph;
 using Object = UnityEngine.Object;
 
 namespace ISILab.LBS.Plugin.MapTools.Generators
@@ -64,8 +68,10 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             var observer = pivot.AddComponent<QuestTracker>();
 
             CloneRefs.Start();
-            var quest = layer.GetModule<QuestGraphModule>().Clone() as QuestGraphModule;
-            if(quest == null)
+            var graph = layer.GetModule<Graph>().Clone() as Graph;
+            var bh = layer.GetBehaviour<QuestBehaviour>().Clone() as QuestBehaviour;
+
+            if (graph == null)
             {
                 Object.DestroyImmediate(pivot);
                 return new GeneratedGO(null, 
@@ -73,21 +79,21 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
             CloneRefs.End();
 
-            if (!quest.GraphEdges.Any())
+            if (!graph.Edges.Any())
             {
                 Object.DestroyImmediate(pivot);
                 return new GeneratedGO(null,
                     new LBSLog("The quest graph is empty!. Can't generate", LogType.Error));
             }
             
-            if (quest.Root is null)
+            if (graph.Root is null)
             {
                 Object.DestroyImmediate(pivot);
                 return new GeneratedGO(null, 
                     new LBSLog("There is no root in the graph. Assign a root to generate the quest", LogType.Error));
             }
 
-            if (quest.QuestNodes.All(n => n.NodeType != QuestNode.ENodeType.Goal))
+            if (bh.QuestNodes.All(n => n.NodeType != QuestNode.NodeGraphType.Goal))
             {
                 Object.DestroyImmediate(pivot);
                 return new GeneratedGO(null, 
@@ -95,7 +101,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
 
 
-            bool validGrammar = quest.HasValidGrammar();
+            bool validGrammar = bh.HasValidGrammar();
             if (!validGrammar)
             {
                 Object.DestroyImmediate(pivot);
@@ -103,7 +109,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     new LBSLog("At least one quest node is not grammatically valid. Fix or remove", LogType.Error));
             }
 
-            bool validConnections = quest.HasValidConnections();
+            bool validConnections = bh.HasValidConnections();
             if (!validConnections)
             {
                 Object.DestroyImmediate(pivot);
@@ -111,7 +117,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     new LBSLog("At least node has an invalid connection", LogType.Error));
             }
 
-            bool validData = quest.HasValidData();
+            bool validData = bh.HasValidData();
             if (!validData)
             {
                 Object.DestroyImmediate(pivot);
@@ -119,8 +125,8 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     new LBSLog("At least node has an invalid connection", LogType.Error));
             }
 
-            observer.Init(quest);
-            GenerateTriggers(settings, quest, observer, pivot);
+            observer.Init(graph);
+            GenerateTriggers(settings, graph, observer, pivot);
             
             /* For LBS User:
              * ----------------------------------------------------------------
@@ -133,9 +139,11 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return new GeneratedGO(pivot, new LBSLog(0));
         }
 
-        private void GenerateTriggers(LBSGenerator3DSettings settings, QuestGraphModule quest, QuestTracker tracker, GameObject pivot)
+        private void GenerateTriggers(LBSGenerator3DSettings settings, Graph graph, QuestTracker tracker, GameObject pivot)
         {
-            foreach (var node in quest.QuestNodes)
+            var bh = graph.OwnerLayer.GetBehaviour<QuestBehaviour>();
+
+            foreach (var node in bh.QuestNodes)
             {
                 // Find if it has a reference to another layer
                 GenerateRequiredLayers(node);
@@ -150,23 +158,23 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 if (_currentFrameDelay-- > 0) return;
                 _currentFrameDelay = frameDelay;
                 EditorApplication.update -= DelayGeneration;
-                GenerateGraphTriggers(settings, quest, tracker, pivot);
+                GenerateGraphTriggers(settings, graph, tracker, pivot);
             }
         }
 
-        private static void GenerateGraphTriggers(LBSGenerator3DSettings settings, QuestGraphModule qGraph, QuestTracker tracker, GameObject pivot)
+        private static void GenerateGraphTriggers(LBSGenerator3DSettings settings, Graph qGraph, QuestTracker tracker, GameObject pivot)
         {
             // make triggers
-            Dictionary<GraphNode, QuestTriggerNode> nodeToTrigger = MakeTriggerNodes(settings, qGraph, tracker, pivot);
-            Dictionary<GraphNode, QuestTriggerBranch> branchToTrigger = MakeTriggerBranches(settings, qGraph, tracker, pivot);
+            Dictionary<object, QuestTriggerNode> nodeToTrigger = MakeTriggerNodes(settings, qGraph, tracker, pivot);
+            Dictionary<object, QuestTriggerBranch> branchToTrigger = MakeTriggerBranches(settings, qGraph, tracker, pivot);
 
             // join triggers
-            Dictionary<GraphNode, QuestTrigger> allTriggers = new();
+            Dictionary<object, QuestTrigger> allTriggers = new();
             foreach (var kvp in nodeToTrigger) allTriggers.Add(kvp.Key, kvp.Value);
             foreach (var kvp in branchToTrigger) allTriggers.Add(kvp.Key, kvp.Value);
 
             // Set next per node (which automatically sets the previous)
-            foreach (var edge in qGraph.GraphEdges)
+            foreach (var edge in qGraph.Edges)
             {
                 // match edge with trigger
                 foreach (var sourceNode in allTriggers)
@@ -187,7 +195,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             AddTrackerGizmos(tracker, allTriggers);
         }
 
-        private static void AddTrackerGizmos(QuestTracker tracker, Dictionary<GraphNode, QuestTrigger> nodeToTrigger)
+        private static void AddTrackerGizmos(QuestTracker tracker, Dictionary<object, QuestTrigger> nodeToTrigger)
         {
             foreach (var entry in nodeToTrigger)
             {
@@ -197,11 +205,14 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
         }
 
-        private static Dictionary<GraphNode, QuestTriggerNode> MakeTriggerNodes(LBSGenerator3DSettings settings, QuestGraphModule quest, QuestTracker tracker, GameObject pivot)
+        private static Dictionary<object, QuestTriggerNode> MakeTriggerNodes(
+            LBSGenerator3DSettings settings, Graph graph, 
+            QuestTracker tracker, GameObject pivot)
         {
-            Dictionary<GraphNode, QuestTriggerNode> dict = new();
+            Dictionary<object, QuestTriggerNode> dict = new();
+            var bh = graph.OwnerLayer.GetBehaviour<QuestBehaviour>().Clone() as QuestBehaviour;
 
-            foreach (var node in quest.QuestNodes)
+            foreach (var node in bh.QuestNodes)
             {
                 Type triggerType = node.Data.Terminal.Script.GetClass();
                 if (triggerType == null)
@@ -307,13 +318,13 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             }
         }
 
-        private static Dictionary<GraphNode, QuestTriggerBranch> MakeTriggerBranches(LBSGenerator3DSettings settings, QuestGraphModule quest, QuestTracker tracker, GameObject pivot)
+        private static Dictionary<object, QuestTriggerBranch> MakeTriggerBranches(LBSGenerator3DSettings settings, Graph quest, QuestTracker tracker, GameObject pivot)
         {
-            Dictionary<GraphNode, QuestTriggerBranch> dict = new();
+            Dictionary<object, QuestTriggerBranch> dict = new();
 
             // Group edges by destination branch node
-            var branchGroups = quest.GraphEdges
-                .Where(e => e.To is AndNode || e.To is OrNode)
+            var branchGroups = quest.Edges
+                .Where(e => e.To is BranchNode)
                 .GroupBy(e => e.To);
 
             float pivotY = pivot.transform.position.y;

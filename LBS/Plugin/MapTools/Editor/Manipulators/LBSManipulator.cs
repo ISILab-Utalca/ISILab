@@ -159,7 +159,7 @@ namespace ISILab.LBS.Manipulators
         {
             if (IconGuid is "") return;
             _icon = AssetMacro.LoadAssetByGuid<VectorImage>(IconGuid);
-            
+ 
         }    
         #endregion
 

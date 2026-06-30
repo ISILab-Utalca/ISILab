@@ -98,16 +98,16 @@ namespace ISILab.LBS.VisualElements.Editor
                 Color backgroundColor;
                 switch (node.NodeType)
                 {
-                    case QuestNode.ENodeType.Start:
+                    case QuestNode.NodeGraphType.Start:
                         iconPath = "Icons/Vectorial/Icon=Start";
                         backgroundColor = LBSSettings.Instance.view.successColor;
                         break;
-                    case QuestNode.ENodeType.Middle:
+                    case QuestNode.NodeGraphType.Middle:
                         iconPath = "Icons/Vectorial/Icon=MidNode";
                         backgroundColor = Color.white;
                         iconSize = new BackgroundSize(24, 24);
                         break;
-                    case QuestNode.ENodeType.Goal:
+                    case QuestNode.NodeGraphType.Goal:
                         iconPath = "Icons/Vectorial/Icon=Goal";
                         backgroundColor = LBSSettings.Instance.view.errorColor;
                         break;

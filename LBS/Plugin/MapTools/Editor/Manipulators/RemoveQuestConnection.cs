@@ -13,7 +13,7 @@ namespace ISILab.LBS.Manipulators
 {
     public class RemoveQuestConnection : LBSManipulator
     {
-        private QuestGraphModule _questGraph;
+        private Graph _questGraph;
         private QuestBehaviour _behaviour;
 
         protected override string IconGuid => "b534f3f3d94bf1349babd81aa035d583";
@@ -28,13 +28,13 @@ namespace ISILab.LBS.Manipulators
         {
             base.Init(layer, provider);
             
-            _questGraph = layer.GetModule<QuestGraphModule>();
+            _questGraph = layer.GetModule<Graph>();
             _behaviour = layer.GetBehaviour<QuestBehaviour>();
         }
         
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            QuestEdge edge = _questGraph.GetEdge(endPosition, 10);
+            Edge edge = _behaviour.GetEdge(endPosition, 10);
 
             if (edge == null) 
             {
