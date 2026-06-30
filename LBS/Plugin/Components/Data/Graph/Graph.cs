@@ -8,6 +8,11 @@ using UnityEngine;
 
 namespace ISILab.LBS.Modules
 {
+    public enum GraphNodeType
+    {
+        Start, Middle, Goal
+    }
+
     [Serializable]
     public class Graph : LBSModule, ICloneable
     {
@@ -67,15 +72,19 @@ namespace ISILab.LBS.Modules
         public Action<object> OnSelect;
         public Action<object> OnDeselect;
 
-        public Action<object> OnNewRoot;
+        /// <summary>
+        /// Old root, New Root
+        /// </summary>
+        public Action<object, object> OnNewRoot;
 
         public Action<object> OnAddNode;
         public Action<object> OnRemoveNode;
 
-        public Action<Edge> OnAddEdge;
-        public Action<Edge> OnRemoveEdge;
+        public Action<Edge> PreAddEdge;
+        public Action<Edge> PreRemoveEdge;
 
         public Action<Vector2Int> GraphPosition;
+        internal Action PostEdgesChange;
 
         #endregion
 
@@ -132,6 +141,7 @@ namespace ISILab.LBS.Modules
                 SetRoot(null);
 
             OnRemoveNode?.Invoke(node);
+
         }
         #endregion
 
@@ -166,7 +176,9 @@ namespace ISILab.LBS.Modules
         {
             Edge newEdge = new Edge(from, to);
             _edges.Add(newEdge);
-            OnAddEdge?.Invoke(newEdge);
+            PreAddEdge?.Invoke(newEdge);
+
+            PostEdgesChange?.Invoke();
 
             return Tuple.Create($"Connection: {from.ToString()} → {to.ToString()}", LogType.Log);
         }
@@ -175,8 +187,11 @@ namespace ISILab.LBS.Modules
         public bool RemoveEdge(Edge edge)
         {
             if (edge == null) return false;
-            OnRemoveEdge?.Invoke(edge);
+            PreRemoveEdge?.Invoke(edge);
             _edges.Remove(edge);
+
+            PostEdgesChange?.Invoke();
+
             return true;
         }
 
@@ -259,8 +274,12 @@ namespace ISILab.LBS.Modules
         public void SetRoot(object node)
         {
             if (node == root) return;
+
+            var oldRoot = root;
+
             root = node;
-            OnNewRoot?.Invoke(root);
+            OnNewRoot?.Invoke(oldRoot, root);
+            OnForceUpdate?.Invoke();
         }
 
 

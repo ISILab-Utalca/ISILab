@@ -79,7 +79,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 if(trigger is QuestTriggerNode qtn)
                 {
-                    if (qtn.NodeType == QuestNode.NodeGraphType.Start)
+                    if (qtn.NodeType == GraphNodeType.Start)
                     {
                         ActivateNode(qtn);
                     }
@@ -93,7 +93,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // check if quest shuold end
             if (trigger is QuestTriggerNode qtn)
             {
-                if (qtn.NodeType == QuestNode.NodeGraphType.Goal)
+                if (qtn.NodeType == GraphNodeType.Goal)
                 {
                     CompleteWholeQuest();
                     return;

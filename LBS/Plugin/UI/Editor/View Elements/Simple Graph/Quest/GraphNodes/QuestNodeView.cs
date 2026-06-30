@@ -4,6 +4,7 @@ using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
+using ISILab.LBS.Modules;
 using LBS.VisualElements;
 using System;
 using UnityEditor.UIElements;
@@ -67,6 +68,8 @@ namespace ISILab.LBS.VisualElements
 
             SetupToolbar();
             SetupCallbacks();
+            SetLabelID();
+
             Refresh();
         }
 
@@ -86,6 +89,7 @@ namespace ISILab.LBS.VisualElements
             RegisterCallback<GeometryChangedEvent>(_ => UpdatePosition());
 
             _capsule.RegisterCallback<MouseDownEvent>(OnMouseDownCapsule);
+            _questNode.Graph.OnForceUpdate += Refresh;
         }
 
         private void OnMouseDownCapsule(MouseDownEvent evt)
@@ -108,17 +112,16 @@ namespace ISILab.LBS.VisualElements
         {
             if (Node == null) throw new ArgumentNullException(nameof(Node), "Underlying Node reference is null");
 
-            UpdateRefresh();
-            UpdateNodeID();
             UpdateNodeType();
+            UpdateRefresh();
             UpdateGrammarState();
             UpdatePosition();
         }
 
         private void UpdateNodeType()
         {
-            _start.style.display = _questNode.NodeType == QuestNode.NodeGraphType.Start ? DisplayStyle.Flex : DisplayStyle.None;
-            _goal.style.display = _questNode.NodeType == QuestNode.NodeGraphType.Goal ? DisplayStyle.Flex : DisplayStyle.None;
+            _start.style.display = _questNode.NodeType == GraphNodeType.Start ? DisplayStyle.Flex : DisplayStyle.None;
+            _goal.style.display = _questNode.NodeType == GraphNodeType.Goal ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
         private void UpdateRefresh()
@@ -151,7 +154,7 @@ namespace ISILab.LBS.VisualElements
             if (!_questNode.Data.IsValid()) iconTotal += IconSize;
             if (!_questNode.ValidGrammar) iconTotal += IconSize;
             if (!Node.ValidConnections) iconTotal += IconSize;
-            if (_questNode.NodeType != QuestNode.NodeGraphType.Middle) iconTotal += IconSize;
+            if (_questNode.NodeType != GraphNodeType.Middle) iconTotal += IconSize;
 
             _root.style.width = Mathf.Max(MinWidth, textSize.x + iconTotal + Padding);
         }
@@ -232,7 +235,7 @@ namespace ISILab.LBS.VisualElements
             base.OnMouseMove(evt);
         }
 
-        private void UpdateNodeID()
+        private void SetLabelID()
         {
             var rawText = Node.ID?.TrimStart();
             if (string.IsNullOrWhiteSpace(rawText))

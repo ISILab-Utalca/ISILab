@@ -1,12 +1,12 @@
-using UnityEngine;
-using UnityEngine.UIElements;
-
-using System;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
 using ISILab.LBS.Macros;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
+using System;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
@@ -50,7 +50,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
         #region METHODS
 
-        public void SetEntryAction(string action, QuestNode.NodeGraphType nodeType, bool SingleEntry)
+        public void SetEntryAction(string action, GraphNodeType nodeType, bool SingleEntry)
         {
             Color backgroundColor = Color.white;
             BackgroundSize iconSize = new BackgroundSize(28, 28);
@@ -60,9 +60,9 @@ namespace ISILab.LBS.VisualElements.Editor
             {
                 iconPath = nodeType switch
                 {
-                    QuestNode.NodeGraphType.Start => startIconGuid,
-                    QuestNode.NodeGraphType.Middle => middleIconGuid,
-                    QuestNode.NodeGraphType.Goal => goalIconGuid,
+                    GraphNodeType.Start => startIconGuid,
+                    GraphNodeType.Middle => middleIconGuid,
+                    GraphNodeType.Goal => goalIconGuid,
                     _ => throw new ArgumentOutOfRangeException()
                 };
             }

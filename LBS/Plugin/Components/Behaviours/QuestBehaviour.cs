@@ -113,31 +113,32 @@ namespace ISILab.LBS.Behaviours
                 UpdateKeys();
             };
 
-            Graph.OnNewRoot += (root) =>
+            Graph.OnNewRoot += (oldRoot, newRoot) =>
             {
-                if (root is not null)
-                {
-                    var roots = !Graph.GetRoots(root).Any();
-                    var branches = Graph.GetBranches(root).Any();
-                    if(root is QuestNode qn)
-                    {
-                        qn.ValidConnections = roots && branches;
-                        qn.NodeType = QuestNode.NodeGraphType.Start;
-                    }
+                if (oldRoot is QuestNode old)
+                    old.NodeType = GraphNodeType.Middle;
 
-                }
+                if (newRoot is QuestNode root)
+                    root.NodeType = GraphNodeType.Start;
             };
 
-            Graph.OnAddNode += (node) =>
-            {
-                RequestTilePaint(node);
-                ValidateGraph();
-            };
+            Graph.OnAddNode += (node) => RequestTilePaint(node);
 
-            Graph.OnAddEdge += (edge) =>
+            Graph.PreAddEdge += (edge) =>
             {
                 RequestTilePaint(edge);
-                ValidateGraph();
+
+                bool branches = Graph.GetBranches(edge.To).Count > 0;
+                bool roots = Graph.GetRoots(edge.To).Count > 0;
+
+                if(edge.To is QuestNode n)
+                {
+                    if (branches && roots) 
+                        n.NodeType = GraphNodeType.Middle;
+
+                    if (!branches && roots)
+                        n.NodeType = GraphNodeType.Goal;
+                }
             };
 
             Graph.OnRemoveNode += (node) =>
@@ -148,11 +149,21 @@ namespace ISILab.LBS.Behaviours
                 RequestTileRemove(node);
             };
 
-            Graph.OnRemoveEdge += (edge) =>
+            Graph.PreRemoveEdge += (edge) =>
             {
                 RequestTileRemove(edge);
-                ValidateGraph();
+
+                bool branches = Graph.GetBranches(edge.To).Count > 0;
+                bool roots = Graph.GetRoots(edge.To).Count > 0;
+
+                if (edge.To is QuestNode n)
+                {
+                    n.NodeType = GraphNodeType.Middle;
+                }
             };
+
+            Graph.PostEdgesChange += ValidateGraph;
+
         }
 
 
@@ -173,13 +184,11 @@ namespace ISILab.LBS.Behaviours
 
             List<object> allKeys = new List<object>();
 
-            // Add Node as keys
             foreach (var node in Graph.Nodes)
             {
                 allKeys.Add(node);
             }
 
-            // Add Edges AS TUPLES (as they are registered in PaintNewTiles/LoadAllTiles in Drawer)
             foreach (var edge in Graph.Edges)
             {
                 allKeys.Add(edge);
@@ -340,42 +349,40 @@ namespace ISILab.LBS.Behaviours
 
         private void ValidateGrammar()
         {
-            if (Graph.Edges.Count == 0) return;
-
-            GrammarAssistant assistant = OwnerLayer.GetAssistant<GrammarAssistant>();
-            if (assistant == null) throw new Exception("No GrammarAssistant found");
-
+            GrammarAssistant assistant = OwnerLayer.GetAssistant<GrammarAssistant>() ??
+                throw new Exception("No GrammarAssistant found");
             assistant.ValidateGraphGrammar();
-
         }
 
         private void ValidateConnections()
         {
+            foreach (var node in BaseNodes)
+                node.ValidConnections = false;
+
             var expired = RetrieveExpiredReadOnly();
 
-            //  Update quest node types (Goal or Middle) by their connections
-            foreach (Edge e in Graph.Edges)
+            // connection on removed eges
+            foreach (var expire in expired)
             {
-                if(expired.Contains(e)) 
-                    continue;
                 
-                if (e.To is QuestNode qn)
-                {
-                    if (qn == Graph.Root) 
-                        continue;
+                if (expire is not Edge e)
+                    continue;
 
-                    qn.NodeType = Graph.GetBranches(qn).Any()
-                        ? QuestNode.NodeGraphType.Middle
-                        : QuestNode.NodeGraphType.Goal;
-                }
+                if (e.From is Node from)
+                    from.ValidConnections = false;
+
+                if (e.To is Node to)
+                    to.ValidConnections = false;
+                
             }
-            // we must revalidate all edges connections
+
+            // middle connections
             foreach (Edge e in Graph.Edges)
             {
                 if (expired.Contains(e))
                     continue;
 
-// destination node validation
+                // destination node validation
                 var dest = e.To as Node;
                 if(dest == null)
                      continue; 
@@ -392,30 +399,31 @@ namespace ISILab.LBS.Behaviours
                 int roots = Graph.GetRoots(from).Count;
                 int branches = Graph.GetBranches(from).Count;
                 from.ValidConnections = roots > 0 && branches > 0;
+            }
 
-                if (dest is QuestNode { NodeType: QuestNode.NodeGraphType.Goal } goalNode)
+            // goals connections
+            foreach(var n in QuestNodes)
+            {
+                
+                if(n.NodeType == GraphNodeType.Goal)
                 {
-                    bool hasBranches = Graph.GetBranches(goalNode).Any();
-                    bool hasRoots = Graph.GetRoots(goalNode).Any();
+                    bool hasBranches = Graph.GetBranches(n).Any();
+                    bool hasRoots = Graph.GetRoots(n).Any();
                     // the goal must not have branches!
-                    goalNode.ValidConnections = !hasBranches && hasRoots;
+                    n.ValidConnections = !hasBranches && hasRoots;
                 }
             }
 
-
-        }
-
-        private void ValidateRoot()
-        {
+            // root connections
             var root = Graph.Root as QuestNode;
             if (root is not null)
             {
-                var roots = !Graph.GetRoots(root).Any();
-                var branches = Graph.GetBranches(root).Any();
+                var roots = Graph.GetRoots(root).Count == 0;
+                var branches = Graph.GetBranches(root).Count > 0;
                 root.ValidConnections = roots && branches;
-                root.NodeType = QuestNode.NodeGraphType.Start;
             }
         }
+
 
         /// <summary>
         /// Checks and updates the validation of the whole graph against the grammar rules, the nodes' data and connections. 
@@ -423,6 +431,7 @@ namespace ISILab.LBS.Behaviours
         /// </summary>
         public void ValidateGraph()
         {
+            /*
             // reset all connections validations
             foreach (var n in Graph.Nodes)
             {
@@ -432,16 +441,14 @@ namespace ISILab.LBS.Behaviours
                     if(node is QuestNode qn)
                     {
                         qn.ValidGrammar = false;
-                        // data auto updates when the date is modified only!
-                        //qn.ValidData = false;
                     }
                 }
             }
+            */
 
             ValidateConnections();
             ValidateGrammar();
-            ValidateRoot();
-
+            
             Graph?.OnForceUpdate?.Invoke();
         }
 

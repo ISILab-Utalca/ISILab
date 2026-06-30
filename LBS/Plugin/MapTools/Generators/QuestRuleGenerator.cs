@@ -93,7 +93,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     new LBSLog("There is no root in the graph. Assign a root to generate the quest", LogType.Error));
             }
 
-            if (bh.QuestNodes.All(n => n.NodeType != QuestNode.NodeGraphType.Goal))
+            if (bh.QuestNodes.All(n => n.NodeType != GraphNodeType.Goal))
             {
                 Object.DestroyImmediate(pivot);
                 return new GeneratedGO(null, 

@@ -18,10 +18,7 @@ namespace ISILab.LBS.Components
     public class QuestNode : Node
     {
         // Defines the type of quest node (Start, Middle, Goal)
-        public enum NodeGraphType
-        {
-            Start, Middle, Goal
-        }
+
 
         #region FIELDS
 
@@ -32,7 +29,7 @@ namespace ISILab.LBS.Components
         private QuestNodeData data;
 
         [SerializeField, JsonRequired]
-        private NodeGraphType nodeType;
+        private GraphNodeType nodeType;
 
         [SerializeField, JsonRequired]
         private QuestState questState = QuestState.Blocked;
@@ -60,7 +57,7 @@ namespace ISILab.LBS.Components
         }
 
         [JsonIgnore]
-        public NodeGraphType NodeType
+        public GraphNodeType NodeType
         {
             get => nodeType;
             set => nodeType = value;
@@ -93,7 +90,7 @@ namespace ISILab.LBS.Components
 
             data = new QuestNodeData(this, terminal);
 
-            nodeType = NodeGraphType.Middle;
+            nodeType = GraphNodeType.Middle;
             kind = NodeKind.Terminal;
         }
         #endregion

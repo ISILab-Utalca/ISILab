@@ -83,7 +83,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             // 4. Finally, Goal nodes inherit the validation of whatever is feeding into them
             foreach (var n in Behavior.QuestNodes)
             {
-                if (n is QuestNode { NodeType: QuestNode.NodeGraphType.Goal } goalNode)
+                if (n is QuestNode { NodeType: GraphNodeType.Goal } goalNode)
                 {
                     // Goal is valid if all its incoming roots/branches are structurally valid
                     goalNode.ValidGrammar = GoalNodeRootsAreValid(goalNode);
@@ -100,7 +100,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             if (grammar == null || !grammar.LBSRules.Any()) return;
 
             // Start or Middle terminal validation
-            if (from.NodeType == QuestNode.NodeGraphType.Start || from.NodeType == QuestNode.NodeGraphType.Middle)
+            if (from.NodeType == GraphNodeType.Start || from.NodeType == GraphNodeType.Middle)
             {
                 // Find ALL terminal nodes downstream, traversing cleanly across any And/Or branches
                 List<QuestNode> nextQuestNodes = GetNextQuestNodes(from);

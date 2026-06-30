@@ -1,14 +1,15 @@
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using ISILab.Commons.Utility.Editor;
 using ISILab.DevTools.Macros;
 using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.MapTools.CustomGizmo.QuestGizmo;
 using ISILab.LBS.Plugin.MapTools.Generators;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
@@ -104,24 +105,24 @@ namespace ISILab.LBS.VisualElements
             VisualElement previousContainer = this.Q<VisualElement>("Previous");
             VisualElement nextContainer = this.Q<VisualElement>("Next");
 
-            QuestNode.NodeGraphType nType = qtn.NodeType;
+            GraphNodeType nType = qtn.NodeType;
 
-            if (nType == QuestNode.NodeGraphType.Middle)
+            if (nType == GraphNodeType.Middle)
             {
                 stepType.style.display = DisplayStyle.None;
                 return;
             }
 
             stepType.style.display = DisplayStyle.Flex;
-            string iconGuid = (nType == QuestNode.NodeGraphType.Start) ? StartIconGuid : GoalIconGuid;
+            string iconGuid = (nType == GraphNodeType.Start) ? StartIconGuid : GoalIconGuid;
             stepType.style.backgroundImage = new StyleBackground(AssetMacro.LoadAssetByGuid<VectorImage>(iconGuid));
 
-            if (nType == QuestNode.NodeGraphType.Start)
+            if (nType == GraphNodeType.Start)
             {
                 previousStep.style.display = DisplayStyle.None;
                 previousContainer.style.display = DisplayStyle.None;
             }
-            else if (nType == QuestNode.NodeGraphType.Goal)
+            else if (nType == GraphNodeType.Goal)
             {
                 nextStep.style.display = DisplayStyle.None;
                 nextContainer.style.display = DisplayStyle.None;

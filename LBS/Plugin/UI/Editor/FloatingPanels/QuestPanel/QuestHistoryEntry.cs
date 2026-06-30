@@ -1,10 +1,10 @@
-using UnityEngine;
-using UnityEngine.UIElements;
-
-using System;
 using ISILab.Commons.Utility.Editor;
 using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
+using System;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
@@ -98,16 +98,16 @@ namespace ISILab.LBS.VisualElements.Editor
                 Color backgroundColor;
                 switch (node.NodeType)
                 {
-                    case QuestNode.NodeGraphType.Start:
+                    case GraphNodeType.Start:
                         iconPath = "Icons/Vectorial/Icon=Start";
                         backgroundColor = LBSSettings.Instance.view.successColor;
                         break;
-                    case QuestNode.NodeGraphType.Middle:
+                    case GraphNodeType.Middle:
                         iconPath = "Icons/Vectorial/Icon=MidNode";
                         backgroundColor = Color.white;
                         iconSize = new BackgroundSize(24, 24);
                         break;
-                    case QuestNode.NodeGraphType.Goal:
+                    case GraphNodeType.Goal:
                         iconPath = "Icons/Vectorial/Icon=Goal";
                         backgroundColor = LBSSettings.Instance.view.errorColor;
                         break;
@@ -118,7 +118,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 _nodeTypeImage.style.backgroundSize = new StyleBackgroundSize(iconSize);
                 _nodeTypeImage.style.backgroundImage = new StyleBackground(Resources.Load<VectorImage>(iconPath));
                 _nodeTypeImage.style.unityBackgroundImageTintColor = backgroundColor;
-                _nodeTypeImage.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
+                //_nodeTypeImage.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
                 _nodeName.text = char.ToUpper(node.ID[0]) + node.ID.Substring(1);
 
             }

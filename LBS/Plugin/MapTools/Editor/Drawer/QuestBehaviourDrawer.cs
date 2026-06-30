@@ -38,24 +38,22 @@ namespace ISILab.LBS.Drawers.Editor
             if (target is not QuestBehaviour bh) 
                 return;
 
-            // 1. Remove what the behavior says is expired
-            RemoveExpired(bh, view);
-
-            // 2. Paint what the behavior says is new
             PaintNewTiles(bh, view);
 
-            // 3. Refresh positions/data for everything currently in the graph
+            RemoveExpired(bh, view);
+
             UpdateLoadedTiles(bh, view);
         }
 
         private void RemoveExpired(object target, MainView view)
         {
             var bh = (QuestBehaviour)target;
-            var graph = bh.Graph;
-            if (graph == null) return;
+
 
             foreach (var expiredKey in bh.RetrieveExpiredTiles())
             {
+                Debug.Log($"Removing {expiredKey}");
+
                 view.ClearElementFromComponent(expiredKey, bh.OwnerLayer);
             }
         }
@@ -66,16 +64,18 @@ namespace ISILab.LBS.Drawers.Editor
             if (graph == null) 
                 return;
 
-            foreach (object key in bh.RetrieveNewTiles())
+            foreach (object newKey in bh.RetrieveNewTiles())
             {
 
-                var existing = view.GetElementsFromLayer(bh.OwnerLayer, key);
+                Debug.Log($"Adding {newKey}");
+
+                var existing = view.GetElementsFromLayer(bh.OwnerLayer, newKey);
                 if (existing != null && existing.Count > 0) 
                     continue;
 
                 VisualElement ve = null;
 
-                if (key is Components.Node node)
+                if (newKey is Components.Node node)
                 {
                     ve = node switch
                     {
@@ -88,7 +88,7 @@ namespace ISILab.LBS.Drawers.Editor
                         nodeView.SelectView(node.IsSelected());
                     }
                 }
-                else if (key is Modules.Edge edge)
+                else if (newKey is Modules.Edge edge)
                 {
                     var fromViews = view.GetElementsFromLayer(bh.OwnerLayer, edge.From);
                     var toViews = view.GetElementsFromLayer(bh.OwnerLayer, edge.To);
@@ -110,7 +110,7 @@ namespace ISILab.LBS.Drawers.Editor
 
                 if (ve != null)
                 {
-                    view.AddElementToLayerContainer(bh.OwnerLayer, key, ve as GraphElement);
+                    view.AddElementToLayerContainer(bh.OwnerLayer, newKey, ve as GraphElement);
                     ve.style.display = bh.OwnerLayer.IsVisible ? DisplayStyle.Flex : DisplayStyle.None;
                 }
             }
@@ -182,11 +182,13 @@ namespace ISILab.LBS.Drawers.Editor
             {
                 var elements = view.GetElementsFromLayer(layer, node);
 
+                /*
                 Debug.Log(
                 $"{(node as Node).ID} " +
                 $"nodeHash={node.GetHashCode()} " +
                 $"views={(elements?.Count ?? 0)}");
-            
+                */
+
                 var existing = view.GetElementsFromLayer(layer, node);
                 if (existing != null && existing.Count > 0)
                     continue;

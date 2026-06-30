@@ -182,15 +182,16 @@ namespace ISILab.LBS.Editor
         }
 
         #endregion
-        
+
         void RunTask(string selectedAction)
         {
-            
+
             var currAssist = assistant;
             var bh = Graph.OwnerLayer.GetBehaviour<QuestBehaviour>();
             var currGrammar = bh.Grammar;
 
-            if (currGrammar == null) return;
+            if (currGrammar == null) 
+                return;
 
             ((IAssistantThreadedEditor)this).SetUpTask(this, currAssist);
             Task.Run(() =>
@@ -335,7 +336,8 @@ namespace ISILab.LBS.Editor
             if (expandInvalidPanel != null && expandArray != null)
                 expandInvalidPanel.style.display = expandArray.Any() ? DisplayStyle.None : DisplayStyle.Flex;
 
-            if (expandSuggested == null && expandArray.Length == 0) return;
+            if (expandSuggested == null && expandArray.Length == 0) 
+                return;
 
             expandSuggested.style.display = expandArray.Any() ? DisplayStyle.Flex : DisplayStyle.None;
             expandSuggested.itemsSource = expandArray;
@@ -344,8 +346,10 @@ namespace ISILab.LBS.Editor
 
             expandSuggested.bindItem = SafeBind((visualElement, index) =>
             {
-                if (visualElement is not LBSCustomFoldout foldout) return;
-                if (index < 0 || index >= expandArray.Length) return;
+                if (visualElement is not LBSCustomFoldout foldout) 
+                    return;
+                if (index < 0 || index >= expandArray.Length) 
+                    return;
 
                 foldout.contentContainer.Clear();
                 foldout.text = $"Expansion {index + 1}";
@@ -360,9 +364,9 @@ namespace ISILab.LBS.Editor
                 // Entries
                 for (int j = 0; j < actions.Count; j++)
                 {
-                    var type =  j == 0 ? QuestNode.NodeGraphType.Start :
-                                j == actions.Count - 1 ? QuestNode.NodeGraphType.Goal :
-                                QuestNode.NodeGraphType.Middle;
+                    var type =  j == 0 ? GraphNodeType.Start :
+                                j == actions.Count - 1 ? GraphNodeType.Goal :
+                                GraphNodeType.Middle;
 
                     var entry = new ActionExpandEntry
                     {

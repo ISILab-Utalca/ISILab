@@ -1,5 +1,6 @@
 using ISILab.Extensions;
 using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using System.Collections.Generic;
 using UnityEditor;
@@ -245,7 +246,7 @@ namespace ISILab.LBS.VisualElements
                 {
                     foreach (var trigger in tracker.Triggers)
                     {
-                        if (trigger is QuestTriggerNode qtn && qtn.NodeType == QuestNode.NodeGraphType.Start)
+                        if (trigger is QuestTriggerNode qtn && qtn.NodeType == GraphNodeType.Start)
                         {
                             rootItems.Add(BuildTreeRecursive(qtn));
                         }
