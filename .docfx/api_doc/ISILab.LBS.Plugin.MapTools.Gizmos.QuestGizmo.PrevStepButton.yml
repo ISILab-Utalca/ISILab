@@ -5,7 +5,7 @@ items:
   id: PrevStepButton
   parent: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo
   children:
-  - ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.#ctor(UnityEngine.UIElements.Button,ISILab.LBS.VisualElements.QuestBarView,QuestTrigger)
+  - ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.#ctor(UnityEngine.UIElements.Button,ISILab.LBS.VisualElements.QuestBarView,ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
   langs:
   - csharp
   - vb
@@ -20,7 +20,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: PrevStepButton
     path: ../LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/PrevStepButton.cs
-    startLine: 7
+    startLine: 8
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo
@@ -188,16 +188,16 @@ items:
   - UnityEngine.UIElements.VisualElement.ISILab.Extensions.VisualElementExtensions.SetDisplay(System.Boolean)
   - UnityEngine.UIElements.VisualElement.ISILab.Extensions.VisualElementExtensions.SetMargins(System.Int32)
   - UnityEngine.UIElements.VisualElement.ISILab.Extensions.VisualElementExtensions.SetPaddings(System.Int32)
-- uid: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.#ctor(UnityEngine.UIElements.Button,ISILab.LBS.VisualElements.QuestBarView,QuestTrigger)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.#ctor(UnityEngine.UIElements.Button,ISILab.LBS.VisualElements.QuestBarView,QuestTrigger)
-  id: '#ctor(UnityEngine.UIElements.Button,ISILab.LBS.VisualElements.QuestBarView,QuestTrigger)'
+- uid: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.#ctor(UnityEngine.UIElements.Button,ISILab.LBS.VisualElements.QuestBarView,ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.#ctor(UnityEngine.UIElements.Button,ISILab.LBS.VisualElements.QuestBarView,ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  id: '#ctor(UnityEngine.UIElements.Button,ISILab.LBS.VisualElements.QuestBarView,ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)'
   parent: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton
   langs:
   - csharp
   - vb
   name: PrevStepButton(Button, QuestBarView, QuestTrigger)
   nameWithType: PrevStepButton.PrevStepButton(Button, QuestBarView, QuestTrigger)
-  fullName: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.PrevStepButton(UnityEngine.UIElements.Button, ISILab.LBS.VisualElements.QuestBarView, QuestTrigger)
+  fullName: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.PrevStepButton(UnityEngine.UIElements.Button, ISILab.LBS.VisualElements.QuestBarView, ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
   type: Constructor
   source:
     remote:
@@ -206,7 +206,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/MapTools/CustomGizmo/QuestGizmo/PrevStepButton.cs
-    startLine: 11
+    startLine: 12
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo
@@ -218,11 +218,11 @@ items:
     - id: questBarView
       type: ISILab.LBS.VisualElements.QuestBarView
     - id: trigger
-      type: QuestTrigger
+      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
     content.vb: Public Sub New(buttonTemplate As Button, questBarView As QuestBarView, trigger As QuestTrigger)
   overload: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.#ctor*
   nameWithType.vb: PrevStepButton.New(Button, QuestBarView, QuestTrigger)
-  fullName.vb: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.New(UnityEngine.UIElements.Button, ISILab.LBS.VisualElements.QuestBarView, QuestTrigger)
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.New(UnityEngine.UIElements.Button, ISILab.LBS.VisualElements.QuestBarView, ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
   name.vb: New(Button, QuestBarView, QuestTrigger)
 references:
 - uid: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo
@@ -4302,7 +4302,7 @@ references:
     href: ISILab.Extensions.html
 - uid: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.#ctor*
   commentId: Overload:ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.#ctor
-  href: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.html#ISILab_LBS_Plugin_MapTools_Gizmos_QuestGizmo_PrevStepButton__ctor_UnityEngine_UIElements_Button_ISILab_LBS_VisualElements_QuestBarView_QuestTrigger_
+  href: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.html#ISILab_LBS_Plugin_MapTools_Gizmos_QuestGizmo_PrevStepButton__ctor_UnityEngine_UIElements_Button_ISILab_LBS_VisualElements_QuestBarView_ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_
   name: PrevStepButton
   nameWithType: PrevStepButton.PrevStepButton
   fullName: ISILab.LBS.Plugin.MapTools.Gizmos.QuestGizmo.PrevStepButton.PrevStepButton
@@ -4323,12 +4323,13 @@ references:
   name: QuestBarView
   nameWithType: QuestBarView
   fullName: ISILab.LBS.VisualElements.QuestBarView
-- uid: QuestTrigger
-  commentId: T:QuestTrigger
-  href: QuestTrigger.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
   name: QuestTrigger
   nameWithType: QuestTrigger
-  fullName: QuestTrigger
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
 - uid: ISILab.LBS.VisualElements
   commentId: N:ISILab.LBS.VisualElements
   href: ISILab.html
@@ -4359,4 +4360,50 @@ references:
   - uid: ISILab.LBS.VisualElements
     name: VisualElements
     href: ISILab.LBS.VisualElements.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators
+  commentId: N:ISILab.LBS.Plugin.MapTools.Generators
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.Generators
+  nameWithType: ISILab.LBS.Plugin.MapTools.Generators
+  fullName: ISILab.LBS.Plugin.MapTools.Generators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
 shouldSkipMarkup: true

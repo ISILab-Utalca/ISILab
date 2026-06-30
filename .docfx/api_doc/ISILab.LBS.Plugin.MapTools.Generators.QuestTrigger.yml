@@ -5,25 +5,17 @@ items:
   id: QuestTrigger
   parent: ISILab.LBS.Plugin.MapTools.Generators
   children:
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo(UnityEngine.GameObject)
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.BoxCollider
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddNext(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer(UnityEngine.Collider)
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.ClearPrevious
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Complete
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Next
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerCompleted
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter(UnityEngine.Collider)
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo(UnityEngine.GameObject)
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode(ISILab.LBS.Components.QuestNode)
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize(UnityEngine.Vector3)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Previous
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemovePrevious(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.node
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.state
   langs:
   - csharp
@@ -33,8 +25,12 @@ items:
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
   type: Class
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: QuestTrigger
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
     startLine: 8
   assemblies:
   - LBS
@@ -59,19 +55,8 @@ items:
   - UnityEngine.Behaviour
   - UnityEngine.MonoBehaviour
   derivedClasses:
-  - ISILab.AI.Grammar.CaptureTrigger
-  - ISILab.AI.Grammar.ExchangeTrigger
-  - ISILab.AI.Grammar.ExploreTrigger
-  - ISILab.AI.Grammar.GatherTrigger
-  - ISILab.AI.Grammar.GiveTrigger
-  - ISILab.AI.Grammar.GoToTrigger
-  - ISILab.AI.Grammar.KillTrigger
-  - ISILab.AI.Grammar.ListenTrigger
-  - ISILab.AI.Grammar.ReadTrigger
-  - ISILab.AI.Grammar.ReportTrigger
-  - ISILab.AI.Grammar.SpyTrigger
-  - ISILab.AI.Grammar.StealthTrigger
-  - ISILab.AI.Grammar.TakeTrigger
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerNode
   inheritedMembers:
   - UnityEngine.MonoBehaviour.IsInvoking
   - UnityEngine.MonoBehaviour.CancelInvoke
@@ -218,76 +203,6 @@ items:
   - type: System.SerializableAttribute
     ctor: System.SerializableAttribute.#ctor
     arguments: []
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.node
-  commentId: F:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.node
-  id: node
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: node
-  nameWithType: QuestTrigger.node
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.node
-  type: Field
-  source:
-    id: node
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 16
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: >-
-      [SerializeField]
-
-      [SerializeReference]
-
-      [HideInInspector]
-
-      protected QuestNode node
-    return:
-      type: ISILab.LBS.Components.QuestNode
-    content.vb: >-
-      <SerializeField>
-
-      <SerializeReference>
-
-      <HideInInspector>
-
-      Protected node As QuestNode
-  attributes:
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
-  - type: UnityEngine.SerializeReference
-    ctor: UnityEngine.SerializeReference.#ctor
-    arguments: []
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.BoxCollider
-  commentId: F:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.BoxCollider
-  id: BoxCollider
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: BoxCollider
-  nameWithType: QuestTrigger.BoxCollider
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.BoxCollider
-  type: Field
-  source:
-    id: BoxCollider
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 21
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: protected BoxCollider BoxCollider
-    return:
-      type: UnityEngine.BoxCollider
-    content.vb: Protected BoxCollider As BoxCollider
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.state
   commentId: F:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.state
   id: state
@@ -300,9 +215,13 @@ items:
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.state
   type: Field
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: state
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 24
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 15
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
@@ -321,131 +240,6 @@ items:
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
     arguments: []
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID
-  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID
-  id: NodeID
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: NodeID
-  nameWithType: QuestTrigger.NodeID
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID
-  type: Property
-  source:
-    id: NodeID
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 38
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: public string NodeID { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public ReadOnly Property NodeID As String
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
-  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
-  id: State
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: State
-  nameWithType: QuestTrigger.State
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
-  type: Property
-  source:
-    id: State
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 40
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: public QuestState State { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Components.QuestState
-    content.vb: Public Property State As QuestState
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node
-  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node
-  id: Node
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: Node
-  nameWithType: QuestTrigger.Node
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node
-  type: Property
-  source:
-    id: Node
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 46
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: public QuestNode Node { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Components.QuestNode
-    content.vb: Public Property Node As QuestNode
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode
-  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode
-  id: OwnerBranchNode
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: OwnerBranchNode
-  nameWithType: QuestTrigger.OwnerBranchNode
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode
-  type: Property
-  source:
-    id: OwnerBranchNode
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 52
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: public GraphNode OwnerBranchNode { get; set; }
-    parameters: []
-    return:
-      type: ISILab.LBS.Components.GraphNode
-    content.vb: Public Property OwnerBranchNode As GraphNode
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations
-  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations
-  id: Destinations
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: Destinations
-  nameWithType: QuestTrigger.Destinations
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations
-  type: Property
-  source:
-    id: Destinations
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 53
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: public List<GraphNode> Destinations { get; set; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
-    content.vb: Public Property Destinations As List(Of GraphNode)
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations*
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerCompleted
   commentId: E:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerCompleted
   id: OnTriggerCompleted
@@ -458,9 +252,13 @@ items:
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerCompleted
   type: Event
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnTriggerCompleted
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 60
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 27
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
@@ -469,261 +267,136 @@ items:
     return:
       type: System.Action{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
     content.vb: Public Event OnTriggerCompleted As Action(Of QuestTrigger)
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo(UnityEngine.GameObject)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo(UnityEngine.GameObject)
-  id: AddGo(UnityEngine.GameObject)
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
+  id: State
   parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
   langs:
   - csharp
   - vb
-  name: AddGo(GameObject)
-  nameWithType: QuestTrigger.AddGo(GameObject)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo(UnityEngine.GameObject)
-  type: Method
+  name: State
+  nameWithType: QuestTrigger.State
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
+  type: Property
   source:
-    id: AddGo
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 72
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: State
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 33
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
   syntax:
-    content: public void AddGo(GameObject go)
-    parameters:
-    - id: go
-      type: UnityEngine.GameObject
-    content.vb: Public Sub AddGo(go As GameObject)
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo(UnityEngine.GameObject)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo(UnityEngine.GameObject)
-  id: RemoveGo(UnityEngine.GameObject)
+    content: public QuestState State { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.QuestState
+    content.vb: Public Property State As QuestState
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Next
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Next
+  id: Next
   parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
   langs:
   - csharp
   - vb
-  name: RemoveGo(GameObject)
-  nameWithType: QuestTrigger.RemoveGo(GameObject)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo(UnityEngine.GameObject)
-  type: Method
+  name: Next
+  nameWithType: QuestTrigger.Next
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Next
+  type: Property
   source:
-    id: RemoveGo
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 73
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Next
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 39
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: public void RemoveGo(GameObject go)
-    parameters:
-    - id: go
-      type: UnityEngine.GameObject
-    content.vb: Public Sub RemoveGo(go As GameObject)
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider
-  id: EnsureCollider
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: EnsureCollider()
-  nameWithType: QuestTrigger.EnsureCollider()
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider()
-  type: Method
-  source:
-    id: EnsureCollider
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 83
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: protected void EnsureCollider()
-    content.vb: Protected Sub EnsureCollider()
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init
-  id: Init
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: Init()
-  nameWithType: QuestTrigger.Init()
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init()
-  type: Method
-  source:
-    id: Init
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 96
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  summary: Call to set SetTypedData from Runtime Function
+  summary: >-
+    Gets or sets the next trigger in the sequence. 
+
+    Automatically manages the bi-directional pairing safely.
   example: []
   syntax:
-    content: public virtual void Init()
-    content.vb: Public Overridable Sub Init()
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
-  id: SetData(ISILab.LBS.Components.QuestNodeData)
+    content: public List<QuestTrigger> Next { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
+    content.vb: Public ReadOnly Property [Next] As List(Of QuestTrigger)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Next*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Previous
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Previous
+  id: Previous
   parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
   langs:
   - csharp
   - vb
-  name: SetData(QuestNodeData)
-  nameWithType: QuestTrigger.SetData(QuestNodeData)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData(ISILab.LBS.Components.QuestNodeData)
-  type: Method
+  name: Previous
+  nameWithType: QuestTrigger.Previous
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Previous
+  type: Property
   source:
-    id: SetData
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 104
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Previous
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 47
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
-  summary: Replace and cast the incoming parameter to the required data type
+  summary: Read-only access to the previous triggers to prevent external bypassing of validation rules.
   example: []
   syntax:
-    content: protected virtual void SetData(QuestNodeData data)
-    parameters:
-    - id: data
-      type: ISILab.LBS.Components.QuestNodeData
-    content.vb: Protected Overridable Sub SetData(data As QuestNodeData)
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode(ISILab.LBS.Components.QuestNode)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode(ISILab.LBS.Components.QuestNode)
-  id: SetNode(ISILab.LBS.Components.QuestNode)
+    content: public IReadOnlyList<QuestTrigger> Previous { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
+    content.vb: Public ReadOnly Property Previous As IReadOnlyList(Of QuestTrigger)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Previous*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+  id: InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
   parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
   langs:
   - csharp
   - vb
-  name: SetNode(QuestNode)
-  nameWithType: QuestTrigger.SetNode(QuestNode)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode(ISILab.LBS.Components.QuestNode)
+  name: InitTrigger(GraphNode, LBSGenerator3DSettings, float)
+  nameWithType: QuestTrigger.InitTrigger(GraphNode, LBSGenerator3DSettings, float)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings, float)
   type: Method
   source:
-    id: SetNode
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 112
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: InitTrigger
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 56
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
-  summary: Always call base from overwrites as base sets the ID that quest observer uses on start
-  example: []
   syntax:
-    content: public void SetNode(QuestNode paramNode)
+    content: public abstract void InitTrigger(GraphNode paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0)
     parameters:
     - id: paramNode
-      type: ISILab.LBS.Components.QuestNode
-    content.vb: Public Sub SetNode(paramNode As QuestNode)
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize(UnityEngine.Vector3)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize(UnityEngine.Vector3)
-  id: SetSize(UnityEngine.Vector3)
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: SetSize(Vector3)
-  nameWithType: QuestTrigger.SetSize(Vector3)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize(UnityEngine.Vector3)
-  type: Method
-  source:
-    id: SetSize
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 125
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  summary: All triggers require a size by initialization.
-  example: []
-  syntax:
-    content: public void SetSize(Vector3 size)
-    parameters:
-    - id: size
-      type: UnityEngine.Vector3
-    content.vb: Public Sub SetSize(size As Vector3)
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter(UnityEngine.Collider)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter(UnityEngine.Collider)
-  id: OnTriggerEnter(UnityEngine.Collider)
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: OnTriggerEnter(Collider)
-  nameWithType: QuestTrigger.OnTriggerEnter(Collider)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter(UnityEngine.Collider)
-  type: Method
-  source:
-    id: OnTriggerEnter
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 141
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: protected virtual void OnTriggerEnter(Collider other)
-    parameters:
-    - id: other
-      type: UnityEngine.Collider
-    content.vb: Protected Overridable Sub OnTriggerEnter(other As Collider)
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer(UnityEngine.Collider)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer(UnityEngine.Collider)
-  id: IsPlayer(UnityEngine.Collider)
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: IsPlayer(Collider)
-  nameWithType: QuestTrigger.IsPlayer(Collider)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer(UnityEngine.Collider)
-  type: Method
-  source:
-    id: IsPlayer
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 146
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  syntax:
-    content: public static bool IsPlayer(Collider other)
-    parameters:
-    - id: other
-      type: UnityEngine.Collider
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Function IsPlayer(other As Collider) As Boolean
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
-  id: CanComplete
-  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
-  langs:
-  - csharp
-  - vb
-  name: CanComplete()
-  nameWithType: QuestTrigger.CanComplete()
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete()
-  type: Method
-  source:
-    id: CanComplete
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 151
-  assemblies:
-  - LBS
-  namespace: ISILab.LBS.Plugin.MapTools.Generators
-  summary: TRUE by default. Implement your own complete conditions
-  example: []
-  syntax:
-    content: protected abstract bool CanComplete()
-    return:
-      type: System.Boolean
-    content.vb: Protected MustOverride Function CanComplete() As Boolean
-  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete*
+      type: ISILab.LBS.Components.GraphNode
+    - id: settings
+      type: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
+    - id: pivotY
+      type: System.Single
+    content.vb: Public MustOverride Sub InitTrigger(paramNode As GraphNode, settings As LBSGenerator3DSettings = Nothing, pivotY As Single = 0)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger*
+  nameWithType.vb: QuestTrigger.InitTrigger(GraphNode, LBSGenerator3DSettings, Single)
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings, Single)
+  name.vb: InitTrigger(GraphNode, LBSGenerator3DSettings, Single)
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
   commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
   id: TryComplete
@@ -736,20 +409,162 @@ items:
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete()
   type: Method
   source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TryComplete
-    path: C:\Users\Alice\Documents\GitHub\LevelBuildingSidekick\LevelBuildingSidekick\Assets\ISILab\LBS\Plugin\Components\Data\Quest\Runtime\QuestTrigger\QuestTrigger.cs
-    startLine: 156
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 58
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
-  summary: Checks if the trigger can be completed. Returns true if it is completed successfully
-  example: []
   syntax:
     content: public bool TryComplete()
     return:
       type: System.Boolean
     content.vb: Public Function TryComplete() As Boolean
   overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Complete
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Complete
+  id: Complete
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  langs:
+  - csharp
+  - vb
+  name: Complete()
+  nameWithType: QuestTrigger.Complete()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Complete()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Complete
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 69
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: protected virtual void Complete()
+    content.vb: Protected Overridable Sub Complete()
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Complete*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
+  id: CanComplete
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  langs:
+  - csharp
+  - vb
+  name: CanComplete()
+  nameWithType: QuestTrigger.CanComplete()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: CanComplete
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 77
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: protected abstract bool CanComplete()
+    return:
+      type: System.Boolean
+    content.vb: Protected MustOverride Function CanComplete() As Boolean
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddNext(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddNext(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  id: AddNext(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  langs:
+  - csharp
+  - vb
+  name: AddNext(QuestTrigger)
+  nameWithType: QuestTrigger.AddNext(QuestTrigger)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddNext(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: AddNext
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 80
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public void AddNext(QuestTrigger nextTrigger)
+    parameters:
+    - id: nextTrigger
+      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    content.vb: Public Sub AddNext(nextTrigger As QuestTrigger)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddNext*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemovePrevious(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemovePrevious(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  id: RemovePrevious(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  langs:
+  - csharp
+  - vb
+  name: RemovePrevious(QuestTrigger)
+  nameWithType: QuestTrigger.RemovePrevious(QuestTrigger)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemovePrevious(ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: RemovePrevious
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 106
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  summary: Safely removes a previous dependency if it exists.
+  example: []
+  syntax:
+    content: public void RemovePrevious(QuestTrigger previousTrigger)
+    parameters:
+    - id: previousTrigger
+      type: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    content.vb: Public Sub RemovePrevious(previousTrigger As QuestTrigger)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemovePrevious*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.ClearPrevious
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.ClearPrevious
+  id: ClearPrevious
+  parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  langs:
+  - csharp
+  - vb
+  name: ClearPrevious()
+  nameWithType: QuestTrigger.ClearPrevious()
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.ClearPrevious()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ClearPrevious
+    path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTrigger/QuestTrigger.cs
+    startLine: 116
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: protected void ClearPrevious()
+    content.vb: Protected Sub ClearPrevious()
+  overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.ClearPrevious*
 references:
 - uid: ISILab.LBS.Plugin.MapTools.Generators
   commentId: N:ISILab.LBS.Plugin.MapTools.Generators
@@ -7877,13 +7692,13 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
-- uid: ISILab.LBS.Components.QuestNode
-  commentId: T:ISILab.LBS.Components.QuestNode
+- uid: ISILab.LBS.Components.QuestState
+  commentId: T:ISILab.LBS.Components.QuestState
   parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.QuestNode.html
-  name: QuestNode
-  nameWithType: QuestNode
-  fullName: ISILab.LBS.Components.QuestNode
+  href: ISILab.LBS.Components.QuestState.html
+  name: QuestState
+  nameWithType: QuestState
+  fullName: ISILab.LBS.Components.QuestState
 - uid: ISILab.LBS.Components
   commentId: N:ISILab.LBS.Components
   href: ISILab.html
@@ -7914,88 +7729,99 @@ references:
   - uid: ISILab.LBS.Components
     name: Components
     href: ISILab.LBS.Components.html
-- uid: UnityEngine.BoxCollider
-  commentId: T:UnityEngine.BoxCollider
-  parent: UnityEngine
-  isExternal: true
-  name: BoxCollider
-  nameWithType: BoxCollider
-  fullName: UnityEngine.BoxCollider
-- uid: ISILab.LBS.Components.QuestState
-  commentId: T:ISILab.LBS.Components.QuestState
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.QuestState.html
-  name: QuestState
-  nameWithType: QuestState
-  fullName: ISILab.LBS.Components.QuestState
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_NodeID
-  name: NodeID
-  nameWithType: QuestTrigger.NodeID
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.NodeID
-- uid: System.String
-  commentId: T:System.String
+- uid: System.Action{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
+  commentId: T:System.Action{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
   parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<QuestTrigger>
+  nameWithType: Action<QuestTrigger>
+  fullName: System.Action<ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger>
+  nameWithType.vb: Action(Of QuestTrigger)
+  fullName.vb: System.Action(Of ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  name.vb: Action(Of QuestTrigger)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    name: QuestTrigger
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    name: QuestTrigger
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State*
   commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
   href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_State
   name: State
   nameWithType: QuestTrigger.State
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.State
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Node
-  name: Node
-  nameWithType: QuestTrigger.Node
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Node
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_OwnerBranchNode
-  name: OwnerBranchNode
-  nameWithType: QuestTrigger.OwnerBranchNode
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OwnerBranchNode
-- uid: ISILab.LBS.Components.GraphNode
-  commentId: T:ISILab.LBS.Components.GraphNode
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.GraphNode.html
-  name: GraphNode
-  nameWithType: GraphNode
-  fullName: ISILab.LBS.Components.GraphNode
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Destinations
-  name: Destinations
-  nameWithType: QuestTrigger.Destinations
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Destinations
-- uid: System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
-  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.GraphNode}
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Next*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Next
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Next
+  name: Next
+  nameWithType: QuestTrigger.Next
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Next
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<GraphNode>
-  nameWithType: List<GraphNode>
-  fullName: System.Collections.Generic.List<ISILab.LBS.Components.GraphNode>
-  nameWithType.vb: List(Of GraphNode)
-  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.GraphNode)
-  name.vb: List(Of GraphNode)
+  name: List<QuestTrigger>
+  nameWithType: List<QuestTrigger>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger>
+  nameWithType.vb: List(Of QuestTrigger)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  name.vb: List(Of QuestTrigger)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    name: QuestTrigger
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -8005,9 +7831,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+    name: QuestTrigger
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
@@ -8074,32 +7900,38 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: System.Action{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
-  commentId: T:System.Action{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
-  parent: System
-  definition: System.Action`1
-  href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<QuestTrigger>
-  nameWithType: Action<QuestTrigger>
-  fullName: System.Action<ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger>
-  nameWithType.vb: Action(Of QuestTrigger)
-  fullName.vb: System.Action(Of ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
-  name.vb: Action(Of QuestTrigger)
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Previous*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Previous
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Previous
+  name: Previous
+  nameWithType: QuestTrigger.Previous
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Previous
+- uid: System.Collections.Generic.IReadOnlyList{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
+  commentId: T:System.Collections.Generic.IReadOnlyList{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<QuestTrigger>
+  nameWithType: IReadOnlyList<QuestTrigger>
+  fullName: System.Collections.Generic.IReadOnlyList<ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger>
+  nameWithType.vb: IReadOnlyList(Of QuestTrigger)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger)
+  name.vb: IReadOnlyList(Of QuestTrigger)
   spec.csharp:
-  - uid: System.Action`1
-    name: Action
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   - name: <
   - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
     name: QuestTrigger
     href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
   - name: '>'
   spec.vb:
-  - uid: System.Action`1
-    name: Action
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   - name: (
   - name: Of
   - name: " "
@@ -8107,116 +7939,117 @@ references:
     name: QuestTrigger
     href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
   - name: )
-- uid: System.Action`1
-  commentId: T:System.Action`1
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
   spec.csharp:
-  - uid: System.Action`1
-    name: Action
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   - name: <
   - name: T
   - name: '>'
   spec.vb:
-  - uid: System.Action`1
-    name: Action
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   - name: (
   - name: Of
   - name: " "
   - name: T
   - name: )
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_AddGo_UnityEngine_GameObject_
-  name: AddGo
-  nameWithType: QuestTrigger.AddGo
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddGo
-- uid: UnityEngine.GameObject
-  commentId: T:UnityEngine.GameObject
-  parent: UnityEngine
-  isExternal: true
-  name: GameObject
-  nameWithType: GameObject
-  fullName: UnityEngine.GameObject
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_RemoveGo_UnityEngine_GameObject_
-  name: RemoveGo
-  nameWithType: QuestTrigger.RemoveGo
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemoveGo
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_EnsureCollider
-  name: EnsureCollider
-  nameWithType: QuestTrigger.EnsureCollider
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.EnsureCollider
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Init
-  name: Init
-  nameWithType: QuestTrigger.Init
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Init
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetData_ISILab_LBS_Components_QuestNodeData_
-  name: SetData
-  nameWithType: QuestTrigger.SetData
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetData
-- uid: ISILab.LBS.Components.QuestNodeData
-  commentId: T:ISILab.LBS.Components.QuestNodeData
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_InitTrigger_ISILab_LBS_Components_GraphNode_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_System_Single_
+  name: InitTrigger
+  nameWithType: QuestTrigger.InitTrigger
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger
+- uid: ISILab.LBS.Components.GraphNode
+  commentId: T:ISILab.LBS.Components.GraphNode
   parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.QuestNodeData.html
-  name: QuestNodeData
-  nameWithType: QuestNodeData
-  fullName: ISILab.LBS.Components.QuestNodeData
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetNode_ISILab_LBS_Components_QuestNode_
-  name: SetNode
-  nameWithType: QuestTrigger.SetNode
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetNode
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_SetSize_UnityEngine_Vector3_
-  name: SetSize
-  nameWithType: QuestTrigger.SetSize
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.SetSize
-- uid: UnityEngine.Vector3
-  commentId: T:UnityEngine.Vector3
-  parent: UnityEngine
+  href: ISILab.LBS.Components.GraphNode.html
+  name: GraphNode
+  nameWithType: GraphNode
+  fullName: ISILab.LBS.Components.GraphNode
+- uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
+  commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
+  parent: ISILab.LBS.Plugin.Core.Settings
+  href: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings.html
+  name: LBSGenerator3DSettings
+  nameWithType: LBSGenerator3DSettings
+  fullName: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
   isExternal: true
-  name: Vector3
-  nameWithType: Vector3
-  fullName: UnityEngine.Vector3
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_OnTriggerEnter_UnityEngine_Collider_
-  name: OnTriggerEnter
-  nameWithType: QuestTrigger.OnTriggerEnter
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.OnTriggerEnter
-- uid: UnityEngine.Collider
-  commentId: T:UnityEngine.Collider
-  parent: UnityEngine
-  isExternal: true
-  name: Collider
-  nameWithType: Collider
-  fullName: UnityEngine.Collider
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_IsPlayer_UnityEngine_Collider_
-  name: IsPlayer
-  nameWithType: QuestTrigger.IsPlayer
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.IsPlayer
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.LBS.Plugin.Core.Settings
+  commentId: N:ISILab.LBS.Plugin.Core.Settings
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Core.Settings
+  nameWithType: ISILab.LBS.Plugin.Core.Settings
+  fullName: ISILab.LBS.Plugin.Core.Settings
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    href: ISILab.LBS.Plugin.Core.Settings.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core
+    name: Core
+    href: ISILab.LBS.Plugin.Core.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Core.Settings
+    name: Settings
+    href: ISILab.LBS.Plugin.Core.Settings.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_TryComplete
+  name: TryComplete
+  nameWithType: QuestTrigger.TryComplete
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -8228,16 +8061,41 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Complete*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Complete
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_Complete
+  name: Complete
+  nameWithType: QuestTrigger.Complete
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.Complete
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete*
   commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
   href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_CanComplete
   name: CanComplete
   nameWithType: QuestTrigger.CanComplete
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.CanComplete
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete*
-  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_TryComplete
-  name: TryComplete
-  nameWithType: QuestTrigger.TryComplete
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.TryComplete
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddNext*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddNext
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_AddNext_ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_
+  name: AddNext
+  nameWithType: QuestTrigger.AddNext
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.AddNext
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
+  name: QuestTrigger
+  nameWithType: QuestTrigger
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemovePrevious*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemovePrevious
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_RemovePrevious_ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_
+  name: RemovePrevious
+  nameWithType: QuestTrigger.RemovePrevious
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.RemovePrevious
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.ClearPrevious*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.ClearPrevious
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_ClearPrevious
+  name: ClearPrevious
+  nameWithType: QuestTrigger.ClearPrevious
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.ClearPrevious
 shouldSkipMarkup: true

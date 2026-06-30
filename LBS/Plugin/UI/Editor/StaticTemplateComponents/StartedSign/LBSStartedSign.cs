@@ -1,9 +1,8 @@
 using ISILab.DevTools.Macros;
 using ISILab.LBS.VisualElements;
-using log4net.Core;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SimpleJSON;
 using System;
 using System.Collections.Generic;
 using System.IO;

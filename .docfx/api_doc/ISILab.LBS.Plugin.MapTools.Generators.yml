@@ -30,7 +30,9 @@ items:
   - ISILab.LBS.Plugin.MapTools.Generators.PopulationRuleGenerator
   - ISILab.LBS.Plugin.MapTools.Generators.QuestRuleGenerator
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerNode
   - ISILab.LBS.Plugin.MapTools.Generators.SchemaRuleGenerator
   - ISILab.LBS.Plugin.MapTools.Generators.SchemaRuleGeneratorExterior
   - ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest
@@ -63,6 +65,13 @@ references:
   name: SchemaRuleGenerator
   nameWithType: SchemaRuleGenerator
   fullName: ISILab.LBS.Plugin.MapTools.Generators.SchemaRuleGenerator
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html
+  name: QuestTrigger
+  nameWithType: QuestTrigger
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
 - uid: ISILab.LBS.Plugin.MapTools.Generators.ExteriorRuleGenerator
   commentId: T:ISILab.LBS.Plugin.MapTools.Generators.ExteriorRuleGenerator
   href: ISILab.LBS.Plugin.MapTools.Generators.ExteriorRuleGenerator.html
@@ -194,6 +203,13 @@ references:
   name: GeneratedEntry
   nameWithType: GeneratedEntry
   fullName: ISILab.LBS.Plugin.MapTools.Generators.GeneratedEntry
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerNode
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerNode
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerNode.html
+  name: QuestTriggerNode
+  nameWithType: QuestTriggerNode
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerNode
 - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratedEventHook
   commentId: T:ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratedEventHook
   parent: ISILab.LBS.Plugin.MapTools.Generators
