@@ -25,7 +25,7 @@ namespace ISILab.AI.Grammar
         public static void Generate(GrammarTerminal terminal)
         {
             string className = GetSafeClassName(terminal.id);
-            string fileName = $"{className}Trigger";
+            string fileName = $"Generated_{className}Trigger";
             string scriptContent = BuildScriptContent(fileName, terminal);
 
             SaveScript(fileName, scriptContent);
@@ -88,6 +88,7 @@ namespace ISILab.AI.Grammar
 
             return $@"using UnityEngine;
 using System.Collections.Generic;
+using ISILab.LBS.Plugin.MapTools.Generators;
 
 namespace ISILab.AI.Grammar
 {{
