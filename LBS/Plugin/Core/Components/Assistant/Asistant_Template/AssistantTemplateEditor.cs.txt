@@ -126,8 +126,9 @@ public class #TARGETCLASS#Editor : LBSCustomEditor, IAssistantThreadedEditor
         // ↓↓↓
         // ↑↑↑
 
-        DrawManager.Instance.RedrawLevel(LBS.loadedLevel.data);
-        LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.Schema.OwnerLayer);
+        // Easy way to redraw the layer after the assistant runs, if it modifies it.
+        LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.OwnerLayer);
+
         TaskBar.EnableProcess(false);
         assistant.OnTermination = null;
     }

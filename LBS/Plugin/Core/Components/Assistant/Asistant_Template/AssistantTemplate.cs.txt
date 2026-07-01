@@ -4,13 +4,13 @@ using System;
 using System.Threading;
 using UnityEngine;
 
-public class #SCRIPTNAME#Assistant : LBSAssistant, IAssistantThreaded
+public class #SCRIPTNAME# : LBSAssistant, IAssistantThreaded
 {
     // Example of public member that can be configured through the Editor (UI) class.
     public string exampleMember;
 
 
-    public #SCRIPTNAME#Assistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
+    public #SCRIPTNAME#(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
     {
 
     }
@@ -40,7 +40,7 @@ public class #SCRIPTNAME#Assistant : LBSAssistant, IAssistantThreaded
 
     public override object Clone()
     {
-        return new #SCRIPTNAME#Assistant(IconGuid, Name, ColorTint);
+        return new #SCRIPTNAME#(IconGuid, Name, ColorTint);
     }
 
     public override void OnGUI() { }

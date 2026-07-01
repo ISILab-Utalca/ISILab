@@ -12,23 +12,27 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[LBSCustomEditor("NewAssistant", typeof(NewAssistant))]
-public class NewAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor
+[LBSCustomEditor("DWAssistant", typeof(DWAssistant))]
+public class DWAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor
 {
     // Reference to the LBSAssistant modified by this Editor.
-    private NewAssistant assistant;
+    private DWAssistant assistant;
 
-    private LBSCustomButton exampleButton;
-    private LBSCustomTextField exampleField;
+    private LBSCustomButton runButton;
+    private LBSCustomRectField areaField;
+    private LBSCustomIntField maxRoomsField;
+    private LBSCustomIntField distanceField;
+    private LBSCustomVector2IntField minSizeField;
+    private LBSCustomVector2IntField maxSizeField;
 
     public CancellationToken CancelToken { get; set; }
     public CancellationTokenSource CancellationTokenSource { get; set; }
     public ToolBarMain TaskBar { get; set; }
 
 
-    public NewAssistantEditor(object target) : base(target)
+    public DWAssistantEditor(object target) : base(target)
     {
-        assistant = (NewAssistant)target;
+        assistant = (DWAssistant)target;
         CreateVisualElement();
     }
 
@@ -44,19 +48,58 @@ public class NewAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor
     protected override VisualElement CreateVisualElement()
     {
         // Example button to easily run the assistant
-        exampleButton = new LBSCustomButton() { text = "Run" };
-        exampleButton.clicked += Execute;
-        this.Add(exampleButton);
+        runButton = new LBSCustomButton() { text = "Run" };
+        runButton.clicked += Execute;
+        this.Add(runButton);
 
-        // Example field. The ValueChangedCallback works well even if the assistant changes,
-        // so it doesn't need to be set again when the selected Layer changes.
-        exampleField = new LBSCustomTextField() { label = assistant.exampleMember };
-        exampleField.RegisterValueChangedCallback(val =>
+        // Area field.
+        areaField = new LBSCustomRectField() { label = "Map Size" };
+        areaField.RegisterValueChangedCallback(val =>
         {
-            assistant.exampleMember = val.newValue;
+            assistant.area = new RectInt()
+            {
+                x = (int)val.newValue.x,
+                y = (int)val.newValue.y,
+                width = (int)val.newValue.width,
+                height = (int)val.newValue.height
+            };
         });
-        this.Add(exampleField);
+        this.Add(areaField);
 
+        // Max rooms field.
+        maxRoomsField = new LBSCustomIntField() { label = "Max Rooms" };
+        maxRoomsField.RegisterValueChangedCallback(val =>
+        {
+            assistant.totalRooms = val.newValue;
+        });
+        this.Add(maxRoomsField);
+
+        // Distance field.
+        distanceField = new LBSCustomIntField() { label = "Distance" };
+        distanceField.RegisterValueChangedCallback(val =>
+        {
+            assistant.walkDistanceBetweenRooms = val.newValue;
+        });
+        this.Add(distanceField);
+
+        // Min Size field.
+        minSizeField = new LBSCustomVector2IntField() { label = "Min Size" };
+        minSizeField.RegisterValueChangedCallback(val =>
+        {
+            assistant.minRoomSize = val.newValue;
+        });
+        this.Add(minSizeField);
+
+        // Max Size field.
+        maxSizeField = new LBSCustomVector2IntField() { label = "Max Size" };
+        maxSizeField.RegisterValueChangedCallback(val =>
+        {
+            assistant.maxRoomSize = val.newValue;
+        });
+        this.Add(maxSizeField);
+
+        // Set initial info
+        SetFieldsInfo();
         return this;
     }
 
@@ -70,8 +113,17 @@ public class NewAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor
     /// </remarks>
     public override void SetInfo(object target)
     {
-        assistant = target as NewAssistant;
-        exampleField.label = assistant.exampleMember;
+        assistant = target as DWAssistant;
+        SetFieldsInfo();
+    }
+
+    private void SetFieldsInfo()
+    {
+        areaField.value = new Rect(assistant.area.x, assistant.area.y, assistant.area.width, assistant.area.height);
+        maxRoomsField.value = assistant.totalRooms;
+        distanceField.value = assistant.walkDistanceBetweenRooms;
+        minSizeField.value = assistant.minRoomSize;
+        maxSizeField.value = assistant.maxRoomSize;
     }
 
      /// <summary>
@@ -80,10 +132,14 @@ public class NewAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor
      /// </summary>
     private void Execute()
     {
+        // Init
+        string insideStyle = assistant.Schema.PressetInsideStyle.name;
+        string outsideStyle = assistant.Schema.PressetOutsideStyle.name;
+
         // Save history version to revert if necessary
         LoadedLevel x = LBSController.CurrentLevel;
         EditorGUI.BeginChangeCheck();
-        Undo.RegisterCompleteObjectUndo(x, "Execute NewAssistant");
+        Undo.RegisterCompleteObjectUndo(x, "Execute DWAssistant");
 
         // Runs the assistant in a Thread
         ((IAssistantThreadedEditor)this).SetUpTask(this, assistant);
@@ -91,18 +147,19 @@ public class NewAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor
         {
             try
             {
-                assistant.RunAsync(((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
+                assistant.RunAsync(insideStyle, outsideStyle,
+                    ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
 
                 // Invoke the assistant's OnTermination method after it finishes running.
                 EditorApplication.delayCall += 
-                () => assistant.OnTermination.Invoke("NewAssistant Generated", LogType.Log, LBSController.CurrentLevel);
+                () => assistant.OnTermination.Invoke("DWAssistant Generated", LogType.Log, LBSController.CurrentLevel);
             }
             // Catches any error that might come. It's necessary to explicitly display the error,
             // since Thread errors aren't displayed on the UNity console by default.
             catch (Exception ex)
             {
                 ((IAssistantThreadedEditor)this).OnTaskException(ex, assistant);
-                Debug.LogError("[NewAssistantEditor]: " + ex.Message);
+                Debug.LogError("[DWAssistantEditor]: " + ex.Message);
             }
         }, CancelToken);
     }
@@ -124,10 +181,12 @@ public class NewAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor
 
         // If you need to do some action after running the Assistant, this is the best place.
         // ↓↓↓
+        assistant.Schema.RecalculateWalls();
         // ↑↑↑
 
-        DrawManager.Instance.RedrawLevel(LBS.loadedLevel.data);
-        LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.Schema.OwnerLayer);
+        // Easy way to redraw the layer after the assistant runs, if it modifies it.
+        LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.OwnerLayer);
+
         TaskBar.EnableProcess(false);
         assistant.OnTermination = null;
     }
