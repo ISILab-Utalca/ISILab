@@ -8,7 +8,7 @@ items:
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddConnections(ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Boolean})
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddTile(UnityEngine.Vector2Int,ISILab.LBS.Plugin.Components.Data.Zone)
-  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone
+  - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone(System.String,System.String)
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.ChangeLevelRender(System.Int32,System.Int32)
   - ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.CheckKeys
@@ -73,7 +73,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SchemaBehaviour
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 20
+    startLine: 21
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -104,7 +104,7 @@ items:
   - ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
   - ISILab.LBS.Behaviours.LBSBehaviour.Name
   - ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  - ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  - ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
   - ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
   - ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   - ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
@@ -141,7 +141,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: DefaultConnections
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 42
+    startLine: 43
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -168,7 +168,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Empty
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 44
+    startLine: 45
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -195,7 +195,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Wall
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 45
+    startLine: 46
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -222,7 +222,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Door
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 46
+    startLine: 47
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -249,7 +249,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Window
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 47
+    startLine: 48
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -276,7 +276,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: LockedDoor
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 48
+    startLine: 49
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -303,7 +303,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RoomToSet
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 76
+    startLine: 77
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -342,7 +342,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: conectionToSet
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 83
+    startLine: 84
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -386,7 +386,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: PressetInsideStyle
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 87
+    startLine: 88
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -432,7 +432,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: PressetOutsideStyle
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 94
+    startLine: 95
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -478,7 +478,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MultiLayerConnections
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 101
+    startLine: 102
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -524,7 +524,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ValidArea
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 104
+    startLine: 105
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -563,7 +563,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Zones
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 107
+    startLine: 108
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -602,7 +602,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ZonesWithTiles
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 110
+    startLine: 111
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -641,7 +641,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Tiles
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 113
+    startLine: 114
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -680,7 +680,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Stairs
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 115
+    startLine: 116
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -719,7 +719,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TileMap
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 118
+    startLine: 119
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -748,7 +748,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TileConnections
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 120
+    startLine: 121
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -777,7 +777,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Connections
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 122
+    startLine: 123
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -806,7 +806,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Directions
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 124
+    startLine: 125
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -845,7 +845,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnSelectedChanged
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 127
+    startLine: 128
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -872,7 +872,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 132
+    startLine: 133
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -908,7 +908,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnGUI
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 137
+    startLine: 138
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -936,7 +936,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAttachLayer
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 142
+    startLine: 140
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -967,7 +967,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnDetachLayer
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 148
+    startLine: 146
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -998,7 +998,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CheckKeys
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 153
+    startLine: 151
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1026,7 +1026,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: UpdateKeys
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 164
+    startLine: 162
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1052,7 +1052,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddTile
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 175
+    startLine: 173
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1067,16 +1067,16 @@ items:
       type: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
     content.vb: Public Function AddTile(position As Vector2Int, zone As Zone) As LBSTile
   overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddTile*
-- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone
-  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone
-  id: AddZone
+- uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone(System.String,System.String)
+  commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone(System.String,System.String)
+  id: AddZone(System.String,System.String)
   parent: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour
   langs:
   - csharp
   - vb
-  name: AddZone()
-  nameWithType: SchemaBehaviour.AddZone()
-  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone()
+  name: AddZone(string, string)
+  nameWithType: SchemaBehaviour.AddZone(string, string)
+  fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone(string, string)
   type: Method
   source:
     remote:
@@ -1085,16 +1085,24 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddZone
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 190
+    startLine: 188
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
   syntax:
-    content: public Zone AddZone()
+    content: public Zone AddZone(string insideStyle = null, string outsideStyle = null)
+    parameters:
+    - id: insideStyle
+      type: System.String
+    - id: outsideStyle
+      type: System.String
     return:
       type: ISILab.LBS.Plugin.Components.Data.Zone
-    content.vb: Public Function AddZone() As Zone
+    content.vb: Public Function AddZone(insideStyle As String = Nothing, outsideStyle As String = Nothing) As Zone
   overload: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone*
+  nameWithType.vb: SchemaBehaviour.AddZone(String, String)
+  fullName.vb: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone(String, String)
+  name.vb: AddZone(String, String)
 - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveZone(ISILab.LBS.Plugin.Components.Data.Zone)
   commentId: M:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.RemoveZone(ISILab.LBS.Plugin.Components.Data.Zone)
   id: RemoveZone(ISILab.LBS.Plugin.Components.Data.Zone)
@@ -1113,7 +1121,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveZone
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 214
+    startLine: 216
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1142,7 +1150,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveTile
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 226
+    startLine: 228
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1171,7 +1179,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetConnection
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 237
+    startLine: 239
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1209,7 +1217,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: AddConnections
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 244
+    startLine: 246
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1245,7 +1253,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: PlaceStair
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 249
+    startLine: 251
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1279,7 +1287,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RemoveStair
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 261
+    startLine: 263
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1308,7 +1316,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetTile
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 270
+    startLine: 272
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1339,7 +1347,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetTiles
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 275
+    startLine: 277
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1370,7 +1378,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetBound
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 280
+    startLine: 282
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1401,7 +1409,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetConnections
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 285
+    startLine: 287
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1432,7 +1440,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetZone
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 291
+    startLine: 293
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1463,7 +1471,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetZone
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 297
+    startLine: 299
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1494,7 +1502,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetTileNeighbors
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 302
+    startLine: 304
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1530,7 +1538,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RecalculateWalls
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 313
+    startLine: 315
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1562,7 +1570,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RecalculateWallsAtFloor
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 362
+    startLine: 364
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1596,7 +1604,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 427
+    startLine: 429
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1626,7 +1634,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 432
+    startLine: 434
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1662,7 +1670,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 443
+    startLine: 445
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1692,7 +1700,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MoveZone
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 454
+    startLine: 456
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1725,7 +1733,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RotateZone
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 459
+    startLine: 461
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1761,7 +1769,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CaptureAreaData
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 622
+    startLine: 624
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1802,7 +1810,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetPosition
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 660
+    startLine: 662
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1838,7 +1846,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAnchor
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 669
+    startLine: 671
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1871,7 +1879,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ChangeLevelRender
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 682
+    startLine: 684
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -1907,7 +1915,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MergeLayerData
     path: ../LBS/Plugin/Components/Behaviours/SchemaBehaviour.cs
-    startLine: 722
+    startLine: 724
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Components.Behaviours
@@ -2061,13 +2069,13 @@ references:
   name: Keys
   nameWithType: LBSBehaviour.Keys
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.Keys
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
-  name: LevelChangedCallback
-  nameWithType: LBSBehaviour.LevelChangedCallback
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_FloorChangedCallback
+  name: FloorChangedCallback
+  nameWithType: LBSBehaviour.FloorChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
   commentId: E:ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
   parent: ISILab.LBS.Behaviours.LBSBehaviour
@@ -3460,7 +3468,7 @@ references:
     href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.html
 - uid: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone*
   commentId: Overload:ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone
-  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_AddZone
+  href: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.html#ISILab_LBS_Plugin_Components_Behaviours_SchemaBehaviour_AddZone_System_String_System_String_
   name: AddZone
   nameWithType: SchemaBehaviour.AddZone
   fullName: ISILab.LBS.Plugin.Components.Behaviours.SchemaBehaviour.AddZone

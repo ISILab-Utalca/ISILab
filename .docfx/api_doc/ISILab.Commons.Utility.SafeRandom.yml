@@ -1,37 +1,34 @@
 ### YamlMime:ManagedReference
 items:
-- uid: ISILab.Commons.Extensions.ColorExtensions
-  commentId: T:ISILab.Commons.Extensions.ColorExtensions
-  id: ColorExtensions
-  parent: ISILab.Commons.Extensions
+- uid: ISILab.Commons.Utility.SafeRandom
+  commentId: T:ISILab.Commons.Utility.SafeRandom
+  id: SafeRandom
+  parent: ISILab.Commons.Utility
   children:
-  - ISILab.Commons.Extensions.ColorExtensions.Inverse(UnityEngine.Color)
-  - ISILab.Commons.Extensions.ColorExtensions.RandomColorHSV(UnityEngine.Color)
-  - ISILab.Commons.Extensions.ColorExtensions.RandomColorRGB(UnityEngine.Color)
-  - ISILab.Commons.Extensions.ColorExtensions.RandomGrayScale(UnityEngine.Color)
+  - ISILab.Commons.Utility.SafeRandom.Range(System.Int32,System.Int32)
+  - ISILab.Commons.Utility.SafeRandom.Range(System.Single,System.Single)
+  - ISILab.Commons.Utility.SafeRandom.Value
   langs:
   - csharp
   - vb
-  name: ColorExtensions
-  nameWithType: ColorExtensions
-  fullName: ISILab.Commons.Extensions.ColorExtensions
+  name: SafeRandom
+  nameWithType: SafeRandom
+  fullName: ISILab.Commons.Utility.SafeRandom
   type: Class
   source:
     remote:
-      path: Commons/Extensions/ColorExtensions.cs
+      path: Commons/Utility/SafeRandom.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: ColorExtensions
-    path: ../Commons/Extensions/ColorExtensions.cs
+    id: SafeRandom
+    path: ../Commons/Utility/SafeRandom.cs
     startLine: 9
   assemblies:
   - Commons
-  namespace: ISILab.Commons.Extensions
-  summary: Class extending Unity Color structure with random generation methods.
-  example: []
+  namespace: ISILab.Commons.Utility
   syntax:
-    content: public static class ColorExtensions
-    content.vb: Public Module ColorExtensions
+    content: public static class SafeRandom
+    content.vb: Public Module SafeRandom
   inheritance:
   - System.Object
   inheritedMembers:
@@ -42,153 +39,113 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: ISILab.Commons.Extensions.ColorExtensions.RandomColorHSV(UnityEngine.Color)
-  commentId: M:ISILab.Commons.Extensions.ColorExtensions.RandomColorHSV(UnityEngine.Color)
-  id: RandomColorHSV(UnityEngine.Color)
-  isExtensionMethod: true
-  parent: ISILab.Commons.Extensions.ColorExtensions
+- uid: ISILab.Commons.Utility.SafeRandom.Value
+  commentId: M:ISILab.Commons.Utility.SafeRandom.Value
+  id: Value
+  parent: ISILab.Commons.Utility.SafeRandom
   langs:
   - csharp
   - vb
-  name: RandomColorHSV(Color)
-  nameWithType: ColorExtensions.RandomColorHSV(Color)
-  fullName: ISILab.Commons.Extensions.ColorExtensions.RandomColorHSV(UnityEngine.Color)
+  name: Value()
+  nameWithType: SafeRandom.Value()
+  fullName: ISILab.Commons.Utility.SafeRandom.Value()
   type: Method
   source:
     remote:
-      path: Commons/Extensions/ColorExtensions.cs
+      path: Commons/Utility/SafeRandom.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: RandomColorHSV
-    path: ../Commons/Extensions/ColorExtensions.cs
-    startLine: 23
+    id: Value
+    path: ../Commons/Utility/SafeRandom.cs
+    startLine: 15
   assemblies:
   - Commons
-  namespace: ISILab.Commons.Extensions
-  summary: Generates a random HSV color, with high saturation and value, ensuring not to repeat colors from last invocations.
-  example: []
+  namespace: ISILab.Commons.Utility
   syntax:
-    content: public static Color RandomColorHSV(this Color color)
-    parameters:
-    - id: color
-      type: UnityEngine.Color
-      description: ''
+    content: public static float Value()
     return:
-      type: UnityEngine.Color
-      description: ''
-    content.vb: Public Shared Function RandomColorHSV(color As Color) As Color
-  overload: ISILab.Commons.Extensions.ColorExtensions.RandomColorHSV*
-- uid: ISILab.Commons.Extensions.ColorExtensions.RandomColorRGB(UnityEngine.Color)
-  commentId: M:ISILab.Commons.Extensions.ColorExtensions.RandomColorRGB(UnityEngine.Color)
-  id: RandomColorRGB(UnityEngine.Color)
-  isExtensionMethod: true
-  parent: ISILab.Commons.Extensions.ColorExtensions
+      type: System.Single
+    content.vb: Public Shared Function Value() As Single
+  overload: ISILab.Commons.Utility.SafeRandom.Value*
+- uid: ISILab.Commons.Utility.SafeRandom.Range(System.Single,System.Single)
+  commentId: M:ISILab.Commons.Utility.SafeRandom.Range(System.Single,System.Single)
+  id: Range(System.Single,System.Single)
+  parent: ISILab.Commons.Utility.SafeRandom
   langs:
   - csharp
   - vb
-  name: RandomColorRGB(Color)
-  nameWithType: ColorExtensions.RandomColorRGB(Color)
-  fullName: ISILab.Commons.Extensions.ColorExtensions.RandomColorRGB(UnityEngine.Color)
+  name: Range(float, float)
+  nameWithType: SafeRandom.Range(float, float)
+  fullName: ISILab.Commons.Utility.SafeRandom.Range(float, float)
   type: Method
   source:
     remote:
-      path: Commons/Extensions/ColorExtensions.cs
+      path: Commons/Utility/SafeRandom.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: RandomColorRGB
-    path: ../Commons/Extensions/ColorExtensions.cs
-    startLine: 65
+    id: Range
+    path: ../Commons/Utility/SafeRandom.cs
+    startLine: 19
   assemblies:
   - Commons
-  namespace: ISILab.Commons.Extensions
-  summary: Generates a random RGB color.
-  example: []
+  namespace: ISILab.Commons.Utility
   syntax:
-    content: public static Color RandomColorRGB(this Color color)
+    content: public static float Range(float min, float max)
     parameters:
-    - id: color
-      type: UnityEngine.Color
-      description: ''
+    - id: min
+      type: System.Single
+    - id: max
+      type: System.Single
     return:
-      type: UnityEngine.Color
-      description: ''
-    content.vb: Public Shared Function RandomColorRGB(color As Color) As Color
-  overload: ISILab.Commons.Extensions.ColorExtensions.RandomColorRGB*
-- uid: ISILab.Commons.Extensions.ColorExtensions.RandomGrayScale(UnityEngine.Color)
-  commentId: M:ISILab.Commons.Extensions.ColorExtensions.RandomGrayScale(UnityEngine.Color)
-  id: RandomGrayScale(UnityEngine.Color)
-  isExtensionMethod: true
-  parent: ISILab.Commons.Extensions.ColorExtensions
+      type: System.Single
+    content.vb: Public Shared Function Range(min As Single, max As Single) As Single
+  overload: ISILab.Commons.Utility.SafeRandom.Range*
+  nameWithType.vb: SafeRandom.Range(Single, Single)
+  fullName.vb: ISILab.Commons.Utility.SafeRandom.Range(Single, Single)
+  name.vb: Range(Single, Single)
+- uid: ISILab.Commons.Utility.SafeRandom.Range(System.Int32,System.Int32)
+  commentId: M:ISILab.Commons.Utility.SafeRandom.Range(System.Int32,System.Int32)
+  id: Range(System.Int32,System.Int32)
+  parent: ISILab.Commons.Utility.SafeRandom
   langs:
   - csharp
   - vb
-  name: RandomGrayScale(Color)
-  nameWithType: ColorExtensions.RandomGrayScale(Color)
-  fullName: ISILab.Commons.Extensions.ColorExtensions.RandomGrayScale(UnityEngine.Color)
+  name: Range(int, int)
+  nameWithType: SafeRandom.Range(int, int)
+  fullName: ISILab.Commons.Utility.SafeRandom.Range(int, int)
   type: Method
   source:
     remote:
-      path: Commons/Extensions/ColorExtensions.cs
+      path: Commons/Utility/SafeRandom.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: RandomGrayScale
-    path: ../Commons/Extensions/ColorExtensions.cs
-    startLine: 79
+    id: Range
+    path: ../Commons/Utility/SafeRandom.cs
+    startLine: 25
   assemblies:
   - Commons
-  namespace: ISILab.Commons.Extensions
-  summary: Generates a random color in gray scale.
-  example: []
+  namespace: ISILab.Commons.Utility
   syntax:
-    content: public static Color RandomGrayScale(this Color color)
+    content: public static int Range(int min, int max)
     parameters:
-    - id: color
-      type: UnityEngine.Color
-      description: ''
+    - id: min
+      type: System.Int32
+    - id: max
+      type: System.Int32
     return:
-      type: UnityEngine.Color
-      description: ''
-    content.vb: Public Shared Function RandomGrayScale(color As Color) As Color
-  overload: ISILab.Commons.Extensions.ColorExtensions.RandomGrayScale*
-- uid: ISILab.Commons.Extensions.ColorExtensions.Inverse(UnityEngine.Color)
-  commentId: M:ISILab.Commons.Extensions.ColorExtensions.Inverse(UnityEngine.Color)
-  id: Inverse(UnityEngine.Color)
-  isExtensionMethod: true
-  parent: ISILab.Commons.Extensions.ColorExtensions
-  langs:
-  - csharp
-  - vb
-  name: Inverse(Color)
-  nameWithType: ColorExtensions.Inverse(Color)
-  fullName: ISILab.Commons.Extensions.ColorExtensions.Inverse(UnityEngine.Color)
-  type: Method
-  source:
-    remote:
-      path: Commons/Extensions/ColorExtensions.cs
-      branch: ignacio-r-develop
-      repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: Inverse
-    path: ../Commons/Extensions/ColorExtensions.cs
-    startLine: 87
-  assemblies:
-  - Commons
-  namespace: ISILab.Commons.Extensions
-  syntax:
-    content: public static Color Inverse(this Color color)
-    parameters:
-    - id: color
-      type: UnityEngine.Color
-    return:
-      type: UnityEngine.Color
-    content.vb: Public Shared Function Inverse(color As Color) As Color
-  overload: ISILab.Commons.Extensions.ColorExtensions.Inverse*
+      type: System.Int32
+    content.vb: Public Shared Function Range(min As Integer, max As Integer) As Integer
+  overload: ISILab.Commons.Utility.SafeRandom.Range*
+  nameWithType.vb: SafeRandom.Range(Integer, Integer)
+  fullName.vb: ISILab.Commons.Utility.SafeRandom.Range(Integer, Integer)
+  name.vb: Range(Integer, Integer)
 references:
-- uid: ISILab.Commons.Extensions
-  commentId: N:ISILab.Commons.Extensions
+- uid: ISILab.Commons.Utility
+  commentId: N:ISILab.Commons.Utility
   href: ISILab.html
-  name: ISILab.Commons.Extensions
-  nameWithType: ISILab.Commons.Extensions
-  fullName: ISILab.Commons.Extensions
+  name: ISILab.Commons.Utility
+  nameWithType: ISILab.Commons.Utility
+  fullName: ISILab.Commons.Utility
   spec.csharp:
   - uid: ISILab
     name: ISILab
@@ -198,9 +155,9 @@ references:
     name: Commons
     href: ISILab.Commons.html
   - name: .
-  - uid: ISILab.Commons.Extensions
-    name: Extensions
-    href: ISILab.Commons.Extensions.html
+  - uid: ISILab.Commons.Utility
+    name: Utility
+    href: ISILab.Commons.Utility.html
   spec.vb:
   - uid: ISILab
     name: ISILab
@@ -210,9 +167,9 @@ references:
     name: Commons
     href: ISILab.Commons.html
   - name: .
-  - uid: ISILab.Commons.Extensions
-    name: Extensions
-    href: ISILab.Commons.Extensions.html
+  - uid: ISILab.Commons.Utility
+    name: Utility
+    href: ISILab.Commons.Utility.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -450,41 +407,38 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: ISILab.Commons.Extensions.ColorExtensions.RandomColorHSV*
-  commentId: Overload:ISILab.Commons.Extensions.ColorExtensions.RandomColorHSV
-  href: ISILab.Commons.Extensions.ColorExtensions.html#ISILab_Commons_Extensions_ColorExtensions_RandomColorHSV_UnityEngine_Color_
-  name: RandomColorHSV
-  nameWithType: ColorExtensions.RandomColorHSV
-  fullName: ISILab.Commons.Extensions.ColorExtensions.RandomColorHSV
-- uid: UnityEngine.Color
-  commentId: T:UnityEngine.Color
-  parent: UnityEngine
+- uid: ISILab.Commons.Utility.SafeRandom.Value*
+  commentId: Overload:ISILab.Commons.Utility.SafeRandom.Value
+  href: ISILab.Commons.Utility.SafeRandom.html#ISILab_Commons_Utility_SafeRandom_Value
+  name: Value
+  nameWithType: SafeRandom.Value
+  fullName: ISILab.Commons.Utility.SafeRandom.Value
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
   isExternal: true
-  name: Color
-  nameWithType: Color
-  fullName: UnityEngine.Color
-- uid: UnityEngine
-  commentId: N:UnityEngine
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.Commons.Utility.SafeRandom.Range*
+  commentId: Overload:ISILab.Commons.Utility.SafeRandom.Range
+  href: ISILab.Commons.Utility.SafeRandom.html#ISILab_Commons_Utility_SafeRandom_Range_System_Single_System_Single_
+  name: Range
+  nameWithType: SafeRandom.Range
+  fullName: ISILab.Commons.Utility.SafeRandom.Range
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
-  name: UnityEngine
-  nameWithType: UnityEngine
-  fullName: UnityEngine
-- uid: ISILab.Commons.Extensions.ColorExtensions.RandomColorRGB*
-  commentId: Overload:ISILab.Commons.Extensions.ColorExtensions.RandomColorRGB
-  href: ISILab.Commons.Extensions.ColorExtensions.html#ISILab_Commons_Extensions_ColorExtensions_RandomColorRGB_UnityEngine_Color_
-  name: RandomColorRGB
-  nameWithType: ColorExtensions.RandomColorRGB
-  fullName: ISILab.Commons.Extensions.ColorExtensions.RandomColorRGB
-- uid: ISILab.Commons.Extensions.ColorExtensions.RandomGrayScale*
-  commentId: Overload:ISILab.Commons.Extensions.ColorExtensions.RandomGrayScale
-  href: ISILab.Commons.Extensions.ColorExtensions.html#ISILab_Commons_Extensions_ColorExtensions_RandomGrayScale_UnityEngine_Color_
-  name: RandomGrayScale
-  nameWithType: ColorExtensions.RandomGrayScale
-  fullName: ISILab.Commons.Extensions.ColorExtensions.RandomGrayScale
-- uid: ISILab.Commons.Extensions.ColorExtensions.Inverse*
-  commentId: Overload:ISILab.Commons.Extensions.ColorExtensions.Inverse
-  href: ISILab.Commons.Extensions.ColorExtensions.html#ISILab_Commons_Extensions_ColorExtensions_Inverse_UnityEngine_Color_
-  name: Inverse
-  nameWithType: ColorExtensions.Inverse
-  fullName: ISILab.Commons.Extensions.ColorExtensions.Inverse
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 shouldSkipMarkup: true

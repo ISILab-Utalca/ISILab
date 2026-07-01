@@ -10,11 +10,11 @@ items:
   - ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
   - ISILab.LBS.Behaviours.LBSBehaviour.Clone
   - ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  - ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
   - ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   - ISILab.LBS.Behaviours.LBSBehaviour.Icon
   - ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
   - ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  - ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
   - ISILab.LBS.Behaviours.LBSBehaviour.Name
   - ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
   - ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
@@ -347,23 +347,23 @@ items:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
     arguments: []
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  id: LevelChangedCallback
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
+  id: FloorChangedCallback
   parent: ISILab.LBS.Behaviours.LBSBehaviour
   langs:
   - csharp
   - vb
-  name: LevelChangedCallback
-  nameWithType: LBSBehaviour.LevelChangedCallback
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  name: FloorChangedCallback
+  nameWithType: LBSBehaviour.FloorChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
   type: Property
   source:
     remote:
       path: LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: LevelChangedCallback
+    id: FloorChangedCallback
     path: ../LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
     startLine: 89
   assemblies:
@@ -373,15 +373,15 @@ items:
     content: >-
       [JsonIgnore]
 
-      public Action<int> LevelChangedCallback { get; set; }
+      public Action<int> FloorChangedCallback { get; set; }
     parameters: []
     return:
       type: System.Action{System.Int32}
     content.vb: >-
       <JsonIgnore>
 
-      Public Property LevelChangedCallback As Action(Of Integer)
-  overload: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback*
+      Public Property FloorChangedCallback As Action(Of Integer)
+  overload: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
@@ -1389,12 +1389,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
-  name: LevelChangedCallback
-  nameWithType: LBSBehaviour.LevelChangedCallback
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_FloorChangedCallback
+  name: FloorChangedCallback
+  nameWithType: LBSBehaviour.FloorChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
 - uid: System.Action{System.Int32}
   commentId: T:System.Action{System.Int32}
   parent: System

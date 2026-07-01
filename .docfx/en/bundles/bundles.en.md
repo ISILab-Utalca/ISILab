@@ -26,15 +26,17 @@ The dimensions and settings of each prefab will depend exclusively on the users 
 
 ---
 
-## Main Bundles
+## Main & Sub Bundles
 
-"Main Bundles" are bundles that contain a list of other bundles. This is then used by the different LBS's assistants in order to correctly show them when corresponding. Users must use Main Bundles to group same-layer-bundles. 
+"Main Bundles" are bundles that contain a list of other bundles ("Sub Bundles"). These are then used by the different LBS's assistants to correctly show and place different Bundles.
+"Sub bundles" are the Bundles that contain one or more Prefab objects 
+Both of these elements still correspond to a "Bundle" object, but we give them different names depending on the use case.
+
+Main Bundles are used by LBS assistants in order to work, this may be to list a set of bundles so the user can place them in the LBS window, or to create the level with the correct assets in the 3D generation step. 
 
 > [!NOTE]
 >You may still separate same-layer-bundles in different Main Bundles depending on their purpose.  
 >Example: A project with 4 Main Bundles, in which two of them are population layer bundles, one for props and one for lighting assets.
-
-LBS assistants need a reference to a Main Bundle in order to work, this may be to list a set of bundles so the user can place them in the LBS window, or to create the level with the correct assets in the 3D generation step. This is why users must separate bundles in main bundles depending on their layer, but you **can still** have more than one Main Bundle for the same layer. Many times this last option will result in needing multiple same type layers for a level, which may be correct in order to get the expected result.
 
 ---
 
@@ -126,25 +128,65 @@ Here is a list of all Bundle’s characteristics with their corresponding layer,
 - **WFC Presets Characteristic** [Only for Main Exterior Bundle]: Storages different WFCs Presets.
 - **LBS Navigable Tags** [Only for Main Exterior Bundle]: Indicates which “LBSTags” corresponds to navigable terrain, it is used by the Map Elites Assistant.
 
+---
+
 ## Bundle Creation
 
-The process of creating bundles based on existing prefab assets can be achieved through two different methods.
+The process of creating bundles based on existing prefab assets can be achieved through two different methods. The Bundle manager window, and Unity's Project window
 
 ### Bundle Manager
 
-You can access the Bundle Manager window through the LBS main window or Unity’s Window menu, in here, you can create new bundles and inspect the existing ones.
+You can access the Bundle Manager window through the LBS main window or Unity’s window menu, in here, you can create new bundles and inspect the existing ones.
+
+![Bundle Manager](/images/bundles/BM_0.png)
 
 #### Features
 
-- Bundles List:
-    - List of Main Bundles categorized by layer
-    - List of selected Main Bundle’s sub-bundles
-    - List of Orphan Bundles
-- Bundle Validator: Shows the current errors of selected bundle
-- Bulk Bundle Generator: Generates and configures the characteristics of a new Main Bundle and associated sub-bundles by drag & dropping prefab assets and selecting pre existent prefabs. Bundle characteristics need to be manually set-up after this step.
+1. **Bundle Lists**:
+    1. **List of Main Bundles** categorized by layer
+    2. **List of Sub Bundles** for every Main Bundle
+    3. **List of Orphan Bundles**
+2. **Bundle Validator**: Shows the current errors of selected bundle
+3. **Bulk Bundle Generator**: Generates and configures the characteristics of a new Main Bundle and associated sub-bundles by drag & dropping prefab assets or selecting pre existent prefabs. Bundle characteristics need to be manually set-up after this step.
+
+#### Creating Bundles through the Bundle Manager
+
+##### Step 1: Layer Selection
+
+![Bundle Manager](/images/bundles/BM_1.png)
+
+##### Step 2: Convert Prefab Assets into Bundles
+
+![Bundle Manager](/images/bundles/BM_2.png)
+
+##### Step 3: Asign pre existing bundles 
+
+![Bundle Manager](/images/bundles/BM_3.png)
+
+##### Step 4: Add Characteristics
+
+![Bundle Manager](/images/bundles/BM_4.png)
+
+##### Step 5: Summary
+
+![Bundle Manager](/images/bundles/BM_5.png)
+
+---
 
 ### Unity’s Project Window
 
-You can quickly create bundles of any prefab asset(s) directly from the project window, this can be accomplished by first selecting the prefabs assets that will be used for the bundle(s), and then pressing 
-Right Click > Create > ISILab > LBS > Bundle. 
-‘Bundle (Single)’ means LBS will make one single bundle from all the selected prefab assets, while “Bundle (Multiple)” will make multiple bundles, one for each selected prefab asset. This process can also be done by using the commands “Alt + B” for creating multiple bundles or “Alt + Shift + B” to make a single bundle. Bundle characteristics need to be manually added and set-up after this step.
+You can quickly create bundles of any prefab asset(s) directly from the project window, this can be accomplished by first selecting the prefabs assets that will be used for the bundle(s), and then pressing the shortcut "Alt + b" to create one bundle for each asset or "Alt + Shift + b" to get a single bundle with every selected asset.
+
+**Bundle characteristics need to be manually added and set-up after this step, because of this, it is generally recommended to create bundles through the Bundle Manager.**
+
+alternatively, you may do Right Click > Create > ISILab > LBS > Bundle.
+
+#### Bundle (Multiple)
+“Bundle (Multiple)” (Alt + B) will make multiple bundles, one for each selected prefab asset.
+![Creating Bundles through Unity's project window](/images/bundles/PW_2.png)
+
+#### Bundle (Single)
+"Bundle (Single)" (Alt + Shift + B) means LBS will make one single bundle with all selected prefab assets
+![Creating Bundles through Unity's project window](/images/bundles/PW_3.png)
+
+
