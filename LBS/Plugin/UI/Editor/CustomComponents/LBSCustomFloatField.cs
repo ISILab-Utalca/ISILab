@@ -11,9 +11,39 @@ namespace ISILab.LBS.CustomComponents
         private VectorImage addIcon;
         private VectorImage minusIcon;
 
+        private bool displayAdd;
+        private bool displayMinus;
+
         private Button addButton;
         private Button minusButton;
         private VisualElement iconVisualElement;
+
+        [UxmlAttribute]
+        public bool DisplayAdd
+        {
+            get => displayAdd;
+            set
+            {
+                displayAdd = value;
+                if (addButton != null) 
+                    addButton.style.display = displayAdd 
+                        ? DisplayStyle.Flex : DisplayStyle.None;
+            }
+        }
+
+
+        [UxmlAttribute]
+        public bool DisplayMinus
+        {
+            get => displayMinus;
+            set
+            {
+                displayMinus = value;
+                if (minusButton != null)
+                    minusButton.style.display = displayMinus 
+                        ? DisplayStyle.Flex : DisplayStyle.None;
+            }
+        }
 
         [UxmlAttribute]
         public float Min { get; set; } = float.NegativeInfinity;
@@ -37,12 +67,12 @@ namespace ISILab.LBS.CustomComponents
             minusButton = new Button() { text = "-" };
             iconVisualElement = new VisualElement();
 
-
-
             minusButton.AddToClassList("minusButton");
             this.Add(minusButton);
             addButton.AddToClassList("addButton");
             this.Add(addButton);
+
+            AddToClassList("lbs-input-field-float");
 
             addButton.RegisterCallback<ClickEvent>((evt) =>
             {
@@ -53,6 +83,9 @@ namespace ISILab.LBS.CustomComponents
             {
                 value = Mathf.Clamp(value + 0.01f, Min, Max);
             });
+
+            DisplayMinus = displayMinus;
+            DisplayAdd = displayAdd;
         }
     }
 }

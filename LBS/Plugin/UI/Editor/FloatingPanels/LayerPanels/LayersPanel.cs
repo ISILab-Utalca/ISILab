@@ -448,6 +448,8 @@ namespace ISILab.LBS.VisualElements.Editor
             
             bool noLayers = !Data.Layers.Any();
 
+            Debug.Log($"onelayer({oneFloorLayer}) noLayers({noLayers})");
+
             if (noLayers)
             {
                 ToolKit.Instance.HideFloorButtons();

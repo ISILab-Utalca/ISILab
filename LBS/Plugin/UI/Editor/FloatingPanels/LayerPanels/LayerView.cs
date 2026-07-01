@@ -45,6 +45,7 @@ namespace ISILab.LBS.VisualElements.Editor
         }
 
         public Action OnLayerVisibilityChangeAction;
+        private static VisualTreeAsset visualTree;
         #endregion
 
         #region CONSTRUCTOR
@@ -64,10 +65,8 @@ namespace ISILab.LBS.VisualElements.Editor
         #region INITIALIZATION
         private void CloneVisualTree()
         {
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("LayerView");
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("LayerView");
             visualTree.CloneTree(this);
-            Base = this;
-            Base.name = "Base";
         }
 
         private void BindUIElements()
@@ -88,14 +87,9 @@ namespace ISILab.LBS.VisualElements.Editor
             _showButton.clicked += () => ShowLayer(false);
             _hideButton.clicked += () => ShowLayer(true);
         }
-        
+
         public void SetStyleSelectors()
         {
-            RemoveFromClassList("unity-collection-view__item");
-            RemoveFromClassList("unity-list-view__item");
-            RemoveFromClassList("unity-collection-view__item:selected");
-            RemoveFromClassList("unity-collection-view__item:hover");
-            
             AddToClassList("lbs-list-item");
         }
         #endregion
@@ -152,18 +146,21 @@ namespace ISILab.LBS.VisualElements.Editor
         }
         #endregion
 
+
         #region SELECTION
         public void UpdateSelect(LBSLayer layer, bool FocusToggle = false)
         {
             _iconFocus.style.display = DisplayStyle.None;
-    
+
             if (layer is null || !layer.Equals(_target))
             {
-                //RemoveFromClassList("lbs-list-item:selected");
+                RemoveFromClassList("lbs-list-item--selected");
                 return;
             }
-            _iconFocus.style.display = FocusToggle ? DisplayStyle.Flex :  DisplayStyle.None;
-            AddToClassList("unity-collection-view__item:selected");
+
+            _iconFocus.style.display = FocusToggle ? DisplayStyle.Flex : DisplayStyle.None;
+
+            AddToClassList("lbs-list-item--selected");
         }
         #endregion
 

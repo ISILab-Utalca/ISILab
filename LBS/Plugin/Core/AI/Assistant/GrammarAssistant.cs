@@ -20,19 +20,19 @@ using Debug = UnityEngine.Debug;
 namespace ISILab.LBS.Plugin.Core.AI.Assistant
 {
     [Serializable]
-    [RequieredModule(typeof(QuestGraphModule))]
+    [RequieredModule(typeof(Graph))]
     public class GrammarAssistant : LBSAssistant
     {
         #region FIELDS
         private QuestBehaviour questBehaviour;
-        private QuestGraphModule graph;
+        private Graph graph;
         private bool disabled = false;
         #endregion
 
         #region PROPERTIES
         public bool Disabled => disabled;
         [JsonIgnore]
-        public QuestGraphModule Graph => graph ??= OwnerLayer.GetModule<QuestGraphModule>();
+        public Graph Graph => graph ??= OwnerLayer.GetModule<Graph>();
         public QuestBehaviour Behavior => questBehaviour ??= OwnerLayer.GetBehaviour<QuestBehaviour>();
         #endregion
 
@@ -48,18 +48,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public bool ValidateGraphGrammar()
         {
             // 1. Reset all validation states to a clean slate before processing
-            foreach (var node in Graph.GraphNodes)
+            foreach (var n in Behavior.QuestNodes)
             {
-                node.ValidGrammar = false;
+                n.ValidGrammar = false;
             }
 
             // 2. Validate all QuestNodes (Terminals) first based on forward paths
-            foreach (var node in Graph.GraphNodes)
+            foreach (var n in Behavior.QuestNodes)
             {
-                if (node is QuestNode questNode)
-                {
-                    ValidateQuestNodeGrammar(questNode);
-                }
+                ValidateQuestNodeGrammar(n);
             }
 
             // 3. Propagate validation states to Branch nodes (And/Or) based on their updated roots
@@ -68,14 +65,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             do
             {
                 stateChanged = false;
-                foreach (var node in Graph.GraphNodes)
+                foreach (var n in Behavior.QuestNodes)
                 {
-                    if (node is not QuestNode)
+                    if (n is not QuestNode)
                     {
-                        bool wasValid = node.ValidGrammar;
-                        node.ValidGrammar = BranchNodeRootGrammar(node);
+                        bool wasValid = n.ValidGrammar;
+                        n.ValidGrammar = BranchNodeRootGrammar(n);
 
-                        if (wasValid != node.ValidGrammar)
+                        if (wasValid != n.ValidGrammar)
                         {
                             stateChanged = true;
                         }
@@ -84,9 +81,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             } while (stateChanged);
 
             // 4. Finally, Goal nodes inherit the validation of whatever is feeding into them
-            foreach (var node in Graph.GraphNodes)
+            foreach (var n in Behavior.QuestNodes)
             {
-                if (node is QuestNode { NodeType: QuestNode.ENodeType.Goal } goalNode)
+                if (n is QuestNode { NodeType: GraphNodeType.Goal } goalNode)
                 {
                     // Goal is valid if all its incoming roots/branches are structurally valid
                     goalNode.ValidGrammar = GoalNodeRootsAreValid(goalNode);
@@ -94,20 +91,20 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             }
 
             // Return true only if every single node in the graph passed its ruleset check
-            return Graph.GraphNodes.All(node => node.ValidGrammar);
+            return Behavior.QuestNodes.All(node => node.ValidGrammar);
         }
 
         private void ValidateQuestNodeGrammar(QuestNode from)
         {
-            var grammar = Graph.Grammar;
+            var grammar = Behavior.Grammar;
             if (grammar == null || !grammar.LBSRules.Any()) return;
 
             // Start or Middle terminal validation
-            if (from.NodeType == QuestNode.ENodeType.Start || from.NodeType == QuestNode.ENodeType.Middle)
+            if (from.NodeType == GraphNodeType.Start || from.NodeType == GraphNodeType.Middle)
             {
                 // Find ALL terminal nodes downstream, traversing cleanly across any And/Or branches
                 List<QuestNode> nextQuestNodes = GetNextQuestNodes(from);
-                List<string> validNextTerminals = Graph.Grammar.GetNextTerminals(from.TerminalID);
+                List<string> validNextTerminals = grammar.GetNextTerminals(from.TerminalID);
 
                 // If a node has outgoing edges but leads to nothing, it is dead/invalid layout
                 bool pathValid = nextQuestNodes.Count > 0;
@@ -129,12 +126,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         /// Recursively looks ahead down the graph edges to skip logical branches 
         /// and return the raw terminal QuestNodes that downstream branches eventually feed into.
         /// </summary>
-        private List<QuestNode> GetNextQuestNodes(GraphNode currentNode)
+        private List<QuestNode> GetNextQuestNodes(Node currentNode)
         {
             List<QuestNode> foundNodes = new List<QuestNode>();
 
+            if (currentNode == null) 
+                return foundNodes;
+
             // Find all outgoing edges where this structural node is the source
-            var outgoingEdges = Graph.GraphEdges.Where(e => e.From == currentNode);
+            var outgoingEdges = Graph.Edges.Where(e => e.From == currentNode);
 
             foreach (var edge in outgoingEdges)
             {
@@ -145,7 +145,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 else
                 {
                     // It's a branch node, tunnel deeper down its forward paths
-                    foundNodes.AddRange(GetNextQuestNodes(edge.To));
+                    foundNodes.AddRange(GetNextQuestNodes(edge.To as Node));
                 }
             }
 
@@ -153,7 +153,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         }
 
         // Tries to retrieve from a branch Node the grammar of the immediate quest node root
-        private bool BranchNodeRootGrammar(GraphNode branch)
+        private bool BranchNodeRootGrammar(Node branch)
         {
             var roots = Graph.GetRoots(branch);
             if (!roots.Any()) return false;
@@ -167,7 +167,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                 }
                 else // If the root is another branch, check if that branch has completed its validation pass
                 {
-                    if (!rootEdge.From.ValidGrammar) return false;
+                    if(rootEdge.From is QuestNode qn)
+                    {
+                        if (!qn.ValidGrammar) return false;
+
+                    }
                 }
             }
 
@@ -177,10 +181,15 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         private bool GoalNodeRootsAreValid(QuestNode goalNode)
         {
             var roots = Graph.GetRoots(goalNode);
-            if (!roots.Any()) return false;
+            if (roots == null || roots.Count == 0) return false;
 
-            // Goal is valid only if all nodes running into it are green-lit
-            return roots.All(rootEdge => rootEdge.From.ValidGrammar);
+            foreach (var edge in roots)
+            {
+                if (edge?.From is QuestNode questNode && !questNode.ValidGrammar)
+                    return false;
+            }
+
+            return true;
         }
         #endregion
 
@@ -192,11 +201,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             CancellationToken token = default)
         {
 
-            if (Graph == null || Graph.Grammar == null) return new List<string>();
+            if (Graph == null || Behavior.Grammar == null) return new List<string>();
 
             // get valid actions out of context
             onProgress?.Invoke((float)1);
-            return Graph.Grammar.GetNextTerminals(currentElement);
+            return Behavior.Grammar.GetNextTerminals(currentElement);
 
         }
 
@@ -206,11 +215,11 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             CancellationToken token = default)
         {
 
-            if (Graph == null || Graph.Grammar == null) return new List<string>();
+            if (Graph == null || Behavior.Grammar == null) return new List<string>();
 
             // Get all non context prev actions   
             onProgress?.Invoke((float)1);
-            return Graph.Grammar.GetPreviousTerminals(currentElement);
+            return Behavior.Grammar.GetPreviousTerminals(currentElement);
         }
 
         public List<List<string>> GetAllExpansions(
@@ -218,10 +227,10 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         Action<float> onProgress = null,
         CancellationToken token = default)
         {
-            if (Graph == null || Graph.Grammar == null) return new List<List<string>>();
+            if (Graph == null || Behavior.Grammar == null) return new List<List<string>>();
 
             // STEP 1: Get raw expansions from grammar (already flattened to terminals!)
-            var rawExpansions = Graph.Grammar.GetExpansions(currentAction);
+            var rawExpansions = Behavior.Grammar.GetExpansions(currentAction);
             if (rawExpansions == null || rawExpansions.Count == 0)
                 return new List<List<string>>();
 
@@ -280,7 +289,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             {
                 var stopwatch = Stopwatch.StartNew();
                 disabled = true;
-                var node = Graph.ExpandNode(expandAction, referenceNode);
+                var node = Behavior.ExpandNode(expandAction, referenceNode);
                 disabled = false;
                 stopwatch.Stop();
 
@@ -296,7 +305,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             return () =>
             {
-                Graph.InsertQuestNodeAfter(action, referenceNode);
+                Behavior.InsertQuestNodeAfter(action, referenceNode);
             };
         }
 
@@ -306,8 +315,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             {
                 var stopwatch = Stopwatch.StartNew();
 
-                Graph.InsertQuestNodeBefore(action, referenceNode);
-                Graph.ValidateGraph();
+                Behavior.InsertQuestNodeBefore(action, referenceNode);
+                Behavior.ValidateGraph();
 
                 stopwatch.Stop();
                 Debug.Log($"InsertPreviousAction took {stopwatch.ElapsedMilliseconds} ms");

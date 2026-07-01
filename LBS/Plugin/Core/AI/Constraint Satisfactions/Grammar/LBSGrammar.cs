@@ -212,18 +212,23 @@ namespace ISILab.AI.Grammar
                     var seq = expansion.sequence;
                     for (int i = 0; i < seq.Count; i++)
                     {
-                        if (IsTargetMatch(seq[i], element))
+                        // we check from the last terminal
+                        bool isMatch = (seq[i] == element) ||
+                                       (IsRule(seq[i]) && GetLastTerminals(seq[i]).Contains(element));
+
+                        if (isMatch)
                         {
-                            // If there's a subsequent item in the sequence
+                            // If there's a next item in this sequence
                             if (i < seq.Count - 1)
                             {
                                 var next = seq[i + 1];
-                                if (IsTerminal(next)) result.Add(next);
-                                else GetFirstTerminals(next, result, new HashSet<string>());
+                                if (IsTerminal(next))
+                                    result.Add(next);
+                                else
+                                    GetFirstTerminals(next, result, new HashSet<string>());
                             }
                             else
                             {
-                                // End of sequence reached: bubble up to parent rules
                                 GetNextTerminalsInternal(rule.id, result, visited);
                             }
                         }
@@ -243,18 +248,22 @@ namespace ISILab.AI.Grammar
                     var seq = expansion.sequence;
                     for (int i = 0; i < seq.Count; i++)
                     {
-                        if (IsTargetMatch(seq[i], element))
+                        //we check agains the first terminal
+                        bool isMatch = (seq[i] == element) ||
+                                       (IsRule(seq[i]) && GetFirstTerminals(seq[i]).Contains(element));
+
+                        if (isMatch)
                         {
-                            // If there's an item preceding this one
                             if (i > 0)
                             {
                                 var prev = seq[i - 1];
-                                if (IsTerminal(prev)) result.Add(prev);
-                                else GetLastTerminals(prev, result, new HashSet<string>());
+                                if (IsTerminal(prev))
+                                    result.Add(prev);
+                                else
+                                    GetLastTerminals(prev, result, new HashSet<string>());
                             }
                             else
                             {
-                                // Beginning of sequence reached: bubble down from parent rules
                                 GetPreviousTerminalsInternal(rule.id, result, visited);
                             }
                         }
@@ -263,17 +272,6 @@ namespace ISILab.AI.Grammar
             }
         }
 
-        private bool IsTargetMatch(string currentSequenceItem, string searchTarget)
-        {
-            if (currentSequenceItem == searchTarget) return true;
-
-            // Recursively verify if the item derives the target structural string
-            if (IsRule(currentSequenceItem))
-            {
-                return IsElementInRuleDerivation(currentSequenceItem, searchTarget, new HashSet<string>());
-            }
-            return false;
-        }
 
         private void GetFirstTerminals(string element, HashSet<string> result, HashSet<string> visited)
         {

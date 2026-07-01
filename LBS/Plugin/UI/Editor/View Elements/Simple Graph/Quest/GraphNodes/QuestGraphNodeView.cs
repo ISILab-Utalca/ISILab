@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ISILab.LBS.Components;
 using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Core.Settings;
 using LBS.VisualElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
-using ISILab.LBS.Behaviours;
 using ISILab.Extensions;
-using ISILab.LBS.Modules;
+using Node = ISILab.LBS.Components.Node;
 
 namespace ISILab.LBS.VisualElements 
 {
@@ -27,16 +25,16 @@ namespace ISILab.LBS.VisualElements
 
         #region Fields
 
-        private GraphNode node;
+        private Node node;
 
-        public GraphNode Node
+        public Node Node
         {
             get => node;
             set
             {
                 node = value;
                 ActionExtensions.AddUnique(ref node.OnSelect, OnSelect);
-                ActionExtensions.AddUnique(ref node.Graph.OnUpdateGraph, Refresh);
+                ActionExtensions.AddUnique(ref node.Graph.OnForceUpdate, Refresh);
                 ActionExtensions.AddUnique(ref node.OnDeselect, OnDeselect);
                 ActionExtensions.AddUnique(ref OnMoving, UpdateNodePosition);
             }
@@ -74,8 +72,31 @@ namespace ISILab.LBS.VisualElements
         protected virtual void UpdateGrammarState()
         {
             InvalidConnectionIcon.style.display = Node.ValidConnections ? DisplayStyle.None : DisplayStyle.Flex;
+            PaintCapsuleBackground();
         }
-        
+
+        private void PaintCapsuleBackground()
+        {
+            VisualElement coloredVe = this.Q<VisualElement>("Capsule");
+            if (coloredVe != null)
+            {
+                Color color = default;
+
+                if (Node.IsValid())
+                    color = ValidGrammarColor;
+
+                else
+                    color = InvalidGrammarColor;
+
+
+                float r = color.r;
+                float g = color.g;
+                float b = color.b;
+                color = new Color(r, g, b, Alpha);
+                coloredVe.style.backgroundColor = new StyleColor(color);
+            }
+        }
+
         #endregion
 
         #region Mouse Events
@@ -191,7 +212,7 @@ namespace ISILab.LBS.VisualElements
         private void UpdateNodePosition(Rect rect)
         {
             if (Node == null) return;
-            Node.NodePosition = rect;
+            Node.Area = rect;
         }
 
         #region Selection

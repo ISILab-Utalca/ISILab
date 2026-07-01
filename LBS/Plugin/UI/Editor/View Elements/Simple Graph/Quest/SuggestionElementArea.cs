@@ -1,5 +1,6 @@
 
 using ISILab.Commons.Utility.Editor;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor.Windows;
@@ -130,7 +131,7 @@ namespace ISILab.LBS.VisualElements
             {
                 capsule.UnregisterCallback(onGeometryReady);
 
-                if (_generatedQuestNode.NodePosition == Rect.zero)
+                if (_generatedQuestNode.Area == Rect.zero)
                 {
                     // add offset to capsule (previously set in the assistant generation function 
                     capsule.style.left = capsule.resolvedStyle.left + _generatedQuestNode.Position.x;
@@ -143,7 +144,7 @@ namespace ISILab.LBS.VisualElements
 
                     var capsuleOffset = _generatedQuestNode.Graph.OwnerLayer.ToFixedPosition(capsulePos);
                     var graphPos = _generatedQuestNode.Graph.OwnerLayer.ToFixedPosition(GetPosition().position);
-                    _generatedQuestNode.NodePosition = new Rect(
+                    _generatedQuestNode.Area = new Rect(
                         graphPos,
                         new Vector2(capsule.resolvedStyle.width, capsule.resolvedStyle.height)
                     );
@@ -167,7 +168,8 @@ namespace ISILab.LBS.VisualElements
 
         private void AddSuggestionToGraph()
         {
-            _generatedQuestNode.Graph.AddSuggestionNode(_generatedQuestNode);
+            _generatedQuestNode.Graph.OwnerLayer.GetBehaviour<QuestBehaviour>().
+                AddSuggestionNode(_generatedQuestNode);
             RemoveSuggestion();
         }
 

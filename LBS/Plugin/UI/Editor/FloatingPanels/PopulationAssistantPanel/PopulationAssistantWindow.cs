@@ -10,6 +10,7 @@ using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
 using ISILab.LBS.Plugin.Core.AI.Optimization.EvolutionaryAlgorithm.Evaluators;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.Plugin.UI.Editor.Windows;
 using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using LBS.Components;
 using LBS.Components.TileMap;
@@ -29,7 +30,7 @@ using Debug = UnityEngine.Debug;
 namespace ISILab.LBS.VisualElements.Editor
 {
 
-    public class PopulationAssistantWindow : EditorWindow, IAssistantThreadedEditor
+    public class PopulationAssistantWindow : ThemeableWindow, IAssistantThreadedEditor
     {
 
         #region Utilities
@@ -52,12 +53,9 @@ namespace ISILab.LBS.VisualElements.Editor
         private ClassDropDown optimizerField;
 
         //Parameter Information
-        private Label xParamText;
-        private Label yParamText;
-        private Label zParamText;
-        private ProgressBar xProgressBar;
-        private ProgressBar yProgressBar;
-        private ProgressBar zProgressBar;
+        private LabeledProgressBar xProgressBar;
+        private LabeledProgressBar yProgressBar;
+        private LabeledProgressBar zProgressBar;
         
         private VisualElement gridContent;
         
@@ -126,27 +124,26 @@ namespace ISILab.LBS.VisualElements.Editor
         public Action UpdatePins;
         private Action<IOptimizable> OnValuesUpdated;
         private Stopwatch sw;
+        private static VisualTreeAsset visualTree;
 
         #endregion
-        
+
         #region METHODS
-        
+
         #region GUI
-        public void CreateGUI()
+        protected override void CreateGUI()
         {
             if(LayerPopulation is null) Close();
             
-            var visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationAssistantWindow");
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("PopulationAssistantWindow");
             visualTree.CloneTree(rootVisualElement);
-            
+
             SetUpPreset();
-            
+
             SetUpOptimizer();
 
-            // preset settings
             SetUpPresets();
 
-            // grid
             SetUpGrid();
 
             // buttons lower bar
@@ -155,8 +152,9 @@ namespace ISILab.LBS.VisualElements.Editor
             // graph of hell
             SetUpGraph();
 
-            //LAYER CONTEXT
             SetUpLayerContext();
+
+            ChangeTheme(LBSSettings.Instance.view.LBSTheme);
         }
 
         private void SetUpOptimizer()
@@ -173,7 +171,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 var optimizerChoice = optimizerField.GetChoiceInstance() as IRangedEvaluator;
                 CurrentOptimizer.Evaluator = optimizerChoice;
                 InitializeEvaluator(optimizerChoice);
-                zParamText.text = new string("Fitness ("+optimizerField.Value+")");
+                zProgressBar.TitleText = new string("Fitness ("+optimizerField.Value+")");
 
             });
             optimizerField.SetEnabled(false);
@@ -193,21 +191,23 @@ namespace ISILab.LBS.VisualElements.Editor
             });
 
             //Progress Bar and Sliders
-            xParamText = rootVisualElement.Q<Label>("XParamText");
-            yParamText = rootVisualElement.Q<Label>("YParamText");
-            zParamText = rootVisualElement.Q<Label>("ZParamText");
-            xProgressBar = rootVisualElement.Q<ProgressBar>("XProgressBar");
-            yProgressBar = rootVisualElement.Q<ProgressBar>("YProgressBar");
-            zProgressBar = rootVisualElement.Q<ProgressBar>("ZProgressBar");
+            xProgressBar = rootVisualElement.Q<LabeledProgressBar>("X");
+            yProgressBar = rootVisualElement.Q<LabeledProgressBar>("Y");
+            zProgressBar = rootVisualElement.Q<LabeledProgressBar>("Z");
 
 
-            if (xProgressBar != null) { xProgressBar.value = 0; xProgressBar.title = "0%"; }
-            if (yProgressBar != null) { yProgressBar.value = 0; yProgressBar.title = "0%"; }
-            if (zProgressBar != null) { zProgressBar.value = 0; zProgressBar.title = "0%"; }
+            if (xProgressBar != null)  xProgressBar.Bar.value = 0; 
+            if (yProgressBar != null)  yProgressBar.Bar.value = 0; 
+            if (zProgressBar != null)  zProgressBar.Bar.value = 0;
 
 
             //Set parameters. Make everyone a ranged evaluator, make the value a default, add the listener to change the chosen elite bundle and then disable it.
             //I set everything false so they can't be manipulated if there's no preset present.
+
+            zProgressBar.Bar.ProgressTextLabel =
+                CurrentOptimizer != null ? 
+                CurrentOptimizer.GetType().Name : defaultSelectText ;
+
             param1Field = rootVisualElement.Q<ClassDropDown>("XParamDropdown");
             param1Field.Type = typeof(IRangedEvaluator);
             param1Field.value = defaultSelectText;
@@ -221,7 +221,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 var xChoice = param1Field.GetChoiceInstance() as IRangedEvaluator;
                 CurrentXField = xChoice;
                 InitializeEvaluator(xChoice);
-                xParamText.text = param1Field.Value;
+                xProgressBar.Bar.ProgressTextLabel = param1Field.Value;
 
             });
             param1Field.SetEnabled(false);
@@ -240,7 +240,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 var yChoice = param2Field.GetChoiceInstance() as IRangedEvaluator;
                 CurrentYField = yChoice;
                 InitializeEvaluator(yChoice);
-                yParamText.text = param2Field.Value;
+                yProgressBar.Bar.ProgressTextLabel = param2Field.Value;
             });
             param2Field.SetEnabled(false);
 
@@ -268,7 +268,7 @@ namespace ISILab.LBS.VisualElements.Editor
             resetPresetButton.clicked += () =>
             {
                 if (mapEliteBundle != null) mapEliteBundle = mapEliteBundle.ResetValues();
-                UpdatePreset(mapEliteBundle.PresetName);
+                if (mapEliteBundle != null) UpdatePreset(mapEliteBundle.PresetName);
             };
 
             autoSelectButton = rootVisualElement.Q<Button>("AutoSelectButton");
@@ -311,7 +311,13 @@ namespace ISILab.LBS.VisualElements.Editor
 
             //Suggestion button
             applySuggestion = rootVisualElement.Q<Button>("ButtonApplySuggestion");
-            applySuggestion.clicked += ApplySuggestion;
+            applySuggestion.clicked += () =>
+            {
+                if (selectedMap != null)
+                {
+                    ApplySuggestion(selectedMap.Data);
+                }
+            };
 
             //Reset button
             originalTileMap = LayerPopulation.BundleTilemap.Clone() as BundleTileMapModule;
@@ -390,6 +396,7 @@ namespace ISILab.LBS.VisualElements.Editor
             titleContent = new GUIContent("Population Assistant");
             minSize = new Vector2(1000, 500); // use the Canvas Size of the uxml
             Show();
+            ChangeTheme(LBSSettings.Instance.view.LBSTheme);
         }
         
         private void UpdateTooltips()
@@ -460,7 +467,7 @@ namespace ISILab.LBS.VisualElements.Editor
 
             param1Field.Value = CurrentXField != null ? CurrentXField.GetType().Name : defaultSelectText;
             param2Field.Value = CurrentYField != null ? CurrentYField.GetType().Name : defaultSelectText;
-            optimizerField.value = CurrentOptimizer?.Evaluator != null ? CurrentOptimizer.Evaluator.GetType().Name : defaultSelectText;
+            optimizerField.Value = CurrentOptimizer?.Evaluator != null ? CurrentOptimizer.Evaluator.GetType().Name : defaultSelectText;
 
             //InitializeAllCurrentEvaluators();
             originalMapCalcs();
@@ -481,18 +488,18 @@ namespace ISILab.LBS.VisualElements.Editor
             string textY = (scores.y > -1000) ? $" [Actual: {scores.y:0.00}]" : "";
             string textZ = (scores.z > -1000) ? $" [Actual: {scores.z:0.00}]" : "";
 
-            yParamText.text = param2Field.Value;
-            xParamText.text = param1Field.Value;
-            zParamText.text = new string("Fitness (" + optimizerField.Value + ")");
+            yProgressBar.TitleText = param2Field.Value;
+            xProgressBar.TitleText = param1Field.Value;
+            zProgressBar.TitleText = new string("Fitness (" + optimizerField.Value + ")");
 
             if (scores.x > -1000)
             {
-                xProgressBar.value = scores.x;
-                yProgressBar.value = scores.y;
-                zProgressBar.value = scores.z;
-                xProgressBar.title = Mathf.FloorToInt(scores.x * 100).ToString() + "%";
-                yProgressBar.title = Mathf.FloorToInt(scores.y * 100).ToString() + "%";
-                zProgressBar.title = Mathf.FloorToInt(scores.z * 100).ToString() + "%";
+                xProgressBar.Bar.value = scores.x;
+                yProgressBar.Bar.value = scores.y;
+                zProgressBar.Bar.value = scores.z;
+                xProgressBar.Bar.title = Mathf.FloorToInt(scores.x * 100).ToString() + "%";
+                yProgressBar.Bar.title = Mathf.FloorToInt(scores.y * 100).ToString() + "%";
+                zProgressBar.Bar.title = Mathf.FloorToInt(scores.z * 100).ToString() + "%";
                 CurrentGraph.SetAxisValue(scores.z, 0);
                 CurrentGraph.SetAxisValue(scores.x, 1);
                 CurrentGraph.SetAxisValue(scores.y, 2);
@@ -514,13 +521,13 @@ namespace ISILab.LBS.VisualElements.Editor
                 CurrentGraph.MarkDirtyRepaint();
             }
 
-            if (xProgressBar != null) { xProgressBar.value = 0; xProgressBar.title = "0%"; }
-            if (yProgressBar != null) { yProgressBar.value = 0; yProgressBar.title = "0%"; }
-            if (zProgressBar != null) { zProgressBar.value = 0; zProgressBar.title = "0%"; }
+            if (xProgressBar != null)  xProgressBar.Bar.value = 0; 
+            if (yProgressBar != null)  yProgressBar.Bar.value = 0; 
+            if (zProgressBar != null)  zProgressBar.Bar.value = 0;
 
-            yParamText.text = param2Field.Value;
-            xParamText.text = param1Field.Value;
-            zParamText.text = new string("Fitness (" + optimizerField.Value + ")");
+            yProgressBar.TitleText = param2Field.Value;
+            xProgressBar.TitleText = param1Field.Value;
+            zProgressBar.TitleText = new string("Fitness (" + optimizerField.Value + ")");
         }
 
         #endregion
@@ -631,12 +638,13 @@ namespace ISILab.LBS.VisualElements.Editor
                 }
             }, CancelToken);
         }
-        
+
         #region Suggestion
-        //Apply the suggestion in the world
-        private void ApplySuggestion() => ApplySuggestion(selectedMap.Data);
+
         private void ApplySuggestion(object obj)
         {
+            if (obj == null) return;
+
             //This MUST go first since it'll save the original tilemap
             OnTileMapChanged?.Invoke();
 
@@ -911,12 +919,12 @@ namespace ISILab.LBS.VisualElements.Editor
             //Shows data if non null
             if (mapData == null) return;
 
-            xProgressBar.value = (float)mapData.xFitness;
-            yProgressBar.value = (float)mapData.yFitness;
-            zProgressBar.value = (float)mapData.Fitness;
-            xProgressBar.title = Mathf.FloorToInt((float)mapData.xFitness * 100).ToString() + "%";
-            yProgressBar.title = Mathf.FloorToInt((float)mapData.yFitness * 100).ToString() + "%";
-            zProgressBar.title = Mathf.FloorToInt((float)mapData.Fitness * 100).ToString() + "%";
+            xProgressBar.Bar.value = (float)mapData.xFitness;
+            yProgressBar.Bar.value = (float)mapData.yFitness;
+            zProgressBar.Bar.value = (float)mapData.Fitness;
+            xProgressBar.Bar.title = Mathf.FloorToInt((float)mapData.xFitness * 100).ToString() + "%";
+            yProgressBar.Bar.title = Mathf.FloorToInt((float)mapData.yFitness * 100).ToString() + "%";
+            zProgressBar.Bar.title = Mathf.FloorToInt((float)mapData.Fitness * 100).ToString() + "%";
 
             //Takes border off selected map previously selected map
             selectedMap?.OnButtonDeselected?.Invoke();

@@ -163,32 +163,19 @@ namespace ISILab.LBS.VisualElements
             });
 
             type.value = behaviour.SelectedFilter; 
-            
-            
             bundlePallete = this.Q<SimplePallete>("ConnectionPallete");
-            bundlePallete.DisplayAddElement = false;
 
             UpdateElementBundles();
             SetPallete();
-            bundlePallete.Repaint();
+
             bundleField.value = behaviour.Bundle;
-
-
-            MarkDirtyRepaint();
             
             return this;
         }
 
         private void SetPallete()
         {
-            // Set init options
-            bundlePallete.ShowGroups = false;
-            bundlePallete.ShowAddButton = false;
-            bundlePallete.ShowRemoveButton = false;
-            bundlePallete.ShowNoElement = false;
-            
-            bundlePallete.Repaint();
-            
+
             bundlePallete.OnSelectOption += (selected) =>
             {
                 behaviour.bundleElement = selected as Bundle;
@@ -207,7 +194,6 @@ namespace ISILab.LBS.VisualElements
                 if (tags.Count > 0)
                 {
                     tags.ForEach(t => tooltip += "\n- " + t);
-                    //b.Characteristics.ForEach(c => tooltip += "\n- " + c?.ToString());//.GetType());
                 }
                 else
                 {
@@ -219,11 +205,8 @@ namespace ISILab.LBS.VisualElements
             bundlePallete.OnRepaint += () =>
             {
                 bundlePallete.Selected = behaviour.bundleElement;
-                //bundlePallete.CollectionSelected = behaviour.BundleCollection;
             };
 
-            bundlePallete.SetName("Entities");
-            bundlePallete.SetIcon(icon, BHcolor);
 
         }
 
@@ -255,7 +238,6 @@ namespace ISILab.LBS.VisualElements
                     .Where(b => b.LayerContentFlags.HasFlag(BundleFlags.Population) && b.HasAnyFlag(filter)) // get the bundle type at the filter index
                     .ToList();
             }
-            bundlePallete.ShowGroups = false;
             
             candidates.Sort((b1, b2) => b1.BundleName.CompareTo(b2.BundleName));
             object[] options = new object[candidates.Count];

@@ -29,7 +29,8 @@ namespace ISILab.LBS.Drawers
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
             // Get behaviour
-            if (target is not PopulationBehaviour population) return;
+            if (target is not PopulationBehaviour population)
+                return;
 
             PopulationTileView.SelectedTile?.Highlight(false);
 
@@ -103,7 +104,8 @@ namespace ISILab.LBS.Drawers
             // Update stored tiles
             foreach (TileBundleGroup tile in population.Keys)
             {
-                if (tile == null) continue;
+                if (tile == null) 
+                    continue;
 
                 var elements = view.GetElementsFromLayer(population.OwnerLayer, tile.LocationKey);
                 if (elements == null) continue;

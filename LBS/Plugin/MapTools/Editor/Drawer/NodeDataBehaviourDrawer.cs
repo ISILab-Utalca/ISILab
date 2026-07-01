@@ -15,7 +15,8 @@ namespace ISILab.LBS.Drawers.Editor
     {
         public override void Draw(object target, MainView view, Vector2 tesselationSize)
         {
-            if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null) return;
+            if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null) 
+                return;
 
             // load level
             if (!Loaded || FullRedrawRequested)
@@ -30,7 +31,8 @@ namespace ISILab.LBS.Drawers.Editor
 
         public override void UpdateTiles(object target, MainView view, Vector2 teselationSize)
         {
-            if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null) return;
+            if (target is not NodeDataBehaviour bh || bh.OwnerLayer == null)
+                return;
 
             foreach (var expiredKey in bh.RetrieveExpiredTiles())
             {
@@ -43,18 +45,23 @@ namespace ISILab.LBS.Drawers.Editor
 
         private void LoadAllTiles(NodeDataBehaviour bh, MainView view)
         {
-            foreach (var node in bh.Graph.QuestNodes)
+            var qbh = bh.OwnerLayer.GetBehaviour<QuestBehaviour>();
+            foreach (var node in qbh.QuestNodes)
             {
-                if (node.Data == null) continue;
+                if (node.Data == null) 
+                    continue;
 
-                var displayMode = (node.Data == bh.Graph.SelectedQuestData) ? DisplayStyle.Flex : DisplayStyle.None;
+                var displayMode = (node.Data == bh.SelectedNodeData) 
+                    ? DisplayStyle.Flex : DisplayStyle.None;
 
                 var questNodeView = view.GetElementsFromLayer(bh.OwnerLayer, node);
-                if (questNodeView == null && questNodeView.Count == 0) continue;
+                if (questNodeView == null || questNodeView.Count == 0) 
+                    continue;
 
                 foreach (var field in node.Data.GetFields<GrammarField>())
                 {
-                    if (field == null) return;
+                    if (field == null) 
+                        return;
 
                     // already drawn no need to draw
                     var existing = view.GetElementsFromLayer(bh.OwnerLayer, field);
@@ -66,7 +73,8 @@ namespace ISILab.LBS.Drawers.Editor
 
                     // make graph element if its required
                     var visual = CreateGrammarGraphView(field, questNodeView.FirstOrDefault() as QuestNodeView);
-                    if (visual == null) continue;
+                    if (visual == null) 
+                        continue;
 
                     view.AddElementToLayerContainer(bh.OwnerLayer, field, visual);
                     visual.style.display = displayMode;
@@ -76,13 +84,14 @@ namespace ISILab.LBS.Drawers.Editor
 
         private static void PaintNewTiles(MainView view, NodeDataBehaviour bh)
         {
+            
             foreach (var tile in bh.RetrieveNewTiles())
             {
                 var field = tile as GrammarField;
                 if (field == null) 
                     return;
 
-                var displayMode = (field.Data == bh.Graph.SelectedQuestData) ? DisplayStyle.Flex : DisplayStyle.None;
+                var displayMode = (field.Data == bh.SelectedNodeData) ? DisplayStyle.Flex : DisplayStyle.None;
 
                 // already drawn no need to draw
                 var existing = view.GetElementsFromLayer(bh.OwnerLayer, field);

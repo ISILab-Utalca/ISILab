@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using ISILab.LBS.Components;
+using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.MapTools.Generators;
 using UnityEditor;
 
@@ -30,16 +31,16 @@ namespace ISILab.LBS.VisualElements
             EditorGUILayout.PropertyField(_nodeTypeProp);
 
             // Get the current enum value safely
-            QuestNode.ENodeType nodeType = (QuestNode.ENodeType)_nodeTypeProp.enumValueIndex;
+            GraphNodeType nodeType = (GraphNodeType)_nodeTypeProp.enumValueIndex;
 
             // Rule 1: Hide Previous List if it's a Start Node
-            if (nodeType != QuestNode.ENodeType.Start)
+            if (nodeType != GraphNodeType.Start)
             {
                 EditorGUILayout.PropertyField(_previousProp, true);
             }
 
             // Rule 2: Hide Next Field if it's a Goal Node
-            if (nodeType != QuestNode.ENodeType.Goal)
+            if (nodeType != GraphNodeType.Goal)
             {
                 EditorGUILayout.PropertyField(_nextProp, true);
             }
