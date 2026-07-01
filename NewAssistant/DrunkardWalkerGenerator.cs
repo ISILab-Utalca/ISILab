@@ -1,3 +1,4 @@
+using ISILab.Commons.Utility;
 using UnityEngine;
 
 public class DrunkardWalkerGenerator
@@ -75,7 +76,7 @@ public class DrunkardWalkerGenerator
         int dir;
         do
         {
-            dir = Random.Range(0, 4);
+            dir = SafeRandom.Range(0, 4);
         }
         // Condición: Evitar que se devuelva por donde vino (giro de 180 grados)
         while (lastDir != -1 && dir == (lastDir + 2) % 4);
@@ -88,8 +89,8 @@ public class DrunkardWalkerGenerator
     /// </summary>
     private void CarveRoom(int cx, int cy, Vector2Int minRoom, Vector2Int maxRoom, int roomId)
     {
-        int w = Random.Range(minRoom.x, maxRoom.x + 1);
-        int h = Random.Range(minRoom.y, maxRoom.y + 1);
+        int w = SafeRandom.Range(minRoom.x, maxRoom.x + 1);
+        int h = SafeRandom.Range(minRoom.y, maxRoom.y + 1);
 
         int startX = cx - w / 2;
         int startY = cy - h / 2;

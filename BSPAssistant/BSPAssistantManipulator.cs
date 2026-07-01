@@ -100,8 +100,7 @@ namespace ISILab
             }
 
             assistant.Schema.RecalculateWalls();
-            DrawManager.Instance.RedrawLevel(LBS.LBS.loadedLevel.data);
-            LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.Schema.OwnerLayer);
+            LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.OwnerLayer);
 
             TaskBar.EnableProcess(false);
             assistant.OnTermination = null;
