@@ -43,11 +43,10 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region VIEW FIELDS
-        private VectorImage icon = AssetMacro.LoadAssetByGuid<VectorImage>("87f2bb6f2c78b184a8ea2b6a5b14f878");
         private SimplePallete connectionPallete;
         private LBSCustomObjectField bundleField;
         private WarningPanel warningPanel;
-        private string tileIconGuid = "";
+        private string tileIconGuid = "87f2bb6f2c78b184a8ea2b6a5b14f878";
         #endregion
 
         #region PROPERTIES
@@ -202,6 +201,7 @@ namespace ISILab.LBS.VisualElements
 
             // Connection Pallete
             connectionPallete = this.Q<SimplePallete>("ConnectionPallete");
+
             CheckTargetBundle();
 
             exterior.OwnerLayer.OnChange += () =>
@@ -222,19 +222,6 @@ namespace ISILab.LBS.VisualElements
         private void SetConnectionPallete(Bundle bundle)
         {
             if (bundle == null) return;
-
-            connectionPallete.style.display = DisplayStyle.Flex;
-            
-            // Set init options
-            connectionPallete.ShowGroups = true;
-            connectionPallete.ShowAddButton = false;
-            connectionPallete.ShowRemoveButton = false;
-            connectionPallete.ShowDropdown = false;
-            connectionPallete.ShowNoElement = false;
-            
-            // Set basic value
-            connectionPallete.SetName("Tile Brushes");
-            connectionPallete.SetIcon(icon, BHcolor);
             
             var identifierTags = LBSAssetsStorage.Instance.Get<LBSTag>();
             var idents = SetPalleteConnectionView(bundle, identifierTags);

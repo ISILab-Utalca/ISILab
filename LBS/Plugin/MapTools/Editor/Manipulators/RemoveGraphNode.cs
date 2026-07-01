@@ -2,6 +2,7 @@ using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.Settings;
+using ISILab.LBS.VisualElements;
 using ISILab.LBS.VisualElements.Editor;
 using LBS.Components;
 using UnityEditor;
@@ -13,7 +14,7 @@ namespace ISILab.LBS.Manipulators
 {
     public class RemoveGraphNode : LBSManipulator
     {
-        private QuestGraphModule _questGraph;
+        private Graph _questGraph;
         private QuestBehaviour _behaviour;
 
         protected override string IconGuid => "ce08b36a396edbf4394f7a4e641f253d";
@@ -28,20 +29,17 @@ namespace ISILab.LBS.Manipulators
         {
             base.Init(layer, provider);
             
-            _questGraph = layer.GetModule<QuestGraphModule>();
+            _questGraph = layer.GetModule<Graph>();
             _behaviour = layer.GetBehaviour<QuestBehaviour>();
         }
 
-        protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
+        public void Delete(object obj)
         {
-            var node = _questGraph.GetNodeAtPosition<GraphNode>(endPosition);
-            if (node == null) return;
-
             var level = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
             Undo.RegisterCompleteObjectUndo(level, "Remove Quest Node");
 
-            _questGraph.RemoveNode(node);
+            _questGraph.RemoveNode(obj);
 
             OnManipulationEnd?.Invoke();
 

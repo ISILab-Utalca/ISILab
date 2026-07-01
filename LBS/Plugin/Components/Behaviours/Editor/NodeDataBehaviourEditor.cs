@@ -53,7 +53,7 @@ namespace ISILab.LBS.VisualElements
 
         private static VisualTreeAsset visualTree;
 
-        private static GraphNode lastUpdated;
+        private static object lastUpdated;
 
         #endregion
 
@@ -104,12 +104,12 @@ namespace ISILab.LBS.VisualElements
             ActionExtensions.RemoveMethod(ref behaviour.OnNodeDataChanged, nameof(OnSelectNode));
             ActionExtensions.RemoveMethod(ref behaviour.OnNodeDataChangedBegin, nameof(DataChangeValueBegin));
             ActionExtensions.RemoveMethod(ref behaviour.OnNodeDataChangedEnd, nameof(DataChangeValueEnd));
-            ActionExtensions.RemoveMethod(ref behaviour.Graph.OnNodeSelected, nameof(OnSelectNode));
+            ActionExtensions.RemoveMethod(ref behaviour.Graph.OnSelect, nameof(OnSelectNode));
 
             ActionExtensions.AddUnique(ref behaviour.OnNodeDataChanged, OnSelectNode);
             ActionExtensions.AddUnique(ref behaviour.OnNodeDataChangedBegin, DataChangeValueBegin);
             ActionExtensions.AddUnique(ref behaviour.OnNodeDataChangedEnd, DataChangeValueEnd);
-            ActionExtensions.AddUnique(ref behaviour.Graph.OnNodeSelected, OnSelectNode);
+            ActionExtensions.AddUnique(ref behaviour.Graph.OnSelect, OnSelectNode);
         }
 
         private void DataChangeValueBegin(QuestNodeData data)
@@ -171,7 +171,7 @@ namespace ISILab.LBS.VisualElements
             toolButton.SetEnabled(false);
         }
 
-        private void OnSelectNode(GraphNode graphNode)
+        private void OnSelectNode(object graphNode)
         {
             DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
 

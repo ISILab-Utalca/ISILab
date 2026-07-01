@@ -74,6 +74,35 @@ MonoBehaviour:
         name: Node Data
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
+    - rid: 2509153188142383104
+      type: {class: Graph, ns: ISILab.LBS.Modules, asm: LBS}
+      data:
+        id: Graph
+        ownerLayer:
+          visible: 1
+          blocked: 0
+          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
+          id: Quest
+          name: Quest_Layer
+          tileSize: {x: 2, y: 2}
+          floors:
+          - rid: 7118756570821821096
+          behaviours:
+          - rid: 7118756570821821106
+          - rid: 1036301199104803716
+          - rid: 6524972785853792956
+          assistants:
+          - rid: 7118756570821821107
+          - rid: 7118756570821821141
+          generatorRules:
+          - rid: 7118756570821821108
+          index: 0
+        _nodes: []
+        _edges: []
+        root:
+          rid: -2
+        selected:
+          rid: -2
     - rid: 6524972785853792956
       type: {class: NoteBehaviour, ns: ISILab.LBS.Behaviours, asm: LBS}
       data:
@@ -101,34 +130,6 @@ MonoBehaviour:
         name: NoteBehaviour
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
-    - rid: 6524972807720010041
-      type: {class: QuestGraphModule, ns: ISILab.LBS.Modules, asm: LBS}
-      data:
-        id: QuestGraphModule
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 9fc8ac6f82a8b39458c73185d378ffbf
-          id: Quest
-          name: Quest_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 7118756570821821096
-          behaviours:
-          - rid: 7118756570821821106
-          - rid: 1036301199104803716
-          - rid: 6524972785853792956
-          assistants:
-          - rid: 7118756570821821107
-          - rid: 7118756570821821141
-          generatorRules:
-          - rid: 7118756570821821108
-          index: 0
-        graphNodes: []
-        graphEdges: []
-        root:
-          rid: -2
-        grammarGuid: 14cb4d99b22a94a45bac4216aca3f57e
     - rid: 6524972834653995615
       type: {class: NoteModule, ns: ISILab.LBS.Modules, asm: LBS}
       data:
@@ -157,8 +158,8 @@ MonoBehaviour:
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
         modules:
-        - rid: 6524972807720010041
         - rid: 6524972834653995615
+        - rid: 2509153188142383104
     - rid: 7118756570821821097
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
@@ -249,6 +250,7 @@ MonoBehaviour:
         name: Quest Behavior
         iconGuid: e17eb0e02534666439fca8ea30b4d4e4
         icon: {fileID: 0}
+        grammarGuid: 14cb4d99b22a94a45bac4216aca3f57e
     - rid: 7118756570821821107
       type: {class: GrammarAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: LBS}
       data:

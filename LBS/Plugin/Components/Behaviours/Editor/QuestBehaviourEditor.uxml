@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/ISILab/LBS/Plugin/UI/Styles/LBSstyle.uss?fileID=7433441132597879392&amp;guid=9614f5340894b3546b59d43b5f2be029&amp;type=3#LBSstyle" />
+    <ui:VisualElement>
+        <uie:ObjectField label="Grammar Asset" name="Grammar" type="ISILab.AI.Grammar.LBSGrammar, LBS" />
+        <LBS.VisualElements.SimplePallete name="ActionsPallete" name-label="Actions" display-no-element="false" display-remove-element="false" display-add-element="false" icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/QuestIcons/Quest=Scroll.svg?fileID=7388822144124034973&amp;guid=d7b2c9af591bee4429f705ae7ae6abea&amp;type=3#Quest=Scroll" />
+    </ui:VisualElement>
+    <ui:VisualElement>
+        <LBS.VisualElements.SimplePallete name="ConditionsPallete" name-label="Connections" display-no-element="false" display-remove-element="false" display-add-element="false" icon="project://database/Assets/ISILab/Commons/Resources/Icons/Vectorial/Manipulators/Icon=QuestConnection.svg?fileID=7388822144124034973&amp;guid=ec280cec81783e94cb5df0b0b40dec7e&amp;type=3#Icon=QuestConnection" />
+    </ui:VisualElement>
+</ui:UXML>

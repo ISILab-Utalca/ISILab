@@ -54,7 +54,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #region METHODS
 
         // Used by generator 3d
-        public abstract void InitTrigger(GraphNode paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0);
+        public abstract void InitTrigger(Node paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0);
 
         public bool TryComplete()
         {

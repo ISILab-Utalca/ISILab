@@ -18,17 +18,20 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #region FIELDS
 
         [SerializeField]
-        private bool Or;
+        private NodeKind branchType;
         #endregion
 
         #region PROPERTIES
-        public bool IsAnd => Or == false;
-        public bool IsOr => Or == true;
+        public bool IsAnd => branchType == NodeKind.And;
+        public bool IsOr => branchType == NodeKind.Or;
 
         
-        public override void InitTrigger(GraphNode paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0)
+        public override void InitTrigger(Node paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0)
         {
-            Or = paramNode as OrNode != null;
+            if(paramNode is BranchNode bn)
+            {
+                branchType = bn.Kind;
+            }
         }
 
         #endregion

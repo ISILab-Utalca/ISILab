@@ -47,8 +47,6 @@ namespace ISILab.LBS.VisualElements
             this.Add(lowerLeftFill);
             this.Add(lowerRightFill);
             this.Add(center);
-
-            EditorApplication.delayCall += () => {
                
                 var centerPoint = new Vector2(50, 50);
                 var maxBounds = new Vector2(100, 100);
@@ -76,11 +74,11 @@ namespace ISILab.LBS.VisualElements
                 center.MarkDirtyRepaint();
 
                 SetConnections(connections.ToArray());
-                SetSelectionMode(false);
+                SetSelectionMode(true);
 
                 this.SetBorder(Color.black, 0);
                 style.display = DisplayStyle.Flex;
-            };
+         
 
             style.overflow = Overflow.Hidden;
             style.display = DisplayStyle.None;

@@ -21,7 +21,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         #region FIELDS
         BSPDungeonGenerator _generator;
         Dictionary<int, Zone> _zoneDict = new();
-        SectorizedTileMapModule _sectorizedModule;
         SchemaBehaviour _schemaBehaviour;
 
         private RectInt _area = new (0,0,50,50);
@@ -48,10 +47,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public Dictionary<int, Zone> ZoneDict
         {
             get { return _zoneDict ??= new(); }
-        }
-        public SectorizedTileMapModule Sectorized
-        {
-            get { return _sectorizedModule ??= OwnerLayer.GetModule<SectorizedTileMapModule>(); }
         }
         public SchemaBehaviour Schema
         {

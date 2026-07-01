@@ -4,6 +4,7 @@ using System.Linq;
 using ISILab.AI.Grammar;
 using ISILab.Commons.JsonNet;
 using ISILab.DevTools.Macros;
+using ISILab.LBS.Behaviours;
 using ISILab.LBS.Components;
 using ISILab.LBS.Modules;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
@@ -21,8 +22,9 @@ namespace ISILab.LBS.Tests
 
         private LBSLevelData _levelData;
         private GrammarAssistant _grammarAssistant;
+        private QuestBehaviour _questBehaviour;
         private QuestAssistant _questAssistant;
-        private QuestGraphModule _questGraph;
+        private Graph _questGraph;
 
         #region NODE COUNT 10
 
@@ -190,7 +192,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    var nodes = _questGraph.QuestNodes;
+                    var nodes = _questBehaviour.QuestNodes;
                     QuestNode chosenNode = null;
                     string nextAction = null;
                     int attempts = 0;
@@ -220,7 +222,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    var nodes = _questGraph.QuestNodes;
+                    var nodes = _questBehaviour.QuestNodes;
                     QuestNode chosenNode = null;
                     string prevAction = null;
                     int attempts = 0;
@@ -250,7 +252,7 @@ namespace ISILab.LBS.Tests
         {
             Measure.Method(() =>
                 {
-                    var nodes = _questGraph.QuestNodes;
+                    var nodes = _questBehaviour.QuestNodes;
                     QuestNode chosenNode = null;
                     List<string> expansion = null;
                     int attempts = 0;
@@ -287,22 +289,24 @@ namespace ISILab.LBS.Tests
             LBSLayer firstLayer = _levelData.GetLayer(0);
             Assert.IsNotNull(firstLayer, "First layer not found in level data");
 
-            _questGraph = firstLayer.GetModule<QuestGraphModule>();
+            _questGraph = firstLayer.GetModule<Graph>();
             _questAssistant = firstLayer.GetAssistant<QuestAssistant>();
             _grammarAssistant = firstLayer.GetAssistant<GrammarAssistant>();
+            _questBehaviour = firstLayer.GetBehaviour<QuestBehaviour>();
 
             Assert.IsNotNull(_questGraph, "QuestGraph not found");
             Assert.IsNotNull(_questAssistant, "QuestAssistant not found");
             Assert.IsNotNull(_grammarAssistant, "GrammarAssistant not found");
+            Assert.IsNotNull(_questBehaviour, "QuestBehavior not found");
 
             _questGraph.OwnerLayer = firstLayer;
 
-            if (_questGraph.Grammar == null)
+            if (_questBehaviour.Grammar == null)
             {
-                _questGraph.Grammar = AssetMacro.LoadAssetByGuid<LBSGrammar>("63ab688b53411154db5edd0ec7171c42");
+                _questBehaviour.Grammar = AssetMacro.LoadAssetByGuid<LBSGrammar>("63ab688b53411154db5edd0ec7171c42");
             }
 
-            _questGraph.GraphNodes.Clear();
+            _questGraph.Nodes.Clear();
             _questAssistant.GenerateRandomNodes(nodeCount);
             _questAssistant.ConnectAllNodes();
 

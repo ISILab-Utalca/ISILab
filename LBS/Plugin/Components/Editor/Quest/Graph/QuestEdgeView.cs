@@ -22,22 +22,22 @@ namespace ISILab.LBS.VisualElements
         private Vector2 _startPos, _endPos;
         private readonly float _lineWidth;
         private readonly float _stroke;
-        private readonly QuestEdge _edge;
+        private readonly Modules.Edge _edge;
         // meant to be used to access the USS color hehe
         private readonly VisualElement _viewData;
-        private readonly QuestGraphModule _graph;
+        private readonly Graph _graph;
         private readonly VisualElement _connectionView;
         private readonly QuestGraphNodeView _node1;
         private readonly QuestGraphNodeView _node2;
 
-        public QuestEdgeView(QuestGraphModule questGraph, QuestEdge edge, QuestGraphNodeView node1, QuestGraphNodeView node2, float lineWidth = 5f, float stroke = 3f)
+        public QuestEdgeView(Graph graph, Modules.Edge edge, QuestGraphNodeView node1, QuestGraphNodeView node2, float lineWidth = 5f, float stroke = 3f)
         {
             visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestEdgeView");
             visualTree.CloneTree(this);
 
             _viewData = this.Q<VisualElement>("View");
 
-            _graph = questGraph ?? throw new ArgumentNullException(nameof(questGraph));
+            _graph = graph ?? throw new ArgumentNullException(nameof(graph));
             _edge = edge ?? throw new ArgumentNullException(nameof(edge));
             _node1 = node1 ?? throw new ArgumentNullException(nameof(node1));
             _node2 = node2 ?? throw new ArgumentNullException(nameof(node2));
@@ -140,6 +140,8 @@ namespace ISILab.LBS.VisualElements
 
             painter.DrawArrow(_endPos, arrowDirection, 12, 4f, painter.strokeColor);
             painter.DrawCircle(_startPos, 10, painter.strokeColor);
+
+            _viewData.SetDisplay(false);
         }
 
         private Vector2 GetBezierPoint(float t, Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3)
@@ -163,9 +165,9 @@ namespace ISILab.LBS.VisualElements
             if (evt.button != (int)MouseButton.RightMouse) return;
 
             var menu = new GenericMenu();
-            menu.AddItem(new GUIContent("Set Type/Direct"), false, () => _graph.ChangeConnection(_edge, typeof(QuestNode)));
-            menu.AddItem(new GUIContent("Set Type/OR"), false, () => _graph.ChangeConnection(_edge, typeof(OrNode)));
-            menu.AddItem(new GUIContent("Set Type/AND"), false, () => _graph.ChangeConnection(_edge, typeof(AndNode)));
+            menu.AddItem(new GUIContent("Set Type/Direct"), false, () => _graph.ChangeConnection(_edge, NodeKind.Terminal));
+            menu.AddItem(new GUIContent("Set Type/OR"), false, () => _graph.ChangeConnection(_edge, NodeKind.Or));
+            menu.AddItem(new GUIContent("Set Type/AND"), false, () => _graph.ChangeConnection(_edge, NodeKind.And));
             menu.AddSeparator("");
 
             menu.ShowAsContext();

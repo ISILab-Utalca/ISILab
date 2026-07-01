@@ -53,7 +53,7 @@ namespace ISILab.LBS.VisualElements
             // Create VisualElements
             // Should create a visual element for each field you'll want to tweak,
             // and a button to run the assistant.
-            var runButton = new LBSCustomButton() { text = "Run" };
+            var runButton = new LBSCustomButton() {  text = $"Run" };
 
             areaField = new LBSCustomRectField();
             minPartitionField = new LBSCustomIntField();
@@ -195,8 +195,7 @@ namespace ISILab.LBS.VisualElements
             }
 
             assistant.Schema.RecalculateWalls();
-            DrawManager.Instance.RedrawLevel(LBS.loadedLevel.data);
-            LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.Schema.OwnerLayer);
+            LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.OwnerLayer);
 
             TaskBar.EnableProcess(false);
             assistant.OnTermination = null;

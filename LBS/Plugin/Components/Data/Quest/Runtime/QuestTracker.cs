@@ -14,7 +14,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #region FIELDS
 
         [SerializeField, SerializeReference] 
-        private QuestGraphModule questGraph;
+        private Graph questGraph;
 
         #endregion
 
@@ -30,7 +30,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #region PROPERTIES
 
         public QuestTrigger CurrentQuest { get; private set; }
-        public QuestGraphModule QuestGraph { get => questGraph; }
+        public Graph QuestGraph { get => questGraph; }
 
         public List<QuestTrigger> ActiveTriggers
         {
@@ -61,7 +61,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         #region METHODS
         private void Awake() => StartQuest();
 
-        public void Init(QuestGraphModule graph) => questGraph = graph;
+        public void Init(Graph graph) => questGraph = graph;
 
         private void StartQuest()
         {
@@ -79,7 +79,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
 
                 if(trigger is QuestTriggerNode qtn)
                 {
-                    if (qtn.NodeType == QuestNode.ENodeType.Start)
+                    if (qtn.NodeType == GraphNodeType.Start)
                     {
                         ActivateNode(qtn);
                     }
@@ -93,7 +93,7 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             // check if quest shuold end
             if (trigger is QuestTriggerNode qtn)
             {
-                if (qtn.NodeType == QuestNode.ENodeType.Goal)
+                if (qtn.NodeType == GraphNodeType.Goal)
                 {
                     CompleteWholeQuest();
                     return;

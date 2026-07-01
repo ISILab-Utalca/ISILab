@@ -49,8 +49,7 @@ namespace ISILab.LBS.VisualElements
 
 
             SetConnections(connections.ToArray());
-            EditorApplication.delayCall += () => {
-
+           
                 var centerPoint = new Vector2(50, 50);
 
                 leftConnection.MinPos = centerPoint*Vector2.left + centerPoint;
@@ -69,11 +68,11 @@ namespace ISILab.LBS.VisualElements
                 center.MarkDirtyRepaint();
 
                 SetConnections(connections.ToArray());
-                SetSelectionMode(false);
+                SetSelectionMode(true);
 
                 this.SetBorder(Color.black, 0);
                 style.display = DisplayStyle.Flex;
-            };
+ 
 
             style.overflow = Overflow.Hidden;
             style.display = DisplayStyle.None;

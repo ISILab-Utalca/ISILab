@@ -46,7 +46,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
     }
 
     [Serializable]
-    [RequieredModule(typeof(QuestGraphModule))]
+    [RequieredModule(typeof(Graph))]
     public class QuestAssistant : LBSAssistant
     {
         #region CONSTS
@@ -84,7 +84,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             get => suggestions;
             set => suggestions = value;
         }
-        public QuestGraphModule Graph => OwnerLayer?.GetModule<QuestGraphModule>();
+        public Graph Graph => OwnerLayer?.GetModule<Graph>();
 
         #endregion
 
@@ -141,11 +141,14 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             var grammarAssistant = graph.OwnerLayer.GetAssistant<GrammarAssistant>();
             Assert.IsNotNull(grammarAssistant, "GrammarAssistant should not be null.");
 
-            if (graph.Grammar.TerminalActions.Count == 0) return;
+            var bh = graph.OwnerLayer.GetBehaviour<QuestBehaviour>();
+            Assert.IsNotNull(bh, "Behaviour should not be null.");
+
+            if (bh.Grammar.TerminalActions.Count == 0) return;
 
             // Set random root node
-            var randomIndex = Random.Range(0, graph.Grammar.TerminalActions.Count);
-            var currentNode = graph.AddQuestNode(graph.Grammar.TerminalActions[randomIndex], Vector2.zero);
+            var randomIndex = Random.Range(0, bh.Grammar.TerminalActions.Count);
+            var currentNode = bh.CreateQuestNode(bh.Grammar.TerminalActions[randomIndex], Vector2.zero);
             graph.SetRoot(currentNode);
 
             // Add subsequent nodes
@@ -156,7 +159,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
                     break;
 
                 var newAction = nextActions[Random.Range(0, nextActions.Count)];
-                currentNode = graph.AddQuestNode(newAction, Vector2.zero);
+                currentNode = bh.CreateQuestNode(newAction, Vector2.zero);
             }
 
             
@@ -168,9 +171,9 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public void ConnectAllNodes()
         {
             var graph = Graph;
-            for (int i = 0; i < graph.GraphNodes.Count - 1; i++)
+            for (int i = 0; i < graph.Nodes.Count - 1; i++)
             {
-                graph.AddEdge(graph.GraphNodes[i], graph.GraphNodes[i + 1]);
+                graph.AddEdge(graph.Nodes[i], graph.Nodes[i + 1]);
             }
         }
 
@@ -214,15 +217,17 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         {
             var realizedNodes = new List<QuestNode>();
             var occupiedPositions = new List<Vector2>();
-            var graph = Graph;
+
+            var bh = Graph.OwnerLayer.GetBehaviour<QuestBehaviour>();
+            Assert.IsNotNull(bh, "Behaviour should not be null.");
 
             for (int i = 0; i < candidates.Count; i++)
             {
                 if (token.IsCancellationRequested) break;
 
                 var candidate = candidates[i];
-                string newID = "s_" + QuestGraphModule.GenerateUniqueId(candidate.Terminal.id, realizedNodes.Select(n => n.ID));
-                var newNode = new QuestNode(newID, Vector2.zero, candidate.Terminal.id, graph);
+                string newID = "s_" + QuestBehaviour.GenerateUniqueId(candidate.Terminal.id, realizedNodes.Select(n => n.ID));
+                var newNode = new QuestNode(newID, Vector2.zero, candidate.Terminal, Graph);
 
                 // Map the world data to the quest fields
                 newNode.Data.ApplyTilesToData(candidate);
@@ -250,7 +255,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         private HashSet<QuestCandidate> FindValidTerminalMappings(PopulationBehaviour population, System.Random rng)
         {
             var possibleMappings = new HashSet<QuestCandidate>();
-            var grammar = Graph.Grammar;
+            var grammar = Graph.OwnerLayer.GetBehaviour<QuestBehaviour>().Grammar;
 
             foreach (var terminal in grammar.LBSTerminals)
             {
@@ -311,8 +316,8 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             while (existingPositions.Contains(pos))
             {
                 pos += _positionOverlapOffset;
-                visualOffset.x += (int)QuestGraphModule.SuggestionDistance;
-                visualOffset.y += (int)QuestGraphModule.ViewNodeWidthOffset;
+                visualOffset.x += (int)QuestBehaviour.SuggestionDistance;
+                visualOffset.y += (int)QuestBehaviour.ViewNodeWidthOffset;
             }
 
             existingPositions.Add(pos);

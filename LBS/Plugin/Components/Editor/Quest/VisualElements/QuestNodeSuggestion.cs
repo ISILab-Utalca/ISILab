@@ -3,6 +3,7 @@ using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.Components;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using ISILab.LBS.Behaviours;
 
 namespace ISILab.LBS.VisualElements.Editor
 {
@@ -48,14 +49,16 @@ namespace ISILab.LBS.VisualElements.Editor
 
         private void AddSuggestionToGraph()
         {
-            _generatedQuestNode.Graph.AddSuggestionNode(_generatedQuestNode);
+            _generatedQuestNode.Graph.OwnerLayer.GetBehaviour<QuestBehaviour>()
+                .AddSuggestionNode(_generatedQuestNode);
+
             RemoveSuggestion();
         }
 
         private void GoToNode()
         {
-            var graphPos = _generatedQuestNode.Graph.OwnerLayer.FixedToPosition(_generatedQuestNode.NodePosition.position.ToInt(), true);
-            _generatedQuestNode.Graph.GoToNodeInGraph(graphPos.ToInt());
+            var graphPos = _generatedQuestNode.Graph.OwnerLayer.FixedToPosition(_generatedQuestNode.Area.position.ToInt(), true);
+            _generatedQuestNode.Graph.GraphPosition(graphPos.ToInt());
         }
 
         public void UpdateData(QuestNode genNode)

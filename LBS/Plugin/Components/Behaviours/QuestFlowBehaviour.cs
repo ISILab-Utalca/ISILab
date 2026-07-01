@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace ISILab.LBS.Behaviours
 {
-    [RequieredModule(typeof(QuestGraphModule))]
+    [RequieredModule(typeof(Graph))]
     public class QuestFlowBehaviour : LBSBehaviour
     {
-        public QuestGraphModule Graph => OwnerLayer.GetModule<QuestGraphModule>();
+        public Graph Graph => OwnerLayer.GetModule<Graph>();
         
         public QuestFlowBehaviour(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint)
         {

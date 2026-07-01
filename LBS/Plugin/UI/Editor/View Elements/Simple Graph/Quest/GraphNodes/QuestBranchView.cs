@@ -20,7 +20,7 @@ namespace ISILab.LBS.VisualElements
         private VisualElement _and;
         #endregion
 
-        public QuestBranchView(GraphNode graphNode)
+        public QuestBranchView(BranchNode graphNode)
         {
             if (_rootAsset == null)
                 _rootAsset = DirectoryTools.GetAssetByName<VisualTreeAsset>("QuestBranchView");
@@ -31,19 +31,19 @@ namespace ISILab.LBS.VisualElements
             InvalidConnectionIcon = this.Q<VisualElement>("InvalidConnectionIcon");
 
             InvalidConnectionIcon.style.unityBackgroundImageTintColor = InvalidGrammarColor;
-            
+
             VisualElement coloredVe = this.Q<VisualElement>("Capsule");
             coloredVe.style.backgroundColor = DefaultBackgroundColor;
-            
+
             Node = graphNode ?? throw new ArgumentNullException(nameof(graphNode));
-            
+
             _or = this.Q<VisualElement>("OrVe");
             _and = this.Q<VisualElement>("AndVe");
-            
-            if(graphNode is OrNode) _or.style.display = DisplayStyle.Flex;
-            if(graphNode is AndNode) _and.style.display = DisplayStyle.Flex;
 
-            SetPosition(new Rect(Node.NodePosition.position, Vector2.one));
+            if (graphNode.Kind == NodeKind.Or) _or.style.display = DisplayStyle.Flex;
+            if (graphNode.Kind == NodeKind.And) _and.style.display = DisplayStyle.Flex;
+
+            SetPosition(new Rect(Node.Area.position, Vector2.one));
 
             RegisterCallbacks();
             Refresh();
@@ -93,7 +93,7 @@ namespace ISILab.LBS.VisualElements
             // Create the menu
             var menu = new GenericMenu();
 
-            if (Node.GetType() == typeof(AndNode))
+            if (Node.Kind == NodeKind.Or)
             {
                 menu.AddItem(new GUIContent("Set as 'Or branch' "), false, () =>
                 {
@@ -101,7 +101,7 @@ namespace ISILab.LBS.VisualElements
                 });
             }
     
-            if (Node.GetType() == typeof(OrNode))
+            if (Node.Kind == NodeKind.And)
             {
                 menu.AddItem(new GUIContent("Set as 'And branch' "), false, () =>
                 {
