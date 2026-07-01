@@ -14,7 +14,7 @@ using UnityEngine.UIElements;
 
 namespace ISILab
 {
-    public class BSPAssistantManipulator : ManipulateTeselation, IAssistantThreadedEditor
+    public class BSPAssistantManipulator : ManipulateTeselation
     {
         // Fields
         private Vector2Int _cornerStart;
@@ -22,9 +22,9 @@ namespace ISILab
 
         // Inherited Properties
         protected override string IconGuid => "5ab039ea1b079eb4dbe013d7a618c2aa";
-        public CancellationToken CancelToken { set; get; }
-        public CancellationTokenSource CancellationTokenSource { set; get; }
-        public ToolBarMain TaskBar { set; get; }
+
+        // Events
+        public event System.Action Execute;
 
         // Constructor
         public BSPAssistantManipulator()
@@ -60,50 +60,7 @@ namespace ISILab
             var mapWidth = corners.max.x - corners.min.x;
             var mapHeight = corners.max.y - corners.min.y;
             assistant.Area = new RectInt(corners.min.x, corners.min.y, mapWidth, mapHeight);
-            Execute();
-        }
-
-        private void Execute()
-        {
-            string insideStyle = assistant.Schema.PressetInsideStyle.name;
-            string outsideStyle = assistant.Schema.PressetOutsideStyle.name;
-            // Save history version to revert if necessary
-            LoadedLevel x = LBSController.CurrentLevel;
-            EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(x, "Execute BSPDungeon");
-
-            ((IAssistantThreadedEditor)this).SetUpTask(this, assistant);
-            Task.Run(() =>
-            {
-                try
-                {
-                    assistant.RunAsync(insideStyle, outsideStyle,
-                        ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
-                    EditorApplication.delayCall += () => assistant.OnTermination.Invoke("BSPDungeon Generated", LogType.Log, LBSController.CurrentLevel);
-                }
-                catch (System.Exception ex)
-                {
-                    ((IAssistantThreadedEditor)this).OnTaskException(ex, assistant);
-                    Debug.LogError("[BSPDungeonAssistantEditor]: " + ex.Message);
-                }
-            }, CancelToken);
-        }
-
-        void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type, Object loadedLevel)
-        {
-            LBSMainWindow.MessageNotify(new LBSLog(log, type));
-
-            // Mark as dirty
-            if (EditorGUI.EndChangeCheck())
-            {
-                EditorUtility.SetDirty(loadedLevel);
-            }
-
-            assistant.Schema.RecalculateWalls();
-            LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.OwnerLayer);
-
-            TaskBar.EnableProcess(false);
-            assistant.OnTermination = null;
+            Execute?.Invoke();
         }
     }
 }

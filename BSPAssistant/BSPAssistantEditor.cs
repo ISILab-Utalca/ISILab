@@ -38,7 +38,7 @@ namespace ISILab.LBS.VisualElements
         public BSPAssistantEditor(object target) : base(target)
         {
             assistant = target as BSPAssistant;             // MUST HAVE
-            assistant.changeCallback += SetFieldsInfo;      // RECOMMENDED
+            assistant.AreaChanged += SetFieldsInfo;      // RECOMMENDED
             CreateVisualElement();                          // MUST HAVE
         }
 
@@ -128,6 +128,7 @@ namespace ISILab.LBS.VisualElements
         public void SetTools(ToolKit toolKit)
         {
             var manipulator = new BSPAssistantManipulator();
+            manipulator.Execute += Execute;
             var t1 = new LBSTool(manipulator);
             t1.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
             toolKit.ActivateTool(t1, assistant.OwnerLayer, assistant);

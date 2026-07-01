@@ -35,7 +35,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
             {
                 if (value == _area) return;
                 _area = value;
-                changeCallback?.Invoke();
+                AreaChanged?.Invoke();
             }
             get { return _area; }
         }
@@ -55,7 +55,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         #endregion
 
         #region EVENTS
-        public event Action changeCallback;
+        public event Action AreaChanged;
         #endregion
 
         // Constructor (MUST HAVE)
@@ -90,7 +90,6 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
 
             // Closing and drawing
             Schema.RecalculateWalls();
-            DrawManager.Instance.RedrawLevel(LBS.loadedLevel.data);
             LBSMainWindow.Instance.layerPanel.SetSelectedLayer(Schema.OwnerLayer);
         }
 
