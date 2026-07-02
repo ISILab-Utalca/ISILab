@@ -110,8 +110,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.Blueprint
             for (int i = 0; i < existing.Count; i++)
             {
                 var layer = existing[i];
-
-                if (layer.ID == incoming.ID)
+                Debug.Log($"Layer: {layer.ID} - {layer.SubTypeID} | Incoming: {incoming.ID} - {incoming.SubTypeID}");
+                if (layer.ID == incoming.ID && layer.SubTypeID == incoming.SubTypeID)
                     return layer;
             }
 
