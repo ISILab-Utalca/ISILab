@@ -1,6 +1,5 @@
 using ISILab.LBS;
 using ISILab.LBS.Assistants;
-using ISILab.LBS.Editor.Windows;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
@@ -62,37 +61,7 @@ namespace ISILab.LBS.Plugin.Core.AI.Assistant
         public BSPAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
 
 
-        // Dungeon Generator Methods
-        public void RunSynced()
-        {
-            // Init
-            ZoneDict.Clear();
-            int[,] mapData = Generator.Generate(Area.width, Area.height, minPartitionSize, minRoomSize);
-
-            // Read mapData
-            for (int i = 0; i < mapData.GetLength(0); i++)
-            {
-                for (int j = 0; j < mapData.GetLength(1); j++)
-                {
-                    // Ignore if 0
-                    int key = mapData[i, j];
-                    if (key < 1) continue;
-
-                    // Get or create Zone
-                    Zone value = ZoneDict.ContainsKey(key) ? ZoneDict[key] : ZoneDict[key] = Schema.AddZone();
-
-                    // Add new Tile and it's connections
-                    LBSTile t = Schema.AddTile(new Vector2Int(Area.x + i, Area.y + j), value);
-                    if (t != null) Schema.AddConnections(t, SchemaBehaviour.DefaultConnections,
-                        new List<bool> { true, true, true, true });
-                }
-            }
-
-            // Closing and drawing
-            Schema.RecalculateWalls();
-            LBSMainWindow.Instance.layerPanel.SetSelectedLayer(Schema.OwnerLayer);
-        }
-
+        // Dungeon Generator Method
         public void RunAsync(string insideStyle, string outsideStyle, Action<float> onProgress = null, CancellationToken token = default)
         {
             // Init

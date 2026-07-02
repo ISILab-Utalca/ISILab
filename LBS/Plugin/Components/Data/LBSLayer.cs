@@ -1,9 +1,9 @@
 using ISILab.Commons.Utility;
 using ISILab.Extensions;
 using ISILab.LBS;
+using ISILab.LBS.Assistants;
 using ISILab.LBS.Behaviours;
 using ISILab.LBS.Modules;
-using ISILab.LBS.Assistants;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.Settings;
@@ -14,6 +14,7 @@ using PathOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Type = System.Type;
@@ -195,6 +196,21 @@ namespace LBS.Components
         {
             for (int i = 0; i < floors.Length; i++)
             {
+                // Null parameter removes all null references
+                if(module is null)
+                {
+                    for(int j = 0; j < floors[i].Modules.Count; j++)
+                    {
+                        if(floors[i].Modules[j] is null)
+                        {
+                            floors[i].Modules.RemoveAt(j);
+                            j--;
+                        }
+                    }
+                    continue;
+                }
+
+                // Find module and remove it
                 var toRemove = floors[i].Modules.Find(m => m.ID == module.ID);
                 if (toRemove != null)
                 {
@@ -285,7 +301,19 @@ namespace LBS.Components
 
         public void RemoveBehaviour(LBSBehaviour behaviour)
         {
-            if (behaviour == null) return;
+            if (behaviour == null) 
+            {
+                for(int i = 0; i < behaviours.Count; i++)
+                {
+                    if(behaviours[i] == null)
+                    {
+                        behaviours.RemoveAt(i);
+                        i--;
+                    }
+                }
+                return;
+            }
+
             if (behaviours.Remove(behaviour))
                 behaviour.OnDetachLayer(this);
         }
@@ -329,7 +357,19 @@ namespace LBS.Components
 
         public void RemoveAssistant(LBSAssistant assistant)
         {
-            if (assistant == null) return;
+            if (assistant == null)
+            {
+                for (int i = 0; i < assistants.Count; i++)
+                {
+                    if (assistants[i] == null)
+                    {
+                        assistants.RemoveAt(i);
+                        i--;
+                    }
+                }
+                return;
+            }
+
             if (assistants.Remove(assistant))
                 assistant.OnDetachLayer(this);
         }
@@ -351,7 +391,25 @@ namespace LBS.Components
             generatorRules.Add(rule);
         }
 
-        public bool RemoveGeneratorRule(LBSGeneratorRule rule) => generatorRules.Remove(rule);
+        public bool RemoveGeneratorRule(LBSGeneratorRule rule)
+        {
+            if(rule is null)
+            {
+                bool removedAny = false;
+                for (int i = 0; i < generatorRules.Count; i++)
+                {
+                    if (generatorRules[i] == null)
+                    {
+                        generatorRules.RemoveAt(i);
+                        removedAny = true;
+                        i--;
+                    }
+                }
+                return removedAny;
+            }
+
+            return generatorRules.Remove(rule);
+        }
 
         #endregion
 
@@ -452,10 +510,29 @@ namespace LBS.Components
         public object Clone()
         {
             // Clone modules via provided helper, clone lists of polymorphic objects by calling Clone() on each
+            foreach (var m in FirstModules)
+            {
+                if (m is null) throw new InvalidOperationException($"{Name} has a Null Module.");
+            }
             LBSFloor[] clonedModules = CloneFloorArray(this.floors);
-            List<LBSAssistant> clonedAssistants = this.assistants.Select(a => a.Clone() as LBSAssistant).ToList();
-            List<LBSGeneratorRule> clonedRules = this.generatorRules.Select(r => r.Clone() as LBSGeneratorRule).ToList();
-            List<LBSBehaviour> clonedBehaviours = this.behaviours.Select(b => b.Clone() as LBSBehaviour).ToList();
+            
+            List<LBSAssistant> clonedAssistants = this.assistants.Select(a => 
+            { 
+                if(a is null) throw new InvalidOperationException($"{Name} has a Null Assistant.");
+                return a.Clone() as LBSAssistant; 
+            }).ToList();
+
+            List<LBSGeneratorRule> clonedRules = this.generatorRules.Select(r =>
+            {
+                if (r is null) throw new InvalidOperationException($"{Name} has a Null Generator Rule.");
+                return r.Clone() as LBSGeneratorRule;
+            }).ToList();
+
+            List<LBSBehaviour> clonedBehaviours = this.behaviours.Select(b => 
+            { 
+                if (b is null) throw new InvalidOperationException($"{Name} has a Null Behaviour.");
+                return b.Clone() as LBSBehaviour; 
+            }).ToList();
 
             return new LBSLayer(clonedModules, clonedAssistants, clonedRules, clonedBehaviours, Parent, id, visible, name, iconGuid, TileSize);
         }

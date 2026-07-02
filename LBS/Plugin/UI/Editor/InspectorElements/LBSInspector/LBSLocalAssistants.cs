@@ -39,8 +39,7 @@ namespace ISILab.LBS.VisualElements
         {
             foreach (LBSLayer _reflayer in layers)
             {
-                LBSLayer layer = (LBSLayer)_reflayer.Clone();
-                Assert.IsNotNull(layer, "Layer could not be created");
+                LBSLayer layer = _reflayer.Clone() as LBSLayer;
                 if (layer == null) continue;
                 foreach (var assistant in layer.Assistants)
                 {

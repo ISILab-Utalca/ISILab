@@ -1,5 +1,4 @@
 using ISILab.LBS.Assistants;
-using ISILab.LBS.Manipulators;
 using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
@@ -112,47 +111,4 @@ public class DWAssistant : LBSAssistant, IAssistantThreaded
 
     public override void OnGUI() { }
 
-}
-
-public class DWAssistantManipulator : ManipulateTeselation
-{
-    private DWAssistant assistant;
-    private Vector2Int _cornerStart;
-    protected override string IconGuid => "ad8feef201665454ca79e31b7d798ac3";
-    public event System.Action Execute;
-
-    public DWAssistantManipulator() 
-    {
-        Feedback.fixToTeselation = true;
-        Name = "Drunkard Walk Dungeon Generator";
-        Description = "Select an area to generate a dungeon using the Drunkard Walk algorithm.";
-    }
-
-    public override void Init(LBSLayer layer, object owner)
-    {
-        base.Init(layer, owner);
-        assistant = owner as DWAssistant;
-    }
-    protected override void OnMouseDown(VisualElement element, Vector2Int position, MouseDownEvent e)
-    {
-        _cornerStart = position;
-    }
-
-    protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
-    {
-        base.OnMouseUp(element, endPosition, e);
-
-        //If esc key was pressed, cancel the operation
-        if (ForceCancel)
-        {
-            ForceCancel = false;
-            return;
-        }
-
-        var corners = assistant.OwnerLayer.ToFixedPosition(_cornerStart, endPosition);
-        var mapWidth = corners.max.x - corners.min.x;
-        var mapHeight = corners.max.y - corners.min.y;
-        assistant.Area = new RectInt(corners.min.x, corners.min.y, mapWidth, mapHeight);
-        Execute?.Invoke();
-    }
 }
