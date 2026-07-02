@@ -6,19 +6,34 @@ items:
   parent: ISILab.LBS.Behaviours
   children:
   - ISILab.LBS.Behaviours.QuestBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
-  - ISILab.LBS.Behaviours.QuestBehaviour.ActionToSet
+  - ISILab.LBS.Behaviours.QuestBehaviour.ActiveNodeKind
+  - ISILab.LBS.Behaviours.QuestBehaviour.ActiveTerminal
+  - ISILab.LBS.Behaviours.QuestBehaviour.AddSuggestionNode(ISILab.LBS.Components.QuestNode)
+  - ISILab.LBS.Behaviours.QuestBehaviour.BaseNodes
   - ISILab.LBS.Behaviours.QuestBehaviour.CaptureAreaData(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
   - ISILab.LBS.Behaviours.QuestBehaviour.CheckKeys
   - ISILab.LBS.Behaviours.QuestBehaviour.Clone
+  - ISILab.LBS.Behaviours.QuestBehaviour.CreateNode(UnityEngine.Vector2Int)
+  - ISILab.LBS.Behaviours.QuestBehaviour.CreateQuestNode(System.String,UnityEngine.Vector2)
+  - ISILab.LBS.Behaviours.QuestBehaviour.ExpandNode(System.Collections.Generic.List{System.String},ISILab.LBS.Components.QuestNode)
+  - ISILab.LBS.Behaviours.QuestBehaviour.GenerateUniqueId(System.String,System.Collections.Generic.IEnumerable{System.String})
   - ISILab.LBS.Behaviours.QuestBehaviour.GetAnchor
+  - ISILab.LBS.Behaviours.QuestBehaviour.GetEdge(UnityEngine.Vector2,System.Single)
+  - ISILab.LBS.Behaviours.QuestBehaviour.Grammar
   - ISILab.LBS.Behaviours.QuestBehaviour.Graph
+  - ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeAfter(System.String,ISILab.LBS.Components.QuestNode)
+  - ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeBefore(System.String,ISILab.LBS.Components.QuestNode)
   - ISILab.LBS.Behaviours.QuestBehaviour.MergeLayerData(System.Object,System.Boolean)
   - ISILab.LBS.Behaviours.QuestBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
   - ISILab.LBS.Behaviours.QuestBehaviour.OnDetachLayer(LBS.Components.LBSLayer)
   - ISILab.LBS.Behaviours.QuestBehaviour.OnGUI
+  - ISILab.LBS.Behaviours.QuestBehaviour.QuestNodes
+  - ISILab.LBS.Behaviours.QuestBehaviour.SelectedQuestNode
   - ISILab.LBS.Behaviours.QuestBehaviour.SetPosition(UnityEngine.Vector2Int,UnityEngine.Vector2Int)
+  - ISILab.LBS.Behaviours.QuestBehaviour.SuggestionDistance
   - ISILab.LBS.Behaviours.QuestBehaviour.UpdateKeys
-  - ISILab.LBS.Behaviours.QuestBehaviour.activeGraphNodeType
+  - ISILab.LBS.Behaviours.QuestBehaviour.ValidateGraph
+  - ISILab.LBS.Behaviours.QuestBehaviour.ViewNodeWidthOffset
   langs:
   - csharp
   - vb
@@ -33,17 +48,17 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: QuestBehaviour
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 12
+    startLine: 16
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
     content: >-
-      [RequieredModule(new Type[] { typeof(QuestGraphModule) })]
+      [RequieredModule(new Type[] { typeof(Graph) })]
 
       public class QuestBehaviour : LBSBehaviour, ICloneable, IBlueprintable
     content.vb: >-
-      <RequieredModule(New Type() { GetType(QuestGraphModule) })>
+      <RequieredModule(New Type() { GetType(Graph) })>
 
       Public Class QuestBehaviour Inherits LBSBehaviour Implements ICloneable, IBlueprintable
   inheritance:
@@ -67,6 +82,7 @@ items:
   - ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
   - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
   - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
   - ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
   - ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
   - ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
@@ -78,62 +94,101 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: ISILab.LBS.Behaviours.QuestBehaviour.activeGraphNodeType
-  commentId: F:ISILab.LBS.Behaviours.QuestBehaviour.activeGraphNodeType
-  id: activeGraphNodeType
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.ViewNodeWidthOffset
+  commentId: F:ISILab.LBS.Behaviours.QuestBehaviour.ViewNodeWidthOffset
+  id: ViewNodeWidthOffset
   parent: ISILab.LBS.Behaviours.QuestBehaviour
   langs:
   - csharp
   - vb
-  name: activeGraphNodeType
-  nameWithType: QuestBehaviour.activeGraphNodeType
-  fullName: ISILab.LBS.Behaviours.QuestBehaviour.activeGraphNodeType
+  name: ViewNodeWidthOffset
+  nameWithType: QuestBehaviour.ViewNodeWidthOffset
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ViewNodeWidthOffset
   type: Field
   source:
     remote:
       path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: activeGraphNodeType
+    id: ViewNodeWidthOffset
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 15
+    startLine: 21
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public Type activeGraphNodeType
+    content: public const float ViewNodeWidthOffset = 100
     return:
-      type: System.Type
-    content.vb: Public activeGraphNodeType As Type
-- uid: ISILab.LBS.Behaviours.QuestBehaviour.ActionToSet
-  commentId: P:ISILab.LBS.Behaviours.QuestBehaviour.ActionToSet
-  id: ActionToSet
+      type: System.Single
+    content.vb: Public Const ViewNodeWidthOffset As Single = 100
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.SuggestionDistance
+  commentId: F:ISILab.LBS.Behaviours.QuestBehaviour.SuggestionDistance
+  id: SuggestionDistance
   parent: ISILab.LBS.Behaviours.QuestBehaviour
   langs:
   - csharp
   - vb
-  name: ActionToSet
-  nameWithType: QuestBehaviour.ActionToSet
-  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ActionToSet
+  name: SuggestionDistance
+  nameWithType: QuestBehaviour.SuggestionDistance
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.SuggestionDistance
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SuggestionDistance
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 22
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public const float SuggestionDistance = 1.5
+    return:
+      type: System.Single
+    content.vb: Public Const SuggestionDistance As Single = 1.5
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.Grammar
+  commentId: P:ISILab.LBS.Behaviours.QuestBehaviour.Grammar
+  id: Grammar
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: Grammar
+  nameWithType: QuestBehaviour.Grammar
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.Grammar
   type: Property
   source:
     remote:
       path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: ActionToSet
+    id: Grammar
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 16
+    startLine: 44
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
+  summary: Grammar whose's rules and terminals are used to assign and validate quest nodes. It must be stored using GUIDs to avoid corruption.
+  example: []
   syntax:
-    content: public string ActionToSet { get; set; }
+    content: >-
+      [ShowOnLayerTemplate]
+
+      public LBSGrammar Grammar { get; set; }
     parameters: []
     return:
-      type: System.String
-    content.vb: Public Property ActionToSet As String
-  overload: ISILab.LBS.Behaviours.QuestBehaviour.ActionToSet*
+      type: ISILab.AI.Grammar.LBSGrammar
+    content.vb: >-
+      <ShowOnLayerTemplate>
+
+      Public Property Grammar As LBSGrammar
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.Grammar*
+  attributes:
+  - type: ISILab.LBS.ShowOnLayerTemplateAttribute
+    ctor: ISILab.LBS.ShowOnLayerTemplateAttribute.#ctor
+    arguments: []
 - uid: ISILab.LBS.Behaviours.QuestBehaviour.Graph
   commentId: P:ISILab.LBS.Behaviours.QuestBehaviour.Graph
   id: Graph
@@ -152,17 +207,162 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Graph
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 21
+    startLine: 66
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public QuestGraphModule Graph { get; }
+    content: public Graph Graph { get; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.QuestGraphModule
-    content.vb: Public ReadOnly Property Graph As QuestGraphModule
+      type: ISILab.LBS.Modules.Graph
+    content.vb: Public ReadOnly Property Graph As Graph
   overload: ISILab.LBS.Behaviours.QuestBehaviour.Graph*
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.QuestNodes
+  commentId: P:ISILab.LBS.Behaviours.QuestBehaviour.QuestNodes
+  id: QuestNodes
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: QuestNodes
+  nameWithType: QuestBehaviour.QuestNodes
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.QuestNodes
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: QuestNodes
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 67
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public List<QuestNode> QuestNodes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Components.QuestNode}
+    content.vb: Public ReadOnly Property QuestNodes As List(Of QuestNode)
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.QuestNodes*
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.BaseNodes
+  commentId: P:ISILab.LBS.Behaviours.QuestBehaviour.BaseNodes
+  id: BaseNodes
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: BaseNodes
+  nameWithType: QuestBehaviour.BaseNodes
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.BaseNodes
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: BaseNodes
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 68
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public List<Node> BaseNodes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ISILab.LBS.Components.Node}
+    content.vb: Public ReadOnly Property BaseNodes As List(Of Node)
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.BaseNodes*
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.SelectedQuestNode
+  commentId: P:ISILab.LBS.Behaviours.QuestBehaviour.SelectedQuestNode
+  id: SelectedQuestNode
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: SelectedQuestNode
+  nameWithType: QuestBehaviour.SelectedQuestNode
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.SelectedQuestNode
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: SelectedQuestNode
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 69
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public QuestNode SelectedQuestNode { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public ReadOnly Property SelectedQuestNode As QuestNode
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.SelectedQuestNode*
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.ActiveTerminal
+  commentId: P:ISILab.LBS.Behaviours.QuestBehaviour.ActiveTerminal
+  id: ActiveTerminal
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: ActiveTerminal
+  nameWithType: QuestBehaviour.ActiveTerminal
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ActiveTerminal
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ActiveTerminal
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 70
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public string ActiveTerminal { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ActiveTerminal As String
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.ActiveTerminal*
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.ActiveNodeKind
+  commentId: P:ISILab.LBS.Behaviours.QuestBehaviour.ActiveNodeKind
+  id: ActiveNodeKind
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: ActiveNodeKind
+  nameWithType: QuestBehaviour.ActiveNodeKind
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ActiveNodeKind
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ActiveNodeKind
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 76
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public NodeKind ActiveNodeKind { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.NodeKind
+    content.vb: Public Property ActiveNodeKind As NodeKind
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.ActiveNodeKind*
 - uid: ISILab.LBS.Behaviours.QuestBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
   commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
   id: '#ctor(System.String,System.String,UnityEngine.Color)'
@@ -181,7 +381,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 27
+    startLine: 85
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -217,7 +417,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnGUI
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 35
+    startLine: 93
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -245,7 +445,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 40
+    startLine: 98
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -275,7 +475,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAttachLayer
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 45
+    startLine: 105
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -306,7 +506,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnDetachLayer
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 78
+    startLine: 169
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -337,7 +537,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CheckKeys
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 84
+    startLine: 175
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -365,7 +565,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: UpdateKeys
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 89
+    startLine: 180
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -391,7 +591,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CaptureAreaData
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 112
+    startLine: 201
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -432,7 +632,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetPosition
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 154
+    startLine: 243
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -468,7 +668,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAnchor
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 180
+    startLine: 268
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -501,7 +701,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: MergeLayerData
     path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
-    startLine: 194
+    startLine: 282
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -526,6 +726,345 @@ items:
   nameWithType.vb: QuestBehaviour.MergeLayerData(Object, Boolean)
   fullName.vb: ISILab.LBS.Behaviours.QuestBehaviour.MergeLayerData(Object, Boolean)
   name.vb: MergeLayerData(Object, Boolean)
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.ValidateGraph
+  commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.ValidateGraph
+  id: ValidateGraph
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: ValidateGraph()
+  nameWithType: QuestBehaviour.ValidateGraph()
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ValidateGraph()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ValidateGraph
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 431
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  summary: >-
+    Checks and updates the validation of the whole graph against the grammar rules, the nodes' data and connections. 
+
+    It should be called after any change in the graph to make sure the graph is updated and valid.
+  example: []
+  syntax:
+    content: public void ValidateGraph()
+    content.vb: Public Sub ValidateGraph()
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.ValidateGraph*
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.GetEdge(UnityEngine.Vector2,System.Single)
+  commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.GetEdge(UnityEngine.Vector2,System.Single)
+  id: GetEdge(UnityEngine.Vector2,System.Single)
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GetEdge(Vector2, float)
+  nameWithType: QuestBehaviour.GetEdge(Vector2, float)
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.GetEdge(UnityEngine.Vector2, float)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GetEdge
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 466
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  summary: Returns a <xref href="ISILab.LBS.Modules.Edge" data-throw-if-not-resolved="false"></xref>. by passing a position and a delta distance(error margin) to check if its near the edge's middle point connection.
+  example: []
+  syntax:
+    content: public Edge GetEdge(Vector2 pos, float delta = 20)
+    parameters:
+    - id: pos
+      type: UnityEngine.Vector2
+      description: Position to check
+    - id: delta
+      type: System.Single
+      description: Delta distance (error margin)
+    return:
+      type: ISILab.LBS.Modules.Edge
+      description: The edge if found, otherwise null
+    content.vb: Public Function GetEdge(pos As Vector2, delta As Single = 20) As Edge
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.GetEdge*
+  nameWithType.vb: QuestBehaviour.GetEdge(Vector2, Single)
+  fullName.vb: ISILab.LBS.Behaviours.QuestBehaviour.GetEdge(UnityEngine.Vector2, Single)
+  name.vb: GetEdge(Vector2, Single)
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.CreateNode(UnityEngine.Vector2Int)
+  commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.CreateNode(UnityEngine.Vector2Int)
+  id: CreateNode(UnityEngine.Vector2Int)
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: CreateNode(Vector2Int)
+  nameWithType: QuestBehaviour.CreateNode(Vector2Int)
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.CreateNode(UnityEngine.Vector2Int)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: CreateNode
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 487
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public object CreateNode(Vector2Int endPosition)
+    parameters:
+    - id: endPosition
+      type: UnityEngine.Vector2Int
+    return:
+      type: System.Object
+    content.vb: Public Function CreateNode(endPosition As Vector2Int) As Object
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.CreateNode*
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.CreateQuestNode(System.String,UnityEngine.Vector2)
+  commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.CreateQuestNode(System.String,UnityEngine.Vector2)
+  id: CreateQuestNode(System.String,UnityEngine.Vector2)
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: CreateQuestNode(string, Vector2)
+  nameWithType: QuestBehaviour.CreateQuestNode(string, Vector2)
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.CreateQuestNode(string, UnityEngine.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: CreateQuestNode
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 501
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  summary: Adds a quest node from a given action type and position. The action type is used to assign the terminalID of the node, which is used to validate the node's data and grammar rules.
+  example: []
+  syntax:
+    content: public QuestNode CreateQuestNode(string action, Vector2 pos)
+    parameters:
+    - id: action
+      type: System.String
+      description: terminal(for example, "kill")
+    - id: pos
+      type: UnityEngine.Vector2
+      description: position the node gets added at
+    return:
+      type: ISILab.LBS.Components.QuestNode
+      description: the added <xref href="ISILab.LBS.Components.QuestNode" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Function CreateQuestNode(action As String, pos As Vector2) As QuestNode
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.CreateQuestNode*
+  nameWithType.vb: QuestBehaviour.CreateQuestNode(String, Vector2)
+  fullName.vb: ISILab.LBS.Behaviours.QuestBehaviour.CreateQuestNode(String, UnityEngine.Vector2)
+  name.vb: CreateQuestNode(String, Vector2)
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.GenerateUniqueId(System.String,System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.GenerateUniqueId(System.String,System.Collections.Generic.IEnumerable{System.String})
+  id: GenerateUniqueId(System.String,System.Collections.Generic.IEnumerable{System.String})
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: GenerateUniqueId(string, IEnumerable<string>)
+  nameWithType: QuestBehaviour.GenerateUniqueId(string, IEnumerable<string>)
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.GenerateUniqueId(string, System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: GenerateUniqueId
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 543
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  summary: Generates an unique ID
+  example: []
+  syntax:
+    content: public static string GenerateUniqueId(string baseName, IEnumerable<string> existingIds)
+    parameters:
+    - id: baseName
+      type: System.String
+      description: 'the base name: the action name'
+    - id: existingIds
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: the list of existing IDs
+    return:
+      type: System.String
+      description: the unique ID
+    content.vb: Public Shared Function GenerateUniqueId(baseName As String, existingIds As IEnumerable(Of String)) As String
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.GenerateUniqueId*
+  nameWithType.vb: QuestBehaviour.GenerateUniqueId(String, IEnumerable(Of String))
+  fullName.vb: ISILab.LBS.Behaviours.QuestBehaviour.GenerateUniqueId(String, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: GenerateUniqueId(String, IEnumerable(Of String))
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.AddSuggestionNode(ISILab.LBS.Components.QuestNode)
+  commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.AddSuggestionNode(ISILab.LBS.Components.QuestNode)
+  id: AddSuggestionNode(ISILab.LBS.Components.QuestNode)
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: AddSuggestionNode(QuestNode)
+  nameWithType: QuestBehaviour.AddSuggestionNode(QuestNode)
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.AddSuggestionNode(ISILab.LBS.Components.QuestNode)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: AddSuggestionNode
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 567
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  syntax:
+    content: public void AddSuggestionNode(QuestNode generatedQuestNode)
+    parameters:
+    - id: generatedQuestNode
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public Sub AddSuggestionNode(generatedQuestNode As QuestNode)
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.AddSuggestionNode*
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeAfter(System.String,ISILab.LBS.Components.QuestNode)
+  commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeAfter(System.String,ISILab.LBS.Components.QuestNode)
+  id: InsertQuestNodeAfter(System.String,ISILab.LBS.Components.QuestNode)
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: InsertQuestNodeAfter(string, QuestNode)
+  nameWithType: QuestBehaviour.InsertQuestNodeAfter(string, QuestNode)
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeAfter(string, ISILab.LBS.Components.QuestNode)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: InsertQuestNodeAfter
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 637
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  summary: >-
+    finds the edge of a referenced node. makes a new action that turns into the "To"
+
+    of the connection and makes a new edge from the new action and the original "To"
+
+    of the referenced node
+  example: []
+  syntax:
+    content: public QuestNode InsertQuestNodeAfter(string action, QuestNode referenceNode)
+    parameters:
+    - id: action
+      type: System.String
+      description: The action type for the new node
+    - id: referenceNode
+      type: ISILab.LBS.Components.QuestNode
+      description: The node after which the new node will be inserted
+    return:
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public Function InsertQuestNodeAfter(action As String, referenceNode As QuestNode) As QuestNode
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeAfter*
+  nameWithType.vb: QuestBehaviour.InsertQuestNodeAfter(String, QuestNode)
+  fullName.vb: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeAfter(String, ISILab.LBS.Components.QuestNode)
+  name.vb: InsertQuestNodeAfter(String, QuestNode)
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeBefore(System.String,ISILab.LBS.Components.QuestNode)
+  commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeBefore(System.String,ISILab.LBS.Components.QuestNode)
+  id: InsertQuestNodeBefore(System.String,ISILab.LBS.Components.QuestNode)
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: InsertQuestNodeBefore(string, QuestNode)
+  nameWithType: QuestBehaviour.InsertQuestNodeBefore(string, QuestNode)
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeBefore(string, ISILab.LBS.Components.QuestNode)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: InsertQuestNodeBefore
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 673
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  summary: Inserts a new node before a specified reference node
+  example: []
+  syntax:
+    content: public QuestNode InsertQuestNodeBefore(string action, QuestNode referenceNode)
+    parameters:
+    - id: action
+      type: System.String
+      description: The action type for the new node
+    - id: referenceNode
+      type: ISILab.LBS.Components.QuestNode
+      description: The node before which the new node will be inserted
+    return:
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public Function InsertQuestNodeBefore(action As String, referenceNode As QuestNode) As QuestNode
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeBefore*
+  nameWithType.vb: QuestBehaviour.InsertQuestNodeBefore(String, QuestNode)
+  fullName.vb: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeBefore(String, ISILab.LBS.Components.QuestNode)
+  name.vb: InsertQuestNodeBefore(String, QuestNode)
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.ExpandNode(System.Collections.Generic.List{System.String},ISILab.LBS.Components.QuestNode)
+  commentId: M:ISILab.LBS.Behaviours.QuestBehaviour.ExpandNode(System.Collections.Generic.List{System.String},ISILab.LBS.Components.QuestNode)
+  id: ExpandNode(System.Collections.Generic.List{System.String},ISILab.LBS.Components.QuestNode)
+  parent: ISILab.LBS.Behaviours.QuestBehaviour
+  langs:
+  - csharp
+  - vb
+  name: ExpandNode(List<string>, QuestNode)
+  nameWithType: QuestBehaviour.ExpandNode(List<string>, QuestNode)
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ExpandNode(System.Collections.Generic.List<string>, ISILab.LBS.Components.QuestNode)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ExpandNode
+    path: ../LBS/Plugin/Components/Behaviours/QuestBehaviour.cs
+    startLine: 709
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  summary: Inserts all the nodes to replace the reference node
+  example: []
+  syntax:
+    content: public QuestNode ExpandNode(List<string> expandActions, QuestNode referenceNode)
+    parameters:
+    - id: expandActions
+      type: System.Collections.Generic.List{System.String}
+      description: all the actions that correspond to a new node
+    - id: referenceNode
+      type: ISILab.LBS.Components.QuestNode
+      description: the node that will be expanded(replaced)
+    return:
+      type: ISILab.LBS.Components.QuestNode
+    content.vb: Public Function ExpandNode(expandActions As List(Of String), referenceNode As QuestNode) As QuestNode
+  overload: ISILab.LBS.Behaviours.QuestBehaviour.ExpandNode*
+  nameWithType.vb: QuestBehaviour.ExpandNode(List(Of String), QuestNode)
+  fullName.vb: ISILab.LBS.Behaviours.QuestBehaviour.ExpandNode(System.Collections.Generic.List(Of String), ISILab.LBS.Components.QuestNode)
+  name.vb: ExpandNode(List(Of String), QuestNode)
 references:
 - uid: ISILab.LBS.Behaviours
   commentId: N:ISILab.LBS.Behaviours
@@ -770,6 +1309,25 @@ references:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredReadOnly
+  name: RetrieveExpiredReadOnly()
+  nameWithType: LBSBehaviour.RetrieveExpiredReadOnly()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly()
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+    name: RetrieveExpiredReadOnly
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredReadOnly
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+    name: RetrieveExpiredReadOnly
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredReadOnly
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
@@ -1312,44 +1870,73 @@ references:
   - name: T
   - name: )
   - name: )
-- uid: System.Type
-  commentId: T:System.Type
+- uid: System.Single
+  commentId: T:System.Single
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: Type
-  nameWithType: Type
-  fullName: System.Type
-- uid: ISILab.LBS.Behaviours.QuestBehaviour.ActionToSet*
-  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.ActionToSet
-  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_ActionToSet
-  name: ActionToSet
-  nameWithType: QuestBehaviour.ActionToSet
-  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ActionToSet
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.Grammar*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.Grammar
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_Grammar
+  name: Grammar
+  nameWithType: QuestBehaviour.Grammar
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.Grammar
+- uid: ISILab.AI.Grammar.LBSGrammar
+  commentId: T:ISILab.AI.Grammar.LBSGrammar
+  parent: ISILab.AI.Grammar
+  href: ISILab.AI.Grammar.LBSGrammar.html
+  name: LBSGrammar
+  nameWithType: LBSGrammar
+  fullName: ISILab.AI.Grammar.LBSGrammar
+- uid: ISILab.AI.Grammar
+  commentId: N:ISILab.AI.Grammar
+  href: ISILab.html
+  name: ISILab.AI.Grammar
+  nameWithType: ISILab.AI.Grammar
+  fullName: ISILab.AI.Grammar
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    href: ISILab.AI.Grammar.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.AI
+    name: AI
+    href: ISILab.AI.html
+  - name: .
+  - uid: ISILab.AI.Grammar
+    name: Grammar
+    href: ISILab.AI.Grammar.html
 - uid: ISILab.LBS.Behaviours.QuestBehaviour.Graph*
   commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.Graph
   href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_Graph
   name: Graph
   nameWithType: QuestBehaviour.Graph
   fullName: ISILab.LBS.Behaviours.QuestBehaviour.Graph
-- uid: ISILab.LBS.Modules.QuestGraphModule
-  commentId: T:ISILab.LBS.Modules.QuestGraphModule
+- uid: ISILab.LBS.Modules.Graph
+  commentId: T:ISILab.LBS.Modules.Graph
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraphModule.html
-  name: QuestGraphModule
-  nameWithType: QuestGraphModule
-  fullName: ISILab.LBS.Modules.QuestGraphModule
+  href: ISILab.LBS.Modules.Graph.html
+  name: Graph
+  nameWithType: Graph
+  fullName: ISILab.LBS.Modules.Graph
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html
@@ -1380,6 +1967,222 @@ references:
   - uid: ISILab.LBS.Modules
     name: Modules
     href: ISILab.LBS.Modules.html
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.QuestNodes*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.QuestNodes
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_QuestNodes
+  name: QuestNodes
+  nameWithType: QuestBehaviour.QuestNodes
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.QuestNodes
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.QuestNode}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.QuestNode}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<QuestNode>
+  nameWithType: List<QuestNode>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.QuestNode>
+  nameWithType.vb: List(Of QuestNode)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.QuestNode)
+  name.vb: List(Of QuestNode)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.QuestNode
+    name: QuestNode
+    href: ISILab.LBS.Components.QuestNode.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.QuestNode
+    name: QuestNode
+    href: ISILab.LBS.Components.QuestNode.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.BaseNodes*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.BaseNodes
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_BaseNodes
+  name: BaseNodes
+  nameWithType: QuestBehaviour.BaseNodes
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.BaseNodes
+- uid: System.Collections.Generic.List{ISILab.LBS.Components.Node}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Components.Node}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Node>
+  nameWithType: List<Node>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Components.Node>
+  nameWithType.vb: List(Of Node)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Components.Node)
+  name.vb: List(Of Node)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Components.Node
+    name: Node
+    href: ISILab.LBS.Components.Node.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Components.Node
+    name: Node
+    href: ISILab.LBS.Components.Node.html
+  - name: )
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.SelectedQuestNode*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.SelectedQuestNode
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_SelectedQuestNode
+  name: SelectedQuestNode
+  nameWithType: QuestBehaviour.SelectedQuestNode
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.SelectedQuestNode
+- uid: ISILab.LBS.Components.QuestNode
+  commentId: T:ISILab.LBS.Components.QuestNode
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.QuestNode.html
+  name: QuestNode
+  nameWithType: QuestNode
+  fullName: ISILab.LBS.Components.QuestNode
+- uid: ISILab.LBS.Components
+  commentId: N:ISILab.LBS.Components
+  href: ISILab.html
+  name: ISILab.LBS.Components
+  nameWithType: ISILab.LBS.Components
+  fullName: ISILab.LBS.Components
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Components
+    name: Components
+    href: ISILab.LBS.Components.html
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.ActiveTerminal*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.ActiveTerminal
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_ActiveTerminal
+  name: ActiveTerminal
+  nameWithType: QuestBehaviour.ActiveTerminal
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ActiveTerminal
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.ActiveNodeKind*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.ActiveNodeKind
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_ActiveNodeKind
+  name: ActiveNodeKind
+  nameWithType: QuestBehaviour.ActiveNodeKind
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ActiveNodeKind
+- uid: ISILab.LBS.Components.NodeKind
+  commentId: T:ISILab.LBS.Components.NodeKind
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.NodeKind.html
+  name: NodeKind
+  nameWithType: NodeKind
+  fullName: ISILab.LBS.Components.NodeKind
 - uid: ISILab.LBS.Behaviours.QuestBehaviour.#ctor*
   commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.#ctor
   href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour__ctor_System_String_System_String_UnityEngine_Color_
@@ -1749,5 +2552,171 @@ references:
     name: Boolean
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.ValidateGraph*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.ValidateGraph
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_ValidateGraph
+  name: ValidateGraph
+  nameWithType: QuestBehaviour.ValidateGraph
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ValidateGraph
+- uid: ISILab.LBS.Modules.Edge
+  commentId: T:ISILab.LBS.Modules.Edge
+  parent: ISILab.LBS.Modules
+  href: ISILab.LBS.Modules.Edge.html
+  name: Edge
+  nameWithType: Edge
+  fullName: ISILab.LBS.Modules.Edge
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.GetEdge*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.GetEdge
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_GetEdge_UnityEngine_Vector2_System_Single_
+  name: GetEdge
+  nameWithType: QuestBehaviour.GetEdge
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.GetEdge
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.CreateNode*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.CreateNode
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_CreateNode_UnityEngine_Vector2Int_
+  name: CreateNode
+  nameWithType: QuestBehaviour.CreateNode
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.CreateNode
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.CreateQuestNode*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.CreateQuestNode
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_CreateQuestNode_System_String_UnityEngine_Vector2_
+  name: CreateQuestNode
+  nameWithType: QuestBehaviour.CreateQuestNode
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.CreateQuestNode
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.GenerateUniqueId*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.GenerateUniqueId
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_GenerateUniqueId_System_String_System_Collections_Generic_IEnumerable_System_String__
+  name: GenerateUniqueId
+  nameWithType: QuestBehaviour.GenerateUniqueId
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.GenerateUniqueId
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.AddSuggestionNode*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.AddSuggestionNode
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_AddSuggestionNode_ISILab_LBS_Components_QuestNode_
+  name: AddSuggestionNode
+  nameWithType: QuestBehaviour.AddSuggestionNode
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.AddSuggestionNode
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeAfter*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeAfter
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_InsertQuestNodeAfter_System_String_ISILab_LBS_Components_QuestNode_
+  name: InsertQuestNodeAfter
+  nameWithType: QuestBehaviour.InsertQuestNodeAfter
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeAfter
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeBefore*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeBefore
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_InsertQuestNodeBefore_System_String_ISILab_LBS_Components_QuestNode_
+  name: InsertQuestNodeBefore
+  nameWithType: QuestBehaviour.InsertQuestNodeBefore
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.InsertQuestNodeBefore
+- uid: ISILab.LBS.Behaviours.QuestBehaviour.ExpandNode*
+  commentId: Overload:ISILab.LBS.Behaviours.QuestBehaviour.ExpandNode
+  href: ISILab.LBS.Behaviours.QuestBehaviour.html#ISILab_LBS_Behaviours_QuestBehaviour_ExpandNode_System_Collections_Generic_List_System_String__ISILab_LBS_Components_QuestNode_
+  name: ExpandNode
+  nameWithType: QuestBehaviour.ExpandNode
+  fullName: ISILab.LBS.Behaviours.QuestBehaviour.ExpandNode
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 shouldSkipMarkup: true

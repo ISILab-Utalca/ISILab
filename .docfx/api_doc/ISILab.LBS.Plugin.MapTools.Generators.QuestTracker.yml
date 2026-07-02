@@ -7,7 +7,7 @@ items:
   children:
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.CurrentQuest
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraphModule)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.Graph)
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.OnQuestAdvance
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers
@@ -266,11 +266,11 @@ items:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
   syntax:
-    content: public QuestGraphModule QuestGraph { get; }
+    content: public Graph QuestGraph { get; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.QuestGraphModule
-    content.vb: Public ReadOnly Property QuestGraph As QuestGraphModule
+      type: ISILab.LBS.Modules.Graph
+    content.vb: Public ReadOnly Property QuestGraph As Graph
   overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph*
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers
   commentId: P:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.ActiveTriggers
@@ -330,16 +330,16 @@ items:
       type: System.Collections.Generic.List{ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger}
     content.vb: Public ReadOnly Property Triggers As List(Of QuestTrigger)
   overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraphModule)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraphModule)
-  id: Init(ISILab.LBS.Modules.QuestGraphModule)
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.Graph)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.Graph)
+  id: Init(ISILab.LBS.Modules.Graph)
   parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
   langs:
   - csharp
   - vb
-  name: Init(QuestGraphModule)
-  nameWithType: QuestTracker.Init(QuestGraphModule)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.QuestGraphModule)
+  name: Init(Graph)
+  nameWithType: QuestTracker.Init(Graph)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init(ISILab.LBS.Modules.Graph)
   type: Method
   source:
     remote:
@@ -353,11 +353,11 @@ items:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
   syntax:
-    content: public void Init(QuestGraphModule graph)
+    content: public void Init(Graph graph)
     parameters:
     - id: graph
-      type: ISILab.LBS.Modules.QuestGraphModule
-    content.vb: Public Sub Init(graph As QuestGraphModule)
+      type: ISILab.LBS.Modules.Graph
+    content.vb: Public Sub Init(graph As Graph)
   overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init*
 references:
 - uid: ISILab.LBS.Plugin.MapTools.Generators
@@ -7513,13 +7513,13 @@ references:
   name: QuestGraph
   nameWithType: QuestTracker.QuestGraph
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.QuestGraph
-- uid: ISILab.LBS.Modules.QuestGraphModule
-  commentId: T:ISILab.LBS.Modules.QuestGraphModule
+- uid: ISILab.LBS.Modules.Graph
+  commentId: T:ISILab.LBS.Modules.Graph
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraphModule.html
-  name: QuestGraphModule
-  nameWithType: QuestGraphModule
-  fullName: ISILab.LBS.Modules.QuestGraphModule
+  href: ISILab.LBS.Modules.Graph.html
+  name: Graph
+  nameWithType: Graph
+  fullName: ISILab.LBS.Modules.Graph
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html
@@ -7662,7 +7662,7 @@ references:
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Triggers
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init*
   commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Init_ISILab_LBS_Modules_QuestGraphModule_
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTracker_Init_ISILab_LBS_Modules_Graph_
   name: Init
   nameWithType: QuestTracker.Init
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker.Init

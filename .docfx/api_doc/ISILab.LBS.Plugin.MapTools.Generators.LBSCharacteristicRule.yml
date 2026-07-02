@@ -1,0 +1,1067 @@
+### YamlMime:ManagedReference
+items:
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  id: LBSCharacteristicRule
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  children:
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.#ctor(ISILab.LBS.Characteristics.LBSCharacteristic)
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignBundle(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignGameObject(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Owner
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.OwnerBundle
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Sort(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.ToGenerate
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.priority
+  langs:
+  - csharp
+  - vb
+  name: LBSCharacteristicRule
+  nameWithType: LBSCharacteristicRule
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  type: Class
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: LBSCharacteristicRule
+    path: ../LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+    startLine: 12
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  summary: <b>Characteristic Rules</b> allow for characteristics to influence on the generation process for tilemaps based on bundles.
+  example: []
+  syntax:
+    content: >-
+      [Serializable]
+
+      public abstract class LBSCharacteristicRule
+    content.vb: >-
+      <Serializable>
+
+      Public MustInherit Class LBSCharacteristicRule
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ISILab.LBS.Plugin.MapTools.Generators.TerrainGridCharacteristicRule
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.priority
+  commentId: F:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.priority
+  id: priority
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  langs:
+  - csharp
+  - vb
+  name: priority
+  nameWithType: LBSCharacteristicRule.priority
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.priority
+  type: Field
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: priority
+    path: ../LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+    startLine: 20
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  summary: A numerical value that decides the order the rules will apply their effects in.
+  example: []
+  syntax:
+    content: public int priority
+    return:
+      type: System.Int32
+    content.vb: Public priority As Integer
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.#ctor(ISILab.LBS.Characteristics.LBSCharacteristic)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.#ctor(ISILab.LBS.Characteristics.LBSCharacteristic)
+  id: '#ctor(ISILab.LBS.Characteristics.LBSCharacteristic)'
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  langs:
+  - csharp
+  - vb
+  name: LBSCharacteristicRule(LBSCharacteristic)
+  nameWithType: LBSCharacteristicRule.LBSCharacteristicRule(LBSCharacteristic)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.LBSCharacteristicRule(ISILab.LBS.Characteristics.LBSCharacteristic)
+  type: Constructor
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: .ctor
+    path: ../LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+    startLine: 22
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public LBSCharacteristicRule(LBSCharacteristic owner)
+    parameters:
+    - id: owner
+      type: ISILab.LBS.Characteristics.LBSCharacteristic
+    content.vb: Public Sub New(owner As LBSCharacteristic)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.#ctor*
+  nameWithType.vb: LBSCharacteristicRule.New(LBSCharacteristic)
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.New(ISILab.LBS.Characteristics.LBSCharacteristic)
+  name.vb: New(LBSCharacteristic)
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Owner
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Owner
+  id: Owner
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: LBSCharacteristicRule.Owner
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Owner
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Owner
+    path: ../LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+    startLine: 31
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  summary: References the characteristic necessary to work.
+  example: []
+  syntax:
+    content: public LBSCharacteristic Owner { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Characteristics.LBSCharacteristic
+    content.vb: Public ReadOnly Property Owner As LBSCharacteristic
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Owner*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.OwnerBundle
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.OwnerBundle
+  id: OwnerBundle
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  langs:
+  - csharp
+  - vb
+  name: OwnerBundle
+  nameWithType: LBSCharacteristicRule.OwnerBundle
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.OwnerBundle
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: OwnerBundle
+    path: ../LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+    startLine: 35
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  summary: The characteristic's bundle for easy access.
+  example: []
+  syntax:
+    content: public Bundle OwnerBundle { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    content.vb: Public ReadOnly Property OwnerBundle As Bundle
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.OwnerBundle*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.ToGenerate
+  commentId: P:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.ToGenerate
+  id: ToGenerate
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  langs:
+  - csharp
+  - vb
+  name: ToGenerate
+  nameWithType: LBSCharacteristicRule.ToGenerate
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.ToGenerate
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: ToGenerate
+    path: ../LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+    startLine: 36
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  syntax:
+    content: public GeneratedBundle ToGenerate { get; set; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Plugin.MapTools.Generators.GeneratedBundle
+    content.vb: Public Property ToGenerate As GeneratedBundle
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.ToGenerate*
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Sort(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Sort(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  id: Sort(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  langs:
+  - csharp
+  - vb
+  name: Sort(List<LBSTile>)
+  nameWithType: LBSCharacteristicRule.Sort(List<LBSTile>)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Sort(System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Sort
+    path: ../LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+    startLine: 48
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  summary: The <b>Characteristic Rule's</b> method to sort the tilemap to their needs, then modify accordingly.
+  example: []
+  syntax:
+    content: public virtual IOrderedEnumerable<LBSTile> Sort(List<LBSTile> tiles)
+    parameters:
+    - id: tiles
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+    return:
+      type: System.Linq.IOrderedEnumerable{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+      description: An ordered list of LBS Tiles in which to work on.
+    content.vb: Public Overridable Function Sort(tiles As List(Of LBSTile)) As IOrderedEnumerable(Of LBSTile)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Sort*
+  nameWithType.vb: LBSCharacteristicRule.Sort(List(Of LBSTile))
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Sort(System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile))
+  name.vb: Sort(List(Of LBSTile))
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignBundle(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignBundle(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  id: AssignBundle(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  langs:
+  - csharp
+  - vb
+  name: AssignBundle(List<LBSTile>)
+  nameWithType: LBSCharacteristicRule.AssignBundle(List<LBSTile>)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignBundle(System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: AssignBundle
+    path: ../LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+    startLine: 57
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  summary: The <b>Characteristic Rule's</b> method to assign bundles to each particular LBS Tile available.
+  example: []
+  syntax:
+    content: public virtual Dictionary<LBSTile, Bundle> AssignBundle(List<LBSTile> tiles)
+    parameters:
+    - id: tiles
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+    return:
+      type: System.Collections.Generic.Dictionary{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,ISILab.LBS.Plugin.Components.Bundles.Bundle}
+      description: A dictionary containing every LBS Tile and their assigned Bundle.
+    content.vb: Public Overridable Function AssignBundle(tiles As List(Of LBSTile)) As Dictionary(Of LBSTile, Bundle)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignBundle*
+  nameWithType.vb: LBSCharacteristicRule.AssignBundle(List(Of LBSTile))
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignBundle(System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile))
+  name.vb: AssignBundle(List(Of LBSTile))
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignGameObject(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignGameObject(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  id: AssignGameObject(System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile})
+  parent: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  langs:
+  - csharp
+  - vb
+  name: AssignGameObject(List<LBSTile>)
+  nameWithType: LBSCharacteristicRule.AssignGameObject(List<LBSTile>)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignGameObject(System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>)
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: AssignGameObject
+    path: ../LBS/Plugin/MapTools/Generators/CharacteristicRulle/LBSCharacteristicRule.cs
+    startLine: 66
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Plugin.MapTools.Generators
+  summary: Assigns a GameObject to generate to each LBS Tile.
+  example: []
+  syntax:
+    content: public virtual Dictionary<LBSTile, GameObject> AssignGameObject(List<LBSTile> tiles)
+    parameters:
+    - id: tiles
+      type: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+    return:
+      type: System.Collections.Generic.Dictionary{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,UnityEngine.GameObject}
+      description: A dictionary containing every LBS Tile and their assigned GameObject.
+    content.vb: Public Overridable Function AssignGameObject(tiles As List(Of LBSTile)) As Dictionary(Of LBSTile, GameObject)
+  overload: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignGameObject*
+  nameWithType.vb: LBSCharacteristicRule.AssignGameObject(List(Of LBSTile))
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignGameObject(System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile))
+  name.vb: AssignGameObject(List(Of LBSTile))
+references:
+- uid: ISILab.LBS.Plugin.MapTools.Generators
+  commentId: N:ISILab.LBS.Plugin.MapTools.Generators
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.MapTools.Generators
+  nameWithType: ISILab.LBS.Plugin.MapTools.Generators
+  fullName: ISILab.LBS.Plugin.MapTools.Generators
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools
+    name: MapTools
+    href: ISILab.LBS.Plugin.MapTools.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.MapTools.Generators
+    name: Generators
+    href: ISILab.LBS.Plugin.MapTools.Generators.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.#ctor*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.#ctor
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSCharacteristicRule__ctor_ISILab_LBS_Characteristics_LBSCharacteristic_
+  name: LBSCharacteristicRule
+  nameWithType: LBSCharacteristicRule.LBSCharacteristicRule
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.LBSCharacteristicRule
+  nameWithType.vb: LBSCharacteristicRule.New
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.New
+  name.vb: New
+- uid: ISILab.LBS.Characteristics.LBSCharacteristic
+  commentId: T:ISILab.LBS.Characteristics.LBSCharacteristic
+  parent: ISILab.LBS.Characteristics
+  href: ISILab.LBS.Characteristics.LBSCharacteristic.html
+  name: LBSCharacteristic
+  nameWithType: LBSCharacteristic
+  fullName: ISILab.LBS.Characteristics.LBSCharacteristic
+- uid: ISILab.LBS.Characteristics
+  commentId: N:ISILab.LBS.Characteristics
+  href: ISILab.html
+  name: ISILab.LBS.Characteristics
+  nameWithType: ISILab.LBS.Characteristics
+  fullName: ISILab.LBS.Characteristics
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    href: ISILab.LBS.Characteristics.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Characteristics
+    name: Characteristics
+    href: ISILab.LBS.Characteristics.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Owner*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Owner
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSCharacteristicRule_Owner
+  name: Owner
+  nameWithType: LBSCharacteristicRule.Owner
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Owner
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.OwnerBundle*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.OwnerBundle
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSCharacteristicRule_OwnerBundle
+  name: OwnerBundle
+  nameWithType: LBSCharacteristicRule.OwnerBundle
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.OwnerBundle
+- uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+  commentId: T:ISILab.LBS.Plugin.Components.Bundles.Bundle
+  parent: ISILab.LBS.Plugin.Components.Bundles
+  href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  name: Bundle
+  nameWithType: Bundle
+  fullName: ISILab.LBS.Plugin.Components.Bundles.Bundle
+- uid: ISILab.LBS.Plugin.Components.Bundles
+  commentId: N:ISILab.LBS.Plugin.Components.Bundles
+  href: ISILab.html
+  name: ISILab.LBS.Plugin.Components.Bundles
+  nameWithType: ISILab.LBS.Plugin.Components.Bundles
+  fullName: ISILab.LBS.Plugin.Components.Bundles
+  spec.csharp:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+  spec.vb:
+  - uid: ISILab
+    name: ISILab
+    href: ISILab.html
+  - name: .
+  - uid: ISILab.LBS
+    name: LBS
+    href: ISILab.LBS.html
+  - name: .
+  - uid: ISILab.LBS.Plugin
+    name: Plugin
+    href: ISILab.LBS.Plugin.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components
+    name: Components
+    href: ISILab.LBS.Plugin.Components.html
+  - name: .
+  - uid: ISILab.LBS.Plugin.Components.Bundles
+    name: Bundles
+    href: ISILab.LBS.Plugin.Components.Bundles.html
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.ToGenerate*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.ToGenerate
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSCharacteristicRule_ToGenerate
+  name: ToGenerate
+  nameWithType: LBSCharacteristicRule.ToGenerate
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.ToGenerate
+- uid: ISILab.LBS.Plugin.MapTools.Generators.GeneratedBundle
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.GeneratedBundle
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  href: ISILab.LBS.Plugin.MapTools.Generators.GeneratedBundle.html
+  name: GeneratedBundle
+  nameWithType: GeneratedBundle
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.GeneratedBundle
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Sort*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Sort
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSCharacteristicRule_Sort_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__
+  name: Sort
+  nameWithType: LBSCharacteristicRule.Sort
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.Sort
+- uid: System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+  commentId: T:System.Collections.Generic.List{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LBSTile>
+  nameWithType: List<LBSTile>
+  fullName: System.Collections.Generic.List<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>
+  nameWithType.vb: List(Of LBSTile)
+  fullName.vb: System.Collections.Generic.List(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  name.vb: List(Of LBSTile)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: )
+- uid: System.Linq.IOrderedEnumerable{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+  commentId: T:System.Linq.IOrderedEnumerable{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile}
+  parent: System.Linq
+  definition: System.Linq.IOrderedEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iorderedenumerable-1
+  name: IOrderedEnumerable<LBSTile>
+  nameWithType: IOrderedEnumerable<LBSTile>
+  fullName: System.Linq.IOrderedEnumerable<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile>
+  nameWithType.vb: IOrderedEnumerable(Of LBSTile)
+  fullName.vb: System.Linq.IOrderedEnumerable(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile)
+  name.vb: IOrderedEnumerable(Of LBSTile)
+  spec.csharp:
+  - uid: System.Linq.IOrderedEnumerable`1
+    name: IOrderedEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iorderedenumerable-1
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IOrderedEnumerable`1
+    name: IOrderedEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iorderedenumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Linq.IOrderedEnumerable`1
+  commentId: T:System.Linq.IOrderedEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iorderedenumerable-1
+  name: IOrderedEnumerable<TElement>
+  nameWithType: IOrderedEnumerable<TElement>
+  fullName: System.Linq.IOrderedEnumerable<TElement>
+  nameWithType.vb: IOrderedEnumerable(Of TElement)
+  fullName.vb: System.Linq.IOrderedEnumerable(Of TElement)
+  name.vb: IOrderedEnumerable(Of TElement)
+  spec.csharp:
+  - uid: System.Linq.IOrderedEnumerable`1
+    name: IOrderedEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iorderedenumerable-1
+  - name: <
+  - name: TElement
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IOrderedEnumerable`1
+    name: IOrderedEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iorderedenumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TElement
+  - name: )
+- uid: System.Linq
+  commentId: N:System.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignBundle*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignBundle
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSCharacteristicRule_AssignBundle_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__
+  name: AssignBundle
+  nameWithType: LBSCharacteristicRule.AssignBundle
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignBundle
+- uid: System.Collections.Generic.Dictionary{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,ISILab.LBS.Plugin.Components.Bundles.Bundle}
+  commentId: T:System.Collections.Generic.Dictionary{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,ISILab.LBS.Plugin.Components.Bundles.Bundle}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<LBSTile, Bundle>
+  nameWithType: Dictionary<LBSTile, Bundle>
+  fullName: System.Collections.Generic.Dictionary<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, ISILab.LBS.Plugin.Components.Bundles.Bundle>
+  nameWithType.vb: Dictionary(Of LBSTile, Bundle)
+  fullName.vb: System.Collections.Generic.Dictionary(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, ISILab.LBS.Plugin.Components.Bundles.Bundle)
+  name.vb: Dictionary(Of LBSTile, Bundle)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: ','
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Bundles.Bundle
+    name: Bundle
+    href: ISILab.LBS.Plugin.Components.Bundles.Bundle.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignGameObject*
+  commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignGameObject
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.html#ISILab_LBS_Plugin_MapTools_Generators_LBSCharacteristicRule_AssignGameObject_System_Collections_Generic_List_ISILab_LBS_Plugin_Components_Data_Tessellation_TileMap_LBSTile__
+  name: AssignGameObject
+  nameWithType: LBSCharacteristicRule.AssignGameObject
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.AssignGameObject
+- uid: System.Collections.Generic.Dictionary{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,UnityEngine.GameObject}
+  commentId: T:System.Collections.Generic.Dictionary{ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile,UnityEngine.GameObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<LBSTile, GameObject>
+  nameWithType: Dictionary<LBSTile, GameObject>
+  fullName: System.Collections.Generic.Dictionary<ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, UnityEngine.GameObject>
+  nameWithType.vb: Dictionary(Of LBSTile, GameObject)
+  fullName.vb: System.Collections.Generic.Dictionary(Of ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile, UnityEngine.GameObject)
+  name.vb: Dictionary(Of LBSTile, GameObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile
+    name: LBSTile
+    href: ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap.LBSTile.html
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: )
+shouldSkipMarkup: true

@@ -6,7 +6,7 @@ items:
   parent: ISILab.LBS.Plugin.MapTools.Generators
   children:
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.CanComplete
-  - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+  - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger(ISILab.LBS.Components.Node,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.IsAnd
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.IsOr
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.ToString
@@ -268,16 +268,16 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsOr As Boolean
   overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.IsOr*
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
-  id: InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger(ISILab.LBS.Components.Node,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger(ISILab.LBS.Components.Node,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+  id: InitTrigger(ISILab.LBS.Components.Node,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
   parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch
   langs:
   - csharp
   - vb
-  name: InitTrigger(GraphNode, LBSGenerator3DSettings, float)
-  nameWithType: QuestTriggerBranch.InitTrigger(GraphNode, LBSGenerator3DSettings, float)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger(ISILab.LBS.Components.GraphNode, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings, float)
+  name: InitTrigger(Node, LBSGenerator3DSettings, float)
+  nameWithType: QuestTriggerBranch.InitTrigger(Node, LBSGenerator3DSettings, float)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger(ISILab.LBS.Components.Node, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings, float)
   type: Method
   source:
     remote:
@@ -292,20 +292,20 @@ items:
   namespace: ISILab.LBS.Plugin.MapTools.Generators
   example: []
   syntax:
-    content: public override void InitTrigger(GraphNode paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0)
+    content: public override void InitTrigger(Node paramNode, LBSGenerator3DSettings settings = null, float pivotY = 0)
     parameters:
     - id: paramNode
-      type: ISILab.LBS.Components.GraphNode
+      type: ISILab.LBS.Components.Node
     - id: settings
       type: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
     - id: pivotY
       type: System.Single
-    content.vb: Public Overrides Sub InitTrigger(paramNode As GraphNode, settings As LBSGenerator3DSettings = Nothing, pivotY As Single = 0)
-  overridden: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+    content.vb: Public Overrides Sub InitTrigger(paramNode As Node, settings As LBSGenerator3DSettings = Nothing, pivotY As Single = 0)
+  overridden: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.Node,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
   overload: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger*
-  nameWithType.vb: QuestTriggerBranch.InitTrigger(GraphNode, LBSGenerator3DSettings, Single)
-  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger(ISILab.LBS.Components.GraphNode, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings, Single)
-  name.vb: InitTrigger(GraphNode, LBSGenerator3DSettings, Single)
+  nameWithType.vb: QuestTriggerBranch.InitTrigger(Node, LBSGenerator3DSettings, Single)
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger(ISILab.LBS.Components.Node, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings, Single)
+  name.vb: InitTrigger(Node, LBSGenerator3DSettings, Single)
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.CanComplete
   commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.CanComplete
   id: CanComplete
@@ -324,7 +324,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CanComplete
     path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTriggerBranch.cs
-    startLine: 39
+    startLine: 42
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
@@ -354,7 +354,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ToString
     path: ../LBS/Plugin/Components/Data/Quest/Runtime/QuestTriggerBranch.cs
-    startLine: 67
+    startLine: 70
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.MapTools.Generators
@@ -7648,25 +7648,25 @@ references:
   name: IsOr
   nameWithType: QuestTriggerBranch.IsOr
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.IsOr
-- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
-  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+- uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.Node,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+  commentId: M:ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.Node,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
   parent: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger
   isExternal: true
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_InitTrigger_ISILab_LBS_Components_GraphNode_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_System_Single_
-  name: InitTrigger(GraphNode, LBSGenerator3DSettings, float)
-  nameWithType: QuestTrigger.InitTrigger(GraphNode, LBSGenerator3DSettings, float)
-  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings, float)
-  nameWithType.vb: QuestTrigger.InitTrigger(GraphNode, LBSGenerator3DSettings, Single)
-  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings, Single)
-  name.vb: InitTrigger(GraphNode, LBSGenerator3DSettings, Single)
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_InitTrigger_ISILab_LBS_Components_Node_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_System_Single_
+  name: InitTrigger(Node, LBSGenerator3DSettings, float)
+  nameWithType: QuestTrigger.InitTrigger(Node, LBSGenerator3DSettings, float)
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.Node, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings, float)
+  nameWithType.vb: QuestTrigger.InitTrigger(Node, LBSGenerator3DSettings, Single)
+  fullName.vb: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.Node, ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings, Single)
+  name.vb: InitTrigger(Node, LBSGenerator3DSettings, Single)
   spec.csharp:
-  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.Node,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
     name: InitTrigger
-    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_InitTrigger_ISILab_LBS_Components_GraphNode_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_System_Single_
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_InitTrigger_ISILab_LBS_Components_Node_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_System_Single_
   - name: (
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
+  - uid: ISILab.LBS.Components.Node
+    name: Node
+    href: ISILab.LBS.Components.Node.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
@@ -7680,13 +7680,13 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.single
   - name: )
   spec.vb:
-  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.GraphNode,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
+  - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.InitTrigger(ISILab.LBS.Components.Node,ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings,System.Single)
     name: InitTrigger
-    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_InitTrigger_ISILab_LBS_Components_GraphNode_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_System_Single_
+    href: ISILab.LBS.Plugin.MapTools.Generators.QuestTrigger.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTrigger_InitTrigger_ISILab_LBS_Components_Node_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_System_Single_
   - name: (
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
+  - uid: ISILab.LBS.Components.Node
+    name: Node
+    href: ISILab.LBS.Components.Node.html
   - name: ','
   - name: " "
   - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
@@ -7701,17 +7701,17 @@ references:
   - name: )
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger*
   commentId: Overload:ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger
-  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTriggerBranch_InitTrigger_ISILab_LBS_Components_GraphNode_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_System_Single_
+  href: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.html#ISILab_LBS_Plugin_MapTools_Generators_QuestTriggerBranch_InitTrigger_ISILab_LBS_Components_Node_ISILab_LBS_Plugin_Core_Settings_LBSGenerator3DSettings_System_Single_
   name: InitTrigger
   nameWithType: QuestTriggerBranch.InitTrigger
   fullName: ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerBranch.InitTrigger
-- uid: ISILab.LBS.Components.GraphNode
-  commentId: T:ISILab.LBS.Components.GraphNode
+- uid: ISILab.LBS.Components.Node
+  commentId: T:ISILab.LBS.Components.Node
   parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.GraphNode.html
-  name: GraphNode
-  nameWithType: GraphNode
-  fullName: ISILab.LBS.Components.GraphNode
+  href: ISILab.LBS.Components.Node.html
+  name: Node
+  nameWithType: Node
+  fullName: ISILab.LBS.Components.Node
 - uid: ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
   commentId: T:ISILab.LBS.Plugin.Core.Settings.LBSGenerator3DSettings
   parent: ISILab.LBS.Plugin.Core.Settings

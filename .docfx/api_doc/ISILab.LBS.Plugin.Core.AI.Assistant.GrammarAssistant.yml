@@ -42,13 +42,13 @@ items:
     content: >-
       [Serializable]
 
-      [RequieredModule(new Type[] { typeof(QuestGraphModule) })]
+      [RequieredModule(new Type[] { typeof(Graph) })]
 
       public class GrammarAssistant : LBSAssistant, ICloneable
     content.vb: >-
       <Serializable>
 
-      <RequieredModule(New Type() { GetType(QuestGraphModule) })>
+      <RequieredModule(New Type() { GetType(Graph) })>
 
       Public Class GrammarAssistant Inherits LBSAssistant Implements ICloneable
   inheritance:
@@ -138,14 +138,14 @@ items:
     content: >-
       [JsonIgnore]
 
-      public QuestGraphModule Graph { get; }
+      public Graph Graph { get; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.QuestGraphModule
+      type: ISILab.LBS.Modules.Graph
     content.vb: >-
       <JsonIgnore>
 
-      Public ReadOnly Property Graph As QuestGraphModule
+      Public ReadOnly Property Graph As Graph
   overload: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
@@ -292,7 +292,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAllValidNextActionsInsert
     path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
-    startLine: 188
+    startLine: 197
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -330,7 +330,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAllValidPrevActionsInsert
     path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
-    startLine: 202
+    startLine: 211
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -368,7 +368,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetAllExpansions
     path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
-    startLine: 215
+    startLine: 224
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -406,7 +406,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ExpandAction
     path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
-    startLine: 276
+    startLine: 285
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -442,7 +442,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InsertNextAction
     path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
-    startLine: 294
+    startLine: 303
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -478,7 +478,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: InsertPreviousAction
     path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
-    startLine: 302
+    startLine: 311
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -514,7 +514,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAttachLayer
     path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
-    startLine: 318
+    startLine: 327
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -545,7 +545,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnGUI
     path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
-    startLine: 323
+    startLine: 332
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -573,7 +573,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ExecuteTest
     path: ../LBS/Plugin/Core/AI/Assistant/GrammarAssistant.cs
-    startLine: 326
+    startLine: 335
   assemblies:
   - LBS
   namespace: ISILab.LBS.Plugin.Core.AI.Assistant
@@ -1156,13 +1156,13 @@ references:
   name: Graph
   nameWithType: GrammarAssistant.Graph
   fullName: ISILab.LBS.Plugin.Core.AI.Assistant.GrammarAssistant.Graph
-- uid: ISILab.LBS.Modules.QuestGraphModule
-  commentId: T:ISILab.LBS.Modules.QuestGraphModule
+- uid: ISILab.LBS.Modules.Graph
+  commentId: T:ISILab.LBS.Modules.Graph
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraphModule.html
-  name: QuestGraphModule
-  nameWithType: QuestGraphModule
-  fullName: ISILab.LBS.Modules.QuestGraphModule
+  href: ISILab.LBS.Modules.Graph.html
+  name: Graph
+  nameWithType: Graph
+  fullName: ISILab.LBS.Modules.Graph
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html
