@@ -29,6 +29,7 @@ namespace LBS.Components
         [SerializeField, JsonRequired] public string iconGuid = "915dd173939598c43ab48bbec50425e8";
 
         [SerializeField, JsonRequired] private string id = "Default ID";
+        [SerializeField, JsonRequired] private string subTypeId = "None";
         [SerializeField, JsonRequired] private string name = "Layer name";
         [SerializeField] private Vector2Int tileSize = new Vector2Int(2, 2);
 
@@ -51,6 +52,7 @@ namespace LBS.Components
 
         [JsonIgnore] public LBSLevelData Parent { get => _parent; set => _parent = value; }
         [JsonIgnore] public string ID { get => id; }
+        [JsonIgnore] public string SubTypeID { get => subTypeId; }
         [JsonIgnore] public string Name { get => name; set => name = value; }
         [JsonIgnore] public int ActiveFloor { get => activeFloor; }
         [JsonIgnore] public int FloorCount { get => floors.Length; }
@@ -113,7 +115,7 @@ namespace LBS.Components
             IEnumerable<LBSGeneratorRule> rules,
             IEnumerable<LBSBehaviour> behaviours,
             LBSLevelData parent,
-            string ID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
+            string ID, string SubTypeID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
         {
             floors = new LBSFloor[modules.Length];
             for (int i = 0; i < modules.Length; i++)
@@ -127,6 +129,7 @@ namespace LBS.Components
 
             Parent = parent;
             id = ID;
+            subTypeId = SubTypeID;
             IsVisible = visible;
             this.name = name;
             this.iconGuid = iconGuid;
@@ -160,7 +163,7 @@ namespace LBS.Components
             if (floorIndex < 0) floorIndex = activeFloor;
             return new(floors[floorIndex].Modules);
         }
-
+ 
         public bool AddModule(LBSModule module, int levelIndex = -1)
         {
             if (module == null) return false;
@@ -372,6 +375,12 @@ namespace LBS.Components
             id = newID;
         }
 
+        public void SetSubTypeID(string newSubTypeID)
+        {
+            if (string.IsNullOrEmpty(newSubTypeID)) return;
+            subTypeId = newSubTypeID;
+        }
+
         public void ChangeFloorCount(uint newCount)
         {
             var prevCount = floors.Length;
@@ -490,6 +499,7 @@ namespace LBS.Components
                 clonedBehaviours,
                 Parent,
                 id,
+                subTypeId,
                 visible,
                 name,
                 iconGuid,
