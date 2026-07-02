@@ -83,7 +83,7 @@ namespace ISILab.LBS.VisualElements.Editor
             loadingIcon = this.Q<VisualElement>("LoadingImage");
             customImage = this.Q<VisualElement>("CustomImage");
 
-            scoreLabel = this.Q<Label>("ScoreValue");
+            scoreLabel = this.Q<Label>("ScoreLabel");
 
             selectBorder = this.Q<VisualElement>("SelectBorder");
             selectBorder.style.opacity = 0.0f;
