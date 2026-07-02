@@ -19,10 +19,7 @@ Bundles also contain characteristics, characteristics are the base metadata that
 The dimensions and settings of each prefab will depend exclusively on the users at the moment of using the 3D generation tab. We highly recommend checking thoroughly the transform and pivot of bundle's prefabs when setting up bundles.
 
 > [!NOTE]
-> If a bundle contains multiple game objects, the 3D generator will randomly use one of those, the probability of each asset can be adjusted in the inspector panel.  
-> This can be used to increase asset variability when generating levels
-
-<!-- Gif de bundle con diferentes assets / pared o piso con variaciones -->
+> If a bundle contains multiple game assets, the 3D generator will randomly use one of those. This can be used to increase asset variability when generating levels, the probability of each asset can be adjusted in the inspector panel
 
 ---
 
@@ -81,7 +78,7 @@ Prefab’s considerations:
 
 > [!NOTE]
 > You can have more than one layer of the same type in a level, this may be useful in order to keep some assets or Main Bundles in its own layer.  
-> For example: Having multiple population layers in order to separate foliage from interactive objects.
+> For example: Having multiple population layers in order to separate foliage or decoration from interactive objects.
 
 ---
 
@@ -177,9 +174,9 @@ You can access the Bundle Manager window through the LBS main window or Unity’
 
 You can quickly create bundles of any prefab asset(s) directly from the project window, this can be accomplished by first selecting the prefabs assets that will be used for the bundle(s), and then pressing the shortcut "Alt + b" to create one bundle for each asset or "Alt + Shift + b" to get a single bundle with every selected asset.
 
-**Bundle characteristics need to be manually added and set-up after this step, because of this, it is generally recommended to create bundles through the Bundle Manager.**
-
 alternatively, you may do Right Click > Create > ISILab > LBS > Bundle.
+
+**Bundle characteristics need to be manually added and set-up after this step, because of this, it is generally recommended to create bundles through the Bundle Manager.**
 
 #### Bundle (Multiple)
 “Bundle (Multiple)” (Alt + B) will make multiple bundles, one for each selected prefab asset.
@@ -188,5 +185,6 @@ alternatively, you may do Right Click > Create > ISILab > LBS > Bundle.
 #### Bundle (Single)
 "Bundle (Single)" (Alt + Shift + B) means LBS will make one single bundle with all selected prefab assets
 ![Creating Bundles through Unity's project window](/images/bundles/PW_3.png)
+![Creating Bundles through Unity's project window](/images/bundles/PW_4.png)
 
 
