@@ -6,9 +6,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
 {
     public class ThemeableWindow: EditorWindow
     {
-        public void CreateGUI()
+        protected virtual void CreateGUI()
         {
-            
         }
 
 
@@ -38,6 +37,8 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows
                 default:
                     break;
             }
+
+            rootVisualElement.MarkDirtyRepaint();
         }
     }
 }

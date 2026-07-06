@@ -30,6 +30,7 @@ namespace LBS.Components
         [SerializeField, JsonRequired] public string iconGuid = "915dd173939598c43ab48bbec50425e8";
 
         [SerializeField, JsonRequired] private string id = "Default ID";
+        [SerializeField, JsonRequired] private string subTypeId = "None";
         [SerializeField, JsonRequired] private string name = "Layer name";
         [SerializeField] private Vector2Int tileSize = new Vector2Int(2, 2);
 
@@ -52,6 +53,7 @@ namespace LBS.Components
 
         [JsonIgnore] public LBSLevelData Parent { get => _parent; set => _parent = value; }
         [JsonIgnore] public string ID { get => id; }
+        [JsonIgnore] public string SubTypeID { get => subTypeId; }
         [JsonIgnore] public string Name { get => name; set => name = value; }
         [JsonIgnore] public int ActiveFloor { get => activeFloor; }
         [JsonIgnore] public int FloorCount { get => floors.Length; }
@@ -95,14 +97,14 @@ namespace LBS.Components
         #region Constructors
         public LBSLayer()
         {
-            for(int i = 0; i < floors.Length; i++)
-            {
-                floors[i] ??= new ();
-            }
             behaviours ??= new List<LBSBehaviour>();
             assistants ??= new List<LBSAssistant>();
             generatorRules ??= new List<LBSGeneratorRule>();
             floors = new LBSFloor[LBSSettings.Instance.general.defaultFloorCount];
+            for(int i = 0; i < floors.Length; i++)
+            {
+                floors[i] ??= new ();
+            }
 
             IsVisible = true;
             id = GetType().Name;
@@ -114,7 +116,7 @@ namespace LBS.Components
             IEnumerable<LBSGeneratorRule> rules,
             IEnumerable<LBSBehaviour> behaviours,
             LBSLevelData parent,
-            string ID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
+            string ID, string SubTypeID, bool visible, string name, string iconGuid, Vector2Int tileSize) : this()
         {
             floors = new LBSFloor[modules.Length];
             for (int i = 0; i < modules.Length; i++)
@@ -128,6 +130,7 @@ namespace LBS.Components
 
             Parent = parent;
             id = ID;
+            subTypeId = SubTypeID;
             IsVisible = visible;
             this.name = name;
             this.iconGuid = iconGuid;
@@ -159,9 +162,11 @@ namespace LBS.Components
         public List<LBSModule> Modules(int floorIndex = -1)
         {
             if (floorIndex < 0) floorIndex = activeFloor;
+            if (floors[floorIndex] == null)
+                ;
             return new(floors[floorIndex].Modules);
         }
-
+ 
         public bool AddModule(LBSModule module, int levelIndex = -1)
         {
             if (module == null) return false;
@@ -229,6 +234,14 @@ namespace LBS.Components
         public T GetModule<T>(string moduleID = "", int index = -1) where T : LBSModule
         {
             if (index < 0) index = activeFloor;
+            if (floors is null)
+                ;
+            if (floors[index] is null)
+                ;
+            if (floors[index].Modules is null)
+                ;
+            if (floors[index].Modules.OfType<T>() is null)
+                ;
             if (string.IsNullOrEmpty(moduleID))
                 return floors[index].Modules.OfType<T>().FirstOrDefault();
 
@@ -430,6 +443,12 @@ namespace LBS.Components
             id = newID;
         }
 
+        public void SetSubTypeID(string newSubTypeID)
+        {
+            if (string.IsNullOrEmpty(newSubTypeID)) return;
+            subTypeId = newSubTypeID;
+        }
+
         public void ChangeFloorCount(uint newCount)
         {
             var prevCount = floors.Length;
@@ -506,35 +525,54 @@ namespace LBS.Components
             OnRemoveModule = null;
             // keep context events if they're needed elsewhere
         }
-        
+
         public object Clone()
         {
-            // Clone modules via provided helper, clone lists of polymorphic objects by calling Clone() on each
-            foreach (var m in FirstModules)
+            LBSFloor[] clonedModules = floors != null ? CloneFloorArray(floors) : Array.Empty<LBSFloor>();
+
+            List<LBSAssistant> clonedAssistants = new();
+            if (assistants != null)
             {
-                if (m is null) throw new InvalidOperationException($"{Name} has a Null Module.");
+                clonedAssistants = assistants
+                    .Where(a => a != null)
+                    .Select(a => a.Clone() as LBSAssistant)
+                    .Where(cloned => cloned != null)
+                    .ToList();
             }
-            LBSFloor[] clonedModules = CloneFloorArray(this.floors);
-            
-            List<LBSAssistant> clonedAssistants = this.assistants.Select(a => 
-            { 
-                if(a is null) throw new InvalidOperationException($"{Name} has a Null Assistant.");
-                return a.Clone() as LBSAssistant; 
-            }).ToList();
 
-            List<LBSGeneratorRule> clonedRules = this.generatorRules.Select(r =>
+            List<LBSGeneratorRule> clonedRules = new();
+            if (generatorRules != null)
             {
-                if (r is null) throw new InvalidOperationException($"{Name} has a Null Generator Rule.");
-                return r.Clone() as LBSGeneratorRule;
-            }).ToList();
+                clonedRules = generatorRules
+                    .Where(r => r != null)
+                    .Select(r => r.Clone() as LBSGeneratorRule)
+                    .Where(cloned => cloned != null)
+                    .ToList();
+            }
 
-            List<LBSBehaviour> clonedBehaviours = this.behaviours.Select(b => 
-            { 
-                if (b is null) throw new InvalidOperationException($"{Name} has a Null Behaviour.");
-                return b.Clone() as LBSBehaviour; 
-            }).ToList();
+            List<LBSBehaviour> clonedBehaviours = new();
+            if (behaviours != null)
+            {
+                clonedBehaviours = behaviours
+                    .Where(b => b != null)
+                    .Select(b => b.Clone() as LBSBehaviour)
+                    .Where(cloned => cloned != null)
+                    .ToList();
+            }
 
-            return new LBSLayer(clonedModules, clonedAssistants, clonedRules, clonedBehaviours, Parent, id, visible, name, iconGuid, TileSize);
+            return new LBSLayer(
+                clonedModules,
+                clonedAssistants,
+                clonedRules,
+                clonedBehaviours,
+                Parent,
+                id,
+                subTypeId,
+                visible,
+                name,
+                iconGuid,
+                TileSize
+            );
         }
 
         public static LBSFloor[] CloneFloorArray(LBSFloor[] input)

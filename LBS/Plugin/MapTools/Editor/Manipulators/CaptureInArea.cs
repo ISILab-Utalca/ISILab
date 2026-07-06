@@ -127,17 +127,19 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Manipulators
             Vector2Int AreaStart = AreaFeedback.StartPosition.ToInt();
             Vector2Int AreaEnd = AreaFeedback.EndPosition.ToInt();
 
-            var teselleationAreaStart = AreaStart;
+            var tesellationAreaStart = AreaStart;
             var tesellationAreaEnd = AreaEnd;
 
-            tesellationAreaEnd.x -= 100;
-            tesellationAreaEnd.y -= 100;
+            if (tesellationAreaStart.x < 0) tesellationAreaStart.x += 99;
+            if (tesellationAreaStart.y < 0) tesellationAreaStart.y += 99;
+            if (tesellationAreaEnd.x >= 0) tesellationAreaEnd.x -= 99;
+            if (tesellationAreaEnd.y >= 0) tesellationAreaEnd.y -= 99;
 
             capturedBlueprintData.Clear();
             // Should get all layers under the start and endposition 
             foreach (LBSLayer layer in LBSMainWindow.Instance.layerPanel.GetInverseOrderedLayers())
             {
-                var layerClone = layer.GetAreaClone(teselleationAreaStart, tesellationAreaEnd);
+                var layerClone = layer.GetAreaClone(tesellationAreaStart, tesellationAreaEnd);
                 if (layerClone != null)
                 {
                      capturedBlueprintData.Add(layerClone);

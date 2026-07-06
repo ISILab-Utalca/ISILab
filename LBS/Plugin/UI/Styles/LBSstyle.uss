@@ -2,6 +2,21 @@
 :root {
 }
 
+/* UNCOMMENT to fix inconcistencies in Population Assistant Window
+.unity-label,
+.unity-popup-field__text,
+.unity-base-popup-field__text,
+.unity-text-element
+{
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
+}
+
+.lbs-field .unity-progress-bar__background {
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+}
+
+*/
+
 Label {
     font-size: 12px;
     color: var(--lbs-text-color, var(--lbs-default-text-color));
@@ -32,6 +47,13 @@ Label {
 }
 
 .lbs-field Label {
+    padding-right: 4px;
+    min-width: auto;
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
+}
+
+
+.lbs-field TextElement {
     padding-right: 4px;
     min-width: auto;
     color: var(--lbs-text-color, var(--lbs-default-text-color));
@@ -303,7 +325,12 @@ Toggle > .lbs-default-icon {
 }
 
 .lbs-button > TextElement {
-    color: var(--lbs-icon-color, var(--lbs-default-icon-color));
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
+}
+
+
+.lbs-button > Label {
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
 }
 
 .lbs-tab-button {
@@ -362,8 +389,40 @@ Toggle > .lbs-default-icon {
     border-width: 0;
     -unity-background-image-tint-color: rgb(255, 255, 255);
 }
-
+/* --- The Main Field Container --- */
 .lbs-input-field-float {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    align-self: stretch;
+    border-color: var(--lbs-dark-overlay-color);
+    border-width: 1px;
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+}
+
+.lbs-input-field-float > Label,
+.lbs-input-field-float > .unity-base-field__label {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    min-width: 40px; 
+    max-width: 120px;
+    margin-right: 6px; 
+    text-align: left;
+    -unity-text-align: middle-left;
+}
+
+
+.lbs-input-field-float > .unity-base-field__input,
+.lbs-input-field-float FloatInput,
+.lbs-input-field-float BaseFieldInput {
+    flex-grow: 1 !important;    
+    flex-shrink: 1 !important;   
+    flex-basis: auto !important;
+    width: 100% !important;    
+    
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
 }
 
 .lbs-inspector__show {
@@ -1375,10 +1434,12 @@ Toggle > .lbs-default-icon {
     border-right-width: 1px;
     border-bottom-width: 1px;
     border-left-width: 1px;
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
 }
 
 .lbs-custom-progress-bar__container {
     flex-grow: 1;
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
 }
 
 .lbs-custom-progress-bar__background {
@@ -1386,6 +1447,13 @@ Toggle > .lbs-default-icon {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
+    background-color: var(--lbs-base-solid-gray-color, var(--lbs-default-base-solid-gray-color));
+}
+
+.lbs-custom-progress-bar Label,
+.lbs-custom-progress-bar TextElement {
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
+    -unity-font-style: normal;
 }
 
 .lbs-slide-toggle {
@@ -1474,7 +1542,15 @@ Toggle > .lbs-default-icon {
     align-self: stretch;
     justify-content: center;
     flex-direction: row;
+
+    -unity-background-image-tint-color: var(--lbs-icon-color, var(--lbs-default-icon-color));
+    min-height: 16px;
+    min-width: 16px;
+    max-width: 16px;
+    max-height: 16px;
+    -unity-background-scale-mode: stretch-to-fill;
 }
+
 
 .lbs-toolbar-toggle:hover {
     background-color: var(--lbs-selectable-hover-color, var(--lbs-default-selectable-hover-color));
@@ -1493,6 +1569,7 @@ Toggle > .lbs-default-icon {
     border-width: 1px 1px 1px 1px;
     border-color: var(--lbs-dark-overlay-color);
     background-color: var(--lbs-base-solid-gray-color);
+    border-radius: 3px;
     border-bottom-color: var(--lbs-dark-overlay-color);
     border-top-color: var(--lbs-dark-overlay-color);
     border-left-color: var(--lbs-dark-overlay-color);
@@ -1506,6 +1583,15 @@ Toggle > .lbs-default-icon {
     margin-right: 0;
     margin-bottom: 0;
     margin-left: 0;
+}
+
+.lbs-toolbar-menu > image {
+    -unity-background-image-tint-color: var(--lbs-icon-color, var(--lbs-default-icon-color));
+    min-height: 16px;
+    min-width: 16px;
+    max-width: 16px;
+    max-height: 16px;
+    -unity-background-scale-mode: stretch-to-fill;
 }
 
 .lbs-toolbar-menu:hover {
@@ -1737,6 +1823,12 @@ Toggle > .lbs-default-icon {
     width: auto;
 }
 
+.lbs-uint-field UnsignedIntegerInput TextElement {
+    -unity-text-align: middle-center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .lbs-vector2-field {
 }
 
@@ -1818,9 +1910,10 @@ Toggle > .lbs-default-icon {
 }
 
 .lbs-button > TextElement {
-    color: var(--lbs-icon-color, var(--lbs-default-icon-color));
+    color: var(--lbs-text-color, var(--lbs-default-text-color));
     margin-left: 4px;
 }
+
 
 .lbs-button > Image {
     color: var(--lbs-icon-color, var(--lbs-default-icon-color));

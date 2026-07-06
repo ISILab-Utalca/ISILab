@@ -19,13 +19,13 @@ namespace ISILab.LBS.Manipulators
 {
     public class ConnectQuestNodes : LBSManipulator
     {
-        private QuestGraphModule _quest;
+        private Graph _quest;
         private QuestBehaviour _behaviour;
 
         /// <summary>
         ///  from where we click to make a connection
         /// </summary>
-        private GraphNode _first;
+        private object _first;
         protected override string IconGuid => "ec280cec81783e94cb5df0b0b40dec7e";
 
         public ConnectQuestNodes()
@@ -39,7 +39,7 @@ namespace ISILab.LBS.Manipulators
         {
             base.Init(layer, provider);
             
-            _quest = layer.GetModule<QuestGraphModule>();
+            _quest = layer.GetModule<Graph>();
             _behaviour = layer.GetBehaviour<QuestBehaviour>();
         }
 
@@ -64,13 +64,13 @@ namespace ISILab.LBS.Manipulators
                 return;
             }
             // prevent duplicates
-            if (_quest.GraphEdges.Any(e => Equals(e.From,_first) && Equals(e.To, second)))
+            if (_quest.Edges.Any(e => Equals(e.From,_first) && Equals(e.To, second)))
             {
                 LBSMainWindow.MessageNotify(new LBSLog("This connection already exists.", LogType.Error));
                 return;
             }
             // check for looping connections
-            if (_quest.IsLooped(_first, second, new HashSet<GraphNode>()))
+            if (_quest.IsLooped(_first, second, new HashSet<object>()))
             {
                 LBSMainWindow.MessageNotify(new LBSLog("The destination is a root of this node.", LogType.Error));
                 return;
@@ -78,7 +78,7 @@ namespace ISILab.LBS.Manipulators
             // only branching nodes can be a To on multiple edges
             if (second is QuestNode && _first is QuestNode)
             {
-                bool alreadyTarget = _quest.GraphEdges.Any(e => Equals(e.To, second));
+                bool alreadyTarget = _quest.Edges.Any(e => Equals(e.To, second));
                 if (alreadyTarget)
                 {
                     LBSMainWindow.MessageNotify(new LBSLog("Action Nodes can only be the destination of one edge. For multiple use Branching nodes", LogType.Error));

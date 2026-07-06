@@ -252,7 +252,7 @@ namespace ISILab.LBS.Tests
                 .WarmupCount(0)
                 .MeasurementCount(20)
                 .IterationsPerMeasurement(1)
-                .SetUp(() => SetupWFCTest(Vertex_10x10_Map))
+                .SetUp(() => SetupWFCTest(Vertex_20x20_Map))
                 .CleanUp(CleanUpWFCTest)
                 .Run();
         }

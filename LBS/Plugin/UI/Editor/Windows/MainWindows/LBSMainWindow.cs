@@ -261,7 +261,7 @@ namespace ISILab.LBS.Editor.Windows
 
 
         #region METHODS
-        new public void CreateGUI()
+        protected override void CreateGUI()
         {
             Debug.Log("[Main Window] - CreateGUI");
             Init();

@@ -32,8 +32,6 @@ namespace ISILab.LBS.VisualElements
         #endregion
 
         #region VIEW FIELD
-
-        private VisualElement NoContent;
         private VisualElement Content;
 
         private LBSCustomLabelIcon SelectedHeader;
@@ -59,7 +57,6 @@ namespace ISILab.LBS.VisualElements
             visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("TileGroupBehaviorEditor", true);
             visualTree.CloneTree(this);
 
-            NoContent = this.Q<VisualElement>("NoContent");
             Content = this.Q<VisualElement>("Content");
             SelectedHeader = this.Q<LBSCustomLabelIcon>("SelectedHeader");
             AddonContainer = this.Q<VisualElement>("AddonContainer");
@@ -90,7 +87,6 @@ namespace ISILab.LBS.VisualElements
 
             // Toggle Visibility
             bool isValid = group?.BundleData?.Bundle != null && behaviour.SelectedTilemap != null;
-            NoContent.style.display = isValid ? DisplayStyle.None : DisplayStyle.Flex;
             Content.style.display = isValid ? DisplayStyle.Flex : DisplayStyle.None;
             if (!isValid) return;
 

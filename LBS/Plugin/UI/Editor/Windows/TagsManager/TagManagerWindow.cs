@@ -101,7 +101,7 @@ namespace ISILab.LBS.Plugin.UI.Editor.Windows.TagManager
             Instance = this;
         }
 
-        new private void CreateGUI()
+        protected override void CreateGUI()
         {
             //Basic setup: Clone tree, find tags, generate main tag group container
             VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("TagManagerWindow");

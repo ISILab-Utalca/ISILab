@@ -9,6 +9,7 @@ items:
   - ISILab.LBS.Components.QuestNodeData.ApplyTilesToData(ISILab.LBS.Plugin.Core.AI.Assistant.QuestCandidate)
   - ISILab.LBS.Components.QuestNodeData.Area
   - ISILab.LBS.Components.QuestNodeData.Clone(ISILab.LBS.Components.QuestNodeData)
+  - ISILab.LBS.Components.QuestNodeData.Data
   - ISILab.LBS.Components.QuestNodeData.Equals(System.Object)
   - ISILab.LBS.Components.QuestNodeData.EventHooker
   - ISILab.LBS.Components.QuestNodeData.Fields
@@ -330,11 +331,11 @@ items:
   - LBS
   namespace: ISILab.LBS.Components
   syntax:
-    content: public QuestGraphModule Graph { get; }
+    content: public Graph Graph { get; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.QuestGraphModule
-    content.vb: Public ReadOnly Property Graph As QuestGraphModule
+      type: ISILab.LBS.Modules.Graph
+    content.vb: Public ReadOnly Property Graph As Graph
   overload: ISILab.LBS.Components.QuestNodeData.Graph*
 - uid: ISILab.LBS.Components.QuestNodeData.OwnerLayer
   commentId: P:ISILab.LBS.Components.QuestNodeData.OwnerLayer
@@ -423,6 +424,35 @@ items:
       type: ISILab.AI.Grammar.GrammarArea
     content.vb: Public ReadOnly Property Area As GrammarArea
   overload: ISILab.LBS.Components.QuestNodeData.Area*
+- uid: ISILab.LBS.Components.QuestNodeData.Data
+  commentId: P:ISILab.LBS.Components.QuestNodeData.Data
+  id: Data
+  parent: ISILab.LBS.Components.QuestNodeData
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: QuestNodeData.Data
+  fullName: ISILab.LBS.Components.QuestNodeData.Data
+  type: Property
+  source:
+    remote:
+      path: LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: Data
+    path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
+    startLine: 108
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Components
+  syntax:
+    content: public QuestNodeData Data { get; }
+    parameters: []
+    return:
+      type: ISILab.LBS.Components.QuestNodeData
+    content.vb: Public Property Data As QuestNodeData
+  overload: ISILab.LBS.Components.QuestNodeData.Data*
 - uid: ISILab.LBS.Components.QuestNodeData.#ctor(ISILab.LBS.Components.QuestNode,ISILab.AI.Grammar.GrammarTerminal)
   commentId: M:ISILab.LBS.Components.QuestNodeData.#ctor(ISILab.LBS.Components.QuestNode,ISILab.AI.Grammar.GrammarTerminal)
   id: '#ctor(ISILab.LBS.Components.QuestNode,ISILab.AI.Grammar.GrammarTerminal)'
@@ -441,7 +471,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 113
+    startLine: 115
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -475,7 +505,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 146
+    startLine: 148
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -504,7 +534,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Equals
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 160
+    startLine: 162
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -540,7 +570,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: IsValid
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 165
+    startLine: 167
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -568,7 +598,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetHashCode
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 174
+    startLine: 176
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -598,7 +628,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ReferencedLayerNames
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 180
+    startLine: 182
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -626,7 +656,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Resize
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 185
+    startLine: 187
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -652,7 +682,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ApplyTilesToData
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 189
+    startLine: 191
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -681,7 +711,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ResizeToFitBundles
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 223
+    startLine: 225
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -713,7 +743,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetFields
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 243
+    startLine: 245
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -746,7 +776,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetField
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 257
+    startLine: 259
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -779,7 +809,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetField
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 258
+    startLine: 260
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -813,7 +843,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: GetField
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 259
+    startLine: 261
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -849,7 +879,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TrySetBundleGraphList
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 267
+    startLine: 269
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -891,7 +921,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TrySetBundleGraph
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 293
+    startLine: 295
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -933,7 +963,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: TrySetBundleType
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 319
+    startLine: 321
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -975,7 +1005,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: SetArea
     path: ../LBS/Plugin/Components/Data/Quest/ToolQuest/QuestNodeData.cs
-    startLine: 344
+    startLine: 346
   assemblies:
   - LBS
   namespace: ISILab.LBS.Components
@@ -1449,13 +1479,13 @@ references:
   name: Graph
   nameWithType: QuestNodeData.Graph
   fullName: ISILab.LBS.Components.QuestNodeData.Graph
-- uid: ISILab.LBS.Modules.QuestGraphModule
-  commentId: T:ISILab.LBS.Modules.QuestGraphModule
+- uid: ISILab.LBS.Modules.Graph
+  commentId: T:ISILab.LBS.Modules.Graph
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraphModule.html
-  name: QuestGraphModule
-  nameWithType: QuestGraphModule
-  fullName: ISILab.LBS.Modules.QuestGraphModule
+  href: ISILab.LBS.Modules.Graph.html
+  name: Graph
+  nameWithType: Graph
+  fullName: ISILab.LBS.Modules.Graph
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html
@@ -1593,6 +1623,19 @@ references:
   name: GrammarArea
   nameWithType: GrammarArea
   fullName: ISILab.AI.Grammar.GrammarArea
+- uid: ISILab.LBS.Components.QuestNodeData.Data*
+  commentId: Overload:ISILab.LBS.Components.QuestNodeData.Data
+  href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData_Data
+  name: Data
+  nameWithType: QuestNodeData.Data
+  fullName: ISILab.LBS.Components.QuestNodeData.Data
+- uid: ISILab.LBS.Components.QuestNodeData
+  commentId: T:ISILab.LBS.Components.QuestNodeData
+  parent: ISILab.LBS.Components
+  href: ISILab.LBS.Components.QuestNodeData.html
+  name: QuestNodeData
+  nameWithType: QuestNodeData
+  fullName: ISILab.LBS.Components.QuestNodeData
 - uid: ISILab.LBS.Components.QuestNodeData.#ctor*
   commentId: Overload:ISILab.LBS.Components.QuestNodeData.#ctor
   href: ISILab.LBS.Components.QuestNodeData.html#ISILab_LBS_Components_QuestNodeData__ctor_ISILab_LBS_Components_QuestNode_ISILab_AI_Grammar_GrammarTerminal_
@@ -1608,13 +1651,6 @@ references:
   name: Clone
   nameWithType: QuestNodeData.Clone
   fullName: ISILab.LBS.Components.QuestNodeData.Clone
-- uid: ISILab.LBS.Components.QuestNodeData
-  commentId: T:ISILab.LBS.Components.QuestNodeData
-  parent: ISILab.LBS.Components
-  href: ISILab.LBS.Components.QuestNodeData.html
-  name: QuestNodeData
-  nameWithType: QuestNodeData
-  fullName: ISILab.LBS.Components.QuestNodeData
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object

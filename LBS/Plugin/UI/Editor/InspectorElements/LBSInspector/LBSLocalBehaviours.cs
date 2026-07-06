@@ -77,7 +77,7 @@ namespace ISILab.LBS.VisualElements
             void Log(string name)
             {
                 long now = sw.ElapsedMilliseconds;
-                Debug.Log($"{name}: {now - last} ms");
+             //   Debug.Log($"{name}: {now - last} ms");
                 last = now;
             }
 

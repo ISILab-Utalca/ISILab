@@ -1,8 +1,10 @@
-using System;
-using System.Linq;
 using ISILab.Commons.Utility.Editor;
 using ISILab.Extensions;
 using ISILab.LBS.CustomComponents;
+using System;
+using System.Drawing;
+using System.Linq;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -18,23 +20,25 @@ namespace LBS.VisualElements
         private object selected;
         private object collectionSelected;
 
-        private string nameLabel = ""; 
+
         #endregion
 
-        
         #region UI VISUAL ELEMENTS REFERENCES 
-        
+        private string nameLabel = "";
+        private VectorImage image;
         private bool displayAddElement = true;
         private bool displayRemoveElement = true;
-        
-        private VisualElement icon;
-        private Label nameLabelElement;
-        private Button noElement;
-        private LBSToolbarButton addButton;
-        private LBSToolbarButton removeButton;
-        private LBSCustomDropdown dropdownGroup;
-        private new readonly VisualElement contentContainer;
+        private bool showNoElement = true;
 
+        private Label nameLabelElement;
+        private LBSCustomImage icon;
+        private Button noElement;
+        private VisualElement toolBar;
+        private LBSCustomButton addButton;
+        private LBSCustomButton removeButton;
+
+        private new readonly VisualElement contentContainer;
+        private static VisualTreeAsset visualTree;
         #endregion
 
         #region EVENTS
@@ -46,11 +50,32 @@ namespace LBS.VisualElements
         public event Func<object,string> OnSetTooltip;
         
         private Action<OptionView, object> onSetView;
+
         #endregion
 
         #region PROPERTIES
-        
-        
+
+
+        [UxmlAttribute]
+        public VectorImage Icon
+        {
+            get => image;
+            set
+            {
+                image = value;
+                if (icon != null)
+                {
+                    if (image != null)
+                    {
+                        icon.LBSImage = null;
+                        icon.style.backgroundImage = new StyleBackground(image);
+                    }
+
+                    icon.style.display = image != null ? DisplayStyle.Flex : DisplayStyle.None;
+                }
+            }
+        }
+
         [UxmlAttribute]
         public bool DisplayAddElement
         {
@@ -96,7 +121,15 @@ namespace LBS.VisualElements
             }
         }
 
-
+        [UxmlAttribute]
+        public bool DisplayNoElement
+        {
+            get => ShowNoElement;
+            set
+            {
+                ShowNoElement = (value);
+            }
+        }
 
 
         public object Selected
@@ -117,11 +150,6 @@ namespace LBS.VisualElements
             set => options = value;
         }
 
-        public bool ShowGroups
-        {
-            set => dropdownGroup.SetDisplay(value);
-        }
-
         public bool ShowRemoveButton
         {
             set => removeButton.SetDisplay(value);
@@ -134,46 +162,43 @@ namespace LBS.VisualElements
         
         public bool ShowNoElement
         {
-            set => noElement.SetDisplay(value);
+            get => showNoElement;
+            set
+            {
+                showNoElement = value;
+                noElement.SetDisplay(showNoElement);
+            }
         }
-        
-        public bool ShowDropdown
-        {
-            set => dropdownGroup.SetDisplay(value);
-        }
-        
+
+  
+
         #endregion
-        
+
         #region CONSTRUCTORS
         public SimplePallete()
         {
-            VisualTreeAsset visualTree = DirectoryTools.GetAssetByName<VisualTreeAsset>("SimplePallete");
+            visualTree ??= DirectoryTools.GetAssetByName<VisualTreeAsset>("SimplePallete");
             visualTree.CloneTree(this);
-            this.AddToClassList("lbs-simple-palette");
+            AddToClassList("lbs-simple-palette");
+
+            // toolbar
+            toolBar = this.Q<VisualElement>("PaletteToolbar");
+            // toolbar header
+            nameLabelElement = this.Q<LBSCustomLabel>("MainLabel");
+            icon = this.Q<LBSCustomImage>();
+            // AddButton
+            addButton = this.Q<LBSCustomButton>("AddButton");
+            addButton.clicked += () => OnAddOption?.Invoke();
+            // removeButton
+            removeButton = this.Q<LBSCustomButton>("DeleteButton");
+            removeButton.clicked += () => OnRemoveOption?.Invoke(selected);
+
+            // Contents
 
             // Content
             contentContainer = this.Q<VisualElement>("Content");
-           // contentContainer.style.flexDirection = FlexDirection.Row;         // Horizontal layout
-            //contentContainer.style.justifyContent = Justify.FlexStart;     // Space items evenly
-           // contentContainer.style.alignItems = Align.Stretch;                 // Vertically center them
-            
-            // Change Group
-            dropdownGroup = this.Q<LBSCustomDropdown>("DropdownGroup");
-            dropdownGroup.RegisterCallback<ChangeEvent<string>>(evt => OnChangeGroup?.Invoke(evt));
-            nameLabelElement = this.Q<LBSCustomLabel>("MainLabel");
-
-            // AddButton
-            addButton = this.Q<LBSToolbarButton>("AddButton");
-            addButton.clicked += () => OnAddOption?.Invoke();
-            // removeButton
-            removeButton = this.Q<LBSToolbarButton>("DeleteButton");
-            removeButton.clicked += () => OnRemoveOption?.Invoke(selected);
-
             // NoElement
             noElement = this.Q<Button>("NoElement");
-
-            // Icon
-            //icon = this.Q<VisualElement>("IconPallete");
 
         }
         #endregion
@@ -204,18 +229,11 @@ namespace LBS.VisualElements
             this.options = options;
             this.onSetView = onSetView;
         }
-        
-        public void SetIcon(VectorImage icon, Color color)
+
+        public void DisplayToolbar(bool show)
         {
-            dropdownGroup.IconImage = icon;
-            dropdownGroup.IconColor = color;
-        }
-        
-        public void SetName(string name)
-        {
-            
-            dropdownGroup.label = name;
-            dropdownGroup.style.display = name == "" ? DisplayStyle.None : DisplayStyle.Flex;
+            if (show) toolBar.style.display = DisplayStyle.Flex;
+            else toolBar.style.display = DisplayStyle.None;
         }
 
         public void DisplayContent(bool show)

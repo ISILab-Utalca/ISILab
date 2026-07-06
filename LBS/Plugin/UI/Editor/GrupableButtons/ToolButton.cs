@@ -74,6 +74,9 @@ namespace ISILab.LBS.VisualElements
             RemoveFromClassList("unity-button");
             RemoveFromClassList("unity-text-element");
             RemoveFromClassList("unity-base-field");
+
+            icon.style.minWidth = 24;
+            icon.style.minHeight = 24;
         }
         
         

@@ -34,7 +34,7 @@ The architecture of this tool is oriented towards element composition, allowing 
 </div>
 
 ## License
->The license for this project is available in the LICENSE file in this repository. For more details on the license terms and conditions, please see [here](https://github.com/ISILab-Utalca/LevelBuildingSidekick/blob/main/LICENSE).
+>The license for this project is available in the [Unity Asset Store](https://assetstore.unity.com/packages/tools/level-design/level-building-sidekick-308621).
 
 ## Other Projects
 Thank you for reviewing this project! To discover more interesting projects, we invite you to visit our website [ISILab.cl](https://isilab.utalca.cl) and explore everything we have to offer.

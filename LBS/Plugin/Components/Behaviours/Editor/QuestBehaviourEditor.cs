@@ -76,15 +76,22 @@ namespace ISILab.LBS.VisualElements
             target = paramTarget;
             behaviour = target as QuestBehaviour;
 
-            ChangeGrammar(behaviour.Graph.Grammar);
+            ChangeGrammar(behaviour.Grammar);
 
-            ActionExtensions.AddUnique(ref behaviour.Graph.OnNodeSelected, Redraw);
-            ActionExtensions.AddUnique(ref behaviour.Graph.GoToNodeInGraph, GoToQuestNode);
+            ActionExtensions.AddUnique(ref behaviour.Graph.OnForceUpdate, Redraw);
+            ActionExtensions.AddUnique(ref behaviour.Graph.OnSelect, Redraw);
+            ActionExtensions.AddUnique(ref behaviour.Graph.GraphPosition, GoToQuestNode);
         }
 
-        private void Redraw(GraphNode node)
+        private void Redraw(object node)
         {
             if(LBSMainWindow.Instance.SelectedLayer == behaviour.OwnerLayer)
+                DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
+        }
+
+        private void Redraw()
+        {
+            if (LBSMainWindow.Instance.SelectedLayer == behaviour.OwnerLayer)
                 DrawManager.Instance.UpdateSingleComponent(behaviour, behaviour.OwnerLayer);
         }
 
@@ -148,27 +155,16 @@ namespace ISILab.LBS.VisualElements
             _grammarReference.RegisterValueChangedCallback(evt => ChangeGrammar(evt.newValue as LBSGrammar));
 
             _actionsPallete = this.Q<SimplePallete>("ActionsPallete");
-            _actionsPallete.DisplayAddElement = false;
-            _actionsPallete.NameLabel = "Action nodes";
-            _actionsPallete.ShowGroups = false;
-            _actionsPallete.ShowAddButton = false;
-            _actionsPallete.ShowRemoveButton = false;
-            _actionsPallete.ShowNoElement = false;
             _actionsPallete.DisplayContent(false);
 
             _conditionsPallete = this.Q<SimplePallete>("ConditionsPallete");
-            _conditionsPallete.DisplayAddElement = false;
-            _conditionsPallete.NameLabel = "Connection nodes";
-            _conditionsPallete.ShowGroups = false;
-            _conditionsPallete.ShowAddButton = false;
-            _conditionsPallete.ShowRemoveButton = false;
-            _conditionsPallete.ShowNoElement = false;
             _conditionsPallete.DisplayContent(false);
 
+            var or = Components.NodeKind.Or.ToString();
+            var and = Components.NodeKind.And.ToString();
 
             // Init options
-
-            string[] conditionals = { GraphNode.Or, GraphNode.And };
+            string[] conditionals = {or, and};
 
             object[] options = new object[conditionals.Length];
             for (int i = 0; i < conditionals.Length; i++)
@@ -183,27 +179,28 @@ namespace ISILab.LBS.VisualElements
 
                 optionView.Label = conditional;
                 //optionView.FrameColor = bundle.Color;
-                if (conditional == GraphNode.Or) optionView.Icon = OrIcon;
-                if (conditional == GraphNode.And) optionView.Icon = AndIcon;
+                if (conditional == or) optionView.Icon = OrIcon;
+                if (conditional == and) optionView.Icon = AndIcon;
             });
 
             _conditionsPallete.OnSelectOption += (selected) =>
             {
                 string conditional = (string)selected;
                 ToolKit.Instance.SetActive(typeof(AddGraphNode));
-                if (conditional == GraphNode.Or) behaviour.activeGraphNodeType = typeof(OrNode);
-                if (conditional == GraphNode.And) behaviour.activeGraphNodeType = typeof(AndNode);
 
                 // no action, only node type
-                behaviour.ActionToSet = string.Empty;
-
+                behaviour.ActiveTerminal = string.Empty;
+                if (conditional == or)
+                    behaviour.ActiveNodeKind = Components.NodeKind.Or;
+                else if (conditional == and)
+                    behaviour.ActiveNodeKind = Components.NodeKind.And;
             };
 
             _actionsPallete.OnSelectOption += (selected) =>
             {
                 ToolKit.Instance.SetActive(typeof(AddGraphNode));
-                behaviour.activeGraphNodeType = typeof(QuestNode);
-                behaviour.ActionToSet = (string)selected;
+                behaviour.ActiveNodeKind = NodeKind.Terminal;
+                behaviour.ActiveTerminal = (string)selected;
             };
 
             return this;
@@ -213,11 +210,11 @@ namespace ISILab.LBS.VisualElements
         { 
 
             _actionsPallete.DisplayContent(false);
-            QuestGraphModule quest = behaviour?.OwnerLayer.GetModule<QuestGraphModule>();
-            if (quest == null) return;
-            if (quest.Grammar == null || !quest.Grammar.TerminalActions.Any()) return;
 
-            string[] terminals = quest.Grammar.TerminalActions.ToArray();
+            if (behaviour.Grammar == null || !behaviour.Grammar.TerminalActions.Any()) 
+                return;
+
+            string[] terminals = behaviour.Grammar.TerminalActions.ToArray();
 
             _actionsPallete.DisplayContent(true);
 
@@ -234,7 +231,7 @@ namespace ISILab.LBS.VisualElements
                 optionView.Label = terminalAction;
                 //optionView.Icon = QuestActionIcon;
 
-                var terminal = quest.Grammar.GetTerminal(terminalAction);
+                var terminal = behaviour.Grammar.GetTerminal(terminalAction);
                 if (terminal != null)
                 {
                     optionView.FrameColor = terminal.color;
@@ -252,9 +249,8 @@ namespace ISILab.LBS.VisualElements
         {
             _conditionsPallete.DisplayContent(false);
 
-            QuestGraphModule quest = behaviour?.OwnerLayer.GetModule<QuestGraphModule>();
-            if (quest == null) return;
-            if (quest.Grammar == null || !quest.Grammar.TerminalActions.Any()) return;
+            if (behaviour.Grammar == null || !behaviour.Grammar.TerminalActions.Any()) 
+                return;
 
             _conditionsPallete.DisplayContent(true);
 
@@ -269,12 +265,13 @@ namespace ISILab.LBS.VisualElements
             {
                 LBSMainWindow.MessageNotify(
                     new LBSLog("LBS Quest: Must assign a valid grammar in the Quest Behaviour Editor",LogType.Error,5));
-                behaviour.Graph.Grammar = null;
+                behaviour.Grammar = null;
             }
             else
             {
                 // Check if the new grammar is different at all
-                if(behaviour.Graph.Grammar != newGrammar) behaviour.Graph.Grammar = newGrammar;
+                if(behaviour.Grammar != newGrammar) 
+                    behaviour.Grammar = newGrammar;
             }
 
             _grammarReference.value = newGrammar;

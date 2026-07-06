@@ -25,7 +25,7 @@ namespace ISILab.LBS.VisualElements.Editor
         #endregion
 
         #region PROPERTIES
-        private QuestGraphModule QuestGraphs { get; set; } = new();
+        private Graph QuestGraphs { get; set; } = new();
 
         #endregion
 
@@ -59,13 +59,13 @@ namespace ISILab.LBS.VisualElements.Editor
 
             _questList.bindItem = (element, index) =>
             {
-                if (index < 0 || index >= QuestGraphs.GraphNodes.Count)
+                if (index < 0 || index >= QuestGraphs.Nodes.Count)
                     return;
 
                 if (element is not QuestHistoryEntry questEntryVe)
                     return;
 
-                var quest = QuestGraphs.GraphNodes[index];
+                var quest = QuestGraphs.Nodes[index];
                // questEntryVe.SetData(quest);
                 _questEntries.Add(questEntryVe);
 
@@ -90,7 +90,7 @@ namespace ISILab.LBS.VisualElements.Editor
                 // Let UpdateFlow trigger Refresh
             };
 
-            _questList.itemsSource = QuestGraphs.GraphNodes;
+            _questList.itemsSource = QuestGraphs.Nodes;
 
             // Avoid double subscription
             if (!_isSubscribed)
@@ -105,7 +105,7 @@ namespace ISILab.LBS.VisualElements.Editor
         private void GoToNode(QuestNode node)
         {
             if (node == null) return;
-            QuestGraphs?.GoToNodeInGraph?.Invoke(node.Position);
+            QuestGraphs?.GraphPosition?.Invoke(node.Position);
         }
 
         private void UpdateVeQuestEntries()

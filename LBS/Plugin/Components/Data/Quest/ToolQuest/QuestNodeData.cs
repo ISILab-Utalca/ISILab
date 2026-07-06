@@ -101,10 +101,12 @@ namespace ISILab.LBS.Components
 
     public string ID => Node.ID;
         public QuestNode Node => ownerNode;
-        public QuestGraphModule Graph => ownerNode.Graph;
+        public Graph Graph => ownerNode.Graph;
         public LBSLayer OwnerLayer => Graph.OwnerLayer;
         public LBSEventHooker EventHooker => _eventHookerField.GetValue() as LBSEventHooker;
         public GrammarArea Area => _areaField;
+
+        public QuestNodeData Data { get; internal set; }
 
 
         #endregion

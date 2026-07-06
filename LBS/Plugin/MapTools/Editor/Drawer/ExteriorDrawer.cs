@@ -37,6 +37,7 @@ namespace ISILab.LBS.Drawers
             {
                 //Debug.Log($"EXTERIOR FULL REDRAW: {exterior.Tiles.Count}");
                 LoadAllTiles(exterior, connectMod, tesselationSize, view);
+          
                 Loaded = true;
                 FullRedrawRequested = false;
             }
@@ -75,8 +76,9 @@ namespace ISILab.LBS.Drawers
                     createCount++;
                     tView = GetTileView(newTile, connections, teselationSize, exterior.GridType);
                     if(tView is null) return;
-                    
+
                     // Stores using LBSTile as key
+                    tView.SetConnections(connections.ToArray());
                     view.AddElementToLayerContainer(exterior.OwnerLayer, newTile, tView);
                 } 
                         
@@ -149,7 +151,9 @@ namespace ISILab.LBS.Drawers
 
         private void LoadAllTiles(ExteriorBehaviour exterior, ConnectedTileMapModule connectMod, Vector2 teselationSize, MainView view)
         {
-                int replaceCount = 0, createCount = 0;
+            bool isSelected = exterior.OwnerLayer == LBSMainWindow.Instance.SelectedLayer;
+
+            int replaceCount = 0, createCount = 0;
             // Paint all tiles
             foreach (LBSTile tile in exterior.Tiles)
             {   
@@ -162,6 +166,7 @@ namespace ISILab.LBS.Drawers
                     tView = previousElement[0] as ExteriorTileView;
                     tView.SetConnections(connections.ToArray());
                     tView.style.display = DisplayStyle.Flex;
+                   // tView.SetSelectionMode(isSelected);
                 }
                 else
                 {
@@ -172,12 +177,12 @@ namespace ISILab.LBS.Drawers
                     exterior.Keys.Add(tile);
                 }
                 tView.style.display = (DisplayStyle)(exterior.OwnerLayer.IsVisible ? 0 : 1);
-                tView.SetSelectionMode(false);
+                //tView.SetSelectionMode(isSelected);
             }
             //    Debug.Log($"Replaced: {replaceCount} | Created: {createCount}");
             //Debug.Log(view.graphElements.Count());
 
-            //UpdateTiles(exterior, view, teselationSize);
+           UpdateTiles(exterior, view, teselationSize);
         }
         
         public override void ShowVisuals(object target, MainView view)

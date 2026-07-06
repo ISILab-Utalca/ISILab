@@ -63,7 +63,8 @@ namespace ISILab.LBS.Manipulators
 
         protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
         {
-            if (_behaviour.Graph.SelectedQuestNode == null || ActiveData == null) return;
+            if (_behaviour.SelectedNodeData == null || ActiveData == null) 
+                return;
                 
             Vector2Int location = LBSMainWindow._gridPosition;
 
