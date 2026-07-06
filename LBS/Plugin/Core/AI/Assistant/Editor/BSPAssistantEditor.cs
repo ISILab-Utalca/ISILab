@@ -1,3 +1,4 @@
+using ISILab.LBS;
 using ISILab.LBS.CustomComponents;
 using ISILab.LBS.Editor;
 using ISILab.LBS.Editor.Windows;
@@ -7,6 +8,7 @@ using ISILab.LBS.Plugin.Core.Settings;
 using ISILab.LBS.Plugin.UI.Editor.Windows.ToolBar;
 using ISILab.LBS.Plugin.VisualElements.Editor.AssistantThreads;
 using LBS;
+using LBS.Components;
 using LBS.VisualElements;
 using System;
 using System.Threading;
@@ -17,53 +19,60 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    [LBSCustomEditor("BSP Dungeon Generator", typeof(BSPAssistant))]
-    public class BSPAssistantEditor : 
-        LBSCustomEditor,            // MUST HAVE
-        IToolProvider,              // OPTIONAL
-        IAssistantThreadedEditor    // RECOMMENDED
+    [LBSCustomEditor("BSPAssistant", typeof(BSPAssistant))]
+    public class BSPAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor, IToolProvider
     {
-        // References
-        BSPAssistant assistant; // MUST HAVE
+        // Reference to the LBSAssistant modified by this Editor.
+        private BSPAssistant assistant;
 
         // Visual Elements
+        private LBSCustomButton exampleButton;
         LBSCustomRectField areaField;
         LBSCustomIntField minPartitionField;
         LBSCustomIntField minRoomField;
-        LBSCustomToggle asyncToggle;
 
-        // Constructor (MUST HAVE)
-        // It's important that the assistant reference is saved here,
-        // and call CreateVisualElement after that.
+        public CancellationToken CancelToken { get; set; }
+        public CancellationTokenSource CancellationTokenSource { get; set; }
+        public ToolBarMain TaskBar { get; set; }
+
+
         public BSPAssistantEditor(object target) : base(target)
         {
-            assistant = target as BSPAssistant;             // MUST HAVE
-            assistant.AreaChanged += SetFieldsInfo;      // RECOMMENDED
-            CreateVisualElement();                          // MUST HAVE
+            assistant = (BSPAssistant)target;
+            assistant.AreaChanged += SetFieldsInfo;
+            CreateVisualElement();
         }
 
-        // CreateVisualElement
+        public void SetTools(ToolKit toolKit)
+        {
+            var manipulator = new NewAssistantManipulator();
+            manipulator.Execute += Execute;
+            var t1 = new LBSTool(manipulator);
+            t1.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
+            toolKit.ActivateTool(t1, assistant.OwnerLayer, assistant);
+        }
+
+        /// <summary>
+        /// Unity's method to build the UI. 
+        /// </summary>
+        /// <remarks>
+        /// This is only called once in the constructor, for updating the Editor when a new 
+        /// Layer is selected, use SetInfo.
+        /// All your VisualElements must be created here and added to this Editor, who works
+        /// as the root for all the assistant UI.
+        /// </remarks>
         protected override VisualElement CreateVisualElement()
         {
-            // Create Visual Elements
-            //  |
-            //  V
-            // Set Callbacks / Add Visual Elements to this / Set fields info
-
-            // Create VisualElements
-            // Should create a visual element for each field you'll want to tweak,
-            // and a button to run the assistant.
-            var runButton = new LBSCustomButton() {  text = $"Run" };
+            // Example button to easily run the assistant
+            exampleButton = new LBSCustomButton() { text = "Run" };
+            exampleButton.clicked += Execute;
+            this.Add(exampleButton);
 
             areaField = new LBSCustomRectField();
             minPartitionField = new LBSCustomIntField();
             minRoomField = new LBSCustomIntField();
-            asyncToggle = new LBSCustomToggle() { text = "Async" };
 
             // Set Callbacks
-            // These are important to modify the assistant values and any other
-            // instruction you'll need.
-            runButton.clicked += Execute;
             areaField.RegisterValueChangedCallback(val =>
             {
                 assistant.Area = new RectInt()
@@ -83,32 +92,15 @@ namespace ISILab.LBS.VisualElements
                 assistant.minRoomSize = val.newValue;
             });
 
-            // Add the VisualElements to "this"
-            // LBSCustomEditor are displayed on the LBS inspector panel, along
-            // with it's children. Easy way to render new VisualElements.
-            this.Add(runButton);
+            // Add VisualElements to the Editor
             this.Add(areaField);
             this.Add(minPartitionField);
             this.Add(minRoomField);
-            this.Add(asyncToggle);
 
             // Set the current variables in the fields
-            // Otherwise, they'll display the default (and probably incorrect)
-            // values. You must gather the variables from the Assistant reference.
             SetFieldsInfo();
             return this;
         }
-
-        // SetInfo  (MUST HAVE)
-        // Called when the selected Layer is changed. Saves the reference
-        // of the new Layer, and updates the fields after that.
-        public override void SetInfo(object paramTarget)
-        {
-            assistant = paramTarget as BSPAssistant;    // MUST HAVE
-            SetFieldsInfo();                            // RECOMMENDED
-        }
-
-        // Updates the Visual Elements display when the assistant values change (RECOMMENDED)
         private void SetFieldsInfo()
         {
             // Size
@@ -124,37 +116,35 @@ namespace ISILab.LBS.VisualElements
             minRoomField.value = assistant.minRoomSize;
         }
 
-        // Sets a Manipulator tool  (OPTIONAL)
-        public void SetTools(ToolKit toolKit)
+        /// <summary>
+        /// Updates the Editor's internal reference to the target Assistant.
+        /// </summary>
+        /// <param name="target">New assistant instance.</param>
+        /// <remarks>
+        /// - Called when a new Layer is selected in the LBS window.
+        /// - Be sure to update any VisualElement that displays values from the assistant.
+        /// </remarks>
+        public override void SetInfo(object target)
         {
-            var manipulator = new BSPAssistantManipulator();
-            manipulator.Execute += Execute;
-            var t1 = new LBSTool(manipulator);
-            t1.OnSelect += LBSInspectorPanel.ActivateAssistantTab;
-            toolKit.ActivateTool(t1, assistant.OwnerLayer, assistant);
+            assistant = target as BSPAssistant; 
+            SetFieldsInfo();
         }
 
-        // Multi-Thread Stuff
-        public CancellationToken CancelToken { get; set; }                      // MUST HAVE
-        public CancellationTokenSource CancellationTokenSource { get; set; }    // MUST HAVE
-        public ToolBarMain TaskBar { get; set; }                                // MUST HAVE
-
-
-        // Prepares and runs the algorithm in a thread  (HIGHLY RECOMMENDED)
+         /// <summary>
+         /// Recommended way to run assistants. Using Threads makes it possible
+         /// to keep using Unity while the assistant is running.
+         /// </summary>
         private void Execute()
         {
-            // INIT (RECOMMENDED)
-            // Some methods don't work in threads
             string insideStyle = assistant.Schema.PressetInsideStyle.name;
             string outsideStyle = assistant.Schema.PressetOutsideStyle.name;
 
-            // UNDO (RECOMMENDED)
             // Save history version to revert if necessary
             LoadedLevel x = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(x, "Execute BSPDungeon");
+            Undo.RegisterCompleteObjectUndo(x, "Execute NewAssistant");
 
-            // RUN TASK (MUST HAVE)
+            // Runs the assistant in a Thread
             ((IAssistantThreadedEditor)this).SetUpTask(this, assistant);
             Task.Run(() =>
             {
@@ -162,33 +152,93 @@ namespace ISILab.LBS.VisualElements
                 {
                     assistant.RunAsync(insideStyle, outsideStyle,
                         ((IAssistantThreadedEditor)this).ReportProgress, CancelToken);
-                    EditorApplication.delayCall += () => assistant.OnTermination.Invoke("BSPDungeon Generated", LogType.Log, LBSController.CurrentLevel);
+
+                    // Invoke the assistant's OnTermination method after it finishes running.
+                    EditorApplication.delayCall += 
+                    () => assistant.OnTermination.Invoke("NewAssistant Generated", LogType.Log, LBSController.CurrentLevel);
                 }
+                // Catches any error that might come. It's necessary to explicitly display the error,
+                // since Thread errors aren't displayed on the UNity console by default.
                 catch (Exception ex)
                 {
                     ((IAssistantThreadedEditor)this).OnTaskException(ex, assistant);
-                    Debug.LogError("[BSPDungeonAssistantEditor]: " + ex.Message);
+                    Debug.LogError("[NewAssistantEditor]: " + ex.Message);
                 }
             }, CancelToken);
         }
 
-        // This runs when the Task finished running (MUST HAVE IF WORKING WITH THREADS)
-
+        /// <summary>
+        /// Callback invoked after the assistant finishes running.
+        /// </summary>
+        /// <param name="log">Message to the user.</param>
+        /// <param name="type">Type of log (Info, Warning, Error).</param>
+        /// <param name="loadedLevel">Reference to the loaded/affected level (to mark it as dirty).</param>
         void IAssistantThreadedEditor.OnAssistantTermination(string log, LogType type, UnityEngine.Object loadedLevel)
         {
             LBSMainWindow.MessageNotify(new LBSLog(log, type));
 
-            // Mark as dirty
             if (EditorGUI.EndChangeCheck())
             {
                 EditorUtility.SetDirty(loadedLevel);
             }
 
+            // If you need to do some action after running the Assistant, this is the best place.
+            // ↓↓↓
             assistant.Schema.RecalculateWalls();
+            // ↑↑↑
+
+            // Easy way to redraw the layer after the assistant runs, if it modifies it.
+            DrawManager.Instance.RedrawLevel(LBS.loadedLevel.data);
             LBSMainWindow.Instance.layerPanel.SetSelectedLayer(assistant.OwnerLayer);
 
             TaskBar.EnableProcess(false);
             assistant.OnTermination = null;
         }
+    }
+}
+
+public class NewAssistantManipulator : ManipulateTeselation
+{
+    private Vector2Int _cornerStart;
+    private BSPAssistant assistant;
+
+    protected override string IconGuid => "5ab039ea1b079eb4dbe013d7a618c2aa";
+
+    public event System.Action Execute;
+
+    public NewAssistantManipulator()
+    {
+        Feedback.fixToTeselation = true;
+        Name = "BSP Dungeon Generator";
+        Description = "Select an area to generate a dungeon usign the Binary Space Partition algorithm.";
+    }
+
+    // Manipulator Methods
+    public override void Init(LBSLayer layer, object owner)
+    {
+        base.Init(layer, owner);
+        assistant = owner as BSPAssistant;
+    }
+    protected override void OnMouseDown(VisualElement element, Vector2Int position, MouseDownEvent e)
+    {
+        _cornerStart = position;
+    }
+
+    protected override void OnMouseUp(VisualElement element, Vector2Int endPosition, MouseUpEvent e)
+    {
+        base.OnMouseUp(element, endPosition, e);
+
+        //If esc key was pressed, cancel the operation
+        if (ForceCancel)
+        {
+            ForceCancel = false;
+            return;
+        }
+
+        var corners = assistant.OwnerLayer.ToFixedPosition(_cornerStart, endPosition);
+        var mapWidth = corners.max.x - corners.min.x;
+        var mapHeight = corners.max.y - corners.min.y;
+        assistant.Area = new RectInt(corners.min.x, corners.min.y, mapWidth, mapHeight);
+        Execute?.Invoke();
     }
 }

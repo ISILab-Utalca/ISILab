@@ -52,7 +52,11 @@ namespace ISILab.LBS.VisualElements
 
             // Example field. The ValueChangedCallback works well even if the assistant changes,
             // so it doesn't need to be set again when the selected Layer changes.
-            exampleField = new LBSCustomTextField() { label = assistant.exampleMember };
+            exampleField = new LBSCustomTextField() 
+            {
+                label = "Example Member",
+                value = assistant.exampleMember 
+            };
             exampleField.RegisterValueChangedCallback(val =>
             {
                 assistant.exampleMember = val.newValue;
@@ -73,7 +77,7 @@ namespace ISILab.LBS.VisualElements
         public override void SetInfo(object target)
         {
             assistant = target as #TARGETCLASS#;
-            exampleField.label = assistant.exampleMember;
+            exampleField.value = assistant.exampleMember;
         }
 
          /// <summary>
