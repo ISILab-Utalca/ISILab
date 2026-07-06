@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using ISILab.Commons.Extensions;
 using ISILab.Extensions;
 using ISILab.LBS.Behaviours;
@@ -38,7 +39,6 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                     var curDir = connection.Connections.Rotate(i);
                     if (curDir.SequenceEqual(conections))
                     {
-                       // Debug.Log("found");
                         return new Tuple<LBSDirection, int>(connection, i);
                     }
                 }
@@ -89,98 +89,57 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             //We have the tiles here
             var chosenTiles = mapMod.Tiles;
 
-            //This is a HORRIFYING way to order the tiles. PLEASE change it if you find a better way! -Alice
-            var chosenTilesOrdered = OrderBySameConnection(chosenTiles);
+            //I use these to organize things now.
+            //ToGenerate is an object on CharacteristicRule that contains the tile, the bundle AND the gameobject for referencing.
+            //The directions just gather the rotation direction of the object
+            var toGenerateList = new List<ToGenerateExterior>();
 
-            //Debug.Log("MODULE | W: " + mapMod.Width + " | H: " + mapMod.Height + " | COUNT: "+chosenTiles.Count);
-            var tilePrefPair = new Dictionary<LBSTile, GameObject>();
+            foreach(LBSTile tile in chosenTiles) {
 
-            foreach(LBSTile chosenTile in chosenTilesOrdered)
-            {
-                // This gets the bundle immediately
-                var pair = GetBundle(selected, connctMod.GetConnections(chosenTile).ToArray());
+                //Identify what bundle the tile is.
+                var pair = GetBundle(selected, connctMod.GetConnections(tile).ToArray());
+                //This should make things better!
+                var toGen = new ToGenerateExterior(tile, pair.Item1?.Owner, null, pair.Item2);
 
-                //Get current bundle
-                var currentBundle = pair?.Item1?.Owner;
-                //Debug.Log(chosenTile.Position.x + " | " + chosenTile.Position.y + " : " + currentBundle);
-
-                //Then see if it has a selector. If not, we go for random!
-
-                var patternSelector = currentBundle != null ?
-                    currentBundle.GetCharacteristics<LBSTerrainConnectionGrid>()?.FirstOrDefault() : null;
-
-                if (patternSelector != null)
-                {
-                    var adjacentBundles = new Dictionary<string, Bundle>();
-                    var adjacentPrefs = new Dictionary<string, GameObject>();
-
-                    //Left!
-                    var leftTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x-1, chosenTile.Position.y)));
-                    if (leftTile != null)
-                    {
-                        var leftBundle = GetBundle(selected, connctMod.GetConnections(leftTile).ToArray()).Item1.Owner;
-                        if (leftBundle.Equals(currentBundle)) {
-                            adjacentBundles.Add("Left", leftBundle);
-                            if (tilePrefPair.ContainsKey(leftTile)) adjacentPrefs.Add("Left", tilePrefPair[leftTile]);
-                        }
-                    }
-                    //Right!
-                    var rightTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x + 1, chosenTile.Position.y)));
-                    if (rightTile != null)
-                    {
-                        var rightBundle = GetBundle(selected, connctMod.GetConnections(rightTile).ToArray()).Item1.Owner;
-                        if (rightBundle.Equals(currentBundle))
-                        {
-                            adjacentBundles.Add("Right", rightBundle);
-                            if (tilePrefPair.ContainsKey(rightTile)) adjacentPrefs.Add("Right", tilePrefPair[rightTile]);
-                        }
-                    }
-                    //Up!
-                    var upTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x, chosenTile.Position.y + 1)));
-                    if (upTile != null)
-                    {
-                        var upBundle = GetBundle(selected, connctMod.GetConnections(upTile).ToArray()).Item1.Owner;
-                        if (upBundle.Equals(currentBundle)) {
-                            adjacentBundles.Add("Up", upBundle);
-                            if (tilePrefPair.ContainsKey(upTile)) adjacentPrefs.Add("Up", tilePrefPair[upTile]);
-                        }   
-                    }
-                    //Down!
-                    var downTile = chosenTiles.FirstOrDefault(c => c.Position.Equals(new Vector2Int(chosenTile.Position.x, chosenTile.Position.y - 1)));
-                    if (downTile != null)
-                    {
-                        var downBundle = GetBundle(selected, connctMod.GetConnections(downTile).ToArray()).Item1.Owner;
-                        if (downBundle.Equals(currentBundle))
-                        {
-                            adjacentBundles.Add("Down", downBundle);
-                            if (tilePrefPair.ContainsKey(downTile)) adjacentPrefs.Add("Down", tilePrefPair[downTile]);
-                        }
-                    }
-
-                    //var pref = pair?.Item1?.Owner?.Assets?.RandomRullete(w => w.probability)?.obj;
-                    var pref = ChoosePatternByGrid(currentBundle, adjacentBundles, adjacentPrefs);
-                    if(pref==null) {
-                        //Debug.Log("starter chosen instead of grid");
-                        pref = pair?.Item1?.Owner?.Assets[0]?.obj;
-                    }
-                    //Debug.Log("ADDING CHOSEN PREFERENCE: " + pref);
-                    tilePrefPair.Add(chosenTile, pref);
-                }
-                else
-                {
-                    //This is the same because I'm still figuring this out lol
-                    var pref = pair?.Item1?.Owner?.Assets?.RandomRullete(w => w.probability)?.obj;
-                    tilePrefPair.Add(chosenTile, pref);
-                }
+                //So now we work with these
+                toGenerateList.Add(toGen);
             }
 
-            foreach(KeyValuePair<LBSTile, GameObject> keyPair in tilePrefPair) {
+            //This is a HORRIFYING way to order the tiles. PLEASE change it if you find a better way! -Alice
+            var toGenerateListOrdered = OrderBySameConnection(toGenerateList);
+            foreach(ToGenerateExterior toGenTile in toGenerateListOrdered)
+            {
+                var patternSelector = toGenTile.Bundle != null ?
+                toGenTile.Bundle.GetCharacteristics<LBSTerrainConnectionGrid>()?.FirstOrDefault() : null;
 
-                var tile = keyPair.Key;
-                var pref = keyPair.Value;
-                var pair = GetBundle(selected, connctMod.GetConnections(tile).ToArray());
+                if(patternSelector == null)
+                {
+                    //Select random if there is no pattern selector
+                    var pref = toGenTile.Bundle.Assets?.RandomRullete(w => w.probability)?.obj;
+                    toGenTile.GameObject = pref;
+                    continue;
+                }
 
-                if (pref == null)
+                else
+                {
+                    var adjacentGens = new Dictionary<string, ToGenerateExterior>();
+                    adjacentGens = SetAdjacentGens(toGenerateList, toGenTile);
+
+                    var pref = ChoosePatternByGrid(toGenTile, adjacentGens);
+                    if (pref == null)
+                    {
+                        //Debug.Log("starter chosen instead of grid");
+                        pref = toGenTile.Bundle.Assets[0]?.obj;
+                    }
+                    //Debug.Log("ADDING CHOSEN PREFERENCE: " + pref);
+                    toGenTile.GameObject = pref;        
+                }
+                
+            }
+
+            foreach(ToGenerateExterior toGen in toGenerateListOrdered) {
+
+                if (toGen.GameObject == null)
                 {
  
                     Debug.LogWarning("[ISILab]: Element generation has failed, " +
@@ -190,28 +149,26 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 }
 
 #if UNITY_EDITOR
-                var go = PrefabUtility.InstantiatePrefab(pref,null) as GameObject;
+                var go = PrefabUtility.InstantiatePrefab(toGen.GameObject, null) as GameObject;
 #else
                 var go = GameObject.Instantiate(pref,null);
 #endif
 
-                var pos = new Vector3(tile.Position.x * scale.x, 0, tile.Position.y * scale.z);
+                var pos = new Vector3(toGen.Tile.Position.x * scale.x, 0, toGen.Tile.Position.y * scale.z);
                 var delta = (new Vector3(scale.x, 0, scale.z) / 2f);
                 go.transform.position = settings.position + pos - delta;
 
-                if (pair.Item2 % 2 == 0)
-                    go.transform.rotation = Quaternion.Euler(0, 90 * (pair.Item2) % 360, 0);
+                if (toGen.Direction % 2 == 0)
+                    go.transform.rotation = Quaternion.Euler(0, 90 * toGen.Direction % 360, 0);
                 else
-                    go.transform.rotation = Quaternion.Euler(0, 90 * (pair.Item2 - 2) % 360, 0);
+                    go.transform.rotation = Quaternion.Euler(0, 90 * (toGen.Direction - 2) % 360, 0);
                 
                 tiles.Add(go);
+                goToTileMap.Add(go, toGen.Tile);
 
-                goToTileMap.Add(go, tile);
-
-                var current = pair.Item1.Owner;
                 // Add ref component
                 LBSGenerated generatedComponent = go.AddComponent<LBSGenerated>();
-                generatedComponent.BundleRef = current;
+                generatedComponent.BundleRef = toGen.Bundle;
                 
             }
 
@@ -255,25 +212,43 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             return new GeneratedGO(mainPivot, new LBSLog(0));
         }
 
-        private IOrderedEnumerable<LBSTile> OrderBySameConnection(List<LBSTile> list)
+        private IOrderedEnumerable<ToGenerateExterior> OrderBySameConnection(List<ToGenerateExterior> list)
         {
             var reorderedTiles = list.OrderByDescending(c => new bool[] {
-            (list.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x - 1, c.Position.y))) == null),
-            (list.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x + 1, c.Position.y))) == null),
-            (list.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x, c.Position.y + 1))) == null),
-            (list.FirstOrDefault(d => d.Position.Equals(new Vector2Int(c.Position.x, c.Position.y - 1))) == null)
+            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x - 1, c.Tile.Position.y))) == null),
+            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x + 1, c.Tile.Position.y))) == null),
+            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x, c.Tile.Position.y + 1))) == null),
+            (list.FirstOrDefault(d => d.Tile.Position.Equals(new Vector2Int(c.Tile.Position.x, c.Tile.Position.y - 1))) == null)
             }.Count(t => t));
 
             return reorderedTiles;
-
         }
         
-        private GameObject ChoosePatternByGrid(Bundle currentBundle, Dictionary<string, Bundle> adjacentBundles, Dictionary<string, GameObject> adjacentPreferences)
+        private Dictionary<string, ToGenerateExterior> SetAdjacentGens(List<ToGenerateExterior> genList, ToGenerateExterior toGenTile)
+        {
+            var adjacentGens = new Dictionary<string, ToGenerateExterior>();
+
+            var leftGen = genList.FirstOrDefault(c => c.Tile.Position.Equals(new Vector2Int(toGenTile.Tile.Position.x - 1, toGenTile.Tile.Position.y)));
+            if (leftGen != null) { adjacentGens.Add("Left", leftGen); }
+
+            var rightGen = genList.FirstOrDefault(c => c.Tile.Position.Equals(new Vector2Int(toGenTile.Tile.Position.x + 1, toGenTile.Tile.Position.y)));
+            if (rightGen != null) { adjacentGens.Add("Right", rightGen); }
+
+            var upGen = genList.FirstOrDefault(c => c.Tile.Position.Equals(new Vector2Int(toGenTile.Tile.Position.x, toGenTile.Tile.Position.y + 1)));
+            if (upGen != null) { adjacentGens.Add("Up", upGen); }
+
+            var downGen = genList.FirstOrDefault(c => c.Tile.Position.Equals(new Vector2Int(toGenTile.Tile.Position.x, toGenTile.Tile.Position.y - 1)));
+            if (downGen != null) { adjacentGens.Add("Down", downGen); }
+
+            return adjacentGens;
+        }
+
+        private GameObject ChoosePatternByGrid(ToGenerateExterior toGen, Dictionary<string, ToGenerateExterior> adjacentGens)
         {
             //We know the current bundle has a selector, but we'll still put a failsafe.
-            var gridSelector = currentBundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault();
+            var gridSelector = toGen.Bundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault();
             if (gridSelector == null) return null;
-            if ((adjacentBundles.Count == 0) && (adjacentPreferences.Count == 0))
+            if (adjacentGens.Count == 0)
             {
                 return null;
             }
@@ -285,41 +260,37 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
                 assetGridList.Add(assetGrid);
             }
 
-            //Now, we check each adjacent bundle. The sequence is like this:
+            //Now, we check each adjacent preference. The sequence is like this:
             var checkedGrids = new Dictionary<string, AssetConnectionGrid>();
-            //1. Check if each direction's preference exists. If it doesn't, it's ignored.
-            //2. Check if each bundle exists and get its grid. If it fails in any of these, it's ignored.
+            //1. Check if each direction's bundle coincides with the current bundle. If it fails, it's ignored.
+            //2. Check if each direction's preference object exists. If it fails, it's unchecked.
 
             //string debugDirect = "asset has the following: | ";
 
             //3. If the direction has a preference, find, inside the direction's grid, the AssetGrid matching its preference. This can be done via the GetGrid method.
             //4. Save access to the asset grid in checkedGrids, alongside the direction key.
-            if (adjacentBundles.ContainsKey("Left")&&adjacentPreferences.ContainsKey("Left"))
+            if(adjacentGens.ContainsKey("Left"))
             {
-                var leftAsset = adjacentPreferences["Left"];
-                var leftGrid = adjacentBundles["Left"].GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentPreferences["Left"]);
-                checkedGrids.Add("Left", leftGrid);
+                var leftGrid = adjacentGens["Left"].Bundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentGens["Left"].GameObject);
+                if (leftGrid != null) checkedGrids.Add("Left", leftGrid);
                 //debugDirect += "left | ";
             }
-            if (adjacentBundles.ContainsKey("Right") && adjacentPreferences.ContainsKey("Right"))
+            if (adjacentGens.ContainsKey("Right"))
             {
-                var rightAsset = adjacentPreferences["Right"];
-                var rightGrid = adjacentBundles["Right"].GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentPreferences["Right"]);
-                checkedGrids.Add("Right", rightGrid);
+                var rightGrid = adjacentGens["Right"].Bundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentGens["Right"].GameObject);
+                if (rightGrid != null) checkedGrids.Add("Right", rightGrid);
                 //debugDirect += "right | ";
             }
-            if (adjacentBundles.ContainsKey("Up") && adjacentPreferences.ContainsKey("Up"))
+            if (adjacentGens.ContainsKey("Up"))
             {
-                var upAsset = adjacentPreferences["Up"];
-                var upGrid = adjacentBundles["Up"].GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentPreferences["Up"]);
-                checkedGrids.Add("Up", upGrid);
-                //debugDirect += "up | ";
+                var upGrid = adjacentGens["Up"].Bundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentGens["Up"].GameObject);
+                if (upGrid != null) checkedGrids.Add("Up", upGrid);
+                //debugDirect += "right | ";
             }
-            if (adjacentBundles.ContainsKey("Down") && adjacentPreferences.ContainsKey("Down"))
+            if (adjacentGens.ContainsKey("Down"))
             {
-                var downAsset = adjacentPreferences["Down"];
-                var downGrid = adjacentBundles["Down"].GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentPreferences["Down"]);
-                checkedGrids.Add("Down", downGrid);
+                var downGrid = adjacentGens["Down"].Bundle.GetCharacteristics<LBSTerrainConnectionGrid>().FirstOrDefault().GetGrid(adjacentGens["Down"].GameObject);
+                if (downGrid != null) checkedGrids.Add("Down", downGrid);
                 //debugDirect += "down | ";
             }
 
@@ -330,13 +301,39 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
             //we remove the grid and break the for loop.
             int gridSize = gridSelector.GridSize;
 
-            //First of all, let's identify all 4 directions
-            var leftSide = checkedGrids.ContainsKey("Left") ? "Generated" : adjacentBundles.ContainsKey("Left") ? "Unchecked" : "Border";
-            var rightSide = checkedGrids.ContainsKey("Right") ? "Generated" : adjacentBundles.ContainsKey("Right") ? "Unchecked" : "Border";
-            var topSide = checkedGrids.ContainsKey("Up") ? "Generated" : adjacentBundles.ContainsKey("Up") ? "Unchecked" : "Border";
-            var downSide = checkedGrids.ContainsKey("Down") ? "Generated" : adjacentBundles.ContainsKey("Down") ? "Unchecked" : "Border";
+            //First of all, let's identify all 4 directions. We need to make sure the adjacent gen and current gen have the same bundles or it'll start comparing
+            //incompatible grids.
+
+            var leftSide = checkedGrids.ContainsKey("Left")
+                ? "Generated"
+                : adjacentGens.ContainsKey("Left")
+                    ? adjacentGens["Left"].Bundle == toGen.Bundle
+                    ? "Unchecked"
+                    : "Border"
+                : "Border";
+            var rightSide = checkedGrids.ContainsKey("Right")
+                ? "Generated"
+                : adjacentGens.ContainsKey("Right")
+                    ? adjacentGens["Right"].Bundle == toGen.Bundle
+                    ? "Unchecked"
+                    : "Border"
+                : "Border";
+            var topSide = checkedGrids.ContainsKey("Up")
+                ? "Generated"
+                : adjacentGens.ContainsKey("Up")
+                    ? adjacentGens["Up"].Bundle == toGen.Bundle
+                    ? "Unchecked"
+                    : "Border"
+                : "Border";
+            var downSide = checkedGrids.ContainsKey("Down")
+                ? "Generated"
+                : adjacentGens.ContainsKey("Down")
+                    ? adjacentGens["Down"].Bundle == toGen.Bundle
+                    ? "Unchecked"
+                    : "Border"
+                : "Border";
             //Debug.Log("LEFT: " + leftSide + "| RIGHT: " + rightSide + "| UP: " + topSide + " | DOWN: " + downSide);
-            
+
             foreach (AssetConnectionGrid grid in gridSelector.GridList)
             {
                 bool removalClause = false;
@@ -559,5 +556,19 @@ namespace ISILab.LBS.Plugin.MapTools.Generators
         }
 
         
+    }
+
+    public class ToGenerateExterior : ToGenerate
+    {
+        int direction;
+        public int Direction { get => direction; set => direction = value; }
+
+        public ToGenerateExterior(LBSTile tile = null, Bundle bundle = null, GameObject obj = null, int direct = -1) : base()
+        {
+            if(direct != -1)
+            {
+                direction = direct;
+            }
+        }
     }
 }
