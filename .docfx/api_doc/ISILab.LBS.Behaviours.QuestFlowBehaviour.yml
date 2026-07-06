@@ -32,11 +32,11 @@ items:
   namespace: ISILab.LBS.Behaviours
   syntax:
     content: >-
-      [RequieredModule(new Type[] { typeof(QuestGraphModule) })]
+      [RequieredModule(new Type[] { typeof(Graph) })]
 
       public class QuestFlowBehaviour : LBSBehaviour, ICloneable
     content.vb: >-
-      <RequieredModule(New Type() { GetType(QuestGraphModule) })>
+      <RequieredModule(New Type() { GetType(Graph) })>
 
       Public Class QuestFlowBehaviour Inherits LBSBehaviour Implements ICloneable
   inheritance:
@@ -52,13 +52,14 @@ items:
   - ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
   - ISILab.LBS.Behaviours.LBSBehaviour.Name
   - ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  - ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  - ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
   - ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
   - ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   - ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
   - ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
   - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
   - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
   - ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
   - ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
   - ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
@@ -93,11 +94,11 @@ items:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public QuestGraphModule Graph { get; }
+    content: public Graph Graph { get; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.QuestGraphModule
-    content.vb: Public ReadOnly Property Graph As QuestGraphModule
+      type: ISILab.LBS.Modules.Graph
+    content.vb: Public ReadOnly Property Graph As Graph
   overload: ISILab.LBS.Behaviours.QuestFlowBehaviour.Graph*
 - uid: ISILab.LBS.Behaviours.QuestFlowBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
   commentId: M:ISILab.LBS.Behaviours.QuestFlowBehaviour.#ctor(System.String,System.String,UnityEngine.Color)
@@ -389,13 +390,13 @@ references:
   name: Keys
   nameWithType: LBSBehaviour.Keys
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.Keys
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
-  name: LevelChangedCallback
-  nameWithType: LBSBehaviour.LevelChangedCallback
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_FloorChangedCallback
+  name: FloorChangedCallback
+  nameWithType: LBSBehaviour.FloorChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
   commentId: E:ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
   parent: ISILab.LBS.Behaviours.LBSBehaviour
@@ -520,6 +521,25 @@ references:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredReadOnly
+  name: RetrieveExpiredReadOnly()
+  nameWithType: LBSBehaviour.RetrieveExpiredReadOnly()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly()
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+    name: RetrieveExpiredReadOnly
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredReadOnly
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+    name: RetrieveExpiredReadOnly
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredReadOnly
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
@@ -1006,13 +1026,13 @@ references:
   name: Graph
   nameWithType: QuestFlowBehaviour.Graph
   fullName: ISILab.LBS.Behaviours.QuestFlowBehaviour.Graph
-- uid: ISILab.LBS.Modules.QuestGraphModule
-  commentId: T:ISILab.LBS.Modules.QuestGraphModule
+- uid: ISILab.LBS.Modules.Graph
+  commentId: T:ISILab.LBS.Modules.Graph
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraphModule.html
-  name: QuestGraphModule
-  nameWithType: QuestGraphModule
-  fullName: ISILab.LBS.Modules.QuestGraphModule
+  href: ISILab.LBS.Modules.Graph.html
+  name: Graph
+  nameWithType: Graph
+  fullName: ISILab.LBS.Modules.Graph
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html

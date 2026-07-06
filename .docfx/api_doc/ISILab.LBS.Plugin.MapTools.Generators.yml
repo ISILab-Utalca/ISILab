@@ -6,9 +6,11 @@ items:
   children:
   - ISILab.LBS.Plugin.MapTools.Generators.ExteriorRuleGenerator
   - ISILab.LBS.Plugin.MapTools.Generators.ExteriorRuleGeneratorNew
+  - ISILab.LBS.Plugin.MapTools.Generators.GeneratedBundle
   - ISILab.LBS.Plugin.MapTools.Generators.GeneratedEntry
   - ISILab.LBS.Plugin.MapTools.Generators.Generator3D
   - ISILab.LBS.Plugin.MapTools.Generators.Generator3DOptimizer
+  - ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
   - ISILab.LBS.Plugin.MapTools.Generators.LBSGenerated
   - ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratedEventHook
   - ISILab.LBS.Plugin.MapTools.Generators.LBSGeneratedEventHook.TriggerOnceEntry
@@ -35,6 +37,7 @@ items:
   - ISILab.LBS.Plugin.MapTools.Generators.QuestTriggerNode
   - ISILab.LBS.Plugin.MapTools.Generators.SchemaRuleGenerator
   - ISILab.LBS.Plugin.MapTools.Generators.SchemaRuleGeneratorExterior
+  - ISILab.LBS.Plugin.MapTools.Generators.TerrainGridCharacteristicRule
   - ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest
   - ISILab.LBS.Plugin.MapTools.Generators.VisualElementQuest.UxmlSerializedData
   langs:
@@ -308,6 +311,20 @@ references:
   name: OptimizerGPUInstancing
   nameWithType: OptimizerGPUInstancing
   fullName: ISILab.LBS.Plugin.MapTools.Generators.OptimizerGPUInstancing
+- uid: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  href: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule.html
+  name: LBSCharacteristicRule
+  nameWithType: LBSCharacteristicRule
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSCharacteristicRule
+- uid: ISILab.LBS.Plugin.MapTools.Generators.GeneratedBundle
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.GeneratedBundle
+  parent: ISILab.LBS.Plugin.MapTools.Generators
+  href: ISILab.LBS.Plugin.MapTools.Generators.GeneratedBundle.html
+  name: GeneratedBundle
+  nameWithType: GeneratedBundle
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.GeneratedBundle
 - uid: ISILab.LBS.Plugin.MapTools.Generators.LBSGenerated
   commentId: T:ISILab.LBS.Plugin.MapTools.Generators.LBSGenerated
   parent: ISILab.LBS.Plugin.MapTools.Generators
@@ -315,6 +332,12 @@ references:
   name: LBSGenerated
   nameWithType: LBSGenerated
   fullName: ISILab.LBS.Plugin.MapTools.Generators.LBSGenerated
+- uid: ISILab.LBS.Plugin.MapTools.Generators.TerrainGridCharacteristicRule
+  commentId: T:ISILab.LBS.Plugin.MapTools.Generators.TerrainGridCharacteristicRule
+  href: ISILab.LBS.Plugin.MapTools.Generators.TerrainGridCharacteristicRule.html
+  name: TerrainGridCharacteristicRule
+  nameWithType: TerrainGridCharacteristicRule
+  fullName: ISILab.LBS.Plugin.MapTools.Generators.TerrainGridCharacteristicRule
 - uid: ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
   commentId: T:ISILab.LBS.Plugin.MapTools.Generators.QuestTracker
   parent: ISILab.LBS.Plugin.MapTools.Generators

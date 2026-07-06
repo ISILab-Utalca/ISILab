@@ -10,11 +10,11 @@ items:
   - ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
   - ISILab.LBS.Behaviours.LBSBehaviour.Clone
   - ISILab.LBS.Behaviours.LBSBehaviour.ColorTint
+  - ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
   - ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   - ISILab.LBS.Behaviours.LBSBehaviour.Icon
   - ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
   - ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  - ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
   - ISILab.LBS.Behaviours.LBSBehaviour.Name
   - ISILab.LBS.Behaviours.LBSBehaviour.OnAttachLayer(LBS.Components.LBSLayer)
   - ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
@@ -25,6 +25,7 @@ items:
   - ISILab.LBS.Behaviours.LBSBehaviour.RequestFullRepaint``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})
   - ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
   - ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
+  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
   - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
   - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
   - ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
@@ -347,23 +348,23 @@ items:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
     arguments: []
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  id: LevelChangedCallback
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
+  id: FloorChangedCallback
   parent: ISILab.LBS.Behaviours.LBSBehaviour
   langs:
   - csharp
   - vb
-  name: LevelChangedCallback
-  nameWithType: LBSBehaviour.LevelChangedCallback
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  name: FloorChangedCallback
+  nameWithType: LBSBehaviour.FloorChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
   type: Property
   source:
     remote:
       path: LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
       branch: ignacio-r-develop
       repo: https://github.com/ISILab-Utalca/ISILab.git
-    id: LevelChangedCallback
+    id: FloorChangedCallback
     path: ../LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
     startLine: 89
   assemblies:
@@ -373,15 +374,15 @@ items:
     content: >-
       [JsonIgnore]
 
-      public Action<int> LevelChangedCallback { get; set; }
+      public Action<int> FloorChangedCallback { get; set; }
     parameters: []
     return:
       type: System.Action{System.Int32}
     content.vb: >-
       <JsonIgnore>
 
-      Public Property LevelChangedCallback As Action(Of Integer)
-  overload: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback*
+      Public Property FloorChangedCallback As Action(Of Integer)
+  overload: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback*
   attributes:
   - type: Newtonsoft.Json.JsonIgnoreAttribute
     ctor: Newtonsoft.Json.JsonIgnoreAttribute.#ctor
@@ -724,6 +725,36 @@ items:
       type: System.Object[]
     content.vb: Public Overridable Function RetrieveExpiredTiles() As Object()
   overload: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles*
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+  id: RetrieveExpiredReadOnly
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  langs:
+  - csharp
+  - vb
+  name: RetrieveExpiredReadOnly()
+  nameWithType: LBSBehaviour.RetrieveExpiredReadOnly()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly()
+  type: Method
+  source:
+    remote:
+      path: LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
+      branch: ignacio-r-develop
+      repo: https://github.com/ISILab-Utalca/ISILab.git
+    id: RetrieveExpiredReadOnly
+    path: ../LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
+    startLine: 236
+  assemblies:
+  - LBS
+  namespace: ISILab.LBS.Behaviours
+  summary: Retrieves a read-only view of the tiles marked for erasing.
+  example: []
+  syntax:
+    content: public IReadOnlyList<object> RetrieveExpiredReadOnly()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.Object}
+    content.vb: Public Function RetrieveExpiredReadOnly() As IReadOnlyList(Of Object)
+  overload: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly*
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
   commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
   id: CheckKeys
@@ -742,7 +773,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CheckKeys
     path: ../LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
-    startLine: 234
+    startLine: 238
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -768,7 +799,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: UpdateKeys
     path: ../LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
-    startLine: 236
+    startLine: 240
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -800,7 +831,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnOnBehaviourUpdated
     path: ../LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
-    startLine: 261
+    startLine: 265
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -832,7 +863,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: ChangeLevelRender
     path: ../LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
-    startLine: 265
+    startLine: 269
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -866,7 +897,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: RequestFullRepaint
     path: ../LBS/Plugin/Core/Components/Behaviour/LBSBehaviour.cs
-    startLine: 270
+    startLine: 274
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -1389,12 +1420,12 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback*
-  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
-  name: LevelChangedCallback
-  nameWithType: LBSBehaviour.LevelChangedCallback
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_FloorChangedCallback
+  name: FloorChangedCallback
+  nameWithType: LBSBehaviour.FloorChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
 - uid: System.Action{System.Int32}
   commentId: T:System.Action{System.Int32}
   parent: System
@@ -1664,6 +1695,75 @@ references:
   name: RetrieveExpiredTiles
   nameWithType: LBSBehaviour.RetrieveExpiredTiles
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly*
+  commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredReadOnly
+  name: RetrieveExpiredReadOnly
+  nameWithType: LBSBehaviour.RetrieveExpiredReadOnly
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+- uid: System.Collections.Generic.IReadOnlyList{System.Object}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<object>
+  nameWithType: IReadOnlyList<object>
+  fullName: System.Collections.Generic.IReadOnlyList<object>
+  nameWithType.vb: IReadOnlyList(Of Object)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Object)
+  name.vb: IReadOnlyList(Of Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys*
   commentId: Overload:ISILab.LBS.Behaviours.LBSBehaviour.CheckKeys
   href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_CheckKeys

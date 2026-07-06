@@ -39,11 +39,11 @@ items:
   namespace: ISILab.LBS.Behaviours
   syntax:
     content: >-
-      [RequieredModule(new Type[] { typeof(QuestGraphModule) })]
+      [RequieredModule(new Type[] { typeof(Graph) })]
 
       public class NodeDataBehaviour : LBSBehaviour, ICloneable
     content.vb: >-
-      <RequieredModule(New Type() { GetType(QuestGraphModule) })>
+      <RequieredModule(New Type() { GetType(Graph) })>
 
       Public Class NodeDataBehaviour Inherits LBSBehaviour Implements ICloneable
   inheritance:
@@ -59,13 +59,14 @@ items:
   - ISILab.LBS.Behaviours.LBSBehaviour.IconGuid
   - ISILab.LBS.Behaviours.LBSBehaviour.Name
   - ISILab.LBS.Behaviours.LBSBehaviour.Keys
-  - ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  - ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
   - ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
   - ISILab.LBS.Behaviours.LBSBehaviour.GetRequiredModules
   - ISILab.LBS.Behaviours.LBSBehaviour.RequestTilePaint(System.Object)
   - ISILab.LBS.Behaviours.LBSBehaviour.RequestTileRemove(System.Object)
   - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveNewTiles
   - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
+  - ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
   - ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
   - ISILab.LBS.Behaviours.LBSBehaviour.OnOnBehaviourUpdated(System.Object)
   - ISILab.LBS.Behaviours.LBSBehaviour.ChangeLevelRender(System.Int32,System.Int32)
@@ -124,16 +125,16 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Graph
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 15
+    startLine: 26
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public QuestGraphModule Graph { get; }
+    content: public Graph Graph { get; }
     parameters: []
     return:
-      type: ISILab.LBS.Modules.QuestGraphModule
-    content.vb: Public ReadOnly Property Graph As QuestGraphModule
+      type: ISILab.LBS.Modules.Graph
+    content.vb: Public ReadOnly Property Graph As Graph
   overload: ISILab.LBS.Behaviours.NodeDataBehaviour.Graph*
 - uid: ISILab.LBS.Behaviours.NodeDataBehaviour.OnNodeDataChanged
   commentId: F:ISILab.LBS.Behaviours.NodeDataBehaviour.OnNodeDataChanged
@@ -153,15 +154,15 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnNodeDataChanged
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 18
+    startLine: 29
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
   syntax:
-    content: public Action<GraphNode> OnNodeDataChanged
+    content: public Action<QuestNode> OnNodeDataChanged
     return:
-      type: System.Action{ISILab.LBS.Components.GraphNode}
-    content.vb: Public OnNodeDataChanged As Action(Of GraphNode)
+      type: System.Action{ISILab.LBS.Components.QuestNode}
+    content.vb: Public OnNodeDataChanged As Action(Of QuestNode)
 - uid: ISILab.LBS.Behaviours.NodeDataBehaviour.OnNodeDataChangedBegin
   commentId: F:ISILab.LBS.Behaviours.NodeDataBehaviour.OnNodeDataChangedBegin
   id: OnNodeDataChangedBegin
@@ -180,7 +181,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnNodeDataChangedBegin
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 19
+    startLine: 30
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -207,7 +208,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnNodeDataChangedEnd
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 20
+    startLine: 31
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -234,7 +235,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAddField
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 21
+    startLine: 32
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -261,7 +262,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnRemoveField
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 22
+    startLine: 33
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -288,7 +289,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: .ctor
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 30
+    startLine: 41
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -329,7 +330,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnGUI
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 34
+    startLine: 45
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -357,7 +358,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: Clone
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 39
+    startLine: 50
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -387,7 +388,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnAttachLayer
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 44
+    startLine: 55
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -418,7 +419,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: OnDetachLayer
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 96
+    startLine: 107
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -449,7 +450,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: CheckKeys
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 102
+    startLine: 113
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -477,7 +478,7 @@ items:
       repo: https://github.com/ISILab-Utalca/ISILab.git
     id: UpdateKeys
     path: ../LBS/Plugin/Components/Behaviours/NodeDataBehaviour.cs
-    startLine: 107
+    startLine: 118
   assemblies:
   - LBS
   namespace: ISILab.LBS.Behaviours
@@ -591,13 +592,13 @@ references:
   name: Keys
   nameWithType: LBSBehaviour.Keys
   fullName: ISILab.LBS.Behaviours.LBSBehaviour.Keys
-- uid: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
-  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
+  commentId: P:ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
   parent: ISILab.LBS.Behaviours.LBSBehaviour
-  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_LevelChangedCallback
-  name: LevelChangedCallback
-  nameWithType: LBSBehaviour.LevelChangedCallback
-  fullName: ISILab.LBS.Behaviours.LBSBehaviour.LevelChangedCallback
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_FloorChangedCallback
+  name: FloorChangedCallback
+  nameWithType: LBSBehaviour.FloorChangedCallback
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.FloorChangedCallback
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
   commentId: E:ISILab.LBS.Behaviours.LBSBehaviour.OnBehaviourUpdated
   parent: ISILab.LBS.Behaviours.LBSBehaviour
@@ -722,6 +723,25 @@ references:
   - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredTiles
     name: RetrieveExpiredTiles
     href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredTiles
+  - name: (
+  - name: )
+- uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+  commentId: M:ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+  parent: ISILab.LBS.Behaviours.LBSBehaviour
+  href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredReadOnly
+  name: RetrieveExpiredReadOnly()
+  nameWithType: LBSBehaviour.RetrieveExpiredReadOnly()
+  fullName: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly()
+  spec.csharp:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+    name: RetrieveExpiredReadOnly
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredReadOnly
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ISILab.LBS.Behaviours.LBSBehaviour.RetrieveExpiredReadOnly
+    name: RetrieveExpiredReadOnly
+    href: ISILab.LBS.Behaviours.LBSBehaviour.html#ISILab_LBS_Behaviours_LBSBehaviour_RetrieveExpiredReadOnly
   - name: (
   - name: )
 - uid: ISILab.LBS.Behaviours.LBSBehaviour.UpdateKeys(System.Collections.Generic.List{System.Object})
@@ -1251,13 +1271,13 @@ references:
   name: Graph
   nameWithType: NodeDataBehaviour.Graph
   fullName: ISILab.LBS.Behaviours.NodeDataBehaviour.Graph
-- uid: ISILab.LBS.Modules.QuestGraphModule
-  commentId: T:ISILab.LBS.Modules.QuestGraphModule
+- uid: ISILab.LBS.Modules.Graph
+  commentId: T:ISILab.LBS.Modules.Graph
   parent: ISILab.LBS.Modules
-  href: ISILab.LBS.Modules.QuestGraphModule.html
-  name: QuestGraphModule
-  nameWithType: QuestGraphModule
-  fullName: ISILab.LBS.Modules.QuestGraphModule
+  href: ISILab.LBS.Modules.Graph.html
+  name: Graph
+  nameWithType: Graph
+  fullName: ISILab.LBS.Modules.Graph
 - uid: ISILab.LBS.Modules
   commentId: N:ISILab.LBS.Modules
   href: ISILab.html
@@ -1288,26 +1308,26 @@ references:
   - uid: ISILab.LBS.Modules
     name: Modules
     href: ISILab.LBS.Modules.html
-- uid: System.Action{ISILab.LBS.Components.GraphNode}
-  commentId: T:System.Action{ISILab.LBS.Components.GraphNode}
+- uid: System.Action{ISILab.LBS.Components.QuestNode}
+  commentId: T:System.Action{ISILab.LBS.Components.QuestNode}
   parent: System
   definition: System.Action`1
   href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<GraphNode>
-  nameWithType: Action<GraphNode>
-  fullName: System.Action<ISILab.LBS.Components.GraphNode>
-  nameWithType.vb: Action(Of GraphNode)
-  fullName.vb: System.Action(Of ISILab.LBS.Components.GraphNode)
-  name.vb: Action(Of GraphNode)
+  name: Action<QuestNode>
+  nameWithType: Action<QuestNode>
+  fullName: System.Action<ISILab.LBS.Components.QuestNode>
+  nameWithType.vb: Action(Of QuestNode)
+  fullName.vb: System.Action(Of ISILab.LBS.Components.QuestNode)
+  name.vb: Action(Of QuestNode)
   spec.csharp:
   - uid: System.Action`1
     name: Action
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.action-1
   - name: <
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
+  - uid: ISILab.LBS.Components.QuestNode
+    name: QuestNode
+    href: ISILab.LBS.Components.QuestNode.html
   - name: '>'
   spec.vb:
   - uid: System.Action`1
@@ -1317,9 +1337,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: ISILab.LBS.Components.GraphNode
-    name: GraphNode
-    href: ISILab.LBS.Components.GraphNode.html
+  - uid: ISILab.LBS.Components.QuestNode
+    name: QuestNode
+    href: ISILab.LBS.Components.QuestNode.html
   - name: )
 - uid: System.Action`1
   commentId: T:System.Action`1
