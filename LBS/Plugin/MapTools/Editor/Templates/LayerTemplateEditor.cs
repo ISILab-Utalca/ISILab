@@ -130,6 +130,8 @@ namespace ISILab.LBS.Plugin.MapTools.Editor.Templates
             // ID field
             var idField = _root.Q<LBSCustomTextField>("IdField");
             TextFieldSetup(idField, Template.layer.ID, Template.layer.SetID, "Change Layer ID");
+            var subTypeIdField = _root.Q<LBSCustomTextField>("SubTypeIdField");
+            TextFieldSetup(subTypeIdField, Template.layer.SubTypeID, Template.layer.SetSubTypeID, "Change Layer Sub Type ID");
 
             // Tile size field
             var tileSizeField = _root.Q<LBSCustomVector2IntField>("TileSizeField");
