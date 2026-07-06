@@ -14,11 +14,11 @@ using UnityEngine.UIElements;
 
 namespace ISILab.LBS.VisualElements
 {
-    [LBSCustomEditor("#TARGETCLASS#", typeof(#TARGETCLASS#))]
-    public class #TARGETCLASS#Editor : LBSCustomEditor, IAssistantThreadedEditor
+    [LBSCustomEditor("NewAssistant", typeof(NewAssistant))]
+    public class NewAssistantEditor : LBSCustomEditor, IAssistantThreadedEditor
     {
         // Reference to the LBSAssistant modified by this Editor.
-        private #TARGETCLASS# assistant;
+        private NewAssistant assistant;
 
         private LBSCustomButton exampleButton;
         private LBSCustomTextField exampleField;
@@ -28,9 +28,9 @@ namespace ISILab.LBS.VisualElements
         public ToolBarMain TaskBar { get; set; }
 
 
-        public #TARGETCLASS#Editor(object target) : base(target)
+        public NewAssistantEditor(object target) : base(target)
         {
-            assistant = (#TARGETCLASS#)target;
+            assistant = (NewAssistant)target;
             CreateVisualElement();
         }
 
@@ -72,7 +72,7 @@ namespace ISILab.LBS.VisualElements
         /// </remarks>
         public override void SetInfo(object target)
         {
-            assistant = target as #TARGETCLASS#;
+            assistant = target as NewAssistant;
             exampleField.label = assistant.exampleMember;
         }
 
@@ -85,7 +85,7 @@ namespace ISILab.LBS.VisualElements
             // Save history version to revert if necessary
             LoadedLevel x = LBSController.CurrentLevel;
             EditorGUI.BeginChangeCheck();
-            Undo.RegisterCompleteObjectUndo(x, "Execute #TARGETCLASS#");
+            Undo.RegisterCompleteObjectUndo(x, "Execute NewAssistant");
 
             // Runs the assistant in a Thread
             ((IAssistantThreadedEditor)this).SetUpTask(this, assistant);
@@ -97,14 +97,14 @@ namespace ISILab.LBS.VisualElements
 
                     // Invoke the assistant's OnTermination method after it finishes running.
                     EditorApplication.delayCall += 
-                    () => assistant.OnTermination.Invoke("#TARGETCLASS# Generated", LogType.Log, LBSController.CurrentLevel);
+                    () => assistant.OnTermination.Invoke("NewAssistant Generated", LogType.Log, LBSController.CurrentLevel);
                 }
                 // Catches any error that might come. It's necessary to explicitly display the error,
                 // since Thread errors aren't displayed on the UNity console by default.
                 catch (Exception ex)
                 {
                     ((IAssistantThreadedEditor)this).OnTaskException(ex, assistant);
-                    Debug.LogError("[#TARGETCLASS#Editor]: " + ex.Message);
+                    Debug.LogError("[NewAssistantEditor]: " + ex.Message);
                 }
             }, CancelToken);
         }

@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.UIElements;
 using MainView = ISILab.LBS.Plugin.UI.Editor.MainView;
@@ -91,22 +92,29 @@ namespace ISILab.LBS.VisualElements
         /// <param name="layers"></param>
         public void InitTabs(ref List<LayerTemplate> layers)
         {
-            List<LBSLayer> layersList = layers.Select(t => t.layer).ToList();
-            
-            data = new LBSLocalCurrent();
-            data.InitCustomEditors(ref layersList);
-            AddTab(DataTab, data);
+            try
+            {
+                List<LBSLayer> layersList = layers.Select(t => t.layer).ToList();
 
-            behaviours = new LBSLocalBehaviours();
-            behaviours.InitCustomEditors(ref layersList);
-            AddTab(BehavioursTab, behaviours);
+                data = new LBSLocalCurrent();
+                data.InitCustomEditors(ref layersList);
+                AddTab(DataTab, data);
 
-            assistants = new LBSLocalAssistants();
-            assistants.InitCustomEditors(ref layersList);
-            AddTab(AssistantsTab, assistants);
-            
-            tabsGroup.OnChangeTab += SetSelectedTab;
-            ActivateDataTab();
+                behaviours = new LBSLocalBehaviours();
+                behaviours.InitCustomEditors(ref layersList);
+                AddTab(BehavioursTab, behaviours);
+
+                assistants = new LBSLocalAssistants();
+                assistants.InitCustomEditors(ref layersList);
+                AddTab(AssistantsTab, assistants);
+
+                tabsGroup.OnChangeTab += SetSelectedTab;
+                ActivateDataTab();
+            }
+            catch (InvalidOperationException ex)
+            {
+                UnityEngine.Debug.LogError("[LBSInspectorPanel]: " + ex.Message + " Remove all Null references in the Layer Template.");
+            }
         }
 
         private void AddTab(string tab, LBSInspector element)
