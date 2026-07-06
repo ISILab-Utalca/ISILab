@@ -35,17 +35,21 @@ MonoBehaviour:
     behaviours:
     - rid: 6524972785853792769
     - rid: 6524972785853792770
+    - rid: -2
     assistants:
     - rid: 1508221576461156358
-    - rid: 6524973148879200423
-    - rid: 3414068303032748069
+    - rid: 3414068331253334082
+    - rid: -2
     generatorRules:
     - rid: 1508221576461156359
     - rid: 1508221576461156360
+    - rid: -2
     index: 0
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 1508221576237548539
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
@@ -57,6 +61,7 @@ MonoBehaviour:
         - rid: 1508221576461156365
         - rid: 1508221576461156367
         - rid: 6524972859793081011
+        - rid: -2
     - rid: 1508221576237548540
       type: {class: LBSFloor, ns: LBS.Components, asm: LBS}
       data:
@@ -2152,8 +2157,8 @@ MonoBehaviour:
           - rid: 1508221576461156360
           index: 0
         pairs: []
-    - rid: 3414068303032748069
-      type: {class: DWAssistant, ns: , asm: ISILab}
+    - rid: 3414068331253334082
+      type: {class: NewAssistant, ns: , asm: LBS}
       data:
         visible: 1
         ownerLayer:
@@ -2179,25 +2184,17 @@ MonoBehaviour:
           - rid: 6524972785853792770
           assistants:
           - rid: 1508221576461156358
-          - rid: 6524973148879200423
-          - rid: 3414068303032748069
+          - rid: 3414068331253334082
           generatorRules:
           - rid: 1508221576461156359
           - rid: 1508221576461156360
           index: 0
         colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
-        name: DWAssistant
+        name: NewAssistant
         iconGuid: ad8feef201665454ca79e31b7d798ac3
         icon: {fileID: 0}
-        area:
-          x: 0
-          y: 0
-          width: 60
-          height: 60
-        totalRooms: 6
-        walkDistanceBetweenRooms: 5
-        minRoomSize: {x: 3, y: 3}
-        maxRoomSize: {x: 7, y: 7}
+        exampleMember: 
+        poem: 
     - rid: 6524972785853792769
       type: {class: SchemaBehaviour, ns: ISILab.LBS.Plugin.Components.Behaviours, asm: LBS}
       data:
@@ -7767,41 +7764,3 @@ MonoBehaviour:
           - rid: 1508221576461156360
           index: 0
         notes: []
-    - rid: 6524973148879200423
-      type: {class: BSPAssistant, ns: ISILab.LBS.Plugin.Core.AI.Assistant, asm: ISILab}
-      data:
-        visible: 1
-        ownerLayer:
-          visible: 1
-          blocked: 0
-          iconGuid: 8c78cf0f5376fd846a188536ff3497ae
-          id: Interior
-          name: Interior_Layer
-          tileSize: {x: 2, y: 2}
-          floors:
-          - rid: 1508221576237548539
-          - rid: 6524972859793080408
-          - rid: 6524972859793080409
-          - rid: 6524972859793080410
-          - rid: 6524972859793080411
-          - rid: 6524972859793080412
-          - rid: 6524972859793080413
-          - rid: 6524972859793080414
-          - rid: 6524972859793080415
-          - rid: 6524972859793080416
-          behaviours:
-          - rid: 6524972785853792769
-          - rid: 6524972785853792770
-          assistants:
-          - rid: 1508221576461156358
-          - rid: 6524973148879200423
-          generatorRules:
-          - rid: 1508221576461156359
-          - rid: 1508221576461156360
-          index: 0
-        colorTint: {r: 0.76, g: 0.96, b: 0.44, a: 1}
-        name: BSPAssistant
-        iconGuid: ad8feef201665454ca79e31b7d798ac3
-        icon: {fileID: 0}
-        minPartitionSize: 10
-        minRoomSize: 4

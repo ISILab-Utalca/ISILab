@@ -3,10 +3,12 @@ using ISILab.LBS.Plugin.Components.Behaviours;
 using ISILab.LBS.Plugin.Components.Data;
 using ISILab.LBS.Plugin.Components.Data.Tessellation.TileMap;
 using ISILab.LBS.Plugin.Core.AI.Assistant;
+using LBS.Components;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DWAssistant : LBSAssistant, IAssistantThreaded
 {
@@ -15,13 +17,23 @@ public class DWAssistant : LBSAssistant, IAssistantThreaded
     Dictionary<int, Zone> _zoneDict = new();
     SchemaBehaviour _schemaBehaviour;
 
-    public RectInt area = new(0, 0, 60, 60);
+    private RectInt _area = new(0, 0, 60, 60);
     public int totalRooms = 6;
     public int walkDistanceBetweenRooms = 5;
     public Vector2Int minRoomSize = new Vector2Int(3, 3);
     public Vector2Int maxRoomSize = new Vector2Int(7, 7);
 
     // Properties
+    public RectInt Area
+    {
+        set
+        {
+            if (value == _area) return;
+            _area = value;
+            AreaChanged?.Invoke();
+        }
+        get { return _area; }
+    }
     public DrunkardWalkerGenerator Generator
     {
         get { return _generator ??= new(); }
@@ -34,6 +46,9 @@ public class DWAssistant : LBSAssistant, IAssistantThreaded
     {
         get { return _schemaBehaviour ??= OwnerLayer.GetBehaviour<SchemaBehaviour>(); }
     }
+
+    // Events
+    public event Action AreaChanged;
 
     // Constructor
     public DWAssistant(string IconGuid, string name, Color colorTint) : base(IconGuid, name, colorTint) { }
@@ -52,7 +67,7 @@ public class DWAssistant : LBSAssistant, IAssistantThreaded
     {
         // Init
         ZoneDict.Clear();
-        int[,] mapData = Generator.Generate(area.width, area.height, totalRooms, walkDistanceBetweenRooms, minRoomSize, maxRoomSize);
+        int[,] mapData = Generator.Generate(Area.width, Area.height, totalRooms, walkDistanceBetweenRooms, minRoomSize, maxRoomSize);
 
         // Read map
         int w = mapData.GetLength(0);
@@ -70,10 +85,10 @@ public class DWAssistant : LBSAssistant, IAssistantThreaded
                 if (key < 1) continue;
 
                 // Get or create zone
-                Zone value = ZoneDict.ContainsKey(key) ? ZoneDict[key] : Schema.AddZone(insideStyle, outsideStyle);
+                Zone value = ZoneDict.ContainsKey(key) ? ZoneDict[key] : ZoneDict[key] = Schema.AddZone(insideStyle, outsideStyle);
 
                 // Add new Tile and it's connections
-                LBSTile t = Schema.AddTile(new Vector2Int(area.x + i, area.y + j), value);
+                LBSTile t = Schema.AddTile(new Vector2Int(Area.x + i, Area.y + j), value);
                 if (t != null) Schema.AddConnections(t, SchemaBehaviour.DefaultConnections,
                     new List<bool> { true, true, true, true });
 
